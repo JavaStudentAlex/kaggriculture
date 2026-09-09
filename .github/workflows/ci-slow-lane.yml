@@ -1,0 +1,228 @@
+name: ci-slow-lane
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/*.feature'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.pre-commit-config.yaml'
+      - '.github/scripts/**'
+      - '.github/workflows/ci-slow-lane.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/*.feature'
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '.pre-commit-config.yaml'
+      - '.github/scripts/**'
+      - '.github/workflows/ci-slow-lane.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-slow-lane-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.13"
+  CRAP_MAX_SCORE: "6"
+  DRY_MIN_FUNCTION_LINES: "8"
+  APS_TOOLS_REF: "accaa33d503340c56513ef387258f8da929ba902"
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+
+jobs:
+  slow-lane:
+    name: Six-pack quality slow lane
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Go for APS dev tools
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Bootstrap development environment
+        run: .github/scripts/bootstrap_dev_env.sh
+
+      - name: Discover APS/Gherkin feature files
+        id: features
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/slow-lane
+          git ls-files '*.feature' \
+            | grep -Ev '(^|/)(\.agents|\.codex|\.gsd|\.skills|skills|notebooks)/' \
+            > build/slow-lane/feature-files.txt || true
+          if [ -s build/slow-lane/feature-files.txt ]; then
+            echo "has_features=true" >> "$GITHUB_OUTPUT"
+            echo "Feature files:"
+            cat build/slow-lane/feature-files.txt
+          else
+            echo "has_features=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No .feature files found; APS parser and Gherkin mutation stages will skip."
+          fi
+
+      - name: Get changed python files
+        id: changed-python-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: '**/*.py'
+
+      - name: Discover production Python files
+        shell: bash
+        env:
+          CHANGED_FILES: ${{ steps.changed-python-files.outputs.all_changed_files }}
+        run: |
+          set -euo pipefail
+          mkdir -p build/slow-lane
+          
+          if [ "${{ steps.changed-python-files.outputs.any_changed }}" == "true" ]; then
+            for file in $CHANGED_FILES; do
+              # Exclude repository tooling and tests; CRAP/DRY gates target production code only.
+              if [[ ! "$file" =~ (^|/)(\.agents|\.codex|\.github|\.gsd|\.skills|features|skills|mutants|tests|notebooks)/ ]] \
+                && [[ ! "$file" == *"test_"* ]] \
+                && [[ ! "$file" == *"_test.py" ]]; then
+                echo "$file" >> build/slow-lane/python-files.txt
+              fi
+            done
+          fi
+          
+          if [ ! -s build/slow-lane/python-files.txt ]; then
+            echo "::notice::No production Python files found for CRAP/DRY gates."
+            touch build/slow-lane/python-files.txt
+          fi
+          echo "Production Python files:"
+          cat build/slow-lane/python-files.txt
+
+      - name: Specifier gate - APS/Gherkin parse and IR DRY
+        id: specifier
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.features.outputs.has_features }}" != "true" ]; then
+            echo "::notice::Skipping APS parser gate because no .feature files are tracked."
+            exit 0
+          fi
+
+          mkdir -p build/acceptance/ir build/acceptance/dry
+          while IFS= read -r feature; do
+            slug="$(printf '%s' "$feature" | tr '/ ' '__')"
+            ir="build/acceptance/ir/${slug%.feature}.json"
+            dry="build/acceptance/dry/${slug%.feature}.json"
+            gherkin-parser "$feature" "$ir"
+            gherkin-ir-dry-checker --include-exact "$ir" "$dry"
+          done < build/slow-lane/feature-files.txt
+
+      - name: Coder gate - normal unit and acceptance tests with coverage
+        id: normal_tests
+        continue-on-error: true
+        shell: bash
+        env:
+          CHANGED_FILES: ${{ steps.changed-python-files.outputs.all_changed_files }}
+        run: |
+          set -euo pipefail
+          mkdir -p build/slow-lane
+
+          if [ ! -d tests ]; then
+            echo "No tests directory found; skipping normal test gate until application tests exist."
+            printf '{}\n' > build/slow-lane/coverage.json
+            exit 0
+          fi
+
+          PARALLEL_OPTS="$(bash .github/scripts/pytest_parallel_opts.sh)"
+          echo "pytest parallel options: ${PARALLEL_OPTS:-<serial>}"
+          uv run coverage run -m pytest tests $PARALLEL_OPTS -vv --tb=long --showlocals
+          uv run coverage combine || true
+          uv run coverage json -o build/slow-lane/coverage.json || echo "{}" > build/slow-lane/coverage.json
+
+      - name: Cleaner gate - CRAP risk hardening check
+        id: cleaner_crap
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t python_files < build/slow-lane/python-files.txt
+          if [ "${#python_files[@]}" -eq 0 ]; then
+            echo "::notice::Skipping CRAP risk hardening check because no production Python files changed."
+            exit 0
+          fi
+          uv run python .github/scripts/crap_check.py \
+            --coverage-json build/slow-lane/coverage.json \
+            --max-score "$CRAP_MAX_SCORE" \
+            "${python_files[@]}"
+
+      - name: Cleaner gate - DRY structural hardening check
+        id: cleaner_dry
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t python_files < build/slow-lane/python-files.txt
+          if [ "${#python_files[@]}" -eq 0 ]; then
+            echo "::notice::Skipping DRY structural hardening check because no production Python files changed."
+            exit 0
+          fi
+          uv run python .github/scripts/dry_check.py \
+            --min-lines "$DRY_MIN_FUNCTION_LINES" \
+            --max-groups 0 \
+            "${python_files[@]}"
+
+      - name: Upload slow-lane reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slow-lane-reports
+          path: |
+            build/slow-lane/
+            build/acceptance/
+            build/acceptance-mutation/
+          if-no-files-found: ignore
+
+      - name: Fail if any slow-lane gate failed
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          failed=0
+          check_gate() {
+            local name="$1"
+            local outcome="$2"
+            printf '%s: %s\n' "$name" "$outcome"
+            if [ "$outcome" != "success" ] && [ "$outcome" != "skipped" ]; then
+              failed=1
+            fi
+          }
+
+          check_gate "Specifier APS/Gherkin parse" "${{ steps.specifier.outcome }}"
+          check_gate "Coder normal tests" "${{ steps.normal_tests.outcome }}"
+          check_gate "Cleaner CRAP" "${{ steps.cleaner_crap.outcome }}"
+          check_gate "Cleaner DRY" "${{ steps.cleaner_dry.outcome }}"
+
+          if [ "$failed" -ne 0 ]; then
+            echo "::error::One or more slow-lane gates failed. Review the gate output above."
+            exit 1
+          fi

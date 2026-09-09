@@ -1,0 +1,77 @@
+name: ci-lint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - 'pyproject.toml'
+      - 'uv.lock'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - 'pyproject.toml'
+      - 'uv.lock'
+  workflow_dispatch:
+
+jobs:
+  ruff:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Run Ruff checks
+        run: |
+          set -euo pipefail
+          uv run --only-dev ruff check --output-format=full .
+
+      - name: Run Ruff format check
+        run: |
+          set -euo pipefail
+          uv run --only-dev ruff format --check .
+
+      - name: Run Mypy
+        run: |
+          set -euo pipefail
+          mapfile -t py_files < <(git ls-files '*.py' | grep -Ev '(^|/)(\.agents|\.codex|\.github|\.gsd|\.skills|features|skills|mutants|notebooks|shinka|tests)/|(^|/)test_[^/]*\.py$|_test\.py$' || true)
+          if [ "${#py_files[@]}" -eq 0 ]; then
+            echo "No production Python files found; skipping mypy."
+            exit 0
+          fi
+          uv run --group dev mypy --show-error-context --show-error-codes --pretty "${py_files[@]}"
+
+      - name: Run Bandit
+        run: |
+          set -euo pipefail
+          mapfile -t py_files < <(git ls-files '*.py' | grep -Ev '(^|/)(\.agents|\.codex|\.github|\.gsd|\.skills|features|skills|mutants|notebooks|shinka|tests)/|(^|/)test_[^/]*\.py$|_test\.py$' || true)
+          if [ "${#py_files[@]}" -eq 0 ]; then
+            echo "No production Python files found; skipping Bandit."
+            exit 0
+          fi
+          uv run --only-dev bandit -v -c pyproject.toml "${py_files[@]}"
+
+      - name: Run uv audit
+        run: |
+          set -euo pipefail
+          uv audit --preview-features audit
+
+      - name: Run py-compile
+        run: |
+          set -euo pipefail
+          mapfile -t py_files < <(git ls-files '*.py' | grep -Ev '(^|/)(\.agents|\.codex|\.gsd|\.skills|skills|mutants|notebooks)/' || true)
+          if [ "${#py_files[@]}" -eq 0 ]; then
+            echo "No Python files found; skipping py_compile."
+            exit 0
+          fi
+          uv run python -m py_compile "${py_files[@]}"

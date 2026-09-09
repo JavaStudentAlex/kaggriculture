@@ -1,0 +1,63 @@
+name: ci-tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/*.feature'
+      - 'pyproject.toml'
+      - 'uv.lock'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/*.feature'
+      - 'pyproject.toml'
+      - 'uv.lock'
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync --group dev
+
+      - name: Run tests
+        run: |
+          set -euo pipefail
+
+          if [ ! -d tests ]; then
+            echo "No tests directory found; skipping pytest until application tests exist."
+            exit 0
+          fi
+
+          PARALLEL_OPTS="$(bash .github/scripts/pytest_parallel_opts.sh)"
+          echo "pytest parallel options: ${PARALLEL_OPTS:-<serial>}"
+          uv run pytest tests $PARALLEL_OPTS -vv --tb=long --showlocals
+
+      - name: Run acceptance tests
+        run: |
+          set -euo pipefail
+
+          # Run the whole `features` directory so no feature file can be silently
+          # ungated. Files without step definitions are quarantined with an
+          # `@unimplemented` tag and skipped here; an untagged file with no steps
+          # fails this step, which is what stops a new spec from going unexecuted.
+          uv run behave features --tags=-unimplemented

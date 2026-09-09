@@ -1,0 +1,138 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kaggriculture"
+version = "0.1.0"
+description = "Simulation agent, local evaluation harness, and strategy research for Kaggle Kaggriculture."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "kaggle>=1.7.4.5",
+  "kaggle-environments>=1.32.7",
+  "numpy>=2.0,<2.4",
+  "pandas>=2.2",
+  "pyyaml>=6.0.2",
+  "scipy>=1.15",
+]
+
+[dependency-groups]
+dev = [
+  "bandit>=1.9.4",
+  "behave>=1.3.3",
+  "coverage>=7.6",
+  "lark>=1.3.1",
+  "mutmut==3.6.0",
+  "mypy>=1.15.0",
+  "pre-commit>=4.1.0",
+  "pytest>=8.3",
+  "pytest-xdist>=3.6",
+  "ruff>=0.11",
+]
+
+[tool.uv]
+package = true
+default-groups = ["dev"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+force-exclude = true
+exclude = [
+    ".agents",
+    ".codex",
+    ".github",
+    ".gsd",
+    ".skills",
+    "skills",
+    "mutants",
+    "notebooks",
+    "shinka",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "C901", "B", "SIM", "UP", "RUF"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.coverage.run]
+data_file = "build/slow-lane/.coverage"
+branch = true
+parallel = true
+relative_files = true
+source = ["src"]
+patch = ["subprocess"]
+omit = [
+  ".agents/*",
+  ".codex/*",
+  ".github/*",
+  ".gsd/*",
+  ".skills/*",
+  "skills/*",
+  "shinka/*",
+  "features/*",
+  "tests/*",
+]
+
+[tool.mutmut]
+source_paths = [
+  "src",
+]
+do_not_mutate = [
+  "tests/*",
+  "./tests/*",
+  ".github/*",
+  "./.github/*",
+  ".agents/*",
+  "./.agents/*",
+  ".codex/*",
+  "./.codex/*",
+  ".gsd/*",
+  "./.gsd/*",
+  ".skillss/*",
+  "./.skillss/*",
+  ".skills/*",
+  "./.skills/*",
+  ".venv/*",
+  "./.venv/*",
+  "skills/*",
+  "./skills/*",
+  "mutants/*",
+  "./mutants/*",
+  "shinka/*",
+  "./shinka/*",
+]
+pytest_add_cli_args_test_selection = ["tests"]
+mutate_only_covered_lines = false
+also_copy = [
+  "pyproject.toml",
+  "README.md",
+]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+exclude = [
+    '^\\.agents/',
+    '^\\.codex/',
+    '^\\.github/',
+    '^\\.gsd/',
+    '^\\.skills/',
+    '^skills/',
+    '^mutants/',
+    '^notebooks/',
+    '^shinka/',
+    '^tests/',
+    '^features/',
+]
+
+[tool.bandit]
+exclude_dirs = [".agents", ".codex", ".github", ".gsd", ".skills", "build", "features", "skills", "shinka", "mutants", "notebooks", ".venv", "tests"]
+skips = ["B101", "B110", "B112", "B310", "B404", "B603"]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src"]
+sources = ["src"]

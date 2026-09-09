@@ -1,0 +1,87 @@
+name: ci-structure
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [main]
+
+jobs:
+  description:
+    name: PR description filled in
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR body
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(printf '%s' "$BODY" | tr -d '[:space:]')" ]; then
+            echo "::error::PR description is empty. Fill in the template before requesting review."
+            exit 1
+          fi
+
+          if printf '%s' "$BODY" | grep -qE 'One or two sentences|Why is this change needed|What did you run|Mention raw WAV|Delete this section if the PR is not large'; then
+            echo "::error::PR description still contains template placeholders. Replace them with actual content."
+            exit 1
+          fi
+
+          TOTAL=$(printf '%s' "$BODY" | grep -c '^\- \[' || true)
+          CHECKED=$(printf '%s' "$BODY" | grep -c '^\- \[x\]' || true)
+          if [ "$TOTAL" -gt 0 ] && [ "$CHECKED" -lt "$TOTAL" ]; then
+            echo "::error::Not all checklist items are checked. Complete the PR checklist."
+            exit 1
+          fi
+  large-pr:
+    name: Large PR requires justification
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+
+    steps:
+      - name: Calculate code PR size
+        id: code-size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const codeExtensions = [".py"];
+            const isCodeFile = (file) => {
+              const paths = [file.filename, file.previous_filename].filter(Boolean);
+              return paths.some((path) =>
+                codeExtensions.some((extension) => path.endsWith(extension))
+              );
+            };
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+
+            const codeFiles = files.filter(isCodeFile);
+            const additions = codeFiles.reduce((sum, file) => sum + file.additions, 0);
+            const deletions = codeFiles.reduce((sum, file) => sum + file.deletions, 0);
+
+            core.setOutput("lines", additions + deletions);
+            core.setOutput("files", codeFiles.length);
+
+      - name: Check PR size
+        env:
+          CODE_LINES: ${{ steps.code-size.outputs.lines }}
+          CODE_FILES: ${{ steps.code-size.outputs.files }}
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          TOTAL="$CODE_LINES"
+          CHANGED_FILES="$CODE_FILES"
+          echo "Code lines changed: $TOTAL  |  Code files changed: $CHANGED_FILES"
+
+          if [ "$TOTAL" -gt 400 ] || [ "$CHANGED_FILES" -gt 15 ]; then
+            echo "::warning::This PR is large ($TOTAL lines, $CHANGED_FILES files)."
+            JUSTIFICATION=$(printf '%s' "$BODY" | awk '/^[[:space:]]*## Large PR justification/,/^[[:space:]]*---/' | grep -Ev '^[[:space:]]*(##|---|<!--|$)' || true)
+            if [ -z "$(printf '%s' "$JUSTIFICATION" | tr -d '[:space:]')" ]; then
+              echo "::error::Large PR: fill in the 'Large PR justification' section and confirm a walkthrough call was held."
+              exit 1
+            fi
+          fi

@@ -1,0 +1,170 @@
+name: ci-language-mutation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-language-mutation-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.13"
+  APS_TOOLS_REF: "accaa33d503340c56513ef387258f8da929ba902"
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+
+jobs:
+  discover:
+    name: Discover mutation targets
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    outputs:
+      has_python: ${{ steps.python-targets.outputs.has_python }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed python files
+        id: changed-python-files
+        if: github.event_name == 'push'
+        uses: tj-actions/changed-files@v44
+        with:
+          files: '**/*.py'
+
+      - name: Resolve python mutation targets
+        id: python-targets
+        shell: bash
+        env:
+          CHANGED_FILES: ${{ steps.changed-python-files.outputs.all_changed_files }}
+        run: |
+          set -euo pipefail
+          mkdir -p build/slow-lane
+
+          if [ "${{ github.event_name }}" == "push" ]; then
+            # Pushes mutate only the production files they changed.
+            for file in $CHANGED_FILES; do
+              if [[ ! "$file" =~ (^|/)(\.agents|\.codex|\.github|\.gsd|\.skills|features|skills|mutants|tests)/ ]] \
+                && [[ ! "$file" == *"test_"* ]] \
+                && [[ ! "$file" == *"_test.py" ]]; then
+                echo "$file" >> build/slow-lane/python-files.txt
+              fi
+            done
+          else
+            # Manual and scheduled runs sweep every production file.
+            git ls-files '*.py' \
+              | grep -Ev '(^|/)(\.agents|\.codex|\.github|\.gsd|\.skills|features|skills|mutants|tests)/' \
+              | grep -v 'test_' \
+              | grep -Ev '_test\.py$' \
+              > build/slow-lane/python-files.txt || true
+          fi
+
+          touch build/slow-lane/python-files.txt
+          if [ -s build/slow-lane/python-files.txt ]; then
+            echo "has_python=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_python=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No production Python files to mutate; language mutation chunks will skip."
+          fi
+          echo "Python mutation targets:"
+          cat build/slow-lane/python-files.txt
+
+      - name: Set up Python
+        if: steps.python-targets.outputs.has_python == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up uv
+        if: steps.python-targets.outputs.has_python == 'true'
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Go for APS dev tools
+        if: steps.python-targets.outputs.has_python == 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Bootstrap development environment
+        if: steps.python-targets.outputs.has_python == 'true'
+        run: .github/scripts/bootstrap_dev_env.sh
+
+      # The mutation gate consumes build/slow-lane/.coverage so mutmut can
+      # target covered lines without re-collecting coverage in-process, which
+      # crashes on C-extension reimports (numpy) and, with relative_files=true,
+      # yields no covered lines at all.
+      - name: Collect baseline coverage for mutation chunks
+        if: steps.python-targets.outputs.has_python == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          uv run coverage run -m pytest tests -vv --tb=long --showlocals
+          uv run coverage combine || true
+          test -s build/slow-lane/.coverage
+
+      - name: Upload mutation inputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: mutation-inputs
+          path: build/slow-lane/
+          if-no-files-found: error
+          include-hidden-files: true
+
+  language-mutation-matrix:
+    name: Language Mutation Chunk ${{ matrix.chunk }}
+    needs: discover
+    if: needs.discover.outputs.has_python == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: [0, 1, 2, 3, 4, 5]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Go for APS dev tools
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Bootstrap development environment
+        run: .github/scripts/bootstrap_dev_env.sh
+
+      - name: Download mutation inputs
+        uses: actions/download-artifact@v4
+        with:
+          name: mutation-inputs
+          path: build/slow-lane/
+
+      - name: Run language mutation chunk ${{ matrix.chunk }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t python_files < build/slow-lane/python-files.txt
+          if [ "${#python_files[@]}" -eq 0 ]; then
+            echo "::notice::Skipping language mutation because no production Python files changed."
+            exit 0
+          fi
+          uv run python .github/scripts/precommit_language_mutation_gate.py \
+            --chunk "${{ matrix.chunk }}" \
+            --total-chunks 6 \
+            --max-children 1 \
+            "${python_files[@]}"

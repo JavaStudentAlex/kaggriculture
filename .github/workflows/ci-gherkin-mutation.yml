@@ -1,0 +1,84 @@
+name: ci-gherkin-mutation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-gherkin-mutation-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.13"
+  GHERKIN_MUTATION_RUNNER: ".github/scripts/run_acceptance_mutation_worker.sh"
+  APS_TOOLS_REF: "accaa33d503340c56513ef387258f8da929ba902"
+  PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+
+jobs:
+  discover:
+    name: Discover feature files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    outputs:
+      has_features: ${{ steps.feature-targets.outputs.has_features }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Discover APS/Gherkin feature files
+        id: feature-targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-files '*.feature' \
+            | grep -Ev '(^|/)(\.agents|\.codex|\.gsd|\.skills|skills)/' \
+            | grep -q .; then
+            echo "has_features=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_features=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No .feature files tracked; Gherkin mutation will skip."
+          fi
+
+  gherkin-mutation:
+    name: Soft Gherkin mutation
+    needs: discover
+    if: needs.discover.outputs.has_features == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Go for APS dev tools
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
+      - name: Bootstrap development environment
+        run: .github/scripts/bootstrap_dev_env.sh
+
+      - name: Run soft Gherkin mutation gate
+        run: bash .github/scripts/precommit_gherkin_mutation_gate.sh
+
+      - name: Upload Gherkin mutation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gherkin-mutation-reports
+          path: build/acceptance-mutation/
+          if-no-files-found: ignore
