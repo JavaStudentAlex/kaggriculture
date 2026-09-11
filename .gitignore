@@ -15,3 +15,16 @@ dist/
 .pytest_cache/
 mutants/
 .aps-tools/
+
+# Opponent-model data, logs and run artifacts: live on the SSD / ceph, never in git.
+# Promoted checkpoints go to models/; raw replays are Kaggle's daily datasets.
+replays/
+research/opponent_model/dataset_v2/
+research/opponent_model/dataset_daily/
+research/opponent_model/logs/
+research/opponent_model/runs/
+
+# ShinkaEvolve outputs
+shinka_results/
+shinka_results.stale_*/
+shinka_run.log
