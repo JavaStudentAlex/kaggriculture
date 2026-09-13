@@ -55,3 +55,56 @@ Do not report `PENDING` as completed evaluation, and do not wait indefinitely me
 - Submission work does not authorize restarting, stopping, or mutating an unrelated evolution run or championship. Verify the long-running job remains healthy without changing it.
 - Keep staging and validation paths distinct from checkpoints and tournament snapshots.
 - Remove extracted temporary validation directories, copied transfer files, bytecode caches, and helper scripts after verification. Retain only deliberate archives/manifests in the project artifact directory.
+
+## 6. Oracle-based champions (the standard procedure since 2026-09-12)
+
+Champions evolved on the `shinka/evolution/initial.py` lineage carry the opponent
+order-flow oracle (`kagg_oracle.py` + a TTM checkpoint). They are packaged with
+`shinka/champions/submissions/make_submission.py`, which encodes everything
+learned from the "Orchard Tide" attempts (`submissions/orchard_tide/README.md`):
+
+```bash
+/home/jovyan/shinka_venv/bin/python shinka/champions/submissions/make_submission.py \
+  --champion shinka/champions/top/<run>/gen_<N>/main.py --name "<Two Words>" \
+  --note "<private provenance: run, generation, eval numbers>" --validate
+kaggle competitions submission-limits kaggriculture          # right before spending quota
+kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/<TwoWords>.tar.gz -m "<Two Words> - Adaptive production and trade"
+kaggle competitions submissions kaggriculture --csv           # PENDING -> COMPLETE (~3 min); ERROR -> episodes/logs/replay
+```
+
+What the builder does and why each part is mandatory:
+
+1. **Bootstrap `main.py`.** `kaggle_environments` execs the submitted file in a
+   bare namespace (no `__file__`), takes the LAST callable, and APPENDS the
+   bundle directory to `sys.path` only while the file runs. The champion calls
+   `Path(__file__)` at import, so `main.py` locates the bundle (frame filename),
+   sets `KAGG_MOHUI_DIR` / `KAGG_ORACLE_SRC` / `KAGG_TTM_DIR` / `KAGG_OPP_MODEL_SRC`,
+   inserts its directory at the FRONT of `sys.path` unconditionally, imports the
+   byte-identical champion as `champion.py`, and ends with `kaggle_submission_agent`.
+2. **numpy oracle backend.** `main.py` sets `KAGG_ORACLE_BACKEND=numpy`;
+   `kagg_ttm_numpy.py` runs the checkpoint without torch/transformers. The first
+   request to a Kaggle agent is where `main.py` is exec'd and it has the 60 s
+   `remainingOverageTime` bank + 1 s; a torch import there produced TIMEOUT at
+   step 1 on both seats (submission 56192942). Kaggle measures ~2.5x one pod core:
+   the numpy build imports in ~5 s and forecasts in ~320 ms per step there.
+   After any checkpoint change run `check_oracle.py numpy` (torch vs numpy on
+   real rows; expect <= ~1e-3, which is torch's own float32 error).
+3. **Complete closure.** `checkpoint/` (4 files), `opponent_model/features.py` +
+   `mechanics.py` (the oracle imports them), `mohui_v66/` with LICENSE + NOTICE.
+   A missing piece does not crash the champion: it silently plays oracle-less
+   (`ORACLE_STATS["errors"]`), which is why the validation must run with the
+   repository unreachable.
+4. **Validation of the extracted archive** (`--validate`, or the bundle's
+   `validate.py`): clean venv `/results/kagg/venv-kaggle-sim`, `python -I`, empty
+   `HOME`, no `KAGG_*`, cwd `/`, `main.py` passed as a path string, one core;
+   both seats x starter/random x seeds; requires DONE statuses, finite rewards,
+   no stderr traceback, oracle live on numpy with torch never imported, and
+   every module resolved from inside the extracted directory. Add a fidelity
+   replay against a pool champion when the numerics changed (the bundle must
+   reproduce the repo champion's cash to the dollar).
+5. **Names and records.** Public name = neutral two-word codename (the builder
+   rejects gen/score/oracle words); `MANIFEST.json` in the staging dir keeps the
+   candidate/archive hashes, the mapping and the validation report. Errored
+   submissions are refunded by Kaggle; an ERROR means a validation episode with
+   empty agent logs and `TIMEOUT`/`ERROR` statuses in its replay -- read it
+   before spending another slot.
