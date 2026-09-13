@@ -17,10 +17,10 @@ mutants/
 .aps-tools/
 
 # Opponent-model data, logs and run artifacts: live on the SSD / ceph, never in git.
-# Promoted checkpoints go to models/; raw replays are Kaggle's daily datasets.
+# Shards live in datasets/ (ceph) and /results/kagg/datasets (SSD); raw replays are
+# Kaggle's daily datasets; promoted checkpoints go to models/ (ignored, added on purpose).
 replays/
-research/opponent_model/dataset_v2/
-research/opponent_model/dataset_daily/
+datasets/
 research/opponent_model/logs/
 research/opponent_model/runs/
 

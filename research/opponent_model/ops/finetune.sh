@@ -1,37 +1,45 @@
 #!/usr/bin/env bash
 # Daily fine-tune of the opponent sell model on Kaggle's own daily datasets
 # (kaggle/kaggriculture-episodes-<date>, ~660 top episodes, published ~00:10 UTC
-# the next day). Base = models/ttm_v3_h96 with its input scaler (never refit).
-#   DAY=2026-09-10       newest training day (default: yesterday UTC)
+# the next day): the newest day PLUS the 4 days before it, recency-weighted (each
+# day back contributes half as many windows, the newest day ~48 % of every epoch),
+# validated on 10 % of the newest day's episodes. Chains from BASE (required) with
+# BASE's input scaler (never refit). Weighting toward the newest day was the biggest
+# lever when the recipe was tuned (+0.03 AUC / +0.05 AP over equal weighting).
+#   BASE=models/<newest promoted dir> DAY=2026-09-12 bash research/opponent_model/ops/finetune.sh
+#   BASE=<model dir>     weights + scaler.npz + labels.json to start from: the newest
+#                        promoted models/* (or a runs/*/best to chain unpromoted refits).
+#                        Its config.json sets the context length; its labels.json must
+#                        say next_action (the shards' rule) -- anything else is refused.
+#   DAY=2026-09-12       newest training day (default: yesterday UTC)
 #   PREV_DAYS=4          days before DAY added to training in full
-#   VAL_DAY=2026-09-11   validate on this whole day (forward in time) instead of
-#                        a 10% episode split of DAY; DAY is then trained on in
-#                        full. Waits until Kaggle publishes it.
+#   DECAY=2 STRIDE=4     recency weighting: the newest day is windowed at STRIDE, each
+#                        day further back at STRIDE*DECAY^age
 #   GPUS=3 LR=6e-5       torchrun on GPUS devices; LR scales with the batch
 #                        (2e-5 at 1 GPU x 64, linear rule -> 6e-5 at 3 GPUs)
-#   BASE=<model dir>     weights + scaler.npz to start from (default v3 best;
-#                        point it at yesterday's runs/ft_*/best to chain refits)
-#   DECAY=2 STRIDE=4     recency weighting: the newest day is windowed at
-#                        STRIDE, each day further back at STRIDE*DECAY^age, so
-#                        with DECAY=2 every day back contributes half as many
-#                        windows (newest day ~50% of training with 4 prev days)
-# Epoch 0 in the log is the un-tuned v3 scored on the same val windows.
-# dataset_v2 stays frozen at 42 shards (v3's training set, EVALUATION.md
-# depends on it); new daily shards go to $K/dataset_daily, mirrored home.
+#   VAL_DAY=2026-09-13   forward-in-time check instead of the 10 % split: validate on
+#                        this whole day (waits until Kaggle publishes it), DAY trained in full
+#   PORT=29581           torchrun master port; change it when two runs overlap
+# Epoch 0 in the log is the un-tuned BASE scored on the same val windows -- the number
+# the refit has to beat. Shards: one directory for every day, /results/kagg/datasets/shards
+# (SSD), mirrored to ~/kaggriculture/datasets/shards; a missing day is downloaded and
+# extracted here. Launch in tmux, tee to /results/kagg/logs/finetune_<DAY>.log.
 set -u
-DAY=${DAY:-$(date -u -d yesterday +%F)}; PREV_DAYS=${PREV_DAYS:-0}; VAL_DAY=${VAL_DAY:-}
-GPUS=${GPUS:-1}; LR=${LR:-2e-5}; PORT=${PORT:-29581}; DECAY=${DECAY:-1}; STRIDE=${STRIDE:-8}
+DAY=${DAY:-$(date -u -d yesterday +%F)}; PREV_DAYS=${PREV_DAYS:-4}; VAL_DAY=${VAL_DAY:-}
+GPUS=${GPUS:-3}; LR=${LR:-6e-5}; PORT=${PORT:-29581}; DECAY=${DECAY:-2}; STRIDE=${STRIDE:-4}
 K=/results/kagg; H=/home/jovyan/kaggriculture; SRC=$H/research/opponent_model
-BASE=${BASE:-$H/models/ttm_v3_h96}; PY=$K/venv-cuda/bin/python; KG=$K/venv-cuda/bin/kaggle
-TAG=ft_$DAY$([ "$PREV_DAYS" -gt 0 ] && echo "_p$PREV_DAYS")${VAL_DAY:+_val$VAL_DAY}$([ "$GPUS" -gt 1 ] && echo "_g$GPUS")$([ "$DECAY" != 1 ] && echo "_d$DECAY")$([ "$STRIDE" != 8 ] && echo "_s$STRIDE")
-RUN=$K/runs/$TAG; DEST=$SRC/runs/$TAG
+SHARDS=$K/datasets/shards; PY=$K/venv-cuda/bin/python; KG=$K/venv-cuda/bin/kaggle
 log(){ echo "[$(date -u '+%H:%M:%S')] $*"; }
 die(){ log "$*"; echo FT_EXIT=1; exit 1; }
-[ -s "$BASE/scaler.npz" ] || { echo "no scaler.npz in $BASE"; echo FT_EXIT=1; exit 1; }
-cd "$H"; mkdir -p "$K/dataset_daily" "$K/replays_daily_in" "$K/replays" "$DEST"
+[ -n "${BASE:-}" ] || die "BASE=<model dir> is required (chain from the newest models/*)"
+[ -s "$BASE/scaler.npz" ] || die "no scaler.npz in $BASE"
+ALIGN=$("$PY" -c 'import json,sys; print(json.load(open(sys.argv[1])).get("alignment", "legacy"))' "$BASE/labels.json" 2>/dev/null || echo legacy)
+[ "$ALIGN" = next_action ] || die "$BASE was trained on '$ALIGN' labels; only next_action checkpoints can be fine-tuned on these shards"
+TAG=ft_$DAY$([ "$PREV_DAYS" -gt 0 ] && echo "_p$PREV_DAYS")${VAL_DAY:+_val$VAL_DAY}$([ "$GPUS" -gt 1 ] && echo "_g$GPUS")$([ "$DECAY" != 1 ] && echo "_d$DECAY")$([ "$STRIDE" != 8 ] && echo "_s$STRIDE")
+RUN=$K/runs/$TAG; DEST=$SRC/runs/$TAG
+cd "$H"; mkdir -p "$SHARDS" "$K/replays_daily_in" "$K/replays" "$DEST" "$SRC/logs"
 
-shard(){ for s in "$K/dataset_daily" "$K/dataset_v2"; do
-           [ -s "$s/kaggriculture-episodes-$1.npz" ] && { echo "$s/kaggriculture-episodes-$1.npz"; return 0; }; done; return 1; }
+shard(){ [ -s "$SHARDS/kaggriculture-episodes-$1.npz" ] && echo "$SHARDS/kaggriculture-episodes-$1.npz"; }
 ensure_day(){  # make sure the day's shard exists: reuse, else download Kaggle's dataset (waiting for it) and extract
   local d=$1 zip=$K/replays/kaggriculture-episodes-$1.zip
   shard "$d" >/dev/null && return 0
@@ -47,7 +55,7 @@ ensure_day(){  # make sure the day's shard exists: reuse, else download Kaggle's
   fi
   ln -sfn "$zip" "$K/replays_daily_in/"
   log "extracting $d"
-  "$PY" "$SRC/extract_parallel.py" --replays "$K/replays_daily_in" --out "$K/dataset_daily" --workers 16
+  "$PY" "$SRC/extract_parallel.py" --replays "$K/replays_daily_in" --out "$SHARDS" --workers 16 --alignment next_action
   shard "$d" >/dev/null
 }
 
@@ -73,8 +81,8 @@ $LAUNCH "$SRC/train_ttm.py" \
   --plateau --plateau-factor 0.5 --plateau-patience 2 \
   --batch-size 64 --window-stride "$STRIDE" --lr "$LR"
 RC=$?; log "finetune exit=$RC"
-rm -rf "$RUN"/checkpoint-*
+rm -rf "$RUN"/checkpoint-* "$D"
 rsync -ah "$RUN/best" "$RUN/scores.json" "$RUN/scaler.npz" "$DEST/" 2>/dev/null
-rsync -ah "$K/dataset_daily/" "$SRC/dataset_daily/"
-rsync -ah "$K/logs/" "$SRC/logs/"
+rsync -ah "$SHARDS/" "$H/datasets/shards/"
+cp "$K"/logs/finetune*.log "$SRC/logs/" 2>/dev/null
 echo FT_EXIT=$RC; log "FT_DONE"

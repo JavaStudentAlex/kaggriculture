@@ -113,24 +113,20 @@ class OpponentSupplyWindows(Dataset):
         }
 
 
-def split_by_episode(series, episode_ids, val_fraction=0.1, seed=0):
+def split_by_episode(series, episode_ids, val_fraction=0.1, seed=0, return_ids=False):
     """Episode-disjoint split: both seats of an episode land on the same side.
 
     Seats of one episode share a market trajectory and see each other's public
     farm, so splitting by series lets the model glimpse val episodes from the
-    other seat. Splitting by episode removes that.
+    other seat. Splitting by episode removes that. With `return_ids`, the sorted
+    val episode ids come back too (saved next to a checkpoint as
+    `val_episodes.json`, so later scorers can stay out of sample).
     """
     rng = np.random.default_rng(seed)
     episodes = np.array(sorted(set(episode_ids)))
     val_eps = set(rng.choice(episodes, size=int(len(episodes) * val_fraction), replace=False).tolist())
     train = [s for s, e in zip(series, episode_ids, strict=True) if e not in val_eps]
     val = [s for s, e in zip(series, episode_ids, strict=True) if e in val_eps]
+    if return_ids:
+        return train, val, sorted(val_eps)
     return train, val
-
-
-def split_series(series, val_fraction=0.1, seed=0):
-    """Episode-disjoint train/val split -- windows from one episode never straddle."""
-    rng = np.random.default_rng(seed)
-    idx = rng.permutation(len(series))
-    cut = int(len(series) * (1.0 - val_fraction))
-    return [series[i] for i in idx[:cut]], [series[i] for i in idx[cut:]]

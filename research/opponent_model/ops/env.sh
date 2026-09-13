@@ -26,17 +26,18 @@ uv pip install --python "$PY" \
   --index-strategy unsafe-best-match \
   torch granite-tsfm accelerate scikit-learn "numpy<2.4" pandas \
   kaggle==2.2.4 kaggle-environments==1.32.7 || fail "install failed"
-log "smoke test: cuda + v3 checkpoint forward pass"
+log "smoke test: cuda + forward pass of the newest promoted checkpoint"
 "$PY" - <<'PYEOF' || fail "smoke test failed"
-import torch, transformers, kaggle_environments
+import glob, json, os, torch, transformers, kaggle_environments
 assert torch.cuda.is_available(), f"CUDA not available (torch {torch.__version__})"
 from tsfm_public.models.tinytimemixer import TinyTimeMixerForPrediction
 print("torch", torch.__version__, "| cuda", torch.cuda.is_available(), torch.cuda.device_count(), "gpus",
       "| transformers", transformers.__version__, "| kaggle_environments", kaggle_environments.__version__)
-m = TinyTimeMixerForPrediction.from_pretrained(
-    "/home/jovyan/kaggriculture/models/ttm_v3_h96").cuda().eval()
+cfg_path = max(glob.glob("/home/jovyan/kaggriculture/models/*/config.json"), key=os.path.getmtime)
+cfg, ckpt = json.load(open(cfg_path)), os.path.dirname(cfg_path)
+m = TinyTimeMixerForPrediction.from_pretrained(ckpt).cuda().eval()
 with torch.no_grad():
-    y = m(past_values=torch.randn(2, 512, 150).cuda()).prediction_outputs
-print("v3 checkpoint forward OK:", tuple(y.shape))
+    y = m(past_values=torch.randn(2, cfg["context_length"], cfg["num_input_channels"]).cuda()).prediction_outputs
+print(f"{ckpt} forward OK:", tuple(y.shape))
 PYEOF
 log "done"; echo ENV_EXIT=0

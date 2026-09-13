@@ -22,12 +22,12 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from metrics import SellDetection
 from ttm_dataset import (
     OpponentSupplyWindows,
     fit_scaler,
     load_shards,
     split_by_episode,
-    split_series,
 )
 
 MODEL_ID = "ibm-granite/granite-timeseries-ttm-r1"
@@ -44,8 +44,51 @@ def shard_date(path):
     return max(dates) if dates else None
 
 
-def build_model(n_channels, target_idx, prediction_filter_length, revision, init_from=None):
-    from tsfm_public.models.tinytimemixer import TinyTimeMixerForPrediction
+def shards_alignment(*paths):
+    """Label rule of the shards under `paths` (extract.py --alignment), via the
+    `labels.json` next to each real shard file (symlink farms are followed), so a
+    checkpoint can record what it was trained on. A dir without a marker counts
+    as "legacy" (the pre-2026-09-12 rule). Mixed rules are refused."""
+    rules = {}
+    for path in paths:
+        if not path:
+            continue
+        path = Path(path)
+        for shard in [path] if path.is_file() else sorted(path.glob("*.npz")):
+            marker = shard.resolve().parent / "labels.json"
+            rule = json.loads(marker.read_text()).get("alignment", "legacy") if marker.exists() else "legacy"
+            rules.setdefault(rule, []).append(shard.name)
+    if len(rules) > 1:
+        raise SystemExit(f"shards with different label rules in one run: { {k: v[:3] for k, v in rules.items()} }")
+    return next(iter(rules), "legacy")
+
+
+def resize_context(config, context_length=None, patch_length=None):
+    """Change a saved TTM config's context / patch length in place.
+
+    A saved config carries `num_patches`, and `from_pretrained(..., context_length=N)`
+    keeps the stale value, so the patchifier (which recomputes it) and the patch
+    mixers / head (built from the config) disagree. Clear it and let the config
+    recompute. Returns True when anything changed, i.e. when the patch mixers,
+    patcher and head no longer match the checkpoint and must be re-initialised.
+    """
+    context_length = context_length or config.context_length
+    patch_length = patch_length or config.patch_length
+    if context_length % patch_length:
+        raise ValueError(f"context {context_length} is not a whole number of {patch_length}-turn patches")
+    if (context_length, patch_length) == (config.context_length, config.patch_length):
+        return False
+    config.context_length = context_length
+    config.patch_length = config.patch_stride = patch_length
+    config.num_patches = None
+    config.check_and_init_preprocessing()
+    return True
+
+
+def build_model(
+    n_channels, target_idx, prediction_filter_length, revision, init_from=None, context_length=None, patch_length=None
+):
+    from tsfm_public.models.tinytimemixer import TinyTimeMixerConfig, TinyTimeMixerForPrediction
 
     if init_from:
         # Warm start from one of our own checkpoints: same channel layout, so
@@ -53,7 +96,23 @@ def build_model(n_channels, target_idx, prediction_filter_length, revision, init
         # The checkpoint carries its own filter length, so pass ours explicitly --
         # otherwise a run that means to supervise all 96 steps silently inherits
         # the 24-step mask and days 2-4 keep getting no gradient.
-        model = TinyTimeMixerForPrediction.from_pretrained(init_from)
+        # A different context / patch length keeps the feature and channel
+        # mixers (the bulk of the weights) and re-initialises only the shapes
+        # that depend on the patch grid: patcher, patch mixers, forecast head
+        # (14 % of the parameters for 512/64 -> 240/24).
+        config = TinyTimeMixerConfig.from_pretrained(init_from)
+        resized = resize_context(config, context_length, patch_length)
+        model, info = TinyTimeMixerForPrediction.from_pretrained(
+            init_from, config=config, ignore_mismatched_sizes=resized, output_loading_info=True
+        )
+        if resized:
+            fresh = sorted({k for k, *_ in info["mismatched_keys"]} | set(info["missing_keys"]))
+            n_fresh = sum(model.state_dict()[k].numel() for k in fresh)
+            print(
+                f"context {config.context_length} / patch {config.patch_length} ({config.num_patches} patches): "
+                f"{len(fresh)} tensors ({n_fresh:,} params) re-initialised: {fresh}",
+                flush=True,
+            )
         flt = prediction_filter_length or None
         if flt == model.config.prediction_length:
             flt = None
@@ -62,18 +121,15 @@ def build_model(n_channels, target_idx, prediction_filter_length, revision, init
         model.head.prediction_filter_length = flt
         return model
 
-    kwargs = dict(
-        num_input_channels=n_channels,
-        prediction_channel_indices=target_idx,
-        decoder_mode="mix_channel",
-        ignore_mismatched_sizes=True,
-    )
+    kwargs = dict(revision=revision) if revision else {}
+    config = TinyTimeMixerConfig.from_pretrained(MODEL_ID, **kwargs)
+    config.num_input_channels = n_channels
+    config.prediction_channel_indices = target_idx
+    config.decoder_mode = "mix_channel"
     if prediction_filter_length:
-        kwargs["prediction_filter_length"] = prediction_filter_length
-    if revision:
-        kwargs["revision"] = revision
-
-    model = TinyTimeMixerForPrediction.from_pretrained(MODEL_ID, **kwargs)
+        config.prediction_filter_length = prediction_filter_length
+    resize_context(config, context_length, patch_length)
+    model = TinyTimeMixerForPrediction.from_pretrained(MODEL_ID, config=config, ignore_mismatched_sizes=True, **kwargs)
     return model
 
 
@@ -84,33 +140,30 @@ def make_metric_hooks(target_idx, horizon=0):
     selection needs once the loss supervises the whole forecast -- otherwise a
     run training four days still early-stops on how well it calls the next turn.
 
-    The Trainer concatenates every eval batch in memory, so the logits hook
-    keeps only the slice we score instead of the full forecast plus backbone
-    states.
+    Runs with `batch_eval_metrics`: every gathered eval batch is folded into the
+    score histograms on the GPU (`metrics.SellDetection`) and discarded, so the
+    Trainer never accumulates the 4e8 prediction cells (or the 150-channel labels
+    that go with them) and the metrics are ready the moment the last batch is.
     """
-    from sklearn.metrics import average_precision_score, roc_auc_score
+    det = SellDetection()
 
     def preprocess_logits(logits, labels):
         pred = logits[0] if isinstance(logits, (tuple, list)) else logits
         pred = pred.detach().float()
         return pred if horizon is None else pred[:, horizon, :]
 
-    def compute_metrics(eval_pred):
-        pred = np.asarray(eval_pred.predictions, dtype=np.float32)
+    def compute_metrics(eval_pred, compute_result=True):
+        pred = eval_pred.predictions
+        pred = pred[0] if isinstance(pred, (tuple, list)) else pred
         labels = eval_pred.label_ids
         labels = labels[0] if isinstance(labels, (tuple, list)) else labels
-        labels = np.asarray(labels, dtype=np.float32)
         true = labels[..., target_idx] if horizon is None else labels[:, horizon, :][:, target_idx]
-        positive = (np.expm1(true) > 0.5).ravel()
-        flat = pred.ravel()
-        out = {"positive_rate": float(positive.mean())}
-        if 0 < positive.sum() < len(positive):
-            out["auc_any_sell"] = float(roc_auc_score(positive, flat))
-            out["ap_any_sell"] = float(average_precision_score(positive, flat))
-        else:
-            out["auc_any_sell"] = 0.5
-            out["ap_any_sell"] = float(positive.mean())
-        return out
+        det.add(pred, torch.expm1(torch.as_tensor(true).float()) > 0.5)
+        if not compute_result:
+            return {}
+        r = det.result()
+        det.reset()
+        return {"positive_rate": r["positive_rate"], "auc_any_sell": r["auc"], "ap_any_sell": r["ap"]}
 
     return preprocess_logits, compute_metrics
 
@@ -156,33 +209,47 @@ def evaluate(model, loader, target_idx, device, horizon=0):
     # MAE alone is nearly unbeatable on a 99.7%-zero target, so also report
     # whether the model *ranks* sell-turns above quiet ones (AUC / AP), and how
     # close it gets on magnitude when a sell actually happens.
-    from sklearn.metrics import average_precision_score, roc_auc_score
-
-    flat_pos, flat_pred = positive.ravel(), pred.ravel()
-    if 0 < flat_pos.sum() < len(flat_pos):
-        scores["auc_any_sell"] = float(roc_auc_score(flat_pos, flat_pred))
-        scores["ap_any_sell"] = float(average_precision_score(flat_pos, flat_pred))
-        scores["ap_baseline_rate"] = float(flat_pos.mean())
+    det = SellDetection(device=device)
+    det.add(pred, positive)
+    r = det.result()
+    if 0 < r["n_pos"] < r["n"]:
+        scores["auc_any_sell"] = r["auc"]
+        scores["ap_any_sell"] = r["ap"]
+        scores["ap_baseline_rate"] = r["positive_rate"]
         scores["mae_when_sold"] = float(np.abs(true_units - pred_units)[positive].mean())
         scores["mae_when_sold_all_zero"] = float(true_units[positive].mean())
     per_product = {}
     for j in range(true.shape[1]):
-        pj, tj = pred[:, j], positive[:, j]
-        if 0 < tj.sum() < len(tj):
-            per_product[j] = {"auc": float(roc_auc_score(tj, pj)), "n_pos": int(tj.sum())}
+        det.reset()
+        det.add(pred[:, j], positive[:, j])
+        rj = det.result()
+        if 0 < rj["n_pos"] < rj["n"]:
+            per_product[j] = {"auc": rj["auc"], "n_pos": rj["n_pos"]}
     scores["per_product_auc"] = per_product
     return scores
 
 
 def main():  # noqa: C901 -- one linear CLI flow
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--dataset", default="research/opponent_model/dataset")
+    ap.add_argument("--dataset", default="datasets/shards")
     ap.add_argument("--out", default="research/opponent_model/runs/ttm")
     ap.add_argument("--max-episodes", type=int, default=4000)
     ap.add_argument("--shard-limit", type=int, default=None)
-    ap.add_argument("--context-length", type=int, default=512)
+    ap.add_argument(
+        "--context-length",
+        type=int,
+        default=None,
+        help="turns of history per window (default: the --init-from checkpoint's, else 512). "
+        "Forecasts can only start once a game is this old, so 240 = from day 10",
+    )
+    ap.add_argument(
+        "--patch-length",
+        type=int,
+        default=None,
+        help="turns per TTM patch, must divide the context (default: the checkpoint's, 64); 24 = one game day",
+    )
     ap.add_argument("--prediction-length", type=int, default=96)
-    ap.add_argument("--prediction-filter-length", type=int, default=24)
+    ap.add_argument("--prediction-filter-length", type=int, default=96)
     ap.add_argument("--window-stride", type=int, default=8)
     ap.add_argument("--eval-stride", type=int, default=5, help="must be coprime with turnsPerDay; see val_ds below")
     ap.add_argument(
@@ -239,9 +306,9 @@ def main():  # noqa: C901 -- one linear CLI flow
     )
     ap.add_argument(
         "--split",
-        choices=["episode", "series"],
+        choices=["episode"],
         default="episode",
-        help="series = the long run's split (required when warm-starting from it)",
+        help="10 %% of episodes held out, both seats on the same side (ids saved to best/val_episodes.json)",
     )
     ap.add_argument(
         "--eval-on-start",
@@ -251,6 +318,26 @@ def main():  # noqa: C901 -- one linear CLI flow
     )
     ap.add_argument("--probe", action="store_true", help="print model config and exit")
     args = ap.parse_args()
+    if args.context_length is None:
+        # The windows must be exactly as long as the model's context: take it
+        # from the warm-start checkpoint (fine-tunes chain without repeating it).
+        args.context_length = 512
+        if args.init_from:
+            args.context_length = int(json.loads((Path(args.init_from) / "config.json").read_text())["context_length"])
+    print(f"context_length={args.context_length} patch_length={args.patch_length or 'checkpoint default'}", flush=True)
+    labels = shards_alignment(args.dataset, args.extra_train, args.val_dataset)
+    if args.init_from:
+        marker = Path(args.init_from) / "labels.json"
+        base_labels = json.loads(marker.read_text()).get("alignment", "legacy") if marker.exists() else "legacy"
+        if base_labels != labels:
+            # Fine for a full retrain (the init is only a starting point); wrong for a
+            # short fine-tune, which would leave the old rule's semantics under the weights.
+            print(
+                f"WARNING: warm start {args.init_from} was trained on {base_labels!r} labels, "
+                f"these shards use {labels!r} -- the checkpoint will be marked {labels!r}",
+                flush=True,
+            )
+    print(f"label alignment: {labels}", flush=True)
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -264,6 +351,7 @@ def main():  # noqa: C901 -- one linear CLI flow
         flush=True,
     )
 
+    val_episodes = None  # the held-out episode ids, when the split is by episode
     if args.val_dataset:
         train_series = series
         val_series, _, _ = load_shards(args.val_dataset, args.max_episodes)
@@ -272,11 +360,10 @@ def main():  # noqa: C901 -- one linear CLI flow
             f"val_series={len(val_series)} from {args.val_dataset}",
             flush=True,
         )
-    elif args.split == "episode":
-        train_series, val_series = split_by_episode(series, episode_ids, val_fraction=0.1)
-        print(f"split={args.split} train_series={len(train_series)} val_series={len(val_series)}", flush=True)
     else:
-        train_series, val_series = split_series(series, val_fraction=0.1)
+        train_series, val_series, val_episodes = split_by_episode(
+            series, episode_ids, val_fraction=0.1, return_ids=True
+        )
         print(f"split={args.split} train_series={len(train_series)} val_series={len(val_series)}", flush=True)
     # (series list, window stride) per training block; the newest day is block 0
     extra_blocks = []
@@ -322,7 +409,15 @@ def main():  # noqa: C901 -- one linear CLI flow
         flush=True,
     )
 
-    model = build_model(train_ds.n_channels, target_idx, args.prediction_filter_length, args.revision, args.init_from)
+    model = build_model(
+        train_ds.n_channels,
+        target_idx,
+        args.prediction_filter_length,
+        args.revision,
+        args.init_from,
+        context_length=args.context_length,
+        patch_length=args.patch_length,
+    )
     n_params = sum(p.numel() for p in model.parameters())
     print(f"model params: {n_params:,}", flush=True)
     print(f"config: {json.dumps(model.config.to_dict(), default=str)[:600]}", flush=True)
@@ -344,14 +439,9 @@ def main():  # noqa: C901 -- one linear CLI flow
         num_train_epochs=args.epochs,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
-        # Pooling the metric over every forecast step (--metric-horizon all)
-        # makes each eval batch's logits (batch, prediction_length, n_targets)
-        # instead of (batch, n_targets) -- 96x larger at prediction_length=96.
-        # Uncapped, the Trainer concatenates all of them on GPU across the
-        # whole eval set before computing metrics, which OOM'd on a GPU shared
-        # with another job on 2026-09-11 (crashed 26 min into epoch 1, no
-        # checkpoint saved). Offload every 50 batches instead.
-        eval_accumulation_steps=50,
+        # Metrics are folded in batch by batch (make_metric_hooks): nothing is
+        # accumulated across the eval set, no CPU sort at the end.
+        batch_eval_metrics=True,
         learning_rate=args.lr,
         eval_strategy="epoch",
         eval_on_start=args.eval_on_start,
@@ -385,6 +475,20 @@ def main():  # noqa: C901 -- one linear CLI flow
         print(f"resuming from latest checkpoint: {resume}", flush=True)
     trainer.train(resume_from_checkpoint=resume)
     trainer.save_model(str(out_dir / "best"))
+    if trainer.args.process_index == 0:
+        # What the live oracle needs next to the weights (AGENTS.md 4.3 / 5).
+        (out_dir / "best" / "labels.json").write_text(
+            json.dumps({"alignment": labels, "source": " ".join(sys.argv[1:])[:400]}) + "\n"
+        )
+        if val_episodes is not None:
+            (out_dir / "best" / "val_episodes.json").write_text(json.dumps([int(e) for e in val_episodes]))
+        np.savez(
+            out_dir / "best" / "scaler.npz",
+            mean=mean,
+            std=std,
+            feature_names=np.array(feature_names),
+            products=np.array(products),
+        )
 
     device = next(model.parameters()).device
     loader = torch.utils.data.DataLoader(val_ds, batch_size=args.batch_size, num_workers=4)

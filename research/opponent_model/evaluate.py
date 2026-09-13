@@ -1,27 +1,26 @@
 """One canonical evaluation for an opponent-supply checkpoint.
 
-This replaces the ad-hoc trio (eval_clean.py / analyze_v2.py / horizon_probe.py),
-which disagreed on the two settings that decide whether a number means anything:
+Two settings decide whether a number means anything, and both are fixed here:
 
-1. *Which rows are scored.* The trainer's own val score is computed on a
-   series-level split, so one seat of an episode can be in train while the other
-   is in val -- they share a market trajectory and the public view of both farms.
-   Every number here is computed on the episode-disjoint subset (no seat of the
-   episode anywhere in train). `--include-leaky` also reports the un-cleaned
-   split so the size of the leak stays visible instead of being assumed small.
+1. *Which rows are scored.* Only episodes the checkpoint never trained on: the
+   ids in the checkpoint's own `val_episodes.json` (written by `train_ttm.py`),
+   so the shard directory may keep growing without changing the held-out set.
+   Without that file the trainer's seed-0 episode split is rebuilt from the
+   shards given (then `--dataset`/`--max-episodes` must equal the training run's).
+   `--include-leaky` also scores the un-cleaned split so a seat leak, should one
+   ever appear, stays visible instead of being assumed small.
 
-2. *Where in the day the forecast origin sits.* Episodes are 719 usable turns and
-   the context is 512, so only ~112 window origins exist per series and their
-   hour cycles with period turnsPerDay=24. A stride sharing a factor with 24
-   pins every origin onto a handful of hours -- and since hour-0 (the town-centre
-   draw and the end-of-day shed dump) carries 3-4x the sell rate of a quiet hour,
-   an aliased grid changes the headline AP by 2x on an unchanged checkpoint
-   (measured on ttm_v2: AP 0.84 at stride 32, 0.68 at stride 4, 0.42 at stride 1).
-   Worse, the *training* stride has the same arithmetic: window-stride 8 puts
-   every training origin on hour 0, 8 or 16, so an aliased eval grid also happens
-   to test only the phases the model was trained on. Here the stride is asserted
-   coprime with turnsPerDay and the grid is then trimmed to an exact whole number
-   of days per series, so every hour is represented equally.
+2. *Where in the day the forecast origin sits.* Episodes are 719 usable turns;
+   with context C and a 96-step horizon only 719 - C - 96 window origins exist
+   per series, and their hour cycles with period turnsPerDay=24. A stride sharing
+   a factor with 24 pins every origin onto a handful of hours -- and since hour 0
+   (the town-centre draw and the end-of-day shed dump) carries 3-4x the sell rate
+   of a quiet hour, an aliased grid changes the headline AP by up to 2x on an
+   unchanged checkpoint. The *training* stride has the same arithmetic (a stride
+   of 8 puts every training origin on hour 0, 8 or 16), which is why training
+   uses stride 17. Here the stride is asserted coprime with turnsPerDay and the
+   grid is then trimmed to an exact whole number of days per series, so every
+   hour is represented equally.
 
 Detection quality and magnitude accuracy are reported separately on purpose. The
 target is ~98% zeros and the loss is MSE on log1p, so predicted magnitudes are
@@ -58,23 +57,22 @@ BASELINES = [
 ]
 
 
-def rebuild_split(series, episode_ids, split, val_fraction, seed):
-    """Reproduce the trainer's split, then keep only episode-disjoint val series.
+def rebuild_split(series, episode_ids, val_fraction, seed, val_episodes=None):
+    """The held-out series: the checkpoint's recorded val episodes when given,
+    else the trainer's seed-0 episode split rebuilt over these shards.
 
-    `split` must match the training run's --split. Getting it wrong silently
-    scores the checkpoint on episodes it was trained on, so it is printed and
-    recorded in the report rather than defaulted quietly.
+    Both are episode-disjoint by construction (both seats of an episode land on
+    the same side), so `clean_idx` == `val_idx` unless an episode id somehow
+    occurs on both sides; the check is kept so a leak can never pass silently.
     """
-    rng = np.random.default_rng(seed)
-    if split == "series":
-        idx = rng.permutation(len(series))
-        cut = int(len(series) * (1.0 - val_fraction))
-        train_idx, val_idx = idx[:cut], idx[cut:]
+    if val_episodes is not None:
+        val_eps = set(int(e) for e in val_episodes)
     else:
+        rng = np.random.default_rng(seed)
         episodes = np.array(sorted(set(episode_ids)))
         val_eps = set(rng.choice(episodes, size=int(len(episodes) * val_fraction), replace=False).tolist())
-        val_idx = np.array([i for i, e in enumerate(episode_ids) if e in val_eps])
-        train_idx = np.array([i for i, e in enumerate(episode_ids) if e not in val_eps])
+    val_idx = np.array([i for i, e in enumerate(episode_ids) if e in val_eps])
+    train_idx = np.array([i for i, e in enumerate(episode_ids) if e not in val_eps])
 
     train_eps = {episode_ids[i] for i in train_idx}
     clean_idx = np.array([i for i in val_idx if episode_ids[i] not in train_eps])
@@ -144,14 +142,14 @@ def collect(model, ds, target_idx, n_features, mean, std, device, batch_size):
 
 
 def auc_ap(score, positive, min_pos=5):
-    # Imported lazily so --dry-run (split and grid diagnostics) runs in a plain
-    # numpy environment, without the training venv.
-    from sklearn.metrics import average_precision_score, roc_auc_score
+    # Histogram-based (research/opponent_model/metrics.py): the pooled blocks
+    # cover up to 2e9 cells, which a sort-based AUC cannot do in reasonable time.
+    from metrics import auc_ap as _auc_ap
 
     if positive.sum() < min_pos or positive.all():
         return None, None, None
-    ap = float(average_precision_score(positive, score))
-    return (float(roc_auc_score(positive, score)), ap, float(ap / positive.mean()) if positive.mean() else None)
+    auc, ap, rate = _auc_ap(score, positive)
+    return auc, ap, (ap / rate if rate else None)
 
 
 def detection_block(pred, pos, turns_per_day):
@@ -180,11 +178,8 @@ def detection_block(pred, pos, turns_per_day):
                 "positive_rate": float(pos[:, lo:hi].mean()),
             }
         )
-    # `first24` exists so a 24-step-supervised checkpoint and a 96-step one can be
-    # compared on identical rows; `all` covers whatever the head emits.
-    for tag, sl in (("first24", slice(0, min(24, horizon))), ("all", slice(0, horizon))):
-        a, p, lift = auc_ap(pred[:, sl].ravel(), pos[:, sl].ravel())
-        out["pooled"][tag] = {"auc": a, "ap": p, "ap_lift": lift, "positive_rate": float(pos[:, sl].mean())}
+    a, p, lift = auc_ap(pred.ravel(), pos.ravel())
+    out["pooled"]["all"] = {"auc": a, "ap": p, "ap_lift": lift, "positive_rate": float(pos.mean())}
     return out
 
 
@@ -395,23 +390,18 @@ def write_summary(path, r):  # noqa: C901 -- one linear report
 def main():  # noqa: C901 -- one linear CLI flow
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--checkpoint", required=True)
-    ap.add_argument("--dataset", default="research/opponent_model/dataset_v2")
-    ap.add_argument(
-        "--split",
-        choices=["series", "episode"],
-        default="series",
-        help="MUST match the training run's --split; v2 and v3 used 'series'",
-    )
+    ap.add_argument("--dataset", default="datasets/shards")
+    ap.add_argument("--split", choices=["episode"], default="episode", help="the trainer's split (episode-disjoint)")
     ap.add_argument(
         "--max-episodes",
         type=int,
         default=100000,
-        help="MUST match the training run; a different cap gives a different split",
+        help="only matters without <checkpoint>/val_episodes.json: must then match the training run",
     )
     ap.add_argument("--shard-limit", type=int, default=None)
     ap.add_argument("--val-fraction", type=float, default=0.1)
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--context-length", type=int, default=512)
+    ap.add_argument("--context-length", type=int, default=None, help="default: the checkpoint's config.json")
     ap.add_argument("--prediction-length", type=int, default=96)
     ap.add_argument("--turns-per-day", type=int, default=24)
     ap.add_argument("--stride", type=int, default=1, help="window stride; asserted coprime with --turns-per-day")
@@ -425,12 +415,6 @@ def main():  # noqa: C901 -- one linear CLI flow
         help="subsample clean series (whole series, so the hour grid stays balanced)",
     )
     ap.add_argument(
-        "--unmask-horizon",
-        action="store_true",
-        help="drop prediction_filter_length so a 24-step checkpoint also emits "
-        "days 2-4; those steps got no gradient, mark them as diagnostic",
-    )
-    ap.add_argument(
         "--include-leaky", action="store_true", help="also score the un-cleaned val split, to size the seat leak"
     )
     ap.add_argument("--batch-size", type=int, default=128)
@@ -439,6 +423,9 @@ def main():  # noqa: C901 -- one linear CLI flow
     ap.add_argument("--summary", default=None, help="text summary path (default alongside --out)")
     ap.add_argument("--dry-run", action="store_true", help="build the split and grid, print diagnostics, load no model")
     args = ap.parse_args()
+    if args.context_length is None:
+        args.context_length = int(json.loads((Path(args.checkpoint) / "config.json").read_text())["context_length"])
+        print(f"context_length={args.context_length} (from the checkpoint)", flush=True)
 
     if math.gcd(args.stride, args.turns_per_day) != 1:
         raise SystemExit(
@@ -456,12 +443,17 @@ def main():  # noqa: C901 -- one linear CLI flow
         flush=True,
     )
 
-    train_idx, val_idx, clean_idx = rebuild_split(series, ep_ids, args.split, args.val_fraction, args.seed)
+    val_file = Path(args.checkpoint) / "val_episodes.json"
+    val_episodes = json.loads(val_file.read_text()) if val_file.exists() else None
+    split_src = (
+        f"{val_file} ({len(val_episodes)} episodes)" if val_episodes is not None else "rebuilt seed-0 episode split"
+    )
+    train_idx, val_idx, clean_idx = rebuild_split(series, ep_ids, args.val_fraction, args.seed, val_episodes)
     train_series = [series[i] for i in train_idx]
     clean_series = [series[i] for i in clean_idx]
     n_clean_eps = len({ep_ids[i] for i in clean_idx})
     print(
-        f"split={args.split}  train={len(train_idx)} val={len(val_idx)} "
+        f"split={args.split} from {split_src}  train={len(train_idx)} val={len(val_idx)} "
         f"clean(no seat in train)={len(clean_idx)} from {n_clean_eps} episodes",
         flush=True,
     )
@@ -513,10 +505,6 @@ def main():  # noqa: C901 -- one linear CLI flow
     device = args.device or ("cuda:0" if torch.cuda.is_available() else "cpu")
     model = TinyTimeMixerForPrediction.from_pretrained(args.checkpoint).to(device).eval()
     supervised = model.config.prediction_filter_length or model.config.prediction_length
-    if args.unmask_horizon:
-        model.prediction_filter_length = None
-        model.head.prediction_filter_length = None
-        model.config.prediction_filter_length = None
 
     tidx = ds.target_channel_indices()
     pred, true, last = collect(model, ds, tidx, ds.n_features, mean, std, device, args.batch_size)
@@ -526,10 +514,9 @@ def main():  # noqa: C901 -- one linear CLI flow
     report = {
         "checkpoint": str(args.checkpoint),
         "dataset": str(args.dataset),
-        "split": args.split,
+        "split": f"{args.split}: {split_src}",
         "products": list(products),
         "supervised_horizon": int(supervised),
-        "unmasked_horizon": bool(args.unmask_horizon),
         "grid": grid,
         "detection": detection_block(pred, pos, args.turns_per_day),
         "magnitude": magnitude_block(pred, true, args.turns_per_day),

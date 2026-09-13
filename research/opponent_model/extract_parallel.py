@@ -10,12 +10,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from extract import run
+from extract import ALIGNMENTS, run, write_labels_marker
 
 
-def _one(archive, out_dir, max_episodes, stride):
+def _one(archive, out_dir, max_episodes, stride, alignment):
     try:
-        return archive, run([archive], out_dir, max_episodes, stride), None
+        return archive, run([archive], out_dir, max_episodes, stride, alignment), None
     except Exception as exc:  # a bad archive must not kill the sweep
         return archive, 0, f"{type(exc).__name__}: {exc}"
 
@@ -27,15 +27,18 @@ def main():
     ap.add_argument("--workers", type=int, default=42)
     ap.add_argument("--max-episodes", type=int, default=None)
     ap.add_argument("--stride", type=int, default=1)
+    ap.add_argument("--alignment", choices=ALIGNMENTS, default="next_action", help="label rule, see extract.py")
     args = ap.parse_args()
 
     out_dir = Path(args.out)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    write_labels_marker(out_dir, args.alignment)  # fails fast on a dir of the other rule
     archives = sorted(str(p) for p in Path(args.replays).glob("*.zip"))
     # Resumable: an archive whose shard already exists is skipped.
     pending = [a for a in archives if not (out_dir / (Path(a).stem + ".npz")).exists()]
     print(
         f"archives={len(archives)} already_done={len(archives) - len(pending)} "
-        f"pending={len(pending)} workers={args.workers} stride={args.stride}",
+        f"pending={len(pending)} workers={args.workers} stride={args.stride} alignment={args.alignment}",
         flush=True,
     )
     archives = pending
@@ -43,7 +46,7 @@ def main():
     total, failed = 0, []
 
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
-        futures = [pool.submit(_one, a, args.out, args.max_episodes, args.stride) for a in archives]
+        futures = [pool.submit(_one, a, args.out, args.max_episodes, args.stride, args.alignment) for a in archives]
         for done, fut in enumerate(as_completed(futures), 1):
             archive, rows, err = fut.result()
             total += rows
