@@ -5,10 +5,10 @@ the methodology in sync with `evaluate.py` (the one scorer).
 
 | | |
 |---|---|
-| Last updated | 2026-09-14 |
+| Last updated | 2026-09-14 (refit) |
 | Scorer | `research/opponent_model/evaluate.py` |
 | Data | `datasets/shards/` — one shard per Kaggle day, `next_action` labels (AGENTS.md 4.2–4.3) |
-| Results | section 4 — `models/ttm_c256_h96` (promoted 2026-09-14) |
+| Results | section 4 — `models/ttm_c256_h96_ft_2026-09-13` (promoted 2026-09-14; the base `ttm_c256_h96` row kept for reference) |
 
 ## 1. What is being predicted, and why it is hard
 
@@ -131,6 +131,14 @@ GPU time:
 |---|---|---|---|---|---|---|
 | `models/ttm_c256_h96` (2026-09-14; `eval.json` in the dir, 2.22 M windows, stride 1) | 3,083 held-out episodes of 44 days | 0.873 / 0.403 / 9.6× (day 1 pooled) | 0.403 / 0.401 / 0.389 / 0.368 | clock hour × product 0.151 (3.6×); best history feature 0.074 | 2–20× per product at t+1; late-game WHEAT dumps over-predicted (see README) | 0.704 |
 
-Per product at t+1 (AUC / AP): WHEAT 0.847 / 0.475, CARROT 0.951 / 0.211, TOMATO 0.956 / 0.494,
+| `models/ttm_c256_h96_ft_2026-09-13` (2026-09-14; `eval.json` in the dir, 46,800 windows, stride 1) | 65 held-out episodes of 09-13 (the refit's own val split) | 0.885 / 0.425 / 9.2× | 0.407 / 0.397 / 0.376 / 0.347 | clock hour × product 0.141 (3.0×); best history feature 0.075 | ~7× pooled (6.1 u actual vs 0.86 predicted) | 0.729 |
+
+`ttm_c256_h96` per product at t+1 (AUC / AP): WHEAT 0.847 / 0.475, CARROT 0.951 / 0.211, TOMATO 0.956 / 0.494,
 STRAWBERRY 0.853 / 0.434, MELON 0.857 / 0.214, EGG 0.940 / 0.602, MILK 0.808 / 0.388,
 WOOL 0.777 / 0.246, FERTILIZER 0.807 / 0.428. Leak check: clean AP 0.400 = un-cleaned AP 0.400.
+
+`ttm_c256_h96_ft_2026-09-13` per product at t+1 (AUC / AP): WHEAT 0.829 / 0.373, CARROT 0.871 / 0.339,
+TOMATO 0.940 / 0.501, STRAWBERRY 0.865 / 0.438, MELON 0.869 / 0.361, EGG 0.913 / 0.562, MILK 0.829 / 0.389,
+WOOL 0.859 / 0.315, FERTILIZER 0.844 / 0.500. Leak check: clean AP 0.425 = un-cleaned AP 0.425. The two rows
+are on different held-out sets (44 days vs one day) and are not a comparison between the checkpoints; the
+like-for-like number is the refit's epoch 0 (0.859 / 0.357) vs its best (0.878 / 0.381) on the same windows.

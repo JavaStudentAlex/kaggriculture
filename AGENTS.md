@@ -18,9 +18,11 @@ plus the 9 `log1p` targets as channels; ~1.03 M params. Context length is a prop
 of each checkpoint (`config.json`): **256 turns** for the current model (forecasts from
 day 10 h16); the retired 512-context line was silent until day 21.
 
-Current model: **`models/ttm_c256_h96/`** — the 256-context base trained on the 44
-corrected-label days through 09-11 (section 12; held-out AUC 0.8668, README inside),
-committed in git. The copies in play (`shinka/evolution/checkpoint/`, the Kaggle
+Current model: **`models/ttm_c256_h96_ft_2026-09-13/`** — the 256-context base
+(`ttm_c256_h96`, trained on the 44 corrected-label days through 09-11, section 12, held-out
+AUC 0.8668; now only in git history, commit c5b8684) refit on 09-09..09-13 by the daily
+recipe (section 6): AUC 0.859 → 0.878 on 09-13's held-out games; README inside, committed
+in git. The copies in play (`shinka/evolution/checkpoint/`, the Kaggle
 "Orchard Tide" bundle) are still the retired 512-context `ttm_v3_h96_ft_2026-09-11`
 until the play-side steps of section 12 are done. `models/` holds only the promoted
 checkpoint; run dirs are deleted once their best is promoted (section 6).
@@ -32,9 +34,9 @@ section 4.3.**
 
 | path | what |
 |---|---|
-| `models/ttm_c256_h96/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, `eval.json`/`eval.txt`, README |
-| `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-12 so far (45 days, 22 GB); not in git — the 04:30 UTC cron adds each new day (4.1) |
-| `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (45 days, 2.3 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
+| `models/ttm_c256_h96_ft_2026-09-13/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, `eval.json`/`eval.txt`, README |
+| `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 04:30 UTC cron adds each new day (4.1) |
+| `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (46 days, 2.4 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
 | `research/opponent_model/` | all model code: `extract.py` / `extract_parallel.py` (replays → shards), `features.py`, `mechanics.py`, `ttm_dataset.py` (windows, episode split, scaler), `metrics.py` (streaming histogram AUC/AP), `train_ttm.py`, `evaluate.py` (the one scorer; uses the checkpoint's `scaler.npz` and `val_episodes.json`) |
 | `research/opponent_model/runs/<run>/` | working dirs of runs (`best/`, `scores.json`, `scaler.npz`, `eval.json`); **not in git** — promoted checkpoints move to `models/` |
 | `research/opponent_model/ops/` | job scripts: `env.sh` (venv), `copy.sh` (SSD staging after a restart), `extract.sh` (extract every replay day without a shard), `train.sh` (base model: context 256, warm start; section 12), `finetune.sh` (daily refit: newest day + the 4 before it, recency-weighted) |
@@ -141,7 +143,8 @@ alignment); all of them were deleted on 2026-09-13 except the checkpoint in play
 
 | model | context / labels | status |
 |---|---|---|
-| `models/ttm_c256_h96` | 256 / next_action | **current**: base trained 09-12 → 09-14 on 44 days (07-30..09-11), best epoch 40 of 40, held-out AUC 0.8668 / AP 0.392 (trainer), canonical pooled 0.8669 / 0.390, day 1–4 AUC 0.873/0.872/0.868/0.855 — README in the dir. The daily chain (section 6) continues from it |
+| `models/ttm_c256_h96_ft_2026-09-13` | 256 / next_action | **current**: the daily refit of the base through 09-13 (`finetune.sh` defaults, 2026-09-14, early-stopped at epoch 21, best 16): on 09-13's 65 held-out episodes AUC 0.859 → **0.878**, AP 0.357 → **0.381** (trainer, all 96 steps pooled); canonical pooled 0.878 / 0.381, day 1–4 AUC 0.891/0.886/0.876/0.859, t+1 0.885 / 0.425 — README in the dir. The daily chain (section 6) continues from it |
+| `ttm_c256_h96` (256 / next_action) | — | the base: trained 09-12 → 09-14 on 44 days (07-30..09-11), best epoch 40 of 40, held-out AUC 0.8668 / AP 0.392, canonical pooled 0.8669 / 0.390, day 1–4 AUC 0.873/0.872/0.868/0.855. Removed from `models/` at the 09-13 promotion (only the newest promoted checkpoint is kept); in git history (commit c5b8684) |
 | `ttm_v3_h96_ft_2026-09-11` (512 / legacy) | — | deleted from `models/` 2026-09-14; survives only as the in-play copies (`shinka/evolution/checkpoint/`, the Orchard Tide bundle) until the 256 model replaces them |
 
 Base-model recipe: `ops/train.sh` (section 12). `RESUME=<checkpoint dir>` resumes weights,
@@ -195,7 +198,15 @@ own validation (the top of the ladder drifts — the reason for daily refits); a
 fine-tuning recovered most of it; and **weighting toward the newest day was by far the
 biggest lever** (+0.03 AUC / +0.05 AP over equal weighting of the same 5 days). Chained
 daily refits (BASE = the previous day's fine-tune) kept improving the within-day metric.
-Fresh numbers for the 256-context line go here once its first refit has run.
+First refit of the 256-context line (2026-09-14, `DAY=2026-09-13 BASE=models/ttm_c256_h96`,
+defaults): 49 % of the 222,570 training windows from 09-13; on 09-13's 65 held-out episodes
+the base scored AUC 0.859 / AP 0.357 (epoch 0; its own held-out was 0.867 — the drift), the
+refit 0.878 / 0.381 at epoch 16, early-stopped at 21 (LR halved twice), 36 min on 3 GPUs.
+Promoted as `models/ttm_c256_h96_ft_2026-09-13`.
+
+| refit | train days | epoch 0 (base) AUC / AP | best AUC / AP (epoch) | stopped |
+|---|---|---|---|---|
+| `ft_2026-09-13` from `ttm_c256_h96` | 09-09..09-13 | 0.859 / 0.357 | 0.878 / 0.381 (16) | early, epoch 21 |
 
 ## 7. Daily routine when a new day appears
 
@@ -252,12 +263,12 @@ from the repo root, with `BASE` = the newest promoted `models/*`:
 
 | tmux / log | what | state |
 |---|---|---|
-| `kagg-train` / `/results/kagg/logs/train.log` | the 256-context base run (`ops/train.sh`, run dir `/results/kagg/runs/ttm_c256_h96`). Started 2026-09-12 18:36 UTC; resumed 09-13 19:25 (renames), 19:50 (streaming metrics) and 23:22 (pod restart wiped the SSD at ~21:22 — rebuilt with `env.sh`, restaged, resumed from the ceph mirror of `checkpoint-203552`) | **done** 2026-09-14 01:21 UTC, `TRAIN_EXIT=0`; canonical eval done 03:02; promoted to `models/ttm_c256_h96` 06:15 |
+| `kagg-train` / `/results/kagg/logs/train.log` | the 256-context base run (`ops/train.sh`, run dir `/results/kagg/runs/ttm_c256_h96`). Started 2026-09-12 18:36 UTC; resumed 09-13 19:25 (renames), 19:50 (streaming metrics) and 23:22 (pod restart wiped the SSD at ~21:22 — rebuilt with `env.sh`, restaged, resumed from the ceph mirror of `checkpoint-203552`) | **done** 2026-09-14 01:21 UTC, `TRAIN_EXIT=0`; canonical eval done 03:02; promoted to `models/ttm_c256_h96` 06:15; run dir and logs deleted 06:40 |
+| `kagg-finetune` / `/results/kagg/logs/finetune_2026-09-13.log` | first refit of the 256 line (`ops/finetune.sh`, `DAY=2026-09-13 BASE=models/ttm_c256_h96`) | **done** 2026-09-14 07:04 UTC, `FT_EXIT=0`, best epoch 16; promoted to `models/ttm_c256_h96_ft_2026-09-13` 07:20, run dirs deleted |
 | `extract.log` | the corrected extraction of all days into `datasets/shards` (2026-09-12) | done |
 
-The SSD run dir (`/results/kagg/runs/ttm_c256_h96`, checkpoints of epochs 39/40 + the
-44-day shard farm) is kept only until the "continue past epoch 40?" question is settled;
-the ceph mirror was deleted at promotion. Logs of the retired line were deleted on 2026-09-13.
+No run dirs exist (SSD or ceph): both promotions deleted theirs. Logs of the retired line
+were deleted on 2026-09-13, the base run's log on 2026-09-14.
 
 ## 11. Shinka evolution with the oracle (2026-09-12)
 
@@ -445,9 +456,8 @@ and fix the labels (4.3) in the same run.
   canonical pooled 0.8669 / AP 0.390, day 1–4 AUC 0.873 / 0.872 / 0.868 / 0.855, no seat
   leak. Magnitudes are ranking-only: a few late-game WHEAT dumps (true up to 1,500 units)
   are over-predicted ~4× in log1p space, which explodes unit-space totals at horizons ≥ 69.
-- **Then**: (1) `DAY=2026-09-12 BASE=models/ttm_c256_h96 bash
-  research/opponent_model/ops/finetune.sh` — the recency-weighted refit on 09-08..09-12;
-  (2) compare with the 512 model on the same games and origins, against the *true* supply:
+- **Then**: (1) ~~the first refit~~ done 2026-09-14: `DAY=2026-09-13 BASE=models/ttm_c256_h96`
+  → `models/ttm_c256_h96_ft_2026-09-13` (section 6.1); (2) compare with the 512 model on the same games and origins, against the *true* supply:
   `KAGG_TTM_DIR=<dir> check_oracle.py truth --zip replays/kaggriculture-episodes-2026-09-11.zip --held-out`
   (uses the checkpoint's `val_episodes.json`; `--every 7` scores every hour) and
   `check_oracle.py padding` (per-origin AUC/AP; origins ≥ 512 are the apples-to-apples rows,
