@@ -1,0 +1,22 @@
+{
+  "combined_score": 0.76615,
+  "win_rate": 0.7312,
+  "seat0_win_rate": 0.6875,
+  "seat1_win_rate": 0.775,
+  "matches_per_champion": 40,
+  "champions_evaluated": 8,
+  "champions_skipped": [],
+  "calibration_games": 60,
+  "calibration_pairs": [
+    "champ_20260908_183514_avg93196.py|champ_20260912_161630_avg82113.py",
+    "champ_20260908_190355_avg92490.py|champ_20260912_161630_avg82113.py",
+    "champ_20260908_191956_avg91958.py|champ_20260912_161630_avg82113.py",
+    "champ_20260908_153302_avg99058.py|champ_20260912_161630_avg82113.py",
+    "champ_20260912_161630_avg82113.py|champ_20260912_gen62_avg82350.py",
+    "champ_00_initial_seed.py|champ_20260912_161630_avg82113.py"
+  ],
+  "overall_avg_cand_cash": 81848.87,
+  "starter_cash": 86863.0,
+  "total_crashes": 0,
+  "text_feedback": "=== DIGITAL RED QUEEN TOURNAMENT EVALUATION (40 MATCHES PER CHAMPION) ===\nProtocol: 20 seeds on seat 0 + 20 disjoint seeds on seat 1.\nResult: PASSED (Accepted)\nOverall Win Rate vs 8 Champions: 73.12% (234W - 86L - 0T across 320 games)\nAverage Cash vs Champions: $81,849\nStarter Sanity: $86,863\nSeat split: seat0 110/160 (68.8%) | seat1 124/160 (77.5%)\nCalibration: 60 champion-vs-champion games over 6 pair(s) (60 clean) -> /home/jovyan/kaggriculture/shinka/champions/pool/games.jsonl (excluded from candidate win rate)\n\nBreakdown against individual champions (40 matches each):\n  - champ_00_initial_seed.py           : 38W -  2L -  0T (s0 20/20, s1 18/20) | Cand $93,082 vs Champ $74,983\n  - champ_20260908_150703_avg101195.py : 29W - 11L -  0T (s0 14/20, s1 15/20) | Cand $80,994 vs Champ $80,213\n  - champ_20260908_153302_avg99058.py  : 38W -  2L -  0T (s0 20/20, s1 18/20) | Cand $80,475 vs Champ $78,416\n  - champ_20260908_183514_avg93196.py  : 30W - 10L -  0T (s0 14/20, s1 16/20) | Cand $80,286 vs Champ $79,632\n  - champ_20260908_190355_avg92490.py  : 27W - 13L -  0T (s0 11/20, s1 16/20) | Cand $80,107 vs Champ $79,668\n  - champ_20260908_191956_avg91958.py  : 27W - 13L -  0T (s0 11/20, s1 16/20) | Cand $80,135 vs Champ $79,625\n  - champ_20260912_161630_avg82113.py  : 21W - 19L -  0T (s0  9/20, s1 12/20) | Cand $79,780 vs Champ $79,740\n  - champ_20260912_gen62_avg82350.py   : 24W - 16L -  0T (s0 11/20, s1 13/20) | Cand $79,931 vs Champ $79,650"
+}

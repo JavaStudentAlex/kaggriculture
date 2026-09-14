@@ -28,3 +28,10 @@ research/opponent_model/runs/
 shinka_results/
 shinka_results.stale_*/
 shinka_run.log
+
+# Shinka run mirrors (SSD -> ceph copies of /results/kagg/shinka_results*), the evaluator's
+# game log, built submission bundles and the checkpoint copy (byte copy of models/*)
+shinka_results*/
+shinka/champions/pool/games.jsonl
+shinka/champions/submissions/*.tar.gz
+shinka/evolution/checkpoint/

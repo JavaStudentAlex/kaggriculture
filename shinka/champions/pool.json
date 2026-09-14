@@ -1,0 +1,324 @@
+{
+ "generated": "2026-09-09T21:22:07",
+ "gate_win_rate": 0.75,
+ "protocol": "round-robin among the 14 behaviourally-distinct working agents; 10 seeds x 2 reciprocal seats per pairing; one isolated process per game",
+ "seeds": [
+  101,
+  202,
+  303,
+  404,
+  505,
+  606,
+  707,
+  808,
+  909,
+  1010
+ ],
+ "games_played": 1820,
+ "errors": 0,
+ "seat_symmetry_warning": "99.7% of seat swaps (907/910) returned byte-identical rewards: this environment is effectively seat-symmetric for deterministic agents, so reciprocal seats DUPLICATE each result rather than adding evidence. Treat 20 matches/opponent as 10 independent games.",
+ "counts": {
+  "ACTIVE_BELOW_GATE": 11,
+  "EXCLUDED_BROKEN": 12,
+  "REMOVED_DUPLICATE": 4,
+  "CHAMPION": 3
+ },
+ "agents": [
+  {
+   "file": "champ_20260908_191956_avg91958.py",
+   "sha256": "db9c7b87f7058f943df201dd2eb5aa83dcaf465d57af949bced56325f58da647",
+   "behaviour_fp": "dff03a8e92fbadbf",
+   "wins": 248,
+   "losses": 12,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.9538,
+   "seat0_win_rate": 0.9538,
+   "seat1_win_rate": 0.9538,
+   "avg_cash": 85049.08,
+   "status": "CHAMPION"
+  },
+  {
+   "file": "champ_20260908_190355_avg92490.py",
+   "sha256": "5c865149398ec68544e927bf965c911e5e70e2443a8e2db069cf55887dc6ef05",
+   "behaviour_fp": "6ff7f69c41090397",
+   "wins": 234,
+   "losses": 26,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.9,
+   "seat0_win_rate": 0.9,
+   "seat1_win_rate": 0.9,
+   "avg_cash": 85056.21,
+   "status": "CHAMPION"
+  },
+  {
+   "file": "champ_20260908_183514_avg93196.py",
+   "sha256": "f4277b10960ceeb9abd06a8fa6029b3e4a1aa3b4e67aaef11cae70cd08786cf6",
+   "behaviour_fp": "e19242c8f15e3e46",
+   "wins": 202,
+   "losses": 58,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.7769,
+   "seat0_win_rate": 0.7769,
+   "seat1_win_rate": 0.7769,
+   "avg_cash": 85112.82,
+   "status": "CHAMPION"
+  },
+  {
+   "file": "champ_20260908_164812_avg94170.py",
+   "sha256": "bf57634e54398013ece8c39c70195bb46841803b6c783c07674865d8e1c1bd10",
+   "behaviour_fp": "3d55e913c55ee5d7",
+   "wins": 186,
+   "losses": 74,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.7154,
+   "seat0_win_rate": 0.7154,
+   "seat1_win_rate": 0.7154,
+   "avg_cash": 85596.0,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_160148_avg97642.py",
+   "sha256": "802cc1660064d2a6e82ec7eef4aef0718f1fde1f07f0e63f9c9c9e4920bcac6d",
+   "behaviour_fp": "39c52b49dd66e71b",
+   "wins": 176,
+   "losses": 84,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.6769,
+   "seat0_win_rate": 0.6769,
+   "seat1_win_rate": 0.6769,
+   "avg_cash": 85268.55,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_155209_avg97958.py",
+   "sha256": "736e4333f526a76b987ce65b31fd992af1c35ebae2b9db265c474bb210b5b8ae",
+   "behaviour_fp": "0634923cfaf6f317",
+   "wins": 156,
+   "losses": 104,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.6,
+   "seat0_win_rate": 0.6,
+   "seat1_win_rate": 0.6,
+   "avg_cash": 85579.06,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_163325_avg95716.py",
+   "sha256": "1399ce8ef205516cd33e1c2ccc06171c54257b12301b1838beb58fed6b905d8a",
+   "behaviour_fp": "02da06df3250e380",
+   "wins": 156,
+   "losses": 104,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.6,
+   "seat0_win_rate": 0.6,
+   "seat1_win_rate": 0.6,
+   "avg_cash": 85330.88,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_150703_avg101195.py",
+   "sha256": "f1f913e44f629312d9a27b832a2d2a59d5621728deb1a4db4b5d8f308bc902ac",
+   "behaviour_fp": "dcdf6b6188681355",
+   "wins": 126,
+   "losses": 134,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.4846,
+   "seat0_win_rate": 0.4846,
+   "seat1_win_rate": 0.4846,
+   "avg_cash": 85403.69,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_160856_avg97915.py",
+   "sha256": "22a0536940806bc0184f1c898c58101f7ab3837d4df37b1cd2b195d6d84675fd",
+   "behaviour_fp": "3db2f929b71ea8d9",
+   "wins": 118,
+   "losses": 142,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.4538,
+   "seat0_win_rate": 0.4538,
+   "seat1_win_rate": 0.4538,
+   "avg_cash": 85161.16,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_20260908_153302_avg99058.py",
+   "sha256": "bc947959c92bb997d75b4eea67db37ec7ed97d34e9951541aa1a7e4619496c36",
+   "behaviour_fp": "0f914114b24e2565",
+   "wins": 98,
+   "losses": 162,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.3769,
+   "seat0_win_rate": 0.3769,
+   "seat1_win_rate": 0.3769,
+   "avg_cash": 85333.21,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_00_initial_seed.py",
+   "sha256": "ec67418fff2ab9b348b0f06a03da81220e5cdf339ec3c0a6247a923fcb2a4a4c",
+   "behaviour_fp": "2f49b9ebd2935faa",
+   "wins": 60,
+   "losses": 200,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.2308,
+   "seat0_win_rate": 0.2308,
+   "seat1_win_rate": 0.2308,
+   "avg_cash": 81815.02,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_lb_1075_gen48.py",
+   "sha256": "ee0b5dfa3635b7d631150194a05066319f452fb3a86668704ca7493e0b86789d",
+   "behaviour_fp": "3bf75971178d6946",
+   "wins": 17,
+   "losses": 225,
+   "ties": 18,
+   "games": 260,
+   "win_rate": 0.0654,
+   "seat0_win_rate": 0.0692,
+   "seat1_win_rate": 0.0615,
+   "avg_cash": 72917.04,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_lb_1075_gen63.py",
+   "sha256": "3adafcd442dde2e88787c1f95834d15fe3b27c98557e679ef8f3c73ee664f3e9",
+   "behaviour_fp": "8e5f2e1e7d5cd21b",
+   "wins": 17,
+   "losses": 225,
+   "ties": 18,
+   "games": 260,
+   "win_rate": 0.0654,
+   "seat0_win_rate": 0.0692,
+   "seat1_win_rate": 0.0615,
+   "avg_cash": 72917.04,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_lb_1131_gen19.py",
+   "sha256": "cbef872ea053e0e04a71d6f8b707d91b1f2f4aadc5a5204f3243bf551c9b435c",
+   "behaviour_fp": "fa7f05c78b0926f8",
+   "wins": 8,
+   "losses": 252,
+   "ties": 0,
+   "games": 260,
+   "win_rate": 0.0308,
+   "seat0_win_rate": 0.0308,
+   "seat1_win_rate": 0.0308,
+   "avg_cash": 73714.08,
+   "status": "ACTIVE_BELOW_GATE"
+  },
+  {
+   "file": "champ_01_purearch.py",
+   "sha256": "4ed29971c4df0e7b1f586b34c48b673589854bafd8995898852bd94b2f048547",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'purearch_opponent'"
+  },
+  {
+   "file": "champ_02_mix_v2.py",
+   "sha256": "18e8edb8ff33231faf607744dda3467c288082c668bf202804fe103158b071f3",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'mix_agent'"
+  },
+  {
+   "file": "champ_03_c27_giulio.py",
+   "sha256": "40b1b877d06634f93b576c24428cb68d75cd9361250662daac3441defe02fb27",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'c27_agent'"
+  },
+  {
+   "file": "champ_04_mohui_v66.py",
+   "sha256": "0bed80fed0c2643fedda6a5477dc2bc4eba869c708eb310ce391e4cbef9a55e6",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'main'"
+  },
+  {
+   "file": "champ_05_tamizh_v13.py",
+   "sha256": "44a3af3bae6a04135fc428789a8ce5ce4e9b90d89e01b55b0d1009ed9aaef0d6",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'submission_candidate_competitive_hybrid_v13'"
+  },
+  {
+   "file": "champ_06_gen253.py",
+   "sha256": "ff9dbed64cb42ca90f963602d717e8209495e4a265a15fb12897f0030b0d308e",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_07_gen126.py",
+   "sha256": "35a309f34ddecf917501768fcbbc06c79887fbbc547b7121a63f87c941a802e8",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_08_gen250.py",
+   "sha256": "08e8e4740074140cfb03e67fc285fb0b1d255addf50eb426e91a5bba7984e8fe",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_09_gen241.py",
+   "status": "REMOVED_DUPLICATE",
+   "reason": "byte-identical",
+   "superseded_by": "champ_08_gen250.py",
+   "sha256": "290d9a3bd2ba52b142295099d6c16e42ad417561494da2bda30f1b42f7f187f4"
+  },
+  {
+   "file": "champ_10_gen104.py",
+   "sha256": "e8d412668cb2997488989619f41f858549f102c2b606a5b3e58afae1b1fa5276",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_11_step550_keiz_dusta.py",
+   "sha256": "da395f36545f7c4a07cd5ecba84012154972b03021ff63846357d3c338f17ab7",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_20260908_162036_avg96363.py",
+   "status": "REMOVED_DUPLICATE",
+   "reason": "identical behaviour",
+   "superseded_by": "champ_20260908_150703_avg101195.py",
+   "sha256": "1fc1b45321a9dc7682cf9494417a1565c91198fb72ae8a6a4cc29ea574bf9e17"
+  },
+  {
+   "file": "champ_20260908_165946_avg94031.py",
+   "status": "REMOVED_DUPLICATE",
+   "reason": "identical behaviour",
+   "superseded_by": "champ_20260908_160148_avg97642.py",
+   "sha256": "060837bae464a83d6f52e39cd26a0b93b445e75abfe48d16a3fed2358f94d4f4"
+  },
+  {
+   "file": "champ_gen208_score816.py",
+   "sha256": "c89bc810fd2a2b2550702cc8e3244755984e2ca32dc4e3a20a7daff090dfcb1e",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_gen72_score858.py",
+   "sha256": "5e27acc23f24d1fed21aeec2de4c84b6ba3b270eb3df52469b4c4e2ff688e62b",
+   "status": "EXCLUDED_BROKEN",
+   "reason": "ModuleNotFoundError: No module named 'torch'"
+  },
+  {
+   "file": "champ_lb_1095_gen21.py",
+   "status": "REMOVED_DUPLICATE",
+   "reason": "identical behaviour",
+   "superseded_by": "champ_lb_1131_gen19.py",
+   "sha256": "f08a1a16788201e9ce8d1a711bffa396e03a0816029c4cf6692999403de7c2db"
+  }
+ ]
+}

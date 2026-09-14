@@ -1,0 +1,972 @@
+[
+ {
+  "id": 108806938,
+  "time": "2026-09-14T06:02:55.646Z",
+  "seat": 0,
+  "me": 60838,
+  "opp": 75569,
+  "opp_team": "Thomas Tschinkel",
+  "opp_rating": 2622.1,
+  "won": false
+ },
+ {
+  "id": 108805904,
+  "time": "2026-09-14T05:58:55.970Z",
+  "seat": 0,
+  "me": 64011,
+  "opp": 88444,
+  "opp_team": "Pilea55",
+  "opp_rating": 2864.9,
+  "won": false
+ },
+ {
+  "id": 108783362,
+  "time": "2026-09-14T04:30:45.595Z",
+  "seat": 0,
+  "me": 96448,
+  "opp": 97047,
+  "opp_team": "LP",
+  "opp_rating": 2673.0,
+  "won": false
+ },
+ {
+  "id": 108780902,
+  "time": "2026-09-14T04:18:55.522Z",
+  "seat": 1,
+  "me": 111571,
+  "opp": 91854,
+  "opp_team": "Vladimir Babin",
+  "opp_rating": 1400.4,
+  "won": true
+ },
+ {
+  "id": 108751077,
+  "time": "2026-09-14T02:22:50.688Z",
+  "seat": 0,
+  "me": 118681,
+  "opp": 117396,
+  "opp_team": "nmdcddwzml",
+  "opp_rating": 1428.9,
+  "won": true
+ },
+ {
+  "id": 108721486,
+  "time": "2026-09-14T00:26:44.421Z",
+  "seat": 1,
+  "me": 145389,
+  "opp": 123807,
+  "opp_team": "datnt114",
+  "opp_rating": 2678.6,
+  "won": true
+ },
+ {
+  "id": 108691315,
+  "time": "2026-09-13T22:30:47.013Z",
+  "seat": 0,
+  "me": 65766,
+  "opp": 99054,
+  "opp_team": "Caio Ruiz",
+  "opp_rating": 2088.9,
+  "won": false
+ },
+ {
+  "id": 108689259,
+  "time": "2026-09-13T22:22:44.290Z",
+  "seat": 1,
+  "me": 69991,
+  "opp": 101543,
+  "opp_team": "Whyme Labs",
+  "opp_rating": 2178.9,
+  "won": false
+ },
+ {
+  "id": 108683724,
+  "time": "2026-09-13T21:58:48.689Z",
+  "seat": 0,
+  "me": 96941,
+  "opp": 100499,
+  "opp_team": "mararaa",
+  "opp_rating": 1436.4,
+  "won": false
+ },
+ {
+  "id": 108670380,
+  "time": "2026-09-13T21:06:47.678Z",
+  "seat": 1,
+  "me": 82752,
+  "opp": 78507,
+  "opp_team": "AidenSong123",
+  "opp_rating": 1935.7,
+  "won": true
+ },
+ {
+  "id": 108640400,
+  "time": "2026-09-13T19:10:43.360Z",
+  "seat": 0,
+  "me": 33980,
+  "opp": 53738,
+  "opp_team": "Tavuk Master",
+  "opp_rating": 2415.8,
+  "won": false
+ },
+ {
+  "id": 108623199,
+  "time": "2026-09-13T18:02:47.285Z",
+  "seat": 0,
+  "me": 76595,
+  "opp": 74330,
+  "opp_team": "sissoko cheick",
+  "opp_rating": 1484.5,
+  "won": true
+ },
+ {
+  "id": 108619797,
+  "time": "2026-09-13T17:46:43.822Z",
+  "seat": 0,
+  "me": 51078,
+  "opp": 61296,
+  "opp_team": "stnick",
+  "opp_rating": 1500.0,
+  "won": false
+ },
+ {
+  "id": 108613475,
+  "time": "2026-09-13T17:22:44.192Z",
+  "seat": 0,
+  "me": 187024,
+  "opp": 10906,
+  "opp_team": "Flowers",
+  "opp_rating": 1354.0,
+  "won": true
+ },
+ {
+  "id": 108582845,
+  "time": "2026-09-13T15:22:44.394Z",
+  "seat": 0,
+  "me": 104879,
+  "opp": 113515,
+  "opp_team": "SHIVAJI SHAIK",
+  "opp_rating": 1364.8,
+  "won": false
+ },
+ {
+  "id": 108580557,
+  "time": "2026-09-13T15:14:45.835Z",
+  "seat": 1,
+  "me": 73958,
+  "opp": 70066,
+  "opp_team": "datnt114",
+  "opp_rating": 2678.6,
+  "won": true
+ },
+ {
+  "id": 108564564,
+  "time": "2026-09-13T14:10:40.934Z",
+  "seat": 1,
+  "me": 101116,
+  "opp": 104079,
+  "opp_team": "cununn",
+  "opp_rating": 1467.6,
+  "won": false
+ },
+ {
+  "id": 108563239,
+  "time": "2026-09-13T14:06:40.879Z",
+  "seat": 0,
+  "me": 77108,
+  "opp": 86967,
+  "opp_team": "kumanomi",
+  "opp_rating": 1485.2,
+  "won": false
+ },
+ {
+  "id": 108549214,
+  "time": "2026-09-13T13:10:43.382Z",
+  "seat": 1,
+  "me": 94369,
+  "opp": 93683,
+  "opp_team": "Bx LLLLLLLL",
+  "opp_rating": 1454.3,
+  "won": true
+ },
+ {
+  "id": 108518083,
+  "time": "2026-09-13T11:10:42.269Z",
+  "seat": 0,
+  "me": 35963,
+  "opp": 105294,
+  "opp_team": "Manurupan M",
+  "opp_rating": 1647.7,
+  "won": false
+ },
+ {
+  "id": 108508913,
+  "time": "2026-09-13T10:34:43.374Z",
+  "seat": 1,
+  "me": 107328,
+  "opp": 151759,
+  "opp_team": "Field General",
+  "opp_rating": 2371.6,
+  "won": false
+ },
+ {
+  "id": 108504222,
+  "time": "2026-09-13T10:14:39.091Z",
+  "seat": 0,
+  "me": 79446,
+  "opp": 105522,
+  "opp_team": "nofreewill42",
+  "opp_rating": 2668.0,
+  "won": false
+ },
+ {
+  "id": 108484321,
+  "time": "2026-09-13T08:54:47.189Z",
+  "seat": 0,
+  "me": 85941,
+  "opp": 100649,
+  "opp_team": "yvn kaggriculture",
+  "opp_rating": 1495.1,
+  "won": false
+ },
+ {
+  "id": 108471341,
+  "time": "2026-09-13T08:06:42.811Z",
+  "seat": 1,
+  "me": 52970,
+  "opp": 147079,
+  "opp_team": "Raihan Ramadistra",
+  "opp_rating": 2693.9,
+  "won": false
+ },
+ {
+  "id": 108467671,
+  "time": "2026-09-13T07:50:38.526Z",
+  "seat": 1,
+  "me": 97698,
+  "opp": 81312,
+  "opp_team": "JohnBlake",
+  "opp_rating": 1505.5,
+  "won": true
+ },
+ {
+  "id": 108457148,
+  "time": "2026-09-13T07:10:37.974Z",
+  "seat": 1,
+  "me": 93885,
+  "opp": 145498,
+  "opp_team": "AkiraIshikawa",
+  "opp_rating": 2626.2,
+  "won": false
+ },
+ {
+  "id": 108438185,
+  "time": "2026-09-13T05:54:40.229Z",
+  "seat": 0,
+  "me": 76071,
+  "opp": 109840,
+  "opp_team": "Asterios Terzis",
+  "opp_rating": 2143.0,
+  "won": false
+ },
+ {
+  "id": 108437365,
+  "time": "2026-09-13T05:50:42.293Z",
+  "seat": 0,
+  "me": 123937,
+  "opp": 94119,
+  "opp_team": "WLYYYo",
+  "opp_rating": 1395.2,
+  "won": true
+ },
+ {
+  "id": 108434428,
+  "time": "2026-09-13T05:38:43.488Z",
+  "seat": 0,
+  "me": 93976,
+  "opp": 90708,
+  "opp_team": "ocean240812",
+  "opp_rating": 1622.2,
+  "won": true
+ },
+ {
+  "id": 108433300,
+  "time": "2026-09-13T05:34:42.838Z",
+  "seat": 1,
+  "me": 128163,
+  "opp": 131534,
+  "opp_team": "jasonstillchasin",
+  "opp_rating": 2349.2,
+  "won": false
+ },
+ {
+  "id": 108429852,
+  "time": "2026-09-13T05:22:43.960Z",
+  "seat": 1,
+  "me": 103347,
+  "opp": 142644,
+  "opp_team": "kobayasi",
+  "opp_rating": 2501.7,
+  "won": false
+ },
+ {
+  "id": 108428967,
+  "time": "2026-09-13T05:18:40.108Z",
+  "seat": 0,
+  "me": 103485,
+  "opp": 106247,
+  "opp_team": "sime_saba",
+  "opp_rating": 2243.0,
+  "won": false
+ },
+ {
+  "id": 108423275,
+  "time": "2026-09-13T04:54:45.278Z",
+  "seat": 0,
+  "me": 84159,
+  "opp": 83741,
+  "opp_team": "Kers Aoyagi",
+  "opp_rating": 1502.0,
+  "won": true
+ },
+ {
+  "id": 108423029,
+  "time": "2026-09-13T04:54:44.908Z",
+  "seat": 0,
+  "me": 53148,
+  "opp": 54875,
+  "opp_team": "alexbstl",
+  "opp_rating": 1543.4,
+  "won": false
+ },
+ {
+  "id": 108422274,
+  "time": "2026-09-13T04:50:40.597Z",
+  "seat": 0,
+  "me": 36640,
+  "opp": 64974,
+  "opp_team": "crasal",
+  "opp_rating": 1572.7,
+  "won": false
+ },
+ {
+  "id": 108405086,
+  "time": "2026-09-13T03:42:39.373Z",
+  "seat": 1,
+  "me": 56340,
+  "opp": 54531,
+  "opp_team": "dengddd",
+  "opp_rating": 1444.9,
+  "won": true
+ },
+ {
+  "id": 108390128,
+  "time": "2026-09-13T02:42:44.181Z",
+  "seat": 1,
+  "me": 68461,
+  "opp": 71148,
+  "opp_team": "Timass",
+  "opp_rating": 1416.9,
+  "won": false
+ },
+ {
+  "id": 108378921,
+  "time": "2026-09-13T01:58:34.824Z",
+  "seat": 0,
+  "me": 89142,
+  "opp": 102317,
+  "opp_team": "Iliamna",
+  "opp_rating": 1413.5,
+  "won": false
+ },
+ {
+  "id": 108373687,
+  "time": "2026-09-13T01:38:35.496Z",
+  "seat": 1,
+  "me": 97851,
+  "opp": 102898,
+  "opp_team": "Dmitry Bardonov",
+  "opp_rating": 2064.7,
+  "won": false
+ },
+ {
+  "id": 108372664,
+  "time": "2026-09-13T01:34:37.236Z",
+  "seat": 1,
+  "me": 69559,
+  "opp": 69934,
+  "opp_team": "nmdcddwzml",
+  "opp_rating": 1428.9,
+  "won": false
+ },
+ {
+  "id": 108371656,
+  "time": "2026-09-13T01:30:34.592Z",
+  "seat": 1,
+  "me": 104609,
+  "opp": 75734,
+  "opp_team": "sissoko cheick",
+  "opp_rating": 1484.5,
+  "won": true
+ },
+ {
+  "id": 108370635,
+  "time": "2026-09-13T01:26:34.081Z",
+  "seat": 1,
+  "me": 58640,
+  "opp": 59630,
+  "opp_team": "Ikki Katsuyama",
+  "opp_rating": 1466.8,
+  "won": false
+ },
+ {
+  "id": 108369633,
+  "time": "2026-09-13T01:22:34.013Z",
+  "seat": 0,
+  "me": 47250,
+  "opp": 37684,
+  "opp_team": "Meteor",
+  "opp_rating": 1467.0,
+  "won": true
+ },
+ {
+  "id": 108368628,
+  "time": "2026-09-13T01:18:34.783Z",
+  "seat": 1,
+  "me": 74332,
+  "opp": 87164,
+  "opp_team": "xiannaix",
+  "opp_rating": 1437.8,
+  "won": false
+ },
+ {
+  "id": 108367693,
+  "time": "2026-09-13T01:14:35.717Z",
+  "seat": 1,
+  "me": 72978,
+  "opp": 69522,
+  "opp_team": "Zimin Zhong",
+  "opp_rating": 1428.7,
+  "won": true
+ },
+ {
+  "id": 108366606,
+  "time": "2026-09-13T01:10:36.430Z",
+  "seat": 1,
+  "me": 125193,
+  "opp": 29885,
+  "opp_team": "Elvern Neylmav Tanny",
+  "opp_rating": 2497.2,
+  "won": true
+ },
+ {
+  "id": 108365597,
+  "time": "2026-09-13T01:06:34.695Z",
+  "seat": 0,
+  "me": 157013,
+  "opp": 36287,
+  "opp_team": "souju00",
+  "opp_rating": 1355.8,
+  "won": true
+ },
+ {
+  "id": 108364584,
+  "time": "2026-09-13T01:02:34.392Z",
+  "seat": 0,
+  "me": 158991,
+  "opp": 9072,
+  "opp_team": "\u5c0f\u7b49\u7b49",
+  "opp_rating": 1335.4,
+  "won": true
+ },
+ {
+  "id": 108363573,
+  "time": "2026-09-13T00:58:36.443Z",
+  "seat": 0,
+  "me": 90415,
+  "opp": 102661,
+  "opp_team": "Yusaku Muroya",
+  "opp_rating": 1526.2,
+  "won": false
+ },
+ {
+  "id": 108362569,
+  "time": "2026-09-13T00:54:35.050Z",
+  "seat": 1,
+  "me": 132782,
+  "opp": 33722,
+  "opp_team": "rhythm master",
+  "opp_rating": 1373.7,
+  "won": true
+ },
+ {
+  "id": 108361535,
+  "time": "2026-09-13T00:50:37.676Z",
+  "seat": 1,
+  "me": 90556,
+  "opp": 125830,
+  "opp_team": "Manish Kumar Maurya",
+  "opp_rating": 1360.8,
+  "won": false
+ },
+ {
+  "id": 108360528,
+  "time": "2026-09-13T00:46:38.629Z",
+  "seat": 0,
+  "me": 47581,
+  "opp": 49190,
+  "opp_team": "miya",
+  "opp_rating": 1912.5,
+  "won": false
+ },
+ {
+  "id": 108359523,
+  "time": "2026-09-13T00:42:35.012Z",
+  "seat": 0,
+  "me": 94428,
+  "opp": 98467,
+  "opp_team": "Harvest Sun",
+  "opp_rating": 1681.8,
+  "won": false
+ },
+ {
+  "id": 108358496,
+  "time": "2026-09-13T00:38:38.012Z",
+  "seat": 0,
+  "me": 47303,
+  "opp": 54343,
+  "opp_team": "Ying Li",
+  "opp_rating": 1421.9,
+  "won": false
+ },
+ {
+  "id": 108357486,
+  "time": "2026-09-13T00:34:35.195Z",
+  "seat": 0,
+  "me": 69781,
+  "opp": 74722,
+  "opp_team": "Gould Research",
+  "opp_rating": 1521.4,
+  "won": false
+ },
+ {
+  "id": 108356474,
+  "time": "2026-09-13T00:30:39.382Z",
+  "seat": 0,
+  "me": 102481,
+  "opp": 86145,
+  "opp_team": "Michael Silverblatt",
+  "opp_rating": 1501.5,
+  "won": true
+ },
+ {
+  "id": 108355458,
+  "time": "2026-09-13T00:26:34.081Z",
+  "seat": 1,
+  "me": 70230,
+  "opp": 81418,
+  "opp_team": "zero waste",
+  "opp_rating": 1533.5,
+  "won": false
+ },
+ {
+  "id": 108354449,
+  "time": "2026-09-13T00:22:38.388Z",
+  "seat": 0,
+  "me": 46743,
+  "opp": 42147,
+  "opp_team": "Indium AI Labs",
+  "opp_rating": 1467.0,
+  "won": true
+ },
+ {
+  "id": 108353445,
+  "time": "2026-09-13T00:18:36.382Z",
+  "seat": 0,
+  "me": 67476,
+  "opp": 67111,
+  "opp_team": "auhulu",
+  "opp_rating": 1410.9,
+  "won": true
+ },
+ {
+  "id": 108352400,
+  "time": "2026-09-13T00:14:34.627Z",
+  "seat": 0,
+  "me": 80016,
+  "opp": 92191,
+  "opp_team": "Meteor",
+  "opp_rating": 1467.0,
+  "won": false
+ },
+ {
+  "id": 108351403,
+  "time": "2026-09-13T00:10:34.924Z",
+  "seat": 0,
+  "me": 82874,
+  "opp": 82322,
+  "opp_team": "tomo11111",
+  "opp_rating": 1468.9,
+  "won": true
+ },
+ {
+  "id": 108350365,
+  "time": "2026-09-13T00:06:37.809Z",
+  "seat": 1,
+  "me": 51853,
+  "opp": 62889,
+  "opp_team": "zhangzhuang li",
+  "opp_rating": 1467.3,
+  "won": false
+ },
+ {
+  "id": 108349317,
+  "time": "2026-09-13T00:02:34.490Z",
+  "seat": 0,
+  "me": 90719,
+  "opp": 88805,
+  "opp_team": "JeremiahMannings",
+  "opp_rating": 1936.2,
+  "won": true
+ },
+ {
+  "id": 108348253,
+  "time": "2026-09-12T23:58:35.928Z",
+  "seat": 0,
+  "me": 102431,
+  "opp": 138058,
+  "opp_team": "Audric LOKO",
+  "opp_rating": 2116.2,
+  "won": false
+ },
+ {
+  "id": 108347247,
+  "time": "2026-09-12T23:54:35.118Z",
+  "seat": 0,
+  "me": 55638,
+  "opp": 55660,
+  "opp_team": "\u738b\u5b50\u94d6",
+  "opp_rating": 1449.9,
+  "won": false
+ },
+ {
+  "id": 108346237,
+  "time": "2026-09-12T23:50:36.519Z",
+  "seat": 1,
+  "me": 70722,
+  "opp": 71865,
+  "opp_team": "straw hats",
+  "opp_rating": 1455.4,
+  "won": false
+ },
+ {
+  "id": 108345223,
+  "time": "2026-09-12T23:46:45.534Z",
+  "seat": 0,
+  "me": 105963,
+  "opp": 89670,
+  "opp_team": "Niu Yuanfang",
+  "opp_rating": 1469.1,
+  "won": true
+ },
+ {
+  "id": 108344206,
+  "time": "2026-09-12T23:42:35.815Z",
+  "seat": 1,
+  "me": 36808,
+  "opp": 75993,
+  "opp_team": "Alan",
+  "opp_rating": 2736.6,
+  "won": false
+ },
+ {
+  "id": 108343206,
+  "time": "2026-09-12T23:38:37.528Z",
+  "seat": 0,
+  "me": 58576,
+  "opp": 59646,
+  "opp_team": "JungHwan",
+  "opp_rating": 1569.6,
+  "won": false
+ },
+ {
+  "id": 108342226,
+  "time": "2026-09-12T23:34:37.144Z",
+  "seat": 1,
+  "me": 97967,
+  "opp": 93565,
+  "opp_team": "animal crossing",
+  "opp_rating": 2427.7,
+  "won": true
+ },
+ {
+  "id": 108341158,
+  "time": "2026-09-12T23:30:39.591Z",
+  "seat": 1,
+  "me": 86204,
+  "opp": 97738,
+  "opp_team": "pan6628",
+  "opp_rating": 1568.3,
+  "won": false
+ },
+ {
+  "id": 108340176,
+  "time": "2026-09-12T23:26:39.193Z",
+  "seat": 0,
+  "me": 97139,
+  "opp": 88625,
+  "opp_team": "pohang milk collector",
+  "opp_rating": 1430.2,
+  "won": true
+ },
+ {
+  "id": 108339164,
+  "time": "2026-09-12T23:22:38.584Z",
+  "seat": 1,
+  "me": 111374,
+  "opp": 35440,
+  "opp_team": "Raggriculture",
+  "opp_rating": 1400.4,
+  "won": true
+ },
+ {
+  "id": 108338169,
+  "time": "2026-09-12T23:18:36.600Z",
+  "seat": 0,
+  "me": 73855,
+  "opp": 84510,
+  "opp_team": "Tangruichen",
+  "opp_rating": 1444.0,
+  "won": false
+ },
+ {
+  "id": 108337110,
+  "time": "2026-09-12T23:14:36.238Z",
+  "seat": 1,
+  "me": 77793,
+  "opp": 74653,
+  "opp_team": "Timass",
+  "opp_rating": 1416.9,
+  "won": true
+ },
+ {
+  "id": 108336159,
+  "time": "2026-09-12T23:10:36.979Z",
+  "seat": 1,
+  "me": 101500,
+  "opp": 115942,
+  "opp_team": "Shoko",
+  "opp_rating": 1438.6,
+  "won": false
+ },
+ {
+  "id": 108335150,
+  "time": "2026-09-12T23:06:37.106Z",
+  "seat": 0,
+  "me": 113244,
+  "opp": 106388,
+  "opp_team": "payne yam",
+  "opp_rating": 1476.7,
+  "won": true
+ },
+ {
+  "id": 108334142,
+  "time": "2026-09-12T23:02:34.604Z",
+  "seat": 0,
+  "me": 75454,
+  "opp": 77006,
+  "opp_team": "XuanxuChem",
+  "opp_rating": 1495.2,
+  "won": false
+ },
+ {
+  "id": 108333112,
+  "time": "2026-09-12T22:58:36.082Z",
+  "seat": 0,
+  "me": 92487,
+  "opp": 86858,
+  "opp_team": "Amy Yuan",
+  "opp_rating": 1447.4,
+  "won": true
+ },
+ {
+  "id": 108332171,
+  "time": "2026-09-12T22:54:38.607Z",
+  "seat": 1,
+  "me": 72502,
+  "opp": 194011,
+  "opp_team": "hank0123",
+  "opp_rating": 2511.8,
+  "won": false
+ },
+ {
+  "id": 108332127,
+  "time": "2026-09-12T22:54:38.581Z",
+  "seat": 0,
+  "me": 39615,
+  "opp": 40587,
+  "opp_team": "inny",
+  "opp_rating": 1422.6,
+  "won": false
+ },
+ {
+  "id": 108331080,
+  "time": "2026-09-12T22:50:35.301Z",
+  "seat": 0,
+  "me": 66623,
+  "opp": 67742,
+  "opp_team": "James Michael",
+  "opp_rating": 1423.3,
+  "won": false
+ },
+ {
+  "id": 108330073,
+  "time": "2026-09-12T22:46:37.610Z",
+  "seat": 1,
+  "me": 72646,
+  "opp": 71903,
+  "opp_team": "\u8584\u548c\u53f6 Lv.INF",
+  "opp_rating": 1556.4,
+  "won": true
+ },
+ {
+  "id": 108329088,
+  "time": "2026-09-12T22:42:38.333Z",
+  "seat": 0,
+  "me": 63294,
+  "opp": 84640,
+  "opp_team": "Azamat Sadikov",
+  "opp_rating": 2591.4,
+  "won": false
+ },
+ {
+  "id": 108328047,
+  "time": "2026-09-12T22:38:48.310Z",
+  "seat": 0,
+  "me": 83109,
+  "opp": 78578,
+  "opp_team": "Alexander R Luz",
+  "opp_rating": 1408.9,
+  "won": true
+ },
+ {
+  "id": 108327034,
+  "time": "2026-09-12T22:34:38.623Z",
+  "seat": 0,
+  "me": 114502,
+  "opp": 101880,
+  "opp_team": "Aleks Lviv",
+  "opp_rating": 1252.2,
+  "won": true
+ },
+ {
+  "id": 108326007,
+  "time": "2026-09-12T22:30:36.947Z",
+  "seat": 0,
+  "me": 116830,
+  "opp": 99159,
+  "opp_team": "XD tsui",
+  "opp_rating": 1389.4,
+  "won": true
+ },
+ {
+  "id": 108324993,
+  "time": "2026-09-12T22:26:40.351Z",
+  "seat": 0,
+  "me": 43750,
+  "opp": 45754,
+  "opp_team": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+  "opp_rating": 1443.4,
+  "won": false
+ },
+ {
+  "id": 108323975,
+  "time": "2026-09-12T22:22:36.098Z",
+  "seat": 0,
+  "me": 123029,
+  "opp": 107902,
+  "opp_team": "nir afek",
+  "opp_rating": 1367.9,
+  "won": true
+ },
+ {
+  "id": 108322972,
+  "time": "2026-09-12T22:18:39.554Z",
+  "seat": 0,
+  "me": 74843,
+  "opp": 78318,
+  "opp_team": "thenokol",
+  "opp_rating": 1462.8,
+  "won": false
+ },
+ {
+  "id": 108321975,
+  "time": "2026-09-12T22:14:41.049Z",
+  "seat": 1,
+  "me": 72042,
+  "opp": 58431,
+  "opp_team": "MD Zeeshan",
+  "opp_rating": 1182.9,
+  "won": true
+ },
+ {
+  "id": 108320990,
+  "time": "2026-09-12T22:10:37.069Z",
+  "seat": 0,
+  "me": 106627,
+  "opp": 88975,
+  "opp_team": "wangxt1",
+  "opp_rating": 1235.0,
+  "won": true
+ },
+ {
+  "id": 108319979,
+  "time": "2026-09-12T22:06:38.350Z",
+  "seat": 0,
+  "me": 113920,
+  "opp": 78971,
+  "opp_team": "Mike Mordetsky",
+  "opp_rating": 1124.7,
+  "won": true
+ },
+ {
+  "id": 108318991,
+  "time": "2026-09-12T22:02:40.576Z",
+  "seat": 0,
+  "me": 96242,
+  "opp": 65395,
+  "opp_team": "Muhiminul Islam   Mahim",
+  "opp_rating": 946.8,
+  "won": true
+ },
+ {
+  "id": 108318007,
+  "time": "2026-09-12T21:58:40.411Z",
+  "seat": 1,
+  "me": 57863,
+  "opp": 25086,
+  "opp_team": "Straw Hat",
+  "opp_rating": 885.6,
+  "won": true
+ },
+ {
+  "id": 108317000,
+  "time": "2026-09-12T21:54:35.998Z",
+  "seat": 0,
+  "me": 118596,
+  "opp": 92728,
+  "opp_team": "Taras Sam",
+  "opp_rating": 815.2,
+  "won": true
+ },
+ {
+  "id": 108316015,
+  "time": "2026-09-12T21:50:36.184Z",
+  "seat": 0,
+  "me": 160080,
+  "opp": 57951,
+  "opp_team": "ZSZ",
+  "opp_rating": 566.8,
+  "won": true
+ }
+]

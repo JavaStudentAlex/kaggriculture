@@ -1,0 +1,83 @@
+{
+ "generated": "2026-09-09T23:02:09",
+ "purpose": "Active champion pool used by evaluate.py (HISTORY_DIR). roster/ is the full archive.",
+ "selection": "difficulty + distinctness, not rank: field is 97.1% transitive (6 upsets/210 pairs), so lower-ranked agents add games without adding selection pressure. Top-10 median similarity as opponents is 89%, so rank alone would buy one axis of difficulty.",
+ "evidence": "4200 games, 21 agents, 10 seeds x 2 seats per pairing, 0 errors",
+ "cost": "8 champions x 40 matches = 320 games per candidate evaluation",
+ "excluded": "ranks 11-21 sit >=1103 BT-Elo below rank 10 and lose 59-89% of games",
+ "members": [
+  {
+   "file": "champ_20260912_161630_avg82113.py",
+   "roster_rank": null,
+   "reason": "crowned by evaluate.py during run 2 (gen 33, dynamic_shop_batch_sizing, 16:16 UTC): 77.1% (216W-64L) vs the seven-pool, $82,113, seat0 76%/seat1 78%; 40-0 vs seed and 153302, 35-5 vs 150703, 27-13 vs 183514, 25-15/25-15 vs 190355/191956, 24-15-1T vs gen62. First program to pass the 75% gate. Uses the order-flow oracle. Every later run-2 program was scored against the eight-pool including this one (best of them 20-20 to 22-18 against it).",
+   "bt_elo": null,
+   "tournament_win_rate": null,
+   "eval_win_rate_vs_pool7": 0.7714,
+   "avg_cash": 82113,
+   "source": "run 2 (2026-09-12, started 14:31 UTC, stopped 19:01 UTC at 93/200 generations) gen 33; copies: this file, roster/, top/run2_2026-09-12/gen_33/main.py, shinka_results/best/main.py",
+   "added": "2026-09-12",
+   "sha256": "66ad4552b094d2f432b1abd19768245fe991ed59f911ff47771b7ee5084c7fdd"
+  },
+  {
+   "file": "champ_20260912_gen62_avg82350.py",
+   "roster_rank": null,
+   "reason": "best program of the 2026-09-12 Shinka run (gen 62, oracle_cadence_bypass_and_idle): 73.3% (176W-64L) vs the six-pool, $82,350; 40-0 vs seed and 153302, 28-12 vs 150703, 24-16/22-18/22-18 vs 183514/190355/191956. Hand-promoted (below the 75% crowning gate); uses the order-flow oracle. The other >=70% programs of that run are behavioural clones of it and were not added.",
+   "bt_elo": null,
+   "tournament_win_rate": null,
+   "eval_win_rate_vs_pool6": 0.7333,
+   "avg_cash": 82350,
+   "source": "run 1 (2026-09-12, 100 generations) gen 62; the run's artifacts were deleted on 2026-09-12, this file (sha256 below) and shinka/evolution/initial.py (the seed of run 2) are the copies",
+   "added": "2026-09-12",
+   "sha256": "3da587d76bf172a256aa51ece00a7c73648229bd3d4961069c1e913cda496b06"
+  },
+  {
+   "file": "champ_20260908_191956_avg91958.py",
+   "roster_rank": 1,
+   "reason": "strongest; the binding constraint",
+   "bt_elo": 0,
+   "tournament_win_rate": 0.97,
+   "sha256": "db9c7b87f7058f943df201dd2eb5aa83dcaf465d57af949bced56325f58da647"
+  },
+  {
+   "file": "champ_20260908_190355_avg92490.py",
+   "roster_rank": 2,
+   "reason": "only agent that takes 20% off #1",
+   "bt_elo": -140,
+   "tournament_win_rate": 0.935,
+   "sha256": "5c865149398ec68544e927bf965c911e5e70e2443a8e2db069cf55887dc6ef05"
+  },
+  {
+   "file": "champ_20260908_183514_avg93196.py",
+   "roster_rank": 3,
+   "reason": "graded difficulty step below #2",
+   "bt_elo": -371,
+   "tournament_win_rate": 0.855,
+   "sha256": "f4277b10960ceeb9abd06a8fa6029b3e4a1aa3b4e67aaef11cae70cd08786cf6"
+  },
+  {
+   "file": "champ_20260908_150703_avg101195.py",
+   "roster_rank": 8,
+   "reason": "takes 10% off #1 despite ranking 8th",
+   "bt_elo": -792,
+   "tournament_win_rate": 0.665,
+   "sha256": "f1f913e44f629312d9a27b832a2d2a59d5621728deb1a4db4b5d8f308bc902ac"
+  },
+  {
+   "file": "champ_20260908_153302_avg99058.py",
+   "roster_rank": 10,
+   "reason": "most behaviourally distinct opponent (58-68% agreement)",
+   "bt_elo": -990,
+   "tournament_win_rate": 0.595,
+   "sha256": "bc947959c92bb997d75b4eea67db37ec7ed97d34e9951541aa1a7e4619496c36"
+  },
+  {
+   "file": "champ_00_initial_seed.py",
+   "roster_rank": 13,
+   "reason": "regression floor: losing to the seed means broken",
+   "bt_elo": -2142,
+   "tournament_win_rate": 0.395,
+   "sha256": "ec67418fff2ab9b348b0f06a03da81220e5cdf339ec3c0a6247a923fcb2a4a4c"
+  }
+ ],
+ "updated": "2026-09-12T19:06:25"
+}

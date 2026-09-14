@@ -1,0 +1,211 @@
+{
+ "rule": "Every champion has a neutral two-word codename (letters only; none of gen/score/win/oracle/shinka; no mechanism in the name) - the same rule submissions/make_submission.py enforces for public names. pool/ and roster/ keep the evaluator's champ_<timestamp>_avg<cash>.py file names because POOL.json and the game log reference them; this file is the mapping.",
+ "retired_names": {
+  "Harvest Meridian": "pre-oracle 2026-09-09 gen 60 submission package (removed 2026-09-14)",
+  "Field Current": "pre-oracle 2026-09-09 gen 58 submission package (removed 2026-09-14)"
+ },
+ "champions": [
+  {
+   "codename": "First Furrow",
+   "file": "pool/champ_00_initial_seed.py",
+   "also": [
+    "roster/champ_00_initial_seed.py"
+   ],
+   "origin": "the initial seed (Mohui v66 backbone + Keiz opening); regression floor of the pool",
+   "pool_role": "regression floor: losing to the seed means broken",
+   "sha256": "ec67418fff2ab9b348b0f06a03da81220e5cdf339ec3c0a6247a923fcb2a4a4c",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Cider Ridge",
+   "file": "pool/champ_20260908_191956_avg91958.py",
+   "also": [
+    "roster/champ_20260908_191956_avg91958.py"
+   ],
+   "origin": "2026-09-08 grandmaster-seed run; roster rank 1 of the 09-09 round-robin (the binding constraint)",
+   "pool_role": "strongest; the binding constraint",
+   "sha256": "db9c7b87f7058f943df201dd2eb5aa83dcaf465d57af949bced56325f58da647",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Slate Pasture",
+   "file": "pool/champ_20260908_190355_avg92490.py",
+   "also": [
+    "roster/champ_20260908_190355_avg92490.py"
+   ],
+   "origin": "2026-09-08 run; roster rank 2 (only agent that takes 20 % off rank 1)",
+   "pool_role": "only agent that takes 20% off #1",
+   "sha256": "5c865149398ec68544e927bf965c911e5e70e2443a8e2db069cf55887dc6ef05",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Clover Bank",
+   "file": "pool/champ_20260908_183514_avg93196.py",
+   "also": [
+    "roster/champ_20260908_183514_avg93196.py"
+   ],
+   "origin": "2026-09-08 run; roster rank 3 (graded difficulty step below rank 2)",
+   "pool_role": "graded difficulty step below #2",
+   "sha256": "f4277b10960ceeb9abd06a8fa6029b3e4a1aa3b4e67aaef11cae70cd08786cf6",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Willow Ford",
+   "file": "pool/champ_20260908_150703_avg101195.py",
+   "also": [
+    "roster/champ_20260908_150703_avg101195.py"
+   ],
+   "origin": "2026-09-08 run; roster rank 8 (takes 10 % off rank 1 despite ranking 8th)",
+   "pool_role": "takes 10% off #1 despite ranking 8th",
+   "sha256": "f1f913e44f629312d9a27b832a2d2a59d5621728deb1a4db4b5d8f308bc902ac",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Birch Hollow",
+   "file": "pool/champ_20260908_153302_avg99058.py",
+   "also": [
+    "roster/champ_20260908_153302_avg99058.py"
+   ],
+   "origin": "2026-09-08 run; roster rank 10 (most behaviourally distinct opponent, 58-68 % agreement)",
+   "pool_role": "most behaviourally distinct opponent (58-68% agreement)",
+   "sha256": "bc947959c92bb997d75b4eea67db37ec7ed97d34e9951541aa1a7e4619496c36",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Amber Loft",
+   "file": "pool/champ_20260912_gen62_avg82350.py",
+   "also": [
+    "roster/champ_20260912_gen62_avg82350.py"
+   ],
+   "origin": "run 1 (2026-09-12) gen 62 oracle_cadence_bypass_and_idle: 73.3 % vs the six-pool, $82,350; seed of run 2",
+   "pool_role": "best program of the 2026-09-12 Shinka run (gen 62, oracle_cadence_bypass_and_idle): 73.3% (176W-64L) vs the six-pool, $82,350; 40-0 vs seed and 153302, 28-12 vs 150703, 24-16/22-18/22-18 vs 183514/190355/191956. Hand-promoted (below the 75% crowning gate); uses the order-flow oracle. The other >=70% programs of that run are behavioural clones of it and were not added.",
+   "sha256": "3da587d76bf172a256aa51ece00a7c73648229bd3d4961069c1e913cda496b06",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Orchard Tide",
+   "file": "pool/champ_20260912_161630_avg82113.py",
+   "also": [
+    "roster/champ_20260912_161630_avg82113.py",
+    "top/run2_2026-09-12/gen_33/main.py",
+    "submissions/orchard_tide/champion_gen33.py"
+   ],
+   "origin": "run 2 (2026-09-12) gen 33 dynamic_shop_batch_sizing: crowned 77.1 % vs the seven-pool; Kaggle submission 56193386; seed of run 3",
+   "pool_role": "crowned by evaluate.py during run 2 (gen 33, dynamic_shop_batch_sizing, 16:16 UTC): 77.1% (216W-64L) vs the seven-pool, $82,113, seat0 76%/seat1 78%; 40-0 vs seed and 153302, 35-5 vs 150703, 27-13 vs 183514, 25-15/25-15 vs 190355/191956, 24-15-1T vs gen62. First program to pass the 75% gate. Uses the order-flow oracle. Every later run-2 program was scored against the eight-pool including this one (best of them 20-20 to 22-18 against it).",
+   "sha256": "66ad4552b094d2f432b1abd19768245fe991ed59f911ff47771b7ee5084c7fdd",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Meadow Lantern",
+   "file": "pool/champ_20260914_150730_avg82221.py",
+   "also": [
+    "roster/champ_20260914_150730_avg82221.py",
+    "top/run3_2026-09-14/meadow_lantern/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 112 urgency_rescue_and_selling_tweaks: crowned 76.2 % vs the 8-pool at 15:07 UTC",
+   "gen": 112,
+   "shinka_name": "urgency_rescue_and_selling_tweaks",
+   "win_rate": 0.7625,
+   "champions_evaluated": 8,
+   "avg_cash": 82221.88,
+   "sha256": "0998fcda1f74a443dd3fd4c69d1cf34f9047637847a238a3a1fe6b4507468130",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Furrow Dawn",
+   "file": "pool/champ_20260914_151631_avg81853.py",
+   "also": [
+    "roster/champ_20260914_151631_avg81853.py",
+    "top/run3_2026-09-14/furrow_dawn/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 114 non_demanded_frontrun_and_cadence_fix: crowned 76.1 % vs the 9-pool at 15:16 UTC",
+   "gen": 114,
+   "shinka_name": "non_demanded_frontrun_and_cadence_fix",
+   "win_rate": 0.7611,
+   "champions_evaluated": 9,
+   "avg_cash": 81853.55,
+   "sha256": "4a8525c80d3bf10bc23ec961626ed4a8583c825af4ffaa3336f38249c7805403",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Quiet Barley",
+   "file": "pool/champ_20260914_152040_avg82067.py",
+   "also": [
+    "roster/champ_20260914_152040_avg82067.py",
+    "top/run3_2026-09-14/quiet_barley/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 115 oracle_champion_refined_crossover: crowned 78.9 % vs the 9-pool at 15:20 UTC",
+   "gen": 115,
+   "shinka_name": "oracle_champion_refined_crossover",
+   "win_rate": 0.7889,
+   "champions_evaluated": 9,
+   "avg_cash": 82067.21,
+   "sha256": "3e9ab36a0d1f22f21837f9a89ae09245fbd03254fe439d39baeb309c642d524b",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Granary Brook",
+   "file": "pool/champ_20260914_154316_avg81783.py",
+   "also": [
+    "roster/champ_20260914_154316_avg81783.py",
+    "top/run3_2026-09-14/granary_brook/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 122 oracle_surplus_throughput: crowned 78.9 % vs the 11-pool at 15:43 UTC",
+   "gen": 122,
+   "shinka_name": "oracle_surplus_throughput",
+   "win_rate": 0.7886,
+   "champions_evaluated": 11,
+   "avg_cash": 81783.55,
+   "sha256": "1e302d46b220f3a193a40f8402b24bdf116b8f48168fdf60c0ec5a8922c9afab",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Mirror Hedgerow",
+   "file": "pool/champ_20260914_195349_avg81696.py",
+   "also": [
+    "roster/champ_20260914_195349_avg81696.py",
+    "top/run3_2026-09-14/mirror_hedgerow/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 189 seat_asymmetric_oracle_bypass_and_execution_guard: crowned 75.4 % vs the 12-pool at 19:53 UTC",
+   "gen": 189,
+   "shinka_name": "seat_asymmetric_oracle_bypass_and_execution_guard",
+   "win_rate": 0.7542,
+   "champions_evaluated": 12,
+   "avg_cash": 81696.72,
+   "sha256": "65a0633946c1f56a877c5dacf569263b113602cea97aa9d3312f6fbbd805bf4d",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Open Sluice",
+   "file": "pool/champ_20260914_195540_avg81696.py",
+   "also": [
+    "roster/champ_20260914_195540_avg81696.py",
+    "top/run3_2026-09-14/open_sluice/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 188 volume_scaled_uncapped_frontrun_and_urgency_hand_rescue: crowned 76.2 % vs the 12-pool at 19:56 UTC",
+   "gen": 188,
+   "shinka_name": "volume_scaled_uncapped_frontrun_and_urgency_hand_rescue",
+   "win_rate": 0.7625,
+   "champions_evaluated": 12,
+   "avg_cash": 81696.74,
+   "sha256": "afd3c8daec769c59d3e55f78bd2d6c1e37c736de17cc708e17a03640d0b7d8ed",
+   "status": "active pool member"
+  },
+  {
+   "codename": "Copper Weir",
+   "file": "pool/champ_20260914_203220_avg81408.py",
+   "also": [
+    "roster/champ_20260914_203220_avg81408.py",
+    "top/run3_2026-09-14/copper_weir/main.py"
+   ],
+   "origin": "run 3 (2026-09-14) gen 198 value_weighted_order_preemption: crowned 90.0 % vs the 14-pool at 20:32 UTC",
+   "gen": 198,
+   "shinka_name": "value_weighted_order_preemption",
+   "win_rate": 0.9,
+   "champions_evaluated": 14,
+   "avg_cash": 81408.59,
+   "sha256": "1f3ae68faf782943f6e3911c642942338a714019c9985927b7bbd396d56aafd6",
+   "status": "active pool member - best candidate for Kaggle"
+  }
+ ]
+}

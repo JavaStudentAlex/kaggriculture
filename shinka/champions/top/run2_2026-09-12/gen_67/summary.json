@@ -1,0 +1,93 @@
+{
+ "gen": 67,
+ "name": "severity_scaled_oracle_undercut",
+ "island": 0,
+ "parent_gen": 37,
+ "lineage": [
+  37,
+  0
+ ],
+ "combined_score": 0.75478,
+ "win_rate": 0.7125,
+ "champions_evaluated": 8,
+ "win_rate_vs_old7": 0.75,
+ "games_vs_old7": 280,
+ "seat0_win_rate": 0.675,
+ "seat1_win_rate": 0.75,
+ "avg_cash": 81820.28,
+ "per_champion": {
+  "seed": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 93276,
+   "champ_cash": 75327
+  },
+  "150703": {
+   "w": 27,
+   "l": 13,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "15/20",
+   "cand_cash": 81095,
+   "champ_cash": 80913
+  },
+  "153302": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 80528,
+   "champ_cash": 79081
+  },
+  "183514": {
+   "w": 25,
+   "l": 15,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "13/20",
+   "cand_cash": 80018,
+   "champ_cash": 79946
+  },
+  "190355": {
+   "w": 26,
+   "l": 14,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "14/20",
+   "cand_cash": 79802,
+   "champ_cash": 79664
+  },
+  "191956": {
+   "w": 28,
+   "l": 12,
+   "t": 0,
+   "s0": "14/20",
+   "s1": "14/20",
+   "cand_cash": 79832,
+   "champ_cash": 79666
+  },
+  "r2g33": {
+   "w": 18,
+   "l": 22,
+   "t": 0,
+   "s0": "7/20",
+   "s1": "11/20",
+   "cand_cash": 79887,
+   "champ_cash": 80147
+  },
+  "r1g62": {
+   "w": 24,
+   "l": 16,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "13/20",
+   "cand_cash": 80124,
+   "champ_cash": 80087
+  }
+ },
+ "sha256": "e45c6490c7346aa6811e4f1fe56a45c1e2976a403c568200e9e4b51c2cb7b587"
+}

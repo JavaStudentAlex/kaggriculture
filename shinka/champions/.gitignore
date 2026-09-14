@@ -1,0 +1,4 @@
+# No explicit upstream license; local dependency only until redistribution reviewed.
+dependencies/tamizh_local/
+__pycache__/
+*.py[cod]

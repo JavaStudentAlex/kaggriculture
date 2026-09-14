@@ -1,0 +1,119 @@
+{
+ "codename": "Quiet Barley",
+ "gen": 115,
+ "name": "oracle_champion_refined_crossover",
+ "island": 0,
+ "parent_gen": 98,
+ "lineage": [
+  98,
+  89,
+  86,
+  60,
+  40,
+  8,
+  0
+ ],
+ "llm": "local/claude-opus-5",
+ "patch_type": "cross",
+ "evaluated_at": "2026-09-14 15:20 UTC",
+ "combined_score": 0.8016,
+ "win_rate": 0.7889,
+ "wins": 284,
+ "losses": 76,
+ "ties": 0,
+ "champions_evaluated": 9,
+ "seat0_win_rate": 0.7444,
+ "seat1_win_rate": 0.8333,
+ "avg_cash": 82067.21,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_152040_avg82067.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 93509,
+   "champ_cash": 75968
+  },
+  "150703_avg101195": {
+   "w": 25,
+   "l": 15,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "14/20",
+   "cand_cash": 81262,
+   "champ_cash": 81151
+  },
+  "153302_avg99058": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80844,
+   "champ_cash": 79381
+  },
+  "183514_avg93196": {
+   "w": 20,
+   "l": 20,
+   "t": 0,
+   "s0": "7/20",
+   "s1": "13/20",
+   "cand_cash": 80170,
+   "champ_cash": 80304
+  },
+  "190355_avg92490": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80012,
+   "champ_cash": 79983
+  },
+  "191956_avg91958": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80048,
+   "champ_cash": 79964
+  },
+  "161630_avg82113": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 80988,
+   "champ_cash": 80245
+  },
+  "gen62_avg82350": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 81038,
+   "champ_cash": 80262
+  },
+  "150730_avg82221": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80733,
+   "champ_cash": 80629
+  }
+ },
+ "sha256": "3e9ab36a0d1f22f21837f9a89ae09245fbd03254fe439d39baeb309c642d524b",
+ "patch_description": "Base: Program 2 (champion at 0.79 combined score, 76.25% WR).\n\nCrossover additions:\n1. `_already_selling` helper from Program 3 for cleaner code and reduced redundancy\n2. `player_idx` in farm_state for metadata\n3. Day-29 phased liquidation batch increased from 6 to 7 (compromise between P2's 6 and P3's 8)\n4. Conservative quiet-window batch boost: non-demanded items get batch_max=3 (instead of 2) when opponent is very quiet (score_24 < 0.10) - this captures more monopoly revenue per selling opportunity without the cadence-every-turn problem that hurt Program 3\n5. Start phased day-29 liquidation at step 693 instead of 696 (3 extra turns of orderly selling)\n6. Fert price floor lowered from 0.50 to 0.45 (more aggressive monetization of a non-demanded product)\n\nNOT including from Program 3 (these features all correlated with lower scores):\n- Collision softening (reduces batch on score_1 signals that are wrong 50% of the time)\n- Full every-turn quiet-window cadence (oversells and crashes own prices)\n- Seat-asymmetric early liquidation timing (no demonstrated benefit)\n- Oracle seed filter from Program 1 (Program 2 without it scored higher)\n\nAll of Program 2's proven advantages are preserved: WOOL 0.70, aggressive fert, urgency-based hand sorting, dynamic cadence bypass, mid-game premium asset shielding, monopoly pricing.",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_152040_avg82067.py",
+  "shinka/champions/roster/champ_20260914_152040_avg82067.py"
+ ]
+}

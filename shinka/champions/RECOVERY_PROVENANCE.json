@@ -1,0 +1,78 @@
+{
+  "files": [
+    {
+      "path": "dependencies/zansued/reference/opponents/purearch_opponent.py",
+      "url": "https://raw.githubusercontent.com/zansued/kaggriculture-ai-agent/98272fd3401adb4a10641aa17950e410e63eecec/reference/opponents/purearch_opponent.py",
+      "repository": "zansued/kaggriculture-ai-agent",
+      "commit": "98272fd3401adb4a10641aa17950e410e63eecec",
+      "commit_date": "2026-09-05T12:38:07Z",
+      "sha256": "580931ce9a59d0fb7e6c61503ef61811c1b9ec49350b0259cad867c2326ad6c4",
+      "bytes": 22204,
+      "exact_original_checkout_proven": false
+    },
+    {
+      "path": "dependencies/zansued/mix_agent.py",
+      "url": "https://raw.githubusercontent.com/zansued/kaggriculture-ai-agent/98272fd3401adb4a10641aa17950e410e63eecec/mix_agent.py",
+      "repository": "zansued/kaggriculture-ai-agent",
+      "commit": "98272fd3401adb4a10641aa17950e410e63eecec",
+      "commit_date": "2026-09-05T12:38:07Z",
+      "sha256": "fa03ad892f88fe2cc1d840e462a5118ad1d3dce64b5b56dc131938a6098d6d18",
+      "bytes": 14415,
+      "exact_original_checkout_proven": false
+    },
+    {
+      "path": "dependencies/zansued/c27_agent.py",
+      "url": "https://raw.githubusercontent.com/zansued/kaggriculture-ai-agent/98272fd3401adb4a10641aa17950e410e63eecec/c27_agent.py",
+      "repository": "zansued/kaggriculture-ai-agent",
+      "commit": "98272fd3401adb4a10641aa17950e410e63eecec",
+      "commit_date": "2026-09-05T12:38:07Z",
+      "sha256": "30976efed5915c8a6dd04035759836018262cc96a9b1313801854716972642e9",
+      "bytes": 21303,
+      "exact_original_checkout_proven": false
+    },
+    {
+      "path": "dependencies/zansued/LICENSE",
+      "url": "https://raw.githubusercontent.com/zansued/kaggriculture-ai-agent/98272fd3401adb4a10641aa17950e410e63eecec/LICENSE",
+      "repository": "zansued/kaggriculture-ai-agent",
+      "commit": "98272fd3401adb4a10641aa17950e410e63eecec",
+      "commit_date": "2026-09-05T12:38:07Z",
+      "sha256": "c32cf3ad4ccdea42d44e67fc9cdc10c343b7e0407580804d96a13d0c4675e0cb",
+      "bytes": 1093,
+      "exact_original_checkout_proven": false
+    },
+    {
+      "path": "dependencies/mohui_v66/main.py",
+      "url": "https://raw.githubusercontent.com/mohui666/kaggriculture-v66-agent/cb4a8157fae6baab6a118c7f922a05ca0a4455b4/main.py",
+      "repository": "mohui666/kaggriculture-v66-agent",
+      "commit": "cb4a8157fae6baab6a118c7f922a05ca0a4455b4",
+      "commit_date": "2026-09-04T10:52:38Z",
+      "sha256": "2aad8d61022c59e6a29898df6efa6a863e59e228dc6b029667c7e00d1109e903",
+      "bytes": 546,
+      "exact_original_checkout_proven": false
+    },
+    {
+      "path": "dependencies/tamizh_local/generalization_pipeline/submission_candidate_competitive_hybrid_v13.py",
+      "url": "https://raw.githubusercontent.com/Tamizharuvi2006/Kaggriculture/4b1e1b68683f41e1879163a87dc6338529fd4b1e/generalization_pipeline/submission_candidate_competitive_hybrid_v13.py",
+      "repository": "Tamizharuvi2006/Kaggriculture",
+      "commit": "4b1e1b68683f41e1879163a87dc6338529fd4b1e",
+      "commit_date": "2026-09-03T10:47:11Z",
+      "sha256": "d8cc20eb65ced566ed5772d6af03b588ac550fbd53d4dc19f47bc354876e1d4a",
+      "bytes": 312495,
+      "exact_original_checkout_proven": false
+    }
+  ],
+  "mohui_dependency_identity_matches": [
+    "candidate_v62_composite_bakery_yarn.py",
+    "candidate_v65_curve_q2_known_yarn_repair.py",
+    "candidate_v65_local_combined.py",
+    "candidate_v60_curve_counter.py",
+    "candidate_v66_meta_closed_loop.py",
+    "candidate_v65_curve_cygn_clone.py",
+    "candidate_v65_curve_q2_daniel_backbone.py",
+    "kaggriculture_agent/__init__.py",
+    "kaggriculture_agent/env/adapter.py",
+    "kaggriculture_agent/env/__init__.py"
+  ],
+  "identity_boundary": "Pinned pre-clone upstream revisions; original checkout HEAD hashes unavailable. Mohui dependencies independently byte-matched to surviving archive.",
+  "tamizh_license": "No explicit upstream license found: local use only; Git-ignored pending permission review."
+}

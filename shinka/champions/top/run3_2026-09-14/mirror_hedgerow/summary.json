@@ -1,0 +1,143 @@
+{
+ "codename": "Mirror Hedgerow",
+ "gen": 189,
+ "name": "seat_asymmetric_oracle_bypass_and_execution_guard",
+ "island": 3,
+ "parent_gen": 60,
+ "lineage": [
+  60,
+  40,
+  8,
+  0
+ ],
+ "llm": "local/claude-sonnet-5",
+ "patch_type": "diff",
+ "evaluated_at": "2026-09-14 19:53 UTC",
+ "combined_score": 0.77929,
+ "win_rate": 0.7542,
+ "wins": 362,
+ "losses": 96,
+ "ties": 22,
+ "champions_evaluated": 12,
+ "seat0_win_rate": 0.7417,
+ "seat1_win_rate": 0.7667,
+ "avg_cash": 81696.72,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_195349_avg81696.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 93529,
+   "champ_cash": 75960
+  },
+  "150703_avg101195": {
+   "w": 26,
+   "l": 14,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "14/20",
+   "cand_cash": 81274,
+   "champ_cash": 81126
+  },
+  "153302_avg99058": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80870,
+   "champ_cash": 79366
+  },
+  "183514_avg93196": {
+   "w": 20,
+   "l": 20,
+   "t": 0,
+   "s0": "7/20",
+   "s1": "13/20",
+   "cand_cash": 80186,
+   "champ_cash": 80297
+  },
+  "190355_avg92490": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80023,
+   "champ_cash": 79978
+  },
+  "191956_avg91958": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80060,
+   "champ_cash": 79959
+  },
+  "161630_avg82113": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 81008,
+   "champ_cash": 80228
+  },
+  "gen62_avg82350": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 81072,
+   "champ_cash": 80220
+  },
+  "150730_avg82221": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "19/20",
+   "s1": "20/20",
+   "cand_cash": 80738,
+   "champ_cash": 80612
+  },
+  "151631_avg81853": {
+   "w": 24,
+   "l": 16,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "13/20",
+   "cand_cash": 80257,
+   "champ_cash": 80330
+  },
+  "152040_avg82067": {
+   "w": 37,
+   "l": 3,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "19/20",
+   "cand_cash": 80669,
+   "champ_cash": 80642
+  },
+  "154316_avg81783": {
+   "w": 16,
+   "l": 2,
+   "t": 22,
+   "s0": "15/20",
+   "s1": "1/20",
+   "cand_cash": 80675,
+   "champ_cash": 80653
+  }
+ },
+ "sha256": "65a0633946c1f56a877c5dacf569263b113602cea97aa9d3312f6fbbd805bf4d",
+ "patch_description": "Implement Seat-Asymmetric Oracle Cadence Bypass and robust market order execution to overcome the persistent ~9% win-rate penalty on Seat 0:\n1. **Seat-Aware Oracle Cadence Bypass**: Make the dynamic `_bypass_thresh` seat-aware by reducing it by `0.05` across all shed tiers when on Seat 0 (`player_idx == 0`). In simultaneous quote execution, Seat 0 suffers from adverse selection if it waits; lowering the threshold triggers front-running shop sales one step earlier, breaking mirror synchronization and neutralizing Seat 1's reactive edge.\n2. **Seat-Aware Oracle Frontrunning**: Set `frontrun_score_threshold` to `0.25` on Seat 0 (versus `0.30` on Seat 1) and protect un-demanded WOOL pricing with a `0.70` base price guard.\n3. **Immutable Tuple Protection in `_add_sell`**: Fix `_add_sell` to replace order entries by index (`orders[i] = [...]`) rather than mutating `o[2]` in-place, eliminating potential `TypeError` crashes when consolidating base orders that may be tuples.\n4. **Mid-Game Premium Price Shielding & Dynamic Quiet Batching**: Restore the proven dynamic batch sizing that sizes shop sales proportionally to remaining stock in quiet markets and shields high-value un-demanded goods (MELON, WOOL) against premature price degradation.",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_195349_avg81696.py",
+  "shinka/champions/roster/champ_20260914_195349_avg81696.py"
+ ]
+}

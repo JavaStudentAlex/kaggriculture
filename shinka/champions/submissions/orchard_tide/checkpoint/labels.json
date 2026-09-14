@@ -1,0 +1,1 @@
+{"alignment": "legacy", "source": "research/opponent_model/ops/finetune_4days.sh DAY=2026-09-11 BASE=models/ttm_v3_h96_ft_2026-09-10", "promoted": "2026-09-12"}

@@ -1,0 +1,93 @@
+{
+ "public_name": "Orchard Tide",
+ "archive": "OrchardTide.tar.gz",
+ "archive_sha256": "78bf5340cea355cf3389e02a86efe6b80aa971060ba3e4a2a846345edeb4608d",
+ "archive_bytes": 4382496,
+ "archive_files": [
+  "champion_gen33.py",
+  "checkpoint/config.json",
+  "checkpoint/labels.json",
+  "checkpoint/model.safetensors",
+  "checkpoint/scaler.npz",
+  "kagg_oracle.py",
+  "kagg_ttm_numpy.py",
+  "main.py",
+  "mohui_v66/LICENSE",
+  "mohui_v66/NOTICE",
+  "mohui_v66/candidate_v60_curve_counter.py",
+  "mohui_v66/candidate_v62_composite_bakery_yarn.py",
+  "mohui_v66/candidate_v65_curve_cygn_clone.py",
+  "mohui_v66/candidate_v65_curve_q2_daniel_backbone.py",
+  "mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py",
+  "mohui_v66/candidate_v65_local_combined.py",
+  "mohui_v66/candidate_v66_meta_closed_loop.py",
+  "mohui_v66/kaggriculture_agent/__init__.py",
+  "mohui_v66/kaggriculture_agent/env/__init__.py",
+  "mohui_v66/kaggriculture_agent/env/adapter.py",
+  "mohui_v66/main.py",
+  "opponent_model/features.py",
+  "opponent_model/mechanics.py"
+ ],
+ "message": "Orchard Tide - Adaptive production and trade (lightweight build)",
+ "candidate": {
+  "run": "shinka run 2, 2026-09-12 (seed = run-1 gen 62, pool 7->8)",
+  "generation": 33,
+  "patch_name": "dynamic_shop_batch_sizing",
+  "file": "orchard_tide/champion_gen33.py",
+  "sha256": "66ad4552b094d2f432b1abd19768245fe991ed59f911ff47771b7ee5084c7fdd",
+  "same_as": [
+   "shinka/champions/pool/champ_20260912_161630_avg82113.py",
+   "shinka/champions/top/run2_2026-09-12/gen_33/main.py"
+  ],
+  "eval": "77.1% (216W-64L) vs the seven-pool, $82,113, seats 76/78%; fresh-seed round-robin: no losing pairing"
+ },
+ "oracle": {
+  "kagg_oracle_sha256": "94dd8fc5d600d06f2adcf99dd09669c007dd1d09c32a032b916c2115c950e24a",
+  "kagg_ttm_numpy_sha256": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda",
+  "backend": "numpy (KAGG_ORACLE_BACKEND=numpy set by main.py; no torch/transformers/tsfm in the bundle)",
+  "checkpoint": "models/ttm_v3_h96_ft_2026-09-11 (legacy label alignment)",
+  "model_safetensors_sha256": "98c4ff08d509b5fbdd0fa46d80e9c16ae947135be67fb14b70a346906f65ede0"
+ },
+ "validation": {
+  "date": "2026-09-12T21:45:21Z",
+  "venv": "/results/kagg/venv-kaggle-sim (numpy 2.4.6, kaggle-environments 1.32.7; torch present but never imported)",
+  "how": "extracted archive, python -I, HOME=empty dir, no KAGG_* env, cwd=/, main.py passed as a path string, one core, OMP_NUM_THREADS=1",
+  "games": "8 (seats 0+1 x starter/random x seeds 101,70102): all DONE, finite rewards, no stderr tracebacks",
+  "oracle": "live, numpy backend, 1656 forecasts, 0 errors, ~120 ms per forecast; torch never imported",
+  "timing": "step 0 (import) 2.2 s vs 5.9 s with torch; from turn 512 p99 137 ms, max 495 ms; 1.2 s of the 60 s overage bank used",
+  "numerics": "numpy vs torch checkpoint: <=1.6e-5 off the float64 truth on 24 synthetic windows (torch-f32 itself: 8.5e-4); 8.5e-4 max torch-vs-numpy on 48 windows incl. 24 real rows (check_oracle.py numpy)",
+  "fidelity": "vs champ_20260912_gen62: $76,816 (seed 101), $64,197 (seed 70102) through the Kaggle loader = the repo champion on the GPU"
+ },
+ "attempts": [
+  {
+   "id": 56192942,
+   "submitted": "2026-09-12T21:09:54Z",
+   "file": "OrchardTide.tar.gz",
+   "message": "Orchard Tide - Adaptive production and trade",
+   "quota_after": "4 remaining today (1/5 used), lifetime 14",
+   "status_at_record": "PENDING",
+   "outcome": "ERROR: validation episode 108305837, both seats TIMEOUT at step 1 (agent logs empty) -- the first request execs main.py and importing torch + transformers in the sandbox exceeded its budget; archive sha256 8a3132213da36c45cc71e812beccaa68f30d0e1dccb8a23d16e495d7f9258535"
+  }
+ ],
+ "submission": {
+  "id": 56193386,
+  "submitted": "2026-09-12T21:46:00Z",
+  "file": "OrchardTide.tar.gz",
+  "message": "Orchard Tide - Adaptive production and trade (lightweight build)",
+  "quota_after": "4 remaining today (the errored attempt was refunded)",
+  "status_at_record": "COMPLETE at 21:49:07 UTC, initial public score 600.0",
+  "validation_episode": {
+   "id": 108314881,
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "steps": 720,
+   "rewards": [
+    58039.0,
+    58039.0
+   ],
+   "kaggle_timing": "step 0 = 5.00 s (4.0 s of the 60 s overage bank); before turn 512 mean 17 ms, max ~0.6 s; from turn 512 mean 321-325 ms, p99 375-389 ms, max 404 ms (= 2.5x one pod core); stderr empty on both seats"
+  }
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "codename": "Meadow Lantern",
+ "gen": 112,
+ "name": "urgency_rescue_and_selling_tweaks",
+ "island": 0,
+ "parent_gen": 86,
+ "lineage": [
+  86,
+  60,
+  40,
+  8,
+  0
+ ],
+ "llm": "local/claude-opus-5",
+ "patch_type": "diff",
+ "evaluated_at": "2026-09-14 15:07 UTC",
+ "combined_score": 0.78639,
+ "win_rate": 0.7625,
+ "wins": 244,
+ "losses": 76,
+ "ties": 0,
+ "champions_evaluated": 8,
+ "seat0_win_rate": 0.7125,
+ "seat1_win_rate": 0.8125,
+ "avg_cash": 82221.88,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_150730_avg82221.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 93509,
+   "champ_cash": 75991
+  },
+  "150703_avg101195": {
+   "w": 25,
+   "l": 15,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "14/20",
+   "cand_cash": 81256,
+   "champ_cash": 81178
+  },
+  "153302_avg99058": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80829,
+   "champ_cash": 79439
+  },
+  "183514_avg93196": {
+   "w": 20,
+   "l": 20,
+   "t": 0,
+   "s0": "7/20",
+   "s1": "13/20",
+   "cand_cash": 80168,
+   "champ_cash": 80338
+  },
+  "190355_avg92490": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 79994,
+   "champ_cash": 80039
+  },
+  "191956_avg91958": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80028,
+   "champ_cash": 80022
+  },
+  "161630_avg82113": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80973,
+   "champ_cash": 80304
+  },
+  "gen62_avg82350": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 81018,
+   "champ_cash": 80333
+  }
+ },
+ "sha256": "0998fcda1f74a443dd3fd4c69d1cf34f9047637847a238a3a1fe6b4507468130",
+ "patch_description": "Four targeted changes addressing both production preservation and revenue capture:\n\n1. **Urgency-weighted rescue sorting** (the recommendation): Sort thirsty/hungry lists by consecutive_unwatered/consecutive_unfed FIRST, then by price. An animal at consecutive_unfed=1 (will escape at day boundary) must be rescued before one at unfed=0 (has a full grace period), regardless of price. This prevents the most critical asset losses.\n\n2. **WOOL front-run shield: 0.85 \u2192 0.70**: The current 0.85 threshold prevents WOOL front-running until price drops to $170+. But WOOL crashes from $217 to $18 in mirror matches. At 0.70 ($140), we still capture significant value before the crash, and score_4 >= 0.30 has P=0.61 accuracy.\n\n3. **Fertilizer selling optimization**: Lower threshold from >=4 held to >=3, reduce reserve from 2 to 1, lower price floor from 0.70 to 0.50, and increase max batch from 3 to 5. Fertilizer isn't demanded by any shop, so excess is pure waste. At $100 base, this extracts meaningful extra revenue.\n\n4. **WOOL monopoly batch: 2 \u2192 3**: When oracle confirms opponent is quiet on WOOL (non-demanded, no predicted supply), increase batch from 2 to 3 to capture more monopoly revenue at elevated prices.",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_150730_avg82221.py",
+  "shinka/champions/roster/champ_20260914_150730_avg82221.py"
+ ]
+}

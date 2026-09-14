@@ -1,0 +1,147 @@
+{
+ "codename": "Open Sluice",
+ "gen": 188,
+ "name": "volume_scaled_uncapped_frontrun_and_urgency_hand_rescue",
+ "island": 0,
+ "parent_gen": 141,
+ "lineage": [
+  141,
+  122,
+  89,
+  86,
+  60,
+  40,
+  8,
+  0
+ ],
+ "llm": "headless/codex",
+ "patch_type": "diff",
+ "evaluated_at": "2026-09-14 19:56 UTC",
+ "combined_score": 0.78429,
+ "win_rate": 0.7625,
+ "wins": 366,
+ "losses": 112,
+ "ties": 2,
+ "champions_evaluated": 12,
+ "seat0_win_rate": 0.7292,
+ "seat1_win_rate": 0.7958,
+ "avg_cash": 81696.74,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_195540_avg81696.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 93508,
+   "champ_cash": 75955
+  },
+  "150703_avg101195": {
+   "w": 25,
+   "l": 15,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "14/20",
+   "cand_cash": 81274,
+   "champ_cash": 81132
+  },
+  "153302_avg99058": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80865,
+   "champ_cash": 79350
+  },
+  "183514_avg93196": {
+   "w": 22,
+   "l": 18,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "14/20",
+   "cand_cash": 80198,
+   "champ_cash": 80282
+  },
+  "190355_avg92490": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80064,
+   "champ_cash": 79921
+  },
+  "191956_avg91958": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "8/20",
+   "s1": "13/20",
+   "cand_cash": 80103,
+   "champ_cash": 79906
+  },
+  "161630_avg82113": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80983,
+   "champ_cash": 80202
+  },
+  "gen62_avg82350": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 81029,
+   "champ_cash": 80222
+  },
+  "150730_avg82221": {
+   "w": 37,
+   "l": 3,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "17/20",
+   "cand_cash": 80738,
+   "champ_cash": 80605
+  },
+  "151631_avg81853": {
+   "w": 24,
+   "l": 16,
+   "t": 0,
+   "s0": "11/20",
+   "s1": "13/20",
+   "cand_cash": 80259,
+   "champ_cash": 80291
+  },
+  "152040_avg82067": {
+   "w": 33,
+   "l": 6,
+   "t": 1,
+   "s0": "17/20",
+   "s1": "16/20",
+   "cand_cash": 80667,
+   "champ_cash": 80635
+  },
+  "154316_avg81783": {
+   "w": 27,
+   "l": 12,
+   "t": 1,
+   "s0": "12/20",
+   "s1": "15/20",
+   "cand_cash": 80673,
+   "champ_cash": 80645
+  }
+ },
+ "sha256": "afd3c8daec769c59d3e55f78bd2d6c1e37c736de17cc708e17a03640d0b7d8ed",
+ "patch_description": "Implement Volume-Scaled Uncapped Front-Running and restore urgency-first idle hand maintenance:\n1. Volume-Scaled Uncapped Front-Running:\nIn previous iterations, the dynamic batch sizing in shop demand harvesting (section 5) and oracle front-running (sections 4c and 5b) rigidly capped sales at 8 units even when the oracle forecast a massive impending opponent dump. In mirror matches or high-production scenarios, this rigid cap stranded 10-20 units in our shed while the opponent's orders landed in subsequent turns, destroying market prices to $1 and vaporizing thousands in revenue. We modify the dynamic batch sizing so that when the oracle predicts a massive dump (`supp >= 2.0` or `sc24 >= 0.45` or `score >= 0.60`), the batch limit is bypassed entirely (`batch_max = remaining`), allowing our agent to liquidate all available inventory at the intact price before the crash. MELON remains safeguarded at batch 2 to maintain its premium pricing.\n2. Urgency-First Idle Hand Rescue:\nRestores urgency sorting (`-consecutive_unfed`, `-consecutive_unwatered` before `-price`) in `evolve_hand_actions`. Sorting by price alone caused animals with 0 missed feedings to be fed over animals with 1 missed feeding that escape at midnight, triggering irreversible livestock loss (audited as the primary driver in 26 of 53 ladder losses). Sorting by urgency first guarantees zero-day-boundary escapes while maximizing economic value.",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_195540_avg81696.py",
+  "shinka/champions/roster/champ_20260914_195540_avg81696.py"
+ ]
+}

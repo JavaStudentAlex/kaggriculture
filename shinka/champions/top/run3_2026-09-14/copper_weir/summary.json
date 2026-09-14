@@ -1,0 +1,166 @@
+{
+ "codename": "Copper Weir",
+ "gen": 198,
+ "name": "value_weighted_order_preemption",
+ "island": 0,
+ "parent_gen": 188,
+ "lineage": [
+  188,
+  141,
+  122,
+  89,
+  86,
+  60,
+  40,
+  8,
+  0
+ ],
+ "llm": "local/claude-sonnet-5",
+ "patch_type": "diff",
+ "evaluated_at": "2026-09-14 20:32 UTC",
+ "combined_score": 0.86563,
+ "win_rate": 0.9,
+ "wins": 504,
+ "losses": 56,
+ "ties": 0,
+ "champions_evaluated": 14,
+ "seat0_win_rate": 0.925,
+ "seat1_win_rate": 0.875,
+ "avg_cash": 81408.59,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_203220_avg81408.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 93257,
+   "champ_cash": 75077
+  },
+  "150703_avg101195": {
+   "w": 35,
+   "l": 5,
+   "t": 0,
+   "s0": "17/20",
+   "s1": "18/20",
+   "cand_cash": 81060,
+   "champ_cash": 80301
+  },
+  "153302_avg99058": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 80681,
+   "champ_cash": 78465
+  },
+  "183514_avg93196": {
+   "w": 36,
+   "l": 4,
+   "t": 0,
+   "s0": "17/20",
+   "s1": "19/20",
+   "cand_cash": 80056,
+   "champ_cash": 79478
+  },
+  "190355_avg92490": {
+   "w": 37,
+   "l": 3,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "19/20",
+   "cand_cash": 79903,
+   "champ_cash": 79125
+  },
+  "191956_avg91958": {
+   "w": 37,
+   "l": 3,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "19/20",
+   "cand_cash": 79943,
+   "champ_cash": 79094
+  },
+  "161630_avg82113": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 80831,
+   "champ_cash": 79352
+  },
+  "gen62_avg82350": {
+   "w": 40,
+   "l": 0,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "20/20",
+   "cand_cash": 80865,
+   "champ_cash": 79384
+  },
+  "150730_avg82221": {
+   "w": 33,
+   "l": 7,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "15/20",
+   "cand_cash": 80633,
+   "champ_cash": 79752
+  },
+  "151631_avg81853": {
+   "w": 38,
+   "l": 2,
+   "t": 0,
+   "s0": "19/20",
+   "s1": "19/20",
+   "cand_cash": 80135,
+   "champ_cash": 79490
+  },
+  "152040_avg82067": {
+   "w": 32,
+   "l": 8,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "14/20",
+   "cand_cash": 80601,
+   "champ_cash": 79774
+  },
+  "154316_avg81783": {
+   "w": 32,
+   "l": 8,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "14/20",
+   "cand_cash": 80603,
+   "champ_cash": 79779
+  },
+  "195349_avg81696": {
+   "w": 31,
+   "l": 9,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "13/20",
+   "cand_cash": 80566,
+   "champ_cash": 79777
+  },
+  "195540_avg81696": {
+   "w": 33,
+   "l": 7,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "15/20",
+   "cand_cash": 80587,
+   "champ_cash": 79760
+  }
+ },
+ "sha256": "1f3ae68faf782943f6e3911c642942338a714019c9985927b7bbd396d56aafd6",
+ "patch_description": "Implement Value-Weighted Order Preemption for the 10-order market order limit.\n\nPreviously, `_add_sell` checked `if len(orders) < 10:` and silently dropped any new sell order when 10 orders were present. Furthermore, all selling loops (shed pressure valve, oracle front-running, town-shop harvesting, high-value asset pre-liquidation, and phased day-29 liquidation) contained short-circuit checks (`len(mkt) < 10` or `if len(mkt) >= 10: break`). Consequently, when the 10-order cap was reached\u2014often filled by low-margin baseline orders or minor batches of low-price goods such as WHEAT ($25) or CARROT ($35)\u2014vital high-revenue orders (such as MELON at $250, WOOL at $200, or large front-run batches) were silently dropped or never evaluated.\n\nThis edit:\n1. Enhances `_add_sell` with value-weighted preemption:\n   - Consolidates into an existing sell order for the product (without consuming a new order slot).\n   - If under the 10-order limit, appends normally.\n   - If at the 10-order limit, evaluates the total expected revenue (`qty * price`) of the candidate order versus all existing `SELL` orders. If the candidate order is worth more than 1.1x the lowest-value existing sell order, the low-value order is preempted and replaced.\n2. Removes the restrictive `len(mkt) >= 10: break` guards in the selling loops so high-value items can always be evaluated and consolidate or preempt low-value orders.\n3. Consolidates redundant order-checking logic into the `_already_selling` helper and enables phased day-29 liquidation starting at step 693 with batch 7 for superior late-game volume throughput.",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_203220_avg81408.py",
+  "shinka/champions/roster/champ_20260914_203220_avg81408.py"
+ ]
+}

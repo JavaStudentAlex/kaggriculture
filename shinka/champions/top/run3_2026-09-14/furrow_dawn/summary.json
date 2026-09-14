@@ -1,0 +1,122 @@
+{
+ "codename": "Furrow Dawn",
+ "gen": 114,
+ "name": "non_demanded_frontrun_and_cadence_fix",
+ "island": 1,
+ "parent_gen": 95,
+ "lineage": [
+  95,
+  91,
+  87,
+  83,
+  80,
+  53,
+  29,
+  26,
+  21,
+  0
+ ],
+ "llm": "local/claude-opus-5",
+ "patch_type": "diff",
+ "evaluated_at": "2026-09-14 15:16 UTC",
+ "combined_score": 0.78408,
+ "win_rate": 0.7611,
+ "wins": 274,
+ "losses": 86,
+ "ties": 0,
+ "champions_evaluated": 9,
+ "seat0_win_rate": 0.7722,
+ "seat1_win_rate": 0.75,
+ "avg_cash": 81853.55,
+ "total_crashes": 0,
+ "crowned_as": "champ_20260914_151631_avg81853.py",
+ "per_champion": {
+  "00_initial_seed": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 93301,
+   "champ_cash": 75338
+  },
+  "150703_avg101195": {
+   "w": 32,
+   "l": 8,
+   "t": 0,
+   "s0": "16/20",
+   "s1": "16/20",
+   "cand_cash": 81182,
+   "champ_cash": 80624
+  },
+  "153302_avg99058": {
+   "w": 39,
+   "l": 1,
+   "t": 0,
+   "s0": "20/20",
+   "s1": "19/20",
+   "cand_cash": 80739,
+   "champ_cash": 79148
+  },
+  "183514_avg93196": {
+   "w": 21,
+   "l": 19,
+   "t": 0,
+   "s0": "10/20",
+   "s1": "11/20",
+   "cand_cash": 80012,
+   "champ_cash": 79859
+  },
+  "190355_avg92490": {
+   "w": 24,
+   "l": 16,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "12/20",
+   "cand_cash": 79833,
+   "champ_cash": 79552
+  },
+  "191956_avg91958": {
+   "w": 24,
+   "l": 16,
+   "t": 0,
+   "s0": "12/20",
+   "s1": "12/20",
+   "cand_cash": 79842,
+   "champ_cash": 79565
+  },
+  "161630_avg82113": {
+   "w": 35,
+   "l": 5,
+   "t": 0,
+   "s0": "17/20",
+   "s1": "18/20",
+   "cand_cash": 80640,
+   "champ_cash": 79906
+  },
+  "gen62_avg82350": {
+   "w": 37,
+   "l": 3,
+   "t": 0,
+   "s0": "18/20",
+   "s1": "19/20",
+   "cand_cash": 80706,
+   "champ_cash": 79912
+  },
+  "150730_avg82221": {
+   "w": 23,
+   "l": 17,
+   "t": 0,
+   "s0": "14/20",
+   "s1": "9/20",
+   "cand_cash": 80426,
+   "champ_cash": 80196
+  }
+ },
+ "sha256": "4a8525c80d3bf10bc23ec961626ed4a8583c825af4ffaa3336f38249c7805403",
+ "patch_description": "Three targeted fixes for the ~$300 cash gap against the hardest champions:\n\n1. Lower _PREMIUM_SELL_RATIO from 1.20 to 0.80 (captures non-demanded revenue like TOMATO/WOOL/EGG at reasonable prices instead of only at 20% premium). Increase batch from 2 to 3 for more throughput.\n\n2. Reverse the oracle gate for non-demanded goods: instead of skipping when opponent is about to dump (which means we miss selling before the crash), lower the price threshold to front-run their dump. When score_24 >= 0.30, accept 0.65x base to beat them to market with batch 5. When opponent is quiet, sell normally at 0.80x base with batch 3.\n\n3. Revert seat-asymmetric cadence to simple `step % 4 == 0`, matching the best-performing Program 3 which had the highest seat1 win rate (77%).",
+ "same_bytes_as": [
+  "shinka/champions/pool/champ_20260914_151631_avg81853.py",
+  "shinka/champions/roster/champ_20260914_151631_avg81853.py"
+ ]
+}
