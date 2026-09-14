@@ -35,7 +35,7 @@ section 4.3.**
 | path | what |
 |---|---|
 | `models/ttm_c256_h96_ft_2026-09-13/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, `eval.json`/`eval.txt`, README |
-| `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 04:30 UTC cron adds each new day (4.1) |
+| `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 00:30 UTC cron adds each new day (4.1) |
 | `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (46 days, 2.4 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
 | `research/opponent_model/` | all model code: `extract.py` / `extract_parallel.py` (replays → shards), `features.py`, `mechanics.py`, `ttm_dataset.py` (windows, episode split, scaler), `metrics.py` (streaming histogram AUC/AP), `train_ttm.py`, `evaluate.py` (the one scorer; uses the checkpoint's `scaler.npz` and `val_episodes.json`) |
 | `research/opponent_model/runs/<run>/` | working dirs of runs (`best/`, `scores.json`, `scaler.npz`, `eval.json`); **not in git** — promoted checkpoints move to `models/` |
@@ -82,15 +82,47 @@ section 4.3.**
   Index with per-day counts and scores: `kaggle/kaggriculture-episodes-index`.
 - Download: `kaggle datasets download kaggle/kaggriculture-episodes-<date> -p replays/`
   (`ops/finetune.sh` does this itself and waits until the day is published). The daily
-  04:30 UTC cron (`sync_kaggriculture_replays.py`, outside this repo) downloads the new
+  00:30 UTC cron (`sync_kaggriculture_replays.py`, outside this repo) downloads the new
   day to `replays/` + `/results/kagg/replays/`; extraction must then be
   `ops/extract.sh` (or `extract_parallel.py --out /results/kagg/datasets/shards --alignment next_action`
   mirrored with `rsync -a` to `datasets/shards/`) — never another directory.
 - The number of distinct teams per day (45–73) is a byproduct of the size cap, not
   a "top-N teams" rule. The datasets contain **none of our own games**.
 - The full ladder is ~330k games/day; individual replays can be pulled through the
-  API but the endpoint throttles to ~300/h. A stratified API fetcher was built and
-  then **removed on 2026-09-11 by decision** — do not rebuild it unless asked.
+  API but the endpoint throttles. A stratified API fetcher was built and then
+  **removed on 2026-09-11 by decision**; on 2026-09-14 a narrower one came back at the
+  user's request (4.1.1), because the published zips hold only games whose two agents
+  average ≥ ~2,950 (for the leader that is 83 % of his games; for a 2,500-rated
+  opponent none) and the oracle scored AUC 0.70 on our own Kaggle games vs 0.88 on
+  top-vs-top ones — the mid-ladder band is the missing data.
+
+### 4.1.1 Second source: the top-100 teams' games below the cutoff (`ops/fetch_top.sh`)
+
+`DAY=<D> TOP=100 bash research/opponent_model/ops/fetch_top.sh` (tmux; log
+`/results/kagg/logs/fetch_top100_<D>.log`, marker `FETCH_EXIT=`) runs
+`research/opponent_model/fetch_top_teams.py` in three steps and then the shard step:
+
+1. `enumerate`: leaderboard → the top-N team ids → `team-submissions` → `episodes`
+   (read-only API; paced, backs off on 429) → every COMPLETED public game of day `D`
+   that is **not** in `replays/kaggriculture-episodes-<D>.zip`, with both teams'
+   current ratings → `/results/kagg/replays_top/<D>/episodes.json`, sorted by the
+   pair's mean rating (09-13: 6,882 games for the top 100; weaker side 2,500–2,950 in
+   4,107 of them, 2,000–2,500 in 1,450, < 2,000 in 1,285). A submission's episode
+   listing is capped at ~200 rows, so enumerate **early on D+1** (the 00:30 UTC slot
+   is fine; a team with > 200 games in the window loses its oldest ones).
+2. `download`: 3 workers, resumable (`<id>.json.gz` on the SSD), 429 back-off; the
+   endpoint gives a burst (~3,500/h) and then a few per minute, so a full day takes
+   hours — stopping early keeps the highest-rated games.
+3. `pack --mirror`: `replays/kaggriculture-top<N>-<D>.zip` on the SSD and on ceph,
+   same member layout as Kaggle's (`<id>.json` + `manifest.csv` with both ratings).
+4. `ops/extract.sh`: the new zip becomes `kaggriculture-top<N>-<D>.npz` in
+   `/results/kagg/datasets/shards`, rsync'd to `datasets/shards/`. `finetune.sh`
+   treats every `kaggriculture-*-<D>.npz` as day `D` (published + top-N together);
+   `train_ttm.py` reads the whole directory anyway.
+
+Rules: one account, read-only endpoints, never more than 3 concurrent replay
+requests, replays only under `replays/` (ceph) and `/results/kagg/replays/`, shards
+only under the two `datasets/shards` dirs.
 
 ### 4.2 Shards
 - `ops/extract.sh` (= `extract_parallel.py --replays <dir of zips> --out <dir> --workers N --alignment next_action`)
@@ -210,7 +242,7 @@ Promoted as `models/ttm_c256_h96_ft_2026-09-13`.
 
 ## 7. Daily routine when a new day appears
 
-Kaggle publishes day `D` at ~00:10 UTC on `D+1`; the 04:30 UTC cron downloads it. Then,
+Kaggle publishes day `D` at ~00:10 UTC on `D+1`; the 00:30 UTC cron downloads it. Then,
 from the repo root, with `BASE` = the newest promoted `models/*`:
 
 1. **Refit** including the new day:
