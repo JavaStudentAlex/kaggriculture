@@ -23,6 +23,8 @@ names because `pool/POOL.json` and the game log reference them.
 - `dependencies/mohui_v66/` — the backbone closure every champion imports (Apache LICENSE/NOTICE retained;
   provenance in `RECOVERY_PROVENANCE.json`).
 - `evidence/orchard_tide_loss_audit_20260914/` — the audit of Orchard Tide's 97 public games that shaped run 3's prompt.
+- `evidence/tournament_2026-09-14/` — the **all-champions tournament on fresh seeds** that ranks the pool
+  (`tournament.py` / `run.sh` to rerun it; `tournament.txt` report, `tournament.json` + `games.jsonl` every game).
 - `pool.json` — the 2026-09-09 round-robin that selected the original pool.
 
 Removed 2026-09-14 (recovery tarball in `/results/kagg/logs/shinka_pruned_2026-09-14_2108.tar.gz`): the pre-oracle
@@ -49,6 +51,32 @@ dependencies only those wrappers used, and the 09-09 repair/validation reports.
 | **Mirror Hedgerow** | `champ_20260914_195349_avg81696.py` | run 3 (2026-09-14) gen 189 seat_asymmetric_oracle_bypass_and_execution_guard: crowned 75.4 % vs the 12-pool at 19:53 UTC | active pool member |
 | **Open Sluice** | `champ_20260914_195540_avg81696.py` | run 3 (2026-09-14) gen 188 volume_scaled_uncapped_frontrun_and_urgency_hand_rescue: crowned 76.2 % vs the 12-pool at 19:56 UTC | active pool member |
 | **Copper Weir** | `champ_20260914_203220_avg81408.py` | run 3 (2026-09-14) gen 198 value_weighted_order_preemption: crowned 90.0 % vs the 14-pool at 20:32 UTC | active pool member - best candidate for Kaggle |
+
+## Ranking (all-champions tournament on fresh seeds, 2026-09-14)
+
+Round-robin of the whole pool, 40 games per pairing on seeds no run ever used (4,200), plus 60 more per pairing
+among the top 5 (600); Bradley-Terry over all 4,800 games, 0 crashes (`evidence/tournament_2026-09-14/`).
+
+| # | champion | W-L-T | WR | BT-Elo | P(#1) | note |
+|---|---|---|---|---|---|---|
+| 1 | **Copper Weir** | 696-104-0 | 87.0 % | 0 | 100 % | beats all 14; 83-85 of 100 vs each other finalist; closest 31-9 vs Meadow Lantern |
+| 2 | Open Sluice | 498-284-18 | 62.2 % | −222 | 0 % | Copper Weir's parent (gen 188) |
+| 3 | Mirror Hedgerow | 463-266-71 | 57.9 % | −231 | 0 % | ties 54 of 100 with Granary Brook (identical cash) |
+| 4 | Granary Brook | 431-298-71 | 53.9 % | −262 | 0 % | ancestor of the 141 → 188 → 198 lineage |
+| 5 | Cider Ridge | 331-228-1 | 59.1 % | −310 | 0 % | pre-oracle; still even or better vs run-3 ranks 7-10 |
+| 6 | Slate Pasture | 315-245-0 | 56.2 % | −334 | 0 % | pre-oracle |
+| 7 | Furrow Dawn | 305-255-0 | 54.5 % | −348 | 0 % | |
+| 8 | Quiet Barley | 365-417-18 | 45.6 % | −349 | 0 % | 78.9 % when crowned — seed-specific |
+| 9 | Clover Bank | 288-272-0 | 51.4 % | −373 | 0 % | pre-oracle |
+| 10 | Meadow Lantern | 283-277-0 | 50.5 % | −380 | 0 % | |
+| 11 | Willow Ford | 223-336-1 | 39.8 % | −468 | 0 % | pre-oracle |
+| 12 | Orchard Tide | 212-347-1 | 37.9 % | −485 | 0 % | pool copy plays with the 256-ctx checkpoint; the Kaggle bundle (512-ctx) is stronger |
+| 13 | Amber Loft | 187-372-1 | 33.4 % | −525 | 0 % | |
+| 14 | Birch Hollow | 99-460-1 | 17.7 % | −704 | 0 % | pre-oracle |
+| 15 | First Furrow | 12-547-1 | 2.1 % | −1082 | 0 % | regression floor |
+
+Finalists have 800 games (560 + 240), the rest 560. Seat 0 won 50.0 % of decided games (no seat bias). Per-champion
+ranks are also in `CODENAMES.json` (`tournament_2026_09_14`).
 
 Lineage: First Furrow → (09-08 run) Cider Ridge / Slate Pasture / Clover Bank / Willow Ford / Birch Hollow → run 1
 Amber Loft → run 2 **Orchard Tide** (Kaggle 56193386) → run 3 Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook,

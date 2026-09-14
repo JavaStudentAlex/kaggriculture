@@ -14,7 +14,14 @@
    "origin": "the initial seed (Mohui v66 backbone + Keiz opening); regression floor of the pool",
    "pool_role": "regression floor: losing to the seed means broken",
    "sha256": "ec67418fff2ab9b348b0f06a03da81220e5cdf339ec3c0a6247a923fcb2a4a4c",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 15,
+    "record": "12W-547L-1T",
+    "win_rate": 0.0214,
+    "bt_elo": -1082,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Cider Ridge",
@@ -25,7 +32,14 @@
    "origin": "2026-09-08 grandmaster-seed run; roster rank 1 of the 09-09 round-robin (the binding constraint)",
    "pool_role": "strongest; the binding constraint",
    "sha256": "db9c7b87f7058f943df201dd2eb5aa83dcaf465d57af949bced56325f58da647",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 5,
+    "record": "331W-228L-1T",
+    "win_rate": 0.5911,
+    "bt_elo": -310,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Slate Pasture",
@@ -36,7 +50,14 @@
    "origin": "2026-09-08 run; roster rank 2 (only agent that takes 20 % off rank 1)",
    "pool_role": "only agent that takes 20% off #1",
    "sha256": "5c865149398ec68544e927bf965c911e5e70e2443a8e2db069cf55887dc6ef05",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 6,
+    "record": "315W-245L-0T",
+    "win_rate": 0.5625,
+    "bt_elo": -334,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Clover Bank",
@@ -47,7 +68,14 @@
    "origin": "2026-09-08 run; roster rank 3 (graded difficulty step below rank 2)",
    "pool_role": "graded difficulty step below #2",
    "sha256": "f4277b10960ceeb9abd06a8fa6029b3e4a1aa3b4e67aaef11cae70cd08786cf6",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 9,
+    "record": "288W-272L-0T",
+    "win_rate": 0.5143,
+    "bt_elo": -373,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Willow Ford",
@@ -58,7 +86,14 @@
    "origin": "2026-09-08 run; roster rank 8 (takes 10 % off rank 1 despite ranking 8th)",
    "pool_role": "takes 10% off #1 despite ranking 8th",
    "sha256": "f1f913e44f629312d9a27b832a2d2a59d5621728deb1a4db4b5d8f308bc902ac",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 11,
+    "record": "223W-336L-1T",
+    "win_rate": 0.3982,
+    "bt_elo": -468,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Birch Hollow",
@@ -69,7 +104,14 @@
    "origin": "2026-09-08 run; roster rank 10 (most behaviourally distinct opponent, 58-68 % agreement)",
    "pool_role": "most behaviourally distinct opponent (58-68% agreement)",
    "sha256": "bc947959c92bb997d75b4eea67db37ec7ed97d34e9951541aa1a7e4619496c36",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 14,
+    "record": "99W-460L-1T",
+    "win_rate": 0.1768,
+    "bt_elo": -704,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Amber Loft",
@@ -80,7 +122,14 @@
    "origin": "run 1 (2026-09-12) gen 62 oracle_cadence_bypass_and_idle: 73.3 % vs the six-pool, $82,350; seed of run 2",
    "pool_role": "best program of the 2026-09-12 Shinka run (gen 62, oracle_cadence_bypass_and_idle): 73.3% (176W-64L) vs the six-pool, $82,350; 40-0 vs seed and 153302, 28-12 vs 150703, 24-16/22-18/22-18 vs 183514/190355/191956. Hand-promoted (below the 75% crowning gate); uses the order-flow oracle. The other >=70% programs of that run are behavioural clones of it and were not added.",
    "sha256": "3da587d76bf172a256aa51ece00a7c73648229bd3d4961069c1e913cda496b06",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 13,
+    "record": "187W-372L-1T",
+    "win_rate": 0.3339,
+    "bt_elo": -525,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Orchard Tide",
@@ -93,7 +142,14 @@
    "origin": "run 2 (2026-09-12) gen 33 dynamic_shop_batch_sizing: crowned 77.1 % vs the seven-pool; Kaggle submission 56193386; seed of run 3",
    "pool_role": "crowned by evaluate.py during run 2 (gen 33, dynamic_shop_batch_sizing, 16:16 UTC): 77.1% (216W-64L) vs the seven-pool, $82,113, seat0 76%/seat1 78%; 40-0 vs seed and 153302, 35-5 vs 150703, 27-13 vs 183514, 25-15/25-15 vs 190355/191956, 24-15-1T vs gen62. First program to pass the 75% gate. Uses the order-flow oracle. Every later run-2 program was scored against the eight-pool including this one (best of them 20-20 to 22-18 against it).",
    "sha256": "66ad4552b094d2f432b1abd19768245fe991ed59f911ff47771b7ee5084c7fdd",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 12,
+    "record": "212W-347L-1T",
+    "win_rate": 0.3786,
+    "bt_elo": -485,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Meadow Lantern",
@@ -109,7 +165,14 @@
    "champions_evaluated": 8,
    "avg_cash": 82221.88,
    "sha256": "0998fcda1f74a443dd3fd4c69d1cf34f9047637847a238a3a1fe6b4507468130",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 10,
+    "record": "283W-277L-0T",
+    "win_rate": 0.5054,
+    "bt_elo": -380,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Furrow Dawn",
@@ -125,7 +188,14 @@
    "champions_evaluated": 9,
    "avg_cash": 81853.55,
    "sha256": "4a8525c80d3bf10bc23ec961626ed4a8583c825af4ffaa3336f38249c7805403",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 7,
+    "record": "305W-255L-0T",
+    "win_rate": 0.5446,
+    "bt_elo": -348,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Quiet Barley",
@@ -141,7 +211,14 @@
    "champions_evaluated": 9,
    "avg_cash": 82067.21,
    "sha256": "3e9ab36a0d1f22f21837f9a89ae09245fbd03254fe439d39baeb309c642d524b",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 8,
+    "record": "365W-417L-18T",
+    "win_rate": 0.4562,
+    "bt_elo": -349,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Granary Brook",
@@ -157,7 +234,14 @@
    "champions_evaluated": 11,
    "avg_cash": 81783.55,
    "sha256": "1e302d46b220f3a193a40f8402b24bdf116b8f48168fdf60c0ec5a8922c9afab",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 4,
+    "record": "431W-298L-71T",
+    "win_rate": 0.5387,
+    "bt_elo": -262,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Mirror Hedgerow",
@@ -173,7 +257,14 @@
    "champions_evaluated": 12,
    "avg_cash": 81696.72,
    "sha256": "65a0633946c1f56a877c5dacf569263b113602cea97aa9d3312f6fbbd805bf4d",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 3,
+    "record": "463W-266L-71T",
+    "win_rate": 0.5787,
+    "bt_elo": -231,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Open Sluice",
@@ -189,7 +280,14 @@
    "champions_evaluated": 12,
    "avg_cash": 81696.74,
    "sha256": "afd3c8daec769c59d3e55f78bd2d6c1e37c736de17cc708e17a03640d0b7d8ed",
-   "status": "active pool member"
+   "status": "active pool member",
+   "tournament_2026_09_14": {
+    "rank": 2,
+    "record": "498W-284L-18T",
+    "win_rate": 0.6225,
+    "bt_elo": -222,
+    "p_rank1": 0.0
+   }
   },
   {
    "codename": "Copper Weir",
@@ -205,7 +303,39 @@
    "champions_evaluated": 14,
    "avg_cash": 81408.59,
    "sha256": "1f3ae68faf782943f6e3911c642942338a714019c9985927b7bbd396d56aafd6",
-   "status": "active pool member - best candidate for Kaggle"
+   "status": "active pool member - best candidate for Kaggle",
+   "tournament_2026_09_14": {
+    "rank": 1,
+    "record": "696W-104L-0T",
+    "win_rate": 0.87,
+    "bt_elo": 0,
+    "p_rank1": 1.0
+   }
   }
- ]
+ ],
+ "tournaments": {
+  "2026-09-14": {
+   "evidence": "evidence/tournament_2026-09-14/",
+   "games": 4800,
+   "protocol": "round-robin of the whole pool on fresh seeds (40 per pairing) + 60 more per pairing among the top 5; Bradley-Terry ranking",
+   "best": "Copper Weir",
+   "ranking": [
+    "Copper Weir",
+    "Open Sluice",
+    "Mirror Hedgerow",
+    "Granary Brook",
+    "Cider Ridge",
+    "Slate Pasture",
+    "Furrow Dawn",
+    "Quiet Barley",
+    "Clover Bank",
+    "Meadow Lantern",
+    "Willow Ford",
+    "Orchard Tide",
+    "Amber Loft",
+    "Birch Hollow",
+    "First Furrow"
+   ]
+  }
+ }
 }

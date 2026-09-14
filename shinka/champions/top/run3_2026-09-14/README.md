@@ -49,8 +49,12 @@ this directory holds the copies that matter: one directory per crowned champion,
 * **Submitted to Kaggle 2026-09-14 21:24 UTC as submission 56239161** (`submissions/copper_weir/`, `CopperWeir.tar.gz`):
   `check_oracle.py numpy` max diff 1.51e-4, bundle validation PASS in the clean venv (8 games, oracle live on numpy,
   torch never imported), Kaggle validation episode 109042656 COMPLETED both seats, status COMPLETE 21:31 UTC.
-  Still open: a fresh-seed head-to-head vs Quiet Barley / Granary Brook / Orchard Tide (as `run2_2026-09-12/tiebreak.py`
-  did) — the 90 % figure is a single 560-game evaluation.
+* **Confirmed on fresh seeds 2026-09-14 22:09 UTC** (`../../evidence/tournament_2026-09-14/`: round-robin of the whole
+  15-pool, 4,800 games on seeds no run ever used): rank 1 with 696W-104L-0T (87.0 %), 222 Elo clear of the
+  runner-up Open Sluice, rank 1 in 100 % of 2,000 bootstrap resamples, a winning record against all 14 others
+  (85-15 Open Sluice, 83-17 Mirror Hedgerow, 84-16 Granary Brook, 83-17 Quiet Barley at 100 games each; closest
+  pairing Meadow Lantern 31-9). The crowning order of the other six does not survive fresh seeds (Quiet Barley falls
+  to 8th; Open Sluice / Mirror Hedgerow / Granary Brook are the podium).
 
 ### Copper Weir against every champion (40 games each)
 
