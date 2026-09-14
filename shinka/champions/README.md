@@ -15,6 +15,8 @@ names because `pool/POOL.json` and the game log reference them.
 - `top/run2_2026-09-12/` — run 2's top programs with the fresh-seed tie-break that chose Orchard Tide (`gen_33/`).
 - `top/run3_2026-09-14/` — run 3's crowned champions under their codenames (`<snake_codename>/main.py`, `metrics.json`,
   `summary.json`; `README.md` + `INDEX.json` with all 184 accepted programs).
+- `submissions/copper_weir/` — **Copper Weir** as submitted 2026-09-14 (Kaggle 56239161, COMPLETE; `MANIFEST.json` has hashes,
+  validation report and the Kaggle record).
 - `submissions/orchard_tide/` — **Orchard Tide** packaged for Kaggle's CPU sandbox (bootstrap `main.py`, oracle on the
   numpy backend, its checkpoint); `submissions/make_submission.py` is the standard packager
   (`--champion <file> --name "<Two Words>" --validate`). Built `.tar.gz` bundles are git-ignored.
@@ -50,8 +52,7 @@ dependencies only those wrappers used, and the 09-09 repair/validation reports.
 
 Lineage: First Furrow → (09-08 run) Cider Ridge / Slate Pasture / Clover Bank / Willow Ford / Birch Hollow → run 1
 Amber Loft → run 2 **Orchard Tide** (Kaggle 56193386) → run 3 Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook,
-Open Sluice, Mirror Hedgerow, **Copper Weir** (90 % vs the 14-pool; next Kaggle candidate, pending fresh-seed
-confirmation and `make_submission.py --validate`). Retired public names: Harvest Meridian, Field Current (pre-oracle bundles).
+Open Sluice, Mirror Hedgerow, **Copper Weir** (90 % vs the 14-pool; on Kaggle since 2026-09-14 as submission 56239161). Retired public names: Harvest Meridian, Field Current (pre-oracle bundles).
 
 ## Run and evaluate
 

@@ -90,8 +90,9 @@
   ],
   "sha256": "1f3ae68faf782943f6e3911c642942338a714019c9985927b7bbd396d56aafd6",
   "why": "90.0% (504W-56L-0T, 0 crashes) against the full 14-pool, seats 92.5% / 87.5%; beats the four old mid-lineage champions 36-4 / 37-3 / 37-3 / 35-5 where every earlier best (gens 115, 188) split them ~20-20 -- the Orchard Tide close-loss cluster; the edit is mechanical (value-weighted eviction at the 10-order market cap, len(mkt)<10 guards removed, day-29 liquidation from step 693 batch 7)",
-  "not_yet_done": "single 560-game evaluation; no fresh-seed tie-break / head-to-head vs gens 115/122/Orchard Tide yet; no make_submission.py --validate yet",
-  "codename": "Copper Weir"
+  "not_yet_done": "fresh-seed head-to-head vs Quiet Barley / Granary Brook / Orchard Tide (the 90% is a single 560-game evaluation); submitted to Kaggle 2026-09-14 21:24 UTC as 56239161 (COMPLETE 21:31)",
+  "codename": "Copper Weir",
+  "kaggle_submission": 56239161
  },
  "programs": {
   "1": {

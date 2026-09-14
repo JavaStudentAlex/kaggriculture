@@ -46,9 +46,11 @@ this directory holds the copies that matter: one directory per crowned champion,
   **36-4 / 37-3 / 37-3 / 35-5** — the Orchard Tide close-loss cluster (the $120–$350 margins audited in `ideas.md`) is what
   the prompt targeted and what closed.
 
-* **Not yet done**: this is a single 560-game evaluation. A fresh-seed head-to-head vs Quiet Barley / Granary Brook /
-  Orchard Tide (as `run2_2026-09-12/tiebreak.py` did) and `make_submission.py --validate --name "Copper Weir"` with
-  `check_oracle.py numpy` are still pending before it goes to Kaggle.
+* **Submitted to Kaggle 2026-09-14 21:24 UTC as submission 56239161** (`submissions/copper_weir/`, `CopperWeir.tar.gz`):
+  `check_oracle.py numpy` max diff 1.51e-4, bundle validation PASS in the clean venv (8 games, oracle live on numpy,
+  torch never imported), Kaggle validation episode 109042656 COMPLETED both seats, status COMPLETE 21:31 UTC.
+  Still open: a fresh-seed head-to-head vs Quiet Barley / Granary Brook / Orchard Tide (as `run2_2026-09-12/tiebreak.py`
+  did) — the 90 % figure is a single 560-game evaluation.
 
 ### Copper Weir against every champion (40 games each)
 
