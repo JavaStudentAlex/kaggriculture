@@ -18,7 +18,7 @@ mutants/
 
 # Opponent-model data, logs and run artifacts: live on the SSD / ceph, never in git.
 # Shards live in datasets/ (ceph) and /results/kagg/datasets (SSD); raw replays are
-# Kaggle's daily datasets; promoted checkpoints go to models/ (ignored, added on purpose).
+# Kaggle's daily datasets; the promoted checkpoint lives in models/ and IS committed.
 replays/
 datasets/
 research/opponent_model/logs/
@@ -28,4 +28,3 @@ research/opponent_model/runs/
 shinka_results/
 shinka_results.stale_*/
 shinka_run.log
-models

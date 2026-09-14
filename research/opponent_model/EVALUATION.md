@@ -5,10 +5,10 @@ the methodology in sync with `evaluate.py` (the one scorer).
 
 | | |
 |---|---|
-| Last updated | 2026-09-13 |
+| Last updated | 2026-09-14 |
 | Scorer | `research/opponent_model/evaluate.py` |
 | Data | `datasets/shards/` — one shard per Kaggle day, `next_action` labels (AGENTS.md 4.2–4.3) |
-| Results | section 4; the 256-context base model is in training (AGENTS.md 12), its `eval.json` fills the table |
+| Results | section 4 — `models/ttm_c256_h96` (promoted 2026-09-14) |
 
 ## 1. What is being predicted, and why it is hard
 
@@ -129,4 +129,8 @@ GPU time:
 
 | checkpoint | held-out | t+1 AUC / AP / lift | day 1–4 pooled AP | best baseline AP | shrinkage when sold | top-decile volume recall |
 |---|---|---|---|---|---|---|
-| `runs/ttm_c256_h96/best` (in training, AGENTS.md 12) | 10 % of 44 days' episodes | | | | | |
+| `models/ttm_c256_h96` (2026-09-14; `eval.json` in the dir, 2.22 M windows, stride 1) | 3,083 held-out episodes of 44 days | 0.873 / 0.403 / 9.6× (day 1 pooled) | 0.403 / 0.401 / 0.389 / 0.368 | clock hour × product 0.151 (3.6×); best history feature 0.074 | 2–20× per product at t+1; late-game WHEAT dumps over-predicted (see README) | 0.704 |
+
+Per product at t+1 (AUC / AP): WHEAT 0.847 / 0.475, CARROT 0.951 / 0.211, TOMATO 0.956 / 0.494,
+STRAWBERRY 0.853 / 0.434, MELON 0.857 / 0.214, EGG 0.940 / 0.602, MILK 0.808 / 0.388,
+WOOL 0.777 / 0.246, FERTILIZER 0.807 / 0.428. Leak check: clean AP 0.400 = un-cleaned AP 0.400.
