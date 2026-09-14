@@ -70,3 +70,12 @@ head-to-head matrix in `tournament.txt`.)
   champion still beats the pool copy 37-3 or better, and Copper Weir beat it 36-4 at crowning as well.
 * The field is seat-symmetric: seat 0 won 50.0 % of the 4,708 decided games. Average cash is flat across the
   oracle-era champions ($85.7-85.9 k); the ranking is decided by who ends higher, not by cash volume.
+
+## Copper Weir's losses
+
+`copper_weir_losses.txt` lists all 104 with a seats-swapped replay of each: 13 are the seat artefact of seed
+11205 (the world gives seat 0 the better farm), 65 are near-clone games against its own lineage decided at the
+margin (median $143), and 22 are two high-output worlds (seeds 12316, 12720) where it is worse than every
+non-floor champion. `copper_weir_loss_audit.md` traces those two: the sell-order eviction parks fertilizer in the
+shed at the hour-0 re-hire step, the 100-unit shed overflows at the end-of-day drop and 4 wool + 6 wheat +
+1 strawberry are discarded (≈ the whole deficit); fix = shed-headroom guard on the eviction.
