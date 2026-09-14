@@ -1,141 +1,145 @@
-Copper Weir's 104 losses in the 2026-09-14 tournament (800 games: 696W-104L-0T), with every lost game replayed
-with the seats swapped (104 replays, 0 crashes). 'genuine' = identical cash both ways (seat-symmetric world);
-'seat artefact' = the two cash totals swap exactly with the seats (the seed gives seat 0 the better farm);
-Mirror Hedgerow's and Furrow Dawn's policies are seat-dependent, so their mirrored games differ by a few dollars.
+Copper Weir's 104 losses in the 2026-09-14 tournament (800 games: 696W-104L-0T). Every lost game was replayed
+with the seats swapped (104 replays, 0 crashes):
+  genuine        = identical cash both ways (the world is seat-symmetric, the policy lost);
+  seat artefact  = seed 11205, where seat 0 earns $3-7k more whoever sits there (Cider Ridge vs Quiet Barley
+                   played both ways: 66,141/60,248 -> 59,166/63,303; every other checked seed reproduces to the
+                   dollar). Copper Weir sat on seat 1 for that seed and lost all 13 games there; mirrored it wins all 13.
+  Mirror Hedgerow's and Furrow Dawn's policies are seat-dependent, so their mirrored games differ by a few dollars
+  (2 of them flip to a Copper Weir win: seeds 12821 and 152841, by $707 and $31).
 
-summary: 76 genuine, 15 genuine (opp. seat-dependent, mirrored W), 13 genuine (opp. seat-dependent, mirrored L)
+summary: 91 genuine, 13 seat artefact -> 91 genuine losses of 787 symmetric games (88.4 % won)
 
-by seed (seed / Copper Weir's seat / losses / opponents / class):
-   11205  seat 1  13  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Birch Hollow, Amber Loft, Orchard Tide, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [13 genuine]
-   12316  seat 1  12  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Amber Loft, Orchard Tide, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [12 genuine]
-   12720  seat 1  10  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [10 genuine]
-   11609  seat 1   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [5 genuine]
-   11710  seat 1   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [5 genuine]
-  130108  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [5 genuine]
-  130310  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [5 genuine]
-  131522  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [5 genuine]
-   13023  seat 1   4  Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  [4 genuine]
-   24324  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-   24829  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-   25435  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-   25536  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-  152134  seat 1   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-  152538  seat 1   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley  [4 genuine]
-   12215  seat 1   3  Cider Ridge, Slate Pasture, Clover Bank  [3 genuine]
-   11508  seat 1   2  Cider Ridge, Slate Pasture  [2 genuine]
-  152336  seat 1   2  Granary Brook, Quiet Barley  [2 genuine]
-  130714  seat 0   1  Clover Bank  [1 genuine]
-  131320  seat 0   1  Clover Bank  [1 genuine]
-   12922  seat 1   1  Willow Ford  [1 genuine]
-  131421  seat 0   1  Willow Ford  [1 genuine]
-  131623  seat 0   1  Willow Ford  [1 genuine]
-  130209  seat 0   1  Meadow Lantern  [1 genuine]
-  130815  seat 0   1  Quiet Barley  [1 genuine]
-   12821  seat 1   1  Mirror Hedgerow  [1 genuine]
-  152841  seat 1   1  Mirror Hedgerow  [1 genuine]
+by seed (seed / Copper Weir's seat / losses / opponents):
+   11205  seat 1  13  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Birch Hollow, Amber Loft, Orchard Tide, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  <- seat artefact
+   12316  seat 1  12  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Amber Loft, Orchard Tide, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  <- worse than every non-floor champion on this world
+   12720  seat 1  10  Cider Ridge, Slate Pasture, Clover Bank, Willow Ford, Meadow Lantern, Furrow Dawn, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice  <- worse than every non-floor champion on this world
+   11609  seat 1   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+   11710  seat 1   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+  130108  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+  130310  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+  131522  seat 0   5  Meadow Lantern, Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+   13023  seat 1   4  Quiet Barley, Granary Brook, Mirror Hedgerow, Open Sluice
+   24324  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+   24829  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+   25435  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+   25536  seat 0   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+  152134  seat 1   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+  152538  seat 1   4  Mirror Hedgerow, Open Sluice, Granary Brook, Quiet Barley
+   12215  seat 1   3  Cider Ridge, Slate Pasture, Clover Bank
+   11508  seat 1   2  Cider Ridge, Slate Pasture
+  152336  seat 1   2  Granary Brook, Quiet Barley
+  130714  seat 0   1  Clover Bank
+  131320  seat 0   1  Clover Bank
+   12922  seat 1   1  Willow Ford
+  131421  seat 0   1  Willow Ford
+  131623  seat 0   1  Willow Ford
+  130209  seat 0   1  Meadow Lantern
+  130815  seat 0   1  Quiet Barley
+   12821  seat 1   1  Mirror Hedgerow
+  152841  seat 1   1  Mirror Hedgerow
 
-opponent            seed seat stage   CW cash  opp cash  margin  mirrored (CW cash vs opp cash)  class
-Amber Loft         11205    1     1    61,154    63,503  -2,349  W    66,841 vs    60,336           genuine (opp. seat-dependent, mirrored W)
-Amber Loft         12316    1     1   140,628   141,220    -592  L   140,628 vs   141,220           genuine
-Birch Hollow       11205    1     1    61,689    63,960  -2,271  W    67,640 vs    60,693           genuine (opp. seat-dependent, mirrored W)
-Cider Ridge        11205    1     1    59,990    62,365  -2,375  W    63,547 vs    57,642           genuine (opp. seat-dependent, mirrored W)
-Cider Ridge        11508    1     1    60,872    61,055    -183  L    60,872 vs    61,055           genuine
-Cider Ridge        12215    1     1    71,423    71,653    -230  L    71,423 vs    71,653           genuine
-Cider Ridge        12316    1     1   140,713   141,835  -1,122  L   140,713 vs   141,835           genuine
-Cider Ridge        12720    1     1    91,876    92,135    -259  L    91,876 vs    92,135           genuine
-Clover Bank        11205    1     1    59,906    63,695  -3,789  W    63,489 vs    58,979           genuine (opp. seat-dependent, mirrored W)
-Clover Bank        12215    1     1    71,441    71,653    -212  L    71,441 vs    71,653           genuine
-Clover Bank        12316    1     1   140,777   142,451  -1,674  L   140,777 vs   142,451           genuine
-Clover Bank        12720    1     1    91,800    92,936  -1,136  L    91,800 vs    92,936           genuine
-Clover Bank       130714    0     1    51,209    51,314    -105  L    51,209 vs    51,314           genuine
-Clover Bank       131320    0     1    90,001    90,102    -101  L    90,001 vs    90,102           genuine
-Furrow Dawn        11205    1     1    60,356    63,585  -3,229  W    64,397 vs    59,742           genuine (opp. seat-dependent, mirrored W)
-Furrow Dawn        12316    1     1   140,434   141,325    -891  L   140,390 vs   141,386           genuine (opp. seat-dependent, mirrored L)
-Furrow Dawn        12720    1     1    92,807    94,154  -1,347  L    92,701 vs    94,213           genuine (opp. seat-dependent, mirrored L)
-Granary Brook      11205    1     1    61,252    63,787  -2,535  W    66,997 vs    60,847           genuine (opp. seat-dependent, mirrored W)
-Granary Brook      11609    1     1    43,226    43,362    -136  L    43,226 vs    43,362           genuine
-Granary Brook      11710    1     1    43,403    43,544    -141  L    43,403 vs    43,544           genuine
-Granary Brook      12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051           genuine
-Granary Brook      12720    1     1    91,615    92,360    -745  L    91,615 vs    92,360           genuine
-Granary Brook      13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432           genuine
-Granary Brook      24324    0     2    63,792    63,937    -145  L    63,792 vs    63,937           genuine
-Granary Brook      24829    0     2    55,713    55,863    -150  L    55,713 vs    55,863           genuine
-Granary Brook      25435    0     2   106,954   107,557    -603  L   106,954 vs   107,557           genuine
-Granary Brook      25536    0     2    60,160    60,303    -143  L    60,160 vs    60,303           genuine
-Granary Brook     130108    0     1    34,093    34,192     -99  L    34,093 vs    34,192           genuine
-Granary Brook     130310    0     1   112,130   113,709  -1,579  L   112,130 vs   113,709           genuine
-Granary Brook     131522    0     1    51,226    51,418    -192  L    51,226 vs    51,418           genuine
-Granary Brook     152134    1     2    55,786    55,860     -74  L    55,786 vs    55,860           genuine
-Granary Brook     152336    1     2    85,625    85,639     -14  L    85,625 vs    85,639           genuine
-Granary Brook     152538    1     2    95,046    95,142     -96  L    95,046 vs    95,142           genuine
-Meadow Lantern     11205    1     1    61,267    63,770  -2,503  W    66,875 vs    60,760           genuine (opp. seat-dependent, mirrored W)
-Meadow Lantern     11609    1     1    43,247    43,342     -95  L    43,247 vs    43,342           genuine
-Meadow Lantern     11710    1     1    43,423    43,524    -101  L    43,423 vs    43,524           genuine
-Meadow Lantern     12316    1     1   140,422   141,026    -604  L   140,422 vs   141,026           genuine
-Meadow Lantern     12720    1     1    91,643    92,332    -689  L    91,643 vs    92,332           genuine
-Meadow Lantern    130108    0     1    34,115    34,169     -54  L    34,115 vs    34,169           genuine
-Meadow Lantern    130209    0     1    73,639    73,844    -205  L    73,639 vs    73,844           genuine
-Meadow Lantern    130310    0     1   112,234   113,588  -1,354  L   112,234 vs   113,588           genuine
-Meadow Lantern    131522    0     1    51,267    51,367    -100  L    51,267 vs    51,367           genuine
-Mirror Hedgerow    11205    1     1    61,252    63,787  -2,535  W    66,997 vs    60,847           genuine (opp. seat-dependent, mirrored W)
-Mirror Hedgerow    11609    1     1    43,217    43,357    -140  L    43,226 vs    43,362           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    11710    1     1    43,387    43,534    -147  L    43,403 vs    43,544           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051           genuine
-Mirror Hedgerow    12720    1     1    91,615    92,361    -746  L    91,615 vs    92,360           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    12821    1     1    80,922    80,954     -32  W    81,356 vs    80,649           genuine (opp. seat-dependent, mirrored W)
-Mirror Hedgerow    13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432           genuine
-Mirror Hedgerow    24324    0     2    63,792    63,937    -145  L    63,787 vs    63,927           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    24829    0     2    55,713    55,863    -150  L    55,707 vs    55,853           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    25435    0     2   106,954   107,557    -603  L   106,954 vs   107,558           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow    25536    0     2    60,160    60,303    -143  L    60,154 vs    60,302           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow   130108    0     1    34,093    34,192     -99  L    34,083 vs    34,187           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow   130310    0     1   112,130   113,709  -1,579  L   112,130 vs   113,709           genuine
-Mirror Hedgerow   131522    0     1    51,226    51,418    -192  L    51,223 vs    51,420           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow   152134    1     2    55,769    55,862     -93  L    55,786 vs    55,860           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow   152538    1     2    95,077    95,089     -12  L    95,046 vs    95,142           genuine (opp. seat-dependent, mirrored L)
-Mirror Hedgerow   152841    1     2    70,950    71,088    -138  W    71,047 vs    71,016           genuine (opp. seat-dependent, mirrored W)
-Open Sluice        11205    1     1    61,252    63,786  -2,534  W    66,999 vs    60,848           genuine (opp. seat-dependent, mirrored W)
-Open Sluice        11609    1     1    43,224    43,360    -136  L    43,224 vs    43,360           genuine
-Open Sluice        11710    1     1    43,395    43,534    -139  L    43,395 vs    43,534           genuine
-Open Sluice        12316    1     1   140,395   140,825    -430  L   140,395 vs   140,825           genuine
-Open Sluice        12720    1     1    91,611    92,341    -730  L    91,611 vs    92,341           genuine
-Open Sluice        13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432           genuine
-Open Sluice        24324    0     2    63,791    63,936    -145  L    63,791 vs    63,936           genuine
-Open Sluice        24829    0     2    55,708    55,853    -145  L    55,708 vs    55,853           genuine
-Open Sluice        25435    0     2   106,944   107,550    -606  L   106,944 vs   107,550           genuine
-Open Sluice        25536    0     2    60,160    60,303    -143  L    60,160 vs    60,303           genuine
-Open Sluice       130108    0     1    34,083    34,223    -140  L    34,083 vs    34,223           genuine
-Open Sluice       130310    0     1   112,097   113,707  -1,610  L   112,097 vs   113,707           genuine
-Open Sluice       131522    0     1    51,224    51,416    -192  L    51,224 vs    51,416           genuine
-Open Sluice       152134    1     2    55,779    55,856     -77  L    55,779 vs    55,856           genuine
-Open Sluice       152538    1     2    95,035    95,104     -69  L    95,035 vs    95,104           genuine
-Orchard Tide       11205    1     1    61,156    63,503  -2,347  W    66,841 vs    60,334           genuine (opp. seat-dependent, mirrored W)
-Orchard Tide       12316    1     1   140,504   141,243    -739  L   140,504 vs   141,243           genuine
-Quiet Barley       11205    1     1    61,252    63,777  -2,525  W    66,997 vs    60,837           genuine (opp. seat-dependent, mirrored W)
-Quiet Barley       11609    1     1    43,230    43,358    -128  L    43,230 vs    43,358           genuine
-Quiet Barley       11710    1     1    43,403    43,528    -125  L    43,403 vs    43,528           genuine
-Quiet Barley       12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051           genuine
-Quiet Barley       12720    1     1    91,472    92,466    -994  L    91,472 vs    92,466           genuine
-Quiet Barley       13023    1     1    93,415    93,424      -9  L    93,415 vs    93,424           genuine
-Quiet Barley       24324    0     2    63,796    63,930    -134  L    63,796 vs    63,930           genuine
-Quiet Barley       24829    0     2    55,717    55,858    -141  L    55,717 vs    55,858           genuine
-Quiet Barley       25435    0     2   106,954   107,553    -599  L   106,954 vs   107,553           genuine
-Quiet Barley       25536    0     2    60,164    60,293    -129  L    60,164 vs    60,293           genuine
-Quiet Barley      130108    0     1    34,097    34,188     -91  L    34,097 vs    34,188           genuine
-Quiet Barley      130310    0     1   112,122   113,709  -1,587  L   112,122 vs   113,709           genuine
-Quiet Barley      130815    0     1    96,206    96,221     -15  L    96,206 vs    96,221           genuine
-Quiet Barley      131522    0     1    51,224    51,410    -186  L    51,224 vs    51,410           genuine
-Quiet Barley      152134    1     2    55,786    55,855     -69  L    55,786 vs    55,855           genuine
-Quiet Barley      152336    1     2    85,629    85,639     -10  L    85,629 vs    85,639           genuine
-Quiet Barley      152538    1     2    95,046    95,131     -85  L    95,046 vs    95,131           genuine
-Slate Pasture      11205    1     1    59,600    62,950  -3,350  W    63,406 vs    57,559           genuine (opp. seat-dependent, mirrored W)
-Slate Pasture      11508    1     1    60,826    61,059    -233  L    60,826 vs    61,059           genuine
-Slate Pasture      12215    1     1    71,355    71,655    -300  L    71,355 vs    71,655           genuine
-Slate Pasture      12316    1     1   140,767   142,075  -1,308  L   140,767 vs   142,075           genuine
-Slate Pasture      12720    1     1    91,929    92,409    -480  L    91,929 vs    92,409           genuine
-Willow Ford        11205    1     1    60,902    64,030  -3,128  W    64,687 vs    59,775           genuine (opp. seat-dependent, mirrored W)
-Willow Ford        12316    1     1   140,595   144,248  -3,653  L   140,595 vs   144,248           genuine
-Willow Ford        12720    1     1    92,485    94,614  -2,129  L    92,485 vs    94,614           genuine
-Willow Ford        12922    1     1   111,796   112,327    -531  L   111,796 vs   112,327           genuine
-Willow Ford       131421    0     1   148,370   149,127    -757  L   148,370 vs   149,127           genuine
-Willow Ford       131623    0     1   135,669   136,121    -452  L   135,669 vs   136,121           genuine
+opponent            seed seat stage   CW cash  opp cash  margin  mirrored (CW vs opp)        class
+Amber Loft         11205    1     1    61,154    63,503  -2,349  W    66,841 vs    60,336   seat artefact
+Amber Loft         12316    1     1   140,628   141,220    -592  L   140,628 vs   141,220   genuine
+Birch Hollow       11205    1     1    61,689    63,960  -2,271  W    67,640 vs    60,693   seat artefact
+Cider Ridge        11205    1     1    59,990    62,365  -2,375  W    63,547 vs    57,642   seat artefact
+Cider Ridge        11508    1     1    60,872    61,055    -183  L    60,872 vs    61,055   genuine
+Cider Ridge        12215    1     1    71,423    71,653    -230  L    71,423 vs    71,653   genuine
+Cider Ridge        12316    1     1   140,713   141,835  -1,122  L   140,713 vs   141,835   genuine
+Cider Ridge        12720    1     1    91,876    92,135    -259  L    91,876 vs    92,135   genuine
+Clover Bank        11205    1     1    59,906    63,695  -3,789  W    63,489 vs    58,979   seat artefact
+Clover Bank        12215    1     1    71,441    71,653    -212  L    71,441 vs    71,653   genuine
+Clover Bank        12316    1     1   140,777   142,451  -1,674  L   140,777 vs   142,451   genuine
+Clover Bank        12720    1     1    91,800    92,936  -1,136  L    91,800 vs    92,936   genuine
+Clover Bank       130714    0     1    51,209    51,314    -105  L    51,209 vs    51,314   genuine
+Clover Bank       131320    0     1    90,001    90,102    -101  L    90,001 vs    90,102   genuine
+Furrow Dawn        11205    1     1    60,356    63,585  -3,229  W    64,397 vs    59,742   seat artefact
+Furrow Dawn        12316    1     1   140,434   141,325    -891  L   140,390 vs   141,386   genuine, opponent seat-dependent (mirrored L by $996)
+Furrow Dawn        12720    1     1    92,807    94,154  -1,347  L    92,701 vs    94,213   genuine, opponent seat-dependent (mirrored L by $1,512)
+Granary Brook      11205    1     1    61,252    63,787  -2,535  W    66,997 vs    60,847   seat artefact
+Granary Brook      11609    1     1    43,226    43,362    -136  L    43,226 vs    43,362   genuine
+Granary Brook      11710    1     1    43,403    43,544    -141  L    43,403 vs    43,544   genuine
+Granary Brook      12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051   genuine
+Granary Brook      12720    1     1    91,615    92,360    -745  L    91,615 vs    92,360   genuine
+Granary Brook      13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432   genuine
+Granary Brook      24324    0     2    63,792    63,937    -145  L    63,792 vs    63,937   genuine
+Granary Brook      24829    0     2    55,713    55,863    -150  L    55,713 vs    55,863   genuine
+Granary Brook      25435    0     2   106,954   107,557    -603  L   106,954 vs   107,557   genuine
+Granary Brook      25536    0     2    60,160    60,303    -143  L    60,160 vs    60,303   genuine
+Granary Brook     130108    0     1    34,093    34,192     -99  L    34,093 vs    34,192   genuine
+Granary Brook     130310    0     1   112,130   113,709  -1,579  L   112,130 vs   113,709   genuine
+Granary Brook     131522    0     1    51,226    51,418    -192  L    51,226 vs    51,418   genuine
+Granary Brook     152134    1     2    55,786    55,860     -74  L    55,786 vs    55,860   genuine
+Granary Brook     152336    1     2    85,625    85,639     -14  L    85,625 vs    85,639   genuine
+Granary Brook     152538    1     2    95,046    95,142     -96  L    95,046 vs    95,142   genuine
+Meadow Lantern     11205    1     1    61,267    63,770  -2,503  W    66,875 vs    60,760   seat artefact
+Meadow Lantern     11609    1     1    43,247    43,342     -95  L    43,247 vs    43,342   genuine
+Meadow Lantern     11710    1     1    43,423    43,524    -101  L    43,423 vs    43,524   genuine
+Meadow Lantern     12316    1     1   140,422   141,026    -604  L   140,422 vs   141,026   genuine
+Meadow Lantern     12720    1     1    91,643    92,332    -689  L    91,643 vs    92,332   genuine
+Meadow Lantern    130108    0     1    34,115    34,169     -54  L    34,115 vs    34,169   genuine
+Meadow Lantern    130209    0     1    73,639    73,844    -205  L    73,639 vs    73,844   genuine
+Meadow Lantern    130310    0     1   112,234   113,588  -1,354  L   112,234 vs   113,588   genuine
+Meadow Lantern    131522    0     1    51,267    51,367    -100  L    51,267 vs    51,367   genuine
+Mirror Hedgerow    11205    1     1    61,252    63,787  -2,535  W    66,997 vs    60,847   seat artefact
+Mirror Hedgerow    11609    1     1    43,217    43,357    -140  L    43,226 vs    43,362   genuine, opponent seat-dependent (mirrored L by $136)
+Mirror Hedgerow    11710    1     1    43,387    43,534    -147  L    43,403 vs    43,544   genuine, opponent seat-dependent (mirrored L by $141)
+Mirror Hedgerow    12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051   genuine
+Mirror Hedgerow    12720    1     1    91,615    92,361    -746  L    91,615 vs    92,360   genuine, opponent seat-dependent (mirrored L by $745)
+Mirror Hedgerow    12821    1     1    80,922    80,954     -32  W    81,356 vs    80,649   genuine, opponent seat-dependent (mirrored W by $707)
+Mirror Hedgerow    13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432   genuine
+Mirror Hedgerow    24324    0     2    63,792    63,937    -145  L    63,787 vs    63,927   genuine, opponent seat-dependent (mirrored L by $140)
+Mirror Hedgerow    24829    0     2    55,713    55,863    -150  L    55,707 vs    55,853   genuine, opponent seat-dependent (mirrored L by $146)
+Mirror Hedgerow    25435    0     2   106,954   107,557    -603  L   106,954 vs   107,558   genuine, opponent seat-dependent (mirrored L by $604)
+Mirror Hedgerow    25536    0     2    60,160    60,303    -143  L    60,154 vs    60,302   genuine, opponent seat-dependent (mirrored L by $148)
+Mirror Hedgerow   130108    0     1    34,093    34,192     -99  L    34,083 vs    34,187   genuine, opponent seat-dependent (mirrored L by $104)
+Mirror Hedgerow   130310    0     1   112,130   113,709  -1,579  L   112,130 vs   113,709   genuine
+Mirror Hedgerow   131522    0     1    51,226    51,418    -192  L    51,223 vs    51,420   genuine, opponent seat-dependent (mirrored L by $197)
+Mirror Hedgerow   152134    1     2    55,769    55,862     -93  L    55,786 vs    55,860   genuine, opponent seat-dependent (mirrored L by $74)
+Mirror Hedgerow   152538    1     2    95,077    95,089     -12  L    95,046 vs    95,142   genuine, opponent seat-dependent (mirrored L by $96)
+Mirror Hedgerow   152841    1     2    70,950    71,088    -138  W    71,047 vs    71,016   genuine, opponent seat-dependent (mirrored W by $31)
+Open Sluice        11205    1     1    61,252    63,786  -2,534  W    66,999 vs    60,848   seat artefact
+Open Sluice        11609    1     1    43,224    43,360    -136  L    43,224 vs    43,360   genuine
+Open Sluice        11710    1     1    43,395    43,534    -139  L    43,395 vs    43,534   genuine
+Open Sluice        12316    1     1   140,395   140,825    -430  L   140,395 vs   140,825   genuine
+Open Sluice        12720    1     1    91,611    92,341    -730  L    91,611 vs    92,341   genuine
+Open Sluice        13023    1     1    93,417    93,432     -15  L    93,417 vs    93,432   genuine
+Open Sluice        24324    0     2    63,791    63,936    -145  L    63,791 vs    63,936   genuine
+Open Sluice        24829    0     2    55,708    55,853    -145  L    55,708 vs    55,853   genuine
+Open Sluice        25435    0     2   106,944   107,550    -606  L   106,944 vs   107,550   genuine
+Open Sluice        25536    0     2    60,160    60,303    -143  L    60,160 vs    60,303   genuine
+Open Sluice       130108    0     1    34,083    34,223    -140  L    34,083 vs    34,223   genuine
+Open Sluice       130310    0     1   112,097   113,707  -1,610  L   112,097 vs   113,707   genuine
+Open Sluice       131522    0     1    51,224    51,416    -192  L    51,224 vs    51,416   genuine
+Open Sluice       152134    1     2    55,779    55,856     -77  L    55,779 vs    55,856   genuine
+Open Sluice       152538    1     2    95,035    95,104     -69  L    95,035 vs    95,104   genuine
+Orchard Tide       11205    1     1    61,156    63,503  -2,347  W    66,841 vs    60,334   seat artefact
+Orchard Tide       12316    1     1   140,504   141,243    -739  L   140,504 vs   141,243   genuine
+Quiet Barley       11205    1     1    61,252    63,777  -2,525  W    66,997 vs    60,837   seat artefact
+Quiet Barley       11609    1     1    43,230    43,358    -128  L    43,230 vs    43,358   genuine
+Quiet Barley       11710    1     1    43,403    43,528    -125  L    43,403 vs    43,528   genuine
+Quiet Barley       12316    1     1   140,395   141,051    -656  L   140,395 vs   141,051   genuine
+Quiet Barley       12720    1     1    91,472    92,466    -994  L    91,472 vs    92,466   genuine
+Quiet Barley       13023    1     1    93,415    93,424      -9  L    93,415 vs    93,424   genuine
+Quiet Barley       24324    0     2    63,796    63,930    -134  L    63,796 vs    63,930   genuine
+Quiet Barley       24829    0     2    55,717    55,858    -141  L    55,717 vs    55,858   genuine
+Quiet Barley       25435    0     2   106,954   107,553    -599  L   106,954 vs   107,553   genuine
+Quiet Barley       25536    0     2    60,164    60,293    -129  L    60,164 vs    60,293   genuine
+Quiet Barley      130108    0     1    34,097    34,188     -91  L    34,097 vs    34,188   genuine
+Quiet Barley      130310    0     1   112,122   113,709  -1,587  L   112,122 vs   113,709   genuine
+Quiet Barley      130815    0     1    96,206    96,221     -15  L    96,206 vs    96,221   genuine
+Quiet Barley      131522    0     1    51,224    51,410    -186  L    51,224 vs    51,410   genuine
+Quiet Barley      152134    1     2    55,786    55,855     -69  L    55,786 vs    55,855   genuine
+Quiet Barley      152336    1     2    85,629    85,639     -10  L    85,629 vs    85,639   genuine
+Quiet Barley      152538    1     2    95,046    95,131     -85  L    95,046 vs    95,131   genuine
+Slate Pasture      11205    1     1    59,600    62,950  -3,350  W    63,406 vs    57,559   seat artefact
+Slate Pasture      11508    1     1    60,826    61,059    -233  L    60,826 vs    61,059   genuine
+Slate Pasture      12215    1     1    71,355    71,655    -300  L    71,355 vs    71,655   genuine
+Slate Pasture      12316    1     1   140,767   142,075  -1,308  L   140,767 vs   142,075   genuine
+Slate Pasture      12720    1     1    91,929    92,409    -480  L    91,929 vs    92,409   genuine
+Willow Ford        11205    1     1    60,902    64,030  -3,128  W    64,687 vs    59,775   seat artefact
+Willow Ford        12316    1     1   140,595   144,248  -3,653  L   140,595 vs   144,248   genuine
+Willow Ford        12720    1     1    92,485    94,614  -2,129  L    92,485 vs    94,614   genuine
+Willow Ford        12922    1     1   111,796   112,327    -531  L   111,796 vs   112,327   genuine
+Willow Ford       131421    0     1   148,370   149,127    -757  L   148,370 vs   149,127   genuine
+Willow Ford       131623    0     1   135,669   136,121    -452  L   135,669 vs   136,121   genuine
