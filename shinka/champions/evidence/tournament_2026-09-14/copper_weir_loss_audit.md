@@ -51,7 +51,7 @@ shed-overflow counter (`audit/trace_overflow.py` wraps `_apply_unit_action` / `_
    actions collects 4 fewer milk units than in the parent's game (steps 706/710: 4 vs 6, 5 vs 9) — the
    underfeeding knock-on of the missing wheat, another ≈ $900 at $150 a unit.
 
-## Fix (not applied — a patched program is a new champion and needs the pool evaluation)
+## Fix — applied as **Hazel Weir** (`top/patch_2026-09-14/hazel_weir/`, at the user's word)
 
 The eviction must respect shed headroom: when `sum(shed) + expected inflow` is within ~15 units of
 `shedCapacity`, keep the bulk-clearing SELL (or sell the cheapest bulk product first) instead of evicting it,
@@ -69,3 +69,18 @@ Files: `audit/trace_games.py` (full replays, `/results/kagg/tournament_2026-09-1
 `audit/trace_steps.py` (step diff), `audit/trace_exact.py` + `audit/ledger_diff.py` (exact ledgers,
 `audit/*_ledger_summary.json`), `audit/trace_overflow.py` (discards), `audit/mirror_losses.py` +
 `audit/seed_sym.py` (seat-swap replays behind `copper_weir_losses.txt`).
+
+## Patch results (2026-09-14, `audit/challenger.py` + `evolution/eval_once.sh`)
+
+Three edits on Copper Weir: the pre-drop headroom guard (from hour 20 sell the cheapest stock until
+shed + carried fits, orders protected from eviction), eviction that defers the evicted order to the following
+turns instead of cancelling it, and a day-28 feed reserve of `n_animals + 6` (with the overflow fixed, the patched
+program still collected 4 fewer milk / 3 fewer wool: on day 28 hour 0 it sold 21 wheat where the parent's cap
+guard had limited it to 13, the last feeding hand found the shed empty and three animals went unfed).
+
+* Seeds 12316 / 12720 vs Cider Ridge / Quiet Barley / Open Sluice: 6-0 (Copper Weir 0-6), no discards.
+* Fresh tournament seeds, Copper Weir's seats, vs the 14 other champions: **516-44** vs Copper Weir's 483-77
+  (36 games flipped to wins, 3 to losses), higher average cash against every opponent.
+* Evaluator (15-pool, crowning disabled): 87.7 % (526-74); vs the 14 others 509-51 against Copper Weir's 504-56 on
+  the same seeds (+9 / −4). Mirror vs Copper Weir 17-23 with 16 losses under $25 (the deferred fertilizer sells an
+  hour later) and +$1,940 total cash.

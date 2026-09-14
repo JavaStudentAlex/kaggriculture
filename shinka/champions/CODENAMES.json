@@ -311,6 +311,19 @@
     "bt_elo": 0,
     "p_rank1": 1.0
    }
+  },
+  {
+   "codename": "Hazel Weir",
+   "file": "top/patch_2026-09-14/hazel_weir/main.py",
+   "also": [],
+   "origin": "hand patch of Copper Weir after the 2026-09-14 tournament loss audit (evidence/tournament_2026-09-14/copper_weir_loss_audit.md); not a Shinka program",
+   "parent": "Copper Weir",
+   "pool_role": "candidate (not in the pool)",
+   "sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+   "status": "candidate - passed the evaluator's 75 % gate 2026-09-14 (87.7 % vs the 15-pool, 509-51 vs the 14 others; 516-44 on fresh seeds where Copper Weir was 483-77); pool decision pending",
+   "win_rate": 0.8767,
+   "champions_evaluated": 15,
+   "avg_cash": 81316.8
   }
  ],
  "tournaments": {

@@ -1,0 +1,36 @@
+{
+ "codename": "Hazel Weir",
+ "file": "shinka/champions/top/patch_2026-09-14/hazel_weir/main.py",
+ "sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+ "parent": {
+  "codename": "Copper Weir",
+  "file": "pool/champ_20260914_203220_avg81408.py",
+  "sha256": "1f3ae68faf782943f6e3911c642942338a714019c9985927b7bbd396d56aafd6"
+ },
+ "origin": "hand patch of Copper Weir after the 2026-09-14 tournament loss audit (evidence/tournament_2026-09-14/copper_weir_loss_audit.md); not a Shinka program",
+ "changes": [
+  "pre-drop headroom guard: from hour 20, if shed + carried goods will not fit under the 100-unit cap, sell the cheapest stock (feed reserve kept) until it fits; these orders are protected from value-weighted eviction",
+  "value-weighted eviction defers instead of cancels: an evicted SELL is re-issued on the following turns while the stock is still there (TTL 24 turns)",
+  "day-28 feed reserve keeps one pickup batch of slack (n_animals + 6 instead of n_animals) so the last feeding hand does not find the shed empty"
+ ],
+ "evaluator_2026-09-14": {
+  "pool": 15,
+  "win_rate": 0.8767,
+  "wins": 526,
+  "losses": 74,
+  "ties": 0,
+  "avg_cash": 81316.8,
+  "seat0_win_rate": 0.89,
+  "seat1_win_rate": 0.8633,
+  "total_crashes": 0,
+  "vs_14_others": "509-51 (90.9 %); Copper Weir on the same seeds 504-56 (90.0 %), flips +9/-4; mirror vs Copper Weir 17-23",
+  "crowning": "disabled for the run (KAGG_CROWN_WIN_RATE=2); passes the 75 % gate"
+ },
+ "fresh_seeds_2026-09-14": {
+  "protocol": "tournament stage-1 seeds, Copper Weir's seats, 40 games per opponent",
+  "vs_14_others": "516-44 (92.1 %); Copper Weir 483-77 (86.2 %), flips +36/-3, higher average cash against every opponent",
+  "vs_copper_weir": "17-23 mirror match, 16 of the 23 losses under $25, +$1,940 total cash over 40 games",
+  "losing_worlds": "seeds 12316 / 12720: 6-0 (Copper Weir 0-6), no shed discards"
+ },
+ "status": "candidate - passed the evaluator's 75 % gate, not in the pool (decision pending: replace Copper Weir or add)"
+}

@@ -1,0 +1,59 @@
+challenger /results/kagg/candidates/shed_guard/main.py vs the pool on the stage-1 seeds (600 games, 260 s); reference Copper Weir
+opponent          new W-L-T  ref W-L-T flips + flips -  new cash  ref cash   opp cash new/ref
+First Furrow         40-0-0     40-0-0       0       0    96,971    96,830   77,595/3,104,464
+Cider Ridge          37-3-0     35-5-0       2       0    84,021    83,927   82,893/3,317,623
+Slate Pasture        37-3-0     35-5-0       2       0    83,999    83,903   82,932/3,319,907
+Clover Bank          35-5-0     34-6-0       1       0    84,125    83,987   83,363/3,336,366
+Willow Ford          35-5-0     34-6-0       1       0    84,505    84,363   83,704/3,350,144
+Birch Hollow         39-1-0     39-1-0       0       0    86,282    86,187   84,071/3,362,675
+Amber Loft           39-1-0     38-2-0       1       0    84,994    84,776   83,337/3,336,607
+Orchard Tide         39-1-0     38-2-0       1       0    84,953    84,741   83,307/3,335,962
+Meadow Lantern       36-4-0     31-9-0       5       0    84,718    84,581   83,857/3,356,153
+Furrow Dawn          38-2-0     37-3-0       1       0    84,327    84,200   83,323/3,335,361
+Quiet Barley         35-5-0    30-10-0       6       1    84,632    84,525   83,870/3,355,973
+Granary Brook        35-5-0     31-9-0       5       1    84,642    84,531   83,867/3,355,971
+Mirror Hedgerow      35-5-0    30-10-0       6       1    84,621    84,499   83,873/3,356,367
+Open Sluice          36-4-0     31-9-0       5       0    84,666    84,549   83,861/3,356,348
+Copper Weir         17-23-0     (self)                    83,639    83,590
+TOTAL vs 14        516-44-0   483-77-0      36       3   crashes 0
+
+flipped games (39): opponent, seed, seat, new (mine vs opp), ref (mine vs opp)
+  Amber Loft         12316 s1  new   141,805 vs   140,956 W   ref   140,628 vs   141,220 L
+  Cider Ridge        12316 s1  new   141,863 vs   141,535 W   ref   140,713 vs   141,835 L
+  Furrow Dawn        12316 s1  new   141,596 vs   141,052 W   ref   140,434 vs   141,325 L
+  Granary Brook      12316 s1  new   141,567 vs   140,792 W   ref   140,395 vs   141,051 L
+  Meadow Lantern     12316 s1  new   141,597 vs   140,763 W   ref   140,422 vs   141,026 L
+  Mirror Hedgerow    12316 s1  new   141,567 vs   140,792 W   ref   140,395 vs   141,051 L
+  Open Sluice        12316 s1  new   141,567 vs   140,566 W   ref   140,395 vs   140,825 L
+  Orchard Tide       12316 s1  new   141,686 vs   140,981 W   ref   140,504 vs   141,243 L
+  Quiet Barley       12316 s1  new   141,567 vs   140,792 W   ref   140,395 vs   141,051 L
+  Slate Pasture      12316 s1  new   141,917 vs   141,775 W   ref   140,767 vs   142,075 L
+  Cider Ridge        12720 s1  new    92,900 vs    91,800 W   ref    91,876 vs    92,135 L
+  Clover Bank        12720 s1  new    92,990 vs    92,585 W   ref    91,800 vs    92,936 L
+  Granary Brook      12720 s1  new    92,582 vs    92,110 W   ref    91,615 vs    92,360 L
+  Meadow Lantern     12720 s1  new    92,613 vs    92,078 W   ref    91,643 vs    92,332 L
+  Mirror Hedgerow    12720 s1  new    92,582 vs    92,111 W   ref    91,615 vs    92,361 L
+  Open Sluice        12720 s1  new    92,559 vs    92,108 W   ref    91,611 vs    92,341 L
+  Quiet Barley       12720 s1  new    92,423 vs    92,241 W   ref    91,472 vs    92,466 L
+  Slate Pasture      12720 s1  new    92,953 vs    92,074 W   ref    91,929 vs    92,409 L
+  Mirror Hedgerow    12821 s1  new    81,306 vs    80,648 W   ref    80,922 vs    80,954 L
+  Willow Ford        12922 s1  new   112,656 vs   111,666 W   ref   111,796 vs   112,327 L
+  Granary Brook      13023 s1  new    93,557 vs    93,320 W   ref    93,417 vs    93,432 L
+  Mirror Hedgerow    13023 s1  new    93,557 vs    93,320 W   ref    93,417 vs    93,432 L
+  Open Sluice        13023 s1  new    93,557 vs    93,320 W   ref    93,417 vs    93,432 L
+  Quiet Barley       13023 s1  new    93,527 vs    93,338 W   ref    93,415 vs    93,424 L
+  Granary Brook     130209 s0  new    73,489 vs    73,565 L   ref    73,898 vs    73,565 W
+  Meadow Lantern    130209 s0  new    73,795 vs    73,635 W   ref    73,639 vs    73,844 L
+  Mirror Hedgerow   130209 s0  new    73,489 vs    73,565 L   ref    73,898 vs    73,565 W
+  Quiet Barley      130209 s0  new    73,493 vs    73,565 L   ref    73,902 vs    73,565 W
+  Granary Brook     130310 s0  new   113,649 vs   113,501 W   ref   112,130 vs   113,709 L
+  Meadow Lantern    130310 s0  new   113,680 vs   113,469 W   ref   112,234 vs   113,588 L
+  Mirror Hedgerow   130310 s0  new   113,649 vs   113,501 W   ref   112,130 vs   113,709 L
+  Open Sluice       130310 s0  new   113,635 vs   113,482 W   ref   112,097 vs   113,707 L
+  Quiet Barley      130310 s0  new   113,619 vs   113,519 W   ref   112,122 vs   113,709 L
+  Quiet Barley      130815 s0  new    96,314 vs    96,230 W   ref    96,206 vs    96,221 L
+  Granary Brook     131522 s0  new    51,554 vs    51,429 W   ref    51,226 vs    51,418 L
+  Meadow Lantern    131522 s0  new    51,595 vs    51,378 W   ref    51,267 vs    51,367 L
+  Mirror Hedgerow   131522 s0  new    51,554 vs    51,429 W   ref    51,226 vs    51,418 L
+  Open Sluice       131522 s0  new    51,552 vs    51,427 W   ref    51,224 vs    51,416 L
+  Quiet Barley      131522 s0  new    51,552 vs    51,421 W   ref    51,224 vs    51,410 L
