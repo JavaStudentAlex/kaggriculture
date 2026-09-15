@@ -4,7 +4,7 @@ Shinka run 3: seed = run-2 gen 33 (**Orchard Tide**, `champ_20260912_161630_avg8
 256-context oracle (`models/ttm_c256_h96_ft_2026-09-13`, copied into `shinka/evolution/checkpoint`) active from
 turn 256 instead of 512; pool of 8, 200 generations, 4 islands. Ran 08:47–20:34 UTC to completion:
 203 programs (189 correct, 14 incorrect), $48.72, ~208 s per program. The database and per-generation
-directories are in `/results/kagg/shinka_results_r3` (SSD) mirrored to `shinka_results_r3/` (ceph, git-ignored);
+directories are in `/results/kagg/shinka_results_r3` (SSD) mirrored to `shinka_results_r3/` (ceph, git-ignored) — **removed 2026-09-15** (the run database is kept compressed at `/results/kagg/logs/shinka_r3_programs.sqlite.gz`; run 2's at `shinka_r2_programs.sqlite.gz`);
 this directory holds the copies that matter: one directory per crowned champion, named by its **codename**
 (the neutral two-word public name `make_submission.py` requires), each with `main.py`, `metrics.json`
 (evaluate.py output) and `summary.json` (codename, gen, lineage, per-champion breakdown, sha256).

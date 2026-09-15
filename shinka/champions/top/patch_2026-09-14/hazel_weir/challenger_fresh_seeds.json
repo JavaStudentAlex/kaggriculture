@@ -1,0 +1,5407 @@
+{
+ "program": "/results/kagg/candidates/shed_guard/main.py",
+ "reference": "Copper Weir",
+ "games": [
+  {
+   "opp": "First Furrow",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 75804.0,
+   "theirs": 59458.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 79654.0,
+   "theirs": 69929.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 125063.0,
+   "theirs": 93725.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 72132.0,
+   "theirs": 55366.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 66792.0,
+   "theirs": 63339.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 47607.0,
+   "theirs": 42035.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 49673.0,
+   "theirs": 41727.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 50191.0,
+   "theirs": 42721.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 132838.0,
+   "theirs": 110572.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 97920.0,
+   "theirs": 92758.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 102499.0,
+   "theirs": 75518.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 81192.0,
+   "theirs": 70608.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 151622.0,
+   "theirs": 84680.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 167996.0,
+   "theirs": 105488.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61780.0,
+   "theirs": 60439.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 88512.0,
+   "theirs": 66378.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 133454.0,
+   "theirs": 75908.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 89812.0,
+   "theirs": 80529.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 156034.0,
+   "theirs": 92627.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93858.0,
+   "theirs": 83578.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 38237.0,
+   "theirs": 32582.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74964.0,
+   "theirs": 73845.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 123131.0,
+   "theirs": 102996.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 66276.0,
+   "theirs": 48948.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 101220.0,
+   "theirs": 93252.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81321.0,
+   "theirs": 79386.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 65122.0,
+   "theirs": 54336.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 143261.0,
+   "theirs": 81589.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 116867.0,
+   "theirs": 115097.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 110747.0,
+   "theirs": 82951.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 103369.0,
+   "theirs": 80450.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 83672.0,
+   "theirs": 72804.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 91636.0,
+   "theirs": 79846.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 160048.0,
+   "theirs": 123434.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51073.0,
+   "theirs": 50035.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135879.0,
+   "theirs": 135007.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 98359.0,
+   "theirs": 78769.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 116548.0,
+   "theirs": 88615.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 129501.0,
+   "theirs": 111360.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "First Furrow",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 63184.0,
+   "theirs": 51105.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 61123.0,
+   "theirs": 60605.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 59734.0,
+   "theirs": 63660.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 91882.0,
+   "theirs": 91153.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69497.0,
+   "theirs": 69275.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 60858.0,
+   "theirs": 61041.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43370.0,
+   "theirs": 42457.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43313.0,
+   "theirs": 42958.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44215.0,
+   "theirs": 43715.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 107144.0,
+   "theirs": 105169.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 91352.0,
+   "theirs": 88535.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76324.0,
+   "theirs": 75920.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 71395.0,
+   "theirs": 71632.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141863.0,
+   "theirs": 141535.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124367.0,
+   "theirs": 122603.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61647.0,
+   "theirs": 59783.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80142.0,
+   "theirs": 79317.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92900.0,
+   "theirs": 91800.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82156.0,
+   "theirs": 79741.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 111864.0,
+   "theirs": 107794.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93227.0,
+   "theirs": 89569.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34316.0,
+   "theirs": 33573.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74272.0,
+   "theirs": 72103.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 114389.0,
+   "theirs": 109733.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63925.0,
+   "theirs": 63226.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94621.0,
+   "theirs": 93918.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80803.0,
+   "theirs": 78094.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 50981.0,
+   "theirs": 50898.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96730.0,
+   "theirs": 94829.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114737.0,
+   "theirs": 114061.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 94433.0,
+   "theirs": 94360.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94166.0,
+   "theirs": 93931.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 72518.0,
+   "theirs": 71103.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 89575.0,
+   "theirs": 89347.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 147846.0,
+   "theirs": 145335.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 50690.0,
+   "theirs": 49383.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135633.0,
+   "theirs": 133930.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 86685.0,
+   "theirs": 86217.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 92451.0,
+   "theirs": 91089.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 106698.0,
+   "theirs": 105944.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Cider Ridge",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 56979.0,
+   "theirs": 56401.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 61105.0,
+   "theirs": 60595.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 59682.0,
+   "theirs": 63654.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 91882.0,
+   "theirs": 91204.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69479.0,
+   "theirs": 69267.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 60812.0,
+   "theirs": 61045.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43327.0,
+   "theirs": 42463.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43290.0,
+   "theirs": 42954.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44169.0,
+   "theirs": 43710.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 107125.0,
+   "theirs": 105229.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 91306.0,
+   "theirs": 88525.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76278.0,
+   "theirs": 75916.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 71368.0,
+   "theirs": 71628.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141917.0,
+   "theirs": 141775.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124367.0,
+   "theirs": 122724.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61705.0,
+   "theirs": 59864.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80087.0,
+   "theirs": 79327.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92953.0,
+   "theirs": 92074.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82138.0,
+   "theirs": 79740.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 111822.0,
+   "theirs": 108014.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93322.0,
+   "theirs": 89472.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34308.0,
+   "theirs": 33578.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74217.0,
+   "theirs": 72095.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 114431.0,
+   "theirs": 109891.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63917.0,
+   "theirs": 63226.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94603.0,
+   "theirs": 93912.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80755.0,
+   "theirs": 78090.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 50841.0,
+   "theirs": 50816.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96783.0,
+   "theirs": 94988.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114737.0,
+   "theirs": 114126.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 94387.0,
+   "theirs": 94351.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94026.0,
+   "theirs": 93849.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 72472.0,
+   "theirs": 71093.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 89529.0,
+   "theirs": 89337.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 147846.0,
+   "theirs": 145372.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 50766.0,
+   "theirs": 49530.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135666.0,
+   "theirs": 133989.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 86590.0,
+   "theirs": 86329.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 92469.0,
+   "theirs": 91119.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 106541.0,
+   "theirs": 105997.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Slate Pasture",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 56961.0,
+   "theirs": 56393.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 61252.0,
+   "theirs": 60492.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 59976.0,
+   "theirs": 64408.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 91988.0,
+   "theirs": 91328.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69399.0,
+   "theirs": 69333.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61071.0,
+   "theirs": 61054.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43311.0,
+   "theirs": 42663.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43372.0,
+   "theirs": 42938.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44146.0,
+   "theirs": 43887.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 107221.0,
+   "theirs": 106429.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 91406.0,
+   "theirs": 89903.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76270.0,
+   "theirs": 76128.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 71413.0,
+   "theirs": 71632.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141930.0,
+   "theirs": 142305.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124717.0,
+   "theirs": 123150.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61713.0,
+   "theirs": 60066.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80049.0,
+   "theirs": 79310.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92990.0,
+   "theirs": 92585.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82465.0,
+   "theirs": 80708.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 112266.0,
+   "theirs": 108969.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93374.0,
+   "theirs": 89699.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34238.0,
+   "theirs": 33643.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74574.0,
+   "theirs": 72928.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 114542.0,
+   "theirs": 110482.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63837.0,
+   "theirs": 63273.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94659.0,
+   "theirs": 94159.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81094.0,
+   "theirs": 78656.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 51202.0,
+   "theirs": 51307.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96915.0,
+   "theirs": 95313.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114870.0,
+   "theirs": 114425.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 94501.0,
+   "theirs": 94434.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94170.0,
+   "theirs": 94039.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 72644.0,
+   "theirs": 72470.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 89938.0,
+   "theirs": 90242.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 147894.0,
+   "theirs": 147065.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51144.0,
+   "theirs": 49812.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135696.0,
+   "theirs": 134755.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 86679.0,
+   "theirs": 86119.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 92494.0,
+   "theirs": 91434.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 106692.0,
+   "theirs": 106436.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Clover Bank",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 56897.0,
+   "theirs": 56527.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 61788.0,
+   "theirs": 60759.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 60989.0,
+   "theirs": 64798.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 93192.0,
+   "theirs": 92045.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69906.0,
+   "theirs": 69253.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 62141.0,
+   "theirs": 60971.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43607.0,
+   "theirs": 42840.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43828.0,
+   "theirs": 42836.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44804.0,
+   "theirs": 43893.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 107783.0,
+   "theirs": 107168.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92320.0,
+   "theirs": 91454.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76665.0,
+   "theirs": 76139.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72264.0,
+   "theirs": 71302.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141880.0,
+   "theirs": 143934.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 125060.0,
+   "theirs": 124067.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 62028.0,
+   "theirs": 60121.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80520.0,
+   "theirs": 79617.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 93636.0,
+   "theirs": 94338.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 83004.0,
+   "theirs": 81426.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 112656.0,
+   "theirs": 111666.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93785.0,
+   "theirs": 89973.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34443.0,
+   "theirs": 33663.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 75067.0,
+   "theirs": 73753.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 114733.0,
+   "theirs": 111819.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63962.0,
+   "theirs": 63248.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94936.0,
+   "theirs": 94502.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81450.0,
+   "theirs": 79482.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52597.0,
+   "theirs": 51432.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 97442.0,
+   "theirs": 95873.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 115560.0,
+   "theirs": 115009.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 95220.0,
+   "theirs": 94415.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 95091.0,
+   "theirs": 94220.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73979.0,
+   "theirs": 72917.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90963.0,
+   "theirs": 90047.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148424.0,
+   "theirs": 149005.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 43399.0,
+   "theirs": 42563.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135781.0,
+   "theirs": 135848.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 87420.0,
+   "theirs": 86357.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 93132.0,
+   "theirs": 91973.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 107285.0,
+   "theirs": 106841.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Willow Ford",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57465.0,
+   "theirs": 56585.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62690.0,
+   "theirs": 60981.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61993.0,
+   "theirs": 65049.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97853.0,
+   "theirs": 94682.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69856.0,
+   "theirs": 67791.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 62132.0,
+   "theirs": 60983.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43484.0,
+   "theirs": 42885.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43779.0,
+   "theirs": 42844.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44817.0,
+   "theirs": 43895.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 111839.0,
+   "theirs": 109051.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 94517.0,
+   "theirs": 91200.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 79348.0,
+   "theirs": 77157.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72314.0,
+   "theirs": 71153.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 142107.0,
+   "theirs": 136289.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 134188.0,
+   "theirs": 127375.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 95300.0,
+   "theirs": 94802.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80892.0,
+   "theirs": 78120.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 94135.0,
+   "theirs": 91233.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82840.0,
+   "theirs": 79939.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 99079.0,
+   "theirs": 96484.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 121054.0,
+   "theirs": 118656.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34327.0,
+   "theirs": 33741.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74860.0,
+   "theirs": 72880.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 112337.0,
+   "theirs": 111016.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63884.0,
+   "theirs": 61804.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 95130.0,
+   "theirs": 94018.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81254.0,
+   "theirs": 78713.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52661.0,
+   "theirs": 51248.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 109552.0,
+   "theirs": 102976.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 115115.0,
+   "theirs": 114786.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96665.0,
+   "theirs": 93109.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 95334.0,
+   "theirs": 92511.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73651.0,
+   "theirs": 72513.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90639.0,
+   "theirs": 88259.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 150142.0,
+   "theirs": 144984.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 42974.0,
+   "theirs": 42399.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 116205.0,
+   "theirs": 112525.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88619.0,
+   "theirs": 86350.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 96976.0,
+   "theirs": 94623.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 109303.0,
+   "theirs": 107323.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Birch Hollow",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57430.0,
+   "theirs": 56489.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62398.0,
+   "theirs": 61419.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61389.0,
+   "theirs": 64523.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97373.0,
+   "theirs": 94481.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69757.0,
+   "theirs": 67990.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 62011.0,
+   "theirs": 61333.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43443.0,
+   "theirs": 43083.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43653.0,
+   "theirs": 43209.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44702.0,
+   "theirs": 44061.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 110525.0,
+   "theirs": 107394.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 93414.0,
+   "theirs": 89995.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 79092.0,
+   "theirs": 77245.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72395.0,
+   "theirs": 71540.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141805.0,
+   "theirs": 140956.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124677.0,
+   "theirs": 122998.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61335.0,
+   "theirs": 60534.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80842.0,
+   "theirs": 78390.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 93385.0,
+   "theirs": 91875.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82318.0,
+   "theirs": 80123.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 111486.0,
+   "theirs": 109314.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93786.0,
+   "theirs": 90025.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34285.0,
+   "theirs": 33954.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74725.0,
+   "theirs": 72836.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113539.0,
+   "theirs": 109233.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63767.0,
+   "theirs": 61978.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 95050.0,
+   "theirs": 94112.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81157.0,
+   "theirs": 78815.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52350.0,
+   "theirs": 51480.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 97064.0,
+   "theirs": 95439.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114937.0,
+   "theirs": 114000.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96405.0,
+   "theirs": 93277.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 95229.0,
+   "theirs": 92722.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73643.0,
+   "theirs": 72530.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90424.0,
+   "theirs": 88533.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 149295.0,
+   "theirs": 144099.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51687.0,
+   "theirs": 51126.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135156.0,
+   "theirs": 134017.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88771.0,
+   "theirs": 86719.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 96014.0,
+   "theirs": 94041.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 109069.0,
+   "theirs": 107247.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Amber Loft",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57419.0,
+   "theirs": 56833.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62399.0,
+   "theirs": 61419.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61390.0,
+   "theirs": 64524.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97196.0,
+   "theirs": 94635.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69759.0,
+   "theirs": 67996.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 62011.0,
+   "theirs": 61332.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43439.0,
+   "theirs": 43085.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43653.0,
+   "theirs": 43207.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44702.0,
+   "theirs": 44060.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 110468.0,
+   "theirs": 107246.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 93418.0,
+   "theirs": 89875.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 79084.0,
+   "theirs": 77240.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72395.0,
+   "theirs": 71538.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141686.0,
+   "theirs": 140981.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124382.0,
+   "theirs": 122852.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61332.0,
+   "theirs": 60535.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80840.0,
+   "theirs": 78391.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 93232.0,
+   "theirs": 91900.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 82317.0,
+   "theirs": 79914.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 111140.0,
+   "theirs": 109152.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93788.0,
+   "theirs": 90024.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34284.0,
+   "theirs": 33953.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74726.0,
+   "theirs": 72761.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113521.0,
+   "theirs": 109251.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63766.0,
+   "theirs": 61977.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 95052.0,
+   "theirs": 94037.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 81157.0,
+   "theirs": 78723.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52350.0,
+   "theirs": 51479.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96737.0,
+   "theirs": 95256.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114922.0,
+   "theirs": 113995.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96400.0,
+   "theirs": 93280.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 95229.0,
+   "theirs": 92722.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73643.0,
+   "theirs": 72532.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90422.0,
+   "theirs": 88533.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 149273.0,
+   "theirs": 143982.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51684.0,
+   "theirs": 51127.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135158.0,
+   "theirs": 134003.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88736.0,
+   "theirs": 86713.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95989.0,
+   "theirs": 94022.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 109052.0,
+   "theirs": 107203.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Orchard Tide",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57399.0,
+   "theirs": 56815.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62122.0,
+   "theirs": 61680.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61506.0,
+   "theirs": 64784.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97224.0,
+   "theirs": 94763.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69477.0,
+   "theirs": 68266.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61709.0,
+   "theirs": 61626.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43219.0,
+   "theirs": 43319.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43379.0,
+   "theirs": 43503.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44428.0,
+   "theirs": 44353.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 109829.0,
+   "theirs": 107968.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92769.0,
+   "theirs": 91142.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 78859.0,
+   "theirs": 77490.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72046.0,
+   "theirs": 71768.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141597.0,
+   "theirs": 140763.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124125.0,
+   "theirs": 123695.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 60305.0,
+   "theirs": 59994.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80560.0,
+   "theirs": 78698.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92613.0,
+   "theirs": 92078.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81519.0,
+   "theirs": 80634.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 110895.0,
+   "theirs": 109816.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93574.0,
+   "theirs": 93301.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34072.0,
+   "theirs": 34147.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73795.0,
+   "theirs": 73635.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113680.0,
+   "theirs": 113469.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63524.0,
+   "theirs": 62242.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94767.0,
+   "theirs": 94348.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80382.0,
+   "theirs": 79400.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52074.0,
+   "theirs": 51796.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96503.0,
+   "theirs": 96070.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 118262.0,
+   "theirs": 115304.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96117.0,
+   "theirs": 93585.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94962.0,
+   "theirs": 93048.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73403.0,
+   "theirs": 72830.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90158.0,
+   "theirs": 88852.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148282.0,
+   "theirs": 145033.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51595.0,
+   "theirs": 51378.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135259.0,
+   "theirs": 133606.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88470.0,
+   "theirs": 87022.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95720.0,
+   "theirs": 94278.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 108797.0,
+   "theirs": 107515.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Meadow Lantern",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57134.0,
+   "theirs": 57081.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62136.0,
+   "theirs": 61713.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 60588.0,
+   "theirs": 64394.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 93515.0,
+   "theirs": 92189.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69618.0,
+   "theirs": 68147.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61885.0,
+   "theirs": 61492.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43353.0,
+   "theirs": 43147.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43707.0,
+   "theirs": 43012.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44641.0,
+   "theirs": 43968.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 107478.0,
+   "theirs": 106440.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 91126.0,
+   "theirs": 89760.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76598.0,
+   "theirs": 76457.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72270.0,
+   "theirs": 71712.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141596.0,
+   "theirs": 141052.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 123056.0,
+   "theirs": 122401.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 61879.0,
+   "theirs": 59254.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 79994.0,
+   "theirs": 79800.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 93815.0,
+   "theirs": 93830.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81753.0,
+   "theirs": 80216.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 110330.0,
+   "theirs": 108609.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93726.0,
+   "theirs": 89366.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34272.0,
+   "theirs": 33717.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 74030.0,
+   "theirs": 73034.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 115294.0,
+   "theirs": 111456.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63837.0,
+   "theirs": 63187.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94950.0,
+   "theirs": 94127.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80745.0,
+   "theirs": 78941.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 51948.0,
+   "theirs": 51080.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 98705.0,
+   "theirs": 96169.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114840.0,
+   "theirs": 114218.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 94747.0,
+   "theirs": 94740.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94927.0,
+   "theirs": 94276.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73530.0,
+   "theirs": 72658.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90142.0,
+   "theirs": 88572.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 147428.0,
+   "theirs": 146278.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51386.0,
+   "theirs": 48100.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 134978.0,
+   "theirs": 133496.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 87237.0,
+   "theirs": 86349.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 92646.0,
+   "theirs": 92085.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 107077.0,
+   "theirs": 106602.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Furrow Dawn",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57313.0,
+   "theirs": 56886.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62099.0,
+   "theirs": 61687.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61490.0,
+   "theirs": 64791.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97198.0,
+   "theirs": 94782.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69459.0,
+   "theirs": 68278.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61685.0,
+   "theirs": 61631.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43198.0,
+   "theirs": 43341.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43356.0,
+   "theirs": 43510.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44410.0,
+   "theirs": 44367.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 109821.0,
+   "theirs": 108082.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92685.0,
+   "theirs": 91187.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 78834.0,
+   "theirs": 77511.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72026.0,
+   "theirs": 71772.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141567.0,
+   "theirs": 140792.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124095.0,
+   "theirs": 123724.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 60258.0,
+   "theirs": 60031.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80546.0,
+   "theirs": 78697.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92423.0,
+   "theirs": 92241.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81314.0,
+   "theirs": 80617.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 110864.0,
+   "theirs": 109848.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93527.0,
+   "theirs": 93338.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34052.0,
+   "theirs": 34169.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73493.0,
+   "theirs": 73565.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113619.0,
+   "theirs": 113519.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63496.0,
+   "theirs": 62266.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94716.0,
+   "theirs": 94386.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80189.0,
+   "theirs": 79424.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52054.0,
+   "theirs": 51812.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96314.0,
+   "theirs": 96230.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 116925.0,
+   "theirs": 114626.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96093.0,
+   "theirs": 93604.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94940.0,
+   "theirs": 93060.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73372.0,
+   "theirs": 72833.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90136.0,
+   "theirs": 88866.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148245.0,
+   "theirs": 145146.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51552.0,
+   "theirs": 51421.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135226.0,
+   "theirs": 133639.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88452.0,
+   "theirs": 87038.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95710.0,
+   "theirs": 94293.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 108742.0,
+   "theirs": 107558.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Quiet Barley",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57116.0,
+   "theirs": 57099.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62099.0,
+   "theirs": 61703.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61490.0,
+   "theirs": 64801.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97198.0,
+   "theirs": 94789.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69459.0,
+   "theirs": 68283.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61685.0,
+   "theirs": 61649.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43194.0,
+   "theirs": 43345.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43356.0,
+   "theirs": 43526.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44406.0,
+   "theirs": 44372.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 109817.0,
+   "theirs": 108082.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92681.0,
+   "theirs": 91187.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 78834.0,
+   "theirs": 77515.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72026.0,
+   "theirs": 71788.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141567.0,
+   "theirs": 140792.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124095.0,
+   "theirs": 123724.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 60288.0,
+   "theirs": 60013.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80546.0,
+   "theirs": 78704.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92582.0,
+   "theirs": 92110.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81314.0,
+   "theirs": 80628.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 110864.0,
+   "theirs": 109848.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93557.0,
+   "theirs": 93320.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34048.0,
+   "theirs": 34173.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73489.0,
+   "theirs": 73565.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113649.0,
+   "theirs": 113501.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63496.0,
+   "theirs": 62271.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94712.0,
+   "theirs": 94386.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80185.0,
+   "theirs": 79424.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52050.0,
+   "theirs": 51822.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96473.0,
+   "theirs": 96099.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 116925.0,
+   "theirs": 114634.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96093.0,
+   "theirs": 93611.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94940.0,
+   "theirs": 93067.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73368.0,
+   "theirs": 72843.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90136.0,
+   "theirs": 88875.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148245.0,
+   "theirs": 145146.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51554.0,
+   "theirs": 51429.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135226.0,
+   "theirs": 133639.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88452.0,
+   "theirs": 87045.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95710.0,
+   "theirs": 94297.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 108738.0,
+   "theirs": 107558.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Granary Brook",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57116.0,
+   "theirs": 57103.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62081.0,
+   "theirs": 61706.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61487.0,
+   "theirs": 64792.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 96939.0,
+   "theirs": 95005.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69454.0,
+   "theirs": 68290.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61660.0,
+   "theirs": 61652.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43176.0,
+   "theirs": 43350.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43356.0,
+   "theirs": 43526.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44402.0,
+   "theirs": 44378.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 109748.0,
+   "theirs": 107999.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92602.0,
+   "theirs": 91156.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 78529.0,
+   "theirs": 77635.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72022.0,
+   "theirs": 71794.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141567.0,
+   "theirs": 140792.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124093.0,
+   "theirs": 123725.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 60288.0,
+   "theirs": 60013.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80529.0,
+   "theirs": 78718.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92582.0,
+   "theirs": 92111.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81306.0,
+   "theirs": 80648.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 110864.0,
+   "theirs": 109848.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93557.0,
+   "theirs": 93320.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34048.0,
+   "theirs": 34173.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73489.0,
+   "theirs": 73565.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113649.0,
+   "theirs": 113501.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63496.0,
+   "theirs": 62271.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94712.0,
+   "theirs": 94386.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80185.0,
+   "theirs": 79424.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52050.0,
+   "theirs": 51822.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96450.0,
+   "theirs": 96064.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 116925.0,
+   "theirs": 114634.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96093.0,
+   "theirs": 93611.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94940.0,
+   "theirs": 93067.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73368.0,
+   "theirs": 72843.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90136.0,
+   "theirs": 88875.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148245.0,
+   "theirs": 145146.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51554.0,
+   "theirs": 51429.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135226.0,
+   "theirs": 133639.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88452.0,
+   "theirs": 87045.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95710.0,
+   "theirs": 94297.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 108738.0,
+   "theirs": 107558.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Mirror Hedgerow",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57116.0,
+   "theirs": 57103.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 62143.0,
+   "theirs": 61758.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 61491.0,
+   "theirs": 64801.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 97174.0,
+   "theirs": 94746.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69459.0,
+   "theirs": 68283.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61675.0,
+   "theirs": 61635.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43189.0,
+   "theirs": 43336.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43356.0,
+   "theirs": 43526.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44406.0,
+   "theirs": 44372.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 109792.0,
+   "theirs": 107779.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 92625.0,
+   "theirs": 91076.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 78790.0,
+   "theirs": 77565.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 72026.0,
+   "theirs": 71787.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141567.0,
+   "theirs": 140566.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 124095.0,
+   "theirs": 123703.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 60288.0,
+   "theirs": 60013.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 80534.0,
+   "theirs": 78715.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92559.0,
+   "theirs": 92108.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 81089.0,
+   "theirs": 80629.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 111106.0,
+   "theirs": 110125.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93557.0,
+   "theirs": 93320.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34047.0,
+   "theirs": 34213.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73434.0,
+   "theirs": 73416.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113635.0,
+   "theirs": 113482.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63478.0,
+   "theirs": 62286.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94702.0,
+   "theirs": 94362.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 80128.0,
+   "theirs": 79242.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 52050.0,
+   "theirs": 51822.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 96473.0,
+   "theirs": 96078.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 118247.0,
+   "theirs": 115354.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 96092.0,
+   "theirs": 93611.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94940.0,
+   "theirs": 93066.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 73369.0,
+   "theirs": 72839.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90135.0,
+   "theirs": 88867.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 148185.0,
+   "theirs": 144948.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 51552.0,
+   "theirs": 51427.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 135228.0,
+   "theirs": 133639.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 88452.0,
+   "theirs": 87031.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 95712.0,
+   "theirs": 94297.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 108726.0,
+   "theirs": 107536.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Open Sluice",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 57116.0,
+   "theirs": 57080.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11104,
+   "seat": 1,
+   "mine": 61373.0,
+   "theirs": 61369.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11205,
+   "seat": 1,
+   "mine": 60243.0,
+   "theirs": 64473.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11306,
+   "seat": 1,
+   "mine": 92526.0,
+   "theirs": 92536.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11407,
+   "seat": 1,
+   "mine": 69501.0,
+   "theirs": 69511.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11508,
+   "seat": 1,
+   "mine": 61577.0,
+   "theirs": 61573.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11609,
+   "seat": 1,
+   "mine": 43221.0,
+   "theirs": 43244.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11710,
+   "seat": 1,
+   "mine": 43399.0,
+   "theirs": 43417.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11811,
+   "seat": 1,
+   "mine": 44322.0,
+   "theirs": 44337.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 11912,
+   "seat": 1,
+   "mine": 105703.0,
+   "theirs": 105721.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12013,
+   "seat": 1,
+   "mine": 90296.0,
+   "theirs": 90096.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12114,
+   "seat": 1,
+   "mine": 76516.0,
+   "theirs": 76534.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12215,
+   "seat": 1,
+   "mine": 71794.0,
+   "theirs": 71807.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12316,
+   "seat": 1,
+   "mine": 141031.0,
+   "theirs": 139734.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12417,
+   "seat": 1,
+   "mine": 123694.0,
+   "theirs": 123066.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12518,
+   "seat": 1,
+   "mine": 59287.0,
+   "theirs": 60083.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12619,
+   "seat": 1,
+   "mine": 79922.0,
+   "theirs": 79917.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12720,
+   "seat": 1,
+   "mine": 92369.0,
+   "theirs": 90650.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12821,
+   "seat": 1,
+   "mine": 80528.0,
+   "theirs": 81084.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 12922,
+   "seat": 1,
+   "mine": 108967.0,
+   "theirs": 108866.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 13023,
+   "seat": 1,
+   "mine": 93642.0,
+   "theirs": 93031.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130108,
+   "seat": 0,
+   "mine": 34082.0,
+   "theirs": 34105.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130209,
+   "seat": 0,
+   "mine": 73264.0,
+   "theirs": 73315.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130310,
+   "seat": 0,
+   "mine": 113560.0,
+   "theirs": 111874.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130411,
+   "seat": 0,
+   "mine": 63504.0,
+   "theirs": 63524.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130512,
+   "seat": 0,
+   "mine": 94295.0,
+   "theirs": 94403.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130613,
+   "seat": 0,
+   "mine": 79405.0,
+   "theirs": 79424.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130714,
+   "seat": 0,
+   "mine": 51502.0,
+   "theirs": 51507.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130815,
+   "seat": 0,
+   "mine": 95723.0,
+   "theirs": 95219.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 130916,
+   "seat": 0,
+   "mine": 114557.0,
+   "theirs": 114420.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131017,
+   "seat": 0,
+   "mine": 94711.0,
+   "theirs": 94748.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131118,
+   "seat": 0,
+   "mine": 94372.0,
+   "theirs": 94387.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131219,
+   "seat": 0,
+   "mine": 72905.0,
+   "theirs": 72919.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131320,
+   "seat": 0,
+   "mine": 90041.0,
+   "theirs": 90030.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131421,
+   "seat": 0,
+   "mine": 145868.0,
+   "theirs": 145648.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131522,
+   "seat": 0,
+   "mine": 50999.0,
+   "theirs": 50622.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131623,
+   "seat": 0,
+   "mine": 134470.0,
+   "theirs": 133772.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131724,
+   "seat": 0,
+   "mine": 86793.0,
+   "theirs": 86981.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131825,
+   "seat": 0,
+   "mine": 92064.0,
+   "theirs": 91817.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 131926,
+   "seat": 0,
+   "mine": 106596.0,
+   "theirs": 106775.0,
+   "crash_mine": false,
+   "crash_opp": false
+  },
+  {
+   "opp": "Copper Weir",
+   "seed": 132027,
+   "seat": 0,
+   "mine": 56930.0,
+   "theirs": 57073.0,
+   "crash_mine": false,
+   "crash_opp": false
+  }
+ ],
+ "wall_s": 259.73413491249084
+}

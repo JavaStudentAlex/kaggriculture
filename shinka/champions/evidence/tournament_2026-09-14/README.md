@@ -65,7 +65,7 @@ head-to-head matrix in `tournament.txt`.)
   beat the 09-08 champions convincingly.
 * **Orchard Tide** (#12) and **Amber Loft** (#13) are the pool copies, which play with the current 256-context
   checkpoint; Orchard Tide was tuned to the 512-context one and is known to lose ~12 pp against the 8-pool when
-  the checkpoint changed (`/results/kagg/logs/eval_gen33_{old,new}ckpt.log`: 67.8 % → 55.3 %). Its Kaggle
+  the checkpoint changed (evaluator runs of 2026-09-14, logs since removed: 67.8 % → 55.3 %). Its Kaggle
   bundle carries its own 512-context checkpoint, so the ladder version is stronger than this row; every run-3
   champion still beats the pool copy 37-3 or better, and Copper Weir beat it 36-4 at crowning as well.
 * The field is seat-symmetric: seat 0 won 50.0 % of the 4,708 decided games. Average cash is flat across the

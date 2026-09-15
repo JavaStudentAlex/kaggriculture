@@ -65,7 +65,7 @@ The overflow only happens on worlds productive enough to fill the shed (both see
 on the other 38 stage-1 seeds Copper Weir's shed never reaches capacity and it wins 88 % of the games. The
 parent has the same exposure one unit away, so the fix protects the whole lineage.
 
-Files: `audit/trace_games.py` (full replays, `/results/kagg/tournament_2026-09-14/traces/*.json`),
+Files: `audit/trace_games.py` (full replays; the 32 MB replays on /results were removed 2026-09-15, the script regenerates them),
 `audit/trace_steps.py` (step diff), `audit/trace_exact.py` + `audit/ledger_diff.py` (exact ledgers,
 `audit/*_ledger_summary.json`), `audit/trace_overflow.py` (discards), `audit/mirror_losses.py` +
 `audit/seed_sym.py` (seat-swap replays behind `copper_weir_losses.txt`).
