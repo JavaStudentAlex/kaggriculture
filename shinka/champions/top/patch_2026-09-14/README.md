@@ -15,3 +15,5 @@ the pool file, everything else byte-identical (`summary.json` has both hashes an
 Higher average cash against every one of the 14 opponents on both seed sets. Passes the 75 % gate; crowning was
 disabled for the check runs, so it is **not in `pool/`** — replacing Copper Weir (a near-clone) or adding it is a
 curation decision.
+
+**Submitted to Kaggle 2026-09-15 05:48 UTC as submission 56246758** (`../../submissions/hazel_weir/`, `HazelWeir.tar.gz`): oracle gate 1.51e-4, clean-venv validation PASS (8 games, oracle live on numpy, torch never imported), Kaggle validation episode 109180644 COMPLETED, status COMPLETE 05:53 UTC. At that moment Copper Weir stood at 1417.7 and Orchard Tide at 1377.6 on the ladder.

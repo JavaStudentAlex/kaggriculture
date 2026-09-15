@@ -14,9 +14,11 @@ names because `pool/POOL.json` and the game log reference them.
 - `roster/` — archive copy of every champion (same bytes as `pool/` today; keeps members if the pool is pruned later).
 - `top/run2_2026-09-12/` — run 2's top programs with the fresh-seed tie-break that chose Orchard Tide (`gen_33/`).
 - `top/patch_2026-09-14/hazel_weir/` — **Hazel Weir**, Copper Weir hand-patched after the loss audit (shed headroom,
-  deferred eviction, day-28 feed slack): 516-44 on the fresh seeds where Copper Weir was 483-77; candidate, not in the pool.
+  deferred eviction, day-28 feed slack): 516-44 on the fresh seeds where Copper Weir was 483-77; candidate, not in the pool; on Kaggle since 2026-09-15 as submission 56246758.
 - `top/run3_2026-09-14/` — run 3's crowned champions under their codenames (`<snake_codename>/main.py`, `metrics.json`,
   `summary.json`; `README.md` + `INDEX.json` with all 184 accepted programs).
+- `submissions/hazel_weir/` — **Hazel Weir** as submitted 2026-09-15 (Kaggle 56246758, COMPLETE; `MANIFEST.json` has hashes,
+  validation report and the Kaggle record).
 - `submissions/copper_weir/` — **Copper Weir** as submitted 2026-09-14 (Kaggle 56239161, COMPLETE; `MANIFEST.json` has hashes,
   validation report and the Kaggle record).
 - `submissions/orchard_tide/` — **Orchard Tide** packaged for Kaggle's CPU sandbox (bootstrap `main.py`, oracle on the

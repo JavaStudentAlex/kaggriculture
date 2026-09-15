@@ -320,10 +320,11 @@
    "parent": "Copper Weir",
    "pool_role": "candidate (not in the pool)",
    "sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
-   "status": "candidate - passed the evaluator's 75 % gate 2026-09-14 (87.7 % vs the 15-pool, 509-51 vs the 14 others; 516-44 on fresh seeds where Copper Weir was 483-77); pool decision pending",
+   "status": "candidate - passed the evaluator's 75 % gate 2026-09-14 (87.7 % vs the 15-pool, 509-51 vs the 14 others; 516-44 on fresh seeds where Copper Weir was 483-77); on Kaggle since 2026-09-15 as submission 56246758; pool decision pending",
    "win_rate": 0.8767,
    "champions_evaluated": 15,
-   "avg_cash": 81316.8
+   "avg_cash": 81316.8,
+   "kaggle_submission": 56246758
   }
  ],
  "tournaments": {

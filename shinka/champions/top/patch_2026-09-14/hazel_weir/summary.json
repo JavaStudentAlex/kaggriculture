@@ -32,5 +32,12 @@
   "vs_copper_weir": "17-23 mirror match, 16 of the 23 losses under $25, +$1,940 total cash over 40 games",
   "losing_worlds": "seeds 12316 / 12720: 6-0 (Copper Weir 0-6), no shed discards"
  },
- "status": "candidate - passed the evaluator's 75 % gate, not in the pool (decision pending: replace Copper Weir or add)"
+ "status": "candidate - passed the evaluator's 75 % gate, not in the pool (decision pending: replace Copper Weir or add)",
+ "kaggle_submission": {
+  "id": 56246758,
+  "submitted": "2026-09-15T05:48:01Z",
+  "status": "COMPLETE 05:53 UTC",
+  "validation_episode": 109180644,
+  "bundle": "submissions/hazel_weir/ (HazelWeir.tar.gz sha256 31a906f8\u2026)"
+ }
 }

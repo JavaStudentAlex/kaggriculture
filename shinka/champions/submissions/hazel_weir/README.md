@@ -1,0 +1,5 @@
+# Hazel Weir
+
+Submission bundle built 2026-09-15T05:39:22Z by `make_submission.py` from `shinka/champions/top/patch_2026-09-14/hazel_weir/main.py` (sha256 `9c8d1431dc2401eb…`) with the checkpoint in `/home/jovyan/kaggriculture/shinka/evolution/checkpoint`. Archive `../HazelWeir.tar.gz` (4,367,349 bytes, sha256 `31a906f8564d3d85…`). hand patch of run-3 gen 198 (Copper Weir) after the 2026-09-14 tournament loss audit: pre-drop shed headroom guard, deferred eviction, day-28 feed reserve n_animals+6; evaluator 87.7% (526W-74L-0T, 0 crashes) vs the 15-pool incl. a 17-23 mirror vs Copper Weir, 509-51 vs the 14 others (Copper Weir 504-56 on the same seeds); fresh tournament seeds 516-44 vs Copper Weir's 483-77; avg cash 81317, seat0 89.0%/seat1 86.3%; oracle checkpoint models/ttm_c256_h96_ft_2026-09-13 (context 256, forecasts from turn 256); torch-vs-numpy max diff 1.51e-4
+
+See `MANIFEST.json`; re-validate with `HOME=<empty> python -I validate.py <extracted dir>` (make_submission.py --validate does this). Procedure and the traps it avoids: `.agents/skills/kaggle-simulation-competitions/references/submission-promotion.md`.
