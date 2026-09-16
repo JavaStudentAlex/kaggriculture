@@ -1,0 +1,22 @@
+{
+  "id": "sunshinethroughfog/kaggriculture-ttm-5day-finetune",
+  "title": "kaggriculture-ttm-5day-finetune",
+  "code_file": "train_5days.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "sunshinethroughfog/kaggriculture-ttm-base-pipeline",
+    "kaggle/kaggriculture-episodes-2026-09-11",
+    "kaggle/kaggriculture-episodes-2026-09-12",
+    "kaggle/kaggriculture-episodes-2026-09-13",
+    "kaggle/kaggriculture-episodes-2026-09-14",
+    "kaggle/kaggriculture-episodes-2026-09-15"
+  ],
+  "competition_sources": [
+    "kaggriculture"
+  ]
+}
