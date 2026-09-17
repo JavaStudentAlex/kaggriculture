@@ -86,7 +86,14 @@ import numpy as np  # noqa: E402
 # Step 4: Extract 5-Day Shards Directly from Mounted JSONs
 # -------------------------------------------------------------------------
 print("\n[3/6] Extracting 5 days of replay episodes into .npz feature shards...")
-target_dates = ["2026-09-11", "2026-09-12", "2026-09-13", "2026-09-14", "2026-09-15"]
+target_dates = [
+    "2026-09-11",
+    "2026-09-12",
+    "2026-09-13",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+]
 shards_dir = Path("/tmp/shards")
 shards_dir.mkdir(parents=True, exist_ok=True)
 write_labels_marker(shards_dir, "next_action")
