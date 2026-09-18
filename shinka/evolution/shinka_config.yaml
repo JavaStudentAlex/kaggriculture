@@ -124,15 +124,25 @@ evo:
        the crops die. Guard every BUY against the reserve.
     3. PLANT / ANIMAL DEATH: plants die at consecutive_unwatered >= 2; animals
        escape at consecutive_unfed >= 2. Idle workers should rescue them.
-    4. TOWN SHOP RECIPES: SMOOTHIE_SHOP(STRAWBERRY,MILK);
-       ICE_CREAM_SHOP(STRAWBERRY,MILK,WHEAT); PIZZA_SHOP(TOMATO,MILK,WHEAT);
-       YARN_STORE(WOOL); BAKERY(EGG,WHEAT); BRUNCH_SPOT(EGG,WHEAT,STRAWBERRY);
-       PET_CAFE(CARROT); FARMERS_MARKET(CARROT,TOMATO,STRAWBERRY,MELON).
-       Shops unlock progressively via obs[town][unlocked_shops].
+    4. TOWN SHOP RECIPES & CROP ARBITRAGE:
+       SMOOTHIE_SHOP(STRAWBERRY,MILK); ICE_CREAM_SHOP(STRAWBERRY,MILK,WHEAT);
+       PIZZA_SHOP(TOMATO,MILK,WHEAT); YARN_STORE(WOOL); BAKERY(EGG,WHEAT);
+       BRUNCH_SPOT(EGG,WHEAT,STRAWBERRY); PET_CAFE(CARROT);
+       FARMERS_MARKET(CARROT,TOMATO,STRAWBERRY,MELON).
+       Shops unlock progressively via obs[town][unlocked_shops]. Top ladder opponents
+       reach $100k-$150k+ by planting Carrots/Tomatoes and raising Geese for Eggs
+       to capture non-linear town shop premiums (Carrot prices surge from $35 -> $87+;
+       Eggs surge to $65+). Monocultures of Wheat/Melon forfeit these revenues.
     5. PRICE IMPACT: dumping large quantities into one product collapses its price
        toward the floor, where sales stop counting as supply. Pace sales in batches.
-    6. LATE-GAME CLIFF: opponents liquidate heavily around steps 540-580, crashing
-       melon and wool. Taper perishable stock into demand before the cliff.
+    6. LIVESTOCK GLUT & THE $1.00 TRAP:
+       In live ladder play, both players flood the market with Wool and Milk by Day 20 (step 480).
+       Prices routinely collapse from $200+ down to $1.00. Holding animal harvest into
+       the late game results in dumping products for pennies. Phase out livestock inventory
+       starting at step 480 when prices are still above marginal cost.
+    7. MIDNIGHT PAYROLL DEFENSE:
+       Never spend into the wage floor ($600-$700) between hours 18 and 23. A single midnight
+       bankruptcy fires all hands, causing complete crop death and a $0.00 score.
 
     ## HOW YOU ARE SCORED
     Each candidate plays 20 games on seat 0 and 20 games on disjoint seeds on seat 1

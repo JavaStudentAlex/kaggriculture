@@ -411,22 +411,43 @@ def evolve_market_orders(obs, player_idx, base_orders, st):
         if _add_sell(mkt, d_it, q_d):
             deferred.pop(d_it, None)
 
-    # 2. Midnight liquidity & wage floor guard (narrow window only, day > 1 to preserve day 0/1 setup)
-    if (hour >= 20 or (220 <= step <= 245)) and st["day"] > 1:
+    # 2. Midnight liquidity & wage floor guard (ensures hired hands are never fired at midnight)
+    if (hour >= 18 or (216 <= step <= 245)) and st["day"] > 1:
         n_hands = len(st.get("hands", []))
-        wage_reserve = max(250.0, n_hands * 120.0)
-        urgent_wage_reserve = max(20.0, n_hands * 25.0)
+        wage_reserve = max(_WAGE_RESERVE_FLOOR, n_hands * 120.0 + 100.0)
+        urgent_wage_reserve = max(350.0, n_hands * 120.0)
         wheat_held = int(shed.get("WHEAT", 0) or 0)
         filtered = []
         for o in mkt:
-            if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "BUY_PRODUCT":
-                cost = float(prices.get(str(o[1]), _BASE_PRICE.get(str(o[1]), 50))) * int(o[2] or 0)
-                reserve = urgent_wage_reserve if (str(o[1]) == "WHEAT" and wheat_held < st["n_animals"]) else wage_reserve
-                if money - cost < reserve:
-                    continue
-                money -= cost
+            if isinstance(o, (list, tuple)) and len(o) >= 2:
+                op = str(o[0])
+                if op in ("BUY_PRODUCT", "BUY_SEED", "BUY_ANIMAL", "BUY_LAND"):
+                    it_name = str(o[1]) if len(o) >= 3 else "WHEAT"
+                    qty = int(o[2] or 1) if len(o) >= 3 else 1
+                    cost = float(prices.get(it_name, _BASE_PRICE.get(it_name, 50))) * qty
+                    reserve = urgent_wage_reserve if (it_name == "WHEAT" and wheat_held < st["n_animals"]) else wage_reserve
+                    if money - cost < reserve:
+                        continue
+                    money -= cost
             filtered.append(o)
         mkt = filtered
+
+        # Emergency liquidity: if cash is below wage reserve near midnight, sell surplus non-feed stock
+        if hour >= 21 and money < wage_reserve:
+            deficit = wage_reserve - money
+            for em_it in ("STRAWBERRY", "FERTILIZER", "MELON", "CARROT", "TOMATO", "EGG", "MILK", "WOOL"):
+                held = int(shed.get(em_it, 0) or 0)
+                already = _already_selling(mkt, em_it)
+                avail = held - already
+                if avail > 0:
+                    p = float(prices.get(em_it, 0) or 0)
+                    if p >= 5.0:
+                        qty = min(avail, max(1, int(deficit / p) + 1))
+                        if _add_sell(mkt, em_it, qty, protect=True):
+                            money += qty * p
+                            deficit -= qty * p
+                            if deficit <= 0:
+                                break
 
     # 2b. Cancel non-paying investments in the last 2 days (days 28-29: cannot mature before turn 720)
     if st["day"] >= 28:
@@ -464,6 +485,20 @@ def evolve_market_orders(obs, player_idx, base_orders, st):
             if want > 0:
                 mkt.append(["BUY_ANIMAL", _ANIMAL_PREFERENCE[0], max(1, min(want, 2))])
 
+    # 4a. Town Shop Demand Arbitrage (diversify into high-margin shop crops)
+    unlocked_shops = obs.get("town", {}).get("unlocked_shops", []) or []
+    if unlocked_shops and 3 <= st["day"] <= 24 and len(mkt) < 10 and money >= 1200.0:
+        shop_needs = set()
+        for sh in unlocked_shops:
+            shop_needs.update(_SHOP_DEMANDS.get(sh, ()))
+        seeds_held = obs.get("private", {}).get("seeds", {}) or {}
+        if "CARROT" in shop_needs and int(seeds_held.get("CARROT", 0) or 0) < 2 and int(shed.get("CARROT", 0) or 0) < 6:
+            if not any(isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "BUY_SEED" and o[1] == "CARROT" for o in mkt):
+                mkt.append(["BUY_SEED", "CARROT", 2])
+        if len(mkt) < 10 and "TOMATO" in shop_needs and int(seeds_held.get("TOMATO", 0) or 0) < 2 and int(shed.get("TOMATO", 0) or 0) < 6:
+            if not any(isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "BUY_SEED" and o[1] == "TOMATO" for o in mkt):
+                mkt.append(["BUY_SEED", "TOMATO", 2])
+
     # Dynamic feed reserve: steps down in endgame when no future days need feeding.
     # Day 28 keeps one pickup batch (6) of slack on top of one unit per animal: the hands
     # collect feed 6 at a time, so a reserve of exactly n_animals leaves the last feeding
@@ -482,6 +517,9 @@ def evolve_market_orders(obs, player_idx, base_orders, st):
         for qty_held, item in holdings:
             price = float(prices.get(item, 0) or 0)
             base = _BASE_PRICE.get(item, 100)
+            # Floor-price dampener: avoid giving product away for <= $3 unless under extreme shed overflow risk
+            if price <= 3.0 and shed_used < 95:
+                continue
             if price < p_ratio_floor * base and price < 1.0:
                 continue
             already = _already_selling(mkt, item)
@@ -551,6 +589,19 @@ def evolve_market_orders(obs, player_idx, base_orders, st):
             qty = min(avail_fr, batch)
             if qty > 0:
                 _add_sell(mkt, item, qty)
+
+    # 4d. Pre-step 540 Livestock Glut Protection:
+    # WOOL and MILK crash from $200+ to $1.00 around steps 480-540 in live ladder play.
+    # Orderly phased sales from step 480 before the price collapses:
+    if 480 <= step < 680:
+        for it in ("WOOL", "MILK"):
+            held = int(shed.get(it, 0) or 0)
+            already = _already_selling(mkt, it)
+            avail = held - already
+            if avail >= 2:
+                p = float(prices.get(it, 0) or 0)
+                if p >= 15.0:
+                    _add_sell(mkt, it, min(avail, 6))
 
     # 5. Town-shop demand harvesting.
     #    Runs through step 711 to capture full endgame revenue from town shops.
