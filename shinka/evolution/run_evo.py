@@ -106,6 +106,7 @@ def _patched_load_optional_yaml_config(
 
 def main(argv: list[str] | None = None) -> int:
     rc.load_optional_yaml_config = _patched_load_optional_yaml_config
+    sc_run.load_optional_yaml_config = _patched_load_optional_yaml_config
     return sc_run.main(argv)
 
 
