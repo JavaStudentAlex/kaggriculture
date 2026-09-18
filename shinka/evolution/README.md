@@ -48,7 +48,7 @@ so becomes an opponent for every later candidate — only when it reaches **75 %
 zero times *and* passes the starter sanity game. Crowning appends to `pool/CROWNED.jsonl` and copies the
 program into `pool/` and `champions/roster/`.
 
-With the 15-champion pool that is 15 × 40 = **600 games per candidate**.
+With the 10-champion pool that is 10 × 40 = **400 games per candidate**.
 
 ## Two levels of novelty inspection
 
