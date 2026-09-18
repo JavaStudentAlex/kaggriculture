@@ -18,9 +18,9 @@ plus the 9 `log1p` targets as channels; ~1.03 M params. Context length is a prop
 of each checkpoint (`config.json`): **256 turns** for the current model (forecasts from
 day 10 h16); the retired 512-context line was silent until day 21.
 
-Current model: **`models/ttm_c256_h96_ft_2026-09-16/`** — the 256-context base
+Current model: **`models/ttm_c256_h96_ft_2026-09-17/`** — the 256-context base
 (`ttm_c256_h96`, trained on the 44 corrected-label days through 09-11, section 12)
-refit on 09-11..09-16 by the daily recipe (section 6): AUC 0.852 → 0.854 on 09-16's
+refit on 09-12..09-17 by the daily recipe (section 6): AUC 0.848 → 0.848 on 09-17's
 held-out games; README inside, committed in git. `models/` holds only the promoted
 checkpoint; run dirs are deleted once their best is promoted (section 6).
 The model IS wired into a playing agent: the Shinka seed program serves a copy of
@@ -31,7 +31,7 @@ section 4.3.**
 
 | path | what |
 |---|---|
-| `models/ttm_c256_h96_ft_2026-09-16/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
+| `models/ttm_c256_h96_ft_2026-09-17/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
 | `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 00:30 UTC cron adds each new day (4.1) |
 | `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (46 days, 2.4 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
 | `research/opponent_model/` | all model code: `extract.py` / `extract_parallel.py` (replays → shards), `features.py`, `mechanics.py`, `ttm_dataset.py` (windows, episode split, scaler), `metrics.py` (streaming histogram AUC/AP), `train_ttm.py`, `evaluate.py` (the one scorer; uses the checkpoint's `scaler.npz` and `val_episodes.json`) |
@@ -172,7 +172,8 @@ alignment); all of them were deleted on 2026-09-13 except the checkpoint in play
 
 | model | context / labels | status |
 |---|---|---|
-| `models/ttm_c256_h96_ft_2026-09-16` | 256 / next_action | **current**: the daily refit of the base through 09-16 (`train_5days.py` dual-GPU, 2026-09-17, early-stopped at epoch 15, best 10): on 09-16's held-out episodes AUC 0.852 → **0.854**, AP 0.339 → **0.350** (all 96 steps pooled); README in the dir. |
+| `models/ttm_c256_h96_ft_2026-09-17` | 256 / next_action | **current**: the daily refit of the base through 09-17 (`train_5days.py` dual-GPU, 2026-09-18, early-stopped at epoch 20, best 15): on 09-17's held-out episodes AUC 0.848 → **0.848**, AP 0.360 → **0.362** (all 96 steps pooled); README in the dir. |
+| `ttm_c256_h96_ft_2026-09-16` (256 / next_action) | — | previous refit through 09-16; in git history (commit c0aab28) |
 | `ttm_c256_h96_ft_2026-09-15` (256 / next_action) | — | previous refit through 09-15; in git history (commit ecdf38f) |
 | `ttm_c256_h96_ft_2026-09-13` (256 / next_action) | — | previous refit through 09-13; in git history (commit 376717e) |
 | `ttm_c256_h96` (256 / next_action) | — | the base: trained 09-12 → 09-14 on 44 days (07-30..09-11), best epoch 40 of 40, held-out AUC 0.8668 / AP 0.392, canonical pooled 0.8669 / 0.390, day 1–4 AUC 0.873/0.872/0.868/0.855. Removed from `models/` at the 09-13 promotion (only the newest promoted checkpoint is kept); in git history (commit c5b8684) |
@@ -240,6 +241,7 @@ Promoted as `models/ttm_c256_h96_ft_2026-09-13`.
 | `ft_2026-09-13` from `ttm_c256_h96` | 09-09..09-13 | 0.859 / 0.357 | 0.878 / 0.381 (16) | early, epoch 21 |
 | `ft_2026-09-15` from `ttm_c256_h96_ft_2026-09-13` | 09-11..09-15 | 0.845 / 0.335 | 0.849 / 0.346 (7) | early, epoch 12 |
 | `ft_2026-09-16` from `ttm_c256_h96_ft_2026-09-15` | 09-11..09-16 | 0.852 / 0.339 | 0.854 / 0.350 (10) | early, epoch 15 |
+| `ft_2026-09-17` from `ttm_c256_h96_ft_2026-09-16` | 09-12..09-17 | 0.848 / 0.360 | 0.848 / 0.362 (15) | early, epoch 20 |
 
 ## 7. Daily routine when a new day appears
 
