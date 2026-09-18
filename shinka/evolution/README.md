@@ -63,7 +63,7 @@ With the 15-champion pool that is 15 × 40 = **600 games per candidate**.
 
 | role | model(s) |
 |---|---|
-| mutation pool (UCB-sampled) | `gpt-6-astra`, `gpt-6-luna`, `gemini-3.1-pro-preview`, `gemini-3.8-flash`, `claude-opus-5`, `claude-sonnet-5` |
+| mutation pool (UCB-sampled) | `gpt-6-astra`, `gpt-5.6-luna`, `gemini-3.1-pro-preview`, `gemini-3.8-flash`, `claude-opus-5`, `claude-sonnet-5` |
 | supervisor / meta | `gpt-6-astra`, every **5** generations (`meta_rec_interval: 5`) |
 | novelty judge (level 2) | `gemini-3.1-pro-preview` |
 | embeddings (level 1) | `qwen3-embedding:8b` via Ollama |

@@ -23,7 +23,7 @@ evo:
   # producing accepted, high-scoring children.
   llm_models:
     - "local/gpt-6-astra@http://localhost:8317/v1"
-    - "local/gpt-6-luna@http://localhost:8317/v1"
+    - "local/gpt-5.6-luna@http://localhost:8317/v1"
     - "local/gemini-3.1-pro-preview@http://localhost:8317/v1"
     - "local/gemini-3.8-flash@http://localhost:8317/v1"
     - "local/claude-opus-5@http://localhost:8317/v1"

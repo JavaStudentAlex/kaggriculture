@@ -119,7 +119,7 @@ echo "gate         : ${KAGG_CROWN_THRESHOLD}"
 models_json="$(curl -sf "$PROXY/models" 2>/dev/null || true)"
 [[ -n "$models_json" ]] || { echo "llm proxy    : UNREACHABLE at $PROXY"; exit 1; }
 required_models=(
-  gpt-6-astra gpt-6-luna gemini-3.1-pro-preview gemini-3.8-flash
+  gpt-6-astra gpt-5.6-luna gemini-3.1-pro-preview gemini-3.8-flash
   claude-opus-5 claude-sonnet-5
 )
 missing_models=()
