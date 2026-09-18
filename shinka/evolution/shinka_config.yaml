@@ -1,0 +1,162 @@
+# ShinkaEvolve configuration - Kaggriculture Digital Red Queen (run 4)
+#
+# Seed      : initial.py = Hazel Weir (the last champion added, 2026-09-15)
+# Evaluator : evaluate.py - 20 seeds seat 0 + 20 disjoint seeds seat 1 per champion,
+#             75% overall win rate crowns the candidate into shinka/champions/pool/
+# Oracle    : shinka/evolution/checkpoint (TTM c256, byte copy of the 09-17 refit),
+#             served on GPU by kagg_oracle.py inside each evaluation worker.
+#
+# Every model URI targets the local proxy: local/<model>@http://localhost:8317/v1
+
+max_evaluation_jobs: 2
+max_proposal_jobs: 2
+max_db_workers: 8
+verbose: true
+
+evo:
+  num_generations: 500
+  init_program_path: "initial.py"
+  language: "python"
+
+  # ----------------------------------------------------------------- mutation pool
+  # All six models propose. UCB shifts sampling toward whichever is actually
+  # producing accepted, high-scoring children.
+  llm_models:
+    - "local/gpt-6-astra@http://localhost:8317/v1"
+    - "local/gpt-6-luna@http://localhost:8317/v1"
+    - "local/gemini-3.1-pro-preview@http://localhost:8317/v1"
+    - "local/gemini-3.8-flash@http://localhost:8317/v1"
+    - "local/claude-opus-5@http://localhost:8317/v1"
+    - "local/claude-sonnet-5@http://localhost:8317/v1"
+  llm_dynamic_selection: "ucb"
+
+  llm_kwargs:
+    temperatures: [0.3, 0.7, 1.0]
+    max_tokens: 32768
+
+  # ----------------------------------------------------- supervisor (meta) LLM
+  # gpt-6-astra reviews the archive and issues recommendations every 5 generations.
+  meta_llm_models:
+    - "local/gpt-6-astra@http://localhost:8317/v1"
+  meta_rec_interval: 5
+  meta_max_recommendations: 5
+  sample_single_meta_rec: true
+  meta_llm_kwargs:
+    temperatures: [0.0, 0.5]
+    max_tokens: 32768
+
+  # ------------------------------------------------- novelty: TWO INSPECTION LEVELS
+  # Level 1 - embeddings. Every proposed program is embedded with qwen3-embedding:8b
+  #   (Ollama, 4096-dim). If cosine similarity to an existing program is at or above
+  #   code_embed_sim_threshold, the proposal is a near-duplicate and level 2 runs.
+  # Level 2 - LLM judge. gemini-3.1-pro-preview reads the candidate against the
+  #   programs it collided with and rules on whether the change is genuinely novel.
+  #   A rejected proposal is resampled, up to max_novelty_attempts times.
+  embedding_model: "local/qwen3-embedding:8b@http://localhost:11434/v1"
+  code_embed_sim_threshold: 0.985
+  novelty_llm_models:
+    - "local/gemini-3.1-pro-preview@http://localhost:8317/v1"
+  novelty_llm_kwargs:
+    temperatures: [0.0]
+    max_tokens: 16384
+  max_novelty_attempts: 3
+
+  # ------------------------------------------------------------------- patching
+  patch_types: ["diff", "full", "cross"]
+  patch_type_probs: [0.6, 0.25, 0.15]
+  max_patch_attempts: 2
+  max_patch_resamples: 3
+
+  use_text_feedback: true
+
+  # --------------------------------------------------------------------- prompt
+  task_sys_msg: |
+    You are an elite AI researcher and Kaggle Grandmaster competing in the
+    Kaggriculture simulation ladder. You evolve a farming/trading agent under a
+    Digital Red Queen (DRQ) regime: every candidate you produce is played against a
+    pool of past champions, and any candidate that wins enough is itself added to
+    the pool. The bar therefore rises every time you succeed.
+
+    ## THE TASK
+    Improve the program inside the EVOLVE-BLOCK. The block contains the ENTIRE
+    decision-making agent and every part of it is yours to change:
+      * reference data (`_SHOP_DEMANDS`, `_BASE_PRICE`)
+      * all hyperparameters (cash floors, batch sizes, thresholds, step triggers)
+      * `farm_state`           - the derived-state / feature builder
+      * `evolve_market_orders` - the market channel (max 10 orders per turn)
+      * `evolve_farmer_action` - the single farmer's action
+      * `evolve_hand_actions`  - one action per hired hand
+      * `policy_sanitize`      - the policy's own validity pass
+      * `decide`               - top-level arbitration: whether to consult the
+                                 Mohui backbone at all, how to blend or override
+                                 its channels, ordering, phase/seat-specific logic
+    You may add, remove, rename, split or merge any function inside the block and
+    introduce new state and helpers. Only the code OUTSIDE the block is fixed: the
+    backbone import, the oracle glue, `_hard_sanitize`, and the public entry point
+    `agent(obs, configuration)` whose name and signature must not change.
+
+    ## THE OPPONENT ORDER-FLOW ORACLE
+    A TinyTimeMixer checkpoint (context 256) predicts, from turn 256 (day 10 h16)
+    onward, how many units of each of the 9 products the OPPONENT will put on the
+    market at each of the next 96 turns. It reaches the policy as `st["oracle"]`,
+    and is `None` before turn 256. Keys:
+      score_1 / score_4 / score_24 / score_96 : {product: max log1p score in window}
+      units_1 / units_4 / units_24 / units_96 : {product: summed predicted units}
+      units (96x9 array), log (96x9 array), products (list), step (int)
+    Measured: score_4 >= 0.30 implies roughly a 2-in-3 chance the opponent dumps
+    that product within four turns. Ranking quality is good; absolute unit counts
+    are biased low - use it to ORDER decisions, not to size them literally.
+    The seed already uses it for sell-priority and front-running. Deeper uses
+    (timing, price defence, inventory glide paths, seat-specific play) are open.
+
+    ## VERIFIED ENGINE MECHANICS (engine 1.32.7)
+    1. SHED OVERFLOW: capacity 100. Every deposit path discards overflow
+       UNCONDITIONALLY, including the end-of-day drop that pushes carried harvest
+       in. This silently destroyed 11 units in two audited losses. Keep headroom.
+    2. MIDNIGHT PAYROLL: hired-hand contracts expire at midnight and must be repaid.
+       Buys that drain cash below the wage reserve get the whole workforce fired and
+       the crops die. Guard every BUY against the reserve.
+    3. PLANT / ANIMAL DEATH: plants die at consecutive_unwatered >= 2; animals
+       escape at consecutive_unfed >= 2. Idle workers should rescue them.
+    4. TOWN SHOP RECIPES: SMOOTHIE_SHOP(STRAWBERRY,MILK);
+       ICE_CREAM_SHOP(STRAWBERRY,MILK,WHEAT); PIZZA_SHOP(TOMATO,MILK,WHEAT);
+       YARN_STORE(WOOL); BAKERY(EGG,WHEAT); BRUNCH_SPOT(EGG,WHEAT,STRAWBERRY);
+       PET_CAFE(CARROT); FARMERS_MARKET(CARROT,TOMATO,STRAWBERRY,MELON).
+       Shops unlock progressively via obs[town][unlocked_shops].
+    5. PRICE IMPACT: dumping large quantities into one product collapses its price
+       toward the floor, where sales stop counting as supply. Pace sales in batches.
+    6. LATE-GAME CLIFF: opponents liquidate heavily around steps 540-580, crashing
+       melon and wool. Taper perishable stock into demand before the cliff.
+
+    ## HOW YOU ARE SCORED
+    Each candidate plays 20 games on seat 0 and 20 games on disjoint seeds on seat 1
+    against EVERY champion in the pool. `combined_score` is the overall win rate;
+    ties are not wins. Reaching 75% crowns the candidate as a new champion, which
+    makes the next round harder. Seat balance matters - a policy that only works on
+    one seat will not clear the gate.
+
+    ## RULES
+    * Deterministic pure Python; no new third-party dependencies, no file or network
+      I/O, no randomness that is not seeded from the observation.
+    * Must stay fast: roughly 80 ms per turn including the oracle forecast.
+    * Defensive coding. A raised exception inside the block silently degrades the
+      whole turn to the backbone action, which loses games. Guard every indexing and
+      dictionary access against missing or malformed observation fields.
+    * Make a focused, well-reasoned change with a clear mechanism and explain why it
+      should raise the win rate. Do not restate the seed with cosmetic edits - near
+      duplicates are rejected by the novelty filters.
+
+db:
+  num_islands: 4
+  archive_size: 40
+  elite_selection_ratio: 0.3
+  num_archive_inspirations: 3
+  num_top_k_inspirations: 2
+  migration_interval: 10
+  migration_rate: 0.1
+  island_elitism: true
+  parent_selection_strategy: "weighted"
+  parent_selection_lambda: 10.0
+
+job:
+  eval_program_path: "evaluate.py"
