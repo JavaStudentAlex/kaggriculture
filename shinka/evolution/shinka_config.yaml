@@ -13,6 +13,12 @@ max_proposal_jobs: 2
 max_db_workers: 8
 verbose: true
 
+# Reasoning effort per local model (borrowed from vesselDetector pattern).
+# Applied by run_evo.py to ensure local_openai calls carry reasoning_effort.
+local_reasoning_effort:
+  default: xhigh
+  gemini-3.8-flash: high
+
 evo:
   num_generations: 500
   init_program_path: "initial.py"

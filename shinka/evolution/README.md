@@ -61,14 +61,18 @@ With the 15-champion pool that is 15 × 40 = **600 games per candidate**.
 
 ## Models
 
-| role | model(s) |
-|---|---|
-| mutation pool (UCB-sampled) | `gpt-6-astra`, `gpt-5.6-luna`, `gemini-3.1-pro-preview`, `gemini-3.8-flash`, `claude-opus-5`, `claude-sonnet-5` |
-| supervisor / meta | `gpt-6-astra`, every **5** generations (`meta_rec_interval: 5`) |
-| novelty judge (level 2) | `gemini-3.1-pro-preview` |
-| embeddings (level 1) | `qwen3-embedding:8b` via Ollama |
+| role | model(s) | reasoning effort |
+|---|---|---|
+| mutation pool (UCB-sampled) | `gpt-6-astra`, `gpt-5.6-luna`, `gemini-3.1-pro-preview`, `gemini-3.8-flash`, `claude-opus-5`, `claude-sonnet-5` | `xhigh` (Flash: `high`) |
+| supervisor / meta | `gpt-6-astra`, every **5** generations (`meta_rec_interval: 5`) | `xhigh` |
+| novelty judge (level 2) | `gemini-3.1-pro-preview` | `xhigh` |
+| embeddings (level 1) | `qwen3-embedding:8b` via Ollama | — |
 
 All served through the local proxy as `local/<model>@http://localhost:8317/v1`.
+
+### High reasoning levels (`run_evo.py`)
+
+Standard Shinka silently drops reasoning effort for `local_openai` models. Borrowing from the `vesselDetector` pattern, `run_evo.py` intercepts `local_reasoning_effort` in `shinka_config.yaml` and patches `shinka.llm.llm.sample_model_kwargs` at launch time so that every proposal and meta-review query sent through the local proxy includes the configured `reasoning_effort` (`xhigh` / `high`). The launcher `launch_shinka.sh` automatically routes through `run_evo.py`.
 
 ## Run it
 

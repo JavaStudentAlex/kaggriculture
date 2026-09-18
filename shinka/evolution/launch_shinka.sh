@@ -156,12 +156,19 @@ echo "generations  : $GENERATIONS"
 echo "results dir  : $RESULTS_DIR"
 echo "eval jobs    : $EVAL_JOBS x $EVAL_WORKERS workers | proposal jobs: $PROPOSAL_JOBS"
 
-SHINKA_BIN="${SHINKA_BIN:-$(command -v shinka_run || true)}"
-[[ -n "$SHINKA_BIN" ]] || { echo "shinka_run not on PATH"; exit 1; }
+if [[ -f "$HERE/run_evo.py" ]]; then
+  SHINKA_CMD=("$PY" "$HERE/run_evo.py")
+elif [[ -n "${SHINKA_BIN:-}" ]]; then
+  SHINKA_CMD=("$SHINKA_BIN")
+elif command -v shinka_run >/dev/null 2>&1; then
+  SHINKA_CMD=("$(command -v shinka_run)")
+else
+  echo "Neither run_evo.py nor shinka_run found on PATH"; exit 1;
+fi
 
 start=$(date +%s)
 set +e
-"$SHINKA_BIN" \
+"${SHINKA_CMD[@]}" \
   --task-dir "$HERE" \
   --results_dir "$RESULTS_DIR" \
   --num_generations "$GENERATIONS" \
