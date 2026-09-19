@@ -21,8 +21,11 @@ import time
 import urllib.request
 from typing import Any, Dict, List, Tuple
 
+from shinka_graph_mab import UCB1Bandit
+
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
 CURRENT_DIR = Path(__file__).resolve().parent
+BANDIT_STATE_PATH = CURRENT_DIR / "shinka_evo_run" / "bandit_state.json"
 
 
 def extract_json_block(text: str) -> Dict[str, Any]:
@@ -70,9 +73,10 @@ def query_llm(model: str, system_prompt: str, prompt: str, max_tokens: int = 819
 
 def run_parallel_subgraph_generation(
     current_graph: Dict[str, Any],
-    mined_stats: Dict[str, Any]
+    mined_stats: Dict[str, Any],
+    bandit: UCB1Bandit | None = None
 ) -> Dict[str, Dict[str, Any]]:
-    """Runs 4 specialized strategic LLM arms in parallel."""
+    """Runs 4 specialized strategic LLM arms in parallel, updating MAB pull counts."""
     elite = mined_stats.get("archetypes", {}).get("elite", {})
 
     dim_configs = {
@@ -126,6 +130,7 @@ def run_parallel_subgraph_generation(
 
     def worker_fn(task_key: str) -> Tuple[str, Dict[str, Any]]:
         cfg = dim_configs[task_key]
+        model_name = cfg["model"]
         sys_prompt = (
             "You are an elite Kaggle Grandmaster specializing in Kaggriculture procedural graphs.\n"
             "Return ONLY a strict JSON object with: {'nodes': [...], 'edges': [...], 'rationale': '...'}"
@@ -157,11 +162,11 @@ def run_parallel_subgraph_generation(
   ]
 }}
 """
-        print(f"  -> Dispatched [{task_key}] to {cfg['model']}...")
+        print(f"  -> [MAB Arm Call] Dispatched [{task_key}] to {model_name}...")
         t0 = time.time()
-        subgraph = query_llm(cfg["model"], sys_prompt, prompt)
+        subgraph = query_llm(model_name, sys_prompt, prompt)
         dt = time.time() - t0
-        print(f"  <- Finished [{task_key}] via {cfg['model']} in {dt:.2f}s")
+        print(f"  <- [MAB Arm Call] Finished [{task_key}] via {model_name} in {dt:.2f}s")
         return task_key, subgraph
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
@@ -169,6 +174,9 @@ def run_parallel_subgraph_generation(
         for f in concurrent.futures.as_completed(futures):
             k, sub = f.result()
             results[k] = sub
+            if bandit is not None:
+                arm_model = dim_configs[k]["model"]
+                bandit.update(arm_model, reward=0.5, crowned=False)
 
     return results
 
@@ -176,9 +184,10 @@ def run_parallel_subgraph_generation(
 def run_meta_supervisor_merge(
     baseline_graph: Dict[str, Any],
     subgraphs: Dict[str, Dict[str, Any]],
-    mined_stats: Dict[str, Any]
+    mined_stats: Dict[str, Any],
+    bandit: UCB1Bandit | None = None
 ) -> Dict[str, Any]:
-    """Invokes Meta-Supervisor (gpt-6-astra) to synthesize the unified Master Procedural Graph."""
+    """Invokes Meta-Supervisor (gpt-6-astra) to synthesize the unified Master Procedural Graph, tracking MAB count."""
     print("\n🔍 Invoking Meta-Supervisor [gpt-6-astra] to merge all specialized subgraphs...")
     elite = mined_stats.get("archetypes", {}).get("elite", {})
 
@@ -224,6 +233,9 @@ def run_meta_supervisor_merge(
     merged = query_llm("gpt-6-astra", sys_prompt, prompt, max_tokens=16384)
     print(f"Meta-Supervisor synthesis finished in {time.time() - t0:.2f}s!")
 
+    if bandit is not None:
+        bandit.update("gpt-6-astra", reward=1.0, crowned=True)
+
     # Normalize priorities
     edges = merged.get("edges", [])
     for i, e in enumerate(sorted(edges, key=lambda x: int(x.get("priority", 99))), start=1):
@@ -252,11 +264,20 @@ def main():
     print("Meta-Supervisor: gpt-6-astra (xhigh reasoning)")
     print("=" * 70)
 
+    # Initialize MAB Bandit for call counting and reward tracking
+    bandit = UCB1Bandit(BANDIT_STATE_PATH)
+    print(f"[MAB Bandit Initialized] Current total calls recorded: {bandit.total_pulls}")
+
     # 1. Parallel Subgraph Generation
-    subgraphs = run_parallel_subgraph_generation(current_graph, mined_stats)
+    subgraphs = run_parallel_subgraph_generation(current_graph, mined_stats, bandit=bandit)
 
     # 2. Meta-Supervisor Hierarchical Merge
-    master_graph = run_meta_supervisor_merge(current_graph, subgraphs, mined_stats)
+    master_graph = run_meta_supervisor_merge(current_graph, subgraphs, mined_stats, bandit=bandit)
+
+    print("\n[MAB Model Call Accounting Summary]:")
+    for arm, stats in bandit.summary().items():
+        print(f"  - {arm:24}: calls={stats['pulls']:3d} | avg_reward={stats['avg_reward']:.3f} | crowns={stats['crowns']}")
+    print(f"Total Cumulative LLM Calls: {bandit.total_pulls}\n")
 
     # Backup existing
     backup_path = CURRENT_DIR / f"policy_graph_backup_{int(time.time())}.json"
