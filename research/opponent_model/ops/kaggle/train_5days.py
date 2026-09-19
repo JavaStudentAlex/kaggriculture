@@ -87,12 +87,12 @@ import numpy as np  # noqa: E402
 # -------------------------------------------------------------------------
 print("\n[3/6] Extracting 5 days of replay episodes into .npz feature shards...")
 target_dates = [
-    "2026-09-12",
     "2026-09-13",
     "2026-09-14",
     "2026-09-15",
     "2026-09-16",
     "2026-09-17",
+    "2026-09-18",
 ]
 shards_dir = Path("/tmp/shards")
 shards_dir.mkdir(parents=True, exist_ok=True)
