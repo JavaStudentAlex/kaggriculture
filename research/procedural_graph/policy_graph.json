@@ -1,19 +1,19 @@
 {
-  "version": "2.0.0",
-  "name": "master_empirical_procedural_graph",
-  "description": "Unified Master Procedural Graph synthesized from 2,674 Kaggle matches via 4-arm MAB parallel distillation, calibrated to Grandmaster benchmarks (Median Reward: $159,626.0).",
+  "version": "2.1.0",
+  "name": "engine_capped_closed_loop_procedural_graph",
+  "description": "Refactored procedural graph enforcing the 10-order engine ceiling (9 hands max), closed-loop can refilling, uncapped shop arbitrage for wage defense, and calibrated Day 12-13 expansion horizons.",
   "nodes": [
     {
       "id": "state_audit",
       "name": "State & Balance Audit",
       "category": "audit",
-      "description": "Evaluates net available cash, current step/day/hour, shed fill percentage, wage liabilities, active town shop demand windows, and 96-step oracle supply curves."
+      "description": "Evaluates net available cash, current step/day/hour, shed fill percentage, wage liabilities, active town shop demand windows, order queue slots, and 96-step oracle supply curves."
     },
     {
       "id": "wage_defense",
       "name": "Midnight Wage Reserve Defense",
       "category": "defense",
-      "description": "Protects payroll for all active hired hands. Enforces emergency surplus liquidation when hour >= 18 and net available cash is below the mandatory wage threshold (hands_count * 120 + 100), preventing fatal midnight bankruptcy."
+      "description": "Protects payroll for all active hired hands. Enforces emergency liquidation when hour >= 18 and net available cash is below the mandatory wage threshold (hands_count * 120 + 100), channeling sales through active town shops first before open-market dumping."
     },
     {
       "id": "terminal_liquidation",
@@ -25,37 +25,37 @@
       "id": "shed_headroom",
       "name": "Shed Headroom Relief",
       "category": "capacity",
-      "description": "Prevents silent 100/100 harvest discards by preemptively clearing low-margin bulk inventory when shed capacity approaches the empirical peak median of 96.0, while strictly preserving herd survival feed buffers."
+      "description": "Prevents silent 100/100 harvest discards by preemptively clearing low-margin bulk inventory when shed capacity approaches 96.0, while strictly preserving herd survival feed buffers."
     },
     {
       "id": "town_shop_preempt",
       "name": "Town Shop Arbitrage & Scarcity Capture",
       "category": "revenue",
-      "description": "Preemptively matches unlocked town shop contracts (Strawberries, Milk, Tomatoes, Carrots, Eggs) to extract 2.0x-3.5x pricing premiums. Routes high-volume Strawberry (800+ units) and Milk (700+ units) yields into Ice Cream and Brunch venues, while hoarding 100% of Tomato stock until Days 27-29 to capture nonlinear supply-exhaustion spikes ($757/unit meta)."
+      "description": "Preemptively matches unlocked town shop contracts (Strawberries, Milk, Tomatoes, Carrots, Eggs) in top priority order slots (slots 1-3) to extract 2.0x-3.5x pricing premiums while preserving a 12-16 unit shop crop buffer."
     },
     {
       "id": "capital_compounding",
-      "name": "Early Capital Compounding & Workforce Scaling",
+      "name": "Early Capital Compounding & 9-Hand Ceiling",
       "category": "growth",
-      "description": "Days 0-12 capital reinvestment engine: initiates Day 0 baseline acquisition (5.0 hands, 9.0 cows, 5.0 sheep), compounds early Strawberry acreage, and progressively scales workforce to peak empirical median of 12.0 hands while strictly guarding forward-looking wage buffers."
+      "description": "Days 0-12 capital reinvestment engine: scales plots to 22-26 and caps workforce strictly at 9 hands (ratio ~2.4 plots/hand) to respect the 10-order engine ceiling while reserving bandwidth for trade orders."
     },
     {
       "id": "late_harvest_freeze",
-      "name": "Late Harvest Freeze & Regrowth Watering Loop",
+      "name": "Late Harvest Freeze & Closed-Loop Regrowth Loop",
       "category": "velocity",
-      "description": "Enacted at Day 11.0 (step 264, p90=13.8): permanently halts Strawberry seed purchases, tilling, and plot expansions, locking hired hands into an uninterrupted cyclic watering loop to extract maximum yield from 3-day regrowth cycles."
+      "description": "Enacted at Day 12.0 (step 288): permanently halts land expansion and seed purchases, locking hands into a closed-loop harvest-deposit-refill-water cycle to maintain uninterrupted 3-day Strawberry flushes."
     },
     {
       "id": "oracle_frontrun",
       "name": "Oracle Opponent Front-Run",
       "category": "market",
-      "description": "Monitors 96-step predictive supply curves (TTM forecast) to preemptively dump livestock luxury goods (Wool, Milk) ahead of competitor-induced market gluts."
+      "description": "Monitors 96-step predictive supply curves (TTM forecast) to preemptively dump livestock luxury goods (Wool, Milk) 4-8 turns before competitor gluts crash open market prices (triggered at risk >= 0.50)."
     },
     {
       "id": "farm_execution",
-      "name": "Routine Farm & Workforce Execution",
+      "name": "Routine Farm & Closed-Loop Execution",
       "category": "execution",
-      "description": "Executes physical farm tasks: dispatches workers strictly to Strawberry watering, ready-crop harvesting, livestock feeding, and shed delivery in priority sequence."
+      "description": "Executes physical farm tasks with strict closed-loop can refilling: dispatches workers to Strawberry watering, ready-crop harvesting, immediate well refills upon shed drop-off, and livestock feeding."
     }
   ],
   "edges": [
@@ -66,8 +66,8 @@
       "priority": 1,
       "attributes": {
         "condition": "hour >= 18 and day > 0 and step < 700 and net_available_cash < (hands_count * 120 + 100)",
-        "guidance": "Immediately halt all non-essential purchases. Execute emergency batch sales of non-feed inventory (excess Fertilizer, Wood, non-hoarded produce) to guarantee cash strictly exceeds (hands_count * 120 + 100) before midnight hour 24.",
-        "pitfalls": "Fatal liquidity collapse occurs if this threshold is missed. Never trigger on Day 0 when starting capital ($3,000) is abundant; never liquidate Wheat below minimum livestock survival threshold (maintain 6-hour feed buffer); avoid liquidating hoarded scarcity Tomatoes unless insolvency is otherwise unavoidable."
+        "guidance": "Immediately halt all land purchases, seed buys, and hiring. Liquidate non-feed inventory immediately. Route sales through active town shops first to capture 2.0x-3.5x premium before dumping on the open market, ensuring cash strictly exceeds (hands_count * 120 + 100) before midnight.",
+        "pitfalls": "Never trigger on Day 0 when starting capital ($3,000) is abundant; never liquidate Wheat below minimum livestock survival threshold (6-hour feed buffer); avoid dumping fertilizer on open market for <$30 when high-value goods can be sold to town shops."
       }
     },
     {
@@ -77,8 +77,8 @@
       "priority": 2,
       "attributes": {
         "condition": "step >= 700 and (shed_used > 0 or carried_inventory > 0 or livestock_feed_count > 0 or unplanted_seeds_count > 0)",
-        "guidance": "Execute unconditional fire-sale liquidation across all shed inventory, unplanted seeds, livestock feeds (Wheat/Hay), animal products, and crops. Command all hands to recall from fields, immediately deposit carried pack items into the shed, and batch-sell 100% of assets into active town shops or open market before step 720.",
-        "pitfalls": "Holding unsold inventory past step 719 anticipating higher shop demand; leaving harvested crops inside worker packs during the final simulation tick; retaining animal feed or maintenance reserves into the terminal horizon when livestock survival no longer compounds score."
+        "guidance": "Execute unconditional fire-sale liquidation across all shed inventory, unplanted seeds, livestock feeds, animal products, and crops. Command hands to deposit carried pack items into the shed and batch-sell 100% of assets into active town shops or open market before step 720.",
+        "pitfalls": "Holding unsold inventory past step 719 anticipating higher shop demand; leaving harvested crops inside worker packs during the final simulation tick; retaining animal feed or maintenance reserves into the terminal horizon."
       }
     },
     {
@@ -88,8 +88,8 @@
       "priority": 3,
       "attributes": {
         "condition": "(shed_used + incoming_worker_inventory) >= 96.0 and step < 700",
-        "guidance": "Preemptively clear low-margin or high-volume bulk inventory (excess Fertilizer, Wood, surplus Wheat) to maintain headroom below the empirical peak shed median of 96.0 before workers deliver crops, preventing silent 100/100 discards.",
-        "pitfalls": "Never evict feed Wheat when animals are hungry (maintain a minimum 6-hour feed buffer); do not wait until shed reaches 100 capacity before triggering relief, as incoming deliveries will be silently discarded."
+        "guidance": "Preemptively clear low-margin bulk inventory (excess Fertilizer, Wood, surplus Wheat) to maintain headroom below 96.0 before workers deliver crops, preventing silent 100/100 discards.",
+        "pitfalls": "Never evict feed Wheat when animals are hungry (maintain minimum 6-hour feed buffer); do not wait until shed reaches 100 capacity before triggering relief."
       }
     },
     {
@@ -98,9 +98,9 @@
       "relation": "TRIGGERS",
       "priority": 4,
       "attributes": {
-        "condition": "has_unlocked_shops and step < 700 and net_available_cash >= (hands_count * 120 + 100) and ((any(s.demands_item_in_shed and s.multiplier >= 2.0 and s.item != 'Tomato' for s in active_shops)) or (day >= 27 and shed.get('Tomato', 0) > 0 and any(s.item == 'Tomato' and s.current_price >= 500 for s in active_shops)) or (shed.get('Strawberry', 0) >= 15 and shop_demands('IceCreamShop', 'Strawberry')) or (shed.get('Milk', 0) >= 12 and shop_demands('BrunchShop', 'Milk')))",
-        "guidance": "Fulfill Town Shop contracts to extract 2.0x-3.5x premium prices. Channel bulk Strawberry volume (targeting 800+ units delivered) into Ice Cream Shops and Milk volume (700+ units delivered) into Brunch Shops. Enforce strict Tomato hoarding: accumulate all harvested Tomatoes in shed from mid-game, withholding sales until Days 27-29 when system-wide tomato shortages drive nonlinear shop spikes up to $757/unit. Sell exact contract fulfillment limits per transaction to avoid selling excess stock at baseline rates.",
-        "pitfalls": "Never sell Tomatoes before Day 27 on open market or at low shop multipliers; never hold hoarded Tomatoes past Day 29 Hour 20, risking unliquidated inventory at game end (step 720); do not deplete shed Milk or Wheat below the 24-hour herd survival threshold; avoid over-supplying beyond active shop contract caps."
+        "condition": "has_unlocked_shops and step < 700 and ((any(s.demands_item_in_shed and s.multiplier >= 2.0 and s.item != 'Tomato' for s in active_shops)) or (day >= 27 and shed.get('Tomato', 0) > 0 and any(s.item == 'Tomato' and s.current_price >= 500 for s in active_shops)) or (shed.get('Strawberry', 0) >= 12 and shop_demands('IceCreamShop', 'Strawberry')) or (shed.get('Milk', 0) >= 12 and shop_demands('BrunchShop', 'Milk')))",
+        "guidance": "Fulfill Town Shop contracts to extract 2.0x-3.5x premium prices. Submit shop delivery orders in top order slots (slots 1-3) to ensure priority under the 10-order ceiling. Maintain a 12-16 unit inventory buffer of shop crops (Carrot, Tomato, Egg). Channel bulk Strawberry into Ice Cream Shops and Milk into Brunch Shops. Hoard Tomatoes until Days 27-29 to capture nonlinear supply-exhaustion spikes ($757/unit).",
+        "pitfalls": "Never block town shop orders based on cash reserves, as shop orders generate immediate cash; never sell Tomatoes before Day 27 on open market or at low shop multipliers; never hold hoarded Tomatoes past Day 29 Hour 20."
       }
     },
     {
@@ -109,9 +109,9 @@
       "relation": "TRIGGERS",
       "priority": 5,
       "attributes": {
-        "condition": "day <= 12 and step < 700 and (day == 0 or (net_available_cash >= ((hands_count + 1) * 120 + 250) and (hands_count < 12 or cows_count < 9 or sheep_count < 5 or (plots_expandable and day < 11.0))))",
-        "guidance": "Execute empirical Day 0 kickstart: hire exactly 5.0 hands, buy 9.0 cows, 5.0 sheep, and allocate remaining capital into Strawberry seed stock and initial plot preparation. From Days 1 to 12, reinvest operational surplus dynamically: hire additional hands incrementally up to the peak workforce ceiling of 12.0 hands and top off livestock quotas (9 cows, 5 sheep) only when cash exceeds ((hands_count + 1) * 120 + 250). Expand Strawberry plot footprint until Day 10.9, ensuring full AP coverage for watering.",
-        "pitfalls": "Hiring beyond the 12.0 peak worker ceiling (creates negative marginal ROI and unmanageable payroll); buying livestock without securing ongoing feed supply; purchasing Strawberry seeds on or after Day 11.0; expanding capital assets when net available cash dips below mandatory midnight wage buffer plus new hire wage cost."
+        "condition": "day <= 12 and step < 700 and (day == 0 or (net_available_cash >= ((hands_count + 1) * 120 + 250) and (hands_count < 9 or cows_count < 9 or sheep_count < 5 or (plots_count < 26 and day < 12.0))))",
+        "guidance": "Execute early capital compounding up to Day 12.0: hire up to a strict ceiling of 9 hands (never exceed 9-10 to respect the 10-order engine cap), expand land to 22-26 plots (~2.4 plots/hand ratio), acquire foundation livestock (up to 9 cows, 5 sheep), and establish Strawberry acreage. Ensure cash reserves always exceed wage buffer plus new hire cost before purchasing.",
+        "pitfalls": "Hiring 10+ hands, which exhausts order queue capacity and drops market trade orders; buying land or slow seeds after Day 12; expanding capital when net cash dips below the midnight wage buffer."
       }
     },
     {
@@ -120,9 +120,9 @@
       "relation": "TRIGGERS",
       "priority": 6,
       "attributes": {
-        "condition": "day >= 11.0 and step < 700",
-        "guidance": "Enforce strict capital freeze: permanently disable Strawberry seed purchasing, tilling of empty plots, and plot expansions. Lock hired hands into an uninterrupted cyclic watering loop across all established Strawberry plots every single tick to exploit the 3-day regrowth cycle without disruption. Interleave only mature harvest collections and minimum livestock feeding.",
-        "pitfalls": "Purchasing Strawberry seeds after Day 11.0 (p90=13.8) which results in stranded unharvested plants at step 720; allocating worker AP to tilling new land or planting off-meta crops; missing a daily watering tick on mature Strawberry plots, which resets or delays the 3-day regrowth schedule."
+        "condition": "day >= 12.0 and step < 700",
+        "guidance": "Enforce strict capital freeze: permanently disable plot expansions, tilling, and Strawberry seed purchases. Lock the 9 hired hands into an uninterrupted cyclic watering loop across all established Strawberry plots every tick. Mandate that workers immediately refill watering cans at the well after dropping harvests at the shed, ensuring in-situ watering upon harvest.",
+        "pitfalls": "Buying land or slow seeds after Day 12-13, locking cash into unharvestable crops; allowing workers to leave harvested Strawberry plots dry due to empty watering cans; breaking the 3-day regrowth clock."
       }
     },
     {
@@ -131,9 +131,9 @@
       "relation": "TRIGGERS",
       "priority": 7,
       "attributes": {
-        "condition": "oracle_glut_risk >= 0.30 and current_price >= 0.60 * base_price and step < 700",
-        "guidance": "Monitor 96-step predictive supply curves (TTM forecast) to preemptively dump luxury commodities (Wool, Milk) before opponent market gluts collapse open market prices.",
-        "pitfalls": "Dumping into markets that have already collapsed to baseline ($1.00); selling commodities allocated for imminent high-multiplier Town Shop orders; selling off feed Wheat reserves."
+        "condition": "oracle_glut_risk >= 0.50 and current_price >= 0.65 * base_price and step < 700",
+        "guidance": "Monitor 96-step predictive supply curves (TTM forecast). When opponent glut risk reaches >= 0.50, preemptively liquidate luxury commodities (Wool, Milk) 4-8 turns before competitor mass dumps crash open-market prices to $1.00 floors.",
+        "pitfalls": "Premature dumping at risk < 0.50 when prices are stable; dumping after prices have already collapsed; liquidating items currently demanded by active town shops paying 2.0x-3.5x premiums."
       }
     },
     {
@@ -143,8 +143,8 @@
       "priority": 8,
       "attributes": {
         "condition": "true",
-        "guidance": "Dispatch idle hands to physical farm routines in strict priority order: Strawberry plot watering, ready-crop harvesting, livestock feeding, and shed delivery.",
-        "pitfalls": "Leaving mature Strawberry beds unwatered; allowing hands to hold carried items without dropping them into the shed before turn transitions; neglecting livestock feeding cycles."
+        "guidance": "Dispatch hands in strict sequence: (1) mature crop harvesting, (2) immediate shed deposit, (3) well refill of watering cans, (4) cyclic watering of Strawberry beds, (5) livestock feeding. Keep total dispatched action orders <= 9 to reserve slot 10 for emergency or shop trade execution.",
+        "pitfalls": "Submitting >10 total orders per tick; workers carrying harvested crops across multiple ticks instead of immediate delivery; neglecting immediate well refills leading to dry plots."
       }
     }
   ]

@@ -1,7 +1,7 @@
 """Two-Level Novelty Inspection Pipeline for Procedural Graphs.
 
 Level 1 (Embeddings):
-  Uses qwen3-embedding:8b (Ollama, 4096-dim).
+  Uses local sentence-transformers (all-MiniLM-L6-v2, 384-dim, fast local CPU/GPU).
   Computes cosine similarity against existing evaluated graphs.
   Threshold: 0.985. If >= 0.985, flagged as potential near-duplicate.
 
@@ -17,27 +17,27 @@ import math
 import urllib.request
 from typing import Any
 
-OLLAMA_EMBED_URL = "http://localhost:11434/v1/embeddings"
+from sentence_transformers import SentenceTransformer
+
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
+
+# Global lazy-loaded embedding model
+_EMBED_MODEL: SentenceTransformer | None = None
+
+
+def get_embed_model() -> SentenceTransformer:
+    global _EMBED_MODEL
+    if _EMBED_MODEL is None:
+        _EMBED_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+    return _EMBED_MODEL
 
 
 def get_graph_embedding(graph_dict: dict[str, Any]) -> list[float]:
-    """Generates 4096-dim embedding of the graph topology and attributes."""
-    # Canonical string representation focusing on structural edges and guards
+    """Generates embedding of the graph topology, guidance, and attributes."""
     repr_str = json.dumps(graph_dict, sort_keys=True)
-    req_body = {
-        "model": "qwen3-embedding:8b",
-        "input": repr_str
-    }
-    data = json.dumps(req_body).encode("utf-8")
-    req = urllib.request.Request(
-        OLLAMA_EMBED_URL,
-        data=data,
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        res = json.loads(resp.read().decode("utf-8"))
-        return res["data"][0]["embedding"]
+    model = get_embed_model()
+    emb = model.encode(repr_str)
+    return emb.tolist()
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
