@@ -1,0 +1,245 @@
+{
+  "total_matches_analyzed": 1337,
+  "total_player_trajectories": 2674,
+  "cohort_counts": {
+    "elite": 38,
+    "strong": 415,
+    "mid": 1899,
+    "collapsed": 15
+  },
+  "mining_rate_matches_per_sec": 11.0,
+  "archetypes": {
+    "elite": {
+      "count": 38,
+      "final_reward": {
+        "median": 159626.0,
+        "mean": 162150.08,
+        "p10": 151766.0,
+        "p90": 178426.0
+      },
+      "hires_day_0": {
+        "median": 5.0,
+        "mean": 4.74,
+        "p10": 4,
+        "p90": 5
+      },
+      "peak_hands": {
+        "median": 12.0,
+        "mean": 12,
+        "p10": 12,
+        "p90": 12
+      },
+      "cows_bought": {
+        "median": 9.0,
+        "mean": 9.89,
+        "p10": 6,
+        "p90": 16
+      },
+      "sheep_bought": {
+        "median": 5.0,
+        "mean": 6.66,
+        "p10": 3,
+        "p90": 11
+      },
+      "last_expand_day": {
+        "median": 0.0,
+        "mean": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "last_strawberry_seed_day": {
+        "median": 11.0,
+        "mean": 11.7,
+        "p10": 10.4,
+        "p90": 13.8
+      },
+      "peak_shed": {
+        "median": 96.0,
+        "mean": 95.13,
+        "p10": 86,
+        "p90": 100
+      },
+      "min_midnight_cash": {
+        "median": 43.0,
+        "mean": 38.18,
+        "p10": 1.0,
+        "p90": 66.0
+      },
+      "bankruptcy_rate": 1.0
+    },
+    "strong": {
+      "count": 415,
+      "final_reward": {
+        "median": 121336.0,
+        "mean": 123797.1,
+        "p10": 111982.0,
+        "p90": 139679.0
+      },
+      "hires_day_0": {
+        "median": 5,
+        "mean": 4.81,
+        "p10": 4,
+        "p90": 5
+      },
+      "peak_hands": {
+        "median": 12,
+        "mean": 12.01,
+        "p10": 12,
+        "p90": 12
+      },
+      "cows_bought": {
+        "median": 9,
+        "mean": 8.43,
+        "p10": 6,
+        "p90": 11
+      },
+      "sheep_bought": {
+        "median": 6,
+        "mean": 8.05,
+        "p10": 5,
+        "p90": 12
+      },
+      "last_expand_day": {
+        "median": 0.0,
+        "mean": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "last_strawberry_seed_day": {
+        "median": 11.0,
+        "mean": 11.36,
+        "p10": 10.8,
+        "p90": 13.8
+      },
+      "peak_shed": {
+        "median": 99,
+        "mean": 97.14,
+        "p10": 91,
+        "p90": 100
+      },
+      "min_midnight_cash": {
+        "median": 26.0,
+        "mean": 31.13,
+        "p10": 2.0,
+        "p90": 74.0
+      },
+      "bankruptcy_rate": 1.0
+    },
+    "mid": {
+      "count": 1899,
+      "final_reward": {
+        "median": 84815.0,
+        "mean": 84753.19,
+        "p10": 65791.0,
+        "p90": 103642.0
+      },
+      "hires_day_0": {
+        "median": 5,
+        "mean": 4.84,
+        "p10": 4,
+        "p90": 5
+      },
+      "peak_hands": {
+        "median": 12,
+        "mean": 12.01,
+        "p10": 12,
+        "p90": 12
+      },
+      "cows_bought": {
+        "median": 9,
+        "mean": 7.87,
+        "p10": 5,
+        "p90": 10
+      },
+      "sheep_bought": {
+        "median": 5,
+        "mean": 7.19,
+        "p10": 4,
+        "p90": 11
+      },
+      "last_expand_day": {
+        "median": 0.0,
+        "mean": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "last_strawberry_seed_day": {
+        "median": 11.0,
+        "mean": 11.19,
+        "p10": 10.5,
+        "p90": 11.8
+      },
+      "peak_shed": {
+        "median": 100,
+        "mean": 97.83,
+        "p10": 94,
+        "p90": 100
+      },
+      "min_midnight_cash": {
+        "median": 26.0,
+        "mean": 30.48,
+        "p10": 2.0,
+        "p90": 74.0
+      },
+      "bankruptcy_rate": 1.0
+    },
+    "collapsed": {
+      "count": 15,
+      "final_reward": {
+        "median": 8130.0,
+        "mean": 7603.07,
+        "p10": 0.0,
+        "p90": 17810.0
+      },
+      "hires_day_0": {
+        "median": 5,
+        "mean": 5,
+        "p10": 5,
+        "p90": 5
+      },
+      "peak_hands": {
+        "median": 12,
+        "mean": 10.47,
+        "p10": 8,
+        "p90": 12
+      },
+      "cows_bought": {
+        "median": 8,
+        "mean": 7.27,
+        "p10": 6,
+        "p90": 9
+      },
+      "sheep_bought": {
+        "median": 8,
+        "mean": 7.47,
+        "p10": 5,
+        "p90": 11
+      },
+      "last_expand_day": {
+        "median": 0.0,
+        "mean": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "last_strawberry_seed_day": {
+        "median": 11.0,
+        "mean": 10.78,
+        "p10": 11.0,
+        "p90": 11.0
+      },
+      "peak_shed": {
+        "median": 53,
+        "mean": 55.2,
+        "p10": 53,
+        "p90": 59
+      },
+      "min_midnight_cash": {
+        "median": 0.0,
+        "mean": 0.33,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "bankruptcy_rate": 1.0
+    }
+  }
+}

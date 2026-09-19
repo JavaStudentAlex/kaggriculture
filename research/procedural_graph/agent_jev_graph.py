@@ -98,38 +98,47 @@ def agent(obs: Dict[str, Any], configuration: Optional[Dict[str, Any]] = None) -
         # Partition orders by procedural graph nodes
         orders_by_node: Dict[str, List[List[Any]]] = {
             "wage_defense": [],
+            "terminal_liquidation": [],
             "shed_headroom": [],
             "town_shop_preempt": [],
             "oracle_frontrun": [],
             "farm_execution": []
         }
 
-        # 1. Wage Defense orders (Priority)
+        step = int(obs.get("step", 0) or 0)
+
+        # 1. Wage Defense orders (Priority 1)
         if (jev_decision and jev_decision.get("selected_branch") == "wage_defense") or guards.get("wage_defense", False):
             for o in base_market:
                 if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL":
                     orders_by_node["wage_defense"].append(list(o))
 
-        # 2. Shed Headroom orders
+        # 2. Terminal Liquidation orders (Priority 2, active at step >= 700)
+        if (jev_decision and jev_decision.get("selected_branch") == "terminal_liquidation") or step >= 700:
+            for o in base_market:
+                if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL":
+                    orders_by_node["terminal_liquidation"].append(list(o))
+
+        # 3. Shed Headroom orders
         if (jev_decision and jev_decision.get("selected_branch") == "shed_headroom") or guards.get("shed_headroom", False):
             for o in base_market:
                 if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL" and o[1] in ("WHEAT", "FERTILIZER", "STRAWBERRY"):
-                    if o not in orders_by_node["wage_defense"]:
+                    if o not in orders_by_node["wage_defense"] and o not in orders_by_node["terminal_liquidation"]:
                         orders_by_node["shed_headroom"].append(list(o))
 
-        # 3. Town Shop Preempt orders
+        # 4. Town Shop Preempt orders
         if (jev_decision and jev_decision.get("selected_branch") == "town_shop_preempt") or guards.get("town_shop_preempt", False):
             for o in base_market:
                 if isinstance(o, (list, tuple)) and len(o) >= 3 and o[1] in ("CARROT", "TOMATO", "EGG"):
                     orders_by_node["town_shop_preempt"].append(list(o))
 
-        # 4. Oracle Frontrun orders
+        # 5. Oracle Frontrun orders
         if (jev_decision and jev_decision.get("selected_branch") == "oracle_frontrun") or guards.get("oracle_frontrun", False):
             for o in base_market:
                 if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL" and o[1] in ("WOOL", "MILK"):
                     orders_by_node["oracle_frontrun"].append(list(o))
 
-        # 5. Routine Farm execution orders (all baseline buy and sell orders)
+        # 6. Routine Farm execution orders (all baseline buy and sell orders)
         for o in base_market:
             orders_by_node["farm_execution"].append(list(o))
 
