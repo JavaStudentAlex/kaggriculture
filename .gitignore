@@ -5,6 +5,8 @@ __pycache__/
 
 # Virtual environments & tool artifacts
 .venv/
+.env
+.env.*
 .coverage
 .coverage.*
 build/
