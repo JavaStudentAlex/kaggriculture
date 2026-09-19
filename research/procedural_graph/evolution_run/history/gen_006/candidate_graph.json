@@ -1,0 +1,117 @@
+{
+  "version": "1.3.0",
+  "name": "hazel_weir_central_procedural_graph",
+  "description": "High-velocity procedural graph featuring active oracle peak-price arbitrage, continuous town shop capture, synchronized crop rotations through day 29, and proactive shed headroom protection.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, wage liability, and oracle price drop signals."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Blocks capital expenditure and triggers pre-midnight surplus liquidation to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Preemptively fulfills unlocked town shop contracts (Carrots, Tomatoes, Strawberries, Eggs) to lock in 2x-3x price premiums before open market disposal."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Shed Headroom Relief",
+      "category": "capacity",
+      "description": "Prevents silent 100/100 harvest discards by clearing low-margin non-feed inventory at fair prices when shed approaches true capacity."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Market Timing & Paced Liquidation",
+      "category": "market",
+      "description": "Leverages 96-step oracle forecasts and spot prices to systematically monetize harvest surpluses at cyclical price peaks and front-run predicted gluts in paced tranches."
+    },
+    {
+      "id": "crop_revenue_maximizer",
+      "name": "High-Yield Crop & Market Synchronization",
+      "category": "revenue",
+      "description": "Directs seed budgeting and field planting toward high profit-per-hour crops with shop synchronization and strict maturation horizons, extending fast-maturing Carrots through day 29."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines (planting, watering, feeding livestock, harvesting) and opportunistic workforce scaling using available action slots."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due",
+        "guidance": "Cancel non-essential purchases (BUY_SEED, BUY_ANIMAL, redundant HIRE); enforce emergency sales of non-feed inventory at hour >= 20 in sized tranches to meet exact payroll shortfall; schedule worker harvest drop-offs before hour 21.",
+        "pitfalls": "Never sell Wheat below livestock feed reserve (n_animals * 2); do not liquidate high-multiplier town shop crops to cover minor payroll deficits if non-feed items or surplus wool/fertilizer suffice."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and day <= 29",
+        "guidance": "Fulfill town shop contract demands (Carrots, Tomatoes, Strawberries, Eggs) immediately to capture 2x-3x price premiums; prioritize shop fulfillment over all open-market sales; coordinate with crop_revenue_maximizer to fulfill active shop contracts promptly before expiration.",
+        "pitfalls": "Never sell wheat needed for livestock feed buffer; do not withhold inventory waiting for future theoretical shops if current shop orders are active and unfulfilled."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "shed_headroom",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "shed_used + incoming_worker_inventory >= 80",
+        "guidance": "Evict lowest-margin inventory (fertilizer, surplus wheat above reserve, raw wool) at market price >= 0.60 * base_price in tranches of 10-15 units; cancel stale buy orders to recover order slots; route eligible goods to town shops before generic open-market liquidation.",
+        "pitfalls": "Never sell town shop contract crops or feed wheat below reserve (n_animals * 2); avoid dumping items below 0.50 * base_price; do not wait until shed reaches 95+ where simultaneous worker drop-offs trigger silent inventory loss."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "(oracle_glut_risk >= 0.50 and current_price >= 0.75 * base_price) or (current_price >= 1.15 * base_price and shed_used >= 16) or (current_price >= 1.05 * base_price and shed_used >= 24) or (day == 28 and shed_used >= 12) or (day >= 29 and shed_used >= 6)",
+        "guidance": "Execute sales in paced batches (10-15 units per order) to prevent order book slippage and self-induced price collapse; capture peak pricing early by selling 16+ units at >= 1.15 * base_price or 24+ units at >= 1.05 * base_price; smoothly liquidate remaining inventory on day 29 in tranches of 6+ to prevent end-game inventory stranding; protect town shop contract reserves and livestock feed wheat; reinvest cash toward hiring hands up to the 10-hand cap.",
+        "pitfalls": "Never dump large single-turn market orders (> 20 units) that crash market prices; do not sell wheat below animal feed buffer; do not liquidate commodities committed to immediate town shop delivery; do not hold inventory past day 29 hour 20."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "crop_revenue_maximizer",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "net_available_cash >= midnight_payroll_due + 350.0 and (day <= 28 or (day == 29 and hour <= 10))",
+        "guidance": "Allocate planting capacity and seed purchases toward top profit-per-hour crops: prioritize Strawberries and Tomatoes on days 1-25 while dynamically allocating seed slots to Carrots whenever active town shop contracts demand them; transition primarily to fast-maturing Carrots from day 26 through day 29 hour 10 to capture rapid end-game harvest cycles before turn 720; restrict wheat planting strictly to sustain livestock feed buffer (n_animals * 2); preserve midnight payroll buffer before purchasing seeds.",
+        "pitfalls": "Do not plant Strawberries after day 25 or Tomatoes after day 27 as they will not mature before turn 720; cease all seed planting strictly after day 29 hour 10 to avoid unharvested seed waste; never compromise the midnight payroll reserve."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch idle hands to harvesting ready crops, watering unwatered plots, feeding livestock, clearing weeds, and planting queued seeds in priority order; hire hands up to the 10-hand ceiling whenever surplus cash comfortably exceeds midnight payroll plus hiring fee; ensure workers drop off carried inventory before end of turn 717.",
+        "pitfalls": "Do not leave mature crops unharvested or drying unwatered for consecutive turns; ensure workers drop all carried inventory into the shed before terminal steps (turns 718-720)."
+      }
+    }
+  ]
+}

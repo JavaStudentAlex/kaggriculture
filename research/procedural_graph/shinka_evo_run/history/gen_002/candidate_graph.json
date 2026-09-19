@@ -1,0 +1,117 @@
+{
+  "version": "1.2.0",
+  "name": "hazel_weir_central_procedural_graph",
+  "description": "Peak Arbitrage & Reinvestment Scaled Procedural Graph with extended Town Shop fulfillment through day 30, Oracle peak-price harvesting, lean 10-hand workforce acceleration, and protected worker dispatch bandwidth.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, wage liability, active shop contract demand, and oracle price drop signals across market commodities."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Enforces dynamic cash reserve locks and triggers pre-midnight surplus liquidation to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Preemptively matches unlocked town shop demand surges and immediately fulfills mature high-margin crops (Carrots, Tomatoes, Pumpkins, Strawberries) to capture 2.0x-3.5x contract price premiums."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Opponent Front-Run & Peak Arbitrage",
+      "category": "market",
+      "description": "Executes rapid batch sales when commodity prices reach oracle forecast peaks (>= 1.15x base price) and preempts opponent market dumping before glut collapse."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Shed Headroom Relief",
+      "category": "capacity",
+      "description": "Prevents silent 100/100 harvest discards by clearing uncommitted low-margin inventory under strict price floors while protecting animal feed and shop contracts."
+    },
+    {
+      "id": "capital_reinvestment",
+      "name": "Capital Reinvestment & Yield Scaling",
+      "category": "expansion",
+      "description": "Reinvests surplus cash beyond wage reserves into workforce acceleration (10-hand rush), contiguous land expansion, commercial high-yield seeds, and fertilizer."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines with strict operational sequencing: harvest ready crops, worker drop-offs, watering, livestock feeding, planting, and ground maintenance."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due * 1.10",
+        "guidance": "Cancel non-essential purchases (BUY_SEED, BUY_ANIMAL, BUY_LAND, redundant HIRE); schedule worker harvest drop-offs before hour 21; enforce emergency liquidation of non-feed, non-contract inventory at hour >= 20 to guarantee payroll while consuming at most 2 market orders per step.",
+        "pitfalls": "Never sell Wheat below dynamic livestock feed reserve (max(4, n_animals * 3)); do not rely on low-margin fertilizer sales to cover payroll deficits; never liquidate crops committed to active town shop delivery."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and ((shop_deliverable_inventory > 0 and day <= 30) or (net_available_cash >= 150.0 and day <= 26))",
+        "guidance": "Allocate up to 2 market slots per step to fulfill active town shop demand surges directly from mature shed inventory for 2.0x-3.5x contract premiums through day 30; procure shop-demanded seeds (Carrots, Tomatoes, Pumpkins, Strawberries) on days <= 26 whenever surplus cash covers seed costs and midnight wage reserves.",
+        "pitfalls": "Never exceed 2 order slots per step to avoid worker dispatch starvation; do not procure shop seeds after day 26 if crop maturation exceeds remaining game steps; never sell shop-demanded crops on the open market if an active shop contract exists."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "(oracle_glut_risk >= 0.25 and current_price >= 0.70 * base_price) or current_price >= 1.15 * base_price",
+        "guidance": "Preempt lowest-margin orders; execute max 2 batch sales per step of sensitive high-margin commodities (Wool, Milk, Strawberry, Pumpkin, Tomato) when market prices surge to premium peaks (current_price >= 1.15 * base_price) or when oracle warns of imminent opponent dumping (oracle_glut_risk >= 0.25 and current_price >= 0.70 * base_price); preserve livestock feed reserves and committed town shop inventory.",
+        "pitfalls": "Never consume more than 2 order slots per step; never sell Wheat below dynamic livestock feed reserve (max(4, n_animals * 3)); never liquidate commodities pledged to active town shop delivery contracts."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "shed_headroom",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "shed_used + incoming_worker_inventory >= 85",
+        "guidance": "Evict non-urgent pending orders to free engine order slots; execute targeted batch sales (max 2 order slots per step) of unreserved, non-shop surplus inventory with price >= 0.70 * base_price; only relax floor to 0.50 * base_price if shed_used >= 94 to prevent discard drops.",
+        "pitfalls": "Never consume more than 2 order slots per step; never sell Wheat below dynamic livestock feed reserve (max(4, n_animals * 3)); never evict produce allocated for active town shop fulfillment."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_reinvestment",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "((hired_hands < 10 and net_available_cash >= midnight_payroll_due * 1.20 + 120.0) or net_available_cash >= midnight_payroll_due * 1.35 + 220.0) and (hired_hands < 10 or (uncultivated_plots == 0 and day <= 22) or has_fertilizer_deficit) and day <= 27",
+        "guidance": "Rapidly scale workforce to 10 hands by early game (days 1-7); acquire contiguous land plots only when all existing acreage is fully cultivated up to day 22; procure high-yield commercial seeds (Pumpkins, Tomatoes, Strawberries) and fertilizer; purchase and maintain 2-4 livestock (Cows, Sheep) with Wheat rotation to secure passive daily high-value Milk and Wool revenue.",
+        "pitfalls": "Never exceed 2 procurement orders per step; never purchase land after day 22 or expand beyond what 10 hands can continuously water; halt long-cycle seed procurement (Pumpkins) after day 24 and all seed buying after day 27; maintain at least 1.25x midnight wage reserve after every purchase."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch active hands strictly by operational priority: 1) Harvest mature crops immediately to free plots; 2) Water dry crops to sustain uninterrupted growth ticks; 3) Feed hungry livestock (Cows, Sheep) before midday to maintain daily Milk and Wool yield; 4) Drop off carried inventory at shed when hand capacity is full or at hour >= 21; 5) Plant high-margin commercial seeds with fertilizer on watered plots; 6) Weed clearing and tilling. On days 29-30, focus all hands on final harvests and deposit 100% of carried inventory into shed before step 716 for terminal liquidation.",
+        "pitfalls": "Never prioritize weeding over harvesting, watering, or feeding; do not drop off single items at the shed when hand capacity remains; never allow hands to idle while mature crops or unwatered plots remain; ensure all hands deposit carried items before step 716."
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "generation": 74,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by synchronizing a 20-24 plot land expansion with 10-11 hands frozen at Day 13 to resolve workforce underutilization, while decoupling daytime reinvestment (1.0x payroll reserve before hour 18) to prevent 12-24 hour plot compounding delays. It restores pre-seed hyper-fertilization at Priority 2 in farm execution so idle fertilizer is actively applied, protects recurring Strawberry acreage by barring slow crops after Day 5 while preserving rapid Carrot shop arbitrage (max 2 plots) and shed deliveries, and institutes an expansion-gated two-tier liquidation floor (>=0.84x normal, >=0.78x midday on expansion days <=13) to maximize daylight capital velocity without eroding late-game margins.",
+  "timestamp": 1789769882.2313268
+}

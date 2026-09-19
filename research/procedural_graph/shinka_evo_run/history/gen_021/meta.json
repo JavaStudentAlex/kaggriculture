@@ -1,0 +1,7 @@
+{
+  "generation": 21,
+  "model": "gemini-3.8-flash",
+  "effort": "high",
+  "rationale": "This mutation eliminates the -$18.3k cash deficit by removing the Day 28 town shop cutoff (extending 2.0x-3.5x contract fulfillment through Day 30) and fixing the land acquisition deadlock: inverting the uncultivated plots check to expand contiguous land up to 28-32 plots when plots are fully utilized (uncultivated_plots <= 2 through Day 24), rather than choking acreage to 16-18 plots. It accelerates workforce scaling to 10 hands by Day 4 using a tiered 1.15x early wage buffer, decouples routine seed purchasing so plots never sit barren, synchronizes crop maturation phase gates with true growth cycles (Pumpkins Day 24, Tomatoes Day 26, Carrots Day 28, Wheat Day 29), and enforces a zero-planting Day 30 terminal harvest sweep and complete inventory liquidation before step 720 while respecting the 10-order engine cap.",
+  "timestamp": 1789763124.4893506
+}

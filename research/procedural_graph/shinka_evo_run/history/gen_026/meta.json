@@ -1,0 +1,7 @@
+{
+  "generation": 26,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation directly addresses the -$18.3k cash deficit by decoupling land expansion from hand count, setting a strict 18-plot ceiling, and scaling the workforce proportionally (~1 hand per 1.6 plots) to break the starter-acreage revenue trap. It extends Town Shop contract fulfillment through Day 30 while strictly locking shop-eligible crops (Pumpkins, Tomatoes, Carrots) from open-market liquidation below 92% shed saturation to protect 2.0x-3.5x premiums, relying on Strawberry prioritization for open-market cash flow. Furthermore, it enforces strict agronomic phase-gates to eliminate stranded terminal capital, mandates cluster harvesting to eradicate transit waste, and corrects the phantom feed reserve bug on zero-animal farms.",
+  "timestamp": 1789763858.3760648
+}

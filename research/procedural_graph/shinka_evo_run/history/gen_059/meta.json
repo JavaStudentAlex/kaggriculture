@@ -1,0 +1,7 @@
+{
+  "generation": 59,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "Previous mutations failed by over-expanding to 18-20 plots (draining cash reserves) and enforcing rigid atomic harvest-and-water locks that likely deadlocked workers. This mutation moderates expansion to 15-16 plots to perfectly balance an 11-hand workforce, and implements a flexible immediate-watering priority to prevent regrowth stalls without freezing workers. It also protects margins by sustaining Strawberry compounding through Day 23, enforcing duration gating on Town Shops, and setting a balanced 0.80x liquidation floor with a 0.45 Oracle glut trigger.",
+  "timestamp": 1789767737.0368533
+}

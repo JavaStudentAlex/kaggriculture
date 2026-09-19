@@ -1,0 +1,7 @@
+{
+  "generation": 96,
+  "model": "gemini-3.8-flash",
+  "effort": "high",
+  "rationale": "We eliminate the cash deficit against champions by scaling contiguous land to 28-32 plots frozen at Day 16 while capping the workforce at 10 hired hands to strictly adhere to the 10-order engine cap, eliminating dropped orders and idle payroll bleed while guaranteeing 4+ late-game harvest flushes. We recapture the $14k-$17k town shop arbitrage gap by replacing the blanket slow crop ban with a dynamic 3-4 plot Contract ROI Dispatch (>= 2.2x premium, Day <= 22) and enforcing strict shed quota reservation so bulk town shop orders are not prematurely dumped by liquidation. Finally, we integrate well refills into the shed drop-off transit chain and calibrate batch liquidation floors (>= 8 surplus items; 0.80x standard / 0.76x midday reinvestment) to conserve order bandwidth and ensure workers enter fields with 100% full watering cans for seamless in-situ harvest-and-water cycles.",
+  "timestamp": 1789772503.4233613
+}

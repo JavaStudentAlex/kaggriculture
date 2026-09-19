@@ -1,0 +1,7 @@
+{
+  "generation": 27,
+  "model": "gemini-3.8-flash",
+  "effort": "high",
+  "rationale": "This mutation breaks the starter-acreage revenue trap by unlocking contiguous land expansion up to a calibrated 16-18 plot ceiling alongside 10-hand workforce scaling whenever uncultivated plots <= 1, doubling cultivation acreage. It extends 2.0x-3.5x Town Shop fulfillment through Day 30 step 700 with dedicated order-slot reservation and contract-specific inventory locking, monetizing non-contract surplus on the open market without triggering the fatal cash-starvation locks of Gens 24-26. Finally, it enforces agronomic lifespan phase-gates (halting Pumpkins Day 24, Tomatoes Day 26, Carrots Day 28, all seeds Day 29.5), mandates cluster harvesting to eliminate transit waste, and fixes the phantom zero-animal feed reserve.",
+  "timestamp": 1789763947.4715157
+}

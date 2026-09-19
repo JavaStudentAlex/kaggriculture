@@ -1,0 +1,7 @@
+{
+  "generation": 25,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$18.3k cash deficit by unlocking contiguous land expansion up to an optimal 16-18 plot ceiling when uncultivated_plots <= 1 and pacing workforce hiring to ~1 hand per 1.6 plots, breaking the starter-acreage revenue trap. It extends Town Shop contract fulfillment through Day 30 step 700 while strictly locking shop-eligible crops from premature open-market liquidation below 92% shed saturation to protect 2.0x-3.5x price premiums and preserve the 10-order engine cap. Finally, it enforces strict agronomic phase-gates (halting Pumpkins Day 24, Tomatoes Day 26, Carrots Day 28, all seeds Day 29.5), mandates cluster harvesting to eradicate transit waste, and corrects phantom feed reserves on zero-animal farms.",
+  "timestamp": 1789763730.4870946
+}

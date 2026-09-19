@@ -1,0 +1,7 @@
+{
+  "generation": 65,
+  "model": "claude-sonnet-5",
+  "effort": "xhigh",
+  "rationale": "This mutation resolves the $9,083 cash deficit by abolishing the restrictive 16-plot land ceiling and scaling acreage to 22-26 plots across three synchronized waves (8-10 plots by Day 5, 16-18 plots by Day 10, 22-26 plots by Day 14-16 with 10-11 hands) to optimize the workforce ratio to ~2.2 plots/hand. It protects hyper-fertilized Strawberry compounding by strictly gating Town Shop seed procurement behind uncultivated vacant plots (uncultivated_vacant_plots > 0) while fulfilling contracts from existing shed inventory, unlocks daylight capital velocity through early micro-batch liquidations (>=2 surplus on Days 1-5) and dynamic mid-game price floors (0.85x base, relaxing to 0.75x base if shed fullness >= 50% or glut risk >= 0.45), and elevates shed drop-offs immediately post-harvest so workers can carry water and feed daytime sales. Finally, it captures late-game yield with a 3-day Carrot backfill for vacant plots between Days 22-26 and enforces terminal inventory clearance from Step 680 down to 0.65x base price.",
+  "timestamp": 1789768544.5879445
+}

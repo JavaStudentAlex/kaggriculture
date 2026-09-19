@@ -1,0 +1,7 @@
+{
+  "generation": 42,
+  "model": "claude-opus-5",
+  "effort": "xhigh",
+  "rationale": "This mutation bridges the -$11k cash deficit by scaling plot capacity to 15-16 plots by Day 15 synchronized with full 10-hand hiring, eliminating mid-to-late game labor idling while reserving 11-12 plots for hyper-fertilized Strawberries and 3-4 auxiliary plots for Town Shop contracts. It purges phantom wheat reserves when animal count is zero to accelerate Day 1-3 hand recruitment, lowers the shop cash activation threshold while instituting realistic maturation phase-gates (halting Pumpkins Day 21, Tomatoes Day 24, Carrots Day 26) to prevent stranded capital without sacrificing peak shop arbitrage. Finally, it integrates fertilizer application directly into the farm execution pipeline while preserving high-velocity tiered liquidations (>=0.90x/0.85x base) to prevent the fatal inventory freezes that crippled previous generations.",
+  "timestamp": 1789765872.7545092
+}

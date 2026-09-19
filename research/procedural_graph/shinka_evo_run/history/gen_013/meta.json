@@ -1,0 +1,7 @@
+{
+  "generation": 13,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation closes the -$18.3k cash deficit by transforming distress-only dumping into proactive high-margin monetization, executing routine clearing of uncommitted shed inventory at cyclical price premiums (>=1.05x base price) while extending 2.0x-3.5x Town Shop deliveries through Day 30. It eliminates worker transit congestion by mandating cluster harvesting until worker carrying capacity is full before navigating to the shed, and decouples workforce expansion ($75 payroll buffer rush to 10 hands) from land acquisition (triggering on uncultivated_plots == 0 up to 24 contiguous plots with a protected $180+ capital buffer). Finally, it purges the phantom 4-unit Wheat reserve for zero-livestock states and enforces strict seed maturation cutoffs (halting Pumpkins Day 23, Tomatoes Day 25, and Carrots Day 27) to guarantee zero stranded capital at terminal liquidation.",
+  "timestamp": 1789761964.8571045
+}

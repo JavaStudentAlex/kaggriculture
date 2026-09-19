@@ -1,0 +1,7 @@
+{
+  "generation": 9,
+  "model": "claude-opus-5",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$18.3k cash deficit by extending 2.0x-3.5x Town Shop deliveries through Day 30 while strictly gating seed procurement by crop maturation horizons (Pumpkins Day 23, Tomatoes Day 25, Carrots Day 27) to prevent capital stranding at game close. It embeds a two-tier market liquidation strategy into Oracle Frontrun and Shed Headroom to capture cyclical peaks (>= 1.05x base price) and gluts (>= 0.85x base price) while keeping a safe 0.50x discard-prevention floor at >= 94% shed capacity. Furthermore, it eliminates the phantom 4-unit Wheat reserve when holding zero animals, slashes the early workforce hurdle to an $80 buffer to front-load a 10-hand expansion across a disciplined 20-22 plot layout, and optimizes worker transit through cluster harvesting (>= 2 items).",
+  "timestamp": 1789761121.7955031
+}

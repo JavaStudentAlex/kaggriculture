@@ -1,0 +1,7 @@
+{
+  "generation": 72,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by expanding the land ceiling to 20-24 contiguous plots synchronized across three waves (8-10 by Day 5, 14-16 by Day 8, 20-24 by Day 13) with 10-11 hands and a hard Day 13 land expansion freeze, fully utilizing workforce capacity while restricting shop seed procurement exclusively to Day 1-4 Carrots so 100% of Day 5+ acreage compounds hyper-fertilized Strawberries. It decouples daytime reinvestment from midnight wage defense (1.0x payroll reserve during hours 04:00-17:00) and implements an expansion-gated two-tier liquidation floor (>=0.84x base normal, >=0.78x midday strictly on expansion days <=13) to unlock daylight velocity without dumping peak recurring harvests into market troughs. Crucially, farm execution restores pre-seed hyper-fertilization at Priority 2 while strictly defending in-situ harvest-and-water at Priority 1, eliminating unfertilized plot plantings and dry-interval regrowth halts.",
+  "timestamp": 1789769608.6241355
+}

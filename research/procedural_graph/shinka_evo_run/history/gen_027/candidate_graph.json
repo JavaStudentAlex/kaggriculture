@@ -1,0 +1,117 @@
+{
+  "version": "1.2.0",
+  "name": "hazel_weir_central_procedural_graph",
+  "description": "Procedural Execution Graph featuring calibrated 16-18 plot land expansion, Day 30 Town Shop arbitrage with contract-specific anti-cannibalization, agronomic lifespan phase-gates, cluster-harvest transit optimization, and zero-animal feed reserve correction.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, total and uncultivated plots, wage liability, active shop contract demand quotas, and oracle commodity price forecasts."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Enforces dynamic cash reserve locks and triggers pre-midnight surplus liquidation to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Preemptively matches unlocked town shop demand surges and immediately fulfills mature high-margin crops (Carrots, Tomatoes, Pumpkins, Strawberries) to capture 2.0x-3.5x contract price premiums through Day 30."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Shed Headroom Relief",
+      "category": "capacity",
+      "description": "Prevents silent 100/100 harvest discards by clearing uncommitted low-margin inventory under strict price floors while protecting animal feed and active shop contract quotas."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Opponent Front-Run",
+      "category": "market",
+      "description": "Reads 96-step TTM forecast to dump sensitive commodities (Wool, Milk, Strawberry) immediately before opponent market gluts collapse prices."
+    },
+    {
+      "id": "capital_reinvestment",
+      "name": "Capital Reinvestment & Yield Scaling",
+      "category": "expansion",
+      "description": "Reinvests surplus cash beyond wage reserves into workforce acceleration (10 hands), contiguous land expansion (16-18 plots), commercial seeds within maturation phase-gates, and fertilizer."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines with cluster-harvest dispatch sequencing: cluster harvesting to capacity, worker drop-offs, watering, livestock feeding, planting, and terminal liquidation prep."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due",
+        "guidance": "Cancel non-essential purchases (BUY_SEED, BUY_ANIMAL, BUY_LAND, redundant HIRE); schedule worker harvest drop-offs before hour 21; enforce emergency liquidation of non-feed, uncommitted surplus inventory at hour >= 20 to guarantee midnight payroll.",
+        "pitfalls": "Never sell Wheat below dynamic livestock feed reserve (n_animals * 3 if n_animals > 0 else 0); do not rely on low-margin fertilizer sales to cover payroll deficits; never liquidate crop units strictly allocated to active town shop delivery contracts."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and (net_available_cash >= 180.0 or shop_deliverable_inventory > 0) and (day < 30 or hour <= 20)",
+        "guidance": "Allocate up to 4 engine order slots to deliver matching mature shed inventory directly to town shops for 2.0x-3.5x contract price premiums before open-market orders execute; procure shop-demanded seeds (Carrots, Tomatoes, Pumpkins) within crop maturation windows when cash buffer exceeds 1.30x midnight wage reserve.",
+        "pitfalls": "Do not commit seed capital if net cash falls below 1.30x midnight payroll reserve; do not purchase shop seeds past agronomic maturation cutoffs (no Pumpkins Day > 24, no Tomatoes Day > 26, no Carrots Day > 28); never hold deliverable shop produce past contract expiration windows or past hour 20 on Day 30."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "shed_headroom",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "shed_used + incoming_worker_inventory >= 80 or (day >= 29 and hour >= 18 and shed_used > 0)",
+        "guidance": "Evict pending non-urgent buy orders to free order slots; execute batch sales of uncommitted surplus holdings (excluding active town shop contract quotas and livestock feed) at market price >= 0.70 * base_price; relax floor to 0.45 * base_price only if shed_used >= 94 to prevent discard drops; on Day 30 hour >= 18, execute comprehensive liquidation of all remaining inventory to achieve 100% terminal cash conversion before step 718.",
+        "pitfalls": "Never fire-sell at sub-0.50 base price during transient shed spikes; never sell Wheat below dynamic feed reserve (n_animals * 3 if n_animals > 0 else 0); do not freeze uncommitted crop surplus awaiting hypothetical future shop contracts, but strictly protect exact units allocated to active shop demand."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "oracle_glut_risk >= 0.25 and current_price >= 0.75 * base_price",
+        "guidance": "Preempt lowest-margin open orders; execute rapid batch liquidations of vulnerable commodities (Wool, Milk, Strawberry) while current market price remains favorable (> 0.75 * base_price) before opponent dumping collapses market prices; cap oracle sales to max 3 order slots to preserve engine bandwidth for town shop deliveries.",
+        "pitfalls": "Do not dump into already collapsed sub-0.50 base price markets unless shed overflow is imminent; do not front-run commodities committed to active town shop contracts."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_reinvestment",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "net_available_cash >= midnight_payroll_due * 1.30 + 200.0 and (hired_hands < 10 or (total_plots < 18 and uncultivated_plots <= 1) or has_fertilizer_deficit) and (day < 29 or (day == 29 and hour < 12))",
+        "guidance": "Rapidly scale workforce to 10 hired hands while synchronously purchasing contiguous land plots up to the 16-18 plot ceiling whenever uncultivated_plots <= 1; rotate commercial seed purchases through strict agronomic phase-gates (halt Pumpkin seeds at Day 24, Tomatoes at Day 26, Carrots at Day 28, and halt all seed buying by Day 29.5); procure fertilizer to boost plot throughput while cash buffer exceeds 1.30x payroll reserve.",
+        "pitfalls": "Never allocate reinvestment capital if net cash after purchase drops below 1.30x midnight wage buffer; do not acquire land plots beyond 18 plots to prevent hand labor dilution; never purchase seeds past their maturation phase-gates; halt all capital expansion and seed procurement at Day 29.5 (step 708) to channel all labor into terminal harvesting and cash realization."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch active hands strictly by operational priority: 1) Cluster harvest adjacent mature crops until hand carrying capacity is full before routing to the shed; 2) Drop off full loads at the shed; 3) Water dry crops; 4) Feed hungry livestock; 5) Plant phase-gate approved commercial seeds; 6) Weed clearing and ground tilling. On Day 30 step >= 700, cease all planting and tilling, redirecting 100% of hand labor to cluster-harvesting remaining fields and depositing all carried items into shed by step 716 for final liquidation.",
+        "pitfalls": "Never route a hand to shed with a single harvested item if adjacent mature crops can be picked; never prioritize weeding or tilling over harvesting or watering; ensure hands never idle while unharvested crops or dry plots remain; never leave inventory on workers past step 718."
+      }
+    }
+  ]
+}

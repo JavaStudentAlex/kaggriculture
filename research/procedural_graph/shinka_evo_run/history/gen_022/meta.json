@@ -1,0 +1,7 @@
+{
+  "generation": 22,
+  "model": "claude-opus-5",
+  "effort": "xhigh",
+  "rationale": "Overhauls capital reinvestment with a lean 1.15x wage buffer on Days 1-4 to sprint to 10 hands by Day 4, decouples seed restocking from contiguous land expansion bounded strictly to 16-18 plots, and corrects the livestock feed reserve bug on zero-animal farms. Extends Town Shop 2.0x-3.5x contract fulfillment through Day 30 while integrating batched cyclical peak monetization into shed headroom relief without order-slot starvation. Enforces strict agronomic crop phase gates (halting Pumpkins Day 23, Tomatoes Day 25, Carrots Day 27) and mandates cluster harvesting and Day 30 zero-planting terminal liquidation sweeps.",
+  "timestamp": 1789763297.89678
+}

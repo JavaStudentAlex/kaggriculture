@@ -1,0 +1,7 @@
+{
+  "generation": 62,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by strictly gating Town Shop seed procurement behind vacant unseeded plots and growth-duration feasibility (day + crop_growth_days <= 28; no slow crops after Day 14), preventing premature cash siphoning and protecting prime Strawberry acreage while maintaining instant 2.0x-3.5x inventory deliveries. It synchronizes daytime workforce and land expansion (8-10 plots by Day 6 with 3-4 hands; 15-16 plots by Day 11-12 with 7-9 hands; 10-11 hands cap) under a loosened daytime payroll buffer, pairing Strawberry seeds 1:1 with fertilizer and enforcing a strict Day 22 procurement cutoff. Finally, it integrates pre-seeding hyper-fertilization into farm execution alongside non-blocking in-situ harvest-and-water micro-dispatch, raises the shed liquidation trigger to 65% occupancy at >=0.88x base (0.82x hard floor), and purges phantom livestock feed reserves to dynamic n_animals * 3.",
+  "timestamp": 1789768128.3195417
+}

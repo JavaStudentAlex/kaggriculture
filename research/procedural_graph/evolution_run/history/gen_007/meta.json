@@ -1,0 +1,5 @@
+{
+  "model": "local/claude-sonnet-5@http://localhost:8317/v1",
+  "rationale": "The $19k deficit against champions stems from premature open-market liquidation at mediocre price thresholds (1.05x base at merely 25 shed fill), forfeiting the 20-30% revenue premium available at true oracle cyclical peaks (1.20x+). We recalibrate oracle_frontrun to strictly target cyclical price peaks (>= 1.20x base) and restrict moderate-price sales (>= 1.08x) to when shed fill exceeds 50%, while enabling early-game liquidity to reach the 10-hand cap and synchronizing crop planting with high-multiplier Town Shop contracts.",
+  "timestamp": 1789757816.951684
+}

@@ -1,0 +1,7 @@
+{
+  "generation": 58,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation closes the -$10,999 cash deficit by lifting the land ceiling to 18-20 plots synchronized with an 11-hand workforce by Day 15 under a strict 2.0x payroll liquidity lock, while sustaining hyper-fertilized Strawberry compounding through Day 24-25. It integrates an atomic in-situ harvest-and-water workforce micro-routine that prevents dry intervals from stalling Strawberry regrowth timers, and gates Town Shop seed procurement by growth duration feasibility (day <= 25) to ban stranded slow crops. Finally, it eliminates margin surrender by raising the Oracle glut trigger to risk >= 0.55, establishing a firm 0.82x liquidation price floor (0.88x standard batches), and purging phantom wheat reserves by setting livestock feed dynamically to n_animals * 3.",
+  "timestamp": 1789767635.3339155
+}

@@ -1,0 +1,7 @@
+{
+  "generation": 12,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$18.3k deficit by decoupling early workforce scaling ($70 buffer sprint to 10 hands) and inverting the land expansion trigger (uncultivated_plots <= 1 up to 28 plots) to break the reinvestment deadlock, while pivoting seed procurement to fast Wheat on Days 28-29 to keep plots productive through game close. It extends Town Shop contract fulfillment through Day 30 at 2.0x-3.5x premiums, incorporates peak-margin liquidation (>=1.05x base price) strictly for uncommitted non-shop inventory into Shed Headroom while raising the capacity floor to 92% (with a hard 0.85x price floor), and eliminates phantom zero-animal Wheat reserves. Finally, it mandates cluster harvesting until worker carrying capacity is full before navigating to the shed, halting crippling single-item transit bottlenecks.",
+  "timestamp": 1789761685.4867256
+}

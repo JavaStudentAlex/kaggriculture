@@ -1,0 +1,7 @@
+{
+  "generation": 29,
+  "model": "claude-sonnet-5",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$18.3k cash deficit by extending 2.0x-3.5x Town Shop fulfillment through step 714 while reserving contract inventory and allowing uncommitted surplus to monetize freely on the open market, unlocking massive late-game premium revenues without the catastrophic cash starvation of Gen 26. It enforces strict agronomic phase-gates to prevent stranded capital on late-game seeds (halting Pumpkins at Day 24, Tomatoes at Day 26, Carrots at Day 28, all seeds at step 708) and mandates cluster harvesting in farm execution to recover over 60% of transit step budgets. Finally, it protects the unthrottled 10-hand rush while restricting contiguous land expansion to early game (day <= 14, max 14 plots) under deep cash reserves, and corrects the zero-animal feed reserve bug.",
+  "timestamp": 1789764266.407595
+}

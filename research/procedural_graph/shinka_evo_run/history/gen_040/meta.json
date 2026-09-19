@@ -1,0 +1,7 @@
+{
+  "generation": 40,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation inverts the liquidation hierarchy by elevating Oracle Frontrun to Priority 3 and establishing a strict >=1.00x base price floor for routine liquidation, preventing premature margin bleed while preempting opponent market gluts. It accelerates land expansion synchronized with early workforce scaling (14-16 plots by Day 14 starting at 5 hands) and enforces non-negotiable maturation phase-gates on shop seeds (halting Pumpkins Day 13, Tomatoes Day 18, Carrots Day 25) while strictly protecting recurring Strawberry acreage. Additionally, it purges phantom wheat hoarding when livestock is zero and re-sequences worker execution to drop off full harvests at the shed immediately before watering and fertilizing.",
+  "timestamp": 1789765672.9502478
+}

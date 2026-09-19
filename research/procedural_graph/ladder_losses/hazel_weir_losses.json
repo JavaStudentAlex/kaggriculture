@@ -1,0 +1,704 @@
+[
+  {
+    "episode_id": 109577172,
+    "submission_id": 56246758,
+    "my_reward": 0.0,
+    "opp_reward": 152618,
+    "diff": -152618.0,
+    "opp_name": "V\u0169 Tu\u1ea5n",
+    "date": null
+  },
+  {
+    "episode_id": 109205361,
+    "submission_id": 56246758,
+    "my_reward": 55083,
+    "opp_reward": 172446,
+    "diff": -117363,
+    "opp_name": "xiang156 xu",
+    "date": null
+  },
+  {
+    "episode_id": 109194836,
+    "submission_id": 56246758,
+    "my_reward": 104000,
+    "opp_reward": 174071,
+    "diff": -70071,
+    "opp_name": "Yvonne.",
+    "date": null
+  },
+  {
+    "episode_id": 109582074,
+    "submission_id": 56246758,
+    "my_reward": 86191,
+    "opp_reward": 149414,
+    "diff": -63223,
+    "opp_name": "Reyhan Ksatria",
+    "date": null
+  },
+  {
+    "episode_id": 109776371,
+    "submission_id": 56246758,
+    "my_reward": 41170,
+    "opp_reward": 97310,
+    "diff": -56140,
+    "opp_name": "cdaden",
+    "date": null
+  },
+  {
+    "episode_id": 109559753,
+    "submission_id": 56246758,
+    "my_reward": 77209,
+    "opp_reward": 132172,
+    "diff": -54963,
+    "opp_name": "Jamie Nojek",
+    "date": null
+  },
+  {
+    "episode_id": 109699168,
+    "submission_id": 56246758,
+    "my_reward": 98064,
+    "opp_reward": 141391,
+    "diff": -43327,
+    "opp_name": "crasal",
+    "date": null
+  },
+  {
+    "episode_id": 110400351,
+    "submission_id": 56246758,
+    "my_reward": 61696,
+    "opp_reward": 102844,
+    "diff": -41148,
+    "opp_name": "Nightingale",
+    "date": null
+  },
+  {
+    "episode_id": 109195875,
+    "submission_id": 56246758,
+    "my_reward": 34118,
+    "opp_reward": 70233,
+    "diff": -36115,
+    "opp_name": "Dashi Tsybikzhapov",
+    "date": null
+  },
+  {
+    "episode_id": 109424461,
+    "submission_id": 56246758,
+    "my_reward": 78304,
+    "opp_reward": 113730,
+    "diff": -35426,
+    "opp_name": "CornFormer",
+    "date": null
+  },
+  {
+    "episode_id": 109568654,
+    "submission_id": 56246758,
+    "my_reward": 38190,
+    "opp_reward": 72876,
+    "diff": -34686,
+    "opp_name": "Kousuke55",
+    "date": null
+  },
+  {
+    "episode_id": 110286396,
+    "submission_id": 56246758,
+    "my_reward": 108547,
+    "opp_reward": 139738,
+    "diff": -31191,
+    "opp_name": "KongKongDe",
+    "date": null
+  },
+  {
+    "episode_id": 109227544,
+    "submission_id": 56246758,
+    "my_reward": 74822,
+    "opp_reward": 104925,
+    "diff": -30103,
+    "opp_name": "Shangshang Zhang",
+    "date": null
+  },
+  {
+    "episode_id": 109356723,
+    "submission_id": 56246758,
+    "my_reward": 114166,
+    "opp_reward": 142772,
+    "diff": -28606,
+    "opp_name": "Thomas Tschinkel",
+    "date": null
+  },
+  {
+    "episode_id": 109520375,
+    "submission_id": 56246758,
+    "my_reward": 42135,
+    "opp_reward": 70063,
+    "diff": -27928,
+    "opp_name": "cdaden",
+    "date": null
+  },
+  {
+    "episode_id": 109240202,
+    "submission_id": 56246758,
+    "my_reward": 71552,
+    "opp_reward": 99248,
+    "diff": -27696,
+    "opp_name": "\u041f\u0451\u0442\u0440 \u041f",
+    "date": null
+  },
+  {
+    "episode_id": 109313278,
+    "submission_id": 56246758,
+    "my_reward": 71612,
+    "opp_reward": 98701,
+    "diff": -27089,
+    "opp_name": "Howon Kang",
+    "date": null
+  },
+  {
+    "episode_id": 110025103,
+    "submission_id": 56246758,
+    "my_reward": 122459,
+    "opp_reward": 147908,
+    "diff": -25449,
+    "opp_name": "\u6db5\u54e5",
+    "date": null
+  },
+  {
+    "episode_id": 110171697,
+    "submission_id": 56246758,
+    "my_reward": 95600,
+    "opp_reward": 120828,
+    "diff": -25228,
+    "opp_name": "Shenyu Ma",
+    "date": null
+  },
+  {
+    "episode_id": 109742519,
+    "submission_id": 56246758,
+    "my_reward": 75732,
+    "opp_reward": 100730,
+    "diff": -24998,
+    "opp_name": "Master_S1ave",
+    "date": null
+  },
+  {
+    "episode_id": 109206413,
+    "submission_id": 56246758,
+    "my_reward": 74777,
+    "opp_reward": 97868,
+    "diff": -23091,
+    "opp_name": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+    "date": null
+  },
+  {
+    "episode_id": 110317793,
+    "submission_id": 56246758,
+    "my_reward": 60454,
+    "opp_reward": 82254,
+    "diff": -21800,
+    "opp_name": "Have a nice trip in USST",
+    "date": null
+  },
+  {
+    "episode_id": 110019511,
+    "submission_id": 56246758,
+    "my_reward": 35171,
+    "opp_reward": 56573,
+    "diff": -21402,
+    "opp_name": "Bala Baskar",
+    "date": null
+  },
+  {
+    "episode_id": 110395518,
+    "submission_id": 56246758,
+    "my_reward": 49778,
+    "opp_reward": 71101,
+    "diff": -21323,
+    "opp_name": "NineThree",
+    "date": null
+  },
+  {
+    "episode_id": 109914899,
+    "submission_id": 56246758,
+    "my_reward": 33726,
+    "opp_reward": 54905,
+    "diff": -21179,
+    "opp_name": "JeremyLIU858",
+    "date": null
+  },
+  {
+    "episode_id": 109350817,
+    "submission_id": 56246758,
+    "my_reward": 94269,
+    "opp_reward": 113651,
+    "diff": -19382,
+    "opp_name": "Lior Toledano",
+    "date": null
+  },
+  {
+    "episode_id": 110048382,
+    "submission_id": 56246758,
+    "my_reward": 46158,
+    "opp_reward": 64126,
+    "diff": -17968,
+    "opp_name": "cabbage corp",
+    "date": null
+  },
+  {
+    "episode_id": 110335104,
+    "submission_id": 56246758,
+    "my_reward": 49042,
+    "opp_reward": 66347,
+    "diff": -17305,
+    "opp_name": "Michael Brown",
+    "date": null
+  },
+  {
+    "episode_id": 109487417,
+    "submission_id": 56246758,
+    "my_reward": 61983,
+    "opp_reward": 79072,
+    "diff": -17089,
+    "opp_name": "Samvrcai",
+    "date": null
+  },
+  {
+    "episode_id": 109532019,
+    "submission_id": 56246758,
+    "my_reward": 77515,
+    "opp_reward": 94362,
+    "diff": -16847,
+    "opp_name": "\u7ea2\u70e7\u8089",
+    "date": null
+  },
+  {
+    "episode_id": 109899062,
+    "submission_id": 56246758,
+    "my_reward": 105315,
+    "opp_reward": 120913,
+    "diff": -15598,
+    "opp_name": "Zhou Hengyu",
+    "date": null
+  },
+  {
+    "episode_id": 109923542,
+    "submission_id": 56246758,
+    "my_reward": 54477,
+    "opp_reward": 69782,
+    "diff": -15305,
+    "opp_name": "Orion on earth",
+    "date": null
+  },
+  {
+    "episode_id": 110094699,
+    "submission_id": 56246758,
+    "my_reward": 62740,
+    "opp_reward": 78020,
+    "diff": -15280,
+    "opp_name": "OBSTACLE DEVELOPER",
+    "date": null
+  },
+  {
+    "episode_id": 110460611,
+    "submission_id": 56246758,
+    "my_reward": 49868,
+    "opp_reward": 65042,
+    "diff": -15174,
+    "opp_name": "Marlubie",
+    "date": null
+  },
+  {
+    "episode_id": 110311767,
+    "submission_id": 56246758,
+    "my_reward": 63847,
+    "opp_reward": 78646,
+    "diff": -14799,
+    "opp_name": "Esperanza",
+    "date": null
+  },
+  {
+    "episode_id": 110074074,
+    "submission_id": 56246758,
+    "my_reward": 93102,
+    "opp_reward": 107725,
+    "diff": -14623,
+    "opp_name": "shfyyds12138",
+    "date": null
+  },
+  {
+    "episode_id": 109222263,
+    "submission_id": 56246758,
+    "my_reward": 73944,
+    "opp_reward": 87485,
+    "diff": -13541,
+    "opp_name": "CrossEngineered",
+    "date": null
+  },
+  {
+    "episode_id": 109683076,
+    "submission_id": 56246758,
+    "my_reward": 70637,
+    "opp_reward": 83752,
+    "diff": -13115,
+    "opp_name": "junfan shen",
+    "date": null
+  },
+  {
+    "episode_id": 110168969,
+    "submission_id": 56246758,
+    "my_reward": 82620,
+    "opp_reward": 95659,
+    "diff": -13039,
+    "opp_name": "dengddd",
+    "date": null
+  },
+  {
+    "episode_id": 109390625,
+    "submission_id": 56246758,
+    "my_reward": 117468,
+    "opp_reward": 130307,
+    "diff": -12839,
+    "opp_name": "LiYiTingTom",
+    "date": null
+  },
+  {
+    "episode_id": 109263276,
+    "submission_id": 56246758,
+    "my_reward": 68118,
+    "opp_reward": 80898,
+    "diff": -12780,
+    "opp_name": "Yuyajk",
+    "date": null
+  },
+  {
+    "episode_id": 109204303,
+    "submission_id": 56246758,
+    "my_reward": 73067,
+    "opp_reward": 85710,
+    "diff": -12643,
+    "opp_name": "liujieyou",
+    "date": null
+  },
+  {
+    "episode_id": 110513953,
+    "submission_id": 56246758,
+    "my_reward": 109505,
+    "opp_reward": 121252,
+    "diff": -11747,
+    "opp_name": "Rajan Nagarajan",
+    "date": null
+  },
+  {
+    "episode_id": 109190255,
+    "submission_id": 56246758,
+    "my_reward": 84894,
+    "opp_reward": 96441,
+    "diff": -11547,
+    "opp_name": "zhangzhuang li",
+    "date": null
+  },
+  {
+    "episode_id": 109212760,
+    "submission_id": 56246758,
+    "my_reward": 80599,
+    "opp_reward": 92077,
+    "diff": -11478,
+    "opp_name": "One Zero001",
+    "date": null
+  },
+  {
+    "episode_id": 109509610,
+    "submission_id": 56246758,
+    "my_reward": 89235,
+    "opp_reward": 100170,
+    "diff": -10935,
+    "opp_name": "u",
+    "date": null
+  },
+  {
+    "episode_id": 109199057,
+    "submission_id": 56246758,
+    "my_reward": 59524,
+    "opp_reward": 70353,
+    "diff": -10829,
+    "opp_name": "tksfjn",
+    "date": null
+  },
+  {
+    "episode_id": 109196914,
+    "submission_id": 56246758,
+    "my_reward": 90852,
+    "opp_reward": 101250,
+    "diff": -10398,
+    "opp_name": "shane18",
+    "date": null
+  },
+  {
+    "episode_id": 109213812,
+    "submission_id": 56246758,
+    "my_reward": 45155,
+    "opp_reward": 55382,
+    "diff": -10227,
+    "opp_name": "Aura Farming",
+    "date": null
+  },
+  {
+    "episode_id": 110208156,
+    "submission_id": 56246758,
+    "my_reward": 67649,
+    "opp_reward": 77578,
+    "diff": -9929,
+    "opp_name": "prince22466",
+    "date": null
+  },
+  {
+    "episode_id": 110060146,
+    "submission_id": 56246758,
+    "my_reward": 96600,
+    "opp_reward": 106055,
+    "diff": -9455,
+    "opp_name": "IchikaHoshino",
+    "date": null
+  },
+  {
+    "episode_id": 109200109,
+    "submission_id": 56246758,
+    "my_reward": 103339,
+    "opp_reward": 112439,
+    "diff": -9100,
+    "opp_name": "Ryo",
+    "date": null
+  },
+  {
+    "episode_id": 109632425,
+    "submission_id": 56246758,
+    "my_reward": 106968,
+    "opp_reward": 114706,
+    "diff": -7738,
+    "opp_name": "Ryo",
+    "date": null
+  },
+  {
+    "episode_id": 110337535,
+    "submission_id": 56246758,
+    "my_reward": 94369,
+    "opp_reward": 101973,
+    "diff": -7604,
+    "opp_name": "rin2401",
+    "date": null
+  },
+  {
+    "episode_id": 109235589,
+    "submission_id": 56246758,
+    "my_reward": 60107,
+    "opp_reward": 67571,
+    "diff": -7464,
+    "opp_name": "keeplooking",
+    "date": null
+  },
+  {
+    "episode_id": 109214872,
+    "submission_id": 56246758,
+    "my_reward": 53901,
+    "opp_reward": 61232,
+    "diff": -7331,
+    "opp_name": "Danila Lebedev",
+    "date": null
+  },
+  {
+    "episode_id": 110366387,
+    "submission_id": 56246758,
+    "my_reward": 82098,
+    "opp_reward": 88859,
+    "diff": -6761,
+    "opp_name": "Aacceeo",
+    "date": null
+  },
+  {
+    "episode_id": 109241096,
+    "submission_id": 56246758,
+    "my_reward": 80423,
+    "opp_reward": 85697,
+    "diff": -5274,
+    "opp_name": "housssaamos",
+    "date": null
+  },
+  {
+    "episode_id": 109208546,
+    "submission_id": 56246758,
+    "my_reward": 105767,
+    "opp_reward": 110911,
+    "diff": -5144,
+    "opp_name": "Igor Aranovsky",
+    "date": null
+  },
+  {
+    "episode_id": 110499254,
+    "submission_id": 56246758,
+    "my_reward": 54161,
+    "opp_reward": 59064,
+    "diff": -4903,
+    "opp_name": "Meticulousss",
+    "date": null
+  },
+  {
+    "episode_id": 110284078,
+    "submission_id": 56246758,
+    "my_reward": 111133,
+    "opp_reward": 115160,
+    "diff": -4027,
+    "opp_name": "YJ Wee 2807",
+    "date": null
+  },
+  {
+    "episode_id": 110129435,
+    "submission_id": 56246758,
+    "my_reward": 121624,
+    "opp_reward": 125392,
+    "diff": -3768,
+    "opp_name": "thenokol",
+    "date": null
+  },
+  {
+    "episode_id": 109229647,
+    "submission_id": 56246758,
+    "my_reward": 51063,
+    "opp_reward": 54632,
+    "diff": -3569,
+    "opp_name": "Fujinawa",
+    "date": null
+  },
+  {
+    "episode_id": 109362608,
+    "submission_id": 56246758,
+    "my_reward": 79733,
+    "opp_reward": 83217,
+    "diff": -3484,
+    "opp_name": "xiy lin",
+    "date": null
+  },
+  {
+    "episode_id": 109228597,
+    "submission_id": 56246758,
+    "my_reward": 91325,
+    "opp_reward": 94341,
+    "diff": -3016,
+    "opp_name": "kavunidze",
+    "date": null
+  },
+  {
+    "episode_id": 110023618,
+    "submission_id": 56246758,
+    "my_reward": 63658,
+    "opp_reward": 66546,
+    "diff": -2888,
+    "opp_name": "Fernando GH H",
+    "date": null
+  },
+  {
+    "episode_id": 109207477,
+    "submission_id": 56246758,
+    "my_reward": 107697,
+    "opp_reward": 109853,
+    "diff": -2156,
+    "opp_name": "JungHwan",
+    "date": null
+  },
+  {
+    "episode_id": 109943931,
+    "submission_id": 56246758,
+    "my_reward": 85596,
+    "opp_reward": 87708,
+    "diff": -2112,
+    "opp_name": "Danilo Lapegna",
+    "date": null
+  },
+  {
+    "episode_id": 110247590,
+    "submission_id": 56246758,
+    "my_reward": 89680,
+    "opp_reward": 91345,
+    "diff": -1665,
+    "opp_name": "Hajime Tamura",
+    "date": null
+  },
+  {
+    "episode_id": 109230701,
+    "submission_id": 56246758,
+    "my_reward": 120653,
+    "opp_reward": 122170,
+    "diff": -1517,
+    "opp_name": "blueblue222",
+    "date": null
+  },
+  {
+    "episode_id": 109231762,
+    "submission_id": 56246758,
+    "my_reward": 50818,
+    "opp_reward": 52130,
+    "diff": -1312,
+    "opp_name": "Minh Tr\u1ecbnh",
+    "date": null
+  },
+  {
+    "episode_id": 109453949,
+    "submission_id": 56246758,
+    "my_reward": 55860,
+    "opp_reward": 57018,
+    "diff": -1158,
+    "opp_name": "skyShenzi5822",
+    "date": null
+  },
+  {
+    "episode_id": 109239154,
+    "submission_id": 56246758,
+    "my_reward": 79927,
+    "opp_reward": 80955,
+    "diff": -1028,
+    "opp_name": "xiy lin",
+    "date": null
+  },
+  {
+    "episode_id": 109216994,
+    "submission_id": 56246758,
+    "my_reward": 108124,
+    "opp_reward": 109111,
+    "diff": -987,
+    "opp_name": "Wish Coding Guy",
+    "date": null
+  },
+  {
+    "episode_id": 109532465,
+    "submission_id": 56246758,
+    "my_reward": 114206,
+    "opp_reward": 115158,
+    "diff": -952,
+    "opp_name": "lamb Liu",
+    "date": null
+  },
+  {
+    "episode_id": 109850181,
+    "submission_id": 56246758,
+    "my_reward": 94397,
+    "opp_reward": 95202,
+    "diff": -805,
+    "opp_name": "lin qiy",
+    "date": null
+  },
+  {
+    "episode_id": 109219125,
+    "submission_id": 56246758,
+    "my_reward": 53425,
+    "opp_reward": 53867,
+    "diff": -442,
+    "opp_name": "Feidudu",
+    "date": null
+  },
+  {
+    "episode_id": 110358341,
+    "submission_id": 56246758,
+    "my_reward": 58370,
+    "opp_reward": 58676,
+    "diff": -306,
+    "opp_name": "Hidenori Sasaki",
+    "date": null
+  }
+]

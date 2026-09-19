@@ -1,0 +1,7 @@
+{
+  "generation": 47,
+  "model": "gpt-5.6-luna",
+  "effort": "xhigh",
+  "rationale": "This mutation closes the -$10,999 cash deficit by expanding land to a 16\u201318 plot ceiling synchronized with workforce scaling to 11 hands by Day 13, eliminating the labor underutilization and acreage bottleneck that capped late-game compounding. It integrates fertilizer application directly into the farm execution pipeline immediately following harvest shed deposits while keeping in-situ watering active to prevent dry-interval growth pauses and avoid bag-capacity deadlocks. Finally, it institutes a two-stage dynamic liquidation regime (>=0.85x base Days 1\u20138, >=0.92x base Days 9\u201328 with shed relief, and a complete terminal sweep on Day 30), purges phantom wheat reserves when livestock is zero, and enforces strict seed phase-gates to protect margins and eliminate stranded capital.",
+  "timestamp": 1789766370.5514824
+}

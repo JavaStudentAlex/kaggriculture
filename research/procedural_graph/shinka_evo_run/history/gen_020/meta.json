@@ -1,0 +1,7 @@
+{
+  "generation": 20,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$18.3k cash deficit by accelerating early-game workforce scaling via a 1.15x tiered wage reserve to hit the 10-hand cap by Day 4, while fixing the land expansion deadlock by bounding contiguous plots to 16-18 when uncultivated plots <= 1. It introduces a Proactive Peak Monetization node to capture 1.10x-1.25x cyclical price premiums and extends Town Shop fulfillment through Day 30. Finally, it optimizes farm execution with cluster harvesting to eliminate transit bottlenecks, enforces strict agronomic maturation horizons for seed procurement, and executes a clean 100% terminal harvest and liquidation on Day 30 while strictly respecting the 10-order global engine cap.",
+  "timestamp": 1789763019.0099037
+}

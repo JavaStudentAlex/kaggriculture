@@ -1,0 +1,117 @@
+{
+  "version": "1.5.0",
+  "name": "hazel_weir_velocity_procedural_graph",
+  "description": "Optimized Procedural Graph featuring compressed Day 3 hyper-fertilized Strawberry compounding (7-8 recurring flushes), strict 22-24 plot land cap frozen at Day 12-13, calibrated 6-item surplus liquidation with a 4-item town shop buffer, opportunistic worker shed drop-offs, absolute ban on slow single-harvest crops, and Day 22 seed freeze with synchronized terminal liquidation.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, wage liability, active shop contract demand, total plot count, contiguous layout metrics, and oracle price drop signals across market commodities."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Enforces dynamic cash reserve locks after hour 18 and triggers pre-midnight surplus liquidation with true livestock-scaled feed reserves (n_animals * 3) to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Fulfills active town shop contracts for 2.0x-3.5x premiums from shed buffer inventory and rapid Carrots (max 1-2 plots). Strictly bars slow single-harvest crops for the entire game, ensuring >= 92% of land compounds hyper-fertilized Strawberries."
+    },
+    {
+      "id": "capital_velocity_liquidation",
+      "name": "Capital Velocity & Liquidation",
+      "category": "capacity",
+      "description": "Executes continuous batch liquidations of uncontracted surplus exceeding a 4-item shop buffer at dynamic price floors (>= 0.84x base normal; >= 0.78x midday hours 10-16 on expansion days <= 12 or when shed fullness >= 50%), preserving crop margins on recurring flushes without choking daytime liquidity."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Opponent Front-Run",
+      "category": "market",
+      "description": "Reads 96-step TTM forecast to dump sensitive commodities (Wool, Milk, Strawberry) only when glut risk is acute (risk >= 0.52, price >= 0.82x base) before opponent dumping collapses market prices."
+    },
+    {
+      "id": "capital_reinvestment",
+      "name": "Capital Reinvestment & Yield Scaling",
+      "category": "expansion",
+      "description": "Reinvests surplus cash into synchronized workforce and land scaling across three waves (8-10 plots with 3-4 hands by Day 4-5; 14-16 plots with 6-7 hands by Day 8; strictly 22-24 contiguous plots with 10-11 hands by Day 12-13; hard land freeze at Day 12-13), transitioning acreage to hyper-fertilized Strawberries on Day 3 with an absolute seed freeze at Day 22."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines with strict micro-dispatch sequencing: in-situ harvest-and-water recurring crops, soil preparation and pre-seed hyper-fertilization, cluster harvesting without pre-harvest well detours, cluster watering, opportunistic shed drop-offs (>= 6 items), livestock feeding, and planting."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due",
+        "guidance": "Cancel non-essential purchases; schedule worker harvest drop-offs before hour 21; enforce emergency liquidation of unreserved, non-shop surplus inventory starting at hour 20 to guarantee payroll before midnight.",
+        "pitfalls": "Never sell Wheat below dynamic livestock feed reserve (n_animals * 3); never hoard phantom wheat when n_animals == 0; never liquidate crops committed to active town shop delivery; do not trigger emergency liquidation before hour 18 during normal daytime production."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and (shop_deliverable_inventory > 0 or (net_available_cash >= midnight_payroll_due * 1.25 + 50.0 and active_shop_demand > 0 and day <= 22)) and day <= 30",
+        "guidance": "Allocate market slots to deliver exact matching inventory to town shops for 2.0x-3.5x premium through step 712. Fulfill orders immediately from existing shed inventory (including Strawberries, Milk, Wool, Carrots). Strictly condition seed procurement on: 1) day + crop_growth_days <= 26; 2) total ban on all slow single-harvest crops (Pumpkin, Tomato, Cauliflower, Potato) across the entire game (Day 1-30); 3) cap rapid Carrot shop acreage to at most 1-2 plots, preserving >= 92% acreage for hyper-fertilized Strawberries; 4) hard seed procurement cutoff at Day 22; 5) never buy shop seeds if cash is below 1.25x midnight payroll.",
+        "pitfalls": "Never purchase or plant slow single-harvest crops (Pumpkin, Tomato, Potato, Cauliflower) at any point during the game, as they lock plot capacity and cannibalize recurring Strawberry compounding for minor one-off premiums. Do not abandon rapid Carrot fulfillment if spare unassigned plots exist early, but never displace Strawberry flushes. Never purchase shop seeds after Day 22. Avoid speculatively hoarding uncontracted goods."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_velocity_liquidation",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "uncontracted_surplus_inventory >= 6 or shed_used >= 25 or (day <= 3 and uncontracted_surplus_inventory >= 3)",
+        "guidance": "Execute disciplined batch sales of uncontracted surplus at dynamic price floors: retain a 3-4 item high-value buffer (Strawberries) in shed for instant town shop preemption, liquidating surplus volume above this buffer. Maintain >= 0.84x base price during normal operations (shed < 50%). On expansion days <= 12 during midday windows (hours 10-16), permit liquidation down to 0.78x base price to unlock immediate capital for hands and fertilizer, or when shed fullness >= 50%. Defend a strict minimum floor of 0.82x base on mature compounding days (Days 13-28). Conduct progressive terminal shed clearances between steps 706-718 at defended >= 0.72x floor to guarantee zero unsold inventory at step 720.",
+        "pitfalls": "Never dump bulk Strawberry flushes at sub-0.82x base price after Day 12 unless shed fullness exceeds 80%. Never liquidate Wheat below dynamic livestock feed reserve (n_animals * 3). Never liquidate exact matching inventory committed to active town shop contracts. Avoid premature terminal fire-sales before step 706 or uncoordinated dumps that breach the 10-order engine cap."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "oracle_glut_risk >= 0.52 and current_price >= 0.82 * base_price",
+        "guidance": "Preempt lowest-margin open orders; execute rapid batch liquidations of vulnerable commodities (Wool, Milk, Strawberry) only when oracle_glut_risk >= 0.52 and current_price >= 0.82 * base_price before opponent dumping collapses market prices.",
+        "pitfalls": "Do not front-run on hypersensitive or weak glut signals (risk < 0.52); never dump into collapsed sub-0.82 base price markets unless shed overflow is imminent; do not front-run commodities committed to active town shop contracts."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_reinvestment",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "((hour < 18 and net_available_cash >= midnight_payroll_due * 1.0 + 50.0) or (hour >= 18 and net_available_cash >= midnight_payroll_due * 1.5 + 100.0)) and (hired_hands < 11 or (total_plots < 24 and day <= 13) or uncultivated_plots > 0 or has_fertilizer_deficit) and day <= 22",
+        "guidance": "Scale workforce dynamically alongside contiguous land across three synchronized waves: reach 8-10 plots and 3-4 hands by Day 4-5, expanding to 14-16 plots and 6-7 hands by Day 8, and reaching strictly 22-24 contiguous plots and 10-11 hands by Day 12-13 (~2.0-2.2 plots/hand). Enforce an absolute land expansion freeze at Day 12-13 capped at 22-24 plots. Decouple daytime reinvestment between hours 04:00-17:00 by requiring only 1.0x payroll reserve + action cost. Compress the early bootstrap to a single Carrot cycle planted Day 1 and harvested Day 3 morning. Transition all plots immediately on Days 3-4 into hyper-fertilized Strawberries to secure 7-8 lifetime recurring flushes per plot. Enforce an absolute Strawberry seed and fertilizer procurement freeze at Day 22.",
+        "pitfalls": "Never purchase plots after Day 13 or exceed 24 total plots; scaling to 28-32 plots severely dilutes liquid cash and overwhelms the 10-11 hand workforce, causing catastrophic travel delays and dry-plot regrowth halts. Never expand land when cash is below daytime reserve (1.0x payroll + plot cost before hour 18, 1.5x after hour 18). Never purchase seeds or fertilizer after Day 22. Do not plant slow single-harvest crops on expanding acreage."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch hands following strict micro-dispatch priority: 1) In-situ Harvest & Immediate Water recurring crops (workers harvesting ripe Strawberry plots immediately water the plot in-situ if carrying water and plot is dry before departing to eliminate travel delays), 2) Soil Preparation & Pre-Seed Hyper-Fertilization (apply fertilizer to tilled soil before seeding so all Strawberries are hyper-fertilized for maximum recurring yield), 3) Cluster Harvest adjacent ripe plots up to backpack capacity without pre-harvest well detours, 4) Cluster Watering of any remaining dry cultivated plots to eliminate regrowth halts, 5) Opportunistic Shed Drop-off (drop off whenever backpack holds >= 6 items or when transitioning task zones, and unconditionally before hour 21; guarantee 100% carried inventory deposited before step 716), 6) Livestock Feeding (Wheat fed only above dynamic feed reserve n_animals * 3), 7) Planting seeds (hyper-fertilized Strawberries primary; max 1-2 Carrot plots for active shops before Day 22), 8) Till/Weed new plots (strictly within the 22-24 contiguous plot boundary before Day 13).",
+        "pitfalls": "Never allow ripe Strawberry plots to sit unharvested or unwatered post-harvest, as dry intervals freeze recurring regrowth clocks. Never plant Strawberry seeds on unfertilized plots; always apply fertilizer prior to seed placement. Abolish rigid 75-100% backpack fill gating\u2014holding harvested crops in backpacks throughout the day starves daytime reinvestment velocity and town shop fulfillment. Never make pre-harvest well detours when ripe crops are ready for harvesting. Never create dispatch deadlocks if an action cannot be performed immediately; gracefully fall through priority chain. Ensure no hand idles while harvestable crops or dry plots exist."
+      }
+    }
+  ]
+}

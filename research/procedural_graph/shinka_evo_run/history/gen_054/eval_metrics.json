@@ -1,0 +1,65 @@
+{
+  "graph_path": "/home/shadeform/kaggriculture/research/procedural_graph/shinka_evo_run/history/gen_054/candidate_graph.json",
+  "total_games": 20,
+  "wins": 0,
+  "losses": 20,
+  "ties": 0,
+  "crashes": 0,
+  "win_rate": 0.0,
+  "avg_cash": 73072.9,
+  "avg_opp_cash": 81187.75,
+  "cash_diff": -8114.85,
+  "total_time_sec": 25.57,
+  "worst_losses": [
+    {
+      "champ": "champ_20260912_gen62_avg82350.py",
+      "seed": 1200,
+      "seat": 0,
+      "cand_cash": 79173.0,
+      "opp_cash": 93160.0,
+      "diff": -13987.0,
+      "n_hands": 11,
+      "shed_items": 0
+    },
+    {
+      "champ": "champ_20260912_161630_avg82113.py",
+      "seed": 1100,
+      "seat": 0,
+      "cand_cash": 84814.0,
+      "opp_cash": 98220.0,
+      "diff": -13406.0,
+      "n_hands": 11,
+      "shed_items": 0
+    },
+    {
+      "champ": "champ_20260908_150703_avg101195.py",
+      "seed": 1000,
+      "seat": 0,
+      "cand_cash": 117557.0,
+      "opp_cash": 130203.0,
+      "diff": -12646.0,
+      "n_hands": 11,
+      "shed_items": 0
+    },
+    {
+      "champ": "champ_20260914_195349_avg81696.py",
+      "seed": 1700,
+      "seat": 1,
+      "cand_cash": 86719.0,
+      "opp_cash": 98039.0,
+      "diff": -11320.0,
+      "n_hands": 11,
+      "shed_items": 0
+    },
+    {
+      "champ": "champ_20260914_152040_avg82067.py",
+      "seed": 1500,
+      "seat": 0,
+      "cand_cash": 88913.0,
+      "opp_cash": 99929.0,
+      "diff": -11016.0,
+      "n_hands": 11,
+      "shed_items": 0
+    }
+  ]
+}

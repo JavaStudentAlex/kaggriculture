@@ -176,13 +176,22 @@ class _Model:
         if not torch.cuda.is_available() or torch.cuda.device_count() == 0:
             return torch.device("cpu")
         n = torch.cuda.device_count()
-        order = [(os.getpid() + k) % n for k in range(n)]  # round robin over workers
-        for idx in order:
+        # Query free VRAM across all available GPUs to prioritize GPUs with lowest memory usage
+        devices_by_free = []
+        for idx in range(n):
             try:
                 free, _total = torch.cuda.mem_get_info(idx)
+                devices_by_free.append((free, idx))
             except Exception:
                 continue
-            if free >= (1 << 30):
+        # Gather all GPUs with >= 6 GB free headroom (lowest memory usage)
+        safe_gpus = [idx for free, idx in devices_by_free if free >= (6 << 30)]
+        if safe_gpus:
+            # Distribute workers evenly across the low-memory-usage GPUs based on PID
+            chosen_idx = safe_gpus[os.getpid() % len(safe_gpus)]
+            return torch.device(f"cuda:{chosen_idx}")
+        for free, idx in devices_by_free:
+            if free >= (2 << 30):
                 return torch.device(f"cuda:{idx}")
         return torch.device("cpu")
 

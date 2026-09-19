@@ -1,0 +1,7 @@
+{
+  "generation": 82,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by compressing the early Carrot bootstrap to a single cycle harvested on Day 3, immediately transitioning all acreage to hyper-fertilized Strawberries to capture 7-8 lifetime recurring flushes. It enforces a strict 22-24 plot land cap frozen at Day 13, raises the uncontracted surplus liquidation trigger to 14 items (or shed_used >= 60) to protect inventory for 2.0x-3.5x Town Shop arbitrage, abolishes 75% backpack gating in favor of opportunistic drop-offs, and bans endgame Carrot backfills with a Day 22 seed cutoff and progressive terminal liquidation across steps 706-718.",
+  "timestamp": 1789770939.5964692
+}

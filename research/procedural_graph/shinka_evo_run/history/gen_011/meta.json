@@ -1,0 +1,7 @@
+{
+  "generation": 11,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation introduces a dedicated High-Margin Market Clearing node that routinely monetizes surplus mature inventory during cyclical price peaks (>=1.05x base price) with strict 1-2 order slot caps, while extending 2.0x-3.5x Town Shop deliveries through Day 30. It unlocks compounding farm scaling by decoupling early workforce hiring ($75 buffer rush to 10 hands), inverting land expansion to scale up to 28-30 plots when uncultivated plots are near zero, and strictly gating seed procurement by true maturation horizons (Pumpkins Day 23, Tomatoes Day 25, Carrots Day 27). Furthermore, it purges the phantom 4-unit Wheat reserve for zero-livestock states and mandates cluster harvesting to eliminate single-item worker transit bottlenecks.",
+  "timestamp": 1789761484.0502136
+}

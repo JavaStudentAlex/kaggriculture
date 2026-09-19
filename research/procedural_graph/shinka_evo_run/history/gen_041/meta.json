@@ -1,0 +1,7 @@
+{
+  "generation": 41,
+  "model": "gemini-3.8-flash",
+  "effort": "high",
+  "rationale": "This mutation bridges the -$11k cash deficit against the champions by synchronizing progressive land expansion (scaling to 8-10 plots at hands >= 4, 12-14 at hands >= 6, and capping at 14-16 plots at hands >= 8 by Day 14) to fully monetize 10-11 hands and expand Strawberry compounding acreage by 25%. It enforces strict Strawberry Acreage Sovereignty by reserving 12-13 plots permanently for recurring harvests, isolating shop contracts to a 2-3 plot auxiliary buffer, and implementing rigid seed phase-gates (halting Pumpkins on Day 13, Tomatoes on Day 18, and Carrots on Day 25) to eliminate stranded late-game capital. Finally, it purges phantom wheat reserves when livestock is zero, formalizes fertilizer application in the farm execution pipeline immediately following shed drop-offs while preserving immediate on-site watering, and retains high-velocity Priority 3 liquidations (>=0.85x base) to avoid the fatal inventory freezes of previous generations.",
+  "timestamp": 1789765771.122225
+}

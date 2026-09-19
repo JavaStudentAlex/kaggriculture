@@ -1,0 +1,7 @@
+{
+  "generation": 73,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "The previous mutations failed because blindly scaling to 10-11 hands violates the strict 10-order engine cap, causing critical market and shop orders to be dropped. This mutation strictly caps the workforce at 8 hands (leaving 2 orders for market/shop actions) and land at 16 plots. It successfully implements the remaining supervisor directives: decoupling daytime reinvestment (1.0x payroll), restricting Day 5+ acreage to 100% hyper-fertilized Strawberries, introducing a two-tier liquidation floor (>=0.84x normal, >=0.78x midday), and enforcing pre-seed fertilization in the dispatch sequence.",
+  "timestamp": 1789769785.5244272
+}

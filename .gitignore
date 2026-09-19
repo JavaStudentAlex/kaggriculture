@@ -29,6 +29,11 @@ shinka_results/
 shinka_results.stale_*/
 shinka_run.log
 
+# Procedural graph replay dumps and run logs
+research/procedural_graph/ladder_losses/*replay.json
+research/procedural_graph/**/*.log
+research/procedural_graph/*.log
+
 # Shinka run mirrors (SSD -> ceph copies of /results/kagg/shinka_results*), the evaluator's
 # game log, built submission bundles and the checkpoint copy (byte copy of models/*)
 shinka_results*/

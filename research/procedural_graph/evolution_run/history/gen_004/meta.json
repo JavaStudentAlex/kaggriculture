@@ -1,0 +1,5 @@
+{
+  "model": "local/claude-sonnet-5@http://localhost:8317/v1",
+  "rationale": "Champions out-earned our agent by ~$19k because our graph lacked a dedicated workforce scaling node, severely delaying reaching the 10-hand labor ceiling, while the restrictive shed_used >= 25 threshold in oracle_frontrun forced the agent to hold high-value crops past peak price windows into cyclic gluts. We introduce a dedicated Workforce Acceleration node to reach 10 hands early with strict wage runway safety, and lower the oracle peak monetization threshold to shed_used >= 8 to lock in peak prices before market downturns.",
+  "timestamp": 1789757494.479139
+}

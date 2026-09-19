@@ -1,0 +1,5 @@
+{
+  "model": "local/claude-sonnet-5@http://localhost:8317/v1",
+  "rationale": "The $19k deficit against champions was caused by early-game liquidity starvation where oracle sales were locked behind an excessive shed_used >= 25 threshold, delaying workforce recruitment by multiple days and forfeiting thousands of worker-hours of high-value harvest. We introduce a dedicated workforce_expansion node to aggressively scale hands to the 10-cap, lower oracle monetization thresholds in early game (shed_used >= 6 when n_hands < 10) and peak pricing (shed_used >= 10 at >= 1.10x), and reduce the seed purchasing cash hurdle to eliminate cold-start stalls.",
+  "timestamp": 1789758043.027556
+}

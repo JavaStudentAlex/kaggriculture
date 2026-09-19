@@ -1,0 +1,7 @@
+{
+  "generation": 38,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$11k cash deficit by progressively scaling land to 14-16 plots starting at hands >= 5 (rather than waiting for 8 hands), unlocking Strawberry compounding up to 6 days earlier without the transit sprawl and exponential land costs of 18-20 plots. It strictly protects living Strawberry acreage from being overwritten by one-off shop crops, enforces maturation phase-gates on shop seeds (halting Pumpkins Day 14, Tomatoes Day 18, Carrots Day 26), and elevates Oracle Frontrun to Priority 3 to preempt market gluts before routine liquidation at a calibrated >=0.90x floor. Finally, it purges phantom wheat reserves on livestock-free farms and sequences fertilizer application strictly after shed drop-offs to prevent inventory deadlocks.",
+  "timestamp": 1789765398.2967033
+}

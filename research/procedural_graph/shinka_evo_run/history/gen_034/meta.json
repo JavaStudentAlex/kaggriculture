@@ -1,0 +1,7 @@
+{
+  "generation": 34,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by strictly capping the workforce at 7 hands to prevent massive wage drain on the 14-plot maximum, correcting the over-hiring (11 hands) that starved late-game capital in previous generations. It elevates Oracle Frontrun to Priority 3 to dump vulnerable commodities before opponent gluts, lowers the capital velocity shed threshold to 25% for continuous liquidity, and reorders farm execution to prioritize planting and watering above shed drop-offs, completely eliminating transit waste and maximizing hyper-fertilized Strawberry compounding.",
+  "timestamp": 1789764943.4208229
+}

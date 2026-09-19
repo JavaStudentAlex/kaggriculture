@@ -1,0 +1,7 @@
+{
+  "generation": 94,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "We eliminate the cash deficit by front-loading land expansion to 20-24 plots by Day 10 and enforcing a strict Day 3 transition to hyper-fertilized Strawberries, while avoiding the early-game capital starvation of previous generations by retaining a <= Day 10 low-threshold liquidation bypass. We eliminate post-harvest regrowth freezes by mandating proactive watering can top-offs (< 30%) before harvest passes, and we halt margin degradation by raising standard liquidation floors to >= 0.88x base price and banning Carrot purchases after Day 10 to keep 100% of mature Strawberry acreage compounding.",
+  "timestamp": 1789772295.5719817
+}

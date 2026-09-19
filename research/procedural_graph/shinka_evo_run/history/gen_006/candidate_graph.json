@@ -1,0 +1,117 @@
+{
+  "version": "1.2.0",
+  "name": "hazel_weir_central_procedural_graph",
+  "description": "Optimized Central Procedural Graph featuring Day-30 Town Shop arbitrage, maturation-gated seed procurement, two-tier market liquidation floors, cluster harvesting transit optimization, and zero-livestock feed reserve freeing.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, wage liability, active and upcoming town shop contract demand, crop maturation horizons (Day 23 Pumpkin, Day 25 Tomato, Day 27 Carrot), and oracle price drop signals across market commodities."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Enforces dynamic cash reserve locks and triggers pre-midnight surplus liquidation to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Preemptively matches unlocked town shop demand surges and immediately fulfills mature high-margin crops (Carrots, Tomatoes, Pumpkins, Strawberries) to capture 2.0x-3.5x contract price premiums through terminal whistle."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Shed Headroom Relief",
+      "category": "capacity",
+      "description": "Prevents silent 100/100 harvest discards through a two-tier liquidation structure while strictly preserving high-margin shop produce and dynamic animal feed reserves."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Opponent Front-Run",
+      "category": "market",
+      "description": "Reads 96-step TTM forecast to sell vulnerable high-value commodities (Strawberry, Wool, Milk) at cyclical peak prices before opponent market gluts collapse spot rates."
+    },
+    {
+      "id": "capital_reinvestment",
+      "name": "Capital Reinvestment & Yield Scaling",
+      "category": "expansion",
+      "description": "Reinvests surplus cash beyond wage reserves into workforce acceleration (10-hand rush by Day 6-8), compact contiguous land expansion (up to 20-22 plots), commercial high-yield seeds, and fertilizer."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines with cluster harvesting and backpack optimization: sweeps adjacent ripe crops, scheduled drop-offs, watering, livestock feeding, planting, and ground maintenance."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due",
+        "guidance": "Cancel non-essential purchases (BUY_SEED, BUY_ANIMAL, BUY_LAND, redundant HIRE); schedule worker harvest drop-offs before hour 21; enforce emergency liquidation of non-feed, non-contract inventory at hour >= 20 to guarantee payroll. Enforce feed reserve strictly as (n_animals > 0 ? n_animals * 3 : 0); release 100% of Wheat inventory for sale or payroll if holding zero livestock.",
+        "pitfalls": "Never sell Wheat below dynamic livestock feed reserve (n_animals > 0 ? n_animals * 3 : 0); never lock Wheat when zero animals are owned; do not rely on low-margin fertilizer sales to cover payroll deficits; never liquidate crops committed to active town shop delivery."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and (shop_deliverable_inventory > 0 or (net_available_cash >= midnight_payroll_due * 1.25 + 100.0 and day <= 27)) and step <= 716",
+        "guidance": "Allocate up to 2-3 market slots to fulfill active town shop demand directly from mature shed inventory for 2.0x-3.5x price premiums continuously through Day 30 (step 716). Procure shop-demanded seeds with strict maturation horizons: Pumpkins only when day <= 23 (step 552), Tomatoes only when day <= 25 (step 600), and Carrots only when day <= 27 (step 648); completely halt shop seed purchases after Day 27 to ensure zero immature crops remain at terminal whistle.",
+        "pitfalls": "Never deliver shop-demanded crops to standard open market if an active or upcoming town shop contract demands them; do not commit seed capital if net cash falls below 1.25x midnight payroll reserve; do not purchase seeds if shed capacity exceeds 88%; halt all seed procurement after Day 27."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "shed_headroom",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "shed_used + incoming_worker_inventory >= 88",
+        "guidance": "Cap liquidation orders at 2 market slots to preserve engine cap for worker dispatch. Prioritize selling unreserved commodities at cyclical peak prices (price >= 1.05 * base_price); if shed_used + incoming_worker_inventory >= 92, execute batch sales of non-shop surplus at price >= 0.85 * base_price; only relax liquidation floor to 0.50 * base_price if shed_used >= 96 as an emergency override to strictly prevent silent 100/100 harvest discards.",
+        "pitfalls": "Never fire-sell produce below 0.85 * base_price unless shed_used >= 96 emergency discard threshold is reached; never sell crops committed to active or upcoming town shop contracts; never liquidate Wheat below dynamic feed reserve (n_animals > 0 ? n_animals * 3 : 0)."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "oracle_glut_risk >= 0.50 and current_price >= 1.02 * base_price and shed_used >= 40",
+        "guidance": "Preempt lowest-margin open orders (allocating max 2 market slots); execute batch sales of vulnerable commodities (Wool, Milk, Strawberry) only while current market price remains favorable (>= 1.02 * base_price) before opponent dumping collapses market prices.",
+        "pitfalls": "Never dump into market troughs where current price < 1.00 * base_price; never front-run commodities matching active or upcoming town shop contracts; do not dump below 35% shed fill."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_reinvestment",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "net_available_cash >= midnight_payroll_due * 1.25 + 110.0 and ((hired_hands < 10 and day <= 18) or (uncultivated_plots <= 1 and total_plots < 22 and day <= 16) or (has_seed_deficit and day <= 27))",
+        "guidance": "Prioritize scaling workforce to 10 hired hands as top expansion priority by Day 6-8; purchase contiguous land plots adjacent to shed when current acreage is fully utilized (uncultivated_plots <= 1) up to a maximum of 20-22 plots by Day 16; procure high-margin commercial seeds (Pumpkins before Day 23, Tomatoes before Day 25, Carrots before Day 27) and fertilizer. Halt land expansion after Day 16, halt hiring after Day 18, and halt all seed procurement after Day 27 to allow full terminal cash harvesting.",
+        "pitfalls": "Never purchase land beyond 22 plots or after Day 16 to avoid worker transit drag; never allocate reinvestment capital if net cash drops below 1.25x midnight payroll reserve; never procure long-cycle seeds that cannot mature before step 716."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch active hands with cluster harvesting efficiency: 1) Harvest mature crops, sweeping adjacent ripe plots until backpack capacity is reached (carrying >= 2 items) or local cluster is cleared; 2) Drop off carried items at shed (mandatory if carrying >= 2 items, shed is on transit path, or hour >= 20 / step >= 700); 3) Water dry crops; 4) Feed hungry livestock (if animals > 0); 5) Plant commercial seeds (gated by maturation horizon); 6) Till soil and clear weeds. Enforce complete harvest and drop-off deposit by step 716 for terminal liquidation.",
+        "pitfalls": "Never path to shed with only 1 item if adjacent ripe crops remain in the local cluster; never prioritize weeding over harvesting or watering; ensure hands never idle while unharvested or dry crops remain; ensure all backpack inventory is deposited in shed by step 716."
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "generation": 67,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation resolves the cash deficit by optimizing the land-to-hand ratio to ~1.8 (capping at 18-20 plots with 10-11 hands) to increase revenue without overwhelming the workforce, avoiding the over-expansion failures of previous mutations. It protects Strawberry compounding by strictly gating Town Shop seed purchases behind uncultivated_plots > 0, unlocks early capital velocity via micro-batching (>=2 surplus on Days 1-5), and fixes pathing inefficiencies by elevating shed drop-offs for full backpacks above general watering while preserving Priority 1 in-situ watering. Finally, it captures late-game yield with a Day 22-26 Carrot backfill and executes terminal inventory clearance from Step 680.",
+  "timestamp": 1789768813.2189643
+}

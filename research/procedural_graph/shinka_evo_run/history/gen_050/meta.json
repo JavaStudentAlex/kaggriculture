@@ -1,0 +1,7 @@
+{
+  "generation": 50,
+  "model": "claude-sonnet-5",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the -$10,999 cash deficit by lifting the land-labor ceiling through synchronous expansion to 20\u201324 plots matched to 11 hands by Day 14\u201316, paired with an accelerated hyper-fertilized Strawberry transition (Days 5\u201318) and a strict Day-18 perennial cutoff that pivots late plots to 3-day Carrots. It institutes contract-duration feasibility gating on town shops to prevent stranded slow-crop investments and purges phantom wheat reserves (dynamic reserve = max(0, n_animals * 3)). Furthermore, it calibrates the liquidation threshold to 16\u201320 item batches with an 0.84x price floor and >=0.60 Oracle glut trigger, while formalizing an in-situ harvest-and-water pipeline to maximize daily worker productivity.",
+  "timestamp": 1789766718.069367
+}

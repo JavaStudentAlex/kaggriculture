@@ -1,0 +1,5 @@
+{
+  "model": "local/claude-sonnet-5@http://localhost:8317/v1",
+  "rationale": "Champions out-earned our agent by ~$16.5k because our agent trapped tens of thousands of dollars of mature harvest in the shed\u2014only selling during rare glut warnings, wage emergencies, or when shed reached 90% capacity, ultimately dumping inventory at depressed prices and delaying early-game hand hiring. We expand Oracle Frontrun into an active market-timing and paced liquidation engine that systematically monetizes mature surpluses during forecast price peaks (>= 1.05x base) in 10-15 unit tranches to protect price elasticity, remove the arbitrary $350 cash restriction on town shop fulfillment, lower shed headroom trigger to 80 to prevent burst harvest discards, and calibrate crop maturation ceilings (Strawberries <= Day 25, Tomatoes <= Day 27, Carrots <= Day 28) to maintain workforce productivity without late-game write-offs.",
+  "timestamp": 1789757395.1186059
+}

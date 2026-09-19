@@ -1,0 +1,7 @@
+{
+  "generation": 8,
+  "model": "gemini-3.8-flash",
+  "effort": "high",
+  "rationale": "This mutation resolves the -$18.3k cash deficit by extending 2.0x-3.5x Town Shop deliveries through Day 30 with strict maturation horizons (halting Pumpkins at Day 23, Tomatoes at Day 25, Carrots at Day 27) and establishing a two-tier liquidation hierarchy (capturing >=1.05x cyclical peaks while restricting shed clearance to >=92% with a 0.85x floor). It repairs the land expansion deadlock and lowers the early reinvestment hurdle ($80 buffer on Days 1-8) to rapidly scale a 10-hand workforce across 28-32 plots, eliminates the phantom 4-unit Wheat reserve when holding zero livestock to unlock Day 1-4 cash, and optimizes worker transit through cluster harvesting (>=2 items) and deferred drop-offs.",
+  "timestamp": 1789761017.453183
+}

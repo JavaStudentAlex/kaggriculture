@@ -1,0 +1,7 @@
+{
+  "generation": 7,
+  "model": "gemini-3.1-pro-preview",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the cash deficit by implementing a strict two-tier market pricing hierarchy via a new 'routine_market_liquidation' node that captures >=1.05x cyclical peaks, while restricting emergency shed clearance to >=92% capacity with a hard 0.85x price floor. It extends 2.0x-3.5x Town Shop deliveries through Day 30 with maturation-gated seed procurement, repairs the land expansion trigger (uncultivated_plots <= 1) with a lowered early $80 hiring hurdle to front-load a 10-hand workforce, eliminates the phantom Wheat feed reserve when holding zero livestock, and optimizes worker transit via cluster harvesting (>=2 items) to drastically reduce wasted movement.",
+  "timestamp": 1789760886.5917544
+}

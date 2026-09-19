@@ -1,0 +1,7 @@
+{
+  "generation": 37,
+  "model": "claude-sonnet-5",
+  "effort": "xhigh",
+  "rationale": "This mutation eliminates the ~$15k-20k deficit against top champions by raising routine liquidation price floors to >=0.95x base price when shed occupancy is under 60%, stopping severe gross margin leakage from sub-0.85 firesales while preserving capital velocity with graduated floors at 60% and 80% capacity. It imposes strict shop seed phase-gates (halting Pumpkin seeds after Day 14, Tomatoes after Day 18, and all seeds after Day 26) to prevent late-game capital waste on unmaturing crops while strictly protecting recurring Strawberry acreage. Furthermore, it purges phantom livestock feed reserves on animal-free farms to accelerate early workforce ramp-up, enforces a compact 14-plot cap completed by Day 14 to avoid late land-cost traps and transit sprawl, and safely integrates fertilizer application into the post-drop-off planting routine.",
+  "timestamp": 1789765282.1931076
+}

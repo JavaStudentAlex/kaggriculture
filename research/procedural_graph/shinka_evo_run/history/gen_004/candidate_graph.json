@@ -1,0 +1,117 @@
+{
+  "version": "1.2.0",
+  "name": "hazel_weir_central_procedural_graph",
+  "description": "Optimized Central Procedural Graph featuring accelerated early 10-hand workforce scaling, unblocked Day 30 town shop contract delivery, dynamic zero-animal feed reserves, price-elasticity paced batch liquidation, and strict Day 25 seed cutoff.",
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "State & Balance Audit",
+      "category": "audit",
+      "description": "Computes net available cash, shed fill percentage, wage liability, active shop contract demand, and oracle price drop signals across market commodities."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Midnight Wage Reserve Defense",
+      "category": "defense",
+      "description": "Protects payroll for all active hired hands. Enforces dynamic cash reserve locks and triggers pre-midnight surplus liquidation to prevent the 0-hand bankruptcy cascade."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Town Shop Demand Arbitrage",
+      "category": "revenue",
+      "description": "Preemptively matches unlocked town shop demand surges and immediately fulfills mature high-margin crops (Carrots, Tomatoes, Pumpkins, Strawberries) to capture 2.0x-3.5x contract price premiums."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Shed Headroom Relief",
+      "category": "capacity",
+      "description": "Prevents silent 100/100 harvest discards by clearing uncommitted low-margin inventory under strict price floors while protecting animal feed and shop contracts."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Oracle Opponent Front-Run",
+      "category": "market",
+      "description": "Reads 96-step TTM forecast to dump sensitive commodities (Wool, Milk, Strawberry) immediately before opponent market gluts collapse prices."
+    },
+    {
+      "id": "capital_reinvestment",
+      "name": "Capital Reinvestment & Yield Scaling",
+      "category": "expansion",
+      "description": "Reinvests surplus cash beyond wage reserves into workforce acceleration (10-hand rush), contiguous land expansion, commercial high-yield seeds, and fertilizer."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Routine Farm & Workforce Execution",
+      "category": "execution",
+      "description": "Executes field routines with strict operational sequencing: harvest ready crops, worker drop-offs, watering, livestock feeding, planting, and ground maintenance."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "wage_defense",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "hour >= 18 and net_available_cash < midnight_payroll_due",
+        "guidance": "Cancel non-essential purchases (BUY_SEED, BUY_ANIMAL, BUY_LAND, redundant HIRE); schedule worker harvest drop-offs before hour 21; satisfy payroll deficits first through immediate Town Shop contract deliveries (2.0x-3.5x premium) if deliverable inventory exists; only execute emergency open-market liquidation of non-feed inventory at hour >= 20 if payroll remains uncovered.",
+        "pitfalls": "Never sell Wheat below dynamic livestock feed reserve (0 if n_animals == 0 else max(3, n_animals * 3)); do not rely on low-margin fertilizer sales to cover payroll deficits; never liquidate crops committed to active town shop contracts."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "town_shop_preempt",
+      "relation": "TRIGGERS",
+      "priority": 2,
+      "attributes": {
+        "condition": "has_unlocked_shops and ((shop_deliverable_inventory > 0 and day <= 30) or (net_available_cash >= midnight_payroll_due + 50.0 and day <= 25))",
+        "guidance": "Prioritize direct town shop deliveries of mature shed inventory to capture 2.0x-3.5x price premiums before fulfilling open market orders; allocate up to 3 order slots for fulfillment through Day 30; procure shop-demanded seeds (Carrots, Tomatoes, Pumpkins) during days <= 25 whenever surplus cash covers midnight payroll reserve plus seed costs.",
+        "pitfalls": "Do not commit seed capital if net cash falls below 1.20x midnight payroll reserve; do not purchase shop seeds after day 25 whose growth cycle exceeds remaining days; never divert produce allocated for active town shop delivery to open-market liquidation."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "shed_headroom",
+      "relation": "TRIGGERS",
+      "priority": 3,
+      "attributes": {
+        "condition": "shed_used + incoming_worker_inventory >= 80 or (day >= 29 and shed_used > 0)",
+        "guidance": "Evict pending non-urgent buy orders to free order slots; execute orderly batch sales (3-5 units per step to observe price elasticity) of unreserved, non-shop surplus holdings with price >= 0.75 * base_price; relax price floor to 0.50 * base_price only if shed_used >= 95 or during Day 29-30 terminal clearance to monetize all harvested assets.",
+        "pitfalls": "Never fire-sell below 0.50 * base_price during transient shed spikes; never liquidate Wheat below dynamic livestock feed reserve (0 if n_animals == 0 else max(3, n_animals * 3)); never evict produce allocated for active town shop fulfillment."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "oracle_frontrun",
+      "relation": "TRIGGERS",
+      "priority": 4,
+      "attributes": {
+        "condition": "(oracle_glut_risk >= 0.20 and current_price >= 0.70 * base_price) or (current_price >= 1.15 * base_price and shed_used >= 25)",
+        "guidance": "Preempt lowest-margin open orders; execute measured batch sales (3-4 items per step to respect price elasticity limits) of vulnerable or peak-priced commodities while market prices remain favorable (>= 0.70 * base_price for glut front-running, >= 1.15 * base_price for peak arbitrage) before opponent supply influx crashes market value.",
+        "pitfalls": "Do not dump into already collapsed sub-0.55 base price markets unless shed overflow is imminent; do not front-run commodities committed to active town shop contracts; pace order volume to avoid self-inflicted price depreciation."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "capital_reinvestment",
+      "relation": "TRIGGERS",
+      "priority": 5,
+      "attributes": {
+        "condition": "(hired_hands < 10 and net_available_cash >= midnight_payroll_due * 1.25 + 120.0 and day <= 20) or (net_available_cash >= midnight_payroll_due * 1.35 + 200.0 and (uncultivated_plots > 0 or has_fertilizer_deficit) and day <= 25)",
+        "guidance": "Prioritize rapid workforce acceleration to reach the 10-hand cap by day 8-12; purchase contiguous land plots only when workforce has surplus watering capacity; procure high-margin commercial seeds (Pumpkins, Tomatoes, Strawberries) and fertilizer during days <= 25 to maximize per-plot harvest yield.",
+        "pitfalls": "Never hire hands after day 20 when wages cannot be recouped; never purchase long-growth seeds (Pumpkins, Tomatoes) after day 24 that cannot mature before day 30; do not acquire land plots that hands cannot consistently water; halt all expansion after day 25 to maximize terminal cash accumulation."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 6,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Dispatch active hands strictly by operational priority: 1) Harvest mature crops; 2) Drop off carried items at shed; 3) Water dry crops; 4) Feed hungry livestock; 5) Plant commercial seeds; 6) Weed clearing and ground tilling. Ensure all carried inventory is deposited at shed by step 716 for terminal liquidation; prioritize watering planted plots with shortest time-to-maturity in late game.",
+        "pitfalls": "Never prioritize weeding over harvesting or watering; do not leave mature crops unharvested across multi-step windows; ensure hands never idle while unharvested crops or dry plots remain; never plant seeds after day 25 if time-to-maturity exceeds remaining game days."
+      }
+    }
+  ]
+}

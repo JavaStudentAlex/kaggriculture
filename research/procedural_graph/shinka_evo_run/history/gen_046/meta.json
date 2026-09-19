@@ -1,0 +1,7 @@
+{
+  "generation": 46,
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "rationale": "This mutation resolves the -$10,999 cash deficit by formally embedding fertilizer application into the farm execution pipeline (Harvest -> Shed Deposit -> Fertilize -> Water -> Plant) to unlock massive Strawberry compounding, while synchronizing progressive plot expansion (6 plots at 3 hands, 10 at 5 hands, capping strictly at 14 plots by Day 13) to eliminate early worker idling without over-expanding acreage. It replaces the champion's margin-destructive 0.60x shed dump with a balanced two-phase liquidation regime (>=0.85x Days 1\u20138, >=0.90x Days 9\u201328, terminal sweep Days 29\u201330), enforces Strawberry Acreage Sovereignty with crop phase-gates, and purges phantom wheat hoarding when livestock is zero.",
+  "timestamp": 1789766278.9358282
+}
