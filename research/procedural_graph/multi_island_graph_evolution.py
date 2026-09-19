@@ -206,6 +206,11 @@ class MultiIslandEvolutionOrchestrator:
             if gen % self.supervisor_interval == 0:
                 self.run_supervisor_synthesis(gen)
 
+            # Auto-save best candidate checkpoint after every generation
+            best_curr_island = max(self.islands, key=lambda isl: len(isl.history))
+            self.base_graph_path.write_text(json.dumps(best_curr_island.champion_graph, indent=2), encoding="utf-8")
+            print(f"[Gen {gen} Checkpoint] Saved current best island ({best_curr_island.name}) to {self.base_graph_path.name}", flush=True)
+
         # Cross-Island Master Graft: Save best mutated graph as the new policy_graph.json
         best_island = max(self.islands, key=lambda isl: len(isl.history))
         print(f"\n[Evolution Complete] Champion Island: {best_island.name} with {len(best_island.history)} accepted mutations.")
