@@ -1,9 +1,9 @@
 {
-  "total_pulls": 126,
+  "total_pulls": 129,
   "arms": {
     "gpt-6-astra": {
-      "pulls": 34,
-      "total_reward": 11.632715,
+      "pulls": 37,
+      "total_reward": 13.132715,
       "crowns": 3
     },
     "gpt-5.6-luna": {
