@@ -18,9 +18,9 @@ plus the 9 `log1p` targets as channels; ~1.03 M params. Context length is a prop
 of each checkpoint (`config.json`): **256 turns** for the current model (forecasts from
 day 10 h16); the retired 512-context line was silent until day 21.
 
-Current model: **`models/ttm_c256_h96_ft_2026-09-20/`** — the 256-context base
+Current model: **`models/ttm_c256_h96_ft_2026-09-21/`** — the 256-context base
 (`ttm_c256_h96`, trained on the 44 corrected-label days through 09-11, section 12)
-refit on 09-15..09-20 by the daily recipe (section 6): AUC 0.843 → 0.850 on 09-20's
+refit on 09-16..09-21 by the daily recipe (section 6): AUC 0.849 → 0.854 on 09-21's
 held-out games; README inside, committed in git. `models/` holds only the promoted
 checkpoint; run dirs are deleted once their best is promoted (section 6).
 The model IS wired into a playing agent: the Shinka seed program serves a copy of
@@ -31,7 +31,7 @@ section 4.3.**
 
 | path | what |
 |---|---|
-| `models/ttm_c256_h96_ft_2026-09-20/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
+| `models/ttm_c256_h96_ft_2026-09-21/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
 | `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 00:30 UTC cron adds each new day (4.1) |
 | `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (46 days, 2.4 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
 | `research/opponent_model/` | all model code: `extract.py` / `extract_parallel.py` (replays → shards), `features.py`, `mechanics.py`, `ttm_dataset.py` (windows, episode split, scaler), `metrics.py` (streaming histogram AUC/AP), `train_ttm.py`, `evaluate.py` (the one scorer; uses the checkpoint's `scaler.npz` and `val_episodes.json`) |
@@ -172,7 +172,8 @@ alignment); all of them were deleted on 2026-09-13 except the checkpoint in play
 
 | model | context / labels | status |
 |---|---|---|
-| `models/ttm_c256_h96_ft_2026-09-20` | 256 / next_action | **current**: the daily refit of the base through 09-20 (`train_5days.py` dual-GPU, 2026-09-21, early-stopped at epoch 14, best 9): on 09-20's held-out episodes AUC 0.843 → **0.850**, AP 0.345 → **0.355** (all 96 steps pooled); README in the dir. |
+| `models/ttm_c256_h96_ft_2026-09-21` | 256 / next_action | **current**: the daily refit of the base through 09-21 (`train_5days.py` dual-GPU, 2026-09-22, early-stopped at epoch 14, best 9): on 09-21's held-out episodes AUC 0.849 → **0.854**, AP 0.355 → **0.363** (all 96 steps pooled); README in the dir. |
+| `ttm_c256_h96_ft_2026-09-20` (256 / next_action) | — | previous refit through 09-20; in git history (commit 6e48c85) |
 | `ttm_c256_h96_ft_2026-09-19` (256 / next_action) | — | previous refit through 09-19; in git history (commit a7049a9) |
 | `ttm_c256_h96_ft_2026-09-18` (256 / next_action) | — | previous refit through 09-18; in git history (commit facdddc) |
 | `ttm_c256_h96_ft_2026-09-17` (256 / next_action) | — | previous refit through 09-17; in git history (commit 3f6ea9e) |
@@ -248,6 +249,7 @@ Promoted as `models/ttm_c256_h96_ft_2026-09-13`.
 | `ft_2026-09-18` from `ttm_c256_h96_ft_2026-09-17` | 09-13..09-18 | 0.835 / 0.332 | 0.841 / 0.343 (19) | early, epoch 24 |
 | `ft_2026-09-19` from `ttm_c256_h96_ft_2026-09-18` | 09-14..09-19 | 0.842 / 0.345 | 0.847 / 0.356 (19) | early, epoch 24 |
 | `ft_2026-09-20` from `ttm_c256_h96_ft_2026-09-19` | 09-15..09-20 | 0.843 / 0.345 | 0.850 / 0.355 (9) | early, epoch 14 |
+| `ft_2026-09-21` from `ttm_c256_h96_ft_2026-09-20` | 09-16..09-21 | 0.849 / 0.355 | 0.854 / 0.363 (9) | early, epoch 14 |
 
 ## 7. Daily routine when a new day appears
 
