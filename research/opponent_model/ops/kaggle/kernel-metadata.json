@@ -10,12 +10,12 @@
   "enable_internet": "true",
   "dataset_sources": [
     "sunshinethroughfog/kaggriculture-ttm-base-pipeline",
-    "kaggle/kaggriculture-episodes-2026-09-15",
     "kaggle/kaggriculture-episodes-2026-09-16",
     "kaggle/kaggriculture-episodes-2026-09-17",
     "kaggle/kaggriculture-episodes-2026-09-18",
     "kaggle/kaggriculture-episodes-2026-09-19",
-    "kaggle/kaggriculture-episodes-2026-09-20"
+    "kaggle/kaggriculture-episodes-2026-09-20",
+    "kaggle/kaggriculture-episodes-2026-09-21"
   ],
   "competition_sources": [
     "kaggriculture"
