@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "name": "Hazel Weir complete executable policy import",
+  "source": {
+    "submission_id": 56246758,
+    "champion_sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+    "oracle_model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+  },
+  "semantics": "Source-preserving ordered execution; original guards and early returns remain in bound routines. Not decorative prose. Atomic backbone retained intact. No graph-only efficacy claim.",
+  "turn": {
+    "entry": "backbone",
+    "exit": "oracle_record",
+    "nodes": [
+      {
+        "id": "backbone",
+        "binding": "backbone",
+        "summary": "Submitted Mohui v66 production, routing, hiring and base trading"
+      },
+      {
+        "id": "oracle_observe",
+        "binding": "oracle_observe",
+        "summary": "Observe once per turn using the bundled CPU oracle"
+      },
+      {
+        "id": "state",
+        "binding": "state",
+        "summary": "Derive farm, inventory, carried-stock and market state"
+      },
+      {
+        "id": "farmer",
+        "binding": "farmer",
+        "summary": "Preserve backbone action; idle-only weed/water/feed rescue"
+      },
+      {
+        "id": "hands",
+        "binding": "hands",
+        "summary": "Preserve backbone hand actions; idle-only coordinated maintenance"
+      },
+      {
+        "id": "market",
+        "binding": "market",
+        "summary": "Execute the complete source-pinned market subgraph"
+      },
+      {
+        "id": "sanitize",
+        "binding": "sanitize",
+        "summary": "Preserve legal actions including DROP; enforce hand count and order cap"
+      },
+      {
+        "id": "oracle_record",
+        "binding": "oracle_record",
+        "summary": "Record the final action actually dispatched"
+      }
+    ],
+    "edges": [
+      {
+        "source": "backbone",
+        "target": "oracle_observe",
+        "relation": "NEXT"
+      },
+      {
+        "source": "oracle_observe",
+        "target": "state",
+        "relation": "NEXT"
+      },
+      {
+        "source": "state",
+        "target": "farmer",
+        "relation": "NEXT"
+      },
+      {
+        "source": "farmer",
+        "target": "hands",
+        "relation": "NEXT"
+      },
+      {
+        "source": "hands",
+        "target": "market",
+        "relation": "NEXT"
+      },
+      {
+        "source": "market",
+        "target": "sanitize",
+        "relation": "NEXT"
+      },
+      {
+        "source": "sanitize",
+        "target": "oracle_record",
+        "relation": "NEXT"
+      }
+    ]
+  },
+  "market": {
+    "entry": "market_setup",
+    "exit": "routine_dispatch",
+    "nodes": [
+      {
+        "id": "market_setup",
+        "binding": "market_setup",
+        "summary": "Initialize orders, sell consolidation, protected items and deferred queue",
+        "source_lines": [
+          288,
+          350
+        ]
+      },
+      {
+        "id": "opening_scalp",
+        "binding": "opening_scalp",
+        "summary": "Step 0 wheat purchase / step 1 sale; early returns are preserved",
+        "source_lines": [
+          351,
+          361
+        ]
+      },
+      {
+        "id": "deferred_sales",
+        "binding": "deferred_sales",
+        "summary": "Reissue evicted sells with stock and expiry checks",
+        "source_lines": [
+          362,
+          374
+        ]
+      },
+      {
+        "id": "wage_liquidity",
+        "binding": "wage_liquidity",
+        "summary": "Narrow midnight product-purchase reserve guard",
+        "source_lines": [
+          375,
+          391
+        ]
+      },
+      {
+        "id": "investment_freeze",
+        "binding": "investment_freeze",
+        "summary": "Cancel non-paying late investments",
+        "source_lines": [
+          392,
+          402
+        ]
+      },
+      {
+        "id": "optional_cash_floor",
+        "binding": "optional_cash_floor",
+        "summary": "Preserve submitted disabled cash-floor flag",
+        "source_lines": [
+          403,
+          416
+        ]
+      },
+      {
+        "id": "optional_livestock",
+        "binding": "optional_livestock",
+        "summary": "Preserve submitted disabled livestock-topup flag",
+        "source_lines": [
+          417,
+          427
+        ]
+      },
+      {
+        "id": "feed_reserve",
+        "binding": "feed_reserve",
+        "summary": "Endgame-aware feed reserve including day-28 pickup slack",
+        "source_lines": [
+          428,
+          433
+        ]
+      },
+      {
+        "id": "shed_pressure",
+        "binding": "shed_pressure",
+        "summary": "Tiered shed overflow relief",
+        "source_lines": [
+          434,
+          454
+        ]
+      },
+      {
+        "id": "predrop_headroom",
+        "binding": "predrop_headroom",
+        "summary": "Protected cheap-stock clearance accounting for carried harvest",
+        "source_lines": [
+          455,
+          474
+        ]
+      },
+      {
+        "id": "oracle_frontrun",
+        "binding": "oracle_frontrun",
+        "summary": "Forecast-driven sales, price floors and feed protection",
+        "source_lines": [
+          475,
+          515
+        ]
+      },
+      {
+        "id": "town_and_fertilizer",
+        "binding": "town_and_fertilizer",
+        "summary": "Adaptive shop cadence, inventory-aware batches, fertilizer sales",
+        "source_lines": [
+          516,
+          630
+        ]
+      },
+      {
+        "id": "early_liquidation",
+        "binding": "early_liquidation",
+        "summary": "Forecast-led early and phased endgame liquidation",
+        "source_lines": [
+          631,
+          701
+        ]
+      },
+      {
+        "id": "final_liquidation",
+        "binding": "final_liquidation",
+        "summary": "Final eight-step liquidation and final full-stock sale",
+        "source_lines": [
+          702,
+          749
+        ]
+      },
+      {
+        "id": "routine_dispatch",
+        "binding": "routine_dispatch",
+        "summary": "Return all remaining routine orders, retaining submitted order and cap",
+        "source_lines": [
+          750,
+          750
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "market_setup",
+        "target": "opening_scalp",
+        "relation": "NEXT"
+      },
+      {
+        "source": "opening_scalp",
+        "target": "deferred_sales",
+        "relation": "NEXT"
+      },
+      {
+        "source": "deferred_sales",
+        "target": "wage_liquidity",
+        "relation": "NEXT"
+      },
+      {
+        "source": "wage_liquidity",
+        "target": "investment_freeze",
+        "relation": "NEXT"
+      },
+      {
+        "source": "investment_freeze",
+        "target": "optional_cash_floor",
+        "relation": "NEXT"
+      },
+      {
+        "source": "optional_cash_floor",
+        "target": "optional_livestock",
+        "relation": "NEXT"
+      },
+      {
+        "source": "optional_livestock",
+        "target": "feed_reserve",
+        "relation": "NEXT"
+      },
+      {
+        "source": "feed_reserve",
+        "target": "shed_pressure",
+        "relation": "NEXT"
+      },
+      {
+        "source": "shed_pressure",
+        "target": "predrop_headroom",
+        "relation": "NEXT"
+      },
+      {
+        "source": "predrop_headroom",
+        "target": "oracle_frontrun",
+        "relation": "NEXT"
+      },
+      {
+        "source": "oracle_frontrun",
+        "target": "town_and_fertilizer",
+        "relation": "NEXT"
+      },
+      {
+        "source": "town_and_fertilizer",
+        "target": "early_liquidation",
+        "relation": "NEXT"
+      },
+      {
+        "source": "early_liquidation",
+        "target": "final_liquidation",
+        "relation": "NEXT"
+      },
+      {
+        "source": "final_liquidation",
+        "target": "routine_dispatch",
+        "relation": "NEXT"
+      }
+    ]
+  }
+}

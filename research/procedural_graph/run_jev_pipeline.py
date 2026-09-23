@@ -69,7 +69,7 @@ def main():
     parser = argparse.ArgumentParser(description="Jev + BAM Procedural Graph Evolutionary Pipeline")
     parser.add_argument("--initial_graph", type=Path, default=CURRENT_DIR / "policy_graph.json")
     parser.add_argument("--generations", type=int, default=10, help="Number of evolutionary cycles")
-    parser.add_argument("--query_interval", type=int, default=6, help="Hours between routine Jev queries")
+    parser.add_argument("--query_interval", type=int, default=3, help="Steps between routine Jev queries")
     parser.add_argument("--run_dir", type=Path, default=CURRENT_DIR / "jev_evo_run")
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()

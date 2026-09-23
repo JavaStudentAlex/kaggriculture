@@ -25,6 +25,7 @@ replays/
 datasets/
 research/opponent_model/logs/
 research/opponent_model/runs/
+research/frozen_eval/runs/
 
 # ShinkaEvolve outputs
 shinka_results/
@@ -36,6 +37,16 @@ research/procedural_graph/ladder_losses/*replay.json
 research/procedural_graph/**/*.log
 research/procedural_graph/*.log
 research/procedural_graph/policy_graph_backup_*.json
+research/procedural_graph/runs/
+research/procedural_graph/archive_*/
+research/procedural_graph/*_backup_*/
+research/procedural_graph/highcpu_evo_run/
+research/procedural_graph/hazel_import/*payload/
+research/procedural_graph/hazel_import/*results/
+kaggle_datasets/
+kaggle_shards/
+my_last_submission/
+test_dir/
 
 # Shinka run mirrors (SSD -> ceph copies of /results/kagg/shinka_results*), the evaluator's
 # game log, built submission bundles and the checkpoint copy (byte copy of models/*)

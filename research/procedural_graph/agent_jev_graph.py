@@ -28,7 +28,7 @@ _ACTOR: Optional[JevGraphActor] = None
 _FALLBACK_ENGINE: Optional[ProceduralGraphEngine] = None
 
 
-def get_actor(graph_path: Optional[Path] = None, query_interval: int = 6) -> JevGraphActor:
+def get_actor(graph_path: Optional[Path] = None, query_interval: int = 3) -> JevGraphActor:
     global _ACTOR
     target_path = graph_path or (CURRENT_DIR / "policy_graph.json")
     if _ACTOR is None:
@@ -67,8 +67,8 @@ def agent(obs: Dict[str, Any], configuration: Optional[Dict[str, Any]] = None) -
         try:
             actor = get_actor()
             jev_decision = actor.query_decision(obs, player_idx, st, forecast)
-        except Exception:
-            # Fallback smoothly to deterministic guards if Jev call fails
+        except Exception as exc:
+            print(f"[agent_jev_graph ERROR at step {obs.get('step')}]: {type(exc).__name__}: {exc}", file=sys.stderr)
             jev_decision = None
 
         farmer_act = hazel.evolve_farmer_action(obs, player_idx, base.get("farmer"), st)

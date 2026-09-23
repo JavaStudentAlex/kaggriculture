@@ -1,112 +1,90 @@
-"""Procedural Graph Agent for Kaggriculture.
+"""Current procedural graph: complete submitted Hazel behavior plus mapped concepts.
 
-Drop-in replacement for Hazel Weir (56246758) that executes turns via the
-compiled Procedural Graph (policy_graph.json) and ProceduralGraphEngine.
-
-Eliminates the ladder failure modes identified in live replay audits:
-- Midnight payroll defaults (episode 109577172)
-- Order slot contention and shed harvest overflows (episode 109205361)
+One isolated interpreter per agent is required (as in the frozen evaluator).
+Legacy explicit graph paths still use the preserved pre-merge implementation.
 """
 from __future__ import annotations
-
+import hashlib
+import importlib.util
+import json
+import os
 import sys
 from pathlib import Path
-from typing import Any
-
-# Ensure access to shinka/evolution codebase and oracle
-EVO_DIR = Path(__file__).resolve().parent.parent.parent / "shinka" / "evolution"
-if str(EVO_DIR) not in sys.path:
-    sys.path.insert(0, str(EVO_DIR))
 
 CURRENT_DIR = Path(__file__).resolve().parent
-if str(CURRENT_DIR) not in sys.path:
-    sys.path.insert(0, str(CURRENT_DIR))
-
-import initial as hazel
-from graph_engine import ProceduralGraphEngine
-
-_ENGINE: ProceduralGraphEngine | None = None
+_ENGINE = None
+_LEGACY = None
 
 
-def get_engine() -> ProceduralGraphEngine:
-    global _ENGINE
-    if _ENGINE is None:
-        _ENGINE = ProceduralGraphEngine(CURRENT_DIR / "policy_graph.json")
+def _load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f'Cannot load {path}')
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def get_engine():
+    global _ENGINE, _LEGACY
+    if _ENGINE is not None:
+        return _ENGINE
+    graph_path = Path(os.environ.get('KAGG_GRAPH_PATH', CURRENT_DIR / 'policy_graph.json'))
+    graph = json.loads(graph_path.read_text())
+    if graph.get('runtime') != 'hazel_merged_v1':
+        # Explicit historical graph evaluation stays historical, never silently upgraded.
+        if not os.environ.get('KAGG_GRAPH_PATH'):
+            raise ValueError('Current graph must declare hazel_merged_v1 runtime')
+        sys.path.insert(0, str(CURRENT_DIR))
+        evo = CURRENT_DIR.parents[1] / 'shinka/evolution'
+        sys.path.insert(0, str(evo))
+        _LEGACY = _load('_preserved_legacy_graph', CURRENT_DIR / 'hazel_import/premerge/agent_graph.py')
+        _ENGINE = _LEGACY.get_engine()
+        return _ENGINE
+    bundle = CURRENT_DIR / 'hazel_runtime'
+    required = {'graph_runtime.py', 'experimental.py', 'engine_contract.py', 'champion.py'}
+    if graph.get('surgical', {}).get('enabled'):
+        required.add('surgical.py')
+    if not required <= set(graph['provenance']['runtime_bundle_hashes']):
+        raise ValueError('Incomplete executable runtime provenance')
+    if 'entrypoint_sha256' in graph['provenance']:
+        if hashlib.sha256(Path(__file__).read_bytes()).hexdigest() != graph['provenance']['entrypoint_sha256']:
+            raise ValueError('Entrypoint source fingerprint mismatch')
+    for relative, expected in graph['provenance']['runtime_bundle_hashes'].items():
+        path = (bundle / relative).resolve()
+        if not path.is_relative_to(bundle.resolve()) or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError(f'Runtime source fingerprint mismatch: {relative}')
+    for name in ['surgical', 'experimental', 'engine_contract', 'champion', 'kagg_oracle', 'kagg_ttm_numpy', 'features', 'mechanics', 'candidate_v66_meta_closed_loop']:
+        loaded = sys.modules.get(name)
+        file = getattr(loaded, '__file__', None)
+        if file and not Path(file).resolve().is_relative_to(bundle.resolve()):
+            raise RuntimeError(f'Foreign {name} module already loaded: use process-isolated agents')
+    os.environ.update(KAGG_MOHUI_DIR=str(bundle / 'mohui_v66'), KAGG_ORACLE_SRC=str(bundle),
+                      KAGG_TTM_DIR=str(bundle / 'checkpoint'), KAGG_OPP_MODEL_SRC=str(bundle / 'opponent_model'),
+                      KAGG_ORACLE_BACKEND='numpy', KAGG_ORACLE_DEVICE='cpu', CUDA_VISIBLE_DEVICES='')
+    sys.path.insert(0, str(bundle))
+    champion = _load('champion', bundle / 'champion.py')
+    runtime = _load('_merged_hazel_runtime', bundle / 'graph_runtime.py')
+    engine = runtime.HazelGraph(champion, graph_path)
+    # Require every conceptual node and edge to resolve, not just the execution chains.
+    allowed = set(engine.turn_ids + engine.market_ids)
+    nodes = graph['nodes']
+    ids = [n['id'] for n in nodes]
+    if len(ids) != len(set(ids)):
+        raise ValueError('Duplicate merged concept node')
+    if any(not n.get('bindings') or not set(n['bindings']) <= allowed for n in nodes):
+        raise ValueError('Unbound merged concept')
+    if any(e['source'] not in ids or e['target'] not in ids for e in graph['edges']):
+        raise ValueError('Dangling merged edge')
+    if {b for n in nodes for b in n['bindings']} != allowed:
+        raise ValueError('Missing submitted action stage')
+    _ENGINE = engine
     return _ENGINE
 
 
-def agent(obs: dict[str, Any], configuration: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Public entry point for Kaggle environments."""
-    player_idx = int(obs.get("player", 0) or 0)
-    base = hazel._backbone_action(obs, configuration)
-
-    farms = obs.get("farms", []) or []
-    farm = farms[player_idx] if player_idx < len(farms) else {}
-    n_hands = len(farm.get("hands") or [])
-
-    forecast = hazel._oracle_observe(obs, configuration)
+def agent(obs, configuration=None):
     engine = get_engine()
-
-    try:
-        st = hazel.farm_state(obs, player_idx, forecast)
-        guards = engine.evaluate_guards(st, obs)
-
-        # Baseline actions
-        farmer_act = hazel.evolve_farmer_action(obs, player_idx, base.get("farmer"), st)
-        hands_act = hazel.evolve_hand_actions(obs, player_idx, base.get("hands"), st)
-        base_market = hazel.evolve_market_orders(obs, player_idx, base.get("market"), st)
-
-        # Segment orders by procedural graph node
-        orders_by_node: dict[str, list[list[Any]]] = {
-            "wage_defense": [],
-            "shed_headroom": [],
-            "town_shop_preempt": [],
-            "oracle_frontrun": [],
-            "farm_execution": []
-        }
-
-        # 1. Node: Wage Defense Orders (Priority 1)
-        if guards["wage_defense"]:
-            # If in payroll deficit near midnight, force emergency liquidity orders to front
-            for o in base_market:
-                if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL":
-                    orders_by_node["wage_defense"].append(list(o))
-
-        # 2. Node: Shed Headroom (Priority 2)
-        if guards["shed_headroom"]:
-            for o in base_market:
-                if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL" and o[1] in ("WHEAT", "FERTILIZER", "STRAWBERRY"):
-                    if o not in orders_by_node["wage_defense"]:
-                        orders_by_node["shed_headroom"].append(list(o))
-
-        # 3. Node: Town Shop Preempt (Priority 3)
-        if guards["town_shop_preempt"]:
-            for o in base_market:
-                if isinstance(o, (list, tuple)) and len(o) >= 3 and o[1] in ("CARROT", "TOMATO", "EGG"):
-                    orders_by_node["town_shop_preempt"].append(list(o))
-
-        # 4. Node: Oracle Frontrun (Priority 4)
-        if guards["oracle_frontrun"]:
-            for o in base_market:
-                if isinstance(o, (list, tuple)) and len(o) >= 3 and o[0] == "SELL" and o[1] in ("WOOL", "MILK"):
-                    orders_by_node["oracle_frontrun"].append(list(o))
-
-        # 5. Routine orders
-        for o in base_market:
-            orders_by_node["farm_execution"].append(list(o))
-
-        # Topologically arbitrate up to 10 orders
-        arbitrated_market = engine.arbitrate_market_orders(orders_by_node, max_orders=10)
-
-        evolved = {
-            "farmer": farmer_act,
-            "hands": hands_act,
-            "market": arbitrated_market
-        }
-        evolved = hazel.policy_sanitize(evolved, base, st)
-    except Exception:
-        evolved = base
-
-    final = hazel._hard_sanitize(evolved, base, n_hands)
-    hazel._oracle_record(final)
-    return final
+    if _LEGACY is not None:
+        return _LEGACY.agent(obs, configuration)
+    return engine.agent(obs, configuration)

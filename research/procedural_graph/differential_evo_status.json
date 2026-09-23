@@ -1,0 +1,9 @@
+{
+  "status": "rebaselining",
+  "current_iteration": 55,
+  "engine": "Advanced multi-island SIFT 2-Stage Tournament",
+  "embedding_model": "qwen3-embedding:8b",
+  "seeds_per_champ_seat": 20,
+  "total_gauntlet_matches": 520,
+  "last_updated_unix": 1790111331.040417
+}

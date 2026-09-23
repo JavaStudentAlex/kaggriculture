@@ -1,0 +1,19 @@
+{
+  "observations": 720,
+  "mismatches": [],
+  "pass": true,
+  "source_trace": "/home/alex/kaggriculture/research/frozen_eval/runs/iter27_trace_mining/local_smoke/traces/submission_hazel_weir_seat0_seed1205926567.json.gz",
+  "observed_seat": 1,
+  "elapsed_seconds": 171.75197224901058,
+  "timing_including_rpc": {
+    "graph": {
+      "mean_seconds": 0.11874678955096493,
+      "max_seconds": 3.17513611598406
+    },
+    "source": {
+      "mean_seconds": 0.1151487852149229,
+      "max_seconds": 0.5911825260263868
+    }
+  },
+  "caveat": "Behavior equivalence on this replay plus synthetic tests; not a proof over every possible game state."
+}

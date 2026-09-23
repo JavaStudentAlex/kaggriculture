@@ -19,8 +19,13 @@ MODEL_SPECS: dict[str, dict[str, Any]] = {
         "reasoning_effort": "xhigh",
         "temperature": 0.3
     },
-    "gpt-5.6-luna": {
-        "uri": "local/gpt-5.6-luna@http://localhost:8317/v1",
+    "gpt-6-sol": {
+        "uri": "local/gpt-6-sol@http://localhost:8317/v1",
+        "reasoning_effort": "xhigh",
+        "temperature": 0.3
+    },
+    "gpt-6-luna": {
+        "uri": "local/gpt-6-luna@http://localhost:8317/v1",
         "reasoning_effort": "xhigh",
         "temperature": 0.3
     },
@@ -34,8 +39,8 @@ MODEL_SPECS: dict[str, dict[str, Any]] = {
         "reasoning_effort": "high",
         "temperature": 0.3
     },
-    "claude-opus-5": {
-        "uri": "local/claude-opus-5@http://localhost:8317/v1",
+    "claude-opus-5.5": {
+        "uri": "local/claude-opus-5.5@http://localhost:8317/v1",
         "reasoning_effort": "xhigh",
         "temperature": 0.3
     },

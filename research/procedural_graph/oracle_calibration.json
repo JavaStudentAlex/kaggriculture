@@ -1,0 +1,26 @@
+{
+  "WHEAT": {
+    "s4_threshold": 0.291,
+    "s24_threshold": 0.413,
+    "u24_threshold": 1.23,
+    "hazel_s4_rate": 0.202
+  },
+  "FERTILIZER": {
+    "s4_threshold": 0.324,
+    "s24_threshold": 0.459,
+    "u24_threshold": 2.94,
+    "hazel_s4_rate": 0.287
+  },
+  "WOOL": {
+    "s4_threshold": 0.3,
+    "s24_threshold": 0.215,
+    "u24_threshold": 1.24,
+    "hazel_s4_rate": 0.0
+  },
+  "MILK": {
+    "s4_threshold": 0.307,
+    "s24_threshold": 0.534,
+    "u24_threshold": 1.62,
+    "hazel_s4_rate": 0.138
+  }
+}

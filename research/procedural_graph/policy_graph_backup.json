@@ -1,0 +1,231 @@
+{
+  "version": "3.2.0",
+  "name": "validated_solvency_and_shared_execution_graph",
+  "description": "Telemetry-gated sequential planning with actual-liability payroll defense, non-overlapping growth tiers, Day 13 expansion freeze, demand-aware shop reserves, forecast-conditioned Wool/Milk sales, deadline-aware hydration, and validated terminal liquidation.",
+  "execution_contract": {
+    "entry_node": "state_audit",
+    "traversal": "Evaluate edges in ascending priority. State audit selects exactly one validation branch. On the valid-state path, visit every planning node in sequence; inactive planners contribute no proposals and still advance. Only action_scheduler submits engine orders.",
+    "planning_semantics": "Nodes propose individual legal actions with prerequisites, quantity, estimated cash effect, capacity effect, deadline, and purpose. Proposals are not completed actions or guaranteed proceeds.",
+    "action_limit": 10,
+    "worker_limit": 9,
+    "unknown_values": "Null is unknown, never zero or false. Derive missing fields only from authoritative observations and documented engine timing.",
+    "submission_semantics": "Count all trades, purchases, movements, refills, deposits, and worker commands against the engine's actual order rules. Do not assume a multistep workflow is one command or that newly purchased assets are immediately usable.",
+    "dependency_semantics": "Use same-tick dependencies only when engine execution order is documented and guaranteed; otherwise wait for acknowledgment and re-observation.",
+    "feedback": "Re-audit after each engine response. Never infer successful sales, hiring, deposits, or watering from submission alone."
+  },
+  "derived_state": {
+    "midnight_payroll_due": "hands_count * 120 + 100, reconciled against any authoritative payroll field",
+    "available_cash": "observed cash minus existing committed debits; exclude proposed sale proceeds",
+    "payroll_shortfall": "max(0, midnight_payroll_due - available_cash)",
+    "payroll_buffer_target": "1.25 * midnight_payroll_due",
+    "terminal_active": "step >= 696 and step < 720, unless authoritative match timing specifies a different final window",
+    "expansion_freeze": "day >= 13 or terminal_active",
+    "emergency_lock": "hour >= 18 and payroll_shortfall > 0",
+    "phase_hand_cap": "3 for day <= 2; 6 for 3 <= day <= 6; 9 for 7 <= day <= 12; no hiring thereafter",
+    "phase_plot_cap": "8 for day <= 2; 16 for 3 <= day <= 6; 26 for 7 <= day <= 12; no purchases thereafter",
+    "remaining_orders": "10 minus the number of validated orders already selected for this tick",
+    "projected_shed_use": "observed shed use plus feasible scheduled deposits minus acknowledged removals or guaranteed earlier same-tick removals"
+  },
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "Authoritative State and Telemetry Audit",
+      "category": "audit",
+      "description": "Validate time, cash, worker count, worker positions and packs, watering-can levels, plot readiness, shed capacity, available actions, and execution semantics. Reconcile prior orders. Treat unavailable shop or oracle data as disabling only those optional planners. Record missing required fields explicitly rather than manufacturing a game state."
+    },
+    {
+      "id": "observation_recovery",
+      "name": "Observation Recovery and Safe Hold",
+      "category": "recovery",
+      "description": "Request or re-read authoritative state through supported observation mechanisms. Suspend unsupported trades, hiring, planting, and expansion. If observation recovery cannot occur this tick, use only a documented legal wait or actions independently verified safe from known state; report the missing fields and recovery status."
+    },
+    {
+      "id": "terminal_liquidation",
+      "name": "Deadline-Aware Terminal Planner",
+      "category": "liquidation",
+      "description": "During the terminal window, release shop and input reserves, stop expansion, and propose feasible inventory sales plus harvest, travel, and deposit chains that settle before the final actionable tick. Prefer immediately available shop premiums without delaying necessary market sales. Water only if a verified maturation and sale path still fits the remaining horizon."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Actual-Liability Payroll Defense",
+      "category": "defense",
+      "description": "On every day at hour >= 18, lock discretionary spending if available cash is below actual midnight payroll. Sell only enough to close the hard shortfall, prioritizing feasible premium deliveries and unreserved goods. A shortfall relative to the optional 1.25x buffer alone does not justify emergency liquidation. Never assume starter cash remains intact."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Deposit-Aware Capacity Planner",
+      "category": "capacity",
+      "description": "Plan room for feasible incoming worker deposits using actual shed capacity and item space costs. Begin relief near 88% projected utilization, but schedule enough removals to prevent real overflow. Prefer useful shop sales, vulnerable surplus commodities, and low-opportunity-cost excess inputs; block unsafe deposits if relief cannot settle first."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Demand-Aware Premium Deliveries",
+      "category": "revenue",
+      "description": "Deliver held eligible stock to unlocked shops at observed attractive payouts. Reserve 12-16 units per relevant commodity where recurring shop demand supports it, bounded by demand before replenishment, storage, and the remaining horizon. Reservations protect against ordinary market dumping, not against fulfilling the intended shop demand."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Wool and Milk Glut Front-Run",
+      "category": "market",
+      "description": "When usable forecasts predict an imminent opponent supply glut, propose selling exposed Wool and Milk before the decline, typically 4-8 steps ahead. Compare current executable net proceeds with forecast holding value and feasible shop opportunities. Do not require an arbitrary fraction of base price before selling into a deteriorating market."
+    },
+    {
+      "id": "capital_compounding",
+      "name": "Post-Cost Affordable Phased Growth",
+      "category": "growth",
+      "description": "During Days 0-12 before hour 18, evaluate hiring, land, seeds, and establishment costs separately under non-overlapping phase caps. Require the complete proposed bundle to leave at least 1.5 times post-hire payroll plus 250 operational cash, and at least 800 cash on Days 0-2. Invest only where incremental production can repay its costs before termination and existing labor can service new beds."
+    },
+    {
+      "id": "farm_execution",
+      "name": "Deadline-Aware Farm and Strawberry Hydration Planner",
+      "category": "execution",
+      "description": "Maintain all productive beds throughout the match. Days 0-12 establish affordable fast-cash Carrot/Tomato production and viable Strawberry beds; Day 13 onward prioritize recurring Strawberry harvest throughput while servicing other profitable mature crops. Assign explicit harvest, deposit, travel, refill, and watering actions. Before dispatching a worker onto a watering route, require a full can; refill first when needed. Resolve urgent hydration and harvest deadlines rather than enforcing a rigid harvest-first loop."
+    },
+    {
+      "id": "action_scheduler",
+      "name": "Shared Ten-Order Scheduler and Legality Gate",
+      "category": "execution",
+      "description": "Merge all proposals into one dependency-valid batch of at most 10 orders, with no duplicate worker commands or oversold inventory. Prioritize final settlement feasibility and hard payroll solvency, then imminent crop or inventory loss, urgent hydration and harvest, expiring shop premiums and glut exits, routine production, and affordable growth. Allocate trade and worker slots dynamically rather than reserving fixed empty slots."
+    },
+    {
+      "id": "execution_feedback",
+      "name": "Acknowledgment and Decision Trace",
+      "category": "audit",
+      "description": "Record step, day, hour, observed cash, payroll due, emergency lock, expansion freeze, active planners, selected and rejected proposals, total submitted orders, engine acknowledgments, and telemetry completeness. Record unknown confidence as unknown with a reason. Reconcile rejected commands and stalled worker routes before the next planning cycle."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "observation_recovery",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "required_state_valid == false",
+        "guidance": "Recover missing authoritative inputs before interpreting time, cash, payroll, or worker tasks. Log observation failure separately from a strategic loss. Use only documented safe fallback actions.",
+        "pitfalls": "Coercing null cash to zero; interpreting null hour as midnight; diagnosing early wage defense from an empty trace; fabricating unsupported recovery commands."
+      }
+    },
+    {
+      "source": "observation_recovery",
+      "target": "execution_feedback",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Persist missing fields and recovery results, then re-enter the audit on the next observation. A recovered observation must pass validation before normal planning.",
+        "pitfalls": "Submitting a guessed production batch while core state remains unavailable."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "terminal_liquidation",
+      "relation": "LEADS_TO",
+      "priority": 2,
+      "attributes": {
+        "condition": "required_state_valid == true",
+        "guidance": "Initialize an empty proposal ledger. Activate terminal planning only in the verified final window; otherwise pass through. For each terminal harvest, reserve a feasible deposit and sale path before committing the worker.",
+        "pitfalls": "Selling only existing shed goods while leaving packs stranded; harvesting on the last tick when no sale can settle; treating every terminal watering action as necessarily worthless."
+      }
+    },
+    {
+      "source": "terminal_liquidation",
+      "target": "wage_defense",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Evaluate actual payroll on all days, including the terminal window when payroll still occurs before settlement. At hour >= 18 with a real shortfall, lock discretionary spending and propose the minimum executable liquidation needed. If cash covers payroll but not its optional buffer, preserve solvency through spending restraint and ordinary profitable sales rather than fire-selling inputs.",
+        "pitfalls": "Treating the 25% buffer as an actual liability; blanket exemption of Days 0-1 despite depleted cash; protecting seed reserves while missing imminent payroll; counting unexecuted sales as cash."
+      }
+    },
+    {
+      "source": "wage_defense",
+      "target": "shed_headroom",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Compute capacity after feasible sales and before each deposit. Reuse payroll-sale proposals for headroom instead of duplicating them. Protect establishment inputs in normal operation, but release the smallest necessary reserve if otherwise unavoidable payroll default or inventory loss would be worse.",
+        "pitfalls": "Using a fixed 100-unit capacity when observed capacity differs; assuming all carried inventory arrives now; preserving 10 fertilizer units regardless of actual need; depositing before removals settle."
+      }
+    },
+    {
+      "source": "shed_headroom",
+      "target": "town_shop_preempt",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Check all unlocked, currently executable premium deliveries and annotate proposals that also solve payroll or capacity needs. Set supported recurring-demand reserves within the 12-16 unit target, consuming those reserves for their intended deliveries. Hold Tomatoes for Days 27-29 only when observed forecasts, solvency, and storage justify waiting.",
+        "pitfalls": "Refusing a shop delivery to preserve that shop's own buffer; assuming unobserved shops are unlocked; mechanically holding all Tomatoes until Day 27; waiting for a premium beyond the settlement horizon."
+      }
+    },
+    {
+      "source": "town_shop_preempt",
+      "target": "oracle_frontrun",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "When vulnerable inventory exists and a usable forecast gives glut risk >= 0.50, evaluate pre-glut Wool/Milk sales using forecast timing and executable proceeds. Prefer a feasible premium shop exit over the market. If no forecast exists, skip speculative front-running without disabling routine sales.",
+        "pitfalls": "Selling stock twice through separate planners; allowing shop activity to suppress an urgent glut exit; refusing a beneficial exit solely because price is already below 0.65 times base."
+      }
+    },
+    {
+      "source": "oracle_frontrun",
+      "target": "capital_compounding",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Propose growth only when day < 13, hour < 18, emergency_lock is false, terminal_active is false, and the complete bundle is affordable after costs. Apply exactly one day tier. Hiring requires hands_count below its cap; land buying independently requires plots_count below its cap. Reject expansion when watering, deposit, or order throughput is already saturated. Day 13 freezes land, hiring, and Strawberry seed purchases.",
+        "pitfalls": "Letting Day 0 qualify for the Day 7-12 cap through overlapping OR clauses; blocking all land purchases because the worker cap is reached; testing reserves before deducting purchases; exceeding nine hands; counting speculative revenue toward affordability."
+      }
+    },
+    {
+      "source": "capital_compounding",
+      "target": "farm_execution",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Always generate worker proposals, whether or not trades or growth are active. Guarantee a full can before dispatch onto a watering route and prioritize dry productive Strawberry beds before missed hydration delays regrowth. Deposit before pack overflow using verified shed headroom. After Day 12, stop expansion but continue profitable crop care; terminal tasks must fit harvest-to-sale deadlines.",
+        "pitfalls": "Starving worker actions whenever a financial branch fires; issuing refill and watering as an unsupported atomic action; servicing only Strawberries while other mature crops remain valuable; repeatedly assigning already busy workers."
+      }
+    },
+    {
+      "source": "farm_execution",
+      "target": "action_scheduler",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Select at most 10 legal orders using one shared ledger for cash, inventory, capacity, worker availability, and dependencies. Reserve orders for urgent full-can preparation and watering before optional growth or nonurgent sales. Limit each worker to the engine's legal command count. Displace low-value work only when a higher-priority deadline requires it; use all otherwise useful remaining capacity.",
+        "pitfalls": "Allocating slots independently per node; always reserving three trade slots even when no trades exist; issuing nine worker actions plus multiple trades; selling carried goods as if already in the shed; requiring all nine workers to act every tick."
+      }
+    },
+    {
+      "source": "action_scheduler",
+      "target": "execution_feedback",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Submit the validated batch once, capture actual acceptance and resulting state, and record reasons for deferred tasks. If no feasible batch can close the payroll shortfall before midnight, emit an explicit infeasibility diagnostic and choose the best supported emergency realization rather than pretending the target was met.",
+        "pitfalls": "Reporting proposed cash as realized cash; silently dropping rejected actions; inventing asset-sale mechanics; interpreting a zero-order telemetry failure as an intentional economic decision."
+      }
+    },
+    {
+      "source": "execution_feedback",
+      "target": "state_audit",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "next_authoritative_observation_available and match_active",
+        "guidance": "Start the next decision cycle from observed results, updating hydration deadlines, payroll coverage, inventory reservations, terminal feasibility, and remaining action opportunities.",
+        "pitfalls": "Replaying stale proposals; repeatedly selling nonexistent stock; continuing commands after match termination; preserving all-null traces without flagging instrumentation failure."
+      }
+    }
+  ]
+}

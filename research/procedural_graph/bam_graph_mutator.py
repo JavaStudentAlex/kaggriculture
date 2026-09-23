@@ -13,6 +13,8 @@ import os
 import re
 import urllib.request
 from pathlib import Path
+
+from call_telemetry import record_call
 from typing import Any, Dict, List, Optional, Tuple
 
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
@@ -71,10 +73,21 @@ class BAMGraphMutator:
             "Do not output markdown explanations outside the JSON."
         )
 
-        # Filter and sample decision trace for prompt brevity
+        # Extract mined in-game forensics or sampled Jev traces
+        forensic_summary_lines = []
         sampled_trace = []
+
         for d in decision_trace:
-            if d.get("step", 0) in (0, 6, 12, 18, 24, 48, 72, 96, 120, 240, 360, 480, 600, 719) or d.get("emergency_lock"):
+            if isinstance(d, dict) and "primary_failure_mode" in d:
+                t_str = " -> ".join([f"D{pt['day']}h{pt['hour']}: ${pt['cash']:,.0f} ({pt['hands']}h/{pt['shed_items']}s)" for pt in d.get("timeline", [])])
+                forensic_summary_lines.append(
+                    f"[Defeat vs {d.get('champ_name')} (Seed {d.get('seed')}, Seat {d.get('seat')}) | Deficit: -${d.get('deficit', 0):,.2f}]\n"
+                    f"• Primary Bottleneck: {d.get('primary_failure_mode')} -> {d.get('failure_diagnosis')}\n"
+                    f"• Forensics: Peak Hands: {d.get('peak_hands')}, Peak Shed: {d.get('peak_shed')}/100, "
+                    f"Min Midnight Cash: ${d.get('min_midnight_cash')}, Stranded Crops: {d.get('unharvested_ripe_crops')}\n"
+                    f"• Trajectory (Day/Hour: Cash (Hands/Shed)): {t_str}"
+                )
+            elif isinstance(d, dict) and (d.get("step", 0) in (0, 6, 12, 18, 24, 48, 72, 96, 120, 240, 360, 480, 600, 719) or d.get("emergency_lock")):
                 sampled_trace.append({
                     "step": d.get("step"),
                     "day": d.get("day"),
@@ -86,6 +99,13 @@ class BAMGraphMutator:
                     "expansion_freeze": d.get("expansion_freeze")
                 })
 
+        if forensic_summary_lines:
+            forensic_block = "### MINED FORENSIC TRACES FROM IN-GAME LOSSES:\n" + "\n\n".join(forensic_summary_lines[:5]) + "\n"
+        elif sampled_trace:
+            forensic_block = "### JEV ACTOR DECISION TRACE SAMPLE:\n```json\n" + json.dumps(sampled_trace[:20], indent=2) + "\n```\n"
+        else:
+            forensic_block = "### LATEST MATCH DIAGNOSTICS:\n" + json.dumps(match_diagnostics, indent=2) + "\n"
+
         prompt = f"""### COMPETITIVE KAGGLE PLAYBOOK & DOMAIN KNOWLEDGE:
 {domain_knowledge}
 
@@ -94,33 +114,23 @@ class BAMGraphMutator:
 {json.dumps(current_graph, indent=2)}
 ```
 
-### LATEST MATCH DIAGNOSTICS:
-- Opponent Champion: {match_diagnostics.get('champ_name', 'Unknown')}
-- Jev Agent Final Cash: ${match_diagnostics.get('cand_cash', 0.0):,.2f}
-- Opponent Final Cash: ${match_diagnostics.get('opp_cash', 0.0):,.2f}
-- Net Cash Deficit: ${match_diagnostics.get('cash_diff', 0.0):,.2f}
-- Outcome: {match_diagnostics.get('outcome', 'LOSS')}
-
-### JEV ACTOR DECISION TRACE SAMPLE:
-```json
-{json.dumps(sampled_trace[:20], indent=2)}
-```
-
+{forensic_block}
 ### RECENT REJECTED MUTATIONS (Do not repeat these exact mistakes):
 ```json
 {json.dumps(rejections[-3:] if rejections else [], indent=2)}
 ```
 
 ### STRATEGIC OBJECTIVE:
-Analyze the match diagnostics and Jev's decision trace. Identify why our agent underperformed:
-1. Did Jev trigger emergency defense too early (e.g. Day 0-3 when cash was ample and compounding was required)?
-2. Is the graph missing essential strategic phases (e.g. 'capital_compounding' for Days 1-12, or 'strawberry_watering_loop')?
-3. Are edge conditions, priorities, guidance directives, or pitfall warnings misaligned with winning Kaggle strategies?
+Analyze the mined game forensics above. Identify the exact causal mechanism behind the deficit:
+1. Did the farm suffer a payroll insolvency crisis (cash < payroll at hour >= 18)?
+2. Did workers discard crops or stall due to shed capacity choke (shed fullness >= 96)?
+3. Did the agent leave unharvested ripe crops on the board at step 720 because terminal liquidation started too late?
+4. Did the workforce stall below the elite 12-hand scaling target?
 
-Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph:
+Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to eliminate this exact failure mode:
 - Add, modify, or prune nodes and edges.
-- Refine the 'guidance' and 'pitfalls' on edges so Jev's System 1 Choice criteria explicitly steers it correctly.
-- Calibrate conditions (e.g. ensuring wage defense only triggers when hour >= 18 AND day > 1 AND cash < midnight_payroll_due).
+- Refine the 'guidance' and 'pitfalls' on edges so runtime execution avoids this trap.
+- Calibrate conditions, priorities, and numerical thresholds.
 
 ### OUTPUT SCHEMA (Strict JSON):
 {{
@@ -155,10 +165,15 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph:
             }
         )
 
-        with urllib.request.urlopen(req, timeout=180) as resp:
-            raw_text = resp.read().decode("utf-8")
-            response_json = json.loads(raw_text)
-            content = response_json["choices"][0]["message"]["content"]
+        try:
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                raw_text = resp.read().decode("utf-8")
+                response_json = json.loads(raw_text)
+                content = response_json["choices"][0]["message"]["content"]
+            record_call("outer_mutator_llm", "success", model=m_id)
+        except Exception as exc:
+            record_call("outer_mutator_llm", "failure", model=m_id, error=exc)
+            raise
 
         parsed = extract_json_block(content)
         rationale = parsed.get("rationale", "BAM strategic graph mutation")

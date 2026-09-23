@@ -1,102 +1,278 @@
 {
-  "total_matches_analyzed": 1337,
-  "total_player_trajectories": 2674,
+  "total_matches_analyzed": 35392,
+  "total_player_trajectories": 70784,
   "cohort_counts": {
-    "elite": 38,
-    "strong": 415,
-    "mid": 1899,
-    "collapsed": 15
+    "elite": 1551,
+    "strong": 19496,
+    "mid": 42207,
+    "collapsed": 773
   },
-  "mining_rate_matches_per_sec": 11.0,
+  "mining_rate_matches_per_sec": 12.7,
   "archetypes": {
     "elite": {
-      "count": 38,
+      "count": 1551,
       "final_reward": {
-        "median": 159626.0,
-        "mean": 162150.08,
-        "p10": 151766.0,
-        "p90": 178426.0
+        "median": 155698.0,
+        "mean": 158192.55,
+        "p10": 150971.0,
+        "p90": 168370.0
+      },
+      "hires_day_0": {
+        "median": 4,
+        "mean": 4.44,
+        "p10": 4,
+        "p90": 5
+      },
+      "peak_hands": {
+        "median": 12,
+        "mean": 12.39,
+        "p10": 12,
+        "p90": 14
+      },
+      "cows_bought": {
+        "median": 8,
+        "mean": 9.11,
+        "p10": 8,
+        "p90": 12
+      },
+      "sheep_bought": {
+        "median": 6,
+        "mean": 6.5,
+        "p10": 4,
+        "p90": 10
+      },
+      "last_expand_day": {
+        "median": 0.0,
+        "mean": 0.0,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "last_strawberry_seed_day": {
+        "median": 14.0,
+        "mean": 13.38,
+        "p10": 11.0,
+        "p90": 15.0
+      },
+      "peak_shed": {
+        "median": 100,
+        "mean": 101.01,
+        "p10": 93,
+        "p90": 113
+      },
+      "min_midnight_cash": {
+        "median": 10.0,
+        "mean": 25.95,
+        "p10": 3.0,
+        "p90": 43.0
+      },
+      "bankruptcy_rate": 1.0,
+      "water_harvest_ratio": {
+        "median": 2.54,
+        "mean": 2.52,
+        "p10": 2.29,
+        "p90": 2.73
+      },
+      "peak_market_orders": {
+        "median": 10,
+        "mean": 9.85,
+        "p10": 10,
+        "p90": 10
+      },
+      "late_liquidation_units": {
+        "median": 395,
+        "mean": 9898.38,
+        "p10": 223,
+        "p90": 715
+      },
+      "unharvested_ripe_units": {
+        "median": 2,
+        "mean": 3.8,
+        "p10": 0,
+        "p90": 14
+      },
+      "seeds_phase_0_2": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 0.4,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "MELON": {
+          "median": 8.0,
+          "mean": 9.07,
+          "p10": 7.0,
+          "p90": 12.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 0.34,
+          "p10": 0.0,
+          "p90": 2.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.01,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "WHEAT": {
+          "median": 11.0,
+          "mean": 10.41,
+          "p10": 7.0,
+          "p90": 12.0
+        }
+      },
+      "seeds_phase_3_12": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 1.33,
+          "p10": 0.0,
+          "p90": 6.0
+        },
+        "MELON": {
+          "median": 8.0,
+          "mean": 6.75,
+          "p10": 0.0,
+          "p90": 12.0
+        },
+        "STRAWBERRY": {
+          "median": 39.0,
+          "mean": 37.64,
+          "p10": 33.0,
+          "p90": 42.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.27,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "WHEAT": {
+          "median": 17.0,
+          "mean": 25.4,
+          "p10": 17.0,
+          "p90": 47.0
+        }
+      },
+      "seeds_phase_13_plus": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 4.02,
+          "p10": 0.0,
+          "p90": 14.0
+        },
+        "MELON": {
+          "median": 5.0,
+          "mean": 2.96,
+          "p10": 0.0,
+          "p90": 5.0
+        },
+        "STRAWBERRY": {
+          "median": 5.0,
+          "mean": 3.84,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 1.27,
+          "p10": 0.0,
+          "p90": 3.0
+        },
+        "WHEAT": {
+          "median": 38.0,
+          "mean": 60.09,
+          "p10": 20.0,
+          "p90": 111.0
+        }
+      },
+      "sells_by_product": {
+        "CARROT": {
+          "median": 13.0,
+          "mean": 1201.82,
+          "p10": 0.0,
+          "p90": 76.0
+        },
+        "EGG": {
+          "median": 8.0,
+          "mean": 1029.85,
+          "p10": 0.0,
+          "p90": 74.0
+        },
+        "FERTILIZER": {
+          "median": 357.0,
+          "mean": 1609.04,
+          "p10": 229.0,
+          "p90": 1025.0
+        },
+        "MELON": {
+          "median": 144.0,
+          "mean": 1155.46,
+          "p10": 72.0,
+          "p90": 253.0
+        },
+        "MILK": {
+          "median": 343.0,
+          "mean": 1540.26,
+          "p10": 229.0,
+          "p90": 864.0
+        },
+        "STRAWBERRY": {
+          "median": 344.0,
+          "mean": 1462.74,
+          "p10": 252.0,
+          "p90": 798.0
+        },
+        "TOMATO": {
+          "median": 4.0,
+          "mean": 1014.7,
+          "p10": 0.0,
+          "p90": 68.0
+        },
+        "WHEAT": {
+          "median": 938.0,
+          "mean": 2127.11,
+          "p10": 269.0,
+          "p90": 1192.0
+        },
+        "WOOL": {
+          "median": 241.0,
+          "mean": 1315.11,
+          "p10": 96.0,
+          "p90": 480.0
+        }
+      }
+    },
+    "strong": {
+      "count": 19496,
+      "final_reward": {
+        "median": 124086.5,
+        "mean": 125644.39,
+        "p10": 112540.0,
+        "p90": 141465.0
       },
       "hires_day_0": {
         "median": 5.0,
-        "mean": 4.74,
+        "mean": 4.67,
         "p10": 4,
         "p90": 5
       },
       "peak_hands": {
         "median": 12.0,
-        "mean": 12,
-        "p10": 12,
-        "p90": 12
+        "mean": 12.49,
+        "p10": 11,
+        "p90": 14
       },
       "cows_bought": {
-        "median": 9.0,
-        "mean": 9.89,
+        "median": 8.0,
+        "mean": 8.66,
         "p10": 6,
-        "p90": 16
-      },
-      "sheep_bought": {
-        "median": 5.0,
-        "mean": 6.66,
-        "p10": 3,
         "p90": 11
       },
-      "last_expand_day": {
-        "median": 0.0,
-        "mean": 0.0,
-        "p10": 0.0,
-        "p90": 0.0
-      },
-      "last_strawberry_seed_day": {
-        "median": 11.0,
-        "mean": 11.7,
-        "p10": 10.4,
-        "p90": 13.8
-      },
-      "peak_shed": {
-        "median": 96.0,
-        "mean": 95.13,
-        "p10": 86,
-        "p90": 100
-      },
-      "min_midnight_cash": {
-        "median": 43.0,
-        "mean": 38.18,
-        "p10": 1.0,
-        "p90": 66.0
-      },
-      "bankruptcy_rate": 1.0
-    },
-    "strong": {
-      "count": 415,
-      "final_reward": {
-        "median": 121336.0,
-        "mean": 123797.1,
-        "p10": 111982.0,
-        "p90": 139679.0
-      },
-      "hires_day_0": {
-        "median": 5,
-        "mean": 4.81,
+      "sheep_bought": {
+        "median": 6.0,
+        "mean": 6.96,
         "p10": 4,
-        "p90": 5
-      },
-      "peak_hands": {
-        "median": 12,
-        "mean": 12.01,
-        "p10": 12,
-        "p90": 12
-      },
-      "cows_bought": {
-        "median": 9,
-        "mean": 8.43,
-        "p10": 6,
-        "p90": 11
-      },
-      "sheep_bought": {
-        "median": 6,
-        "mean": 8.05,
-        "p10": 5,
         "p90": 12
       },
       "last_expand_day": {
@@ -106,54 +282,242 @@
         "p90": 0.0
       },
       "last_strawberry_seed_day": {
-        "median": 11.0,
-        "mean": 11.36,
-        "p10": 10.8,
-        "p90": 13.8
+        "median": 11.7,
+        "mean": 12.56,
+        "p10": 10.7,
+        "p90": 15.0
       },
       "peak_shed": {
-        "median": 99,
-        "mean": 97.14,
+        "median": 100.0,
+        "mean": 99.54,
         "p10": 91,
         "p90": 100
       },
       "min_midnight_cash": {
-        "median": 26.0,
-        "mean": 31.13,
+        "median": 14.0,
+        "mean": 39.51,
         "p10": 2.0,
         "p90": 74.0
       },
-      "bankruptcy_rate": 1.0
+      "bankruptcy_rate": 1.0,
+      "water_harvest_ratio": {
+        "median": 2.54,
+        "mean": 2.52,
+        "p10": 2.15,
+        "p90": 2.79
+      },
+      "peak_market_orders": {
+        "median": 10.0,
+        "mean": 9.87,
+        "p10": 10,
+        "p90": 10
+      },
+      "late_liquidation_units": {
+        "median": 292.0,
+        "mean": 16532.52,
+        "p10": 212,
+        "p90": 715
+      },
+      "unharvested_ripe_units": {
+        "median": 2.0,
+        "mean": 4.62,
+        "p10": 0,
+        "p90": 16
+      },
+      "seeds_phase_0_2": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 0.31,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "MELON": {
+          "median": 11.0,
+          "mean": 9.67,
+          "p10": 5.0,
+          "p90": 12.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 0.55,
+          "p10": 0.0,
+          "p90": 2.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.01,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "WHEAT": {
+          "median": 10.0,
+          "mean": 9.44,
+          "p10": 5.0,
+          "p90": 12.0
+        }
+      },
+      "seeds_phase_3_12": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 2.14,
+          "p10": 0.0,
+          "p90": 8.0
+        },
+        "MELON": {
+          "median": 8.0,
+          "mean": 6.24,
+          "p10": 0.0,
+          "p90": 12.0
+        },
+        "STRAWBERRY": {
+          "median": 38.0,
+          "mean": 36.49,
+          "p10": 28.0,
+          "p90": 43.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.57,
+          "p10": 0.0,
+          "p90": 1.0
+        },
+        "WHEAT": {
+          "median": 31.0,
+          "mean": 30.06,
+          "p10": 17.0,
+          "p90": 50.0
+        }
+      },
+      "seeds_phase_13_plus": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 9.07,
+          "p10": 0.0,
+          "p90": 31.0
+        },
+        "MELON": {
+          "median": 0.0,
+          "mean": 1.36,
+          "p10": 0.0,
+          "p90": 5.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 2.17,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 1.66,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "WHEAT": {
+          "median": 87.0,
+          "mean": 77.43,
+          "p10": 6.0,
+          "p90": 125.0
+        }
+      },
+      "sells_by_product": {
+        "CARROT": {
+          "median": 13.0,
+          "mean": 2020.4,
+          "p10": 0.0,
+          "p90": 161.0
+        },
+        "COW": {
+          "median": 0.0,
+          "mean": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "EGG": {
+          "median": 0.0,
+          "mean": 1780.06,
+          "p10": 0.0,
+          "p90": 148.0
+        },
+        "FERTILIZER": {
+          "median": 283.0,
+          "mean": 2370.35,
+          "p10": 207.0,
+          "p90": 1906.0
+        },
+        "MELON": {
+          "median": 113.0,
+          "mean": 1828.46,
+          "p10": 72.0,
+          "p90": 243.0
+        },
+        "MILK": {
+          "median": 257.0,
+          "mean": 2144.28,
+          "p10": 171.0,
+          "p90": 717.0
+        },
+        "SHEEP": {
+          "median": 0.0,
+          "mean": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "STRAWBERRY": {
+          "median": 295.0,
+          "mean": 2122.25,
+          "p10": 208.0,
+          "p90": 686.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 1735.1,
+          "p10": 0.0,
+          "p90": 122.0
+        },
+        "WHEAT": {
+          "median": 625.0,
+          "mean": 2906.34,
+          "p10": 271.0,
+          "p90": 1466.0
+        },
+        "WOOL": {
+          "median": 179.0,
+          "mean": 1964.71,
+          "p10": 93.0,
+          "p90": 447.0
+        }
+      }
     },
     "mid": {
-      "count": 1899,
+      "count": 42207,
       "final_reward": {
-        "median": 84815.0,
-        "mean": 84753.19,
-        "p10": 65791.0,
-        "p90": 103642.0
+        "median": 88234.0,
+        "mean": 87225.05,
+        "p10": 67423.0,
+        "p90": 105120.0
       },
       "hires_day_0": {
         "median": 5,
-        "mean": 4.84,
+        "mean": 4.78,
         "p10": 4,
-        "p90": 5
+        "p90": 6
       },
       "peak_hands": {
         "median": 12,
-        "mean": 12.01,
-        "p10": 12,
-        "p90": 12
+        "mean": 12.5,
+        "p10": 11,
+        "p90": 14
       },
       "cows_bought": {
-        "median": 9,
-        "mean": 7.87,
-        "p10": 5,
-        "p90": 10
+        "median": 8,
+        "mean": 8.47,
+        "p10": 6,
+        "p90": 11
       },
       "sheep_bought": {
         "median": 5,
-        "mean": 7.19,
+        "mean": 6.37,
         "p10": 4,
         "p90": 11
       },
@@ -165,55 +529,243 @@
       },
       "last_strawberry_seed_day": {
         "median": 11.0,
-        "mean": 11.19,
-        "p10": 10.5,
-        "p90": 11.8
+        "mean": 11.68,
+        "p10": 10.1,
+        "p90": 14.4
       },
       "peak_shed": {
         "median": 100,
-        "mean": 97.83,
-        "p10": 94,
+        "mean": 97.35,
+        "p10": 91,
         "p90": 100
       },
       "min_midnight_cash": {
-        "median": 26.0,
-        "mean": 30.48,
+        "median": 17.0,
+        "mean": 33.69,
         "p10": 2.0,
-        "p90": 74.0
+        "p90": 51.0
       },
-      "bankruptcy_rate": 1.0
+      "bankruptcy_rate": 1.0,
+      "water_harvest_ratio": {
+        "median": 2.54,
+        "mean": 2.55,
+        "p10": 2.23,
+        "p90": 2.9
+      },
+      "peak_market_orders": {
+        "median": 10,
+        "mean": 9.97,
+        "p10": 10,
+        "p90": 10
+      },
+      "late_liquidation_units": {
+        "median": 288,
+        "mean": 24539.22,
+        "p10": 222,
+        "p90": 597
+      },
+      "unharvested_ripe_units": {
+        "median": 2,
+        "mean": 5.57,
+        "p10": 0,
+        "p90": 20
+      },
+      "seeds_phase_0_2": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 0.35,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "MELON": {
+          "median": 12.0,
+          "mean": 9.96,
+          "p10": 5.0,
+          "p90": 12.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 0.57,
+          "p10": 0.0,
+          "p90": 2.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.01,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "WHEAT": {
+          "median": 10.0,
+          "mean": 9.31,
+          "p10": 5.0,
+          "p90": 13.0
+        }
+      },
+      "seeds_phase_3_12": {
+        "CARROT": {
+          "median": 1.0,
+          "mean": 3.9,
+          "p10": 0.0,
+          "p90": 8.0
+        },
+        "MELON": {
+          "median": 4.0,
+          "mean": 5.38,
+          "p10": 0.0,
+          "p90": 14.0
+        },
+        "STRAWBERRY": {
+          "median": 37.0,
+          "mean": 34.98,
+          "p10": 24.0,
+          "p90": 42.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 0.68,
+          "p10": 0.0,
+          "p90": 1.0
+        },
+        "WHEAT": {
+          "median": 33.0,
+          "mean": 35.79,
+          "p10": 18.0,
+          "p90": 54.0
+        }
+      },
+      "seeds_phase_13_plus": {
+        "CARROT": {
+          "median": 6.0,
+          "mean": 17.61,
+          "p10": 0.0,
+          "p90": 54.0
+        },
+        "MELON": {
+          "median": 0.0,
+          "mean": 0.53,
+          "p10": 0.0,
+          "p90": 1.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 0.91,
+          "p10": 0.0,
+          "p90": 4.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 1.57,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "WHEAT": {
+          "median": 100.0,
+          "mean": 93.29,
+          "p10": 45.0,
+          "p90": 128.0
+        }
+      },
+      "sells_by_product": {
+        "CARROT": {
+          "median": 18.0,
+          "mean": 3133.74,
+          "p10": 0.0,
+          "p90": 296.0
+        },
+        "COW": {
+          "median": 0.0,
+          "mean": 0.0,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "EGG": {
+          "median": 0.0,
+          "mean": 2660.24,
+          "p10": 0.0,
+          "p90": 198.0
+        },
+        "FERTILIZER": {
+          "median": 294.0,
+          "mean": 3491.02,
+          "p10": 198.0,
+          "p90": 2380.0
+        },
+        "MELON": {
+          "median": 88.0,
+          "mean": 2516.99,
+          "p10": 72.0,
+          "p90": 198.0
+        },
+        "MILK": {
+          "median": 241.0,
+          "mean": 3116.28,
+          "p10": 147.0,
+          "p90": 460.0
+        },
+        "SHEEP": {
+          "median": 0.0,
+          "mean": 0.01,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "STRAWBERRY": {
+          "median": 276.0,
+          "mean": 2797.31,
+          "p10": 164.0,
+          "p90": 468.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 2437.67,
+          "p10": 0.0,
+          "p90": 129.0
+        },
+        "WHEAT": {
+          "median": 479.0,
+          "mean": 3860.81,
+          "p10": 290.0,
+          "p90": 1644.0
+        },
+        "WOOL": {
+          "median": 159.0,
+          "mean": 2812.3,
+          "p10": 81.0,
+          "p90": 305.0
+        }
+      }
     },
     "collapsed": {
-      "count": 15,
+      "count": 773,
       "final_reward": {
-        "median": 8130.0,
-        "mean": 7603.07,
-        "p10": 0.0,
-        "p90": 17810.0
+        "median": 6664.0,
+        "mean": 10574.79,
+        "p10": 1338.0,
+        "p90": 22630.0
       },
       "hires_day_0": {
-        "median": 5,
-        "mean": 5,
-        "p10": 5,
-        "p90": 5
+        "median": 3,
+        "mean": 3.2,
+        "p10": 0,
+        "p90": 7
       },
       "peak_hands": {
-        "median": 12,
-        "mean": 10.47,
-        "p10": 8,
+        "median": 5,
+        "mean": 4.95,
+        "p10": 0,
         "p90": 12
       },
       "cows_bought": {
-        "median": 8,
-        "mean": 7.27,
-        "p10": 6,
-        "p90": 9
+        "median": 0,
+        "mean": 1.28,
+        "p10": 0,
+        "p90": 7
       },
       "sheep_bought": {
-        "median": 8,
-        "mean": 7.47,
-        "p10": 5,
-        "p90": 11
+        "median": 0,
+        "mean": 1.13,
+        "p10": 0,
+        "p90": 5
       },
       "last_expand_day": {
         "median": 0.0,
@@ -222,24 +774,206 @@
         "p90": 0.0
       },
       "last_strawberry_seed_day": {
-        "median": 11.0,
-        "mean": 10.78,
-        "p10": 11.0,
-        "p90": 11.0
+        "median": 14.0,
+        "mean": 14.88,
+        "p10": 5.0,
+        "p90": 24.4
       },
       "peak_shed": {
-        "median": 53,
-        "mean": 55.2,
-        "p10": 53,
-        "p90": 59
+        "median": 20,
+        "mean": 38.38,
+        "p10": 0,
+        "p90": 100
       },
       "min_midnight_cash": {
-        "median": 0.0,
-        "mean": 0.33,
+        "median": 554.0,
+        "mean": 1191.51,
         "p10": 0.0,
-        "p90": 0.0
+        "p90": 3000.0
       },
-      "bankruptcy_rate": 1.0
+      "bankruptcy_rate": 0.692,
+      "water_harvest_ratio": {
+        "median": 3.97,
+        "mean": 8.25,
+        "p10": 0.0,
+        "p90": 15.7
+      },
+      "peak_market_orders": {
+        "median": 7,
+        "mean": 5.58,
+        "p10": 0,
+        "p90": 10
+      },
+      "late_liquidation_units": {
+        "median": 10,
+        "mean": 240.42,
+        "p10": 0,
+        "p90": 163
+      },
+      "unharvested_ripe_units": {
+        "median": 1,
+        "mean": 7.5,
+        "p10": 0,
+        "p90": 20
+      },
+      "seeds_phase_0_2": {
+        "CARROT": {
+          "median": 1.0,
+          "mean": 5.39,
+          "p10": 0.0,
+          "p90": 18.0
+        },
+        "MELON": {
+          "median": 5.0,
+          "mean": 8.48,
+          "p10": 0.0,
+          "p90": 22.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 0.87,
+          "p10": 0.0,
+          "p90": 3.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 2.49,
+          "p10": 0.0,
+          "p90": 6.0
+        },
+        "WHEAT": {
+          "median": 0.0,
+          "mean": 3.71,
+          "p10": 0.0,
+          "p90": 10.0
+        }
+      },
+      "seeds_phase_3_12": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 7.63,
+          "p10": 0.0,
+          "p90": 26.0
+        },
+        "MELON": {
+          "median": 1.0,
+          "mean": 9.88,
+          "p10": 0.0,
+          "p90": 22.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 4.82,
+          "p10": 0.0,
+          "p90": 15.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 2.13,
+          "p10": 0.0,
+          "p90": 9.0
+        },
+        "WHEAT": {
+          "median": 0.0,
+          "mean": 9.06,
+          "p10": 0.0,
+          "p90": 33.0
+        }
+      },
+      "seeds_phase_13_plus": {
+        "CARROT": {
+          "median": 0.0,
+          "mean": 20.43,
+          "p10": 0.0,
+          "p90": 60.0
+        },
+        "MELON": {
+          "median": 0.0,
+          "mean": 5.66,
+          "p10": 0.0,
+          "p90": 25.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 2.72,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 2.7,
+          "p10": 0.0,
+          "p90": 7.0
+        },
+        "WHEAT": {
+          "median": 5.0,
+          "mean": 21.51,
+          "p10": 0.0,
+          "p90": 78.0
+        }
+      },
+      "sells_by_product": {
+        "CARROT": {
+          "median": 2.0,
+          "mean": 65.31,
+          "p10": 0.0,
+          "p90": 153.0
+        },
+        "COW": {
+          "median": 0.0,
+          "mean": 0.03,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "EGG": {
+          "median": 0.0,
+          "mean": 22.29,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "FERTILIZER": {
+          "median": 0.0,
+          "mean": 41.2,
+          "p10": 0.0,
+          "p90": 27.0
+        },
+        "MELON": {
+          "median": 40.0,
+          "mean": 101.82,
+          "p10": 0.0,
+          "p90": 204.0
+        },
+        "MILK": {
+          "median": 0.0,
+          "mean": 42.05,
+          "p10": 0.0,
+          "p90": 0.0
+        },
+        "STRAWBERRY": {
+          "median": 0.0,
+          "mean": 52.74,
+          "p10": 0.0,
+          "p90": 48.0
+        },
+        "TOMATO": {
+          "median": 0.0,
+          "mean": 32.53,
+          "p10": 0.0,
+          "p90": 32.0
+        },
+        "WHEAT": {
+          "median": 0.0,
+          "mean": 147.08,
+          "p10": 0.0,
+          "p90": 392.0
+        },
+        "WOOL": {
+          "median": 0.0,
+          "mean": 31.23,
+          "p10": 0.0,
+          "p90": 0.0
+        }
+      }
     }
   }
 }

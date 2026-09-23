@@ -35,7 +35,7 @@ class JevGraphActor:
         self,
         graph_data: Dict[str, Any] | Path,
         api_key: Optional[str] = None,
-        query_interval: int = 6  # Query Jev every 6 hours by default (or on emergency)
+        query_interval: int = 3  # Query Jev every 3 steps by default (or on emergency)
     ):
         self.api_key = api_key or os.environ.get("TYPESAFE_API_KEY")
         if not self.api_key:
@@ -55,6 +55,14 @@ class JevGraphActor:
 
         self.strategy_summary = build_jev_knowledge_summary()
         self.decision_trace: List[Dict[str, Any]] = []
+        # These counters stay process-local; the Kaggle shard collects them from
+        # every completed game and returns an aggregate to the host watchdog.
+        self.query_metrics: Dict[str, Any] = {
+            "attempted": 0,
+            "succeeded": 0,
+            "failed": 0,
+            "last_error": None,
+        }
         self._cached_decision: Optional[Dict[str, Any]] = None
         self._last_decision_step: int = -1
 
@@ -210,7 +218,14 @@ class JevGraphActor:
         }
 
         t0 = time.perf_counter()
-        response = self.client.system_one(state=state_payload, questions=questions)
+        self.query_metrics["attempted"] += 1
+        try:
+            response = self.client.system_one(state=state_payload, questions=questions)
+        except Exception as exc:
+            self.query_metrics["failed"] += 1
+            self.query_metrics["last_error"] = f"{type(exc).__name__}: {exc}"[:300]
+            raise
+        self.query_metrics["succeeded"] += 1
         latency_ms = (time.perf_counter() - t0) * 1000.0
 
         branch_res = response.choices["branch_selection"]
@@ -252,3 +267,7 @@ class JevGraphActor:
         self._cached_decision = decision
         self._last_decision_step = step
         return decision
+
+    def telemetry_snapshot(self) -> Dict[str, Any]:
+        """Serializable remote-call counts for the shard result."""
+        return dict(self.query_metrics)

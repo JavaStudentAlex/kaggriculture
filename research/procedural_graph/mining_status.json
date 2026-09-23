@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "total_matches": 35392,
+  "matches_processed": 35392,
+  "percent_complete": 100.0,
+  "matches_per_second": 12.7,
+  "elapsed_seconds": 2794.3,
+  "eta_seconds": 0.0,
+  "last_update_unix": 1789844459.9897234,
+  "cohort_counts": {
+    "elite": 1551,
+    "strong": 19496,
+    "mid": 42207,
+    "collapsed": 773
+  }
+}

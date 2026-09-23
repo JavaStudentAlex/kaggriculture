@@ -23,6 +23,8 @@ class ProceduralGraphEngine:
         
         with open(graph_path, encoding="utf-8") as f:
             self.graph_data = json.load(f)
+        if self.graph_data.get("runtime") == "hazel_merged_v1":
+            raise ValueError("Merged graph requires agent_graph.get_engine()/HazelGraph, not the legacy market-only engine")
             
         self.nodes = {n["id"]: n for n in self.graph_data.get("nodes", [])}
         # Sort edges strictly by priority (1 = highest priority)

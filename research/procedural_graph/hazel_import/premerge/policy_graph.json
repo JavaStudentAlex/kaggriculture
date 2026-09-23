@@ -1,0 +1,317 @@
+{
+  "version": "3.4.0",
+  "name": "closed_loop_strawberry_hydration_and_recalibrated_growth_graph",
+  "description": "Removes the paralyzing 800-cash Day 0-2 reserve lock while strictly protecting midnight payroll, installs a closed-loop strawberry hydration and zero-waste harvesting engine, and optimizes shop fulfillment and endgame liquidation.",
+  "execution_contract": {
+    "entry_node": "state_audit",
+    "traversal": "Evaluate edges in ascending priority. State audit selects exactly one validation branch. On the valid-state path, visit planning nodes sequentially; specialized liquidation/scalping nodes feed directly into action_scheduler. Only action_scheduler submits engine orders.",
+    "planning_semantics": "Nodes propose individual legal actions with prerequisites, quantity, estimated cash effect, capacity effect, deadline, and purpose. Proposals are evaluated cumulatively against remaining cash and order limits.",
+    "action_limit": 10,
+    "worker_limit": 9,
+    "unknown_values": "Null is unknown, never zero or false. Derive missing fields only from authoritative observations and documented engine timing.",
+    "submission_semantics": "Count all trades, purchases, movements, refills, deposits, and worker commands against the engine's actual order rules. Do not assume multi-step operations execute in a single command.",
+    "dependency_semantics": "Use same-tick dependencies only when engine execution order is documented and guaranteed; otherwise wait for acknowledgment and re-observation.",
+    "feedback": "Re-audit after each engine response. Never infer successful sales, hiring, deposits, or watering from submission alone."
+  },
+  "derived_state": {
+    "midnight_payroll_due": "hands_count * 120 + 100, reconciled against authoritative payroll field",
+    "available_cash": "observed cash minus existing committed debits in current batch; excludes speculative sale proceeds",
+    "payroll_shortfall": "max(0, midnight_payroll_due - available_cash)",
+    "payroll_buffer_target": "1.2 * midnight_payroll_due",
+    "emergency_lock": "(hour >= 18 and payroll_shortfall > 0) or (day == 0 and hour >= 18 and available_cash < midnight_payroll_due)",
+    "terminal_active": "step >= 696 and step < 720, unless authoritative match timing specifies a different final window",
+    "expansion_freeze": "day >= 13 or terminal_active",
+    "phase_hand_cap": "3 for day <= 2; 6 for 3 <= day <= 6; 9 for 7 <= day <= 12; no hiring thereafter",
+    "phase_plot_cap": "8 for day <= 2; 16 for 3 <= day <= 6; 26 for 7 <= day <= 12; no purchases thereafter",
+    "remaining_orders": "10 minus the number of validated orders already selected for this tick",
+    "projected_shed_use": "observed shed use plus feasible scheduled deposits minus acknowledged removals or guaranteed earlier same-tick removals",
+    "can_refill_needed": "worker watering can charges == 0 or (worker watering can charges < 2 and worker is adjacent to well)"
+  },
+  "nodes": [
+    {
+      "id": "state_audit",
+      "name": "Authoritative State and Telemetry Audit",
+      "category": "audit",
+      "description": "Validate time, cash, worker count, worker positions, packs, watering-can charges, plot soil moisture levels, crop maturity stages, shed capacity, and action limits. Reconcile prior orders. Record missing required fields explicitly rather than hallucinating state."
+    },
+    {
+      "id": "observation_recovery",
+      "name": "Observation Recovery and Safe Hold",
+      "category": "recovery",
+      "description": "Request or re-read authoritative state through supported observation mechanisms. Suspend unsupported trades, hiring, planting, and expansion during telemetry blackout; execute only verified safe hold actions."
+    },
+    {
+      "id": "terminal_liquidation",
+      "name": "Deadline-Aware Terminal Planner",
+      "category": "liquidation",
+      "description": "During the terminal window (steps >= 696), release shop and input reserves, halt expansion, and propose feasible inventory sales plus harvest-travel-deposit chains that settle before step 720."
+    },
+    {
+      "id": "wage_defense",
+      "name": "Actual-Liability Payroll Defense",
+      "category": "defense",
+      "description": "Enforce absolute payroll solvency. Always maintain cash >= midnight_payroll_due (hands * 120 + 100). On any day at hour >= 18 with payroll_shortfall > 0, lock discretionary spending and propose minimal executable liquidation needed to close the gap."
+    },
+    {
+      "id": "shed_headroom",
+      "name": "Deposit-Aware Capacity Planner",
+      "category": "capacity",
+      "description": "Maintain capacity for incoming worker deposits. Initiate relief when projected utilization exceeds 88%, selling vulnerable surplus commodities or low-opportunity excess inputs before workers deposit."
+    },
+    {
+      "id": "town_shop_preempt",
+      "name": "Demand-Aware Premium Deliveries",
+      "category": "revenue",
+      "description": "Deliver eligible inventory to unlocked town shops paying 2.0x-3.5x premiums. Maintain 12-16 reserved units per commodity for recurring shop orders, but release to meet intended shop deliveries or resolve hard payroll shortfalls."
+    },
+    {
+      "id": "oracle_frontrun",
+      "name": "Wool and Milk Glut Front-Run",
+      "category": "market",
+      "description": "When forecasts predict an imminent opponent supply glut, liquidate held Wool and Milk 4-8 steps ahead before prices collapse. Prefer shop sales if available; otherwise execute market orders."
+    },
+    {
+      "id": "capital_compounding",
+      "name": "Post-Cost Affordable Phased Growth",
+      "category": "growth",
+      "description": "During Days 0-12 before hour 18, propose hiring, land, and strawberry seeds as an atomic bundle where cash remaining after all proposed purchases exceeds midnight_payroll_due + 60. Obey phase hand/plot caps; halt all hiring, land, and strawberry seed buying on Day 13."
+    },
+    {
+      "id": "closed_loop_hydration_pipeline",
+      "name": "Closed-Loop Strawberry Hydration and Zero-Waste Harvest Planner",
+      "category": "execution",
+      "description": "Execute deterministic closed-loop worker routing: 1) Refill watering can at well if empty or adjacent with < 2 charges; 2) Water strawberry plots before moisture decays below threshold to maximize recurring yield; 3) Harvest mature strawberries immediately to trigger next regrowth cycle; 4) Deposit harvested berries when pack >= 80% or shed headroom permits."
+    },
+    {
+      "id": "keiz_opening_scalp",
+      "name": "Keiz Opening Wheat Scalp",
+      "category": "market",
+      "description": "On step 0, buy exactly 1 unit of WHEAT. On step 1, sell exactly 1 unit of WHEAT to capture opening spread."
+    },
+    {
+      "id": "tiered_shed_pressure_valve",
+      "name": "Tiered Shed Pressure Valve",
+      "category": "capacity",
+      "description": "When shed utilization exceeds 90% (and aggressively at 95%), relax price floors down to 0.15 or 0.05 of base price to immediately evacuate bulky inventory and prevent worker deposit chokes."
+    },
+    {
+      "id": "fertilizer_monetization",
+      "name": "Fertilizer Monetization",
+      "category": "revenue",
+      "description": "When holding 3+ units of FERTILIZER and price is >= 45% of base, sell excess units in small batches, retaining 1 unit for crop fertilization."
+    },
+    {
+      "id": "early_endgame_liquidation",
+      "name": "Predictive Early-Endgame Liquidation",
+      "category": "liquidation",
+      "description": "During steps 680 to 711, preemptively liquidate high-value assets (MELON, TOMATO, FERTILIZER, WOOL) forecast to suffer terminal opponent dumping while market prices remain high."
+    },
+    {
+      "id": "final_turn_liquidation",
+      "name": "Final Turn Forced Liquidation",
+      "category": "liquidation",
+      "description": "At steps 718 and 719, submit 100% full liquidation sell orders for all items in the shed regardless of price floors to maximize final settlement cash."
+    },
+    {
+      "id": "action_scheduler",
+      "name": "Shared Ten-Order Scheduler and Legality Gate",
+      "category": "execution",
+      "description": "Merge all candidate proposals from sequential planners and specialized modules into one strictly valid batch of at most 10 orders. Prioritize terminal liquidation, payroll solvency, hydration/harvest cycles, shop premiums, and affordable growth without duplicate worker assignments or overselling."
+    },
+    {
+      "id": "execution_feedback",
+      "name": "Acknowledgment and Decision Trace",
+      "category": "audit",
+      "description": "Record submitted orders, engine execution responses, updated cash balances, and worker states. Reconcile rejections before the next planning cycle."
+    }
+  ],
+  "edges": [
+    {
+      "source": "state_audit",
+      "target": "observation_recovery",
+      "relation": "TRIGGERS",
+      "priority": 1,
+      "attributes": {
+        "condition": "required_state_valid == false",
+        "guidance": "Suspend execution and request authoritative state. Do not fabricate game state or assume zero payroll liability.",
+        "pitfalls": "Coercing null values to zero; issuing blind growth orders during observation gaps."
+      }
+    },
+    {
+      "source": "observation_recovery",
+      "target": "execution_feedback",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Log recovery state and yield tick safely.",
+        "pitfalls": "Submitting unverified production orders while state is invalid."
+      }
+    },
+    {
+      "source": "state_audit",
+      "target": "terminal_liquidation",
+      "relation": "LEADS_TO",
+      "priority": 2,
+      "attributes": {
+        "condition": "required_state_valid == true",
+        "guidance": "Begin planning pipeline. Activate terminal liquidation only if terminal_active is true.",
+        "pitfalls": "Executing terminal dump before terminal window begins."
+      }
+    },
+    {
+      "source": "terminal_liquidation",
+      "target": "wage_defense",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Enforce payroll defense. Ensure cash remains >= midnight_payroll_due. On Days 1+, lock spending at hour >= 18 if available cash < midnight payroll.",
+        "pitfalls": "Allowing cash to drop below midnight payroll; assuming unharvested crops can be sold on Day 0."
+      }
+    },
+    {
+      "source": "wage_defense",
+      "target": "shed_headroom",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Calculate available shed capacity accounting for proposed payroll sales and scheduled deposits.",
+        "pitfalls": "Double-counting shed relief sales or allowing pack overflow."
+      }
+    },
+    {
+      "source": "shed_headroom",
+      "target": "town_shop_preempt",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Propose deliveries for premium shop orders, preserving 12-16 units for recurring shop demand.",
+        "pitfalls": "Refusing shop deliveries to preserve buffers intended for that shop."
+      }
+    },
+    {
+      "source": "town_shop_preempt",
+      "target": "oracle_frontrun",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Sell vulnerable Wool/Milk ahead of predicted market gluts.",
+        "pitfalls": "Holding inventory into a forecasted price collapse."
+      }
+    },
+    {
+      "source": "oracle_frontrun",
+      "target": "capital_compounding",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Propose growth only if day < 13, hour < 18, emergency_lock is false, and total post-purchase cash >= midnight_payroll_due + 60. Treat hiring, land, and seeds as an aggregate atomic spend.",
+        "pitfalls": "Hoarding cash with excessive Day 0-2 buffers (+800) that halt strawberry planting; spending below midnight payroll liability."
+      }
+    },
+    {
+      "source": "capital_compounding",
+      "target": "closed_loop_hydration_pipeline",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Schedule worker assignments using closed-loop priority: refill empty cans at well -> water drying strawberry beds -> harvest ripe crops -> deposit to shed.",
+        "pitfalls": "Sending workers to water crops with an empty watering can; failing to harvest ripe strawberries immediately."
+      }
+    },
+    {
+      "source": "closed_loop_hydration_pipeline",
+      "target": "action_scheduler",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Pass sequential proposals into the unified 10-order scheduler.",
+        "pitfalls": "Exceeding 10 total orders or assigning multiple actions to one worker."
+      }
+    },
+    {
+      "source": "keiz_opening_scalp",
+      "target": "action_scheduler",
+      "relation": "FEEDS_INTO",
+      "priority": 1,
+      "attributes": {
+        "condition": "step <= 1",
+        "guidance": "Prioritize step 0 buy and step 1 sell of WHEAT.",
+        "pitfalls": "Continuing scalp after step 1."
+      }
+    },
+    {
+      "source": "tiered_shed_pressure_valve",
+      "target": "action_scheduler",
+      "relation": "FEEDS_INTO",
+      "priority": 2,
+      "attributes": {
+        "condition": "projected_shed_use >= 90",
+        "guidance": "Submit high-priority shed clearance orders with relaxed price floors.",
+        "pitfalls": "Allowing shed to reach 100% capacity and stall worker harvesting."
+      }
+    },
+    {
+      "source": "fertilizer_monetization",
+      "target": "action_scheduler",
+      "relation": "FEEDS_INTO",
+      "priority": 3,
+      "attributes": {
+        "condition": "fertilizer_count >= 3",
+        "guidance": "Monetize surplus fertilizer when price >= 0.45 base.",
+        "pitfalls": "Selling the last fertilizer unit needed for active crops."
+      }
+    },
+    {
+      "source": "early_endgame_liquidation",
+      "target": "action_scheduler",
+      "relation": "FEEDS_INTO",
+      "priority": 2,
+      "attributes": {
+        "condition": "step >= 680 and step <= 711",
+        "guidance": "Propose preemptive liquidation of high-value goods before opponent endgame dumps.",
+        "pitfalls": "Holding shop reserves through the endgame collapse."
+      }
+    },
+    {
+      "source": "final_turn_liquidation",
+      "target": "action_scheduler",
+      "relation": "FEEDS_INTO",
+      "priority": 1,
+      "attributes": {
+        "condition": "step >= 718",
+        "guidance": "Submit unconditional 100% sell orders for all remaining shed inventory.",
+        "pitfalls": "Leaving unsold inventory in shed at step 720."
+      }
+    },
+    {
+      "source": "action_scheduler",
+      "target": "execution_feedback",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "true",
+        "guidance": "Submit validated batch of at most 10 orders; capture engine response and update execution telemetry.",
+        "pitfalls": "Submitting more than 10 orders; ignoring rejected order feedback."
+      }
+    },
+    {
+      "source": "execution_feedback",
+      "target": "state_audit",
+      "relation": "LEADS_TO",
+      "priority": 1,
+      "attributes": {
+        "condition": "match_active == true",
+        "guidance": "Advance to next tick and re-audit authoritative state.",
+        "pitfalls": "Preserving stale proposals across game ticks."
+      }
+    }
+  ]
+}

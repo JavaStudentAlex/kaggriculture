@@ -40,7 +40,7 @@ def run_jev_match(
     champ_path: Optional[Path] = None,
     seed: int = 42,
     cand_seat: int = 0,
-    query_interval: int = 6
+    query_interval: int = 3
 ) -> Dict[str, Any]:
     """Runs a single simulation match between Jev agent and a champion."""
     if champ_path is None:

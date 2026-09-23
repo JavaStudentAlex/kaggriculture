@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import json
 import urllib.request
+
+from call_telemetry import record_call
 from typing import Any
 
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
@@ -72,9 +74,14 @@ Return a JSON array of 3-5 concrete strategic recommendations:
         data=data,
         headers={"Content-Type": "application/json", "Authorization": "Bearer local-key"}
     )
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        res = json.loads(resp.read().decode("utf-8"))
-        content = res["choices"][0]["message"]["content"]
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            res = json.loads(resp.read().decode("utf-8"))
+            content = res["choices"][0]["message"]["content"]
+        record_call("meta_supervisor_llm", "success", model="gpt-6-astra")
+    except Exception as exc:
+        record_call("meta_supervisor_llm", "failure", model="gpt-6-astra", error=exc)
+        raise
 
     try:
         import re
