@@ -249,6 +249,9 @@ class ColabRunTests(unittest.TestCase):
             self.assertEqual(len(list((tmp / 'traces').glob('*.json.gz'))), 8)
             self.assertEqual(FakeCLI.running, set())
             self.assertIn('COLAB_VMS_LEFT=0', logs)
+            self.assertIn('[r-1-1] colab3 link: https://colab.research.google.com/notebooks/empty.ipynb'
+                          '?dbu=%2Ftun%2Fm%2Fep-r-1-1#datalabBackendUrl=https://colab.research.google.com/tun/m/ep-r-1-1',
+                          logs)
 
     def test_tokens_are_refreshed_while_a_vm_plays(self):
         with tempfile.TemporaryDirectory() as tmp:

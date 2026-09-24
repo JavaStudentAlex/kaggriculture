@@ -164,6 +164,13 @@ def parse_endpoints(listing):
             if m.group(1) != '?'}
 
 
+def colab_link(endpoint):
+    """Browser link that opens a notebook attached to the VM (what `colab<N> url` prints). It holds
+    no token: open it signed in as the VM's Google account."""
+    return (f'https://colab.research.google.com/notebooks/empty.ipynb?dbu=%2Ftun%2Fm%2F{endpoint}'
+            f'#datalabBackendUrl=https://colab.research.google.com/tun/m/{endpoint}')
+
+
 class VMDeleted(RuntimeError):
     """Colab deleted the VM: its endpoint is no longer listed."""
 
@@ -345,7 +352,9 @@ class ColabRun:
             return False
         with self.lock:
             self.created.append((command, session))
-        self.endpoints[session] = parse_endpoints(cli.sessions()).get(session)
+        endpoint = self.endpoints[session] = parse_endpoints(cli.sessions()).get(session)
+        if endpoint:
+            self.log(f'[{session}] {command} link: {colab_link(endpoint)}')
         return True
 
     def run_vm(self, index, shard, archive, tmp):

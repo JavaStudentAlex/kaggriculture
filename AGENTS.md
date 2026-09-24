@@ -123,6 +123,12 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
     <run> --vm colab2:hm --vm colab2:hm ... > runs/<run>/colab.log 2>&1; echo
     COLAB_RUN_EXIT=\$? >> runs/<run>/colab.log"'`.
   - Once the log shows `COLAB_RUN_EXIT=`, rsync `results.jsonl` and `traces/` back.
+  - **Give the user each VM's browser link when the VMs start** (user's request,
+    2026-09-24). The runner logs them as `[<session>] colab<N> link: https://colab.research.google.com/notebooks/empty.ipynb?dbu=...`;
+    `colab<N> url -s <session>` prints the same link. A link holds no token.
+    - To open one, the user must be signed in as that VM's Google account. It attaches a
+      notebook to the running VM, where `!tail /content/arena/arena.log` shows progress.
+    - "Disconnect and delete runtime" in that notebook deletes the VM.
   - What the runner does:
     - splits the games across the VMs;
     - uploads the payload;
