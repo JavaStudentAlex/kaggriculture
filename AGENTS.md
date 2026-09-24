@@ -95,6 +95,10 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
     `503 Service Unavailable`.
   - VMs are Intel Xeon 2.2 GHz with 88-206 GB of free disk and Python 3.13. Games still
     run on 3.12, see below.
+  - A T4 GPU VM (`--gpu T4 --high-mem`, runner shape `t4hm`) has a Tesla T4 (15 GB), 8 CPUs
+    and 50 GB. It comes with CUDA 12.8 and a system Python 3.13 with torch 2.11 and cupy 14.
+    Account 2 runs it; its cost in units was not measured. It is used for predictor
+    calibration (below).
   - Colab's rules restrict using several accounts to get around resource limits, so rely
     on the paid accounts.
 - **The runner runs on cliproxyapi (rule since 2026-09-24).** This PC sleeps, and a sleeping
@@ -399,6 +403,16 @@ from the repo root, with `BASE` = the newest promoted `models/*`:
    nothing to clean up. A forward-in-time check of the recipe (train through `D-1`,
    validate on the whole of `D`) is the same engine with `VAL_DAY=<D>`; run it only when
    the recipe itself is in question.
+4. **Recalibrate the refit before it plays** (user's decision, 2026-09-24). The graph's oracle
+   thresholds were tuned with the reference predictor, `ttm_c256_h96_ft_2026-09-13`. A refit's
+   raw scores sit at other levels: uncalibrated, the 09-23 refit lost to the 09-13 model
+   24W-174L inside feed15. The calibration scores both models on every turn of 400 games of day
+   `D` (the refit's held-out games plus a sample of the rest), on one Colab T4 VM, and fits
+   per-product factors. The steps are in `research/procedural_graph/arena/README.md` ("Predictor
+   calibration"), and the results go to `research/procedural_graph/calibration/<refit>/`. Then
+   check with a rematch (graph with the refit + `calibration.json` vs the same graph with the
+   reference) before the refit replaces the reference in play. Turning these steps into one
+   command is still to do.
 
 ## 8. Evaluation — what the numbers mean
 

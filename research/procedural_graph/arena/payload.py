@@ -64,9 +64,10 @@ def variant_graph(spec, library):
     return graph
 
 
-def write_graph_bundle(dst, graph, name, checkpoint='committed'):
+def write_graph_bundle(dst, graph, name, checkpoint='committed', calibration=None):
     """A runnable copy of the graph agent: main.py (agent_graph.py), hazel_runtime/ and
-    the given graph, named `name` and re-pinned to the copied runtime files."""
+    the given graph, named `name` and re-pinned to the copied runtime files. `calibration`: a
+    calibration.json (arena/calib_fit.py) put next to the predictor, which the oracle applies."""
     graph = copy.deepcopy(graph)
     shutil.copytree(PG / 'hazel_runtime', dst / 'hazel_runtime',
                     ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.bak'))
@@ -90,6 +91,10 @@ def write_graph_bundle(dst, graph, name, checkpoint='committed'):
         graph['model_checkpoint'] = {'name': src.resolve().name, 'source': str(src),
                                      **{f'{f.split(".")[0]}_sha256': sha(runtime / 'checkpoint' / f)
                                         for f in ('model.safetensors', 'scaler.npz', 'config.json', 'labels.json')}}
+    if calibration:
+        shutil.copy2(calibration, runtime / 'checkpoint' / 'calibration.json')
+        graph.setdefault('model_checkpoint', {})['calibration'] = {
+            'source': str(calibration), 'sha256': sha(runtime / 'checkpoint' / 'calibration.json')}
     pins = graph['provenance']['runtime_bundle_hashes']
     for relative in list(pins):
         pins[relative] = sha(runtime / relative)
@@ -135,6 +140,8 @@ def main():
     ap.add_argument('--pairs', required=True, help='a:b,... a = variant, graph or opponent, b = opponent')
     ap.add_argument('--graph', action='append', default=[], metavar='NAME=FILE',
                     help='play a saved graph file as-is under NAME (e.g. an evolution best_graph.json)')
+    ap.add_argument('--calibration', action='append', default=[], metavar='NAME=FILE',
+                    help='give the --graph NAME this calibration.json (arena/calib_fit.py)')
     ap.add_argument('--checkpoint', action='append', default=[], metavar='NAME=DIR',
                     help='play the --graph NAME with the predictor in DIR instead of the committed one')
     ap.add_argument('--seeds', type=int, default=40)
@@ -147,6 +154,7 @@ def main():
     pairs = [tuple(p.split(':')) for p in args.pairs.split(',') if p]
     graphs = dict(g.split('=', 1) for g in args.graph)
     checkpoints = dict(c.split('=', 1) for c in args.checkpoint)
+    calibrations = dict(c.split('=', 1) for c in args.calibration)
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -157,7 +165,7 @@ def main():
                 continue
             if name in graphs:
                 write_graph_bundle(out / 'bundles' / name, json.loads(Path(graphs[name]).read_text()),
-                                   f'arena graph {name}', checkpoints.get(name, 'committed'))
+                                   f'arena graph {name}', checkpoints.get(name, 'committed'), calibrations.get(name))
             elif name in library['variants']:
                 build_variant(out, name, library['variants'][name], library['edits'])
             else:
@@ -175,7 +183,8 @@ def main():
                          'seed': seed, 'a_seat': i % 2})
     manifest = {'evaluation_id': args.eval_id, 'pairs': pairs, 'seeds': seeds, 'jobs': jobs,
                 'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']},
-                'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n])), 'checkpoint': checkpoints.get(n, 'committed')}
+                'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n])), 'checkpoint': checkpoints.get(n, 'committed'),
+                               'calibration': calibrations.get(n)}
                            for n in sorted(built) if n in graphs}}
     (out / 'jobs.json').write_text(json.dumps(manifest, indent=1) + '\n')
     files = {str(p.relative_to(out)): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}

@@ -1,0 +1,2824 @@
+{
+ "evaluation_id": "calib0923",
+ "kind": "calibration",
+ "zip": "kaggriculture-episodes-2026-09-23.zip",
+ "stride": 1,
+ "models": [
+  "old",
+  "new"
+ ],
+ "model_sources": {
+  "old": {
+   "dir": "research/procedural_graph/hazel_runtime/checkpoint",
+   "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+  },
+  "new": {
+   "dir": "models/ttm_c256_h96_ft_2026-09-23",
+   "model_sha256": "26fdac50c53c640ed2bc45852bb518fd019999180be1444b65235400def915fa"
+  }
+ },
+ "held_out_file": "models/ttm_c256_h96_ft_2026-09-23/val_episodes.json",
+ "held_out_games": 60,
+ "jobs": [
+  {
+   "tag": "cal",
+   "seed": 112219779,
+   "a_seat": 0,
+   "member": "112219779.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112220073,
+   "a_seat": 0,
+   "member": "112220073.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112221033,
+   "a_seat": 0,
+   "member": "112221033.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112225423,
+   "a_seat": 0,
+   "member": "112225423.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112226889,
+   "a_seat": 0,
+   "member": "112226889.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112232216,
+   "a_seat": 0,
+   "member": "112232216.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112232287,
+   "a_seat": 0,
+   "member": "112232287.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112232293,
+   "a_seat": 0,
+   "member": "112232293.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112245923,
+   "a_seat": 0,
+   "member": "112245923.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112245964,
+   "a_seat": 0,
+   "member": "112245964.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112246092,
+   "a_seat": 0,
+   "member": "112246092.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112258534,
+   "a_seat": 0,
+   "member": "112258534.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112268530,
+   "a_seat": 0,
+   "member": "112268530.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112271998,
+   "a_seat": 0,
+   "member": "112271998.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112301925,
+   "a_seat": 0,
+   "member": "112301925.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112301976,
+   "a_seat": 0,
+   "member": "112301976.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112305594,
+   "a_seat": 0,
+   "member": "112305594.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112310961,
+   "a_seat": 0,
+   "member": "112310961.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112312667,
+   "a_seat": 0,
+   "member": "112312667.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112337956,
+   "a_seat": 0,
+   "member": "112337956.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112341168,
+   "a_seat": 0,
+   "member": "112341168.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112341210,
+   "a_seat": 0,
+   "member": "112341210.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112347559,
+   "a_seat": 0,
+   "member": "112347559.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112354259,
+   "a_seat": 0,
+   "member": "112354259.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112373912,
+   "a_seat": 0,
+   "member": "112373912.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112378712,
+   "a_seat": 0,
+   "member": "112378712.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112378715,
+   "a_seat": 0,
+   "member": "112378715.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112396239,
+   "a_seat": 0,
+   "member": "112396239.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112399981,
+   "a_seat": 0,
+   "member": "112399981.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112401974,
+   "a_seat": 0,
+   "member": "112401974.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112402102,
+   "a_seat": 0,
+   "member": "112402102.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112403275,
+   "a_seat": 0,
+   "member": "112403275.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112417828,
+   "a_seat": 0,
+   "member": "112417828.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112423757,
+   "a_seat": 0,
+   "member": "112423757.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112429547,
+   "a_seat": 0,
+   "member": "112429547.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112437694,
+   "a_seat": 0,
+   "member": "112437694.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112444874,
+   "a_seat": 0,
+   "member": "112444874.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112458569,
+   "a_seat": 0,
+   "member": "112458569.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112462531,
+   "a_seat": 0,
+   "member": "112462531.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112465960,
+   "a_seat": 0,
+   "member": "112465960.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112468021,
+   "a_seat": 0,
+   "member": "112468021.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112471832,
+   "a_seat": 0,
+   "member": "112471832.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112474180,
+   "a_seat": 0,
+   "member": "112474180.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112481107,
+   "a_seat": 0,
+   "member": "112481107.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112503124,
+   "a_seat": 0,
+   "member": "112503124.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112510290,
+   "a_seat": 0,
+   "member": "112510290.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112519758,
+   "a_seat": 0,
+   "member": "112519758.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112526715,
+   "a_seat": 0,
+   "member": "112526715.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112526724,
+   "a_seat": 0,
+   "member": "112526724.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112542379,
+   "a_seat": 0,
+   "member": "112542379.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112550861,
+   "a_seat": 0,
+   "member": "112550861.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112553246,
+   "a_seat": 0,
+   "member": "112553246.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112568815,
+   "a_seat": 0,
+   "member": "112568815.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112579477,
+   "a_seat": 0,
+   "member": "112579477.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112598865,
+   "a_seat": 0,
+   "member": "112598865.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112610475,
+   "a_seat": 0,
+   "member": "112610475.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112628215,
+   "a_seat": 0,
+   "member": "112628215.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112634041,
+   "a_seat": 0,
+   "member": "112634041.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112637547,
+   "a_seat": 0,
+   "member": "112637547.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112642010,
+   "a_seat": 0,
+   "member": "112642010.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112232297,
+   "a_seat": 0,
+   "member": "112232297.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112309043,
+   "a_seat": 0,
+   "member": "112309043.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112256924,
+   "a_seat": 0,
+   "member": "112256924.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112544834,
+   "a_seat": 0,
+   "member": "112544834.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112400905,
+   "a_seat": 0,
+   "member": "112400905.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112477511,
+   "a_seat": 0,
+   "member": "112477511.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112572428,
+   "a_seat": 0,
+   "member": "112572428.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112454261,
+   "a_seat": 0,
+   "member": "112454261.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112464560,
+   "a_seat": 0,
+   "member": "112464560.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112572426,
+   "a_seat": 0,
+   "member": "112572426.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112373839,
+   "a_seat": 0,
+   "member": "112373839.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112257350,
+   "a_seat": 0,
+   "member": "112257350.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112386948,
+   "a_seat": 0,
+   "member": "112386948.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112342409,
+   "a_seat": 0,
+   "member": "112342409.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112388888,
+   "a_seat": 0,
+   "member": "112388888.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245959,
+   "a_seat": 0,
+   "member": "112245959.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112271999,
+   "a_seat": 0,
+   "member": "112271999.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112481113,
+   "a_seat": 0,
+   "member": "112481113.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112604454,
+   "a_seat": 0,
+   "member": "112604454.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112444879,
+   "a_seat": 0,
+   "member": "112444879.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112264725,
+   "a_seat": 0,
+   "member": "112264725.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112383215,
+   "a_seat": 0,
+   "member": "112383215.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112595446,
+   "a_seat": 0,
+   "member": "112595446.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112355686,
+   "a_seat": 0,
+   "member": "112355686.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112626795,
+   "a_seat": 0,
+   "member": "112626795.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616520,
+   "a_seat": 0,
+   "member": "112616520.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112592687,
+   "a_seat": 0,
+   "member": "112592687.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112585731,
+   "a_seat": 0,
+   "member": "112585731.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112557915,
+   "a_seat": 0,
+   "member": "112557915.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112575946,
+   "a_seat": 0,
+   "member": "112575946.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112399623,
+   "a_seat": 0,
+   "member": "112399623.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245969,
+   "a_seat": 0,
+   "member": "112245969.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112319629,
+   "a_seat": 0,
+   "member": "112319629.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112508915,
+   "a_seat": 0,
+   "member": "112508915.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112532835,
+   "a_seat": 0,
+   "member": "112532835.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112294382,
+   "a_seat": 0,
+   "member": "112294382.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112396243,
+   "a_seat": 0,
+   "member": "112396243.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112527636,
+   "a_seat": 0,
+   "member": "112527636.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112636898,
+   "a_seat": 0,
+   "member": "112636898.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112358293,
+   "a_seat": 0,
+   "member": "112358293.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112519764,
+   "a_seat": 0,
+   "member": "112519764.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112383361,
+   "a_seat": 0,
+   "member": "112383361.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112409511,
+   "a_seat": 0,
+   "member": "112409511.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112348634,
+   "a_seat": 0,
+   "member": "112348634.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112382303,
+   "a_seat": 0,
+   "member": "112382303.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112294389,
+   "a_seat": 0,
+   "member": "112294389.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112538757,
+   "a_seat": 0,
+   "member": "112538757.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112258170,
+   "a_seat": 0,
+   "member": "112258170.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112642987,
+   "a_seat": 0,
+   "member": "112642987.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112232217,
+   "a_seat": 0,
+   "member": "112232217.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112372626,
+   "a_seat": 0,
+   "member": "112372626.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112290125,
+   "a_seat": 0,
+   "member": "112290125.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112509185,
+   "a_seat": 0,
+   "member": "112509185.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112415451,
+   "a_seat": 0,
+   "member": "112415451.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112601410,
+   "a_seat": 0,
+   "member": "112601410.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112309069,
+   "a_seat": 0,
+   "member": "112309069.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112342619,
+   "a_seat": 0,
+   "member": "112342619.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252380,
+   "a_seat": 0,
+   "member": "112252380.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112258543,
+   "a_seat": 0,
+   "member": "112258543.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112356786,
+   "a_seat": 0,
+   "member": "112356786.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112260929,
+   "a_seat": 0,
+   "member": "112260929.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112232283,
+   "a_seat": 0,
+   "member": "112232283.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112225424,
+   "a_seat": 0,
+   "member": "112225424.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112313557,
+   "a_seat": 0,
+   "member": "112313557.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112340279,
+   "a_seat": 0,
+   "member": "112340279.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112275922,
+   "a_seat": 0,
+   "member": "112275922.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112330549,
+   "a_seat": 0,
+   "member": "112330549.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112642988,
+   "a_seat": 0,
+   "member": "112642988.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112430591,
+   "a_seat": 0,
+   "member": "112430591.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112421424,
+   "a_seat": 0,
+   "member": "112421424.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112324183,
+   "a_seat": 0,
+   "member": "112324183.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112585733,
+   "a_seat": 0,
+   "member": "112585733.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112409514,
+   "a_seat": 0,
+   "member": "112409514.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112372625,
+   "a_seat": 0,
+   "member": "112372625.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112286810,
+   "a_seat": 0,
+   "member": "112286810.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112536397,
+   "a_seat": 0,
+   "member": "112536397.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112373842,
+   "a_seat": 0,
+   "member": "112373842.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112519763,
+   "a_seat": 0,
+   "member": "112519763.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112286821,
+   "a_seat": 0,
+   "member": "112286821.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112330542,
+   "a_seat": 0,
+   "member": "112330542.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112241570,
+   "a_seat": 0,
+   "member": "112241570.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112437698,
+   "a_seat": 0,
+   "member": "112437698.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112488067,
+   "a_seat": 0,
+   "member": "112488067.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112387712,
+   "a_seat": 0,
+   "member": "112387712.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112626859,
+   "a_seat": 0,
+   "member": "112626859.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112313413,
+   "a_seat": 0,
+   "member": "112313413.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112330545,
+   "a_seat": 0,
+   "member": "112330545.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112631429,
+   "a_seat": 0,
+   "member": "112631429.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112232214,
+   "a_seat": 0,
+   "member": "112232214.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112253188,
+   "a_seat": 0,
+   "member": "112253188.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112512469,
+   "a_seat": 0,
+   "member": "112512469.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112421116,
+   "a_seat": 0,
+   "member": "112421116.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112471466,
+   "a_seat": 0,
+   "member": "112471466.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112298191,
+   "a_seat": 0,
+   "member": "112298191.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112612969,
+   "a_seat": 0,
+   "member": "112612969.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112316131,
+   "a_seat": 0,
+   "member": "112316131.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112490399,
+   "a_seat": 0,
+   "member": "112490399.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112467990,
+   "a_seat": 0,
+   "member": "112467990.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112475386,
+   "a_seat": 0,
+   "member": "112475386.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112464497,
+   "a_seat": 0,
+   "member": "112464497.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112337950,
+   "a_seat": 0,
+   "member": "112337950.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112330292,
+   "a_seat": 0,
+   "member": "112330292.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616248,
+   "a_seat": 0,
+   "member": "112616248.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112219773,
+   "a_seat": 0,
+   "member": "112219773.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112632531,
+   "a_seat": 0,
+   "member": "112632531.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112309766,
+   "a_seat": 0,
+   "member": "112309766.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616113,
+   "a_seat": 0,
+   "member": "112616113.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252294,
+   "a_seat": 0,
+   "member": "112252294.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112462539,
+   "a_seat": 0,
+   "member": "112462539.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112610618,
+   "a_seat": 0,
+   "member": "112610618.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112420159,
+   "a_seat": 0,
+   "member": "112420159.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112283954,
+   "a_seat": 0,
+   "member": "112283954.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112446058,
+   "a_seat": 0,
+   "member": "112446058.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112575935,
+   "a_seat": 0,
+   "member": "112575935.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112254376,
+   "a_seat": 0,
+   "member": "112254376.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112383219,
+   "a_seat": 0,
+   "member": "112383219.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616224,
+   "a_seat": 0,
+   "member": "112616224.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112259396,
+   "a_seat": 0,
+   "member": "112259396.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112589319,
+   "a_seat": 0,
+   "member": "112589319.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112628270,
+   "a_seat": 0,
+   "member": "112628270.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112396374,
+   "a_seat": 0,
+   "member": "112396374.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112429545,
+   "a_seat": 0,
+   "member": "112429545.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112232290,
+   "a_seat": 0,
+   "member": "112232290.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112312497,
+   "a_seat": 0,
+   "member": "112312497.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112453075,
+   "a_seat": 0,
+   "member": "112453075.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112323457,
+   "a_seat": 0,
+   "member": "112323457.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112510068,
+   "a_seat": 0,
+   "member": "112510068.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245962,
+   "a_seat": 0,
+   "member": "112245962.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112454265,
+   "a_seat": 0,
+   "member": "112454265.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112239132,
+   "a_seat": 0,
+   "member": "112239132.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112379547,
+   "a_seat": 0,
+   "member": "112379547.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112251964,
+   "a_seat": 0,
+   "member": "112251964.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112592697,
+   "a_seat": 0,
+   "member": "112592697.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112610623,
+   "a_seat": 0,
+   "member": "112610623.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112454262,
+   "a_seat": 0,
+   "member": "112454262.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112300755,
+   "a_seat": 0,
+   "member": "112300755.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112404501,
+   "a_seat": 0,
+   "member": "112404501.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112275747,
+   "a_seat": 0,
+   "member": "112275747.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252302,
+   "a_seat": 0,
+   "member": "112252302.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245974,
+   "a_seat": 0,
+   "member": "112245974.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112493572,
+   "a_seat": 0,
+   "member": "112493572.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112637551,
+   "a_seat": 0,
+   "member": "112637551.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112520550,
+   "a_seat": 0,
+   "member": "112520550.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112240553,
+   "a_seat": 0,
+   "member": "112240553.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112381093,
+   "a_seat": 0,
+   "member": "112381093.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112645085,
+   "a_seat": 0,
+   "member": "112645085.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112225422,
+   "a_seat": 0,
+   "member": "112225422.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112598866,
+   "a_seat": 0,
+   "member": "112598866.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112494752,
+   "a_seat": 0,
+   "member": "112494752.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112638320,
+   "a_seat": 0,
+   "member": "112638320.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112331545,
+   "a_seat": 0,
+   "member": "112331545.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112579479,
+   "a_seat": 0,
+   "member": "112579479.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112358049,
+   "a_seat": 0,
+   "member": "112358049.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112635740,
+   "a_seat": 0,
+   "member": "112635740.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112353495,
+   "a_seat": 0,
+   "member": "112353495.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112350830,
+   "a_seat": 0,
+   "member": "112350830.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112333964,
+   "a_seat": 0,
+   "member": "112333964.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112326751,
+   "a_seat": 0,
+   "member": "112326751.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112429544,
+   "a_seat": 0,
+   "member": "112429544.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112373910,
+   "a_seat": 0,
+   "member": "112373910.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112268187,
+   "a_seat": 0,
+   "member": "112268187.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112472643,
+   "a_seat": 0,
+   "member": "112472643.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112357013,
+   "a_seat": 0,
+   "member": "112357013.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112240540,
+   "a_seat": 0,
+   "member": "112240540.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112495118,
+   "a_seat": 0,
+   "member": "112495118.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112316372,
+   "a_seat": 0,
+   "member": "112316372.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112294384,
+   "a_seat": 0,
+   "member": "112294384.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112306160,
+   "a_seat": 0,
+   "member": "112306160.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112322979,
+   "a_seat": 0,
+   "member": "112322979.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112258537,
+   "a_seat": 0,
+   "member": "112258537.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112438823,
+   "a_seat": 0,
+   "member": "112438823.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112361930,
+   "a_seat": 0,
+   "member": "112361930.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112264746,
+   "a_seat": 0,
+   "member": "112264746.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252285,
+   "a_seat": 0,
+   "member": "112252285.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112264751,
+   "a_seat": 0,
+   "member": "112264751.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112504390,
+   "a_seat": 0,
+   "member": "112504390.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112407959,
+   "a_seat": 0,
+   "member": "112407959.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112417447,
+   "a_seat": 0,
+   "member": "112417447.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112249576,
+   "a_seat": 0,
+   "member": "112249576.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112298839,
+   "a_seat": 0,
+   "member": "112298839.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112499720,
+   "a_seat": 0,
+   "member": "112499720.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112405569,
+   "a_seat": 0,
+   "member": "112405569.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112309037,
+   "a_seat": 0,
+   "member": "112309037.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112312500,
+   "a_seat": 0,
+   "member": "112312500.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112341513,
+   "a_seat": 0,
+   "member": "112341513.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112316132,
+   "a_seat": 0,
+   "member": "112316132.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112269402,
+   "a_seat": 0,
+   "member": "112269402.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112226836,
+   "a_seat": 0,
+   "member": "112226836.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112227181,
+   "a_seat": 0,
+   "member": "112227181.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112581798,
+   "a_seat": 0,
+   "member": "112581798.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112604802,
+   "a_seat": 0,
+   "member": "112604802.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112261780,
+   "a_seat": 0,
+   "member": "112261780.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112431577,
+   "a_seat": 0,
+   "member": "112431577.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112422302,
+   "a_seat": 0,
+   "member": "112422302.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112409424,
+   "a_seat": 0,
+   "member": "112409424.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112277811,
+   "a_seat": 0,
+   "member": "112277811.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252298,
+   "a_seat": 0,
+   "member": "112252298.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112411815,
+   "a_seat": 0,
+   "member": "112411815.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112316134,
+   "a_seat": 0,
+   "member": "112316134.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112504099,
+   "a_seat": 0,
+   "member": "112504099.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112637550,
+   "a_seat": 0,
+   "member": "112637550.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112306526,
+   "a_seat": 0,
+   "member": "112306526.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112471612,
+   "a_seat": 0,
+   "member": "112471612.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112244364,
+   "a_seat": 0,
+   "member": "112244364.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112268548,
+   "a_seat": 0,
+   "member": "112268548.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112279522,
+   "a_seat": 0,
+   "member": "112279522.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112290591,
+   "a_seat": 0,
+   "member": "112290591.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112495110,
+   "a_seat": 0,
+   "member": "112495110.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112604796,
+   "a_seat": 0,
+   "member": "112604796.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112365514,
+   "a_seat": 0,
+   "member": "112365514.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112346082,
+   "a_seat": 0,
+   "member": "112346082.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112391713,
+   "a_seat": 0,
+   "member": "112391713.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112468050,
+   "a_seat": 0,
+   "member": "112468050.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112290478,
+   "a_seat": 0,
+   "member": "112290478.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245955,
+   "a_seat": 0,
+   "member": "112245955.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112353528,
+   "a_seat": 0,
+   "member": "112353528.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616241,
+   "a_seat": 0,
+   "member": "112616241.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112531606,
+   "a_seat": 0,
+   "member": "112531606.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112462537,
+   "a_seat": 0,
+   "member": "112462537.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112319531,
+   "a_seat": 0,
+   "member": "112319531.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112610630,
+   "a_seat": 0,
+   "member": "112610630.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112463661,
+   "a_seat": 0,
+   "member": "112463661.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112412703,
+   "a_seat": 0,
+   "member": "112412703.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112505268,
+   "a_seat": 0,
+   "member": "112505268.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112326822,
+   "a_seat": 0,
+   "member": "112326822.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112346122,
+   "a_seat": 0,
+   "member": "112346122.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112321796,
+   "a_seat": 0,
+   "member": "112321796.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112364165,
+   "a_seat": 0,
+   "member": "112364165.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112565297,
+   "a_seat": 0,
+   "member": "112565297.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112284630,
+   "a_seat": 0,
+   "member": "112284630.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112444842,
+   "a_seat": 0,
+   "member": "112444842.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112391485,
+   "a_seat": 0,
+   "member": "112391485.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112577191,
+   "a_seat": 0,
+   "member": "112577191.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112389313,
+   "a_seat": 0,
+   "member": "112389313.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112638041,
+   "a_seat": 0,
+   "member": "112638041.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112604799,
+   "a_seat": 0,
+   "member": "112604799.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112220030,
+   "a_seat": 0,
+   "member": "112220030.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112509194,
+   "a_seat": 0,
+   "member": "112509194.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112417726,
+   "a_seat": 0,
+   "member": "112417726.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112312199,
+   "a_seat": 0,
+   "member": "112312199.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112361804,
+   "a_seat": 0,
+   "member": "112361804.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112239177,
+   "a_seat": 0,
+   "member": "112239177.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112531901,
+   "a_seat": 0,
+   "member": "112531901.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112323191,
+   "a_seat": 0,
+   "member": "112323191.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112642986,
+   "a_seat": 0,
+   "member": "112642986.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112334137,
+   "a_seat": 0,
+   "member": "112334137.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112555622,
+   "a_seat": 0,
+   "member": "112555622.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112315808,
+   "a_seat": 0,
+   "member": "112315808.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616658,
+   "a_seat": 0,
+   "member": "112616658.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112265563,
+   "a_seat": 0,
+   "member": "112265563.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112436392,
+   "a_seat": 0,
+   "member": "112436392.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112626855,
+   "a_seat": 0,
+   "member": "112626855.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252299,
+   "a_seat": 0,
+   "member": "112252299.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112385471,
+   "a_seat": 0,
+   "member": "112385471.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112456628,
+   "a_seat": 0,
+   "member": "112456628.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112469196,
+   "a_seat": 0,
+   "member": "112469196.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112595447,
+   "a_seat": 0,
+   "member": "112595447.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112349667,
+   "a_seat": 0,
+   "member": "112349667.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112258544,
+   "a_seat": 0,
+   "member": "112258544.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112271853,
+   "a_seat": 0,
+   "member": "112271853.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112378710,
+   "a_seat": 0,
+   "member": "112378710.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112621356,
+   "a_seat": 0,
+   "member": "112621356.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112391645,
+   "a_seat": 0,
+   "member": "112391645.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112541442,
+   "a_seat": 0,
+   "member": "112541442.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112632523,
+   "a_seat": 0,
+   "member": "112632523.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112272011,
+   "a_seat": 0,
+   "member": "112272011.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112383367,
+   "a_seat": 0,
+   "member": "112383367.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112561550,
+   "a_seat": 0,
+   "member": "112561550.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112475200,
+   "a_seat": 0,
+   "member": "112475200.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112509186,
+   "a_seat": 0,
+   "member": "112509186.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112374570,
+   "a_seat": 0,
+   "member": "112374570.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112598862,
+   "a_seat": 0,
+   "member": "112598862.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112639210,
+   "a_seat": 0,
+   "member": "112639210.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112314598,
+   "a_seat": 0,
+   "member": "112314598.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112252256,
+   "a_seat": 0,
+   "member": "112252256.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112514918,
+   "a_seat": 0,
+   "member": "112514918.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112446064,
+   "a_seat": 0,
+   "member": "112446064.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112428253,
+   "a_seat": 0,
+   "member": "112428253.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112579480,
+   "a_seat": 0,
+   "member": "112579480.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112339957,
+   "a_seat": 0,
+   "member": "112339957.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112326816,
+   "a_seat": 0,
+   "member": "112326816.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112632527,
+   "a_seat": 0,
+   "member": "112632527.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112487003,
+   "a_seat": 0,
+   "member": "112487003.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112239193,
+   "a_seat": 0,
+   "member": "112239193.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112245966,
+   "a_seat": 0,
+   "member": "112245966.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112563855,
+   "a_seat": 0,
+   "member": "112563855.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112621294,
+   "a_seat": 0,
+   "member": "112621294.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112561552,
+   "a_seat": 0,
+   "member": "112561552.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112477788,
+   "a_seat": 0,
+   "member": "112477788.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112365512,
+   "a_seat": 0,
+   "member": "112365512.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112250771,
+   "a_seat": 0,
+   "member": "112250771.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112294381,
+   "a_seat": 0,
+   "member": "112294381.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112356797,
+   "a_seat": 0,
+   "member": "112356797.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112262072,
+   "a_seat": 0,
+   "member": "112262072.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112509190,
+   "a_seat": 0,
+   "member": "112509190.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112255699,
+   "a_seat": 0,
+   "member": "112255699.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112275602,
+   "a_seat": 0,
+   "member": "112275602.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112525218,
+   "a_seat": 0,
+   "member": "112525218.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112239130,
+   "a_seat": 0,
+   "member": "112239130.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112349919,
+   "a_seat": 0,
+   "member": "112349919.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112589327,
+   "a_seat": 0,
+   "member": "112589327.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112413928,
+   "a_seat": 0,
+   "member": "112413928.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112537789,
+   "a_seat": 0,
+   "member": "112537789.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112585732,
+   "a_seat": 0,
+   "member": "112585732.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112633893,
+   "a_seat": 0,
+   "member": "112633893.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112464891,
+   "a_seat": 0,
+   "member": "112464891.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112386707,
+   "a_seat": 0,
+   "member": "112386707.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112423558,
+   "a_seat": 0,
+   "member": "112423558.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112625722,
+   "a_seat": 0,
+   "member": "112625722.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112616237,
+   "a_seat": 0,
+   "member": "112616237.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112426106,
+   "a_seat": 0,
+   "member": "112426106.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112646296,
+   "a_seat": 0,
+   "member": "112646296.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112446065,
+   "a_seat": 0,
+   "member": "112446065.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112285229,
+   "a_seat": 0,
+   "member": "112285229.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112521918,
+   "a_seat": 0,
+   "member": "112521918.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112341526,
+   "a_seat": 0,
+   "member": "112341526.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112471484,
+   "a_seat": 0,
+   "member": "112471484.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112626860,
+   "a_seat": 0,
+   "member": "112626860.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112274402,
+   "a_seat": 0,
+   "member": "112274402.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112454257,
+   "a_seat": 0,
+   "member": "112454257.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112601407,
+   "a_seat": 0,
+   "member": "112601407.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112625278,
+   "a_seat": 0,
+   "member": "112625278.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112232299,
+   "a_seat": 0,
+   "member": "112232299.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112485856,
+   "a_seat": 0,
+   "member": "112485856.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112233888,
+   "a_seat": 0,
+   "member": "112233888.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112225335,
+   "a_seat": 0,
+   "member": "112225335.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112628802,
+   "a_seat": 0,
+   "member": "112628802.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112323192,
+   "a_seat": 0,
+   "member": "112323192.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112334226,
+   "a_seat": 0,
+   "member": "112334226.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112626851,
+   "a_seat": 0,
+   "member": "112626851.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112337955,
+   "a_seat": 0,
+   "member": "112337955.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112272000,
+   "a_seat": 0,
+   "member": "112272000.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112365511,
+   "a_seat": 0,
+   "member": "112365511.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112499723,
+   "a_seat": 0,
+   "member": "112499723.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112637448,
+   "a_seat": 0,
+   "member": "112637448.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112454264,
+   "a_seat": 0,
+   "member": "112454264.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112258509,
+   "a_seat": 0,
+   "member": "112258509.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112574678,
+   "a_seat": 0,
+   "member": "112574678.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112592693,
+   "a_seat": 0,
+   "member": "112592693.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112409592,
+   "a_seat": 0,
+   "member": "112409592.json",
+   "held_out": false
+  }
+ ]
+}
