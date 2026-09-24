@@ -355,6 +355,37 @@ class EvolutionLoopTests(unittest.TestCase):
             self.assertIn(str(run / 'seed_graph.json'), [str(p) for p in validated])
         self.assertEqual((ROOT / 'policy_graph.json').read_bytes(), committed)
 
+    def test_proxy_outage_waits_instead_of_spending_attempts(self):
+        import urllib.error
+        seed = seed_graph()
+
+        class FlakyMutator:
+            calls = 0
+
+            def mutate_edit(self, *args, **kwargs):
+                FlakyMutator.calls += 1
+                if FlakyMutator.calls <= 4:  # the tunnel is down for four calls
+                    raise urllib.error.URLError(ConnectionRefusedError(111, 'Connection refused'))
+                return {'parameters': {'_SHOP_SELL_BATCH_MAX': 5}}, 'bigger shop batches'
+
+        class Gauntlet:
+            alpha = 0.05
+
+            def baseline(self, graph):
+                return {'margins': {'hazel|1|0': 0.0}}
+
+        waits = []
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            loop = evo.EditEvolution(run, Gauntlet(), FlakyMutator(), None, UCB1Bandit(run / 'b.json'),
+                                     lambda path: None, lambda *a, **k: [], 'facts', seed_graph=seed,
+                                     candidates=1, retries=2, proxy_ready=lambda: waits.append(1) or True)
+            island = loop.state['islands'][1]
+            proposals = loop.propose(island, 1, 'results', [])
+        self.assertEqual(len(proposals), 1)       # succeeded on its first real attempt
+        self.assertEqual(len(waits), 4)           # one wait per refused call
+        self.assertEqual(proposals[0]['changes'], ['_SHOP_SELL_BATCH_MAX (town_and_fertilizer): 4 -> 5'])
+
     def test_seed_must_be_the_merged_runtime(self):
         with tempfile.TemporaryDirectory() as tmp:
             legacy = {'version': '1.4.0', 'nodes': [], 'edges': []}

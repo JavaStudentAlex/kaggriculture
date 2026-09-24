@@ -39,6 +39,8 @@ import signal
 import sys
 import time
 from typing import Any, Callable, Dict, List, Optional
+import urllib.error
+import urllib.request
 
 CURRENT_DIR = Path(__file__).resolve().parent
 if str(CURRENT_DIR) not in sys.path:
@@ -80,6 +82,33 @@ ISLANDS = (
 )
 
 _RUNNING = True
+PROXY_MODELS_URL = "http://localhost:8317/v1/models"
+MAX_PROXY_RETRIES = 20  # proxy outages per proposal before it counts as a failed attempt
+
+
+def wait_for_proxy(url: str = PROXY_MODELS_URL, poll: float = 60.0) -> bool:
+    """Block until the LLM proxy answers. An unreachable proxy (a dropped tunnel, a
+    sleeping laptop) must pause the run, not spend its iterations on refused calls."""
+    minutes = 0
+    while _RUNNING:
+        try:
+            with urllib.request.urlopen(url, timeout=15) as response:
+                if response.status == 200:
+                    if minutes:
+                        logging.info("LLM proxy reachable again after ~%d min", minutes)
+                    return True
+        except Exception as exc:
+            if minutes % 10 == 0:
+                logging.warning("LLM proxy unreachable (%s); waiting", exc)
+        time.sleep(poll)
+        minutes += max(1, round(poll / 60))
+    return False
+
+
+def _proxy_outage(exc: Exception) -> bool:
+    """Connection-level failure to reach the proxy (not an HTTP error from a model)."""
+    return isinstance(exc, (urllib.error.URLError, ConnectionError, TimeoutError)) and \
+        not isinstance(exc, urllib.error.HTTPError)
 
 
 def _stop(signum, frame):
@@ -106,8 +135,9 @@ class EditEvolution:
                  knowledge: str, seed_graph: Optional[Dict[str, Any]] = None,
                  candidates: int = SIFT_CANDIDATES_PER_ITERATION,
                  retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8,
-                 ideas_path: Optional[Path] = None):
+                 ideas_path: Optional[Path] = None, proxy_ready: Callable[[], bool] = lambda: True):
         self.run_dir = Path(run_dir)
+        self.proxy_ready = proxy_ready
         self.ideas_path = Path(ideas_path) if ideas_path else None
         self.gauntlet, self.mutator, self.judge, self.bandit = gauntlet, mutator, judge, bandit
         self.validate, self.supervisor, self.knowledge = validate, supervisor, knowledge
@@ -175,11 +205,23 @@ class EditEvolution:
             model = self.bandit.select_arm(exclude=models_used)
             models_used.append(model)
             error = None
-            for attempt in range(1, self.retries + 1):
+            attempt, outages = 0, 0
+            while attempt < self.retries:
+                attempt += 1
                 try:
-                    edit, rationale = self.mutator.mutate_edit(
-                        model, controls, focus, results, self._history(island),
-                        self.state["guidance"], self.knowledge, error, ideas=ideas)
+                    try:
+                        edit, rationale = self.mutator.mutate_edit(
+                            model, controls, focus, results, self._history(island),
+                            self.state["guidance"], self.knowledge, error, ideas=ideas)
+                    except Exception as exc:
+                        if _proxy_outage(exc) and outages < MAX_PROXY_RETRIES:
+                            outages += 1
+                            attempt -= 1  # the model was never reached: not its failed attempt
+                            logging.warning("  [%s] proxy unreachable (%s); waiting", model, exc)
+                            if not self.proxy_ready():
+                                return proposals
+                            continue
+                        raise
                     graph = graph_edits.apply_edit(champion, edit, self.constants)
                     key = graph_edits.settings_key(graph, self.constants)
                     changes = graph_edits.diff(champion, graph, self.constants)
@@ -206,6 +248,8 @@ class EditEvolution:
         logging.info("-" * 65)
         logging.info("ITERATION %d | %s", iteration, island["name"])
         results = self.results_text(island["graph"])
+        if not self.proxy_ready():
+            return None
         proposals = self.propose(island, iteration, results, [])
         if not proposals:
             logging.warning("  no viable candidate this iteration")
@@ -271,6 +315,8 @@ class EditEvolution:
         while _RUNNING and self.state["next_iteration"] <= iterations:
             n = self.state["next_iteration"]
             record = self.iteration(n)
+            if not _RUNNING:
+                break  # stopped while waiting: this iteration was not done, repeat it on resume
             if n % self.supervisor_interval == 0:
                 try:
                     recent = [r["verdict"] for i in self.state["islands"] for r in i["history"][-2:]]
@@ -327,7 +373,8 @@ def main():
         args.run_dir, gauntlet, BAMGraphMutator(), SIFTGraphJudge(),
         UCB1Bandit(args.run_dir / "bandit_state.json"), graph_edits.validate_graph, run_meta_supervisor,
         KNOWLEDGE.read_text(), seed_graph=json.loads(args.seed_graph.read_text()),
-        candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas)
+        candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas,
+        proxy_ready=wait_for_proxy)
     logging.info("=" * 70)
     logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds (%d per seat) x %s + head-to-head | "
                  "evaluation %s", len(evolution.state["islands"]), executor.describe(), args.seeds_per_opponent,
