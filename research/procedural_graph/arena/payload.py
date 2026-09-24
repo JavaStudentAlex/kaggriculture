@@ -80,6 +80,16 @@ def write_graph_bundle(dst, graph, name, checkpoint='committed'):
         graph['source']['oracle_model_sha256'] = sha(runtime / 'checkpoint/model.safetensors')
         graph['model_checkpoint'] = {'name': "ttm_c256_h96_ft_2026-09-13 (Hazel Weir's checkpoint)",
                                      'model_sha256': graph['source']['oracle_model_sha256']}
+    elif checkpoint != 'committed':
+        # a model directory (e.g. models/ttm_c256_h96_ft_2026-09-23): same architecture, plain weights
+        src = Path(checkpoint)
+        for f in ('config.json', 'labels.json', 'model.safetensors', 'scaler.npz'):
+            shutil.copy2(src / f, runtime / 'checkpoint' / f)
+        (runtime / 'checkpoint' / 'calibration.json').unlink(missing_ok=True)
+        graph['source']['oracle_model_sha256'] = sha(runtime / 'checkpoint/model.safetensors')
+        graph['model_checkpoint'] = {'name': src.resolve().name, 'source': str(src),
+                                     **{f'{f.split(".")[0]}_sha256': sha(runtime / 'checkpoint' / f)
+                                        for f in ('model.safetensors', 'scaler.npz', 'config.json', 'labels.json')}}
     pins = graph['provenance']['runtime_bundle_hashes']
     for relative in list(pins):
         pins[relative] = sha(runtime / relative)
@@ -125,6 +135,8 @@ def main():
     ap.add_argument('--pairs', required=True, help='a:b,... a = variant, graph or opponent, b = opponent')
     ap.add_argument('--graph', action='append', default=[], metavar='NAME=FILE',
                     help='play a saved graph file as-is under NAME (e.g. an evolution best_graph.json)')
+    ap.add_argument('--checkpoint', action='append', default=[], metavar='NAME=DIR',
+                    help='play the --graph NAME with the predictor in DIR instead of the committed one')
     ap.add_argument('--seeds', type=int, default=40)
     ap.add_argument('--seed-salt', type=int, default=20260924)
     ap.add_argument('--mirror-seeds', type=int, default=4, help='cap for the mirror sanity variant')
@@ -134,6 +146,7 @@ def main():
     library = json.loads((HERE / 'variants.json').read_text())
     pairs = [tuple(p.split(':')) for p in args.pairs.split(',') if p]
     graphs = dict(g.split('=', 1) for g in args.graph)
+    checkpoints = dict(c.split('=', 1) for c in args.checkpoint)
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -144,7 +157,7 @@ def main():
                 continue
             if name in graphs:
                 write_graph_bundle(out / 'bundles' / name, json.loads(Path(graphs[name]).read_text()),
-                                   f'arena graph {name}')
+                                   f'arena graph {name}', checkpoints.get(name, 'committed'))
             elif name in library['variants']:
                 build_variant(out, name, library['variants'][name], library['edits'])
             else:
@@ -162,7 +175,8 @@ def main():
                          'seed': seed, 'a_seat': i % 2})
     manifest = {'evaluation_id': args.eval_id, 'pairs': pairs, 'seeds': seeds, 'jobs': jobs,
                 'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']},
-                'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n]))} for n in sorted(built) if n in graphs}}
+                'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n])), 'checkpoint': checkpoints.get(n, 'committed')}
+                           for n in sorted(built) if n in graphs}}
     (out / 'jobs.json').write_text(json.dumps(manifest, indent=1) + '\n')
     files = {str(p.relative_to(out)): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}
     (out / 'files.json').write_text(json.dumps(files, indent=0) + '\n')
