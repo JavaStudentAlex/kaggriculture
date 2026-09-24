@@ -38,9 +38,22 @@ def observation(step=310, shed=None):
             'town': {'unlocked_shops': []}}
 
 
-def graph(c, enabled=True):
+ALL_OFF = {'deferred_sales': False, 'predrop_headroom': False, 'fertilizer_guard': False,
+           'luxury_supplement': False, 'idle_dispatch': 'off'}
+
+
+def graph(c, enabled=True, overrides=None, nodes=None):
     data = json.loads((ROOT / 'policy_graph.json').read_text())
+    # Default: the v4 override set and no graph parameters/toggles, whatever the
+    # committed graph selects; `nodes` = {chain node id: {attribute: value}}.
     data['surgical'] = {'enabled': enabled}
+    if overrides is not None:
+        data['surgical']['overrides'] = overrides
+    for chain in ('turn', 'market'):
+        for node in data[chain]['nodes']:
+            for key in ('parameters', 'enabled', 'order'):
+                node.pop(key, None)
+            node.update((nodes or {}).get(node['id'], {}))
     data['experimental'] = {'switches': {name: False for name in
                            ('shop_phase', 'capacity_liquidation', 'opponent_pressure',
                             'idle_opportunities', 'order_arbitration')}}
@@ -196,11 +209,11 @@ class SurgicalGraphTests(unittest.TestCase):
         obs['step'], obs['day'], obs['hour'] = 253, 10, 13
         self.assertEqual(self.g.market(obs, 0, [], self.c.farm_state(obs, 0, forecast)), [])
 
-    def run_agent(self, obs, base, enabled=True):
+    def run_agent(self, obs, base, enabled=True, overrides=None):
         self.c._mohui = types.SimpleNamespace(kaggle_agent_v66_meta_closed_loop=lambda *_: copy.deepcopy(base))
         self.c._oracle_observe = lambda *_: None
         self.c._oracle_record = lambda *_: None
-        g = graph(self.c, enabled)
+        g = graph(self.c, enabled, overrides)
         result = g.agent(obs)
         self.assertIsNone(g.last_error)
         self.assertEqual(g.fallback_count, 0)
@@ -306,6 +319,136 @@ class SurgicalGraphTests(unittest.TestCase):
             state = self.c.farm_state(obs, 0)
             self.assertEqual(self.g.market(obs, 0, [], state),
                              self.c.evolve_market_orders(obs, 0, [], state))
+
+
+class OverrideSelectionTests(unittest.TestCase):
+    def setUp(self):
+        self.c = champion()
+
+    def run_agent(self, obs, base, overrides):
+        return SurgicalGraphTests.run_agent(self, obs, base, True, overrides)
+
+    def test_override_validation(self):
+        self.assertEqual(surgical.overrides({'enabled': True}), surgical.V4_OVERRIDES)
+        self.assertTrue(surgical.enabled({'enabled': True, 'overrides': {'fertilizer_guard': False}}))
+        for bad in ({'nope': True}, {'deferred_sales': 1}, {'idle_dispatch': 'v9'},
+                    {'fertilizer_guard': 'off'}, ['deferred_sales']):
+            with self.assertRaises(ValueError):
+                surgical.enabled({'enabled': True, 'overrides': bad})
+
+    def test_all_overrides_off_matches_original_720_turns(self):
+        reference, compiled = champion(), champion()
+        g = graph(compiled, True, ALL_OFF)
+        rng = random.Random(7)
+        products = list(reference._BASE_PRICE)
+        for step in range(720):
+            obs = observation(step, {p: rng.randrange(24) for p in products})
+            obs['private']['inventories'] = [{'WOOL': rng.randrange(35)}]
+            obs['market']['prices'] = {p: rng.randrange(1, 300) for p in products}
+            forecast = {key: {p: rng.random() for p in products}
+                        for key in ('score_4', 'score_24', 'units_24')}
+            base = [['SELL', rng.choice(products), rng.randrange(1, 12)]
+                    for _ in range(rng.randrange(11))]
+            if step % 13 == 0:
+                base.insert(1, ['HIRE', 1])
+            want = reference.evolve_market_orders(obs, 0, base, reference.farm_state(obs, 0, forecast))
+            got = g.market(obs, 0, base, compiled.farm_state(obs, 0, forecast))
+            self.assertEqual(got, want, f'turn {step}')
+
+
+class GraphFeatureTests(unittest.TestCase):
+    """Policy changes expressed in the graph: parameters, stage toggles, dispatch order."""
+
+    def test_parameters_replace_champion_constants_with_type_checks(self):
+        c = champion()
+        g = graph(c, False, None, {'opening_scalp': {'parameters': {
+            '_OPENING_BUY_WHEAT_QTY': 13, '_OPENING_SELL_WHEAT_QTY': 9}}})
+        self.assertEqual(g.parameters, {'_OPENING_BUY_WHEAT_QTY': 13, '_OPENING_SELL_WHEAT_QTY': 9})
+        obs = observation(0)
+        self.assertEqual(g.market(obs, 0, [], c.farm_state(obs, 0)), [['BUY_PRODUCT', 'WHEAT', 13]])
+        for bad in ({'_OPENING_BUY_WHEAT_QTY': 13.5}, {'_OPENING_BUY_WHEAT_QTY': True},
+                    {'_NOT_A_CONSTANT': 1}, {'_MAX_MARKET_ORDERS': 20},  # outside EVOLVE block
+                    {'_SELL_PRIORITY': ['WHEAT', 3]}):
+            with self.assertRaises(ValueError):
+                graph(champion(), False, None, {'opening_scalp': {'parameters': bad}})
+        # tuple/dict constants accept JSON lists/objects of the same element type
+        g = graph(champion(), False, None, {'town_and_fertilizer': {'parameters': {
+            '_SELL_PRIORITY': ['MILK', 'WOOL'], '_SHOP_DEMANDS': {'BAKERY': ['EGG']}}}})
+        self.assertEqual(g.parameters['_SELL_PRIORITY'], ('MILK', 'WOOL'))
+        self.assertEqual(g.parameters['_SHOP_DEMANDS'], {'BAKERY': ('EGG',)})
+        with self.assertRaises(ValueError):  # two nodes disagreeing on one constant
+            graph(champion(), False, None, {
+                'opening_scalp': {'parameters': {'_OPENING_BUY_WHEAT_QTY': 13}},
+                'market_setup': {'parameters': {'_OPENING_BUY_WHEAT_QTY': 5}}})
+
+    def test_disabled_opening_stage_keeps_the_backbone_opening(self):
+        c = champion()
+        g = graph(c, False, None, {'opening_scalp': {'enabled': False}})
+        self.assertEqual(g.disabled_stages, ['opening_scalp'])
+        backbone = {0: [['BUY_PRODUCT', 'WHEAT', 5]],
+                    1: [['BUY_SEED', 'WHEAT', 7], ['BUY_PRODUCT', 'WHEAT', 2], ['HIRE']]}
+        for step, orders in backbone.items():
+            obs = observation(step, {'WHEAT': 5})
+            self.assertEqual(g.market(obs, 0, copy.deepcopy(orders), c.farm_state(obs, 0)), orders)
+            self.assertEqual(g.last_trace[-1], 'routine_dispatch')
+        keiz = graph(c, False)
+        obs = observation(0)
+        self.assertEqual(keiz.market(obs, 0, backbone[0], c.farm_state(obs, 0)),
+                         [['BUY_PRODUCT', 'WHEAT', c._OPENING_BUY_WHEAT_QTY]])
+
+    def test_stage_toggles_fail_closed(self):
+        with self.assertRaises(ValueError):  # feed_reserve defines a name later stages read
+            graph(champion(), False, None, {'feed_reserve': {'enabled': False}})
+        for bad in ({'market_setup': {'enabled': False}}, {'routine_dispatch': {'enabled': False}},
+                    {'shed_pressure': {'enabled': 0}}):
+            with self.assertRaises(ValueError):
+                graph(champion(), False, None, bad)
+
+    def test_sells_first_is_a_stable_partition(self):
+        c = champion()
+        plain = graph(c, False)
+        fronted = graph(c, False, None, {'routine_dispatch': {'order': 'sells_first'}})
+        obs = observation(301, {'WOOL': 3, 'MILK': 2})  # no cadence step, nothing appended
+        base = [['HIRE'], ['SELL', 'WOOL', 3], ['BUY_SEED', 'WHEAT', 2], ['SELL', 'MILK', 2],
+                ['BUY_PRODUCT', 'WHEAT', 4]]
+        state = c.farm_state(obs, 0)
+        self.assertEqual(plain.market(obs, 0, copy.deepcopy(base), state), base)
+        self.assertEqual(fronted.market(obs, 0, copy.deepcopy(base), state),
+                         [['SELL', 'WOOL', 3], ['SELL', 'MILK', 2], ['HIRE'],
+                          ['BUY_SEED', 'WHEAT', 2], ['BUY_PRODUCT', 'WHEAT', 4]])
+        base = [['HIRE']] * 10 + [['SELL', 'WOOL', 1]]  # the cap applies before reordering
+        self.assertEqual(fronted.market(obs, 0, base, state), [['HIRE']] * 10)
+        with self.assertRaises(ValueError):
+            graph(c, False, None, {'routine_dispatch': {'order': 'random'}})
+
+    def test_cadence_phase_parameter(self):
+        c = champion()
+        plain = graph(c, False)
+        shifted = graph(c, False, None, {'town_and_fertilizer': {'parameters': {'_TOWN_CADENCE_PHASE': 3}}})
+        for step, want_plain, want_shifted in ((303, [], [['SELL', 'FERTILIZER', 5]]),
+                                               (304, [['SELL', 'FERTILIZER', 5]], [])):
+            obs = observation(step, {'FERTILIZER': 6})
+            state = c.farm_state(obs, 0)
+            self.assertEqual(plain.market(obs, 0, [], state), want_plain, step)
+            self.assertEqual(shifted.market(obs, 0, [], state), want_shifted, step)
+
+    def test_phase_zero_and_empty_features_match_original_720_turns(self):
+        reference, compiled = champion(), champion()
+        g = graph(compiled, False, None, {'town_and_fertilizer': {'parameters': {'_TOWN_CADENCE_PHASE': 0}},
+                                          'routine_dispatch': {'order': 'submitted'}})
+        rng = random.Random(11)
+        products = list(reference._BASE_PRICE)
+        for step in range(720):
+            obs = observation(step, {p: rng.randrange(24) for p in products})
+            obs['private']['inventories'] = [{'WOOL': rng.randrange(35)}]
+            obs['market']['prices'] = {p: rng.randrange(1, 300) for p in products}
+            forecast = {key: {p: rng.random() for p in products}
+                        for key in ('score_4', 'score_24', 'units_24')}
+            base = [['SELL', rng.choice(products), rng.randrange(1, 12)]
+                    for _ in range(rng.randrange(11))]
+            want = reference.evolve_market_orders(obs, 0, base, reference.farm_state(obs, 0, forecast))
+            got = g.market(obs, 0, base, compiled.farm_state(obs, 0, forecast))
+            self.assertEqual(got, want, f'turn {step}')
 
 
 if __name__ == '__main__':

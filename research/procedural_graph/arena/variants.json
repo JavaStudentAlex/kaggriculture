@@ -1,0 +1,47 @@
+{
+  "_doc": [
+    "Arena variants as graph edits of research/procedural_graph/policy_graph.json.",
+    "Each variant: surgical config, checkpoint ('committed' = hazel_runtime/checkpoint as is,",
+    "'hazel' = Hazel Weir's 09-13 checkpoint without calibration), and node edits",
+    "{chain node id: {parameters|enabled|order: ...}}. Node-level features of the committed",
+    "graph are cleared first, so a variant is exactly what it lists; 'as_committed': true",
+    "takes the committed graph unchanged. Named edits in 'edits' can be combined with 'use'."
+  ],
+  "edits": {
+    "opening_backbone": {"opening_scalp": {"enabled": false}},
+    "opening_13_9": {"opening_scalp": {"parameters": {"_OPENING_BUY_WHEAT_QTY": 13, "_OPENING_SELL_WHEAT_QTY": 9}}},
+    "sells_first": {"routine_dispatch": {"order": "sells_first"}},
+    "cadence_phase_3": {"town_and_fertilizer": {"parameters": {"_TOWN_CADENCE_PHASE": 3}}},
+    "shop_demands_engine": {"town_and_fertilizer": {"parameters": {"_SHOP_DEMANDS": {
+      "SMOOTHIE_SHOP": ["STRAWBERRY", "MILK"], "ICE_CREAM_SHOP": ["STRAWBERRY", "MILK", "WHEAT"],
+      "PIZZA_SHOP": ["TOMATO", "MILK", "WHEAT"], "YARN_STORE": ["WOOL"], "BAKERY": ["EGG", "WHEAT"],
+      "BRUNCH_SPOT": ["EGG", "WHEAT", "STRAWBERRY"], "PET_CAFE": ["CARROT"],
+      "FARMERS_MARKET": ["WHEAT", "CARROT", "TOMATO", "STRAWBERRY"]}}}}
+  },
+  "variants": {
+    "committed": {"as_committed": true},
+    "mirror": {"surgical": {"enabled": false}, "checkpoint": "hazel"},
+    "v4": {"surgical": {"enabled": true}, "checkpoint": "committed"},
+    "v4_nofert": {"surgical": {"enabled": true, "overrides": {"fertilizer_guard": false}}, "checkpoint": "committed"},
+    "ckpt22": {"surgical": {"enabled": false}, "checkpoint": "committed"},
+    "idle_v1": {"surgical": {"enabled": true, "overrides": {"deferred_sales": false, "predrop_headroom": false,
+      "fertilizer_guard": false, "luxury_supplement": false, "idle_dispatch": "v1"}}, "checkpoint": "hazel"},
+    "headroom": {"surgical": {"enabled": true, "overrides": {"deferred_sales": false, "predrop_headroom": true,
+      "fertilizer_guard": false, "luxury_supplement": false, "idle_dispatch": "off"}}, "checkpoint": "hazel"},
+    "deferred": {"surgical": {"enabled": true, "overrides": {"deferred_sales": true, "predrop_headroom": false,
+      "fertilizer_guard": false, "luxury_supplement": false, "idle_dispatch": "off"}}, "checkpoint": "hazel"},
+    "luxury": {"surgical": {"enabled": true, "overrides": {"deferred_sales": false, "predrop_headroom": false,
+      "fertilizer_guard": false, "luxury_supplement": true, "idle_dispatch": "off"}}, "checkpoint": "hazel"},
+    "fert_guard": {"surgical": {"enabled": true, "overrides": {"deferred_sales": false, "predrop_headroom": false,
+      "fertilizer_guard": true, "luxury_supplement": false, "idle_dispatch": "off"}}, "checkpoint": "hazel"},
+    "sells_first": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["sells_first"]},
+    "cadence3": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["cadence_phase_3"]},
+    "shopfix": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["shop_demands_engine"]},
+    "opening_backbone": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["opening_backbone"]},
+    "open13": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["opening_13_9"]},
+    "edges": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["cadence_phase_3", "sells_first"]},
+    "open13_sf": {"surgical": {"enabled": false}, "checkpoint": "hazel", "use": ["opening_13_9", "sells_first"]},
+    "open13_edges": {"surgical": {"enabled": false}, "checkpoint": "hazel",
+      "use": ["opening_13_9", "sells_first", "cadence_phase_3"]}
+  }
+}

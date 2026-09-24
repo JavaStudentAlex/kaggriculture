@@ -1,0 +1,60 @@
+# Arena: graph variants vs submissions on Kaggle CPU notebooks
+
+Head-to-head games between graph variants (graph edits of `../policy_graph.json`) and
+saved submissions, played on Kaggle's free CPU notebooks.
+
+```sh
+K=research/procedural_graph/arena
+python $K/payload.py   --eval-id r2 --pairs cadence3:hazel,edges:hazel,hazel:mohui13 --seeds 40
+python $K/notebooks.py upload --eval-id r2          # private dataset kagg-arena-r2
+python $K/notebooks.py push   --eval-id r2          # 5 private CPU script kernels, 4 games each at a time
+python $K/notebooks.py wait                          # returns when every shard is COMPLETE/ERROR
+python $K/notebooks.py fetch  --eval-id r2          # results_*.jsonl + traces/ under runs/arena/r2/results
+python $K/notebooks.py delete                        # leave no kernels behind
+python $K/report.py research/procedural_graph/runs/arena/r2/results --traces
+```
+
+For large batches a Brev CPU box is faster (after `brev login`; delete it when done, it bills by the hour):
+
+```sh
+brev create kagg-arena-80 --type n2d-highcpu-80      # 80 vCPU / 80 GB, ~$2/h; ~60 games at a time
+brev refresh                                          # adds the ssh alias
+tar -czf payload.tar.gz -C research/procedural_graph/runs/arena/r2 payload
+scp payload.tar.gz $K/remote_run.sh kagg-arena-80:~/ && ssh kagg-arena-80 'bash ~/remote_run.sh ~/payload.tar.gz 60 r2'
+ssh kagg-arena-80 'grep -c rewards ~/arena/r2/arena.log'          # progress; ARENA_EXIT= at the end
+scp -r kagg-arena-80:~/arena/r2/results.jsonl kagg-arena-80:~/arena/r2/traces research/procedural_graph/runs/arena/r2/
+brev delete kagg-arena-80
+```
+
+`payload.py` writes to `research/procedural_graph/runs/arena/<eval-id>/` (git-ignored).
+Needs the `kaggle` CLI with credentials in `~/.kaggle` (see `.agents/skills/kaggle-account-access`)
+and, for local runs, `kaggle-environments==1.32.7`:
+`python $K/arena.py --jobs <payload>/jobs.json --root <payload> --out results.jsonl --workers 2`.
+
+## Design
+
+- **One game per seed.** The engine clears both seats' orders in lockstep and the agents are
+  deterministic: replaying a seed with the seats swapped gives identical cash (checked on
+  seed 424242, $70,217 vs $71,219 both ways). The candidate's seat alternates with the seed
+  index; every variant uses the same seed list, so variants are paired.
+- **Mirror check.** Variant `mirror` (graph with every override off, Hazel's checkpoint)
+  must tie Hazel exactly in every game. It does: the compiled graph is a byte-for-byte policy
+  clone, so any margin a variant shows comes from its graph edits alone.
+- **Variants are graph edits** (`variants.json`): the surgical switches, the checkpoint, and
+  node attributes the runtime executes: `parameters` (champion EVOLVE-block constants),
+  `enabled` on market stages, `order` on `routine_dispatch`. No policy code per variant.
+- **Opponents**: `hazel`, `copper`, `orchard` (the submitted packages' archive files),
+  `mohui` (the bundled Mohui v66 backbone) and `mohui13` (the backbone with the 13/9 opening
+  wheat scalp seen in Hazel's largest ladder losses; a weak ladder proxy: the real opponents
+  earn far more).
+- **Isolation**: each agent runs in its own interpreter (`shinka/evolution/pool_upgrade_bundle_agent.py`),
+  a fresh pair per game; ~1 GB RAM per game (two ~400 MB agents + the engine).
+
+## Limits measured on 2026-09-24
+
+- 5 concurrent batch CPU sessions per account; a 6th push is rejected, not queued.
+- A kernel's log and output are readable only after it finishes: size shards to finish
+  in a few hours and keep results resumable.
+- Brev n2d-highcpu-80 with 60 concurrent games: ~320 s per oracle-vs-oracle game, ~190 s
+  against the oracle-free Mohui opponents; ~55 GB RAM in use. Results are identical to the
+  same games played locally (deterministic across machines).

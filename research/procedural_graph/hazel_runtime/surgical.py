@@ -2,21 +2,51 @@
 
 No champion globals/source bytes are changed. Score thresholds are heuristic
 ranking cutoffs, not calibrated probabilities or predictions of exact peaks.
+
+`{"enabled": true}` alone keeps the v4 set (the five original overrides, idle
+dispatch v1). An `overrides` map selects them individually; see OVERRIDES.
 """
 from __future__ import annotations
 
 import ast
 
+# name -> allowed values; the first value of each tuple is the v4 default.
+OVERRIDES = {
+    'deferred_sales': (True, False),
+    'predrop_headroom': (True, False),
+    'fertilizer_guard': (True, False),
+    'luxury_supplement': (True, False),
+    'idle_dispatch': ('v1', 'off'),
+}
+V4_OVERRIDES = {name: values[0] for name, values in OVERRIDES.items()}
+
 
 def enabled(config):
     if config is None:
         return False
-    if not isinstance(config, dict) or set(config) - {'enabled'}:
-        raise ValueError('surgical config must contain only enabled')
+    if not isinstance(config, dict) or set(config) - {'enabled', 'overrides'}:
+        raise ValueError('surgical config must contain only enabled and overrides')
     value = config.get('enabled', False)
     if type(value) is not bool:
         raise ValueError('surgical.enabled must be boolean')
+    overrides(config)
     return value
+
+
+def overrides(config):
+    """Resolved override map; unknown names and values fail closed."""
+    raw = (config or {}).get('overrides')
+    if raw is None:
+        return dict(V4_OVERRIDES)
+    if not isinstance(raw, dict) or set(raw) - set(OVERRIDES):
+        raise ValueError('unknown surgical override')
+    out = dict(V4_OVERRIDES)
+    for name, value in raw.items():
+        # bool is an int subclass: compare types, not just values.
+        if not any(type(value) is type(ok) and value == ok for ok in OVERRIDES[name]):
+            raise ValueError(f'invalid value for surgical override {name}')
+        out[name] = value
+    return out
 
 
 def _at(source, line):
@@ -107,8 +137,9 @@ if _ENABLE_ORACLE_FRONTRUN and _ORACLE_FROM_STEP <= step < 712:
 '''
 
 
-def rewrite_market(function):
+def rewrite_market(function, selected=None):
     """Rewrite only known source anchors, fail closed on an unexpected source AST."""
+    selected = dict(V4_OVERRIDES) if selected is None else selected
     anchors = {statement.lineno: statement for statement in function.body}
     for line, kind in ((314, ast.FunctionDef), (365, ast.For),
                        (458, ast.If), (480, ast.If)):
@@ -117,16 +148,17 @@ def rewrite_market(function):
     add_sell = anchors[314]
     if add_sell.name != '_add_sell':
         raise ValueError('Surgical sell helper mismatch')
-    add_sell.body[:0] = _at(_FERTILIZER_GUARD, 314)
+    if selected['fertilizer_guard']:
+        add_sell.body[:0] = _at(_FERTILIZER_GUARD, 314)
     body = []
     for statement in function.body:
-        if statement.lineno == 365:
+        if statement.lineno == 365 and selected['deferred_sales']:
             body.extend(_at(_DEFERRED, 365))
-        elif statement.lineno == 458:
+        elif statement.lineno == 458 and selected['predrop_headroom']:
             body.extend(_at(_HEADROOM, 458))
         else:
             body.append(statement)
-        if statement.lineno == 480:
+        if statement.lineno == 480 and selected['luxury_supplement']:
             body.extend(_at(_LUXURY, 514))
     function.body = body
     return function
@@ -182,3 +214,4 @@ def idle_dispatch(obs, player, base, state, champion):
             actions[i] = [op]
             claimed.add((x, y))
     return actions[0], actions[1:]
+
