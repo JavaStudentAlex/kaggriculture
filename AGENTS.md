@@ -113,8 +113,36 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
   recorded on Brev. Game times: about 3 min against the oracle-free opponents and about
   4.5 min against oracle agents. A 240-game batch on 5 High-RAM VMs takes about 30 min
   and ~0.7 units.
+- **Keep-alive: the pings come from cliproxyapi (rule since 2026-09-24).**
+  - **Why.** A VM made by the CLI has no browser tab. Colab deletes it, with its disk and
+    results, once it stops getting keep-alive pings. `colab new` starts a detached daemon
+    that sends these pings every 60 s, but it runs on the machine that ran `colab new`.
+  - **What happened.** This PC (WSL on Windows) sleeps. On 2026-09-24 it slept from about
+    15:20 to 15:50 CEST during a 400-game run. Colab deleted 9 of the run's 12 VMs, and
+    the 299 games on them were lost.
+  - **The ping.** `GET https://colab.research.google.com/tun/m/<endpoint>/keep-alive/`
+    with the account's OAuth token and the header `X-Colab-Tunnel: Google`
+    (`colab_cli.client.keep_alive_assignment`). A read timeout counts as success; a 404
+    means the VM is gone.
+  - **Rule.** Every Colab run gets a **ping job on cliproxyapi** (`ssh cliproxyapi`,
+    always on), a tmux session `colab-ping-<run>` there.
+    - It pings each of the run's VMs every 60 s, as that VM's account.
+    - Start it as soon as the VMs exist, before the games start.
+    - Stop it once the runner prints `COLAB_VMS_LEFT=0`. It also stops on its own on a
+      404 and after 24 h.
+    - It needs the credentials (`acc<N>_adc.json`, mode 600) of the accounts in use on
+      cliproxyapi. Copying them there is the user's decision; never copy them without
+      asking.
+  - **Status.** The ping job is **not built yet** (2026-09-24). Until it exists, start a
+    Colab run only with the user's OK, and keep this PC awake until the results are
+    pulled.
+  - **Debugging.** The local daemons log to `~/.config/colab-cli/history/<session>.jsonl`;
+    the `keep_alive_error` and `keep_alive_stopped` events show when pings stopped. `ps`
+    start times of processes that ran across a sleep are shifted by the sleep's length.
 - **Rules.**
   - Starting VMs spends compute units: agree the batch with the user first.
+  - The keep-alive pings of every run come from its ping job on cliproxyapi (above), never
+    only from this PC.
   - Run the runner in tmux, never as a foreground/background task of an agent session
     that may exit.
   - Remove every VM once its results are pulled. The runner downloads each VM's results,

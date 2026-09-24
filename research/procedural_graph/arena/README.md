@@ -31,6 +31,12 @@ created. Rerunning plays only the missing games; `--attach` finishes a killed ru
 sessions; `--cleanup` stops them. Colab reproduces Brev's results to the dollar (checked
 on six run-2 games, 2026-09-24).
 
+A Colab VM lives only while it gets keep-alive pings. Colab deletes it, results included,
+when they stop. The CLI sends the pings from the machine that created the VM, and this PC
+sleeps: on 2026-09-24 a 30-minute sleep cost 9 of 12 VMs. So every run's pings come from a
+ping job on cliproxyapi; the rule, and the status of the ping job, are in AGENTS.md
+section 3.1.
+
 A Brev CPU box is the alternative (after `brev login`; delete it when done, it bills by the hour):
 
 ```sh
