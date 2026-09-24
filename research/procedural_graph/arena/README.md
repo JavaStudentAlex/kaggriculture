@@ -26,6 +26,11 @@ scp -r kagg-arena-80:~/arena/r2/results.jsonl kagg-arena-80:~/arena/r2/traces re
 brev delete kagg-arena-80
 ```
 
+Analysis: `replay_trace.py <trace.json.gz>...` replays `--trace-dir` traces through an instrumented
+engine (every executed unit and price, town consumption, per-day animals, escapes and empty tiles;
+it checks that the recorded cash is reproduced). `opening_cash.py` prints the day-1 hire cash and the
+wheat left for step-0/1 wheat openings against each opponent opening.
+
 `payload.py` writes to `research/procedural_graph/runs/arena/<eval-id>/` (git-ignored).
 Needs the `kaggle` CLI with credentials in `~/.kaggle` (see `.agents/skills/kaggle-account-access`)
 and, for local runs, `kaggle-environments==1.32.7`:

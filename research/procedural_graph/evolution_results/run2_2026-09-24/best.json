@@ -1,0 +1,50 @@
+{
+  "island": "Island-Oracle",
+  "vs_seed": {
+    "valid": true,
+    "jobs": 160,
+    "expected_jobs": 160,
+    "wins": 103,
+    "losses": 46,
+    "ties": 11,
+    "mean_change": 172.8,
+    "se": 27.9,
+    "p": 3.451074425265659e-06,
+    "alpha": 0.05,
+    "per_opponent": {
+      "mohui": {
+        "wins": 25,
+        "losses": 12,
+        "ties": 3,
+        "n": 40,
+        "mean": 266.4
+      },
+      "mohui13": {
+        "wins": 26,
+        "losses": 11,
+        "ties": 3,
+        "n": 40,
+        "mean": 48.9
+      },
+      "hazel": {
+        "wins": 21,
+        "losses": 15,
+        "ties": 4,
+        "n": 40,
+        "mean": 273.8
+      },
+      "willow": {
+        "wins": 31,
+        "losses": 8,
+        "ties": 1,
+        "n": 40,
+        "mean": 102.4
+      }
+    },
+    "promote": true
+  },
+  "changes": [
+    "_ORACLE_FRONTRUN_BATCH (oracle_frontrun): 6 -> 4",
+    "_ORACLE_FRONTRUN_PRICE_RATIO (oracle_frontrun): 0.6 -> 0.7"
+  ]
+}

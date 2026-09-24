@@ -104,6 +104,11 @@ Endgame and Dispatch.
   Promoting a result means a reviewed commit, after confirmation on the arena
   validation seeds.
 
+## Results
+
+Runs of 2026-09-24 (the v5 baseline, run 2's six verdicts and the plain-backbone diagnosis):
+`evolution_results/README.md`.
+
 ## Novelty
 
 Two graphs with the same normalized executable settings play identically, so the

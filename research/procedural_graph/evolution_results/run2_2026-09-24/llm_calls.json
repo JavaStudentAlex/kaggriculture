@@ -1,0 +1,74 @@
+{
+  "sources": {
+    "meta_supervisor_llm": {
+      "attempted": 2,
+      "failed": 0,
+      "last_success_utc": "2026-09-24T08:50:37.009297+00:00",
+      "models": {
+        "gpt-6-astra": {
+          "attempted": 2,
+          "failed": 0,
+          "succeeded": 2
+        }
+      },
+      "succeeded": 2
+    },
+    "outer_mutator_llm": {
+      "attempted": 28,
+      "failed": 0,
+      "last_success_utc": "2026-09-24T08:36:12.246085+00:00",
+      "models": {
+        "claude-opus-5.5": {
+          "attempted": 4,
+          "failed": 0,
+          "succeeded": 4
+        },
+        "claude-sonnet-5": {
+          "attempted": 3,
+          "failed": 0,
+          "succeeded": 3
+        },
+        "gemini-3.1-pro-preview": {
+          "attempted": 4,
+          "failed": 0,
+          "succeeded": 4
+        },
+        "gemini-3.8-flash": {
+          "attempted": 4,
+          "failed": 0,
+          "succeeded": 4
+        },
+        "gpt-6-astra": {
+          "attempted": 4,
+          "failed": 0,
+          "succeeded": 4
+        },
+        "gpt-6-luna": {
+          "attempted": 7,
+          "failed": 0,
+          "succeeded": 7
+        },
+        "gpt-6-sol": {
+          "attempted": 2,
+          "failed": 0,
+          "succeeded": 2
+        }
+      },
+      "succeeded": 28
+    },
+    "sift_judge_llm": {
+      "attempted": 16,
+      "failed": 0,
+      "last_success_utc": "2026-09-24T08:36:41.245716+00:00",
+      "models": {
+        "gpt-6-astra": {
+          "attempted": 16,
+          "failed": 0,
+          "succeeded": 16
+        }
+      },
+      "succeeded": 16
+    }
+  },
+  "updated_utc": "2026-09-24T08:50:37.009312+00:00"
+}

@@ -1,0 +1,63 @@
+{
+  "sources": {
+    "meta_supervisor_llm": {
+      "attempted": 2,
+      "failed": 2,
+      "last_error": "<urlopen error [Errno 111] Connection refused>",
+      "last_failure_utc": "2026-09-24T03:36:00.373131+00:00",
+      "models": {
+        "gpt-6-astra": {
+          "attempted": 2,
+          "failed": 2,
+          "succeeded": 0
+        }
+      },
+      "succeeded": 0
+    },
+    "outer_mutator_llm": {
+      "attempted": 54,
+      "failed": 54,
+      "last_error": "<urlopen error [Errno 111] Connection refused>",
+      "last_failure_utc": "2026-09-24T03:36:00.370432+00:00",
+      "models": {
+        "claude-opus-5.5": {
+          "attempted": 6,
+          "failed": 6,
+          "succeeded": 0
+        },
+        "claude-sonnet-5": {
+          "attempted": 6,
+          "failed": 6,
+          "succeeded": 0
+        },
+        "gemini-3.1-pro-preview": {
+          "attempted": 9,
+          "failed": 9,
+          "succeeded": 0
+        },
+        "gemini-3.8-flash": {
+          "attempted": 6,
+          "failed": 6,
+          "succeeded": 0
+        },
+        "gpt-6-astra": {
+          "attempted": 9,
+          "failed": 9,
+          "succeeded": 0
+        },
+        "gpt-6-luna": {
+          "attempted": 9,
+          "failed": 9,
+          "succeeded": 0
+        },
+        "gpt-6-sol": {
+          "attempted": 9,
+          "failed": 9,
+          "succeeded": 0
+        }
+      },
+      "succeeded": 0
+    }
+  },
+  "updated_utc": "2026-09-24T03:36:00.373139+00:00"
+}

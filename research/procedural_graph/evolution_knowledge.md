@@ -71,7 +71,9 @@ Hazel's own ladder games show the same short hire in 2 of 20 sampled games.
 Why 13/9 loses every game to the plain backbone (verified 2026-09-24 by replaying 4 traced
 seeds through an instrumented engine, 4 of 4): 13/9 leaves 4 wheat in the shed after
 step 1, the backbone's own 5/0 and Hazel's 35/30 leave 5. On day 1 one of our cows goes
-unfed for the second day and escapes at midnight; the backbone keeps all its animals.
+unfed for the second day and escapes at midnight, and in 3 of the 4 games a second cow
+escapes on day 8; the backbone keeps all its animals, and so does Hazel's policy in the
+same seeds.
 With one animal fewer we sell less fertilizer on day 2, miss the next cow at step 88
 ($73 + $290 of fertilizer < $400) and stay at 4 animals while the backbone reaches 6. Our
 farm also changes the town shops from about day 9. The backbone sells the same units but

@@ -1,0 +1,40 @@
+{
+  "total_pulls": 18,
+  "arms": {
+    "gpt-6-astra": {
+      "pulls": 3,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "gpt-6-sol": {
+      "pulls": 3,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "gpt-6-luna": {
+      "pulls": 3,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "gemini-3.1-pro-preview": {
+      "pulls": 3,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "gemini-3.8-flash": {
+      "pulls": 2,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "claude-opus-5.5": {
+      "pulls": 2,
+      "total_reward": 0.0,
+      "crowns": 0
+    },
+    "claude-sonnet-5": {
+      "pulls": 2,
+      "total_reward": 0.0,
+      "crowns": 0
+    }
+  }
+}
