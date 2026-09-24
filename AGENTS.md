@@ -117,7 +117,11 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
   - Starting VMs spends compute units: agree the batch with the user first.
   - Run the runner in tmux, never as a foreground/background task of an agent session
     that may exit.
-  - After the run, confirm with `colab<N> sessions` that nothing is left running.
+  - Remove every VM once its results are pulled. The runner downloads each VM's results,
+    then stops it, then checks every account's session list and prints `COLAB_VMS_LEFT=0`
+    (a leftover is stopped once more). If it prints anything else, stop the listed
+    sessions by hand (`colab<N> stop -s <name>`). Stopping deletes the VM with its disk;
+    the CLI creates no notebook files in Drive.
 
 ## 4. Data
 

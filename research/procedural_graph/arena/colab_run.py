@@ -16,7 +16,8 @@ Each VM is handled in its own thread:
    start arena.py on the shard, detached;
 3. poll every --poll seconds (results written, process alive, last log line);
 4. download the shard's results and stop the session. Every created session is stopped,
-   also after an error or Ctrl-C.
+   also after an error or Ctrl-C, and at the end every account's session list is checked
+   (`COLAB_VMS_LEFT=0`; a leftover is stopped once more).
 
 Results are appended to --out, and rerunning the same command plays only what is still
 missing. `--cleanup` only stops the sessions a run with the same --run-name and --vm
@@ -157,6 +158,9 @@ class ColabCLI:
 
     def stop(self, session):
         return self._run(['stop', '-s', session], 300)
+
+    def sessions(self):
+        return self._run(['sessions'], 120)[1]
 
 
 class ColabRun:
@@ -308,7 +312,21 @@ class ColabRun:
                 for line in new:
                     fh.write(line + '\n')
 
+    def verify_removed(self):
+        """After the results are pulled no session of this run may be left: list every
+        account's sessions, stop any leftover once more and report what still remains."""
+        left = []
+        for command in sorted({c for c, _ in self.vms}):
+            cli = self.cli_factory(command)
+            mine = [s for s in self.sessions() if s in cli.sessions()]
+            for session in mine:
+                cli.stop(session)
+            left += [f'{command}:{s}' for s in mine if s in cli.sessions()]
+        self.log(f'COLAB_VMS_LEFT={len(left)}' + (f' {left} -- stop them by hand' if left else ''))
+        return left
+
     def summary(self):
+        self.verify_removed()
         todo, total = self.pending()
         per = {}
         for line in finished(self.out).values():

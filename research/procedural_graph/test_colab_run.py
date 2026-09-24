@@ -27,14 +27,17 @@ def result(job, margin):
 
 class FakeCLI:
     """One account: records calls, plays every uploaded shard at once, or fails as told."""
-    calls, refuse, broken = [], set(), set()
+    calls, refuse, broken, stuck, running = [], set(), set(), set(), set()
 
     def __init__(self, command):
         self.command = command
 
     def new(self, session, high_mem):
         FakeCLI.calls.append((self.command, 'new', session, high_mem))
-        return self.command not in FakeCLI.refuse, 'Session READY'
+        if self.command in FakeCLI.refuse:
+            return False, 'Service Unavailable'
+        FakeCLI.running.add((self.command, session))
+        return True, 'Session READY'
 
     def upload(self, session, local, remote):
         FakeCLI.calls.append((self.command, 'upload', session, remote))
@@ -63,12 +66,21 @@ class FakeCLI:
 
     def stop(self, session):
         FakeCLI.calls.append((self.command, 'stop', session))
+        if (self.command, session) in FakeCLI.stuck:
+            FakeCLI.stuck.discard((self.command, session))   # the first stop does not take
+        else:
+            FakeCLI.running.discard((self.command, session))
         return 0, ''
+
+    def sessions(self):
+        mine = sorted(s for c, s in FakeCLI.running if c == self.command)
+        return '\n'.join(f'[{s}] m-hm | Hardware: CPU' for s in mine) or 'No active sessions found on server.'
 
 
 class ColabRunTests(unittest.TestCase):
     def setUp(self):
         FakeCLI.calls, FakeCLI.refuse, FakeCLI.broken, FakeCLI.shards = [], set(), set(), {}
+        FakeCLI.stuck, FakeCLI.running = set(), set()
 
     def runner(self, tmp, vms):
         # relative paths, as typed on the command line
@@ -130,6 +142,19 @@ class ColabRunTests(unittest.TestCase):
             self.assertFalse([c for c in FakeCLI.calls if c[1] in ('new', 'upload')])
             self.assertEqual(sorted(c[2] for c in FakeCLI.calls if c[1] == 'stop'), ['r-0', 'r-1'])
             self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 6)
+
+    def test_after_the_results_no_session_is_left(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 4)
+            FakeCLI.stuck = {('colab2', 'r-1')}           # its first stop does not take
+            logs = []
+            runner = self.runner(tmp, ['colab2:hm', 'colab2:hm'])
+            runner.log = logs.append
+            self.assertEqual(runner.run(), 0)
+            self.assertIn('COLAB_VMS_LEFT=0', logs)
+            self.assertEqual([c[2] for c in FakeCLI.calls if c[1] == 'stop'].count('r-1'), 2)
+            self.assertEqual(FakeCLI('colab2').sessions(), 'No active sessions found on server.')
 
     def test_remote_scripts_render(self):
         setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8)
