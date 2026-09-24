@@ -15,7 +15,8 @@ Each VM is handled in its own thread:
    build a Python 3.12 venv with uv (the environment whose results matched the Brev boxes);
    start arena.py on the shard, detached;
 3. poll every --poll seconds (results written, process alive, last log line);
-4. download the shard's results and stop the session. Every created session is stopped,
+4. download the shard's results and its per-game traces (arena.py --trace-dir, into
+   <out dir>/traces/), then stop the session. Every created session is stopped,
    also after an error or Ctrl-C, and at the end every account's session list is checked
    (`COLAB_VMS_LEFT=0`; a leftover is stopped once more).
 
@@ -67,7 +68,7 @@ if not os.path.exists(root + '/venv/bin/python'):
         raise SystemExit
 log = open(root + '/arena.log', 'a')
 proc = subprocess.Popen([root + '/venv/bin/python', 'payload/arena.py', '--jobs', root + '_shard.json',
-                         '--root', 'payload', '--workers', '{workers}', '--out', 'results.jsonl'],
+                         '--root', 'payload', '--workers', '{workers}', '--out', 'results.jsonl'] + {trace_args},
                         cwd=root, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
 open(root + '/arena.pid', 'w').write(str(proc.pid))
 version = subprocess.run([root + '/venv/bin/python', '-V'], capture_output=True, text=True).stdout.strip()
@@ -89,6 +90,19 @@ if os.path.exists(root + '/arena.pid'):
 tail = log.strip().splitlines()[-1][:200] if log.strip() else ''
 print('COLAB_ARENA_STATUS ' + json.dumps({{'results': results, 'done': 'ARENA_DONE' in log, 'alive': alive,
                                          'tail': tail}}))
+'''
+
+
+PACK = r'''
+import os, tarfile
+root = {root!r}
+n = 0
+with tarfile.open(root + '/traces.tgz', 'w:gz') as tar:
+    if os.path.isdir(root + '/traces'):
+        for name in sorted(os.listdir(root + '/traces')):
+            tar.add(root + '/traces/' + name, arcname=name)
+            n += 1
+print('COLAB_ARENA_PACKED', n)
 '''
 
 
@@ -165,7 +179,7 @@ class ColabCLI:
 
 class ColabRun:
     def __init__(self, payload, out, run_name, vms, poll=60.0, requirements=HERE / 'colab_requirements.txt',
-                 cli_factory=ColabCLI, workers=None, log=print):
+                 cli_factory=ColabCLI, workers=None, log=print, traces=True):
         # absolute: the CLI runs from the home directory, so relative paths would point there
         self.payload, self.out, self.run_name = Path(payload).resolve(), Path(out).resolve(), run_name
         self.vms = [(v.split(':')[0], v.split(':')[1]) for v in vms]
@@ -176,6 +190,7 @@ class ColabRun:
         self.poll, self.requirements, self.cli_factory, self.log = poll, Path(requirements), cli_factory, log
         self.stop_event = threading.Event()
         self.parts = self.out.parent / (self.out.name + '.parts')
+        self.traces = self.out.parent / 'traces' if traces else None   # arena.py compact traces, one per game
         self.lock = threading.Lock()
 
     def sessions(self):
@@ -248,7 +263,8 @@ class ColabRun:
                 if not ok:
                     raise RuntimeError(f'upload of {Path(local).name} failed: {out.strip()[-300:]}')
             setup = tmp / f'{session}_setup.py'
-            setup.write_text(SETUP.format(root=REMOTE, workers=self.workers[index]))
+            setup.write_text(SETUP.format(root=REMOTE, workers=self.workers[index],
+                                          trace_args="['--trace-dir', 'traces']" if self.traces else '[]'))
             out = cli.exec_file(session, setup, 1200)
             started = [l for l in out.splitlines() if l.startswith('COLAB_ARENA_STARTED')]
             if not started:
@@ -293,14 +309,30 @@ class ColabRun:
                 break
 
     def finish(self, cli, session):
-        """Download the session's results, stop it and merge what it played."""
+        """Download the session's results and traces, then stop it and merge what it played."""
         part = self.parts / f'{session}.jsonl'
         ok, out = cli.download(session, REMOTE + '/results.jsonl', part)
         if not ok:
             self.log(f'[{session}] no results downloaded: {out.strip()[-200:]}')
+        if self.traces:
+            self.pull_traces(cli, session)
         cli.stop(session)
         self.log(f'[{session}] stopped')
         self.merge(part)
+
+    def pull_traces(self, cli, session):
+        pack = self.parts / f'{session}_pack.py'
+        pack.write_text(PACK.format(root=REMOTE))
+        packed = [l for l in cli.exec_file(session, pack, 600).splitlines() if l.startswith('COLAB_ARENA_PACKED')]
+        archive = self.parts / f'{session}_traces.tgz'
+        if not packed or not cli.download(session, REMOTE + '/traces.tgz', archive)[0]:
+            self.log(f'[{session}] no traces downloaded')
+            return
+        self.traces.mkdir(parents=True, exist_ok=True)
+        with tarfile.open(archive) as tar:
+            tar.extractall(self.traces, filter='data')
+        archive.unlink()
+        self.log(f'[{session}] {packed[0].split()[1]} traces -> {self.traces}')
 
     def merge(self, part):
         with self.lock:
@@ -352,11 +384,13 @@ def main():
                     help='one VM, e.g. colab2:hm (High-RAM) or colab4:std; repeat per VM')
     ap.add_argument('--workers', type=int, default=None, help='concurrent games per VM (default: 8 hm, 2 std)')
     ap.add_argument('--poll', type=float, default=60.0)
+    ap.add_argument('--no-traces', action='store_true', help='do not keep per-game traces (<out dir>/traces/)')
     ap.add_argument('--cleanup', action='store_true', help='only stop the sessions this command would create')
     ap.add_argument('--attach', action='store_true',
                     help='follow the sessions an earlier runner started, then download, stop and merge')
     args = ap.parse_args()
     runner = ColabRun(args.payload, args.out, args.run_name, args.vm, poll=args.poll, workers=args.workers,
+                      traces=not args.no_traces,
                       log=lambda m: print(f'{time.strftime("%H:%M:%S")} {m}', flush=True))
     if args.cleanup:
         runner.cleanup()

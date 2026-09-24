@@ -49,7 +49,10 @@ class FakeCLI:
     def exec_file(self, session, path, timeout):
         text = Path(path).read_text()
         if 'COLAB_ARENA_STARTED' in text:
+            assert "'--trace-dir', 'traces'" in text
             return 'COLAB_ARENA_STARTED 42 8 Python 3.12.13'
+        if 'COLAB_ARENA_PACKED' in text:
+            return f"COLAB_ARENA_PACKED {len(FakeCLI.shards.get(session, []))}"
         if self.command in FakeCLI.broken:
             raise RuntimeError('websocket closed')
         return 'COLAB_ARENA_STATUS ' + json.dumps({'results': len(FakeCLI.shards[session]), 'done': True,
@@ -59,6 +62,15 @@ class FakeCLI:
         FakeCLI.calls.append((self.command, 'download', session, remote))
         assert Path(local).is_absolute(), local   # the real CLI runs from the home directory
         jobs = FakeCLI.shards.get(session, [])
+        if remote.endswith('traces.tgz'):
+            import io, tarfile
+            with tarfile.open(local, 'w:gz') as tar:
+                for j in jobs:
+                    data = b'{}'
+                    info = tarfile.TarInfo(f"{j['tag']}_seed{j['seed']}_aseat{j['a_seat']}.json.gz")
+                    info.size = len(data)
+                    tar.addfile(info, io.BytesIO(data))
+            return True, ''
         if self.command in FakeCLI.broken:
             jobs = jobs[:1]   # a VM that died after one game: partial results
         Path(local).write_text(''.join(result(j, 5.0) + '\n' for j in jobs))
@@ -98,6 +110,7 @@ class ColabRunTests(unittest.TestCase):
             self.assertIn(('colab4', 'new', 'r-1', False), FakeCLI.calls)
             stops = sorted(c[2] for c in FakeCLI.calls if c[1] == 'stop')
             self.assertEqual(stops, ['r-0', 'r-1'])
+            self.assertEqual(len(list((tmp / 'traces').glob('*.json.gz'))), 20)   # one trace per game
             self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 20)
 
     def test_resume_plays_only_missing_games_and_merges_without_duplicates(self):
@@ -157,10 +170,12 @@ class ColabRunTests(unittest.TestCase):
             self.assertEqual(FakeCLI('colab2').sessions(), 'No active sessions found on server.')
 
     def test_remote_scripts_render(self):
-        setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8)
+        setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8, trace_args="['--trace-dir', 'traces']")
         poll = colab_run.POLL.format(root=colab_run.REMOTE)
-        compile(setup, 'setup', 'exec')
-        compile(poll, 'poll', 'exec')
+        pack = colab_run.PACK.format(root=colab_run.REMOTE)
+        for name, code in (('setup', setup), ('poll', poll), ('pack', pack)):
+            compile(code, name, 'exec')
+        self.assertIn("'results.jsonl'] + ['--trace-dir', 'traces']", setup)
         self.assertIn("'--workers', '8'", setup)
         self.assertEqual(colab_run.parse_status('x\nCOLAB_ARENA_STATUS {"results": 3, "done": false}\n'),
                          {'results': 3, 'done': False})
