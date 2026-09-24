@@ -35,6 +35,8 @@ class FakeCLI:
     def new(self, session, high_mem):
         FakeCLI.calls.append((self.command, 'new', session, high_mem))
         if self.command in FakeCLI.refuse:
+            if self.command in getattr(FakeCLI, 'halfmade', set()):
+                FakeCLI.running.add((self.command, session))   # reported as failed, but the VM exists
             return False, 'Service Unavailable'
         FakeCLI.running.add((self.command, session))
         return True, 'Session READY'
@@ -50,6 +52,8 @@ class FakeCLI:
         text = Path(path).read_text()
         if 'COLAB_ARENA_STARTED' in text:
             assert "'--trace-dir', 'traces'" in text
+            if self.command in getattr(FakeCLI, 'broken_setup', set()):
+                return 'COLAB_ARENA_ERROR requirements'
             return 'COLAB_ARENA_STARTED 42 8 Python 3.12.13'
         if 'COLAB_ARENA_PACKED' in text:
             return f"COLAB_ARENA_PACKED {len(FakeCLI.shards.get(session, []))}"
@@ -92,7 +96,7 @@ class FakeCLI:
 class ColabRunTests(unittest.TestCase):
     def setUp(self):
         FakeCLI.calls, FakeCLI.refuse, FakeCLI.broken, FakeCLI.shards = [], set(), set(), {}
-        FakeCLI.stuck, FakeCLI.running = set(), set()
+        FakeCLI.stuck, FakeCLI.running, FakeCLI.broken_setup, FakeCLI.halfmade = set(), set(), set(), set()
 
     def runner(self, tmp, vms):
         # relative paths, as typed on the command line
@@ -134,16 +138,16 @@ class ColabRunTests(unittest.TestCase):
             self.assertEqual(sorted(c[2] for c in FakeCLI.calls if c[1] == 'stop'), ['r-0', 'r-1'])
             self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 5)
 
-    def test_a_vm_that_cannot_be_created_leaves_its_games_for_a_rerun(self):
+    def test_a_refused_vm_gives_its_games_to_the_vms_that_exist(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             payload(tmp / 'payload', 4)
             FakeCLI.refuse = {'colab5'}
             missing = self.runner(tmp, ['colab1:std', 'colab5:std']).run()
-            self.assertEqual(missing, 2)
-            self.assertEqual([c[2] for c in FakeCLI.calls if c[1] == 'stop'], ['r-0'])
-            FakeCLI.refuse = set()
-            self.assertEqual(self.runner(tmp, ['colab1:std']).run(), 0)
+            self.assertEqual(missing, 0)
+            self.assertEqual(len(FakeCLI.shards['r-0']), 4)
+            # r-1 gets a precautionary stop right after its failed create, r-0 after its games
+            self.assertEqual(sorted(c[2] for c in FakeCLI.calls if c[1] == 'stop'), ['r-0', 'r-1'])
 
     def test_attach_finishes_sessions_a_killed_runner_left_behind(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -168,6 +172,47 @@ class ColabRunTests(unittest.TestCase):
             self.assertIn('COLAB_VMS_LEFT=0', logs)
             self.assertEqual([c[2] for c in FakeCLI.calls if c[1] == 'stop'].count('r-1'), 2)
             self.assertEqual(FakeCLI('colab2').sessions(), 'No active sessions found on server.')
+
+    def test_start_only_leaves_vms_playing_until_attach_pulls_and_removes_them(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 6)
+            FakeCLI.refuse = set()
+            runner = colab_run.ColabRun(Path(os.path.relpath(tmp / 'payload')), Path(os.path.relpath(tmp / 'results.jsonl')),
+                                        'r', ['colab2:hm', 'colab2:hm'], poll=0.0, cli_factory=FakeCLI,
+                                        log=lambda m: None, detach=True)
+            self.assertEqual(runner.run(), 0)
+            self.assertFalse([c for c in FakeCLI.calls if c[1] in ('stop', 'download')])
+            self.assertEqual(sorted(s for c, s in FakeCLI.running), ['r-0', 'r-1'])
+            self.assertFalse((tmp / 'results.jsonl').exists())
+            # later: attach pulls results and traces, then removes every VM
+            self.assertEqual(self.runner(tmp, ['colab2:hm', 'colab2:hm']).attach(), 0)
+            self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 6)
+            self.assertEqual(len(list((tmp / 'traces').glob('*.json.gz'))), 6)
+            self.assertEqual(FakeCLI.running, set())
+
+    def test_start_only_still_removes_a_vm_whose_setup_failed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 2)
+            FakeCLI.broken_setup = {'colab3'}
+            runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r', ['colab3:std'], poll=0.0,
+                                        cli_factory=FakeCLI, log=lambda m: None, detach=True)
+            runner.run()
+            self.assertEqual([c[2] for c in FakeCLI.calls if c[1] == 'stop'], ['r-0'])
+            self.assertEqual(FakeCLI.running, set())
+
+    def test_a_vm_reported_as_failed_but_created_is_stopped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 4)
+            FakeCLI.refuse = FakeCLI.halfmade = {'colab2'}
+            runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r', ['colab2:hm', 'colab1:std'],
+                                        poll=0.0, cli_factory=FakeCLI, log=lambda m: None, detach=True)
+            runner.run()
+            self.assertIn(('colab2', 'stop', 'r-0'), FakeCLI.calls)
+            self.assertEqual(sorted(FakeCLI.running), [('colab1', 'r-1')])   # only the VM that plays
+            self.assertEqual(len(FakeCLI.shards['r-1']), 4)
 
     def test_remote_scripts_render(self):
         setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8, trace_args="['--trace-dir', 'traces']")

@@ -10,7 +10,8 @@ or `std` (2 CPUs, 12.7 GB). The payload's jobs that are not yet in --out are spl
 the VMs in proportion to their workers (8 per High-RAM VM, 2 per standard VM by default).
 Each VM is handled in its own thread:
 
-1. `new`: a VM that cannot be created leaves its jobs unplayed;
+1. `new` for every VM in parallel; the games are then split over the VMs that exist (a
+   refused VM's share goes to the others), in proportion to their workers;
 2. upload the payload (tar.gz), its shard and the pinned requirements; verify files.json;
    build a Python 3.12 venv with uv (the environment whose results matched the Brev boxes);
    start arena.py on the shard, detached;
@@ -23,7 +24,7 @@ Each VM is handled in its own thread:
 Results are appended to --out, and rerunning the same command plays only what is still
 missing. `--cleanup` only stops the sessions a run with the same --run-name and --vm
 flags would create; `--attach` follows them to the end instead (for a runner that was
-killed): wait, download, stop, merge. Run it in tmux (kagg-colab-<run>) so a closed
+killed, or a `--start-only` run that left its VMs playing): wait, download, stop, merge. Run it in tmux (kagg-colab-<run>) so a closed
 terminal or session does not leave VMs running.
 """
 from __future__ import annotations
@@ -179,7 +180,7 @@ class ColabCLI:
 
 class ColabRun:
     def __init__(self, payload, out, run_name, vms, poll=60.0, requirements=HERE / 'colab_requirements.txt',
-                 cli_factory=ColabCLI, workers=None, log=print, traces=True):
+                 cli_factory=ColabCLI, workers=None, log=print, traces=True, detach=False):
         # absolute: the CLI runs from the home directory, so relative paths would point there
         self.payload, self.out, self.run_name = Path(payload).resolve(), Path(out).resolve(), run_name
         self.vms = [(v.split(':')[0], v.split(':')[1]) for v in vms]
@@ -191,6 +192,7 @@ class ColabRun:
         self.stop_event = threading.Event()
         self.parts = self.out.parent / (self.out.name + '.parts')
         self.traces = self.out.parent / 'traces' if traces else None   # arena.py compact traces, one per game
+        self.detach = detach   # start the games and leave the VMs running; --attach pulls them later
         self.lock = threading.Lock()
 
     def sessions(self):
@@ -231,30 +233,63 @@ class ColabRun:
 
     def run(self):
         todo, total = self.pending()
-        self.log(f'{self.run_name}: {len(todo)} of {total} games to play on {len(self.vms)} VMs')
+        self.log(f'{self.run_name}: {len(todo)} of {total} games to play on up to {len(self.vms)} VMs')
         if not todo:
             return self.summary()
-        shards = assign(todo, self.workers)
+        live = self.create_all()
+        if not live:
+            self.log('no VM could be created')
+            return self.summary()
+        # games are split over the VMs that exist, in proportion to their workers (hm 8, std 2)
+        shards = dict(zip(live, assign(todo, [self.workers[i] for i in live])))
+        for i in live:
+            self.log(f'[{self.sessions()[i]}] {self.vms[i][0]} {self.vms[i][1]}: {len(shards[i])} games')
         self.parts.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             archive = tmp / 'payload.tar.gz'
             with tarfile.open(archive, 'w:gz') as tar:
                 tar.add(self.payload, arcname='payload')
-            self.join([threading.Thread(target=self.run_vm, args=(i, shard, archive, tmp), daemon=True)
-                       for i, shard in enumerate(shards) if shard])
+            for i in live:
+                if not shards[i]:   # more VMs than games
+                    self.finish(self.cli_factory(self.vms[i][0]), self.sessions()[i])
+            self.join([threading.Thread(target=self.run_vm, args=(i, shards[i], archive, tmp), daemon=True)
+                       for i in live if shards[i]])
+        if self.detach:
+            running = [self.sessions()[i] for i in live if shards[i]]
+            self.log(f'COLAB_DETACHED {len(todo)} games on {", ".join(running)}: the VMs keep running (and '
+                     f'spending units) until the same command with --attach pulls results and traces and '
+                     f'stops them')
+            return 0
         return self.summary()
+
+    def create_all(self):
+        """Create every VM in parallel; the indices of those that exist."""
+        live, lock = [], threading.Lock()
+
+        def create(i):
+            command, shape = self.vms[i]
+            session = self.sessions()[i]
+            cli = self.cli_factory(command)
+            ok, out = cli.new(session, shape == 'hm')
+            if ok:
+                with lock:
+                    live.append(i)
+            else:
+                # a create that reports an error can still leave a VM behind (seen 2026-09-24: 5
+                # High-RAM VMs created in parallel all "failed" yet ran idle), so stop it anyway
+                cli.stop(session)
+                self.log(f'[{session}] {command} {shape} VM not created (stop sent): {out.strip()[-200:]}')
+
+        self.join([threading.Thread(target=create, args=(i,), daemon=True) for i in range(len(self.vms))])
+        return sorted(live)
 
     def run_vm(self, index, shard, archive, tmp):
         command, shape = self.vms[index]
         session = self.sessions()[index]
         cli = self.cli_factory(command)
-        created = False
+        created, started = True, False   # create_all made the VM
         try:
-            created, out = cli.new(session, shape == 'hm')
-            if not created:
-                self.log(f'[{session}] {command} {shape} VM not created: {out.strip()[-200:]}')
-                return
             shard_file = tmp / f'{session}_shard.json'
             shard_file.write_text(json.dumps({'jobs': shard}))
             for local, remote in ((archive, REMOTE + '_payload.tar.gz'), (shard_file, REMOTE + '_shard.json'),
@@ -266,17 +301,20 @@ class ColabRun:
             setup.write_text(SETUP.format(root=REMOTE, workers=self.workers[index],
                                           trace_args="['--trace-dir', 'traces']" if self.traces else '[]'))
             out = cli.exec_file(session, setup, 1200)
-            started = [l for l in out.splitlines() if l.startswith('COLAB_ARENA_STARTED')]
-            if not started:
+            marker = [l for l in out.splitlines() if l.startswith('COLAB_ARENA_STARTED')]
+            if not marker:
                 raise RuntimeError(f'setup failed: {out.strip()[-600:]}')
+            started = True
             self.log(f'[{session}] {command} {shape}: {len(shard)} games, {self.workers[index]} workers '
-                     f'({started[0].split(maxsplit=2)[2]})')
+                     f'({marker[0].split(maxsplit=2)[2]})')
+            if self.detach:
+                return
             self.watch(cli, session, len(shard), tmp)
         except Exception as exc:
             self.log(f'[{session}] error: {exc}')
         finally:
-            if created:
-                self.finish(cli, session)
+            if created and not (self.detach and started):
+                self.finish(cli, session)   # a VM that failed to start is removed at once
 
     def follow_vm(self, index, tmp):
         """--attach: follow a session an earlier (killed) runner started, then finish it."""
@@ -386,11 +424,13 @@ def main():
     ap.add_argument('--poll', type=float, default=60.0)
     ap.add_argument('--no-traces', action='store_true', help='do not keep per-game traces (<out dir>/traces/)')
     ap.add_argument('--cleanup', action='store_true', help='only stop the sessions this command would create')
+    ap.add_argument('--start-only', action='store_true',
+                    help='start the games and exit, leaving the VMs running; pull them later with --attach')
     ap.add_argument('--attach', action='store_true',
                     help='follow the sessions an earlier runner started, then download, stop and merge')
     args = ap.parse_args()
     runner = ColabRun(args.payload, args.out, args.run_name, args.vm, poll=args.poll, workers=args.workers,
-                      traces=not args.no_traces,
+                      traces=not args.no_traces, detach=args.start_only,
                       log=lambda m: print(f'{time.strftime("%H:%M:%S")} {m}', flush=True))
     if args.cleanup:
         runner.cleanup()
