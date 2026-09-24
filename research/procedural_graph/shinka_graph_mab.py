@@ -82,19 +82,25 @@ class UCB1Bandit:
         }
         self.state_file.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
-    def select_arm(self) -> str:
-        """Selects the next model to sample using the UCB1 algorithm."""
+    def select_arm(self, exclude: tuple | list | set = ()) -> str:
+        """Selects the next model to sample using the UCB1 algorithm.
+
+        `exclude` skips arms already used this iteration (UCB1 is deterministic between
+        updates, so asking again would return the same arm); if it covers every arm,
+        it is ignored.
+        """
+        arms = [a for a in self.arms if a not in exclude] or list(self.arms)
         # Warmup: ensure every arm is pulled at least once
-        for arm in self.arms:
+        for arm in arms:
             if self.state[arm]["pulls"] == 0:
                 return arm
 
         best_score = -float("inf")
-        best_arm = self.arms[0]
+        best_arm = arms[0]
 
         log_total = math.log(max(1, self.total_pulls))
 
-        for arm in self.arms:
+        for arm in arms:
             stats = self.state[arm]
             n = stats["pulls"]
             mean_r = stats["total_reward"] / n

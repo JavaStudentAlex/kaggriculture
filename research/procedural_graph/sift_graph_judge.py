@@ -11,7 +11,12 @@ Key ideas adapted for Kaggriculture procedural graph evolution:
 3. Rank-based parent sampling: P(i) ∝ exp(-α·r_bt(i) - β·r_acc(i) - η·log(1+v_i))
 
 In our pipeline, the judge acts as a cheap pre-filter: generate N candidate mutations,
-judge them pairwise, and push only the BT-top-ranked candidate to the Kaggle gauntlet.
+judge them pairwise, and push only the BT-top-ranked candidate to the gauntlet.
+
+The judge must see what differs between two candidates: `rank_edits` shows each edit's
+control changes (graph_edits.diff), `rank_candidates` the JSON paths where two full
+graphs differ (a 44 kB graph cut at a fixed length hides every mutation). A reply
+without a valid verdict is no vote, never a default winner.
 """
 from __future__ import annotations
 
@@ -21,6 +26,7 @@ import os
 import urllib.request
 
 from call_telemetry import record_call
+from bam_graph_mutator import extract_json_block
 from typing import Any, Dict, List, Optional, Tuple
 
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
@@ -57,6 +63,31 @@ def _llm_call(model: str, system_prompt: str, user_prompt: str,
         raise
 
 
+def json_differences(a: Any, b: Any, path: str = "$", out: Optional[list] = None, limit: int = 60) -> list:
+    """[(path, value in a, value in b)] for every leaf where two JSON documents differ."""
+    out = [] if out is None else out
+    if len(out) >= limit:
+        return out
+    if isinstance(a, dict) and isinstance(b, dict):
+        for key in sorted(set(a) | set(b), key=str):
+            json_differences(a.get(key, "<absent>"), b.get(key, "<absent>"), f"{path}.{key}", out, limit)
+    elif isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
+        for i, (x, y) in enumerate(zip(a, b)):
+            json_differences(x, y, f"{path}[{i}]", out, limit)
+    elif a != b:
+        out.append((path, a, b))
+    return out
+
+
+def _verdict(response: str) -> Optional[str]:
+    """'A' or 'B' from a JSON reply; None when the reply carries no valid verdict."""
+    try:
+        winner = extract_json_block(response).get("winner")
+    except Exception:
+        return None
+    return winner if winner in ("A", "B") else None
+
+
 class SIFTGraphJudge:
     """Pairwise LLM judge with Bradley-Terry aggregation for procedural graph candidates.
 
@@ -86,68 +117,58 @@ class SIFTGraphJudge:
 
     def _judge_pairwise(
         self,
-        graph_a: Dict[str, Any],
+        text_a: str,
         rationale_a: str,
-        graph_b: Dict[str, Any],
+        text_b: str,
         rationale_b: str,
-        domain_knowledge: str,
-        diagnostics: Dict[str, Any],
-    ) -> str:
-        """Ask the judge LLM: which candidate graph is more promising? Returns 'A' or 'B'."""
+        knowledge: str,
+        context: str,
+    ) -> Optional[str]:
+        """Ask the judge LLM which candidate is more promising: 'A', 'B' or None (no vote)."""
         system_prompt = (
-            "You are an expert judge evaluating two candidate Procedural Decision Graphs "
+            "You are an expert judge comparing two candidate changes to a policy graph "
             "for an autonomous farming agent in the Kaggriculture Kaggle competition.\n"
-            "Your task: determine which candidate graph mutation is MORE LIKELY to improve "
-            "the agent's win rate against the champion pool.\n"
-            "Consider: economic strategy soundness, edge condition precision, "
-            "pitfall/guidance quality, workforce scaling logic, and robustness to failure modes.\n"
+            "Decide which change is MORE LIKELY to increase the agent's cash margin against "
+            "the opponent pool. Judge the in-game mechanism each change affects, the "
+            "evidence in the measured results, and the risk of hurting other opponents.\n"
             "You MUST respond with ONLY a JSON object: "
             '{"reasoning": "<2-3 sentences>", "winner": "A" or "B"}'
         )
+        user_prompt = f"""### VERIFIED KNOWLEDGE AND MEASURED RESULTS:
+{knowledge[:6000]}
 
-        # Summarize diagnostics compactly
-        diag_summary = json.dumps({
-            "island": diagnostics.get("island_name", ""),
-            "focus": diagnostics.get("island_focus", ""),
-            "current_win_rate": diagnostics.get("current_champ_win_rate", 0.0),
-            "recent_losses": diagnostics.get("worst_cloud_losses", [])[:3],
-        }, indent=2)
+### CURRENT CHAMPION AND ITS RESULTS:
+{context[:4000]}
 
-        user_prompt = f"""### DOMAIN KNOWLEDGE:
-{domain_knowledge[:3000]}
-
-### CURRENT GAME STATE:
-{diag_summary}
-
-### CANDIDATE A:
+### CANDIDATE A
 **Rationale:** {rationale_a}
-```json
-{json.dumps(graph_a, indent=2)[:6000]}
-```
+**Changes:**
+{text_a}
 
-### CANDIDATE B:
+### CANDIDATE B
 **Rationale:** {rationale_b}
-```json
-{json.dumps(graph_b, indent=2)[:6000]}
-```
+**Changes:**
+{text_b}
 
-Which candidate is more likely to improve the agent's win rate? Respond with JSON only.
+Which candidate is more likely to improve the agent's cash margin? Respond with JSON only.
 """
         try:
             response = _llm_call(self.judge_model, system_prompt, user_prompt)
-            # Extract winner
-            import re
-            # Try JSON parse
-            m = re.search(r'"winner"\s*:\s*"([AB])"', response)
-            if m:
-                return m.group(1)
-            # Fallback: look for A or B
-            if '"A"' in response or "'A'" in response:
-                return "A"
-            return "B"
         except Exception as e:
-            print(f"  [SIFT Judge] Error in pairwise call: {e}")
-            return "A"  # Default to first candidate on error
+            print(f"  [SIFT Judge] Error in pairwise call (no vote): {e}")
+            return None
+        verdict = _verdict(response)
+        if verdict is None:
+            print(f"  [SIFT Judge] Reply without a valid verdict (no vote): {response[:200]!r}")
+        return verdict
+
+    @staticmethod
+    def _graph_changes(graph: Dict[str, Any], other: Dict[str, Any]) -> str:
+        diffs = json_differences(other, graph)
+        if not diffs:
+            return "(identical to the other candidate)"
+        return "\n".join(f"{path}: {json.dumps(mine)[:300]} (other candidate: {json.dumps(theirs)[:300]})"
+                         for path, theirs, mine in diffs)
 
     def _fit_bradley_terry(self, node_ids: List[str]) -> Dict[str, float]:
         """Fit regularized Bradley-Terry model to the win matrix.
@@ -217,16 +238,25 @@ Which candidate is more likely to improve the agent's win rate? Respond with JSO
             if nid not in self.win_matrix:
                 self.win_matrix[nid] = {}
 
+        losses = (diagnostics.get("worst_differential_losses")
+                  or diagnostics.get("worst_cloud_losses") or [])[:3]
+        context = json.dumps({
+            "island": diagnostics.get("island_name", ""),
+            "focus": diagnostics.get("island_focus", ""),
+            "current_win_rate": diagnostics.get("current_champ_win_rate", 0.0),
+            "recent_losses": losses,
+        }, indent=2)
         # Run all pairwise comparisons (for N=2-3 candidates this is manageable)
         n = len(candidates)
         for i in range(n):
             for j in range(i + 1, n):
                 winner = self._judge_pairwise(
-                    graph_a=candidates[i][0], rationale_a=candidates[i][1],
-                    graph_b=candidates[j][0], rationale_b=candidates[j][1],
-                    domain_knowledge=domain_knowledge,
-                    diagnostics=diagnostics,
+                    self._graph_changes(candidates[i][0], candidates[j][0]), candidates[i][1],
+                    self._graph_changes(candidates[j][0], candidates[i][0]), candidates[j][1],
+                    domain_knowledge, context,
                 )
+                if winner is None:
+                    continue
 
                 if winner == "A":
                     self.win_matrix.setdefault(node_ids[i], {})[node_ids[j]] = \
@@ -257,6 +287,44 @@ Which candidate is more likely to improve the agent's win rate? Respond with JSO
             self.win_matrix.pop(nid, None)
 
         return result
+
+    def rank_edits(
+        self,
+        proposals: List[Dict[str, Any]],
+        knowledge: str,
+        context: str,
+    ) -> Tuple[List[Tuple[Dict[str, Any], float]], int]:
+        """Rank edit proposals ({'changes': [...], 'rationale', 'model', ...}) pairwise.
+
+        Each candidate is shown as its control changes relative to the island champion.
+        Returns ([(proposal, BT strength)] best first, number of valid votes); with no
+        valid vote every strength is equal and the generation order is kept.
+        """
+        n = len(proposals)
+        if n <= 1:
+            return [(p, 1.0) for p in proposals], 0
+        ids = [f"edit_{i}" for i in range(n)]
+        for nid in ids:
+            self.win_matrix[nid] = {}
+        votes = 0
+        for i in range(n):
+            for j in range(i + 1, n):
+                winner = self._judge_pairwise(
+                    "\n".join(proposals[i]["changes"]), proposals[i]["rationale"],
+                    "\n".join(proposals[j]["changes"]), proposals[j]["rationale"],
+                    knowledge, context)
+                if winner is None:
+                    continue
+                votes += 1
+                w, l = (ids[i], ids[j]) if winner == "A" else (ids[j], ids[i])
+                self.win_matrix[w][l] = self.win_matrix[w].get(l, 0) + 1
+                print(f"  [SIFT Judge] {proposals[i]['model']} vs {proposals[j]['model']} -> "
+                      f"{proposals[i if winner == 'A' else j]['model']}")
+        strengths = self._fit_bradley_terry(ids)
+        order = sorted(range(n), key=lambda k: -strengths[ids[k]])  # stable: ties keep order
+        for nid in ids:
+            self.win_matrix.pop(nid, None)
+        return [(proposals[k], strengths[ids[k]]) for k in order], votes
 
     def rank_based_parent_sampling_weights(
         self,

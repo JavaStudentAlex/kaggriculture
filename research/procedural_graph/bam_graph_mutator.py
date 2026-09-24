@@ -1,10 +1,13 @@
 """BAM (Multi-Armed Bandit) Frontier LLM Procedural Graph Analyzer & Mutator.
 
-Uses UCB1 over the 6 frontier LLM arms to analyze Jev match traces, diagnose
-defeat causes, and synthesize strategic mutations (Delta G) to the Procedural Graph:
-1. Calibrates edge guidance and pitfalls to steer Jev's Choice criteria.
-2. Refines activation conditions and numerical thresholds.
-3. Mutates graph topology (adds specialized nodes, prunes unproductive branches).
+`mutate_edit` asks the bandit-selected LLM for an edit of the graph's executable
+controls (graph_edits.py): champion parameters on chain nodes, market-stage toggles,
+the dispatch order and the surgical switches. That is what the merged runtime
+(`runtime: hazel_merged_v1`) executes; its prose does not.
+
+`mutate_graph` is the legacy prose mutation (nodes/edges guidance) for pre-merge graphs.
+It refuses merged graphs: its output has no runtime, and agent_graph.py would silently
+play the preserved legacy agent instead of the graph being evolved.
 """
 from __future__ import annotations
 
@@ -15,6 +18,7 @@ import urllib.request
 from pathlib import Path
 
 from call_telemetry import record_call
+from shinka_graph_mab import MODEL_SPECS
 from typing import Any, Dict, List, Optional, Tuple
 
 LOCAL_PROXY_URL = "http://localhost:8317/v1/chat/completions"
@@ -62,6 +66,9 @@ class BAMGraphMutator:
         rejections: List[Dict[str, Any]]
     ) -> Tuple[Dict[str, Any], str]:
         """Prompts the selected frontier LLM to analyze the Jev match trace and mutate the graph."""
+        if current_graph.get("runtime") == "hazel_merged_v1":
+            raise ValueError("mutate_graph rewrites prose that the merged runtime does not execute; "
+                             "use mutate_edit for hazel_merged_v1 graphs")
         # Extract clean model identifier
         m_id = model_name.split("@")[0].replace("local/", "") if "@" in model_name else model_name
 
@@ -189,3 +196,90 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
                 edge["attributes"] = {}
 
         return mutated_graph, rationale
+
+    def _chat(self, model: str, system_prompt: str, prompt: str, source: str, timeout: float = 600.0) -> str:
+        spec = MODEL_SPECS.get(model, {})
+        body = {"model": model,
+                "messages": [{"role": "system", "content": system_prompt},
+                             {"role": "user", "content": prompt}],
+                "temperature": spec.get("temperature", 0.3), "max_tokens": 16384}
+        if spec.get("reasoning_effort"):
+            body["reasoning_effort"] = spec["reasoning_effort"]
+        req = urllib.request.Request(
+            self.proxy_url, data=json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {self.proxy_key}"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                content = json.loads(resp.read().decode("utf-8"))["choices"][0]["message"]["content"]
+            record_call(source, "success", model=model)
+            return content
+        except Exception as exc:
+            record_call(source, "failure", model=model, error=exc)
+            raise
+
+    def mutate_edit(
+        self,
+        model_name: str,
+        controls: str,
+        focus: str,
+        results: str,
+        history: List[str],
+        guidance: List[str],
+        knowledge: str,
+        error: Optional[str] = None,
+    ) -> Tuple[Dict[str, Any], str]:
+        """Ask one LLM for an edit of the executable controls; returns (edit, rationale).
+
+        The edit is not checked here: graph_edits.apply_edit and validate_graph do that,
+        and their error text comes back through `error` on the next attempt.
+        """
+        system_prompt = (
+            "You tune an executable policy graph for the Kaggriculture Kaggle simulation "
+            "(two farms, 720 turns, final cash decides). The graph runs a fixed champion "
+            "program; you can change only the listed executable controls. Propose ONE small, "
+            "mechanism-driven edit and return ONLY a JSON object with keys 'rationale' and 'edit'.")
+        history_block = "\n".join(f"- {line}" for line in history[-12:]) or "- none yet"
+        guidance_block = "\n".join(f"- {line}" for line in guidance[-5:]) or "- none"
+        retry = f"\n### YOUR PREVIOUS ATTEMPT WAS REJECTED\n{error}\nFix exactly this problem.\n" if error else ""
+        prompt = f"""### HOW A CANDIDATE IS JUDGED
+Your edit is applied to the island champion below. The resulting graph plays a paired
+gauntlet: the same seeds against Hazel Weir, Copper Weir, Orchard Tide, the Mohui v66
+backbone and Mohui13 (the backbone with a 13/9 wheat opening), plus head-to-head games
+against the champion itself. Per game, its cash margin is compared with the champion's
+margin on the same game; it is promoted only if an exact sign test over the games that
+changed is significant (p <= 0.05) with a positive mean change. Edits that change nothing
+in play are wasted; edits that help one opponent and hurt the others fail.
+
+### VERIFIED ENGINE FACTS AND MEASURED RESULTS
+{knowledge}
+
+### ISLAND FOCUS
+{focus}
+You may change any control, but prefer this area.
+
+### EXECUTABLE CONTROLS (current values of the island champion)
+{controls}
+
+### CHAMPION RESULTS IN THE GAUNTLET
+{results}
+
+### EDITS ALREADY EVALUATED FROM THIS CHAMPION'S LINE (do not repeat; learn from them)
+{history_block}
+
+### SUPERVISOR GUIDANCE
+{guidance_block}
+{retry}
+### OUTPUT (strict JSON, nothing else)
+{{"rationale": "<2-4 sentences: the in-game mechanism you expect to change and why cash improves>",
+  "edit": {{"parameters": {{"<_CONSTANT>": <value of the same type, or null for the submitted value>}},
+            "stages": {{"<market stage id>": true or false}},
+            "dispatch_order": "submitted" or "sells_first",
+            "surgical": {{"enabled": true or false, "overrides": {{...}}}}}}}}
+Include only the keys you change (usually 1-3 controls). Tuples and lists are JSON arrays.
+"""
+        content = self._chat(model_name, system_prompt, prompt, "outer_mutator_llm")
+        parsed = extract_json_block(content)
+        edit = parsed.get("edit")
+        if not isinstance(edit, dict) or not edit:
+            raise ValueError("response has no non-empty 'edit' object")
+        return edit, str(parsed.get("rationale", "")).strip()

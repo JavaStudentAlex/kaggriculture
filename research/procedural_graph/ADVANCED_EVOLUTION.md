@@ -1,53 +1,126 @@
-# Active advanced evolution configuration
+# Advanced graph evolution: edit-based SIFT islands
 
-The supported dedicated-server entrypoint is `bash run_advanced_evolution.sh`.
-It runs `highcpu_island_evolution.py`; older single-candidate or notebook launchers
-are not replacements for this architecture.
+Entry point: `bash run_advanced_evolution.sh [options]`, which runs
+`highcpu_island_evolution.py`. Older single-candidate and notebook launchers are not
+replacements for it.
 
-## Preserved architecture
+```sh
+# games on this machine (about 1 GB RAM per concurrent game)
+bash run_advanced_evolution.sh --workers 60
+# games on a Brev box; the loop, the LLM proxy (:8317) and the run directory stay local
+bash run_advanced_evolution.sh --executor ssh --host kagg-arena-80 --workers 60
+```
 
-- Eight checkpointed islands, seven-model UCB1 mutation pool.
-- Three mutation candidates per iteration with self-healing retries.
-- Exact canonical graph duplicate rejection across island archives.
-- Qwen3-Embedding **8B** through Ollama, followed by the semantic novelty judge
-  for high-similarity collisions.
-- SIFT pairwise ranking via `gpt-6-astra`; only the winner goes to simulation.
-- Growing champion pool and periodic meta-supervisor.
-- Minimum **20 seed matches per champion on seat 0 and 20 on seat 1**. With
-  13 champions this schedules 520 matches. The CLI and evaluation entrypoint
-  reject values below 20.
+Options: `--iterations`, `--run_dir` (default `runs/evolution`, git-ignored; resumes from
+its `checkpoint.json`), `--seeds_per_opponent` (default 40 = 20 games per seat, the
+minimum), `--alpha` (default 0.05), `--candidates`, `--supervisor_interval`.
 
-## Embeddings and checkpoint safety
+## What evolves
 
-- Exact Ollama model: `qwen3-embedding:8b`, 4096-dimensional output.
-- Endpoint: `http://127.0.0.1:11434/api/embed`, overridden by `OLLAMA_EMBED_URL`
-  only when another compatible Ollama endpoint is required.
-- Full canonical JSON is submitted, with `truncate:false`; oversized input is
-  an error, not a silent prefix-only comparison. No MiniLM fallback.
-- Zero/non-finite vectors and incompatible dimensions fail closed.
-- Stored source graphs and vectors have matching indices, and a backend and
-  serialization identity. A legacy checkpoint rebuilds from source graphs;
-  source-less old vectors cannot be converted and are not reused.
-- `qwen_embedding_cache/` is model-versioned internally and graph-hash keyed.
-- `migrate_qwen_checkpoint.py` is the one-time stopped-run migration utility.
-  It preserves iterations, champion graphs, scores, histories and rejections.
-  It cannot recover old SIFT non-winners that were never saved as graphs.
-- New viable candidates are persisted as graph/vector pairs, including SIFT
-  non-winners, preventing the old unpaired-vector problem from recurring.
-- Incumbent evaluations are rebaselined when seeds/pool/evaluator fingerprints
-  change. Old 10-per-seat scores are not comparable to new 20-per-seat scores.
+The merged graph (`runtime: hazel_merged_v1`) executes a fixed champion program. Its
+concept descriptions and edge guidance are documentation, so rewriting them changes
+nothing in play. A mutation is therefore an **edit of the executable controls**
+(`graph_edits.py`):
 
-## Limits
+- `parameters` on turn/market chain nodes: 37 champion EVOLVE-block constants the code
+  reads, plus the runtime's `_TOWN_CADENCE_PHASE`. The same JSON type as the submitted
+  value is required, and `null` restores the submitted value. Four constants the
+  champion defines but never reads are refused.
+- `stages`: turn a market stage off or on (`market_setup` and `routine_dispatch` always run).
+- `dispatch_order`: `submitted` or `sells_first` for the routine_dispatch node.
+- `surgical`: the switches of `hazel_runtime/surgical.py`.
 
-Cosine similarity is a heuristic, not proof of functional equivalence or novelty.
-The retained **0.985** semantic-review trigger is provisional and has **not** been
-calibrated on labeled Qwen graph pairs. Exact duplicate rejection is deterministic;
-semantic uniqueness is not guaranteed. Invalid semantic-judge output does not
-certify a candidate as novel.
+`apply_edit` places each parameter on the stage whose code reads it and fails closed on
+unknown names, wrong types and edits that change nothing. `validate_graph` builds the
+runtime and plays the first 30 turns in a child process; a rejected graph or any stage
+fallback is an error.
+
+## One iteration
+
+1. **SIFT stage 1.** A UCB1 bandit over the seven proxy models (`shinka_graph_mab.py`)
+   picks three distinct models.
+   - Each gets the controls table with the island champion's current values, the island
+     focus, the champion's per-opponent results and worst games, the edits already
+     evaluated in that line with their results, the supervisor's guidance and
+     `evolution_knowledge.md` (verified engine facts and measured arena results).
+   - Each returns `{"rationale", "edit"}` (`BAMGraphMutator.mutate_edit`).
+   - An edit whose normalized settings were already evaluated anywhere in the run is
+     refused before any game.
+   - Every failure (type, runtime, duplicate) goes back to the model, up to three attempts.
+2. **SIFT stage 2.** `gpt-6-astra` compares the viable edits pairwise, shown as their
+   control changes (`SIFTGraphJudge.rank_edits`). A Bradley-Terry fit ranks them, and a
+   reply without a valid verdict is no vote, not a default winner. Only the winner is
+   played.
+3. **Paired gauntlet** (`graph_gauntlet.py`, games in process-isolated agents via
+   `arena/arena.py`).
+   - The winner plays the run's seeds against Hazel Weir, Copper Weir, Orchard Tide, the
+     Mohui v66 backbone and Mohui13, plus head-to-head games against the island
+     champion. Its seat alternates with the seed index.
+   - Each game's cash margin is compared with the champion's margin on the same game;
+     head-to-head is compared with 0, because a graph playing itself ties exactly.
+   - The winner replaces the champion only if an exact sign test over the changed games
+     gives p <= alpha and the mean change is positive. A game error, a missing game or
+     any graph fallback makes the evaluation invalid.
+   - Per-game pool results are cached per graph and evaluation fingerprint (opponent,
+     runtime and harness bytes, seeds, engine), so a champion is never replayed.
+4. Every `--supervisor_interval` iterations the meta-supervisor
+   (`shinka_graph_supervisor.py`) reviews the champions' controls and recent results.
+   Its recommendations go into the next mutation prompts, and an unparseable reply
+   gives none.
+
+Six islands, each focused on one group of controls: Opening, Town, Shed, Oracle,
+Endgame and Dispatch.
+
+## Seeds and outputs
+
+- **Seeds.** Evolution seeds (salt 20260925) are disjoint from the arena validation seeds
+  (salt 20260924, `arena/payload.py`), so a result can be confirmed on seeds that played
+  no part in selecting it.
+- **Run directory.** Everything is written under `--run_dir`:
+  - `checkpoint.json` (islands, seen settings, guidance)
+  - `candidates.jsonl` (every proposal, failure and gauntlet verdict)
+  - `best_graph.json` and `best.json` (the island champion with the largest mean gain
+    over the seed on the pool games, with its changes and paired statistics)
+  - `status.json`
+  - `bundles/`, `jobs/`, `games/`, `logs/` and `scores/`
+- **The committed graph is never written.** `policy_graph.json` is read once as the seed.
+  Promoting a result means a reviewed commit, after confirmation on the arena
+  validation seeds.
+
+## Novelty
+
+Two graphs with the same normalized executable settings play identically, so the
+duplicate check is exact, and it runs on those settings rather than on the prose. The
+Qwen3-Embedding / semantic-judge modules (`shinka_graph_novelty.py`,
+`qwen_novelty_archive.py`) compare whole prose graphs. They stay in the repository with
+their tests but are not used for edits: every edited graph is at least 0.999 cosine
+similar to its parent.
+
+## Earlier runs
+
+The prose-mutation runs up to 2026-09-22 did not evolve the executed policy:
+
+- The mutator asked for `{version, name, description, nodes, edges}`. `agent_graph.py`
+  loads the preserved pre-merge agent for any graph without the merged runtime, so
+  candidates were a different agent.
+- The judge saw the first 6,000 characters of a 44 kB graph, which is before any node
+  or edge.
+- Three graph champions inducted into `shinka/champions/pool` came from few-step
+  games: 83-100% win rates with a mean cash of $1,769. They remain there because the
+  frozen evaluator uses `champ_evo_0027` as its self-control, but this pipeline no
+  longer reads that pool.
+
+`mutate_graph` now refuses merged graphs, and `rank_candidates` shows the JSON paths
+where two graphs differ.
 
 ## Verification
 
-`python -m unittest -v test_qwen_novelty` covers request completeness, invalid
-vectors, malformed judge responses, migration, paired archive restore, and cache
-reuse. Live Ollama embedding and semantic-judge probes are separate from these
-mocked safety tests. Do not describe scheduler mocks as completed simulations.
+`python -m unittest test_graph_evolution test_surgical_graph` covers the following,
+with fake models, fake judge replies and fake game results:
+
+- edits reach execution;
+- type, stage and duplicate refusals;
+- the judge seeing the changes, and no-vote handling;
+- the paired statistics;
+- gauntlet caching;
+- a promoting iteration that writes nothing outside the run directory.
