@@ -8,8 +8,9 @@ A graph variant is a full copy of the current graph bundle (agent_graph.py as ma
 policy_graph.json, hazel_runtime/) with the variant's graph edits from variants.json;
 provenance hashes are re-pinned so the graph's integrity checks still pass. Opponents:
 the submitted packages (hazel, copper, orchard: MANIFEST archive files only), the
-bundled Mohui v66 backbone (mohui) and mohui13 (backbone + the 13/9 opening of the top
-Mohui-based ladder opponents). One game per seed: the engine is seat-symmetric and the
+bundled Mohui v66 backbone (mohui), mohui13 (backbone + the 13/9 opening of the top
+Mohui-based ladder opponents) and willow (Willow Ford, the closest local agent to the
+Harvest Current submission). One game per seed: the engine is seat-symmetric and the
 agents deterministic (a swapped-seat replay gives identical cash), so the candidate's
 seat alternates with the seed index instead of playing both seats.
 """
@@ -106,6 +107,14 @@ def build_opponent(out, name):
                         ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
         if name == 'mohui13':
             shutil.copy2(HERE / 'mohui13_main.py', dst / 'main.py')
+    elif name == 'willow':
+        # Willow Ford (roster, 2026-09-08): Mohui v66 + Keiz opening + town-shop harvesting.
+        # Closest local agent to the Harvest Current submission (56085502, ladder 1669.8),
+        # whose package is not downloadable: it reproduces Harvest Current's first 388-416
+        # moves in three of its ladder replays (feeding the recorded observations).
+        shutil.copytree(REPO / 'shinka/champions/dependencies/mohui_v66', dst / 'mohui_v66',
+                        ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+        shutil.copy2(REPO / 'shinka/champions/roster/champ_20260908_150703_avg101195.py', dst / 'main.py')
     else:
         raise SystemExit(f'unknown opponent {name}')
 
