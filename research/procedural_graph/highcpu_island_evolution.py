@@ -313,6 +313,7 @@ def main():
 
     signal.signal(signal.SIGINT, _stop)
     signal.signal(signal.SIGTERM, _stop)
+    args.run_dir = args.run_dir.resolve()
     args.run_dir.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
                         handlers=[logging.FileHandler(args.run_dir / "evolution.log", encoding="utf-8"),

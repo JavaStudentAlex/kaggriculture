@@ -198,7 +198,7 @@ class SSHExecutor:
 
 class Gauntlet:
     def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05):
-        self.run_dir = Path(run_dir)
+        self.run_dir = Path(run_dir).resolve()  # arena.py runs with cwd=run_dir
         self.executor = executor
         self.opponents = tuple(opponents)
         self.seeds = seed_list(seeds_per_opponent)
