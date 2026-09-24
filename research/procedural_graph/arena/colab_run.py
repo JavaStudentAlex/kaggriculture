@@ -15,26 +15,36 @@ Each VM is handled in its own thread:
 2. upload the payload (tar.gz), its shard and the pinned requirements; verify files.json;
    build a Python 3.12 venv with uv (the environment whose results matched the Brev boxes);
    start arena.py on the shard, detached;
-3. poll every --poll seconds (results written, process alive, last log line);
+3. watch it. A poll command every --poll seconds (results written, process alive, last log
+   line) also keeps the VM alive: Colab deletes a VM about an hour after the last command,
+   even while it plays. Every 30 min the VM gets a fresh access token. Tokens last 1 h, and
+   the CLI drops a VM whose token expired, so colab_readopt.py also puts back a dropped
+   local record and keep-alive. Every 10 min the results and traces so far are pulled;
 4. download the shard's results and its per-game traces (arena.py --trace-dir, into
    <out dir>/traces/), then stop the session. Every created session is stopped,
    also after an error or Ctrl-C, and at the end every account's session list is checked
    (`COLAB_VMS_LEFT=0`; a leftover is stopped once more).
+If Colab deletes a VM anyway, a new VM of the same account and shape plays the games it had
+not finished (up to 2 replacements per VM).
 
 Results are appended to --out, and rerunning the same command plays only what is still
 missing. `--jobs FILE` plays only the jobs listed there (same format as the payload's
-jobs.json), e.g. the shards of VMs that Colab deleted, under a new --run-name. `--cleanup` only stops the sessions a run with the same --run-name and --vm
-flags would create; `--attach` follows them to the end instead (for a runner that was
-killed, or a `--start-only` run that left its VMs playing): wait, download, stop, merge. Run it in tmux (kagg-colab-<run>) so a closed
-terminal or session does not leave VMs running.
+jobs.json), e.g. the shards of VMs that Colab deleted, under a new --run-name. `--cleanup`
+only stops the sessions a run with the same --run-name and --vm flags would create.
+`--attach` follows them to the end instead: wait, download, stop, merge. That is for a
+runner that was killed, or a `--start-only` run that left its VMs playing; attach that one
+within ~45 min, or Colab deletes its VMs. Run the runner in tmux (kagg-colab-<run>) on an
+always-on host (AGENTS.md section 3.1).
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
 import threading
@@ -44,6 +54,10 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REMOTE = '/content/arena'
 WORKERS = {'hm': 8, 'std': 2}
+READOPT = HERE / 'colab_readopt.py'
+REFRESH_EVERY = 1800.0   # a VM's access token lasts 3600 s
+PULL_EVERY = 600.0       # results and traces so far, so a deleted VM loses only the games in flight
+REPLACEMENTS = 2         # new VMs for the unplayed games of a VM that Colab deleted
 
 SETUP = r'''
 import hashlib, json, os, subprocess, sys, tarfile
@@ -143,10 +157,22 @@ def parse_status(text):
     return None
 
 
+def parse_endpoints(listing):
+    """{session name: endpoint} from `colab sessions` lines `[name] endpoint | ...`; a VM without a
+    local record is listed as `[?]` and left out."""
+    return {m.group(1): m.group(2) for m in re.finditer(r'^\[([^\]]+)\] (\S+)', listing, re.M)
+            if m.group(1) != '?'}
+
+
+class VMDeleted(RuntimeError):
+    """Colab deleted the VM: its endpoint is no longer listed."""
+
+
 class ColabCLI:
     """The Colab CLI calls the runner needs, through one account's wrapper command."""
 
     def __init__(self, command):
+        self.command = command
         self.exe = shutil.which(command) or os.path.expanduser(f'~/.local/bin/{command}')
 
     def _run(self, args, timeout):
@@ -178,10 +204,26 @@ class ColabCLI:
     def sessions(self):
         return self._run(['sessions'], 120)[1]
 
+    def refresh(self, session, endpoint):
+        """colab_readopt.py: a fresh access token, the local record put back if the CLI dropped it,
+        the keep-alive restarted if it died. 'ok', 'deleted' (not on the server) or 'error'."""
+        account = re.fullmatch(r'colab(\d+)', self.command)
+        if not account or not endpoint:
+            return 'error'
+        try:
+            out = subprocess.run([sys.executable, str(READOPT), account.group(1), f'{endpoint}={session}'],
+                                 capture_output=True, text=True, timeout=300).stdout
+        except subprocess.TimeoutExpired:
+            return 'error'
+        if 'not on the server' in out:
+            return 'deleted'
+        return 'ok' if 'refreshed' in out or 're-registered' in out else 'error'
+
 
 class ColabRun:
     def __init__(self, payload, out, run_name, vms, poll=60.0, requirements=HERE / 'colab_requirements.txt',
-                 cli_factory=ColabCLI, workers=None, log=print, traces=True, detach=False, jobs=None):
+                 cli_factory=ColabCLI, workers=None, log=print, traces=True, detach=False, jobs=None,
+                 refresh_every=REFRESH_EVERY, pull_every=PULL_EVERY, replacements=REPLACEMENTS):
         # absolute: the CLI runs from the home directory, so relative paths would point there
         self.payload, self.out, self.run_name = Path(payload).resolve(), Path(out).resolve(), run_name
         self.jobs = Path(jobs).resolve() if jobs else self.payload / 'jobs.json'   # the games this run plays
@@ -195,7 +237,9 @@ class ColabRun:
         self.parts = self.out.parent / (self.out.name + '.parts')
         self.traces = self.out.parent / 'traces' if traces else None   # arena.py compact traces, one per game
         self.detach = detach   # start the games and leave the VMs running; --attach pulls them later
+        self.refresh_every, self.pull_every, self.replacements = refresh_every, pull_every, replacements
         self.lock = threading.Lock()
+        self.endpoints, self.created = {}, []   # session -> endpoint; (command, session) of every VM made
 
     def sessions(self):
         return [f'{self.run_name}-{i}' for i in range(len(self.vms))]
@@ -207,17 +251,25 @@ class ColabRun:
 
     def cleanup(self):
         for (command, _), session in zip(self.vms, self.sessions()):
-            self.cli_factory(command).stop(session)
+            cli = self.cli_factory(command)
+            for name in [session] + [f'{session}-{k}' for k in range(1, self.replacements + 1)]:
+                cli.stop(name)
             self.log(f'[{session}] stop requested')
 
     def attach(self):
         """Follow the sessions of a run with the same --run-name and --vm flags (e.g. after the
         runner was killed): wait for them to finish, download, stop and merge."""
-        self.log(f'{self.run_name}: attaching to {", ".join(self.sessions())}')
+        follow = []
+        for i, session in enumerate(self.sessions()):
+            listed = parse_endpoints(self.cli_factory(self.vms[i][0]).sessions())
+            follow += [(i, session)] + [(i, f'{session}-{k}') for k in range(1, self.replacements + 1)
+                                        if f'{session}-{k}' in listed]
+        self.created += [(self.vms[i][0], s) for i, s in follow]
+        self.log(f'{self.run_name}: attaching to {", ".join(s for _, s in follow)}')
         self.parts.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory() as tmp:
-            self.join([threading.Thread(target=self.follow_vm, args=(i, Path(tmp)), daemon=True)
-                       for i in range(len(self.vms))])
+            self.join([threading.Thread(target=self.follow_vm, args=(i, s, Path(tmp)), daemon=True)
+                       for i, s in follow])
         return self.summary()
 
     def join(self, threads):
@@ -261,7 +313,7 @@ class ColabRun:
             running = [self.sessions()[i] for i in live if shards[i]]
             self.log(f'COLAB_DETACHED {len(todo)} games on {", ".join(running)}: the VMs keep running (and '
                      f'spending units) until the same command with --attach pulls results and traces and '
-                     f'stops them')
+                     f'stops them; attach within ~45 min, Colab deletes a VM ~60 min after the last command')
             return 0
         return self.summary()
 
@@ -270,27 +322,51 @@ class ColabRun:
         live, lock = [], threading.Lock()
 
         def create(i):
-            command, shape = self.vms[i]
-            session = self.sessions()[i]
-            cli = self.cli_factory(command)
-            ok, out = cli.new(session, shape == 'hm')
-            if ok:
+            if self.create(i, self.sessions()[i]):
                 with lock:
                     live.append(i)
-            else:
-                # a create that reports an error can still leave a VM behind (seen 2026-09-24: 5
-                # High-RAM VMs created in parallel all "failed" yet ran idle), so stop it anyway
-                cli.stop(session)
-                self.log(f'[{session}] {command} {shape} VM not created (stop sent): {out.strip()[-200:]}')
 
         self.join([threading.Thread(target=create, args=(i,), daemon=True) for i in range(len(self.vms))])
         return sorted(live)
 
-    def run_vm(self, index, shard, archive, tmp):
+    def create(self, index, session):
+        """One VM; True if it exists. A create that reports an error can still leave a VM behind
+        (2026-09-24: 5 High-RAM VMs created at once all "failed" on a capacity limit, yet existed):
+        such a VM is used if the account lists it, and stopped otherwise."""
         command, shape = self.vms[index]
-        session = self.sessions()[index]
         cli = self.cli_factory(command)
-        created, started = True, False   # create_all made the VM
+        ok, out = cli.new(session, shape == 'hm')
+        if not ok and session in parse_endpoints(cli.sessions()):
+            ok = True
+            self.log(f'[{session}] {command} {shape} reported as not created, but it exists: using it')
+        if not ok:
+            cli.stop(session)
+            self.log(f'[{session}] {command} {shape} VM not created (stop sent): {out.strip()[-200:]}')
+            return False
+        with self.lock:
+            self.created.append((command, session))
+        self.endpoints[session] = parse_endpoints(cli.sessions()).get(session)
+        return True
+
+    def run_vm(self, index, shard, archive, tmp):
+        command, _ = self.vms[index]
+        session = self.sessions()[index]
+        for replacement in range(self.replacements + 1):
+            if replacement:   # Colab deleted the VM: a new one plays the games it had not finished
+                shard = [j for j in shard if job_key(j) not in finished(self.out)]
+                if not shard:
+                    return
+                session = f'{self.sessions()[index]}-{replacement}'
+                self.log(f'[{session}] replaces a VM Colab deleted: {len(shard)} games')
+                if not self.create(index, session):
+                    return
+            if not self.play(self.cli_factory(command), index, session, shard, archive, tmp):
+                return
+
+    def play(self, cli, index, session, shard, archive, tmp):
+        """Upload, start and watch one VM, then pull and stop it; True if Colab deleted it first."""
+        command, shape = self.vms[index]
+        started, deleted = False, False
         try:
             shard_file = tmp / f'{session}_shard.json'
             shard_file.write_text(json.dumps({'jobs': shard}))
@@ -310,18 +386,22 @@ class ColabRun:
             self.log(f'[{session}] {command} {shape}: {len(shard)} games, {self.workers[index]} workers '
                      f'({marker[0].split(maxsplit=2)[2]})')
             if self.detach:
-                return
+                return False
+            self.refresh(cli, session)   # keep-alive running and a fresh token, also for an adopted VM
             self.watch(cli, session, len(shard), tmp)
+        except VMDeleted:
+            deleted = True
+            self.log(f'[{session}] deleted by Colab')
         except Exception as exc:
             self.log(f'[{session}] error: {exc}')
         finally:
-            if created and not (self.detach and started):
+            if not (self.detach and started):
                 self.finish(cli, session)   # a VM that failed to start is removed at once
+        return deleted
 
-    def follow_vm(self, index, tmp):
+    def follow_vm(self, index, session, tmp):
         """--attach: follow a session an earlier (killed) runner started, then finish it."""
         command, _ = self.vms[index]
-        session = self.sessions()[index]
         cli = self.cli_factory(command)
         try:
             self.watch(cli, session, None, tmp)
@@ -331,13 +411,26 @@ class ColabRun:
             self.finish(cli, session)
 
     def watch(self, cli, session, games, tmp):
+        """Poll the VM until its games are done. The poll is a command on the VM, and Colab deletes a
+        VM about an hour after the last command. Tokens are refreshed every refresh_every seconds,
+        and results pulled every pull_every seconds. Raises VMDeleted if Colab deleted the VM."""
         poll = tmp / f'{session}_poll.py'
         poll.write_text(POLL.format(root=REMOTE))
         failures, last = 0, None
+        refreshed = pulled = time.time()
         while not self.stop_event.wait(self.poll):
+            if time.time() - refreshed >= self.refresh_every:
+                refreshed = time.time()
+                if self.refresh(cli, session) == 'deleted':
+                    raise VMDeleted(session)
             status = parse_status(cli.exec_file(session, poll, 120))
             if status is None:
                 failures += 1
+                # the CLI drops a VM whose token expired or that one listing missed: put it back,
+                # or learn that Colab deleted it
+                refreshed = time.time()
+                if self.refresh(cli, session) == 'deleted':
+                    raise VMDeleted(session)
                 if failures >= 5:
                     raise RuntimeError('VM stopped answering')
                 continue
@@ -347,18 +440,38 @@ class ColabRun:
                 self.log(f'[{session}] {last}/{games or "?"} games')
             if status['done'] or not status['alive']:
                 break
+            if time.time() - pulled >= self.pull_every:
+                pulled = time.time()
+                self.pull(cli, session)
 
-    def finish(self, cli, session):
-        """Download the session's results and traces, then stop it and merge what it played."""
+    def refresh(self, cli, session):
+        """cli.refresh with the session's endpoint. It only answers 'deleted' if two checks agree,
+        because one listing can miss a live VM."""
+        endpoint = self.endpoints.get(session) or parse_endpoints(cli.sessions()).get(session)
+        self.endpoints[session] = endpoint
+        state = cli.refresh(session, endpoint) if endpoint else 'error'
+        if state == 'deleted':
+            self.stop_event.wait(30 if self.poll else 0)
+            state = cli.refresh(session, endpoint)
+        if state != 'ok':
+            self.log(f'[{session}] refresh: {state}')
+        return state
+
+    def pull(self, cli, session):
+        """Download the session's results and traces so far and merge them."""
         part = self.parts / f'{session}.jsonl'
         ok, out = cli.download(session, REMOTE + '/results.jsonl', part)
         if not ok:
             self.log(f'[{session}] no results downloaded: {out.strip()[-200:]}')
         if self.traces:
             self.pull_traces(cli, session)
+        self.merge(part)
+
+    def finish(self, cli, session):
+        """Pull the session's results and traces, then stop it."""
+        self.pull(cli, session)
         cli.stop(session)
         self.log(f'[{session}] stopped')
-        self.merge(part)
 
     def pull_traces(self, cli, session):
         pack = self.parts / f'{session}_pack.py'
@@ -393,11 +506,11 @@ class ColabRun:
         left = []
         for command in sorted({c for c, _ in self.vms}):
             cli = self.cli_factory(command)
-            mine = [s for s in self.sessions() if f'[{s}]' in cli.sessions()]
-            for session in mine:
+            names = set(self.sessions()) | {s for c, s in self.created if c == command}
+            for session in sorted(names & set(parse_endpoints(cli.sessions()))):
                 cli.stop(session)
             listing = cli.sessions()
-            left += [f'{command}:{s}' for s in mine if f'[{s}]' in listing]
+            left += [f'{command}:{s}' for s in sorted(names & set(parse_endpoints(listing)))]
             left += [f'{command}:{line.split()[1]} (no local record)' for line in listing.splitlines()
                      if line.startswith('[?] ')]
         self.log(f'COLAB_VMS_LEFT={len(left)}' + (f' {left} -- stop them by hand' if left else ''))

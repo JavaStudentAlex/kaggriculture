@@ -97,69 +97,96 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
     run on 3.12, see below.
   - Colab's rules restrict using several accounts to get around resource limits, so rely
     on the paid accounts.
-- **Running games.** Build a payload with `arena/payload.py` (`--graph NAME=FILE` plays a
-  saved graph as-is), then run it in tmux:
-  `tmux new -d -s kagg-colab-<run> "python3 arena/colab_run.py --payload <dir> --out
-  <results.jsonl> --run-name <run> --vm colab2:hm --vm colab2:hm ... > <log> 2>&1; echo
-  COLAB_RUN_EXIT=\$? >> <log>"`. The runner:
-  - splits the games across the VMs;
-  - uploads the payload;
-  - builds a Python 3.12.13 venv with the pinned `arena/colab_requirements.txt`;
-  - plays the games with `arena.py`, 8 workers per High-RAM VM;
-  - downloads the results and **stops every VM it created**, also on errors and Ctrl-C.
-  Rerunning plays only the missing games; `--jobs FILE` plays only the listed jobs (e.g.
-  the shards of VMs that Colab deleted) under a new `--run-name`. `--attach` finishes the
-  sessions of a runner that was killed, and `--cleanup` stops them. Check with
-  `colab<N> sessions`.
+- **The runner runs on cliproxyapi (rule since 2026-09-24).** This PC sleeps, and a sleeping
+  PC loses its VMs (below), so every Colab run is driven from `ssh cliproxyapi` (always on),
+  in tmux. Layout there, in `~/kagg-colab/`:
+  - `home/` is the runner's `HOME`, so its CLI stays apart from the older setup in
+    cliproxyapi's own `~/.config/colab-cli`. That older setup (4 accounts under the old
+    numbering, CLI 0.6.0) is not ours to change.
+  - `home/.config/colab-cli/acc<N>_adc.json` holds all 7 accounts with the same numbering as
+    here, mode 600 in a mode-700 directory. They were copied at the user's request on
+    2026-09-24. A new account's credential goes there only with the user's OK.
+  - `home/.local/bin/colab<N>` are the same wrappers as here.
+  - `home/.local/share/uv/tools/google-colab-cli` is a venv with exactly the local CLI's
+    packages (`arena/colab_cli_requirements.txt` there: google-colab-cli 0.7.2,
+    jupyter_kernel_client 0.9.0).
+  - `arena/` holds copies of `colab_run.py`, `colab_readopt.py` and `colab_requirements.txt`.
+    Copy them again after changing them here.
+  - `runs/<run>/` holds the payload, jobs, `results.jsonl`, `traces/` and the log.
+- **Running games.**
+  - Build a payload here with `arena/payload.py` (`--graph NAME=FILE` plays a saved graph
+    as-is), then `rsync -a <payload dir> cliproxyapi:kagg-colab/runs/<run>/`.
+  - Start the runner there:
+    `ssh cliproxyapi 'tmux new -d -s kagg-colab-<run> "cd /home/alex/kagg-colab && export
+    HOME=/home/alex/kagg-colab/home PATH=/home/alex/kagg-colab/home/.local/bin:\$PATH && python3
+    arena/colab_run.py --payload runs/<run>/payload --out runs/<run>/results.jsonl --run-name
+    <run> --vm colab2:hm --vm colab2:hm ... > runs/<run>/colab.log 2>&1; echo
+    COLAB_RUN_EXIT=\$? >> runs/<run>/colab.log"'`.
+  - Once the log shows `COLAB_RUN_EXIT=`, rsync `results.jsonl` and `traces/` back.
+  - What the runner does:
+    - splits the games across the VMs;
+    - uploads the payload;
+    - builds a Python 3.12.13 venv with the pinned `arena/colab_requirements.txt`;
+    - plays the games with `arena.py`, 8 workers per High-RAM VM;
+    - watches every VM (next bullet);
+    - downloads the results and **stops every VM it created**, also on errors and Ctrl-C;
+    - checks every account (`COLAB_VMS_LEFT=0`).
+  - Rerunning plays only the missing games. `--jobs FILE` plays only the listed jobs under a
+    new `--run-name`. `--attach` finishes the sessions of a runner that was killed, and
+    `--cleanup` stops them. Check with `colab<N> sessions`.
+- **What deletes a Colab VM (measured 2026-09-24), and what the runner does about it.** Each
+  of these cost games that day:
+  1. **No keep-alive ping for ~30 min.** `colab new` starts a daemon that pings every 60 s
+     from the machine that ran it. While this PC slept (15:20-15:50 CEST), Colab deleted 9
+     of 12 VMs, and 299 games were lost. The ping is
+     `GET https://colab.research.google.com/tun/m/<endpoint>/keep-alive/` with the account's
+     OAuth token and `X-Colab-Tunnel: Google`.
+  2. **No command on the VM for ~60 min.** This happens even with working pings and even
+     while games run: 4 VMs went 61-62 min after the last command run on them.
+  3. **The CLI dropping live VMs.** It deletes a VM's local record and kills its keep-alive
+     in two cases:
+     - one `sessions` listing misses the VM (seen right after a wake-up);
+     - the VM's access token expired. Tokens last 3600 s; exec then gets a 401, and the CLI
+       prints "appears to be lost (404/401). Cleaning up.".
+     `colab<N> sessions` then lists the VM as `[?] <endpoint>`. Exec, download and stop by
+     name fail, and without pings Colab deletes it.
+  4. **A create that reports failure** ("…a temporary usage or capacity limit…", 5
+     High-RAM VMs at once) can still create the VM.
+
+  The runner handles each case:
+  - It polls every VM every 60 s with a command.
+  - Every 30 min, `colab_readopt.py` gets each VM a fresh token, puts back a dropped
+    record and restarts a dead keep-alive.
+  - Every 10 min it pulls results and traces.
+  - A VM that Colab deleted is replaced (up to twice), and the replacement plays only the
+    games it hadn't finished.
+  - It uses a "failed" VM that exists.
+
+  `--start-only` leaves the VMs unwatched: attach within ~45 min, or Colab deletes them.
+  By hand: `python3 arena/colab_readopt.py <N> <endpoint>=<name>` re-registers a `[?]` VM
+  (or refreshes its token). The CLI's per-session history
+  (`~/.config/colab-cli/history/<session>.jsonl`: `keep_alive_error`, `keep_alive_stopped`,
+  `session_terminated`) shows what happened. `ps` start times of processes that ran across a
+  sleep are shifted by the sleep's length. If a runner ever has to run on this PC,
+  `bash arena/windows_awake.sh [hours]` holds a Windows wake lock (tmux `kagg-awake`). It
+  prevents idle sleep only; a closed lid still sleeps the laptop.
 - **Verified 2026-09-24.** Six run-2 gauntlet games replayed on Colab gave exactly the cash
   recorded on Brev. Game times: about 3 min against the oracle-free opponents and about
-  4.5 min against oracle agents. A 240-game batch on 5 High-RAM VMs takes about 30 min
-  and ~0.7 units.
-- **Keep-alive: the pings come from cliproxyapi (rule since 2026-09-24).**
-  - **Why.** A VM made by the CLI has no browser tab. Colab deletes it, with its disk and
-    results, once it stops getting keep-alive pings. `colab new` starts a detached daemon
-    that sends these pings every 60 s, but it runs on the machine that ran `colab new`.
-  - **What happened.** This PC (WSL on Windows) sleeps. On 2026-09-24 it slept from about
-    15:20 to 15:50 CEST during a 400-game run. Colab deleted 9 of the run's 12 VMs, and
-    the 299 games on them were lost.
-  - **The ping.** `GET https://colab.research.google.com/tun/m/<endpoint>/keep-alive/`
-    with the account's OAuth token and the header `X-Colab-Tunnel: Google`
-    (`colab_cli.client.keep_alive_assignment`). A read timeout counts as success; a 404
-    means the VM is gone.
-  - **Rule.** Every Colab run gets a **ping job on cliproxyapi** (`ssh cliproxyapi`,
-    always on), a tmux session `colab-ping-<run>` there.
-    - It pings each of the run's VMs every 60 s, as that VM's account.
-    - Start it as soon as the VMs exist, before the games start.
-    - Stop it once the runner prints `COLAB_VMS_LEFT=0`. It also stops on its own on a
-      404 and after 24 h.
-    - It needs the credentials (`acc<N>_adc.json`, mode 600) of the accounts in use on
-      cliproxyapi. Copying them there is the user's decision; never copy them without
-      asking.
-  - **Status.** The ping job is **not built yet** (2026-09-24). Until it exists, start a
-    Colab run only with the user's OK, and keep this PC awake until the results are
-    pulled: `bash arena/windows_awake.sh [hours]` holds a Windows wake lock in tmux
-    `kagg-awake` (released after that many hours, or by `windows_awake.sh stop`). It stops
-    idle sleep only; closing the laptop's lid or choosing Sleep still sleeps the PC.
-  - **Debugging.** The local daemons log to `~/.config/colab-cli/history/<session>.jsonl`;
-    the `keep_alive_error` and `keep_alive_stopped` events show when pings stopped. `ps`
-    start times of processes that ran across a sleep are shifted by the sleep's length.
-  - **A VM listed as `[?] <endpoint>`** by `colab<N> sessions` is running, but the CLI has
-    dropped its local record and killed its keep-alive. The CLI does this when one
-    listing misses a session, as happened right after the PC woke up on 2026-09-24.
-    Exec, download and stop by name fail, and without pings Colab deletes the VM. Re-register it at once with
-    `python3 arena/colab_readopt.py <N> <endpoint>=<session name>`. The runner's
-    `COLAB_VMS_LEFT` check reports such VMs as left.
+  4.5 min against oracle agents (2.3-4.7 min on standard VMs, depending on the VM). A
+  240-game batch on 5 High-RAM VMs takes about 30 min and ~0.7 units.
 - **Rules.**
   - Starting VMs spends compute units: agree the batch with the user first.
-  - The keep-alive pings of every run come from its ping job on cliproxyapi (above), never
-    only from this PC.
-  - Run the runner in tmux, never as a foreground/background task of an agent session
-    that may exit.
+  - Run the runner on cliproxyapi in tmux (above). Never run it on this PC, and never as a
+    foreground or background task of an agent session.
+  - Prefer the paid account's High-RAM VMs. They mean fewer VMs, faster batches, and no
+    spreading work across accounts, which Colab's rules restrict.
   - Remove every VM once its results are pulled. The runner downloads each VM's results,
     then stops it, then checks every account's session list and prints `COLAB_VMS_LEFT=0`
-    (a leftover is stopped once more). If it prints anything else, stop the listed
-    sessions by hand (`colab<N> stop -s <name>`). Stopping deletes the VM with its disk;
-    the CLI creates no notebook files in Drive.
+    (a leftover is stopped once more; a `[?]` VM is reported). If it prints anything else,
+    stop the listed sessions by hand (`colab<N> stop -s <name>`, after `colab_readopt.py`
+    for a `[?]` one). Stopping deletes the VM with its disk; the CLI creates no notebook
+    files in Drive. Afterwards delete the finished sessions' history files.
+  - Never print the credentials or copy them anywhere else.
 
 ## 4. Data
 

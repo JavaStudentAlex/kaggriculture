@@ -15,13 +15,17 @@ python $K/report.py research/procedural_graph/runs/arena/r2/results --traces
 ```
 
 Large batches run on **Google Colab VMs** (AGENTS.md section 3.1: accounts, machine sizes,
-rules), in tmux so the run survives a closed session:
+rules). The runner itself runs in tmux on cliproxyapi, which is always on:
 
 ```sh
 python $K/payload.py --eval-id s1 --graph best=<best_graph.json> --pairs best:hazel,best:mohui --seeds 40
-tmux new -d -s kagg-colab-s1 "cd research/procedural_graph && python3 arena/colab_run.py \
-    --payload runs/arena/s1/payload --out runs/arena/s1/results.jsonl --run-name s1 \
-    --vm colab2:hm --vm colab2:hm > runs/arena/s1/colab.log 2>&1; echo COLAB_RUN_EXIT=\$? >> runs/arena/s1/colab.log"
+rsync -a research/procedural_graph/runs/arena/s1/payload cliproxyapi:kagg-colab/runs/s1/
+ssh cliproxyapi 'tmux new -d -s kagg-colab-s1 "cd /home/alex/kagg-colab && export HOME=/home/alex/kagg-colab/home \
+    PATH=/home/alex/kagg-colab/home/.local/bin:\$PATH && python3 arena/colab_run.py --payload runs/s1/payload \
+    --out runs/s1/results.jsonl --run-name s1 --vm colab2:hm --vm colab2:hm > runs/s1/colab.log 2>&1; \
+    echo COLAB_RUN_EXIT=\$? >> runs/s1/colab.log"'
+# when runs/s1/colab.log shows COLAB_RUN_EXIT=:
+rsync -a cliproxyapi:kagg-colab/runs/s1/results.jsonl cliproxyapi:kagg-colab/runs/s1/traces research/procedural_graph/runs/arena/s1/
 ```
 
 Each `--vm colab<N>:hm|std` is one VM: High-RAM (8 CPUs, 8 workers) or standard (2 CPUs).
@@ -31,13 +35,14 @@ created. Rerunning plays only the missing games; `--attach` finishes a killed ru
 sessions; `--cleanup` stops them. Colab reproduces Brev's results to the dollar (checked
 on six run-2 games, 2026-09-24).
 
-A Colab VM lives only while it gets keep-alive pings. Colab deletes it, results included,
-when they stop. The CLI sends the pings from the machine that created the VM, and this PC
-sleeps: on 2026-09-24 a 30-minute sleep cost 9 of 12 VMs. So every run's pings come from a
-ping job on cliproxyapi; the rule, and the status of the ping job, are in AGENTS.md
-section 3.1. Until the ping job exists, `windows_awake.sh` keeps the PC awake during a run.
-`colab_readopt.py` re-registers a running VM that the CLI lists as `[?]`. `colab_run.py
---jobs FILE` replays only the listed games, e.g. those of VMs that were deleted.
+The runner itself runs on cliproxyapi, in `~/kagg-colab/`, and not on this PC, which sleeps.
+Colab deletes a VM after ~30 min without keep-alive pings, or ~60 min without a command.
+Its access tokens last 1 h, and the CLI then drops live VMs. The runner polls every VM every
+minute, refreshes tokens every 30 min (`colab_readopt.py`), pulls results every 10 min, and
+replaces a VM that Colab deleted. AGENTS.md section 3.1 has the layout, the launch command
+and the measurements. `colab_readopt.py` re-registers a running VM that the CLI lists as
+`[?]`. `colab_run.py --jobs FILE` replays only the listed games. `windows_awake.sh` keeps
+this PC awake, for a runner that has to run here.
 
 A Brev CPU box is the alternative (after `brev login`; delete it when done, it bills by the hour):
 

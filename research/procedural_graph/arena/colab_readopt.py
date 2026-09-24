@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Re-register running Colab VMs whose local CLI records were pruned, and restart their keep-alive.
+"""Re-register running Colab VMs whose local CLI records were pruned, and restart their keep-alive;
+for a VM that still has its record, fetch a fresh access token (they last 1 h) instead.
 
 The Colab CLI drops a session's local record, and kills its keep-alive daemon, when one
 `list_assignments` call misses it. On 2026-09-24 that happened to three VMs that were still
@@ -13,12 +14,25 @@ pings Colab deletes the VM. This script puts the record back from the server's l
 <N> is the account number of the `colab<N>` wrapper. The endpoints come from `colab<N>
 sessions`; the names are the run's `<run-name>-<index>` (also in
 ~/.config/colab-cli/history/<name>.jsonl, event session_created). Runs under the CLI's own
-Python. It prints no tokens.
+Python. It prints no tokens. Output per VM: "re-registered", "token refreshed" (plus
+"keep-alive restarted" if its daemon had died), or "not on the server" (Colab deleted it).
+colab_run.py calls it every 30 min for each VM it watches.
 """
 import os
 import sys
 
 TOOL_PYTHON = os.path.expanduser('~/.local/share/uv/tools/google-colab-cli/bin/python')
+
+
+def alive(pid):
+    """Whether pid is a running keep-alive daemon (not a recycled pid)."""
+    if not pid:
+        return False
+    try:
+        os.kill(pid, 0)
+        return b'keep-alive' in open(f'/proc/{pid}/cmdline', 'rb').read()
+    except OSError:
+        return False
 
 
 def main():
@@ -44,8 +58,19 @@ def main():
         if not name:
             continue
         found.add(a.endpoint)
-        if state.store.get(name):
-            print(f'{name}: already registered, left as it is')
+        record = state.store.get(name)
+        if record:
+            if record.endpoint != a.endpoint:
+                print(f'{name}: registered for another endpoint ({record.endpoint}), left as it is')
+                continue
+            record.token, record.url = a.runtime_proxy_info.token, a.runtime_proxy_info.url
+            note = ''
+            if not alive(record.keep_alive_pid):
+                record.keep_alive_pid = spawn_keep_alive(a.endpoint, name, auth_provider=state.auth_provider,
+                                                         config_path=state.config_path)
+                note = f', keep-alive restarted (pid {record.keep_alive_pid})'
+            state.store.add(record)
+            print(f'{name}: token refreshed{note}')
             continue
         s = SessionState(name=name, token=a.runtime_proxy_info.token, url=a.runtime_proxy_info.url,
                          endpoint=a.endpoint, accelerator=a.accelerator.value, variant=a.variant.name,

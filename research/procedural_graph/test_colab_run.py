@@ -28,6 +28,7 @@ def result(job, margin):
 class FakeCLI:
     """One account: records calls, plays every uploaded shard at once, or fails as told."""
     calls, refuse, broken, stuck, running = [], set(), set(), set(), set()
+    doomed, deleted, polls, polls_until_done = set(), set(), {}, 1
 
     def __init__(self, command):
         self.command = command
@@ -59,13 +60,28 @@ class FakeCLI:
             return f"COLAB_ARENA_PACKED {len(FakeCLI.shards.get(session, []))}"
         if self.command in FakeCLI.broken:
             raise RuntimeError('websocket closed')
-        return 'COLAB_ARENA_STATUS ' + json.dumps({'results': len(FakeCLI.shards[session]), 'done': True,
-                                                   'alive': False, 'tail': 'ARENA_DONE'})
+        lost = f"[colab] Session '{session}' appears to be lost (404/401). Cleaning up."
+        if session in FakeCLI.deleted:
+            return lost
+        n = FakeCLI.polls[session] = FakeCLI.polls.get(session, 0) + 1
+        if session in FakeCLI.doomed:   # plays one game, then Colab deletes it
+            if n >= 2:
+                FakeCLI.deleted.add(session)
+                FakeCLI.running.discard((self.command, session))
+                return lost
+            return 'COLAB_ARENA_STATUS ' + json.dumps({'results': 1, 'done': False, 'alive': True, 'tail': ''})
+        done = n >= FakeCLI.polls_until_done
+        return 'COLAB_ARENA_STATUS ' + json.dumps({'results': len(FakeCLI.shards[session]), 'done': done,
+                                                   'alive': not done, 'tail': 'ARENA_DONE' if done else ''})
 
     def download(self, session, remote, local):
         FakeCLI.calls.append((self.command, 'download', session, remote))
         assert Path(local).is_absolute(), local   # the real CLI runs from the home directory
+        if session in FakeCLI.deleted:
+            return False, 'lost'
         jobs = FakeCLI.shards.get(session, [])
+        if session in FakeCLI.doomed:
+            jobs = jobs[:1]
         if remote.endswith('traces.tgz'):
             import io, tarfile
             with tarfile.open(local, 'w:gz') as tar:
@@ -90,13 +106,18 @@ class FakeCLI:
 
     def sessions(self):
         mine = sorted(s for c, s in FakeCLI.running if c == self.command)
-        return '\n'.join(f'[{s}] m-hm | Hardware: CPU' for s in mine) or 'No active sessions found on server.'
+        return '\n'.join(f'[{s}] ep-{s} | Hardware: CPU' for s in mine) or 'No active sessions found on server.'
+
+    def refresh(self, session, endpoint):
+        FakeCLI.calls.append((self.command, 'refresh', session))
+        return 'deleted' if session in FakeCLI.deleted else 'ok'
 
 
 class ColabRunTests(unittest.TestCase):
     def setUp(self):
         FakeCLI.calls, FakeCLI.refuse, FakeCLI.broken, FakeCLI.shards = [], set(), set(), {}
         FakeCLI.stuck, FakeCLI.running, FakeCLI.broken_setup, FakeCLI.halfmade = set(), set(), set(), set()
+        FakeCLI.doomed, FakeCLI.deleted, FakeCLI.polls, FakeCLI.polls_until_done = set(), set(), {}, 1
 
     def runner(self, tmp, vms):
         # relative paths, as typed on the command line
@@ -202,17 +223,42 @@ class ColabRunTests(unittest.TestCase):
             self.assertEqual([c[2] for c in FakeCLI.calls if c[1] == 'stop'], ['r-0'])
             self.assertEqual(FakeCLI.running, set())
 
-    def test_a_vm_reported_as_failed_but_created_is_stopped(self):
+    def test_a_vm_reported_as_failed_but_created_is_used(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             payload(tmp / 'payload', 4)
             FakeCLI.refuse = FakeCLI.halfmade = {'colab2'}
             runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r', ['colab2:hm', 'colab1:std'],
-                                        poll=0.0, cli_factory=FakeCLI, log=lambda m: None, detach=True)
-            runner.run()
-            self.assertIn(('colab2', 'stop', 'r-0'), FakeCLI.calls)
-            self.assertEqual(sorted(FakeCLI.running), [('colab1', 'r-1')])   # only the VM that plays
-            self.assertEqual(len(FakeCLI.shards['r-1']), 4)
+                                        poll=0.0, cli_factory=FakeCLI, log=lambda m: None)
+            self.assertEqual(runner.run(), 0)
+            self.assertEqual(len(FakeCLI.shards['r-0']), 4)   # the High-RAM VM that "failed" plays
+            self.assertEqual(FakeCLI.running, set())
+
+    def test_a_vm_colab_deletes_is_replaced_and_only_its_unplayed_games_are_replayed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 8)
+            FakeCLI.doomed = {'r-1'}   # plays one game, which the 10-minute pull keeps, then is deleted
+            logs = []
+            runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r', ['colab1:std', 'colab3:std'],
+                                        poll=0.0, cli_factory=FakeCLI, log=logs.append, pull_every=0.0)
+            self.assertEqual(runner.run(), 0)
+            self.assertIn(('colab3', 'new', 'r-1-1', False), FakeCLI.calls)
+            self.assertEqual(len(FakeCLI.shards['r-1-1']), 3)
+            self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 8)
+            self.assertEqual(len(list((tmp / 'traces').glob('*.json.gz'))), 8)
+            self.assertEqual(FakeCLI.running, set())
+            self.assertIn('COLAB_VMS_LEFT=0', logs)
+
+    def test_tokens_are_refreshed_while_a_vm_plays(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 2)
+            FakeCLI.polls_until_done = 3
+            runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r', ['colab1:std'], poll=0.0,
+                                        cli_factory=FakeCLI, log=lambda m: None, refresh_every=0.0)
+            self.assertEqual(runner.run(), 0)
+            self.assertGreaterEqual(FakeCLI.calls.count(('colab1', 'refresh', 'r-0')), 3)
 
     def test_jobs_file_plays_only_the_listed_games(self):
         with tempfile.TemporaryDirectory() as tmp:
