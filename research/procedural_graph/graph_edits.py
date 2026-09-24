@@ -47,10 +47,13 @@ TURN_IDS = [stage[0] for stage in graph_runtime.TURN_STAGES]
 # market stages take their ranges from graph_runtime.MARKET_STAGES.
 _TURN_RANGES = (('state', 208, 282), ('farmer', 752, 787), ('hands', 788, 853))
 # RUNTIME_PARAMETERS belong to the stage whose statement they parameterize.
-_RUNTIME_HOME = {'_TOWN_CADENCE_PHASE': 'town_and_fertilizer'}
+_RUNTIME_HOME = {'_TOWN_CADENCE_PHASE': 'town_and_fertilizer', '_FEED_RESERVE_LOOKAHEAD': 'feed_reserve'}
 _RUNTIME_NOTES = {'_TOWN_CADENCE_PHASE': 'shop-cadence phase: town sales on steps with '
                   '(step - phase) % 4 == 0; the engine consumes town stock after the market '
-                  'on step % 4 == 0'}
+                  'on step % 4 == 0',
+                  '_FEED_RESERVE_LOOKAHEAD': 'the two-day wheat feed reserve also counts animals bought, '
+                  'carried, ordered this turn and empty pastures/coops (an animal escapes after two '
+                  'unfed days; without it the day-6 herd expansion starved a cow in every game vs Mohui)'}
 
 
 def _stage_ranges():

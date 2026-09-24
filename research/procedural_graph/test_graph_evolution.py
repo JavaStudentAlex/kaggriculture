@@ -38,7 +38,7 @@ class GraphEditTests(unittest.TestCase):
         cls.constants = graph_edits.catalog()
 
     def test_catalog_lists_every_evolvable_constant_with_its_stage(self):
-        self.assertEqual(len(self.constants), 41)  # 40 champion constants + _TOWN_CADENCE_PHASE
+        self.assertEqual(len(self.constants), 42)  # 40 champion constants + 2 runtime parameters
         spec = self.constants['_OPENING_BUY_WHEAT_QTY']
         self.assertEqual((spec['default'], spec['type'], spec['home']), (35, 'int', 'opening_scalp'))
         self.assertEqual(self.constants['_TOWN_CADENCE_PHASE']['home'], 'town_and_fertilizer')

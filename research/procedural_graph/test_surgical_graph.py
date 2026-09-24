@@ -94,6 +94,28 @@ class SurgicalGraphTests(unittest.TestCase):
         self.assertTrue(any(n.lineno == 458 for n in fn.body))
         self.assertTrue(any(n.lineno == 514 for n in fn.body))
 
+    def feed_reserve(self, lookahead):
+        """The feed reserve the market stages compute on a day-6 farm: 4 animals placed, 5 empty
+        pastures, 1 cow bought and still in the shed, 1 sheep in a hand, 2 sheep ordered this turn."""
+        c = champion()
+        nodes = {'feed_reserve': {'parameters': {'_FEED_RESERVE_LOOKAHEAD': True}}} if lookahead else None
+        g = graph(c, nodes=nodes)
+        obs = observation(step=160, shed={'WHEAT': 19, 'COW': 1})
+        tiles = obs['farms'][0]['tiles']
+        for x in range(4):
+            tiles[0][x] = {'kind': 'PASTURE', 'animal': 'COW', 'consecutive_unfed': 0, 'fed_today': True}
+        for x in range(5):
+            tiles[1][x] = {'kind': 'PASTURE'}
+        obs['private']['inventories'] = [{'SHEEP': 1}]
+        gen = g.market_generator(obs, 0, [['BUY_ANIMAL', 'SHEEP', 2]], c.farm_state(obs, 0))
+        while next(gen) != 'shed_pressure':   # the checkpoint right after the feed_reserve stage
+            pass
+        return gen.gi_frame.f_locals['feed_reserve']
+
+    def test_feed_reserve_lookahead_counts_animals_about_to_join_the_herd(self):
+        self.assertEqual(self.feed_reserve(lookahead=False), 8)            # submitted: 2 x 4 placed
+        self.assertEqual(self.feed_reserve(lookahead=True), 2 * (4 + 1 + 1 + 2 + 5))
+
     def test_headroom_waits_for_22_not_20_or_21(self):
         for hour in (20, 21, 22, 23):
             obs = observation(288 + hour, {'FERTILIZER': 20, 'WHEAT': 20, 'CARROT': 20})

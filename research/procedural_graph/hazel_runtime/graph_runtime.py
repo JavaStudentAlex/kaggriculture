@@ -80,8 +80,26 @@ def validate_chain(graph, expected):
 # Parameters the runtime introduces for the graph (default = submitted behaviour).
 # _TOWN_CADENCE_PHASE: the town block's shop-cadence steps are those with
 # (step - phase) % 4 == 0 (and % 2 under shed pressure / in the endgame).
-RUNTIME_PARAMETERS = {'_TOWN_CADENCE_PHASE': 0}
+# _FEED_RESERVE_LOOKAHEAD: the wheat kept back from every sale (two days of feed) also counts
+# the animals about to join the herd: bought and still in the shed or a worker's hands, ordered
+# this turn, and empty pastures/coops. The submitted reserve counts only placed animals, so on
+# 2026-09-24 400 of 400 games against plain Mohui sold the feed of the day-6 herd expansion
+# and lost a cow on day 8.
+RUNTIME_PARAMETERS = {'_TOWN_CADENCE_PHASE': 0, '_FEED_RESERVE_LOOKAHEAD': False}
+_ANIMALS = "('COW', 'SHEEP', 'GOOSE')"
 _PARAMETERIZED = {
+    432: ('_FEED_RESERVE_LOOKAHEAD',
+          "feed_reserve = 0 if step >= 696 else max(2, st['n_animals'] + 6) if step >= 672 else "
+          "max(4, st['n_animals'] * 2)",
+          "feed_reserve = 0 if step >= 696 else max(2, st['n_animals'] + 6) if step >= 672 else "
+          "max(4, 2 * (st['n_animals'] + ((sum(int(shed.get(a, 0) or 0) for a in " + _ANIMALS + ") "
+          "+ sum(int(inv.get(a, 0) or 0) for inv in (obs.get('private') or {}).get('inventories', []) or [] "
+          "if isinstance(inv, dict) for a in " + _ANIMALS + ") "
+          "+ sum(int(o[2] or 0) for o in mkt if isinstance(o, (list, tuple)) and len(o) >= 3 "
+          "and o[0] == 'BUY_ANIMAL') "
+          "+ sum(1 for row in st['tiles'] for cell in row or [] if isinstance(cell, dict) "
+          "and cell.get('kind') in ('PASTURE', 'COOP') and not cell.get('animal'))) "
+          "if _FEED_RESERVE_LOOKAHEAD else 0)))"),
     541: ('_TOWN_CADENCE_PHASE',
           'cadence = oracle_cadence_bypass or step % 4 == 0 or (shed_used >= 60 and step % 2 == 0) '
           'or (step >= 672 and step % 2 == 0)',
