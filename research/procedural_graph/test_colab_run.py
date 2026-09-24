@@ -33,7 +33,7 @@ class FakeCLI:
     def __init__(self, command):
         self.command = command
 
-    def new(self, session, high_mem):
+    def new(self, session, high_mem, gpu=None):
         FakeCLI.calls.append((self.command, 'new', session, high_mem))
         if self.command in FakeCLI.refuse:
             if self.command in getattr(FakeCLI, 'halfmade', set()):
@@ -304,6 +304,44 @@ class ColabRunTests(unittest.TestCase):
         self.assertIn("'--workers', '8'", setup)
         self.assertEqual(colab_run.parse_status('x\nCOLAB_ARENA_STATUS {"results": 3, "done": false}\n'),
                          {'results': 3, 'done': False})
+
+
+    def test_large_upload_goes_in_parts_and_is_joined(self):
+        """A file above UPLOAD_CHUNK is uploaded in parts; the VM joins them and checks size and hash."""
+        class LocalCLI(colab_run.ColabCLI):
+            def __init__(self):
+                self.uploads = []
+
+            def _run(self, args, timeout):
+                if args[0] == 'upload':
+                    self.uploads.append(args[-1])
+                    Path(args[-1]).write_bytes(Path(args[-2]).read_bytes())
+                    return 0, 'Uploaded'
+                raise AssertionError(args)
+
+            def exec_file(self, session, path, timeout):
+                import subprocess
+                import sys
+                return subprocess.run([sys.executable, str(path)], capture_output=True, text=True).stdout
+
+        chunk = colab_run.UPLOAD_CHUNK
+        colab_run.UPLOAD_CHUNK = 1000
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                src, remote = Path(tmp) / 'big.bin', str(Path(tmp) / 'remote.bin')
+                src.write_bytes(os.urandom(2500))
+                cli = LocalCLI()
+                ok, out = cli.upload('s', src, remote)
+                self.assertTrue(ok, out)
+                self.assertEqual(len(cli.uploads), 3)
+                self.assertEqual(Path(remote).read_bytes(), src.read_bytes())
+                self.assertEqual(sorted(p.name for p in Path(tmp).iterdir()), ['big.bin', 'remote.bin'])
+        finally:
+            colab_run.UPLOAD_CHUNK = chunk
+
+    def test_cli_output_is_redacted(self):
+        text = 'failed: eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJncHUifQ.c2lnbmF0dXJl (Caused by SSLError)'
+        self.assertEqual(colab_run.redact(text), 'failed: <token> (Caused by SSLError)')
 
 
 if __name__ == '__main__':

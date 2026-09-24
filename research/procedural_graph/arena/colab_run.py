@@ -6,8 +6,9 @@
 
 Each `--vm COMMAND:SHAPE` starts one VM with that account's CLI wrapper (colab1..colabN,
 created by colab-add-account). SHAPE is `hm` (High-RAM: 8 CPUs, 51 GB, Pro accounts only)
-or `std` (2 CPUs, 12.7 GB). The payload's jobs that are not yet in --out are split across
-the VMs in proportion to their workers (8 per High-RAM VM, 2 per standard VM by default).
+or `std` (2 CPUs, 12.7 GB); `t4hm` / `t4` add a T4 GPU (t4hm: 8 CPUs, 50 GB; for calib_worker.py).
+The payload's jobs that are not yet in --out are split across the VMs in proportion to their
+workers (8 per High-RAM VM, 2 per standard VM by default).
 Each VM is handled in its own thread:
 
 1. `new` for every VM in parallel; the games are then split over the VMs that exist (a
@@ -39,6 +40,7 @@ always-on host (AGENTS.md section 3.1).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -53,11 +55,33 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REMOTE = '/content/arena'
-WORKERS = {'hm': 8, 'std': 2}
+WORKERS = {'hm': 8, 'std': 2, 't4': 2, 't4hm': 8}   # t4*: a T4 GPU VM (calib_worker.py uses the GPU)
 READOPT = HERE / 'colab_readopt.py'
 REFRESH_EVERY = 1800.0   # a VM's access token lasts 3600 s
 PULL_EVERY = 600.0       # results and traces so far, so a deleted VM loses only the games in flight
 REPLACEMENTS = 2         # new VMs for the unplayed games of a VM that Colab deleted
+UPLOAD_CHUNK = 40 << 20  # larger uploads go up in parts
+_TOKEN = re.compile(r'eyJ[A-Za-z0-9_-]{10,}(?:\.[A-Za-z0-9_-]+){1,2}|ya29\.[A-Za-z0-9_.-]+')
+
+
+def redact(text):
+    """The CLI's errors can carry the VM's access token (a JWT): never log it."""
+    return _TOKEN.sub('<token>', text)
+
+
+JOIN = r'''
+import hashlib, os
+parts, remote = {parts!r}, {remote!r}
+h = hashlib.sha256()
+with open(remote, 'wb') as out:
+    for p in parts:
+        data = open(p, 'rb').read()
+        h.update(data)
+        out.write(data)
+        os.remove(p)
+size = os.path.getsize(remote)
+print('COLAB_JOINED' if size == {size} and h.hexdigest() == {sha!r} else 'COLAB_JOIN_BAD', size)
+'''
 
 SETUP = r'''
 import hashlib, json, os, subprocess, sys, tarfile
@@ -186,17 +210,43 @@ class ColabCLI:
         try:
             proc = subprocess.run([self.exe, *args], capture_output=True, text=True, timeout=timeout,
                                   cwd=os.path.expanduser('~'))
-            return proc.returncode, proc.stdout + proc.stderr
+            return proc.returncode, redact(proc.stdout + proc.stderr)
         except subprocess.TimeoutExpired as exc:
-            return 124, f'timeout after {timeout}s: {exc}'
+            return 124, redact(f'timeout after {timeout}s: {exc}')
 
-    def new(self, session, high_mem):
-        code, out = self._run(['new', '-s', session] + (['--high-mem'] if high_mem else []), 600)
+    def new(self, session, high_mem, gpu=None):
+        code, out = self._run(['new', '-s', session] + (['--gpu', gpu] if gpu else [])
+                              + (['--high-mem'] if high_mem else []), 600)
         return 'Session READY' in out, out
 
     def upload(self, session, local, remote):
-        code, out = self._run(['upload', '-s', session, str(local), remote], 900)
-        return code == 0 and 'Error' not in out, out
+        """A file above UPLOAD_CHUNK goes up in parts that the VM joins and checks (one 350 MB
+        upload died with an SSL EOF on 2026-09-24)."""
+        size = Path(local).stat().st_size
+        if size <= UPLOAD_CHUNK:
+            code, out = self._run(['upload', '-s', session, str(local), remote], 900)
+            return code == 0 and 'Error' not in out, out
+        digest = hashlib.sha256()
+        with tempfile.TemporaryDirectory() as tmp, open(local, 'rb') as src:
+            parts = []
+            while chunk := src.read(UPLOAD_CHUNK):
+                digest.update(chunk)
+                part = Path(tmp) / f'part{len(parts):03d}'
+                part.write_bytes(chunk)
+                ok, out = False, ''
+                for _ in range(3):
+                    code, out = self._run(['upload', '-s', session, str(part), f'{remote}.{part.name}'], 900)
+                    if code == 0 and 'Error' not in out:
+                        ok = True
+                        break
+                if not ok:
+                    return False, f'part {len(parts)}: {out}'
+                parts.append(f'{remote}.{part.name}')
+                part.unlink()
+            join = Path(tmp) / 'join.py'
+            join.write_text(JOIN.format(parts=parts, remote=remote, size=size, sha=digest.hexdigest()))
+            out = self.exec_file(session, join, 600)
+        return 'COLAB_JOINED' in out, out
 
     def exec_file(self, session, path, timeout):
         return self._run(['exec', '-s', session, '-f', str(path), '--timeout', str(timeout)], timeout + 120)[1]
@@ -237,7 +287,7 @@ class ColabRun:
         self.vms = [(v.split(':')[0], v.split(':')[1]) for v in vms]
         for _, shape in self.vms:
             if shape not in WORKERS:
-                raise ValueError(f'unknown VM shape {shape!r}; use hm or std')
+                raise ValueError(f'unknown VM shape {shape!r}; use one of {sorted(WORKERS)}')
         self.workers = [workers or WORKERS[shape] for _, shape in self.vms]
         self.poll, self.requirements, self.cli_factory, self.log = poll, Path(requirements), cli_factory, log
         self.stop_event = threading.Event()
@@ -342,7 +392,7 @@ class ColabRun:
         such a VM is used if the account lists it, and stopped otherwise."""
         command, shape = self.vms[index]
         cli = self.cli_factory(command)
-        ok, out = cli.new(session, shape == 'hm')
+        ok, out = cli.new(session, shape in ('hm', 't4hm'), gpu='T4' if shape.startswith('t4') else None)
         if not ok and session in parse_endpoints(cli.sessions()):
             ok = True
             self.log(f'[{session}] {command} {shape} reported as not created, but it exists: using it')
