@@ -42,9 +42,8 @@ It has not been confirmed on the arena validation seeds and is not promoted into
 `policy_graph.json`.
 
 Files: `candidates.jsonl` holds every proposal, refusal and gauntlet verdict with the
-models' rationales. `console.txt` is the full console output: log lines, judge votes and supervisor guidance.
-`scores/` holds per-game margins per graph bundle, and `games/` holds the raw game records
-(gzipped JSONL).
+models' rationales. `scores/` holds per-game margins per graph bundle, and `games/` holds
+the per-game results (gzipped JSONL).
 
 ## Run 3: stopped
 
