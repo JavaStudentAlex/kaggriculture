@@ -105,8 +105,10 @@ class EditEvolution:
                  validate: Callable[[Path], Any], supervisor: Callable[..., List[str]],
                  knowledge: str, seed_graph: Optional[Dict[str, Any]] = None,
                  candidates: int = SIFT_CANDIDATES_PER_ITERATION,
-                 retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8):
+                 retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8,
+                 ideas_path: Optional[Path] = None):
         self.run_dir = Path(run_dir)
+        self.ideas_path = Path(ideas_path) if ideas_path else None
         self.gauntlet, self.mutator, self.judge, self.bandit = gauntlet, mutator, judge, bandit
         self.validate, self.supervisor, self.knowledge = validate, supervisor, knowledge
         self.candidates, self.retries, self.supervisor_interval = candidates, retries, supervisor_interval
@@ -152,6 +154,13 @@ class EditEvolution:
                      ", ".join(f"{k}: ${m:+,.0f}" for k, m in worst))
         return "\n".join(lines)
 
+    def ideas(self) -> List[str]:
+        """Bullet lines of the --ideas file, re-read every iteration so a run can be steered."""
+        if not self.ideas_path or not self.ideas_path.exists():
+            return []
+        return [line.strip()[2:].strip() for line in self.ideas_path.read_text().splitlines()
+                if line.strip().startswith(("- ", "* "))]
+
     def _history(self, island) -> List[str]:
         return [_result_line(r) for r in (island["history"] + island["rejections"])[-12:]]
 
@@ -161,6 +170,7 @@ class EditEvolution:
         champion = island["graph"]
         controls = graph_edits.describe_controls(champion, self.constants)
         focus = f"{island['focus']} Stages: {', '.join(island['stages'])}."
+        ideas = self.ideas()
         for index in range(self.candidates):
             model = self.bandit.select_arm(exclude=models_used)
             models_used.append(model)
@@ -169,7 +179,7 @@ class EditEvolution:
                 try:
                     edit, rationale = self.mutator.mutate_edit(
                         model, controls, focus, results, self._history(island),
-                        self.state["guidance"], self.knowledge, error)
+                        self.state["guidance"], self.knowledge, error, ideas=ideas)
                     graph = graph_edits.apply_edit(champion, edit, self.constants)
                     key = graph_edits.settings_key(graph, self.constants)
                     changes = graph_edits.diff(champion, graph, self.constants)
@@ -288,6 +298,12 @@ def main():
     parser.add_argument("--workers", type=int, default=60, help="concurrent games (~1 GB RAM each)")
     parser.add_argument("--seeds_per_opponent", type=int, default=40,
                         help="seeds per opponent block; the candidate's seat alternates, so 40 = 20 per seat")
+    parser.add_argument("--opponents", default="mohui13,mohui,hazel,willow",
+                        help="opponent bundles (arena/payload.py names); default: the ladder-like pool")
+    parser.add_argument("--seed_graph", type=Path, default=SEED_GRAPH,
+                        help="graph a fresh run starts from (e.g. a previous run's best_graph.json)")
+    parser.add_argument("--ideas", type=Path, default=None,
+                        help="markdown bullet list injected into every mutation prompt; re-read each iteration")
     parser.add_argument("--alpha", type=float, default=0.05)
     parser.add_argument("--candidates", type=int, default=SIFT_CANDIDATES_PER_ITERATION)
     parser.add_argument("--supervisor_interval", type=int, default=8)
@@ -303,16 +319,18 @@ def main():
                                   logging.StreamHandler(sys.stdout)])
     executor = (LocalExecutor(args.workers) if args.executor == "local"
                 else SSHExecutor(args.host, args.remote_dir, args.workers))
-    gauntlet = Gauntlet(args.run_dir, executor, args.seeds_per_opponent, alpha=args.alpha)
+    gauntlet = Gauntlet(args.run_dir, executor, args.seeds_per_opponent,
+                        opponents=tuple(o for o in args.opponents.split(",") if o), alpha=args.alpha)
     fingerprint = gauntlet.prepare()
     evolution = EditEvolution(
         args.run_dir, gauntlet, BAMGraphMutator(), SIFTGraphJudge(),
         UCB1Bandit(args.run_dir / "bandit_state.json"), graph_edits.validate_graph, run_meta_supervisor,
-        KNOWLEDGE.read_text(), candidates=args.candidates, supervisor_interval=args.supervisor_interval)
+        KNOWLEDGE.read_text(), seed_graph=json.loads(args.seed_graph.read_text()),
+        candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas)
     logging.info("=" * 70)
-    logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds x %d opponents + head-to-head | "
-                 "evaluation %s", len(evolution.state["islands"]), executor.describe(),
-                 args.seeds_per_opponent, len(gauntlet.opponents), fingerprint[:12])
+    logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds (%d per seat) x %s + head-to-head | "
+                 "evaluation %s", len(evolution.state["islands"]), executor.describe(), args.seeds_per_opponent,
+                 args.seeds_per_opponent // 2, ",".join(gauntlet.opponents), fingerprint[:12])
     logging.info("=" * 70)
     evolution.run(args.iterations)
 

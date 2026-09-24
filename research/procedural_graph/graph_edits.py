@@ -293,7 +293,7 @@ def validate_graph(graph_path, steps=30, seed=20260925, python=None, timeout=600
                CUDA_VISIBLE_DEVICES='', KAGG_ORACLE_BACKEND='numpy', KAGG_ORACLE_DEVICE='cpu',
                PYTHONDONTWRITEBYTECODE='1')
     env.pop('KAGG_GRAPH_EXPERIMENTS', None)
-    proc = subprocess.run([python or sys.executable, '-c', _VALIDATE, str(graph_path), str(steps), str(seed)],
+    proc = subprocess.run([python or sys.executable, '-c', _VALIDATE, str(Path(graph_path).resolve()), str(steps), str(seed)],
                           cwd=HERE, env=env, capture_output=True, text=True, timeout=timeout)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-6:]

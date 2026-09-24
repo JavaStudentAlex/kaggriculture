@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Sole advanced runner entrypoint: edit-based SIFT islands + paired gauntlet (>= 20 games/seat).
-# Games on this machine:   bash run_advanced_evolution.sh --workers 60
+# Games on this machine:   bash run_advanced_evolution.sh --workers 60 --ideas evolution_ideas.md
 # Games on a Brev box:     bash run_advanced_evolution.sh --executor ssh --host kagg-arena-80 --workers 60
+# Short guided runs: --iterations 6 --run_dir runs/evolution/<name> [--seed_graph <previous best_graph.json>]
 # Resumes from --run_dir (default runs/evolution) when its checkpoint.json exists.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"

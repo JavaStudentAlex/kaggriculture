@@ -168,10 +168,11 @@ class MutatorTests(unittest.TestCase):
         reply = '```json\n{"rationale": "why", "edit": {"dispatch_order": "sells_first"}}\n```'
         with patch.object(BAMGraphMutator, '_chat', return_value=reply) as chat:
             edit, rationale = BAMGraphMutator().mutate_edit('m', 'controls', 'focus', 'results', [], [], 'facts',
-                                                            error='previous error text')
+                                                            error='previous error text', ideas=['try 9/5'])
         self.assertEqual((edit, rationale), ({'dispatch_order': 'sells_first'}, 'why'))
         prompt = chat.call_args.args[2]
         self.assertIn('previous error text', prompt)
+        self.assertIn('- try 9/5', prompt)
         self.assertIn('controls', prompt)
         with patch.object(BAMGraphMutator, '_chat', return_value='{"rationale": "no edit"}'):
             with self.assertRaises(ValueError):
@@ -312,7 +313,11 @@ class EvolutionLoopTests(unittest.TestCase):
                 return {'bundle': 'g_x', 'jobs': sorted(margins), 'margins': margins, 'errors': [], 'fallbacks': 0}
 
         class FakeMutator:
-            def mutate_edit(self, model, controls, focus, results, history, guidance, knowledge, error):
+            def __init__(self):
+                self.ideas = []
+
+            def mutate_edit(self, model, controls, focus, results, history, guidance, knowledge, error, ideas=None):
+                self.ideas.append(ideas)
                 return {'dispatch_order': 'sells_first'}, f'{model} proposes sells first'
 
         class FakeJudge:
@@ -322,11 +327,14 @@ class EvolutionLoopTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             run = Path(tmp)
             validated = []
-            loop = evo.EditEvolution(run, FakeGauntlet(), FakeMutator(), FakeJudge(),
+            (run / 'ideas.md').write_text('# ideas\n- try opening 9/5\n* cadence phase 2\nnot a bullet\n')
+            mutator = FakeMutator()
+            loop = evo.EditEvolution(run, FakeGauntlet(), mutator, FakeJudge(),
                                      UCB1Bandit(run / 'bandit.json'), validated.append,
                                      lambda *a, **k: ['guidance'], 'facts', seed_graph=seed,
-                                     candidates=2, supervisor_interval=1)
+                                     candidates=2, supervisor_interval=1, ideas_path=run / 'ideas.md')
             loop.run(iterations=2)
+            self.assertEqual(mutator.ideas[0], ['try opening 9/5', 'cadence phase 2'])
             opening, town = loop.state['islands'][:2]
             self.assertEqual(graph_edits.settings(opening['graph'])['dispatch_order'], 'sells_first')
             self.assertEqual(len(opening['history']), 1)

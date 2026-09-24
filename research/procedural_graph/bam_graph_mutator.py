@@ -227,6 +227,7 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
         guidance: List[str],
         knowledge: str,
         error: Optional[str] = None,
+        ideas: Optional[List[str]] = None,
     ) -> Tuple[Dict[str, Any], str]:
         """Ask one LLM for an edit of the executable controls; returns (edit, rationale).
 
@@ -240,6 +241,7 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
             "mechanism-driven edit and return ONLY a JSON object with keys 'rationale' and 'edit'.")
         history_block = "\n".join(f"- {line}" for line in history[-12:]) or "- none yet"
         guidance_block = "\n".join(f"- {line}" for line in guidance[-5:]) or "- none"
+        ideas_block = "\n".join(f"- {line}" for line in (ideas or [])[:20]) or "- none"
         retry = f"\n### YOUR PREVIOUS ATTEMPT WAS REJECTED\n{error}\nFix exactly this problem.\n" if error else ""
         prompt = f"""### HOW A CANDIDATE IS JUDGED
 Your edit is applied to the island champion below. The resulting graph plays a paired
@@ -265,6 +267,9 @@ You may change any control, but prefer this area.
 
 ### EDITS ALREADY EVALUATED FROM THIS CHAMPION'S LINE (do not repeat; learn from them)
 {history_block}
+
+### IDEAS TO EXPLORE (from the research lead; test them, do not assume they work)
+{ideas_block}
 
 ### SUPERVISOR GUIDANCE
 {guidance_block}

@@ -41,12 +41,16 @@ Seeds alternate the candidate's seat; W-L-T counts games, margin is mean cash di
 | surgical `idle_dispatch` v1 only | 40 | 2-1-37 | +$1 |
 | 2026-09-22 checkpoint + calibration instead of Hazel's 09-13 (not an editable control) | 40 | 2-38-0 | -$307 |
 | Hazel vs Copper Weir | 60 | 22-37-1 | -$3 |
-| 13/9 opening vs Copper Weir (round 2b, partial) | 25 | 25-0-0 | +$25,660 |
-| 13/9 opening vs Orchard Tide (round 2b, partial) | 28 | 28-0-0 | +$24,671 |
-| **13/9 opening vs the plain Mohui v66 backbone** (round 2b, partial) | 31 | **0-31-0** | **-$15,503** |
-| Hazel vs the plain Mohui v66 backbone (round 2b, partial) | 31 | 28-3-0 | +$836 |
-| Hazel vs Orchard Tide (round 2b, partial) | 28 | 28-0-0 | +$960 |
-| `opening_scalp` disabled vs the plain Mohui backbone (round 2b, partial) | 30 | 25-5-0 | -$123 |
+| 13/9 opening vs Copper Weir | 60 | 60-0-0 | +$25,782 |
+| 13/9 opening vs Orchard Tide | 60 | 60-0-0 | +$25,485 |
+| **13/9 opening vs the plain Mohui v66 backbone** | 60 | **0-60-0** | **-$16,415** |
+| Hazel vs the plain Mohui v66 backbone | 60 | 55-5-0 | +$886 |
+| Hazel vs Orchard Tide | 60 | 60-0-0 | +$914 |
+| `opening_scalp` disabled vs the plain Mohui backbone | 60 | 49-11-0 | -$27 |
+| graph `order: sells_first` alone (round 3, stopped early) | 7 | 7-0-0 | +$1,427 |
+| 13/9 + sells-first vs the plain Mohui backbone (round 3, stopped early) | 11 | 0-11-0 | -$16,597 |
+| 13/9 + sells-first vs Mohui13 (round 3, stopped early) | 11 | 10-1-0 | +$33,636 |
+| 13/9 + sells-first + cadence phase 3 vs the plain Mohui backbone (round 3) | 10 | 0-10-0 | -$16,629 |
 
 Mechanism of the opening result (traces): Hazel's 35/30 wheat scalp against an opponent
 that also buys wheat at step 0 leaves it $6 at the day-1 hire step, one dollar short of
@@ -54,5 +58,13 @@ its fourth hand; its route breaks and the loss compounds. The 13/9 opening keeps
 Hazel's own ladder games show the same short hire in 2 of 20 sampled games.
 
 The opening is opponent-dependent: the same 13/9 change that wins every game against
-the 35/30 and 13/9 scalpers loses every game against the plain backbone. An opening
-edit must be judged across the whole pool, never against one opponent.
+the 35/30 and 13/9 scalpers loses every game against the plain backbone (which buys 5
+wheat at step 0). It is not a day-1 cash shortage there: the 13/9 graph holds $51 at the
+hire step against the backbone's $22 and both hire 4 hands; the backbone then earns about
+$21k more over the game than it does against Hazel's 35/30. An opening edit must be judged
+across the whole pool, never against one opponent.
+
+Ladder mix (26 of Hazel Weir's ladder games, 2026-09-15..23): the opponent's step-0 wheat
+buy was 13 in 12 games (Hazel lost 10 of them), 0 in 3, 7 in 2, 5 (the plain backbone's)
+in 1, and 15-174 in the other 8. The Mohui13 opponent is the pool's proxy for the 13-wheat
+openers; the real ones earn far more than it does.

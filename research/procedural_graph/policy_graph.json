@@ -1,8 +1,8 @@
 {
-  "version": "4.0.0",
+  "version": "5.0.0",
   "runtime": "hazel_merged_v1",
-  "name": "Hazel-derived surgical candidate with 2026-09-22 predictor",
-  "description": "Active local research candidate: source-level headroom/deferred/luxury market overrides and coordinate-correct idle maintenance. Competitive improvement unproven.",
+  "name": "Hazel graph with 13/9 opening and sells-first dispatch",
+  "description": "Hazel Weir's exact champion executed as a graph, with three graph edits: the opening wheat scalp buys 13 and sells 9 (was 35/30), routine orders are dispatched sells-first, and the surgical overrides are off. Hazel's own 2026-09-13 predictor, no calibration.",
   "execution_contract": {
     "entry_node": "backbone",
     "traversal": "turn then nested market, in validated dependency order",
@@ -11,13 +11,13 @@
       "farmer": 1,
       "hands": "one per hired hand"
     },
-    "conflicts": "Source-pinned champion behavior except explicit surgical.py AST overrides when surgical.enabled=true. Broad post-processing remains disabled.",
+    "conflicts": "Source-pinned champion behavior; the graph's executable controls (chain-node parameters, market-stage enabled flags, routine_dispatch order, surgical switches) are the only policy changes. surgical.enabled=false: no AST overrides. Broad post-processing remains disabled.",
     "mutation_contract": "Bindings/source/runtime must be changed together and revalidated. Legacy prose-only graph mutators are incompatible."
   },
   "source": {
     "submission_id": 56246758,
     "champion_sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
-    "oracle_model_sha256": "e267bb7aab2e08665c582ffdca0ab395c4a20f6b43d4e72c84897d6ab67be720"
+    "oracle_model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
   },
   "turn": {
     "entry": "backbone",
@@ -182,7 +182,11 @@
         "source_lines": [
           351,
           361
-        ]
+        ],
+        "parameters": {
+          "_OPENING_BUY_WHEAT_QTY": 13,
+          "_OPENING_SELL_WHEAT_QTY": 9
+        }
       },
       {
         "id": "deferred_sales",
@@ -299,7 +303,8 @@
         "source_lines": [
           750,
           750
-        ]
+        ],
+        "order": "sells_first"
       }
     ],
     "edges": [
@@ -485,7 +490,7 @@
       "id": "keiz_opening_scalp",
       "name": "Keiz Opening Wheat Scalp",
       "category": "market",
-      "description": "Correct old prose: buy35 WHEAT at step0, sell30 at step1.",
+      "description": "Buy 13 WHEAT at step 0 and sell 9 at step 1 (graph parameters; the submitted 35/30 scalp left $6 at the day-1 hire step against wheat-buying opponents).",
       "previous_description": "On step 0, buy exactly 1 unit of WHEAT. On step 1, sell exactly 1 unit of WHEAT to capture opening spread.",
       "bindings": [
         "opening_scalp"
@@ -1178,7 +1183,7 @@
     "oracle_frontrun": "Use full submitted product-aware forecasts and reserves, not only WOOL/MILK.",
     "capital_compounding": "Retain all submitted production/hiring/land decisions. Old prose day13 freeze and nine-worker cap were not implemented and conflict with submitted behavior.",
     "closed_loop_hydration_pipeline": "Retain actual production routing and farmer/hand maintenance. Old watering-can refill and well rules are unsupported intent, not new game mechanics.",
-    "keiz_opening_scalp": "Correct old prose: buy35 WHEAT at step0, sell30 at step1.",
+    "keiz_opening_scalp": "Graph parameters on opening_scalp: buy 13 WHEAT at step 0, sell 9 at step 1 (submitted: 35/30).",
     "tiered_shed_pressure_valve": "Use exact submitted pressure thresholds and boolean predicates, including activation at80.",
     "fertilizer_monetization": "Preserve town-cadence-gated fertilizer sales: hold>=3, price>=45, retain1, batch<=5.",
     "early_endgame_liquidation": "Include forecast activation from640, ordinary activation680, and phased sales from693.",
@@ -1193,9 +1198,9 @@
     "runtime_bundle_hashes": {
       "SOURCE_MANIFEST.json": "ac601811927e9f5c0b3c4f6c9063e6e7aca437b07eeb2e151ff53e523a99075a",
       "champion.py": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
-      "checkpoint/config.json": "423b46c4cad2c9ee8cc87038b06e529a1dee93da85c66469349e1fa6ad100cd0",
-      "checkpoint/labels.json": "efe8c7e87d2f88f1c44f069ff51aa5303316827b3301c866e2e07f8a2fd46e7e",
-      "checkpoint/model.safetensors": "e267bb7aab2e08665c582ffdca0ab395c4a20f6b43d4e72c84897d6ab67be720",
+      "checkpoint/config.json": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+      "checkpoint/labels.json": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75",
+      "checkpoint/model.safetensors": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
       "checkpoint/scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
       "graph_runtime.py": "1524e81f9b60406fdb41abb0846fd62ba8c885a43b20be4df6e45c83d48bc7b5",
       "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
@@ -1235,19 +1240,19 @@
     "notes": "Broad post-processing extensions disabled after failed pilot; requested corrections use source-level surgical overrides instead."
   },
   "model_checkpoint": {
-    "name": "ttm_c256_h96_ft_2026-09-22",
-    "source": "promoted Kaggle daily refit (2026-09-22)",
-    "model_sha256": "e267bb7aab2e08665c582ffdca0ab395c4a20f6b43d4e72c84897d6ab67be720",
+    "name": "ttm_c256_h96_ft_2026-09-13",
+    "source": "Hazel Weir's predictor (submission 56246758); the 2026-09-13 refit, in git at 376717e",
+    "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
     "scaler_sha256": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
-    "config_sha256": "423b46c4cad2c9ee8cc87038b06e529a1dee93da85c66469349e1fa6ad100cd0",
-    "labels_sha256": "efe8c7e87d2f88f1c44f069ff51aa5303316827b3301c866e2e07f8a2fd46e7e"
+    "config_sha256": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+    "labels_sha256": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75"
   },
   "surgical": {
-    "enabled": true
+    "enabled": false
   },
   "surgical_implementation": {
     "module": "hazel_runtime/surgical.py",
-    "status": "experimental_candidate_enabled",
+    "status": "available_disabled",
     "overrides": [
       "deferred_sales",
       "predrop_headroom",
@@ -1260,5 +1265,28 @@
       "Fertilizer floor constrains added policy sells, not pre-existing backbone orders",
       "Headroom estimate is not a full within-turn engine projection"
     ]
-  }
+  },
+  "revisions": [
+    {
+      "version": "5.0.0",
+      "date": "2026-09-24",
+      "previous": {
+        "version": "4.0.0",
+        "name": "Hazel-derived surgical candidate with 2026-09-22 predictor",
+        "description": "Active local research candidate: source-level headroom/deferred/luxury market overrides and coordinate-correct idle maintenance. Competitive improvement unproven."
+      },
+      "changes": [
+        "_OPENING_BUY_WHEAT_QTY (opening_scalp): 35 -> 13",
+        "_OPENING_SELL_WHEAT_QTY (opening_scalp): 30 -> 9",
+        "routine_dispatch order: submitted -> sells_first",
+        "surgical: {\"enabled\": true, \"overrides\": {\"deferred_sales\": true, \"predrop_headroom\": true, \"fertilizer_guard\": true, \"luxury_supplement\": true, \"idle_dispatch\": \"v1\"}} -> {\"enabled\": false}",
+        "predictor: ttm_c256_h96_ft_2026-09-22 + calibration -> ttm_c256_h96_ft_2026-09-13 (Hazel Weir)"
+      ],
+      "evidence": {
+        "vs_hazel": "open13 60-0 (+$25,759); sells-first 40-0 (+$987); fertilizer_guard 1-39 (-$1,483); 09-22 checkpoint + calibration 2-38 (-$307); v4 0-40 (-$1,471)",
+        "vs_pool": "open13 60-0 vs Copper (+$25,782), 60-0 vs Orchard (+$25,485), 59-1 vs Mohui13 (+$32,639), 0-60 vs the plain Mohui v66 backbone (-$16,415)",
+        "source": "research/procedural_graph/evolution_knowledge.md (arena rounds 1, 2, 2b, 3)"
+      }
+    }
+  ]
 }

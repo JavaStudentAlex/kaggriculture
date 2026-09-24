@@ -11,9 +11,22 @@ bash run_advanced_evolution.sh --workers 60
 bash run_advanced_evolution.sh --executor ssh --host kagg-arena-80 --workers 60
 ```
 
-Options: `--iterations`, `--run_dir` (default `runs/evolution`, git-ignored; resumes from
-its `checkpoint.json`), `--seeds_per_opponent` (default 40 = 20 games per seat, the
-minimum), `--alpha` (default 0.05), `--candidates`, `--supervisor_interval`.
+Options:
+
+- `--iterations`, and `--run_dir` (default `runs/evolution`, git-ignored; resumes from
+  its `checkpoint.json`).
+- `--seeds_per_opponent`: default 40, which is 20 games per seat on 40 different seeds,
+  the minimum.
+- `--opponents`: default `mohui13,mohui,hazel,willow`, a ladder-like pool (see below).
+- `--seed_graph`: default `policy_graph.json`; for a follow-up run, pass the previous
+  run's `best_graph.json`.
+- `--ideas`: a markdown bullet list injected into every mutation prompt, re-read each
+  iteration (`evolution_ideas.md`).
+- `--alpha` (default 0.05), `--candidates`, `--supervisor_interval`.
+
+Guided short runs: run 6 iterations (one per island), read `candidates.jsonl` and
+`best.json`, update `evolution_ideas.md` and `evolution_knowledge.md`, and start the next
+run from the best graph.
 
 ## What evolves
 
@@ -53,9 +66,12 @@ fallback is an error.
    played.
 3. **Paired gauntlet** (`graph_gauntlet.py`, games in process-isolated agents via
    `arena/arena.py`).
-   - The winner plays the run's seeds against Hazel Weir, Copper Weir, Orchard Tide, the
-     Mohui v66 backbone and Mohui13, plus head-to-head games against the island
-     champion. Its seat alternates with the seed index.
+   - The winner plays the run's seeds against the opponent pool, plus head-to-head games
+     against the island champion. Its seat alternates with the seed index.
+   - The default pool is Mohui13 (the 13-wheat openers are 12 of 26 opponents in Hazel's
+     ladder games), the plain Mohui v66 backbone, Hazel Weir and Willow Ford (the
+     Harvest Current stand-in).
+   - Copper and Orchard are also available but nearly duplicate Hazel's policy.
    - Each game's cash margin is compared with the champion's margin on the same game;
      head-to-head is compared with 0, because a graph playing itself ties exactly.
    - The winner replaces the champion only if an exact sign test over the changed games

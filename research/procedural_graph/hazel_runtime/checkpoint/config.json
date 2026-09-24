@@ -99,7 +99,7 @@
   "scaling": "std",
   "self_attn": false,
   "self_attn_heads": 1,
-  "transformers_version": "5.0.0",
+  "transformers_version": "5.17.0",
   "trend_adaptive_patching_levels": null,
   "trend_d_model": null,
   "trend_decoder_d_model": null,
