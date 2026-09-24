@@ -214,6 +214,37 @@ class ColabRunTests(unittest.TestCase):
             self.assertEqual(sorted(FakeCLI.running), [('colab1', 'r-1')])   # only the VM that plays
             self.assertEqual(len(FakeCLI.shards['r-1']), 4)
 
+    def test_jobs_file_plays_only_the_listed_games(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            jobs = payload(tmp / 'payload', 12)
+            lost = [j for i, j in enumerate(jobs) if i % 3]   # the shards of VMs that died
+            (tmp / 'lost.json').write_text(json.dumps({'jobs': lost}))
+            runner = colab_run.ColabRun(tmp / 'payload', tmp / 'results.jsonl', 'r2', ['colab1:std', 'colab3:std'],
+                                        poll=0.0, cli_factory=FakeCLI, log=lambda m: None, jobs=tmp / 'lost.json')
+            self.assertEqual(runner.run(), 0)
+            played = sorted(j['seed'] for shard in FakeCLI.shards.values() for j in shard)
+            self.assertEqual(played, sorted(j['seed'] for j in lost))
+            self.assertEqual(len((tmp / 'results.jsonl').read_text().splitlines()), 8)
+
+    def test_a_vm_without_a_local_record_is_reported_as_left(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 2)
+            FakeCLI.running = {('colab1', 'r-10')}   # another session whose name starts with r-1
+            logs = []
+            runner = self.runner(tmp, ['colab1:std', 'colab1:std'])
+            runner.log = logs.append
+            unnamed = '[?] m-s-lost | Hardware: CPU'
+            listing = FakeCLI.sessions
+            FakeCLI.sessions = lambda self: listing(self) + '\n' + unnamed
+            try:
+                runner.run()
+            finally:
+                FakeCLI.sessions = listing
+            self.assertNotIn(('colab1', 'stop', 'r-10'), FakeCLI.calls)   # exact names only
+            self.assertIn("COLAB_VMS_LEFT=1 ['colab1:m-s-lost (no local record)'] -- stop them by hand", logs)
+
     def test_remote_scripts_render(self):
         setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8, trace_args="['--trace-dir', 'traces']")
         poll = colab_run.POLL.format(root=colab_run.REMOTE)

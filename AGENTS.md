@@ -107,8 +107,10 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
   - builds a Python 3.12.13 venv with the pinned `arena/colab_requirements.txt`;
   - plays the games with `arena.py`, 8 workers per High-RAM VM;
   - downloads the results and **stops every VM it created**, also on errors and Ctrl-C.
-  Rerunning plays only the missing games. `--attach` finishes the sessions of a runner
-  that was killed, and `--cleanup` stops them. Check with `colab<N> sessions`.
+  Rerunning plays only the missing games; `--jobs FILE` plays only the listed jobs (e.g.
+  the shards of VMs that Colab deleted) under a new `--run-name`. `--attach` finishes the
+  sessions of a runner that was killed, and `--cleanup` stops them. Check with
+  `colab<N> sessions`.
 - **Verified 2026-09-24.** Six run-2 gauntlet games replayed on Colab gave exactly the cash
   recorded on Brev. Game times: about 3 min against the oracle-free opponents and about
   4.5 min against oracle agents. A 240-game batch on 5 High-RAM VMs takes about 30 min
@@ -135,10 +137,18 @@ the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are docu
       asking.
   - **Status.** The ping job is **not built yet** (2026-09-24). Until it exists, start a
     Colab run only with the user's OK, and keep this PC awake until the results are
-    pulled.
+    pulled: `bash arena/windows_awake.sh [hours]` holds a Windows wake lock in tmux
+    `kagg-awake` (released after that many hours, or by `windows_awake.sh stop`). It stops
+    idle sleep only; closing the laptop's lid or choosing Sleep still sleeps the PC.
   - **Debugging.** The local daemons log to `~/.config/colab-cli/history/<session>.jsonl`;
     the `keep_alive_error` and `keep_alive_stopped` events show when pings stopped. `ps`
     start times of processes that ran across a sleep are shifted by the sleep's length.
+  - **A VM listed as `[?] <endpoint>`** by `colab<N> sessions` is running, but the CLI has
+    dropped its local record and killed its keep-alive. The CLI does this when one
+    listing misses a session, as happened right after the PC woke up on 2026-09-24.
+    Exec, download and stop by name fail, and without pings Colab deletes the VM. Re-register it at once with
+    `python3 arena/colab_readopt.py <N> <endpoint>=<session name>`. The runner's
+    `COLAB_VMS_LEFT` check reports such VMs as left.
 - **Rules.**
   - Starting VMs spends compute units: agree the batch with the user first.
   - The keep-alive pings of every run come from its ping job on cliproxyapi (above), never

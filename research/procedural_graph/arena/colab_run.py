@@ -22,7 +22,8 @@ Each VM is handled in its own thread:
    (`COLAB_VMS_LEFT=0`; a leftover is stopped once more).
 
 Results are appended to --out, and rerunning the same command plays only what is still
-missing. `--cleanup` only stops the sessions a run with the same --run-name and --vm
+missing. `--jobs FILE` plays only the jobs listed there (same format as the payload's
+jobs.json), e.g. the shards of VMs that Colab deleted, under a new --run-name. `--cleanup` only stops the sessions a run with the same --run-name and --vm
 flags would create; `--attach` follows them to the end instead (for a runner that was
 killed, or a `--start-only` run that left its VMs playing): wait, download, stop, merge. Run it in tmux (kagg-colab-<run>) so a closed
 terminal or session does not leave VMs running.
@@ -180,9 +181,10 @@ class ColabCLI:
 
 class ColabRun:
     def __init__(self, payload, out, run_name, vms, poll=60.0, requirements=HERE / 'colab_requirements.txt',
-                 cli_factory=ColabCLI, workers=None, log=print, traces=True, detach=False):
+                 cli_factory=ColabCLI, workers=None, log=print, traces=True, detach=False, jobs=None):
         # absolute: the CLI runs from the home directory, so relative paths would point there
         self.payload, self.out, self.run_name = Path(payload).resolve(), Path(out).resolve(), run_name
+        self.jobs = Path(jobs).resolve() if jobs else self.payload / 'jobs.json'   # the games this run plays
         self.vms = [(v.split(':')[0], v.split(':')[1]) for v in vms]
         for _, shape in self.vms:
             if shape not in WORKERS:
@@ -199,7 +201,7 @@ class ColabRun:
         return [f'{self.run_name}-{i}' for i in range(len(self.vms))]
 
     def pending(self):
-        jobs = json.loads((self.payload / 'jobs.json').read_text())['jobs']
+        jobs = json.loads(self.jobs.read_text())['jobs']
         done = finished(self.out)
         return [j for j in jobs if job_key(j) not in done], len(jobs)
 
@@ -384,14 +386,20 @@ class ColabRun:
 
     def verify_removed(self):
         """After the results are pulled no session of this run may be left: list every
-        account's sessions, stop any leftover once more and report what still remains."""
+        account's sessions, stop any leftover once more and report what still remains. A VM
+        the CLI lists as `[?]` has lost its local record (the CLI prunes records that one
+        listing misses, seen 2026-09-24 after the PC woke up) and cannot be stopped by name,
+        so it is reported as well."""
         left = []
         for command in sorted({c for c, _ in self.vms}):
             cli = self.cli_factory(command)
-            mine = [s for s in self.sessions() if s in cli.sessions()]
+            mine = [s for s in self.sessions() if f'[{s}]' in cli.sessions()]
             for session in mine:
                 cli.stop(session)
-            left += [f'{command}:{s}' for s in mine if s in cli.sessions()]
+            listing = cli.sessions()
+            left += [f'{command}:{s}' for s in mine if f'[{s}]' in listing]
+            left += [f'{command}:{line.split()[1]} (no local record)' for line in listing.splitlines()
+                     if line.startswith('[?] ')]
         self.log(f'COLAB_VMS_LEFT={len(left)}' + (f' {left} -- stop them by hand' if left else ''))
         return left
 
@@ -417,6 +425,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--payload', required=True, help='payload dir (payload.py): jobs.json, bundles/, arena.py')
     ap.add_argument('--out', required=True, help='results.jsonl; games already in it are not replayed')
+    ap.add_argument('--jobs', default=None, help='play only these jobs ({"jobs": [...]}; default <payload>/jobs.json)')
     ap.add_argument('--run-name', required=True, help='session name prefix (<run-name>-<index>)')
     ap.add_argument('--vm', action='append', required=True, metavar='COMMAND:SHAPE',
                     help='one VM, e.g. colab2:hm (High-RAM) or colab4:std; repeat per VM')
@@ -430,7 +439,7 @@ def main():
                     help='follow the sessions an earlier runner started, then download, stop and merge')
     args = ap.parse_args()
     runner = ColabRun(args.payload, args.out, args.run_name, args.vm, poll=args.poll, workers=args.workers,
-                      traces=not args.no_traces, detach=args.start_only,
+                      traces=not args.no_traces, detach=args.start_only, jobs=args.jobs,
                       log=lambda m: print(f'{time.strftime("%H:%M:%S")} {m}', flush=True))
     if args.cleanup:
         runner.cleanup()

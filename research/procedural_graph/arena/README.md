@@ -35,7 +35,9 @@ A Colab VM lives only while it gets keep-alive pings. Colab deletes it, results 
 when they stop. The CLI sends the pings from the machine that created the VM, and this PC
 sleeps: on 2026-09-24 a 30-minute sleep cost 9 of 12 VMs. So every run's pings come from a
 ping job on cliproxyapi; the rule, and the status of the ping job, are in AGENTS.md
-section 3.1.
+section 3.1. Until the ping job exists, `windows_awake.sh` keeps the PC awake during a run.
+`colab_readopt.py` re-registers a running VM that the CLI lists as `[?]`. `colab_run.py
+--jobs FILE` replays only the listed games, e.g. those of VMs that were deleted.
 
 A Brev CPU box is the alternative (after `brev login`; delete it when done, it bills by the hour):
 
