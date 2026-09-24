@@ -245,9 +245,8 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
         retry = f"\n### YOUR PREVIOUS ATTEMPT WAS REJECTED\n{error}\nFix exactly this problem.\n" if error else ""
         prompt = f"""### HOW A CANDIDATE IS JUDGED
 Your edit is applied to the island champion below. The resulting graph plays a paired
-gauntlet: the same seeds against Hazel Weir, Copper Weir, Orchard Tide, the Mohui v66
-backbone and Mohui13 (the backbone with a 13/9 wheat opening), plus head-to-head games
-against the champion itself. Per game, its cash margin is compared with the champion's
+gauntlet: the same seeds against every opponent listed under CHAMPION RESULTS (the
+knowledge section describes them), plus head-to-head games against the champion itself. Per game, its cash margin is compared with the champion's
 margin on the same game; it is promoted only if an exact sign test over the games that
 changed is significant (p <= 0.05) with a positive mean change. Edits that change nothing
 in play are wasted; edits that help one opponent and hurt the others fail.
@@ -265,7 +264,7 @@ You may change any control, but prefer this area.
 ### CHAMPION RESULTS IN THE GAUNTLET
 {results}
 
-### EDITS ALREADY EVALUATED FROM THIS CHAMPION'S LINE (do not repeat; learn from them)
+### EDITS ALREADY PLAYED IN THIS RUN (do not repeat; learn from them. [this island] edits were measured against this champion's line, the others against their own island's champion)
 {history_block}
 
 ### IDEAS TO EXPLORE (from the research lead; test them, do not assume they work)

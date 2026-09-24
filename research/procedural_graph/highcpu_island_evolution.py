@@ -11,10 +11,10 @@ Each iteration works on one island:
    process. Every failure goes back to the model (up to three attempts).
 2. SIFT stage 2: a pairwise LLM judge compares the viable edits as diffs and a
    Bradley-Terry fit ranks them; only the winner is played.
-3. Paired gauntlet (graph_gauntlet.py): the same seeds against Hazel, Copper, Orchard,
-   Mohui and Mohui13, plus head-to-head games against the island champion. The winner
-   replaces the champion only if the exact sign test over the changed games is
-   significant and the mean change is positive.
+3. Paired gauntlet (graph_gauntlet.py): the same seeds against the opponent pool
+   (--opponents, default Mohui13, Mohui, Hazel and Willow), plus head-to-head games
+   against the island champion. The winner replaces the champion only if the exact sign
+   test over the changed games is significant and the mean change is positive.
 
 Every --supervisor_interval iterations the meta-supervisor turns recent results into
 guidance for the next prompts. Everything is written under --run_dir (checkpoint.json,
@@ -122,9 +122,12 @@ def _result_line(record: Dict[str, Any]) -> str:
     if not verdict:
         return f"{'; '.join(record['changes'])} | not played: {record.get('cause', '')[:160]}"
     outcome = "PROMOTED" if verdict.get("promote") else "rejected"
+    per = "; ".join(f"{tag} {s['wins']}-{s['losses']}-{s['ties']} ${s['mean']:+,.0f}"
+                    for tag, s in sorted((verdict.get("per_opponent") or {}).items()))
     return (f"{'; '.join(record['changes'])} | changed games {verdict['wins']}W-{verdict['losses']}L "
             f"({verdict['ties']} unchanged), mean change ${verdict['mean_change']:+,.0f}, "
-            f"p={verdict['p']:.2g} -> {outcome}")
+            f"p={verdict['p']:.2g} -> {outcome}"
+            + (f" | per opponent (W-L-T, mean change): {per}" if per else ""))
 
 
 class EditEvolution:
@@ -192,7 +195,11 @@ class EditEvolution:
                 if line.strip().startswith(("- ", "* "))]
 
     def _history(self, island) -> List[str]:
-        return [_result_line(r) for r in (island["history"] + island["rejections"])[-12:]]
+        """Every edit played in this run on any island, oldest first; this island's own marked."""
+        played = sorted(((r.get("iteration", 0), i["name"], r) for i in self.state["islands"]
+                         for r in i["history"] + i["rejections"]), key=lambda x: x[0])
+        return [f"[{'this island' if name == island['name'] else name}] {_result_line(r)}"
+                for _, name, r in played[-12:]]
 
     # ------------------------------------------------------------------ one iteration
     def propose(self, island, iteration, results, models_used) -> List[Dict[str, Any]]:

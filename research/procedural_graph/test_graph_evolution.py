@@ -314,10 +314,11 @@ class EvolutionLoopTests(unittest.TestCase):
 
         class FakeMutator:
             def __init__(self):
-                self.ideas = []
+                self.ideas, self.histories = [], []
 
             def mutate_edit(self, model, controls, focus, results, history, guidance, knowledge, error, ideas=None):
                 self.ideas.append(ideas)
+                self.histories.append(history)
                 return {'dispatch_order': 'sells_first'}, f'{model} proposes sells first'
 
         class FakeJudge:
@@ -342,6 +343,12 @@ class EvolutionLoopTests(unittest.TestCase):
             # already-seen settings: refused before any game, fed back to the model.
             self.assertEqual(len(loop.gauntlet.evaluated), 1)
             self.assertEqual(town['history'], [])
+            # Every island's prompt lists the edits played anywhere in the run, per opponent.
+            self.assertEqual(mutator.histories[0], [])
+            self.assertEqual(len(mutator.histories[-1]), 1)
+            self.assertTrue(mutator.histories[-1][0].startswith('[Island-Opening] routine_dispatch order'))
+            self.assertIn('per opponent (W-L-T, mean change): hazel 20-0-0 $+5; incumbent 20-0-0 $+1',
+                          mutator.histories[-1][0])
             log = [json.loads(line) for line in (run / 'candidates.jsonl').read_text().splitlines()]
             self.assertTrue(any('already evaluated' in r.get('error', '') for r in log))
             self.assertEqual(loop.state['guidance'], ['guidance'])

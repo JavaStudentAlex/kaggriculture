@@ -53,9 +53,10 @@ fallback is an error.
 1. **SIFT stage 1.** A UCB1 bandit over the seven proxy models (`shinka_graph_mab.py`)
    picks three distinct models.
    - Each gets the controls table with the island champion's current values, the island
-     focus, the champion's per-opponent results and worst games, the edits already
-     evaluated in that line with their results, the supervisor's guidance and
-     `evolution_knowledge.md` (verified engine facts and measured arena results).
+     focus, the champion's per-opponent results and worst games, the last 12 edits
+     played in the run on any island with their per-opponent results, the supervisor's
+     guidance and `evolution_knowledge.md` (verified engine facts and measured arena
+     results).
    - Each returns `{"rationale", "edit"}` (`BAMGraphMutator.mutate_edit`).
    - An edit whose normalized settings were already evaluated anywhere in the run is
      refused before any game.

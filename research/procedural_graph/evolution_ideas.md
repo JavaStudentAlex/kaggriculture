@@ -2,12 +2,11 @@
 
 Read by `highcpu_island_evolution.py --ideas evolution_ideas.md` and shown to every
 mutating model as hypotheses to test (bullets only; the file is re-read each iteration,
-so it can be edited while a run is going). Seed of run 1: policy_graph.json v5.0.0
-(13/9 opening, sells-first, surgical off, Hazel's predictor).
+so it can be edited while a run is going). Seed of run 3: run 2's best graph (v5.0.0 with
+the oracle front-run edit: batch 4, price ratio 0.7).
 
-- The 13/9 opening wins every game against 35/30 and 13/9 scalpers but loses every game (-$16k) to the plain backbone that buys 5 wheat. Look for an opening that keeps the wins and removes that loss: other buy/sell pairs between 5 and 20 (for example 9/5, 11/7, 15/11, 13/5, 17/13), keeping at least $50 at the step-24 hire.
-- The backbone opening (opening_scalp stage disabled) lost 6-54 to Hazel by only $95 but won 60-0 by $47k against Mohui13; a middle ground between it and 13/9 may exist.
-- Town shops: `_TOWN_CADENCE_PHASE` 3 won 54-6 (+$86) against Hazel; phases 1 and 2 are untested. Shop batch size (`_SHOP_SELL_BATCH_MAX` 4), price threshold (`_PRICE_THRESHOLD_RATIO` 0.85) and minimum held (`_MIN_HELD_FOR_SHOP_SALE` 2) are untested.
-- Oracle front-running: score threshold `_ORACLE_FRONTRUN_SCORE` 0.30, batch `_ORACLE_FRONTRUN_BATCH` 6 and price floor `_ORACLE_FRONTRUN_PRICE_RATIO` 0.60 are untested with Hazel's predictor.
-- Shed: `_SHED_PRESSURE_AT` 80, `_SHED_PRESSURE_PRICE_RATIO` 0.35 and `_HEADROOM_FROM_HOUR` 20 are untested.
-- Measured, do not repeat: the surgical fertilizer guard loses about $1.5k a game; the other surgical overrides and the engine-exact `_SHOP_DEMANDS` change nothing.
+- Top priority, Opening: keep the 5th wheat and still starve the 35/30 openers. Use an opening whose buy minus sell is exactly 5 and whose sell is at least 10: 15/10, 16/11, 17/12 or 18/13. The engine table in the knowledge section shows these leave us 5 wheat (no cow escape against any opponent) and leave Hazel/Willow $5-6 at the step-24 hire. 13/9 leaves 4 wheat and loses a cow; 13/8 and 14/9 let the 35/30 openers hire 4 hands.
+- Never propose an opening that leaves fewer than 5 wheat after step 1 (buy minus sell < 5: 13/9, 14/10, 15/11, 11/7, 13/13). It costs a cow on day 1 against every opponent.
+- After the opening, the remaining gap is the plain backbone and Mohui13. Shop sales and the oracle front-run are the next levers: `_SHOP_SELL_BATCH_MAX` 4, `_MIN_HELD_FOR_SHOP_SALE` 2, `_ORACLE_FRONTRUN_SCORE` 0.30, `_ORACLE_FRONTRUN_MIN_HELD` and `_ORACLE_FROM_STEP` are untested.
+- The oracle front-run edit (batch 6 -> 4, price ratio 0.6 -> 0.7) gained about $220 a game against every opponent; neighbouring values (batch 3 or 5, ratio 0.65 or 0.75) are untested.
+- Measured, do not repeat: `_TOWN_CADENCE_PHASE` 0 -> 3 (-$9), `_SHED_PRESSURE_AT` 80 -> 88 (-$158), `_PRICE_THRESHOLD_RATIO` 0.85 -> 0.80 (no effect), the surgical fertilizer guard (-$1.5k); the other surgical overrides and the engine-exact `_SHOP_DEMANDS` change nothing.
