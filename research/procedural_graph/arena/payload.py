@@ -122,7 +122,9 @@ def build_opponent(out, name):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--eval-id', required=True)
-    ap.add_argument('--pairs', required=True, help='a:b,... a = variant or opponent, b = opponent')
+    ap.add_argument('--pairs', required=True, help='a:b,... a = variant, graph or opponent, b = opponent')
+    ap.add_argument('--graph', action='append', default=[], metavar='NAME=FILE',
+                    help='play a saved graph file as-is under NAME (e.g. an evolution best_graph.json)')
     ap.add_argument('--seeds', type=int, default=40)
     ap.add_argument('--seed-salt', type=int, default=20260924)
     ap.add_argument('--mirror-seeds', type=int, default=4, help='cap for the mirror sanity variant')
@@ -131,6 +133,7 @@ def main():
     out = Path(args.out or PG / 'runs' / 'arena' / args.eval_id / 'payload')
     library = json.loads((HERE / 'variants.json').read_text())
     pairs = [tuple(p.split(':')) for p in args.pairs.split(',') if p]
+    graphs = dict(g.split('=', 1) for g in args.graph)
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -139,7 +142,10 @@ def main():
         for name in (a, b):
             if name in built:
                 continue
-            if name in library['variants']:
+            if name in graphs:
+                write_graph_bundle(out / 'bundles' / name, json.loads(Path(graphs[name]).read_text()),
+                                   f'arena graph {name}')
+            elif name in library['variants']:
                 build_variant(out, name, library['variants'][name], library['edits'])
             else:
                 build_opponent(out, name)
@@ -155,7 +161,8 @@ def main():
             jobs.append({'tag': a if b == 'hazel' else f'{a}@{b}', 'a': f'bundles/{a}', 'b': f'bundles/{b}',
                          'seed': seed, 'a_seat': i % 2})
     manifest = {'evaluation_id': args.eval_id, 'pairs': pairs, 'seeds': seeds, 'jobs': jobs,
-                'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']}}
+                'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']},
+                'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n]))} for n in sorted(built) if n in graphs}}
     (out / 'jobs.json').write_text(json.dumps(manifest, indent=1) + '\n')
     files = {str(p.relative_to(out)): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}
     (out / 'files.json').write_text(json.dumps(files, indent=0) + '\n')

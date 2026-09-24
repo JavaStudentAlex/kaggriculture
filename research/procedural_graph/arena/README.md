@@ -14,7 +14,24 @@ python $K/notebooks.py delete                        # leave no kernels behind
 python $K/report.py research/procedural_graph/runs/arena/r2/results --traces
 ```
 
-For large batches a Brev CPU box is faster (after `brev login`; delete it when done, it bills by the hour):
+Large batches run on **Google Colab VMs** (AGENTS.md section 3.1: accounts, machine sizes,
+rules), in tmux so the run survives a closed session:
+
+```sh
+python $K/payload.py --eval-id s1 --graph best=<best_graph.json> --pairs best:hazel,best:mohui --seeds 40
+tmux new -d -s kagg-colab-s1 "cd research/procedural_graph && python3 arena/colab_run.py \
+    --payload runs/arena/s1/payload --out runs/arena/s1/results.jsonl --run-name s1 \
+    --vm colab2:hm --vm colab2:hm > runs/arena/s1/colab.log 2>&1; echo COLAB_RUN_EXIT=\$? >> runs/arena/s1/colab.log"
+```
+
+Each `--vm colab<N>:hm|std` is one VM: High-RAM (8 CPUs, 8 workers) or standard (2 CPUs).
+The runner uploads the payload, builds a Python 3.12 venv with the pinned
+`colab_requirements.txt`, plays the games, downloads the results and stops every VM it
+created. Rerunning plays only the missing games; `--attach` finishes a killed runner's
+sessions; `--cleanup` stops them. Colab reproduces Brev's results to the dollar (checked
+on six run-2 games, 2026-09-24).
+
+A Brev CPU box is the alternative (after `brev login`; delete it when done, it bills by the hour):
 
 ```sh
 brev create kagg-arena-80 --type n2d-highcpu-80      # 80 vCPU / 80 GB, ~$2/h; ~60 games at a time

@@ -69,6 +69,56 @@ section 4.3.**
   One account, credentials in `~/.kaggle` (never print or copy them), read-only use
   from scripts, submissions are manual (5/day).
 
+### 3.1 CPU compute for arena games: Google Colab (added 2026-09-24)
+
+Games (graph gauntlets, arena statistics) need about one CPU and 1 GB of RAM each; the
+LLM side of an evolution run needs neither and runs where the loop runs. Options:
+**Google Colab** (below, the default), a Brev box (`brev create`, about $2/h, delete it after
+the run) and Kaggle CPU notebooks (5 sessions × 4 games); the last two are documented in
+`research/procedural_graph/arena/README.md`.
+
+- **CLI and accounts.** The Colab CLI (`uv tool install "google-colab-cli==0.7.2"
+  --overrides <file with jupyter-kernel-client==0.9.0>`: 0.7.2 pins 0.8, whose client
+  lacks `JupyterSubprotocol`, and 1.0.2 lacks `KernelClient`, so code execution crashes
+  with either) runs as one Google account per wrapper, `~/.local/bin/colab<N>`. Add an
+  account with `~/.local/bin/colab-add-account <N>` (interactive Google sign-in through a
+  throwaway gcloud config; the credential is saved to
+  `~/.config/colab-cli/acc<N>_adc.json`, mode 600, never in the repo; `--info <N>` shows
+  its compute units and GPUs). The CLI's debug log `~/.config/colab-cli/colab.log`
+  contains short-lived access tokens: keep it mode 600, never copy it.
+- **Machines (measured 2026-09-24).**
+  - A standard CPU VM has 2 CPUs and 12.7 GB, costs 0.08 compute units/h, and every
+    account can run it.
+  - A High-RAM CPU VM (`--high-mem`) has 8 CPUs and 51 GB, costs 0.26 units/h, and
+    needs a Colab Pro/Pro+ entitlement. Only the account with ~200 units has it, and up
+    to 5 at once work, i.e. 40 CPUs. The other paid account and the free accounts get
+    `503 Service Unavailable`.
+  - VMs are Intel Xeon 2.2 GHz with 88-206 GB of free disk and Python 3.13. Games still
+    run on 3.12, see below.
+  - Colab's rules restrict using several accounts to get around resource limits, so rely
+    on the paid accounts.
+- **Running games.** Build a payload with `arena/payload.py` (`--graph NAME=FILE` plays a
+  saved graph as-is), then run it in tmux:
+  `tmux new -d -s kagg-colab-<run> "python3 arena/colab_run.py --payload <dir> --out
+  <results.jsonl> --run-name <run> --vm colab2:hm --vm colab2:hm ... > <log> 2>&1; echo
+  COLAB_RUN_EXIT=\$? >> <log>"`. The runner:
+  - splits the games across the VMs;
+  - uploads the payload;
+  - builds a Python 3.12.13 venv with the pinned `arena/colab_requirements.txt`;
+  - plays the games with `arena.py`, 8 workers per High-RAM VM;
+  - downloads the results and **stops every VM it created**, also on errors and Ctrl-C.
+  Rerunning plays only the missing games. `--attach` finishes the sessions of a runner
+  that was killed, and `--cleanup` stops them. Check with `colab<N> sessions`.
+- **Verified 2026-09-24.** Six run-2 gauntlet games replayed on Colab gave exactly the cash
+  recorded on Brev. Game times: about 3 min against the oracle-free opponents and about
+  4.5 min against oracle agents. A 240-game batch on 5 High-RAM VMs takes about 30 min
+  and ~0.7 units.
+- **Rules.**
+  - Starting VMs spends compute units: agree the batch with the user first.
+  - Run the runner in tmux, never as a foreground/background task of an agent session
+    that may exit.
+  - After the run, confirm with `colab<N> sessions` that nothing is left running.
+
 ## 4. Data
 
 ### 4.1 Source: Kaggle's daily datasets (the only source we use)
