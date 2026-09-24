@@ -140,6 +140,8 @@ def main():
     ap.add_argument('--pairs', required=True, help='a:b,... a = variant, graph or opponent, b = opponent')
     ap.add_argument('--graph', action='append', default=[], metavar='NAME=FILE',
                     help='play a saved graph file as-is under NAME (e.g. an evolution best_graph.json)')
+    ap.add_argument('--bundle', action='append', default=[], metavar='NAME=DIR',
+                    help='play a saved agent bundle (main.py + policy_graph.json + hazel_runtime/) as-is')
     ap.add_argument('--calibration', action='append', default=[], metavar='NAME=FILE',
                     help='give the --graph NAME this calibration.json (arena/calib_fit.py)')
     ap.add_argument('--checkpoint', action='append', default=[], metavar='NAME=DIR',
@@ -155,6 +157,7 @@ def main():
     graphs = dict(g.split('=', 1) for g in args.graph)
     checkpoints = dict(c.split('=', 1) for c in args.checkpoint)
     calibrations = dict(c.split('=', 1) for c in args.calibration)
+    saved = dict(b.split('=', 1) for b in args.bundle)
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -166,6 +169,9 @@ def main():
             if name in graphs:
                 write_graph_bundle(out / 'bundles' / name, json.loads(Path(graphs[name]).read_text()),
                                    f'arena graph {name}', checkpoints.get(name, 'committed'), calibrations.get(name))
+            elif name in saved:
+                shutil.copytree(saved[name], out / 'bundles' / name,
+                                ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
             elif name in library['variants']:
                 build_variant(out, name, library['variants'][name], library['edits'])
             else:
@@ -185,7 +191,8 @@ def main():
                 'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']},
                 'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n])), 'checkpoint': checkpoints.get(n, 'committed'),
                                'calibration': calibrations.get(n)}
-                           for n in sorted(built) if n in graphs}}
+                           for n in sorted(built) if n in graphs},
+                'bundles': {n: saved[n] for n in sorted(built) if n in saved}}
     (out / 'jobs.json').write_text(json.dumps(manifest, indent=1) + '\n')
     files = {str(p.relative_to(out)): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}
     (out / 'files.json').write_text(json.dumps(files, indent=0) + '\n')

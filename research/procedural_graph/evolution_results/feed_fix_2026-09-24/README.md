@@ -48,3 +48,19 @@ to it earlier (2-38).
 
 Traces for both batches: `runs/arena/feedfix/traces`, `runs/arena/model0923/traces`
 (git-ignored). Escape counts from replaying the feed15 traces are not yet computed.
+
+## feed15cal: feed15 with the calibrated 09-23 predictor (saved 2026-09-24)
+
+`feed15cal/` is a complete agent bundle: `main.py` (= `agent_graph.py`), `policy_graph.json`,
+and `hazel_runtime/` with the predictor in `hazel_runtime/checkpoint/`. Its graph is feed15's.
+The predictor is `ttm_c256_h96_ft_2026-09-23` (model sha256 26fdac50…) with
+`calibration/ttm_c256_h96_ft_2026-09-23/calibration.json` (sha256 d0528e31…) next to it; the
+oracle scales `score_4`, `score_24` and `units_24` per product by it. All pins in its
+`policy_graph.json` match the bundle's own files. The bundle is byte-identical to the one
+playing the calibrated rematch (`runs/arena/model0923cal`: feed15cal vs feed15 with the 09-13
+predictor, the same 200 seeds as batch 2).
+
+Play it as-is: `arena/payload.py --bundle feed15cal=evolution_results/feed_fix_2026-09-24/feed15cal ...`.
+Rebuild it: `arena/payload.py --graph feed15cal=feed15_graph.json --checkpoint
+feed15cal=models/ttm_c256_h96_ft_2026-09-23 --calibration
+feed15cal=calibration/ttm_c256_h96_ft_2026-09-23/calibration.json`.

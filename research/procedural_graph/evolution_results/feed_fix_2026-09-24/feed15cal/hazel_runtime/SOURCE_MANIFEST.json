@@ -1,0 +1,73 @@
+{
+  "public_name": "Hazel Weir",
+  "message": "Hazel Weir - Adaptive production and trade",
+  "archive": "HazelWeir.tar.gz",
+  "archive_sha256": "31a906f8564d3d8560e4347cfbfd19eb6384afdee47564f88c1bf8dbb5614e31",
+  "archive_bytes": 4367349,
+  "archive_files": [
+    "champion.py",
+    "checkpoint/config.json",
+    "checkpoint/labels.json",
+    "checkpoint/model.safetensors",
+    "checkpoint/scaler.npz",
+    "kagg_oracle.py",
+    "kagg_ttm_numpy.py",
+    "main.py",
+    "mohui_v66/LICENSE",
+    "mohui_v66/NOTICE",
+    "mohui_v66/candidate_v60_curve_counter.py",
+    "mohui_v66/candidate_v62_composite_bakery_yarn.py",
+    "mohui_v66/candidate_v65_curve_cygn_clone.py",
+    "mohui_v66/candidate_v65_curve_q2_daniel_backbone.py",
+    "mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py",
+    "mohui_v66/candidate_v65_local_combined.py",
+    "mohui_v66/candidate_v66_meta_closed_loop.py",
+    "mohui_v66/kaggriculture_agent/__init__.py",
+    "mohui_v66/kaggriculture_agent/env/__init__.py",
+    "mohui_v66/kaggriculture_agent/env/adapter.py",
+    "mohui_v66/main.py",
+    "opponent_model/features.py",
+    "opponent_model/mechanics.py"
+  ],
+  "champion": {
+    "source": "shinka/champions/top/patch_2026-09-14/hazel_weir/main.py",
+    "sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+    "note": "hand patch of run-3 gen 198 (Copper Weir) after the 2026-09-14 tournament loss audit: pre-drop shed headroom guard, deferred eviction, day-28 feed reserve n_animals+6; evaluator 87.7% (526W-74L-0T, 0 crashes) vs the 15-pool incl. a 17-23 mirror vs Copper Weir, 509-51 vs the 14 others (Copper Weir 504-56 on the same seeds); fresh tournament seeds 516-44 vs Copper Weir's 483-77; avg cash 81317, seat0 89.0%/seat1 86.3%; oracle checkpoint models/ttm_c256_h96_ft_2026-09-13 (context 256, forecasts from turn 256); torch-vs-numpy max diff 1.51e-4"
+  },
+  "oracle": {
+    "kagg_oracle_sha256": "94dd8fc5d600d06f2adcf99dd09669c007dd1d09c32a032b916c2115c950e24a",
+    "kagg_ttm_numpy_sha256": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda",
+    "checkpoint": "/home/jovyan/kaggriculture/shinka/evolution/checkpoint",
+    "model_safetensors_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+    "labels": {
+      "alignment": "next_action",
+      "source": "--dataset /results/kagg/dataset_ft_2026-09-13_p4_g3_d2_s4/day --extra-train /results/kagg/dataset_ft_2026-09-13_p4_g3_d2_s4/prev --extra-train-decay 2 --out /results/kagg/runs/ft_2026-09-13_p4_g3_d2_s4 --init-from models/ttm_c256_h96 --scaler models/ttm_c256_h96/scaler.npz --split episode --prediction-filter-length 96 --metric-horizon all --eval-on-start --max-episodes 100000 --epochs 30 --patienc"
+    },
+    "backend": "numpy"
+  },
+  "built": "2026-09-15T05:39:22Z",
+  "submit": "kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/HazelWeir.tar.gz -m \"Hazel Weir - Adaptive production and trade\"",
+  "validation": {
+    "date": "2026-09-15T05:47:52Z",
+    "python": "/results/kagg/venv-kaggle-sim/bin/python",
+    "seeds": "101,70102",
+    "result": "PASS",
+    "report": "bundle /tmp/kagg_submission_aulz13t4/x\nHOME=/tmp/kagg_submission_aulz13t4/home cwd=/\nseat 0 vs starter seed    101: OK  $   167,481 (DONE) vs $3,648 (DONE) | 720 states, 66 s | steps 719: mean 87 ms, max 2431 ms @0, overage 1.43 s\nseat 0 vs starter seed  70102: OK  $   169,481 (DONE) vs $3,431 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 137 ms @622, overage 0.00 s\nseat 0 vs random  seed    101: OK  $   124,044 (DONE) vs $0 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 145 ms @642, overage 0.00 s\nseat 0 vs random  seed  70102: OK  $   141,230 (DONE) vs $0 (DONE) | 720 states, 63 s | steps 719: mean 83 ms, max 593 ms @472, overage 0.00 s\nseat 1 vs starter seed    101: OK  $   167,481 (DONE) vs $3,648 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 146 ms @573, overage 0.00 s\nseat 1 vs starter seed  70102: OK  $   161,412 (DONE) vs $3,431 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 141 ms @618, overage 0.00 s\nseat 1 vs random  seed    101: OK  $   143,343 (DONE) vs $0 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 138 ms @338, overage 0.00 s\nseat 1 vs random  seed  70102: OK  $    90,433 (DONE) vs $0 (DONE) | 720 states, 63 s | steps 719: mean 81 ms, max 137 ms @650, overage 0.00 s\nresolution:\n  champion       : /tmp/kagg_submission_aulz13t4/x/champion.py  inside=True\n  MOHUI_DIR      : /tmp/kagg_submission_aulz13t4/x/mohui_v66  inside=True\n  kagg_oracle    : /tmp/kagg_submission_aulz13t4/x/kagg_oracle.py  inside=True\n  checkpoint     : /tmp/kagg_submission_aulz13t4/x/checkpoint  inside=True\n  kagg_ttm_numpy : /tmp/kagg_submission_aulz13t4/x/kagg_ttm_numpy.py  inside=True\n  features       : /tmp/kagg_submission_aulz13t4/x/opponent_model/features.py  inside=True\n  mechanics      : /tmp/kagg_submission_aulz13t4/x/opponent_model/mechanics.py  inside=True\n  backend        : numpy  torch imported: False\n  oracle         : device=cpu stats={'forecasts': 3704, 'ms_per_forecast': 117.8446410768957, 'errors': 0, 'last_error': ''}\nsteps 5752: max 2431 ms; from turn 512: p99 134 ms, max 593 ms\nVALIDATION PASS: games failed=0 oracle_live=True all_resolved_inside_bundle=True"
+  },
+  "kaggle": {
+    "submission_id": 56246758,
+    "submitted": "2026-09-15T05:48:01Z",
+    "status": "COMPLETE 2026-09-15 05:53 UTC (entry public score 600.0)",
+    "validation_episode": {
+      "id": 109180644,
+      "state": "COMPLETED",
+      "type": "EPISODE_TYPE_VALIDATION",
+      "ended": "2026-09-15T05:52:59Z"
+    },
+    "message": "Hazel Weir - Adaptive production and trade",
+    "quota_after": "4 submissions remaining on 2026-09-15",
+    "ladder_context": "Copper Weir (56239161) at 1417.7 and Orchard Tide (56193386) at 1377.6 when this was submitted",
+    "on_kaggle_timings": "not read: the replay endpoint returned 429 (top-100 fetch job still running); fetch competition_episode_replay(109180644) later"
+  },
+  "clean_venv": "/results/kagg/venv-kaggle-sim (uv, python 3.11.15, numpy 2.4.6, kaggle-environments 1.32.7, no torch installed)"
+}
