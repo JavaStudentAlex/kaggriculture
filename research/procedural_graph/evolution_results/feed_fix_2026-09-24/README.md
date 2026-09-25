@@ -64,3 +64,22 @@ Play it as-is: `arena/payload.py --bundle feed15cal=evolution_results/feed_fix_2
 Rebuild it: `arena/payload.py --graph feed15cal=feed15_graph.json --checkpoint
 feed15cal=models/ttm_c256_h96_ft_2026-09-23 --calibration
 feed15cal=calibration/ttm_c256_h96_ft_2026-09-23/calibration.json`.
+
+## Batches 3 and 4: feed15 with the calibrated 09-23 predictor vs feed15 with 09-13
+
+These use the same 200 seeds and seats as batch 2, so every game pairs with its uncalibrated
+counterpart. The files are `model0923cal_results.jsonl` and `model0923own_results.jsonl`.
+
+| 09-23 side | games | W-L-T | mean margin |
+|---|---|---|---|
+| uncalibrated (batch 2) | 200 | 24-174-2 | −263 |
+| + ladder calibration (`calibration/ttm_c256_h96_ft_2026-09-23/calibration.json`, the `feed15cal` bundle; stopped at 160 of 200) | 160 | 19-141-0 | −265 |
+| + own-games calibration (`calibration/ttm_c256_h96_ft_2026-09-23/own_games/calibration.json`) | 200 | **41-155-4** | **−195** |
+
+On the 160 seeds all three share: own-games −191, ladder −265, uncalibrated −255. The own-games
+calibration recovers about a quarter of the gap (+$68 a game on average; better in 78 games,
+worse in 80). The rest is ranking quality: on these opponents the 09-23 model picks worse
+moments. At the same firing rate its wheat calls come true 37 % of the time vs 41 %, and no
+calibration changes that. feed15 keeps the 09-13 predictor in the arena. Whether the 09-23 or
+09-24 refit is better against top ladder players, which it predicts better, only a ladder test
+can show.

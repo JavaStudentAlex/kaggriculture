@@ -33,3 +33,8 @@ clipped to 0.5–2.
 - **Factors.** They differ a lot from the ladder fit. For example, wheat is 0.65 on `score_24`
   and 1.43 on `units_24`, strawberry `units_24` is 1.27, fertilizer about 1.2, and carrot and
   melon `score_4` are 1.86 and 1.71. The pool and mirror subsets agree roughly.
+
+**Rematch (2026-09-25).** feed15 with 09-23 and this calibration against feed15 with 09-13, on the
+same 200 seeds as the earlier rematches: 41W-155L-4T, −$195 a game. Uncalibrated it was
+24W-174L-2T (−$263), and with the ladder calibration 19W-141L on 160 games (−$265). The fit
+recovers about a quarter of the gap; the rest is the lower AUC above.
