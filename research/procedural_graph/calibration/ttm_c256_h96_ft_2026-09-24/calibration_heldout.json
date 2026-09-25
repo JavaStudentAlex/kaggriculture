@@ -1,0 +1,80 @@
+{
+ "factors": {
+  "score_4": {
+   "WHEAT": 0.9605,
+   "CARROT": 0.9054,
+   "TOMATO": 0.8031,
+   "STRAWBERRY": 0.8648,
+   "MELON": 0.7761,
+   "EGG": 0.9218,
+   "MILK": 1.1147,
+   "WOOL": 0.9739,
+   "FERTILIZER": 0.8951
+  },
+  "score_24": {
+   "WHEAT": 0.9655,
+   "CARROT": 1.0708,
+   "TOMATO": 0.8034,
+   "STRAWBERRY": 0.8376,
+   "MELON": 0.9245,
+   "EGG": 0.901,
+   "MILK": 1.1333,
+   "WOOL": 1.0125,
+   "FERTILIZER": 1.0198
+  },
+  "units_24": {
+   "WHEAT": 0.9662,
+   "CARROT": 0.9011,
+   "TOMATO": 0.7155,
+   "STRAWBERRY": 0.9311,
+   "MELON": 0.6952,
+   "EGG": 0.7775,
+   "MILK": 1.1,
+   "WOOL": 0.9597,
+   "FERTILIZER": 1.07
+  }
+ },
+ "reference": {
+  "dir": "hazel_runtime/checkpoint",
+  "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+ },
+ "calibrated": {
+  "dir": "../../models/ttm_c256_h96_ft_2026-09-24",
+  "model_sha256": "7dcb717531d04962ceea74065a9774240e5db2ee5c1a4562c150ab78ccd39692"
+ },
+ "replays": "kaggriculture-episodes-2026-09-24.zip",
+ "traces": [],
+ "group_filter": null,
+ "games_by_group": {
+  "ladder": 59
+ },
+ "episodes": 59,
+ "held_out_episodes": 59,
+ "origins": 54162,
+ "stride": 1,
+ "thresholds": {
+  "score_4": [
+   0.25,
+   0.3,
+   0.4,
+   0.45,
+   0.5,
+   0.6
+  ],
+  "score_24": [
+   0.45
+  ],
+  "units_24": [
+   2.0
+  ]
+ },
+ "guards": {
+  "min_fires": 100,
+  "min_base_rate": 0.005,
+  "factor_range": [
+   0.5,
+   2.0
+  ]
+ },
+ "method": "per product and metric: geometric mean over the thresholds of threshold / the calibrated score at the reference firing rate (arena/calib_fit.py)"
+}

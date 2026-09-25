@@ -29,6 +29,7 @@ class FakeCLI:
     """One account: records calls, plays every uploaded shard at once, or fails as told."""
     calls, refuse, broken, stuck, running = [], set(), set(), set(), set()
     doomed, deleted, polls, polls_until_done = set(), set(), {}, 1
+    pack_hangs = 0   # this many pack commands time out (the real CLI's exec hung, 2026-09-25)
 
     def __init__(self, command):
         self.command = command
@@ -57,6 +58,9 @@ class FakeCLI:
                 return 'COLAB_ARENA_ERROR requirements'
             return 'COLAB_ARENA_STARTED 42 8 Python 3.12.13'
         if 'COLAB_ARENA_PACKED' in text:
+            if FakeCLI.pack_hangs:
+                FakeCLI.pack_hangs -= 1
+                return 'timeout after 300s'
             return f"COLAB_ARENA_PACKED {len(FakeCLI.shards.get(session, []))}"
         if self.command in FakeCLI.broken:
             raise RuntimeError('websocket closed')
@@ -118,6 +122,7 @@ class ColabRunTests(unittest.TestCase):
         FakeCLI.calls, FakeCLI.refuse, FakeCLI.broken, FakeCLI.shards = [], set(), set(), {}
         FakeCLI.stuck, FakeCLI.running, FakeCLI.broken_setup, FakeCLI.halfmade = set(), set(), set(), set()
         FakeCLI.doomed, FakeCLI.deleted, FakeCLI.polls, FakeCLI.polls_until_done = set(), set(), {}, 1
+        FakeCLI.pack_hangs = 0
 
     def runner(self, tmp, vms):
         # relative paths, as typed on the command line
@@ -293,6 +298,22 @@ class ColabRunTests(unittest.TestCase):
                 FakeCLI.sessions = listing
             self.assertNotIn(('colab1', 'stop', 'r-10'), FakeCLI.calls)   # exact names only
             self.assertIn("COLAB_VMS_LEFT=1 ['colab1:m-s-lost (no local record)'] -- stop them by hand", logs)
+
+    def test_a_failed_final_pull_is_retried_before_the_stop(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            payload(tmp / 'payload', 6)
+            FakeCLI.pack_hangs = 1
+            logs = []
+            runner = colab_run.ColabRun(Path(os.path.relpath(tmp / 'payload')), Path(os.path.relpath(tmp / 'results.jsonl')),
+                                        'r', ['colab2:hm'], poll=0.0, cli_factory=FakeCLI, log=logs.append)
+            self.assertEqual(runner.run(), 0)
+            self.assertEqual(len(list((tmp / 'traces').glob('*.json.gz'))), 6)
+            self.assertIn('[r-0] final pull 1 of 3 incomplete: retrying', logs)
+            mine = [c for c in FakeCLI.calls if c[2] == 'r-0']
+            downloads = [c[3].rsplit('/', 1)[-1] for c in mine if c[1] == 'download']
+            self.assertEqual(downloads, ['results.jsonl', 'results.jsonl', 'traces.tgz'])
+            self.assertEqual(mine[-1][1], 'stop')
 
     def test_remote_scripts_render(self):
         setup = colab_run.SETUP.format(root=colab_run.REMOTE, workers=8, trace_args="['--trace-dir', 'traces']")

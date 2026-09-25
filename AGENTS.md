@@ -578,7 +578,8 @@ ORDER-FLOW ORACLE").
   --name "<Two Words>" --note "<private provenance>" --validate`, then the manual
   `kaggle competitions submit` line it prints (quota 5/day; errored ones are refunded).
   Written up in `.agents/skills/kaggle-simulation-competitions/references/submission-promotion.md`
-  section 6. After a checkpoint change, `check_oracle.py numpy` first.
+  section 6. **Procedural-graph agents** (a graph + the Hazel runtime + a predictor, e.g. feed15)
+  are packaged with `research/procedural_graph/make_graph_submission.py` (same file, section 7). After a checkpoint change, `check_oracle.py numpy` first.
 - **Code embeddings / GPU Ollama** (2026-09-12, after run 1): the novelty check was
   blind — shinka embeds the first 10,000 chars of the file (= the fixed backbone), the
   pod's Ollama 0.33.x runs on the CPU (refuses driver 535) and truncates at 4,096 tokens.

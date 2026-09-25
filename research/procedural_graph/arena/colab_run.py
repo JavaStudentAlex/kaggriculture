@@ -61,6 +61,7 @@ REFRESH_EVERY = 1800.0   # a VM's access token lasts 3600 s
 PULL_EVERY = 600.0       # results and traces so far, so a deleted VM loses only the games in flight
 REPLACEMENTS = 2         # new VMs for the unplayed games of a VM that Colab deleted
 UPLOAD_CHUNK = 40 << 20  # larger uploads go up in parts
+FINAL_PULLS = 3          # tries to bring a VM's results and traces down before it is stopped
 _TOKEN = re.compile(r'eyJ[A-Za-z0-9_-]{10,}(?:\.[A-Za-z0-9_-]+){1,2}|ya29\.[A-Za-z0-9_.-]+')
 
 
@@ -517,34 +518,43 @@ class ColabRun:
         return state
 
     def pull(self, cli, session):
-        """Download the session's results and traces so far and merge them."""
+        """Download the session's results and traces so far and merge them; True if both came down."""
         part = self.parts / f'{session}.jsonl'
         ok, out = cli.download(session, REMOTE + '/results.jsonl', part)
         if not ok:
             self.log(f'[{session}] no results downloaded: {out.strip()[-200:]}')
-        if self.traces:
-            self.pull_traces(cli, session)
+        traced = self.pull_traces(cli, session) if self.traces else True
         self.merge(part)
+        return ok and traced
 
     def finish(self, cli, session):
-        """Pull the session's results and traces, then stop it."""
-        self.pull(cli, session)
+        """Pull the session's results and traces, then stop it. A failed final pull is retried with
+        a fresh token first (2026-09-25: the pack command hung for 12 min, the VM was stopped and
+        the last 22 traces were lost)."""
+        for attempt in range(1, FINAL_PULLS + 1):
+            if self.pull(cli, session):
+                break
+            self.log(f'[{session}] final pull {attempt} of {FINAL_PULLS} incomplete'
+                     + (': retrying' if attempt < FINAL_PULLS else ''))
+            if attempt < FINAL_PULLS:
+                self.refresh(cli, session)
         cli.stop(session)
         self.log(f'[{session}] stopped')
 
     def pull_traces(self, cli, session):
         pack = self.parts / f'{session}_pack.py'
         pack.write_text(PACK.format(root=REMOTE))
-        packed = [l for l in cli.exec_file(session, pack, 600).splitlines() if l.startswith('COLAB_ARENA_PACKED')]
+        packed = [l for l in cli.exec_file(session, pack, 180).splitlines() if l.startswith('COLAB_ARENA_PACKED')]
         archive = self.parts / f'{session}_traces.tgz'
         if not packed or not cli.download(session, REMOTE + '/traces.tgz', archive)[0]:
             self.log(f'[{session}] no traces downloaded')
-            return
+            return False
         self.traces.mkdir(parents=True, exist_ok=True)
         with tarfile.open(archive) as tar:
             tar.extractall(self.traces, filter='data')
         archive.unlink()
         self.log(f'[{session}] {packed[0].split()[1]} traces -> {self.traces}')
+        return True
 
     def merge(self, part):
         with self.lock:

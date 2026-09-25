@@ -1,0 +1,2826 @@
+{
+ "evaluation_id": "caliblad0924",
+ "kind": "calibration",
+ "zip": "kaggriculture-episodes-2026-09-24.zip",
+ "traces": [],
+ "game_set": null,
+ "stride": 1,
+ "models": [
+  "old",
+  "new"
+ ],
+ "model_sources": {
+  "old": {
+   "dir": "hazel_runtime/checkpoint",
+   "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+  },
+  "new": {
+   "dir": "../../models/ttm_c256_h96_ft_2026-09-24",
+   "model_sha256": "7dcb717531d04962ceea74065a9774240e5db2ee5c1a4562c150ab78ccd39692"
+  }
+ },
+ "held_out_file": "../../models/ttm_c256_h96_ft_2026-09-24/val_episodes.json",
+ "held_out_games": 59,
+ "jobs": [
+  {
+   "tag": "cal",
+   "seed": 112648568,
+   "a_seat": 0,
+   "member": "112648568.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112648571,
+   "a_seat": 0,
+   "member": "112648571.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112648944,
+   "a_seat": 0,
+   "member": "112648944.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112652151,
+   "a_seat": 0,
+   "member": "112652151.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112654477,
+   "a_seat": 0,
+   "member": "112654477.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112655730,
+   "a_seat": 0,
+   "member": "112655730.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112655944,
+   "a_seat": 0,
+   "member": "112655944.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112659230,
+   "a_seat": 0,
+   "member": "112659230.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112667587,
+   "a_seat": 0,
+   "member": "112667587.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112673111,
+   "a_seat": 0,
+   "member": "112673111.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112676552,
+   "a_seat": 0,
+   "member": "112676552.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112686298,
+   "a_seat": 0,
+   "member": "112686298.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112699922,
+   "a_seat": 0,
+   "member": "112699922.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112701085,
+   "a_seat": 0,
+   "member": "112701085.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112733515,
+   "a_seat": 0,
+   "member": "112733515.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112737020,
+   "a_seat": 0,
+   "member": "112737020.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112739060,
+   "a_seat": 0,
+   "member": "112739060.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112745042,
+   "a_seat": 0,
+   "member": "112745042.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112747384,
+   "a_seat": 0,
+   "member": "112747384.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112776805,
+   "a_seat": 0,
+   "member": "112776805.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112781455,
+   "a_seat": 0,
+   "member": "112781455.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112784736,
+   "a_seat": 0,
+   "member": "112784736.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112794038,
+   "a_seat": 0,
+   "member": "112794038.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112816298,
+   "a_seat": 0,
+   "member": "112816298.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112816328,
+   "a_seat": 0,
+   "member": "112816328.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112817427,
+   "a_seat": 0,
+   "member": "112817427.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112817428,
+   "a_seat": 0,
+   "member": "112817428.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112836021,
+   "a_seat": 0,
+   "member": "112836021.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112838386,
+   "a_seat": 0,
+   "member": "112838386.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112841312,
+   "a_seat": 0,
+   "member": "112841312.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112841669,
+   "a_seat": 0,
+   "member": "112841669.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112854272,
+   "a_seat": 0,
+   "member": "112854272.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112858905,
+   "a_seat": 0,
+   "member": "112858905.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112864909,
+   "a_seat": 0,
+   "member": "112864909.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112868453,
+   "a_seat": 0,
+   "member": "112868453.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112871430,
+   "a_seat": 0,
+   "member": "112871430.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112882443,
+   "a_seat": 0,
+   "member": "112882443.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112884369,
+   "a_seat": 0,
+   "member": "112884369.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112891394,
+   "a_seat": 0,
+   "member": "112891394.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112900835,
+   "a_seat": 0,
+   "member": "112900835.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112905306,
+   "a_seat": 0,
+   "member": "112905306.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112909986,
+   "a_seat": 0,
+   "member": "112909986.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112925082,
+   "a_seat": 0,
+   "member": "112925082.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112933566,
+   "a_seat": 0,
+   "member": "112933566.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112941742,
+   "a_seat": 0,
+   "member": "112941742.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112952255,
+   "a_seat": 0,
+   "member": "112952255.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112952258,
+   "a_seat": 0,
+   "member": "112952258.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112973378,
+   "a_seat": 0,
+   "member": "112973378.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112975969,
+   "a_seat": 0,
+   "member": "112975969.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112978034,
+   "a_seat": 0,
+   "member": "112978034.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112989788,
+   "a_seat": 0,
+   "member": "112989788.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112999172,
+   "a_seat": 0,
+   "member": "112999172.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113017500,
+   "a_seat": 0,
+   "member": "113017500.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113024361,
+   "a_seat": 0,
+   "member": "113024361.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113046526,
+   "a_seat": 0,
+   "member": "113046526.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113052004,
+   "a_seat": 0,
+   "member": "113052004.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113056904,
+   "a_seat": 0,
+   "member": "113056904.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113062490,
+   "a_seat": 0,
+   "member": "113062490.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 113062750,
+   "a_seat": 0,
+   "member": "113062750.json",
+   "held_out": true
+  },
+  {
+   "tag": "cal",
+   "seed": 112660347,
+   "a_seat": 0,
+   "member": "112660347.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112746391,
+   "a_seat": 0,
+   "member": "112746391.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112685100,
+   "a_seat": 0,
+   "member": "112685100.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112989782,
+   "a_seat": 0,
+   "member": "112989782.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112846201,
+   "a_seat": 0,
+   "member": "112846201.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112915930,
+   "a_seat": 0,
+   "member": "112915930.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113011541,
+   "a_seat": 0,
+   "member": "113011541.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112888026,
+   "a_seat": 0,
+   "member": "112888026.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112893751,
+   "a_seat": 0,
+   "member": "112893751.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113011370,
+   "a_seat": 0,
+   "member": "113011370.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112822030,
+   "a_seat": 0,
+   "member": "112822030.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112685985,
+   "a_seat": 0,
+   "member": "112685985.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112834716,
+   "a_seat": 0,
+   "member": "112834716.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112785833,
+   "a_seat": 0,
+   "member": "112785833.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112838150,
+   "a_seat": 0,
+   "member": "112838150.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112673113,
+   "a_seat": 0,
+   "member": "112673113.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112706954,
+   "a_seat": 0,
+   "member": "112706954.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112917119,
+   "a_seat": 0,
+   "member": "112917119.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113030161,
+   "a_seat": 0,
+   "member": "113030161.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112879709,
+   "a_seat": 0,
+   "member": "112879709.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112674303,
+   "a_seat": 0,
+   "member": "112674303.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112734798,
+   "a_seat": 0,
+   "member": "112734798.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112808140,
+   "a_seat": 0,
+   "member": "112808140.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112721792,
+   "a_seat": 0,
+   "member": "112721792.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112826613,
+   "a_seat": 0,
+   "member": "112826613.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112857916,
+   "a_seat": 0,
+   "member": "112857916.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112822040,
+   "a_seat": 0,
+   "member": "112822040.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112989775,
+   "a_seat": 0,
+   "member": "112989775.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112807804,
+   "a_seat": 0,
+   "member": "112807804.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113057713,
+   "a_seat": 0,
+   "member": "113057713.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112802103,
+   "a_seat": 0,
+   "member": "112802103.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112797320,
+   "a_seat": 0,
+   "member": "112797320.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113036190,
+   "a_seat": 0,
+   "member": "113036190.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113024356,
+   "a_seat": 0,
+   "member": "113024356.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112801018,
+   "a_seat": 0,
+   "member": "112801018.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112743909,
+   "a_seat": 0,
+   "member": "112743909.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112661571,
+   "a_seat": 0,
+   "member": "112661571.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112968339,
+   "a_seat": 0,
+   "member": "112968339.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112986219,
+   "a_seat": 0,
+   "member": "112986219.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112846229,
+   "a_seat": 0,
+   "member": "112846229.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112701086,
+   "a_seat": 0,
+   "member": "112701086.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112842774,
+   "a_seat": 0,
+   "member": "112842774.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112776809,
+   "a_seat": 0,
+   "member": "112776809.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112882446,
+   "a_seat": 0,
+   "member": "112882446.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112912382,
+   "a_seat": 0,
+   "member": "112912382.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112862551,
+   "a_seat": 0,
+   "member": "112862551.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113053136,
+   "a_seat": 0,
+   "member": "113053136.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112686947,
+   "a_seat": 0,
+   "member": "112686947.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113046527,
+   "a_seat": 0,
+   "member": "113046527.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112742747,
+   "a_seat": 0,
+   "member": "112742747.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113041571,
+   "a_seat": 0,
+   "member": "113041571.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113052019,
+   "a_seat": 0,
+   "member": "113052019.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112805755,
+   "a_seat": 0,
+   "member": "112805755.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112963155,
+   "a_seat": 0,
+   "member": "112963155.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112830253,
+   "a_seat": 0,
+   "member": "112830253.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112851087,
+   "a_seat": 0,
+   "member": "112851087.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112791777,
+   "a_seat": 0,
+   "member": "112791777.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112827663,
+   "a_seat": 0,
+   "member": "112827663.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112728700,
+   "a_seat": 0,
+   "member": "112728700.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112984086,
+   "a_seat": 0,
+   "member": "112984086.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113030319,
+   "a_seat": 0,
+   "member": "113030319.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113058063,
+   "a_seat": 0,
+   "member": "113058063.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112655943,
+   "a_seat": 0,
+   "member": "112655943.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112822003,
+   "a_seat": 0,
+   "member": "112822003.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112721924,
+   "a_seat": 0,
+   "member": "112721924.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112944126,
+   "a_seat": 0,
+   "member": "112944126.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112856892,
+   "a_seat": 0,
+   "member": "112856892.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112746392,
+   "a_seat": 0,
+   "member": "112746392.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112785834,
+   "a_seat": 0,
+   "member": "112785834.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112683497,
+   "a_seat": 0,
+   "member": "112683497.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112689453,
+   "a_seat": 0,
+   "member": "112689453.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112799998,
+   "a_seat": 0,
+   "member": "112799998.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112693023,
+   "a_seat": 0,
+   "member": "112693023.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112658066,
+   "a_seat": 0,
+   "member": "112658066.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112653328,
+   "a_seat": 0,
+   "member": "112653328.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112752289,
+   "a_seat": 0,
+   "member": "112752289.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112784735,
+   "a_seat": 0,
+   "member": "112784735.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112710320,
+   "a_seat": 0,
+   "member": "112710320.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112776500,
+   "a_seat": 0,
+   "member": "112776500.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113062491,
+   "a_seat": 0,
+   "member": "113062491.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112873142,
+   "a_seat": 0,
+   "member": "112873142.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112865025,
+   "a_seat": 0,
+   "member": "112865025.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112766180,
+   "a_seat": 0,
+   "member": "112766180.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112853171,
+   "a_seat": 0,
+   "member": "112853171.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112818547,
+   "a_seat": 0,
+   "member": "112818547.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112720890,
+   "a_seat": 0,
+   "member": "112720890.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112974538,
+   "a_seat": 0,
+   "member": "112974538.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112822037,
+   "a_seat": 0,
+   "member": "112822037.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112963152,
+   "a_seat": 0,
+   "member": "112963152.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113047278,
+   "a_seat": 0,
+   "member": "113047278.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112769830,
+   "a_seat": 0,
+   "member": "112769830.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112667464,
+   "a_seat": 0,
+   "member": "112667464.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112877480,
+   "a_seat": 0,
+   "member": "112877480.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112920809,
+   "a_seat": 0,
+   "member": "112920809.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112838119,
+   "a_seat": 0,
+   "member": "112838119.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112752067,
+   "a_seat": 0,
+   "member": "112752067.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112774296,
+   "a_seat": 0,
+   "member": "112774296.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113024105,
+   "a_seat": 0,
+   "member": "113024105.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112654719,
+   "a_seat": 0,
+   "member": "112654719.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112684654,
+   "a_seat": 0,
+   "member": "112684654.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112958029,
+   "a_seat": 0,
+   "member": "112958029.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112862572,
+   "a_seat": 0,
+   "member": "112862572.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112905691,
+   "a_seat": 0,
+   "member": "112905691.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112732045,
+   "a_seat": 0,
+   "member": "112732045.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113019408,
+   "a_seat": 0,
+   "member": "113019408.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112753339,
+   "a_seat": 0,
+   "member": "112753339.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112924005,
+   "a_seat": 0,
+   "member": "112924005.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112900803,
+   "a_seat": 0,
+   "member": "112900803.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112913572,
+   "a_seat": 0,
+   "member": "112913572.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112892685,
+   "a_seat": 0,
+   "member": "112892685.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112783716,
+   "a_seat": 0,
+   "member": "112783716.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112769609,
+   "a_seat": 0,
+   "member": "112769609.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113024071,
+   "a_seat": 0,
+   "member": "113024071.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112648567,
+   "a_seat": 0,
+   "member": "112648567.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112698755,
+   "a_seat": 0,
+   "member": "112698755.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112746420,
+   "a_seat": 0,
+   "member": "112746420.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113019915,
+   "a_seat": 0,
+   "member": "113019915.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112680142,
+   "a_seat": 0,
+   "member": "112680142.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112891513,
+   "a_seat": 0,
+   "member": "112891513.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113017641,
+   "a_seat": 0,
+   "member": "113017641.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112862571,
+   "a_seat": 0,
+   "member": "112862571.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112716344,
+   "a_seat": 0,
+   "member": "112716344.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112879973,
+   "a_seat": 0,
+   "member": "112879973.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112979032,
+   "a_seat": 0,
+   "member": "112979032.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112685087,
+   "a_seat": 0,
+   "member": "112685087.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112829996,
+   "a_seat": 0,
+   "member": "112829996.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113020558,
+   "a_seat": 0,
+   "member": "113020558.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112691818,
+   "a_seat": 0,
+   "member": "112691818.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112992160,
+   "a_seat": 0,
+   "member": "112992160.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112981655,
+   "a_seat": 0,
+   "member": "112981655.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113035612,
+   "a_seat": 0,
+   "member": "113035612.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112872664,
+   "a_seat": 0,
+   "member": "112872664.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112659209,
+   "a_seat": 0,
+   "member": "112659209.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112749903,
+   "a_seat": 0,
+   "member": "112749903.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112886724,
+   "a_seat": 0,
+   "member": "112886724.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112762566,
+   "a_seat": 0,
+   "member": "112762566.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112673479,
+   "a_seat": 0,
+   "member": "112673479.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112889359,
+   "a_seat": 0,
+   "member": "112889359.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112661653,
+   "a_seat": 0,
+   "member": "112661653.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112825498,
+   "a_seat": 0,
+   "member": "112825498.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112679068,
+   "a_seat": 0,
+   "member": "112679068.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112999947,
+   "a_seat": 0,
+   "member": "112999947.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113018253,
+   "a_seat": 0,
+   "member": "113018253.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112888054,
+   "a_seat": 0,
+   "member": "112888054.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112735805,
+   "a_seat": 0,
+   "member": "112735805.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112847133,
+   "a_seat": 0,
+   "member": "112847133.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112709062,
+   "a_seat": 0,
+   "member": "112709062.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112682690,
+   "a_seat": 0,
+   "member": "112682690.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112677530,
+   "a_seat": 0,
+   "member": "112677530.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113055359,
+   "a_seat": 0,
+   "member": "113055359.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112929856,
+   "a_seat": 0,
+   "member": "112929856.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112667461,
+   "a_seat": 0,
+   "member": "112667461.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113030306,
+   "a_seat": 0,
+   "member": "113030306.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113062760,
+   "a_seat": 0,
+   "member": "113062760.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112653305,
+   "a_seat": 0,
+   "member": "112653305.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113005964,
+   "a_seat": 0,
+   "member": "113005964.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113056906,
+   "a_seat": 0,
+   "member": "113056906.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112776501,
+   "a_seat": 0,
+   "member": "112776501.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112982926,
+   "a_seat": 0,
+   "member": "112982926.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113041580,
+   "a_seat": 0,
+   "member": "113041580.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112797661,
+   "a_seat": 0,
+   "member": "112797661.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113041576,
+   "a_seat": 0,
+   "member": "113041576.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112776800,
+   "a_seat": 0,
+   "member": "112776800.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112769563,
+   "a_seat": 0,
+   "member": "112769563.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112870689,
+   "a_seat": 0,
+   "member": "112870689.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113046516,
+   "a_seat": 0,
+   "member": "113046516.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112699938,
+   "a_seat": 0,
+   "member": "112699938.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112801767,
+   "a_seat": 0,
+   "member": "112801767.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112666402,
+   "a_seat": 0,
+   "member": "112666402.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112910112,
+   "a_seat": 0,
+   "member": "112910112.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112753598,
+   "a_seat": 0,
+   "member": "112753598.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112727561,
+   "a_seat": 0,
+   "member": "112727561.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112744048,
+   "a_seat": 0,
+   "member": "112744048.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112761433,
+   "a_seat": 0,
+   "member": "112761433.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112688526,
+   "a_seat": 0,
+   "member": "112688526.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112878538,
+   "a_seat": 0,
+   "member": "112878538.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113042692,
+   "a_seat": 0,
+   "member": "113042692.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112698759,
+   "a_seat": 0,
+   "member": "112698759.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112679132,
+   "a_seat": 0,
+   "member": "112679132.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112699908,
+   "a_seat": 0,
+   "member": "112699908.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112971058,
+   "a_seat": 0,
+   "member": "112971058.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112849912,
+   "a_seat": 0,
+   "member": "112849912.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112857901,
+   "a_seat": 0,
+   "member": "112857901.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112678923,
+   "a_seat": 0,
+   "member": "112678923.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113047638,
+   "a_seat": 0,
+   "member": "113047638.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112910156,
+   "a_seat": 0,
+   "member": "112910156.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112848290,
+   "a_seat": 0,
+   "member": "112848290.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112746164,
+   "a_seat": 0,
+   "member": "112746164.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112750848,
+   "a_seat": 0,
+   "member": "112750848.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112784737,
+   "a_seat": 0,
+   "member": "112784737.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112753417,
+   "a_seat": 0,
+   "member": "112753417.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112705868,
+   "a_seat": 0,
+   "member": "112705868.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112654476,
+   "a_seat": 0,
+   "member": "112654476.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112654479,
+   "a_seat": 0,
+   "member": "112654479.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112984087,
+   "a_seat": 0,
+   "member": "112984087.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113011729,
+   "a_seat": 0,
+   "member": "113011729.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112693025,
+   "a_seat": 0,
+   "member": "112693025.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112873145,
+   "a_seat": 0,
+   "member": "112873145.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112866114,
+   "a_seat": 0,
+   "member": "112866114.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112849913,
+   "a_seat": 0,
+   "member": "112849913.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112712526,
+   "a_seat": 0,
+   "member": "112712526.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112681047,
+   "a_seat": 0,
+   "member": "112681047.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112854227,
+   "a_seat": 0,
+   "member": "112854227.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112753593,
+   "a_seat": 0,
+   "member": "112753593.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113031480,
+   "a_seat": 0,
+   "member": "113031480.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113030320,
+   "a_seat": 0,
+   "member": "113030320.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112744050,
+   "a_seat": 0,
+   "member": "112744050.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112890239,
+   "a_seat": 0,
+   "member": "112890239.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112667584,
+   "a_seat": 0,
+   "member": "112667584.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113035935,
+   "a_seat": 0,
+   "member": "113035935.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112714900,
+   "a_seat": 0,
+   "member": "112714900.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112724463,
+   "a_seat": 0,
+   "member": "112724463.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112909153,
+   "a_seat": 0,
+   "member": "112909153.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113041754,
+   "a_seat": 0,
+   "member": "113041754.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112813906,
+   "a_seat": 0,
+   "member": "112813906.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112789466,
+   "a_seat": 0,
+   "member": "112789466.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112842452,
+   "a_seat": 0,
+   "member": "112842452.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112883205,
+   "a_seat": 0,
+   "member": "112883205.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112721926,
+   "a_seat": 0,
+   "member": "112721926.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112672835,
+   "a_seat": 0,
+   "member": "112672835.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112797700,
+   "a_seat": 0,
+   "member": "112797700.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113023816,
+   "a_seat": 0,
+   "member": "113023816.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112932257,
+   "a_seat": 0,
+   "member": "112932257.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112874302,
+   "a_seat": 0,
+   "member": "112874302.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112759366,
+   "a_seat": 0,
+   "member": "112759366.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113018495,
+   "a_seat": 0,
+   "member": "113018495.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112992066,
+   "a_seat": 0,
+   "member": "112992066.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112854357,
+   "a_seat": 0,
+   "member": "112854357.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112907863,
+   "a_seat": 0,
+   "member": "112907863.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112769598,
+   "a_seat": 0,
+   "member": "112769598.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112791769,
+   "a_seat": 0,
+   "member": "112791769.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112761404,
+   "a_seat": 0,
+   "member": "112761404.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112808077,
+   "a_seat": 0,
+   "member": "112808077.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112899445,
+   "a_seat": 0,
+   "member": "112899445.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112717523,
+   "a_seat": 0,
+   "member": "112717523.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113031007,
+   "a_seat": 0,
+   "member": "113031007.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112840397,
+   "a_seat": 0,
+   "member": "112840397.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112920738,
+   "a_seat": 0,
+   "member": "112920738.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112838306,
+   "a_seat": 0,
+   "member": "112838306.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113056905,
+   "a_seat": 0,
+   "member": "113056905.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113011709,
+   "a_seat": 0,
+   "member": "113011709.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112648570,
+   "a_seat": 0,
+   "member": "112648570.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112920737,
+   "a_seat": 0,
+   "member": "112920737.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112749902,
+   "a_seat": 0,
+   "member": "112749902.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112805778,
+   "a_seat": 0,
+   "member": "112805778.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112661735,
+   "a_seat": 0,
+   "member": "112661735.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112907642,
+   "a_seat": 0,
+   "member": "112907642.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112761492,
+   "a_seat": 0,
+   "member": "112761492.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112974836,
+   "a_seat": 0,
+   "member": "112974836.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112776803,
+   "a_seat": 0,
+   "member": "112776803.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112965213,
+   "a_seat": 0,
+   "member": "112965213.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112752308,
+   "a_seat": 0,
+   "member": "112752308.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113040797,
+   "a_seat": 0,
+   "member": "113040797.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112699923,
+   "a_seat": 0,
+   "member": "112699923.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112841577,
+   "a_seat": 0,
+   "member": "112841577.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112674304,
+   "a_seat": 0,
+   "member": "112674304.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112682320,
+   "a_seat": 0,
+   "member": "112682320.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112833618,
+   "a_seat": 0,
+   "member": "112833618.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113005982,
+   "a_seat": 0,
+   "member": "113005982.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112885567,
+   "a_seat": 0,
+   "member": "112885567.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112838323,
+   "a_seat": 0,
+   "member": "112838323.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112792912,
+   "a_seat": 0,
+   "member": "112792912.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112690414,
+   "a_seat": 0,
+   "member": "112690414.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112706563,
+   "a_seat": 0,
+   "member": "112706563.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112825497,
+   "a_seat": 0,
+   "member": "112825497.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113027494,
+   "a_seat": 0,
+   "member": "113027494.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113057710,
+   "a_seat": 0,
+   "member": "113057710.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113001361,
+   "a_seat": 0,
+   "member": "113001361.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112707099,
+   "a_seat": 0,
+   "member": "112707099.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112967590,
+   "a_seat": 0,
+   "member": "112967590.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112891516,
+   "a_seat": 0,
+   "member": "112891516.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113052016,
+   "a_seat": 0,
+   "member": "113052016.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112824299,
+   "a_seat": 0,
+   "member": "112824299.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112902207,
+   "a_seat": 0,
+   "member": "112902207.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112999173,
+   "a_seat": 0,
+   "member": "112999173.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112752292,
+   "a_seat": 0,
+   "member": "112752292.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112663889,
+   "a_seat": 0,
+   "member": "112663889.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112784739,
+   "a_seat": 0,
+   "member": "112784739.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112680136,
+   "a_seat": 0,
+   "member": "112680136.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112685092,
+   "a_seat": 0,
+   "member": "112685092.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112996964,
+   "a_seat": 0,
+   "member": "112996964.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112964049,
+   "a_seat": 0,
+   "member": "112964049.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112946418,
+   "a_seat": 0,
+   "member": "112946418.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112715010,
+   "a_seat": 0,
+   "member": "112715010.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112707110,
+   "a_seat": 0,
+   "member": "112707110.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112833674,
+   "a_seat": 0,
+   "member": "112833674.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112890338,
+   "a_seat": 0,
+   "member": "112890338.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113052282,
+   "a_seat": 0,
+   "member": "113052282.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112840619,
+   "a_seat": 0,
+   "member": "112840619.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112935678,
+   "a_seat": 0,
+   "member": "112935678.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113036754,
+   "a_seat": 0,
+   "member": "113036754.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112708229,
+   "a_seat": 0,
+   "member": "112708229.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112891508,
+   "a_seat": 0,
+   "member": "112891508.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112784732,
+   "a_seat": 0,
+   "member": "112784732.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112733315,
+   "a_seat": 0,
+   "member": "112733315.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112661570,
+   "a_seat": 0,
+   "member": "112661570.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112725466,
+   "a_seat": 0,
+   "member": "112725466.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113035940,
+   "a_seat": 0,
+   "member": "113035940.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112849450,
+   "a_seat": 0,
+   "member": "112849450.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112721923,
+   "a_seat": 0,
+   "member": "112721923.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112693026,
+   "a_seat": 0,
+   "member": "112693026.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112918308,
+   "a_seat": 0,
+   "member": "112918308.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112999114,
+   "a_seat": 0,
+   "member": "112999114.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112816301,
+   "a_seat": 0,
+   "member": "112816301.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112931031,
+   "a_seat": 0,
+   "member": "112931031.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112810344,
+   "a_seat": 0,
+   "member": "112810344.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112794042,
+   "a_seat": 0,
+   "member": "112794042.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112996946,
+   "a_seat": 0,
+   "member": "112996946.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112842753,
+   "a_seat": 0,
+   "member": "112842753.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112945146,
+   "a_seat": 0,
+   "member": "112945146.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112863795,
+   "a_seat": 0,
+   "member": "112863795.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112679127,
+   "a_seat": 0,
+   "member": "112679127.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113023297,
+   "a_seat": 0,
+   "member": "113023297.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112931158,
+   "a_seat": 0,
+   "member": "112931158.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112933347,
+   "a_seat": 0,
+   "member": "112933347.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113051947,
+   "a_seat": 0,
+   "member": "113051947.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112853176,
+   "a_seat": 0,
+   "member": "112853176.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113062763,
+   "a_seat": 0,
+   "member": "113062763.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113047637,
+   "a_seat": 0,
+   "member": "113047637.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112719917,
+   "a_seat": 0,
+   "member": "112719917.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112930007,
+   "a_seat": 0,
+   "member": "112930007.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112926581,
+   "a_seat": 0,
+   "member": "112926581.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112966433,
+   "a_seat": 0,
+   "member": "112966433.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112707109,
+   "a_seat": 0,
+   "member": "112707109.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112870276,
+   "a_seat": 0,
+   "member": "112870276.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112856542,
+   "a_seat": 0,
+   "member": "112856542.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112846370,
+   "a_seat": 0,
+   "member": "112846370.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112660359,
+   "a_seat": 0,
+   "member": "112660359.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112900827,
+   "a_seat": 0,
+   "member": "112900827.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112896383,
+   "a_seat": 0,
+   "member": "112896383.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112650164,
+   "a_seat": 0,
+   "member": "112650164.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112783734,
+   "a_seat": 0,
+   "member": "112783734.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112761493,
+   "a_seat": 0,
+   "member": "112761493.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112760459,
+   "a_seat": 0,
+   "member": "112760459.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112706957,
+   "a_seat": 0,
+   "member": "112706957.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112792879,
+   "a_seat": 0,
+   "member": "112792879.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 113034471,
+   "a_seat": 0,
+   "member": "113034471.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112922959,
+   "a_seat": 0,
+   "member": "112922959.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112908791,
+   "a_seat": 0,
+   "member": "112908791.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112687162,
+   "a_seat": 0,
+   "member": "112687162.json",
+   "held_out": false
+  },
+  {
+   "tag": "cal",
+   "seed": 112976865,
+   "a_seat": 0,
+   "member": "112976865.json",
+   "held_out": false
+  }
+ ]
+}

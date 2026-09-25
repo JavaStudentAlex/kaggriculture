@@ -108,3 +108,46 @@ What the builder does and why each part is mandatory:
    submissions are refunded by Kaggle; an ERROR means a validation episode with
    empty agent logs and `TIMEOUT`/`ERROR` statuses in its replay -- read it
    before spending another slot.
+
+## 7. Procedural-graph agents (graph + Hazel runtime + predictor), since 2026-09-25
+
+A graph agent is the arena bundle `research/procedural_graph/arena/payload.write_graph_bundle`
+builds. It holds `policy_graph.json`, the runtime `hazel_runtime/` (Hazel Weir's champion as
+executable stages, the numpy oracle, `checkpoint/` and an optional `calibration.json`) and the
+entrypoint `agent_graph.py`. The entrypoint calls `Path(__file__)` at import, so the bundle
+cannot be submitted as it is. Package it with:
+
+```bash
+python3 research/procedural_graph/make_graph_submission.py --graph <graph.json> \
+  --checkpoint models/<refit> --calibration research/procedural_graph/calibration/<refit>/calibration.json \
+  --name "<Two Words>" --note "<private provenance>" --validate --fidelity 101 \
+  --python <clean venv python with kaggle-environments==1.32.7 and numpy, no torch>
+kaggle competitions submission-limits kaggriculture
+kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/<TwoWords>.tar.gz -m "<Two Words> - Adaptive production and trade"
+```
+
+What it adds on top of section 6:
+1. **The same bundle as the arena.** The graph is re-pinned to the copied runtime, with the
+   predictor and its calibration in `hazel_runtime/checkpoint/`. The graph's own entrypoint is
+   kept byte-identical as `agent_graph.py`, so its fingerprint pin still holds.
+2. **Bootstrap `main.py`.** It finds the bundle (frame filename or `sys.path`), forces the numpy
+   backend, and imports `agent_graph.py` as a real module. It then builds the engine at once:
+   the engine verifies every runtime file against the graph's pins, and a mismatch fails loudly
+   at import. The file ends with `kaggle_submission_agent`.
+3. **Validation** is section 6's validator (both seats × starter/random × seeds, `python -I`,
+   empty HOME, cwd `/`, one core) plus graph checks: `agent_graph` resolved inside the extracted
+   directory, the engine built, the checkpoint inside, and the calibration present exactly when
+   one was packaged.
+4. **Fidelity** (`--fidelity SEED`): the same seed against starter, once through the Kaggle
+   loader (`main.py` path) and once through the arena harness (process-isolated `BundleAgent`
+   on `agent_graph.py`). The cash must be identical, so the package is exactly the agent the
+   arena tested.
+5. **Names.** The same neutral codename rules as section 6, also rejecting "feed" and "graph".
+
+Timing, measured 2026-09-25 on one laptop core:
+- The cold start (exec of `main.py` including the engine build) takes 5.5–6.8 s, against about
+  2.2 s for Hazel Weir's champion bundle on a pod core. Kaggle measured 5 s for Hazel, so expect
+  roughly 7–9 s at step 0, taken from the 60 s overage bank.
+- Moves average 165–175 ms and peak at about 0.5 s on an idle machine.
+- Validate on an idle machine: concurrent jobs inflate the step times and the first move (one
+  contended test showed 14.6 s).
