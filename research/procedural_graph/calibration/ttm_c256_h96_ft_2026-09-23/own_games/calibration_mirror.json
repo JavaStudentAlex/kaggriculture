@@ -1,0 +1,83 @@
+{
+ "factors": {
+  "score_4": {
+   "WHEAT": 0.8245,
+   "CARROT": 1.9647,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 1.0334,
+   "MELON": 1.52,
+   "EGG": 1.0,
+   "MILK": 1.1016,
+   "WOOL": 0.8199,
+   "FERTILIZER": 1.156
+  },
+  "score_24": {
+   "WHEAT": 0.6098,
+   "CARROT": 1.1991,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 1.0525,
+   "MELON": 1.8349,
+   "EGG": 1.0,
+   "MILK": 1.0925,
+   "WOOL": 0.8724,
+   "FERTILIZER": 1.2319
+  },
+  "units_24": {
+   "WHEAT": 1.3054,
+   "CARROT": 0.8145,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 1.3307,
+   "MELON": 0.9313,
+   "EGG": 1.0,
+   "MILK": 1.0863,
+   "WOOL": 0.8134,
+   "FERTILIZER": 1.0292
+  }
+ },
+ "reference": {
+  "dir": "hazel_runtime/checkpoint",
+  "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+ },
+ "calibrated": {
+  "dir": "../../models/ttm_c256_h96_ft_2026-09-23",
+  "model_sha256": "26fdac50c53c640ed2bc45852bb518fd019999180be1444b65235400def915fa"
+ },
+ "replays": null,
+ "traces": [
+  "runs/arena/feedfix/traces/feed15[@_]*@ours",
+  "runs/arena/model0923/traces/*@both"
+ ],
+ "group_filter": "feed15new",
+ "games_by_group": {
+  "feed15new@feed15old": 200
+ },
+ "episodes": 200,
+ "held_out_episodes": 0,
+ "origins": 183600,
+ "stride": 1,
+ "thresholds": {
+  "score_4": [
+   0.25,
+   0.3,
+   0.4,
+   0.45,
+   0.5,
+   0.6
+  ],
+  "score_24": [
+   0.45
+  ],
+  "units_24": [
+   2.0
+  ]
+ },
+ "guards": {
+  "min_fires": 100,
+  "min_base_rate": 0.005,
+  "factor_range": [
+   0.5,
+   2.0
+  ]
+ },
+ "method": "per product and metric: geometric mean over the thresholds of threshold / the calibrated score at the reference firing rate (arena/calib_fit.py)"
+}

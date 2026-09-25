@@ -1,0 +1,109 @@
+games by group: {'feed15': 40, 'feed15@copper': 40, 'feed15@mohui': 200, 'feed15@mohui13': 40, 'feed15@orchard': 40, 'feed15@willow': 40, 'feed15new@feed15old': 200}
+600 episodes (600 used), origins 367200, steps 256..714
+
+== score_4 (thresholds [0.25, 0.3, 0.4, 0.45, 0.5, 0.6])
+  WHEAT       base 27.9%  AUC old 0.682 new 0.642  factor 0.830  fire new*f/old: 50.74%/50.62% 41.35%/41.43% 27.33%/28.49% 23.36%/24.25% 20.86%/21.13% 17.35%/16.33%
+    tau 0.25: old fires 50.62% prec 0.39 | new at same tau fires 59.05% prec 0.35 | new tau for same rate 0.302 prec 0.36
+    tau 0.3: old fires 41.43% prec 0.41 | new at same tau fires 50.96% prec 0.36 | new tau for same rate 0.361 prec 0.37
+    tau 0.4: old fires 28.49% prec 0.43 | new at same tau fires 35.84% prec 0.38 | new tau for same rate 0.468 prec 0.39
+    tau 0.45: old fires 24.25% prec 0.44 | new at same tau fires 30.10% prec 0.39 | new tau for same rate 0.526 prec 0.39
+    tau 0.5: old fires 21.13% prec 0.44 | new at same tau fires 25.97% prec 0.39 | new tau for same rate 0.595 prec 0.39
+    tau 0.6: old fires 16.33% prec 0.45 | new at same tau fires 20.95% prec 0.39 | new tau for same rate 0.777 prec 0.41
+  CARROT      base  3.7%  AUC old 0.939 new 0.959  factor 1.858  fire new*f/old: 1.42%/2.16% 1.15%/1.96% 0.87%/1.17% 0.79%/0.61% 0.73%/0.41% 0.58%/0.21%
+    tau 0.25: old fires  2.16% prec 0.45 | new at same tau fires  0.77% prec 0.70 | new tau for same rate 0.107 prec 0.47
+    tau 0.3: old fires  1.96% prec 0.47 | new at same tau fires  0.65% prec 0.76 | new tau for same rate 0.113 prec 0.49
+    tau 0.4: old fires  1.17% prec 0.63 | new at same tau fires  0.33% prec 0.81 | new tau for same rate 0.158 prec 0.54
+    tau 0.45: old fires  0.61% prec 0.84 | new at same tau fires  0.15% prec 0.85 | new tau for same rate 0.313 prec 0.78
+    tau 0.5: old fires  0.41% prec 0.96 | new at same tau fires  0.05% prec 0.89 | new tau for same rate 0.377 prec 0.80
+    tau 0.6: old fires  0.21% prec 1.00 | new at same tau fires  0.00% prec 1.00 | new tau for same rate 0.434 prec 0.83
+  TOMATO      base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00%
+    tau 0.25: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.3: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.4: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.45: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.5: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.6: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  STRAWBERRY  base 21.7%  AUC old 0.805 new 0.777  factor 1.026  fire new*f/old: 30.90%/29.08% 23.06%/22.41% 13.57%/13.26% 10.43%/10.45% 7.93%/8.34% 4.52%/5.31%
+    tau 0.25: old fires 29.08% prec 0.45 | new at same tau fires 29.72% prec 0.43 | new tau for same rate 0.254 prec 0.43
+    tau 0.3: old fires 22.41% prec 0.49 | new at same tau fires 22.08% prec 0.47 | new tau for same rate 0.297 prec 0.47
+    tau 0.4: old fires 13.26% prec 0.57 | new at same tau fires 12.89% prec 0.56 | new tau for same rate 0.395 prec 0.56
+    tau 0.45: old fires 10.45% prec 0.63 | new at same tau fires  9.80% prec 0.57 | new tau for same rate 0.438 prec 0.57
+    tau 0.5: old fires  8.34% prec 0.66 | new at same tau fires  7.38% prec 0.56 | new tau for same rate 0.479 prec 0.57
+    tau 0.6: old fires  5.31% prec 0.70 | new at same tau fires  4.12% prec 0.50 | new tau for same rate 0.557 prec 0.53
+  MELON       base  0.9%  AUC old 0.960 new 0.966  factor 1.707  fire new*f/old: 0.98%/0.40% 0.45%/0.28% 0.21%/0.23% 0.21%/0.22% 0.20%/0.19% 0.18%/0.17%
+    tau 0.25: old fires  0.40% prec 0.93 | new at same tau fires  0.21% prec 0.86 | new tau for same rate 0.179 prec 0.50
+    tau 0.3: old fires  0.28% prec 0.99 | new at same tau fires  0.19% prec 0.91 | new tau for same rate 0.191 prec 0.68
+    tau 0.4: old fires  0.23% prec 1.00 | new at same tau fires  0.17% prec 1.00 | new tau for same rate 0.200 prec 0.80
+    tau 0.45: old fires  0.22% prec 1.00 | new at same tau fires  0.17% prec 1.00 | new tau for same rate 0.215 prec 0.84
+    tau 0.5: old fires  0.19% prec 1.00 | new at same tau fires  0.17% prec 1.00 | new tau for same rate 0.307 prec 0.92
+    tau 0.6: old fires  0.17% prec 1.00 | new at same tau fires  0.17% prec 1.00 | new tau for same rate 0.360 prec 0.98
+  EGG         base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00% 0.00%/0.00%
+    tau 0.25: skipped (old fires on 1 origins, 0.000%; base rate 0.00%)
+    tau 0.3: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.4: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.45: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.5: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+    tau 0.6: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  MILK        base 28.4%  AUC old 0.633 new 0.641  factor 1.091  fire new*f/old: 26.66%/24.64% 17.67%/17.07% 8.73%/9.19% 6.46%/6.74% 4.88%/4.98% 2.85%/2.93%
+    tau 0.25: old fires 24.64% prec 0.41 | new at same tau fires 22.10% prec 0.43 | new tau for same rate 0.238 prec 0.42
+    tau 0.3: old fires 17.07% prec 0.45 | new at same tau fires 14.32% prec 0.47 | new tau for same rate 0.279 prec 0.45
+    tau 0.4: old fires  9.19% prec 0.52 | new at same tau fires  7.01% prec 0.54 | new tau for same rate 0.359 prec 0.51
+    tau 0.45: old fires  6.74% prec 0.56 | new at same tau fires  5.13% prec 0.56 | new tau for same rate 0.406 prec 0.54
+    tau 0.5: old fires  4.98% prec 0.60 | new at same tau fires  3.86% prec 0.60 | new tau for same rate 0.455 prec 0.57
+    tau 0.6: old fires  2.93% prec 0.65 | new at same tau fires  2.10% prec 0.66 | new tau for same rate 0.546 prec 0.63
+  WOOL        base 15.5%  AUC old 0.693 new 0.692  factor 0.832  fire new*f/old: 12.42%/11.00% 7.75%/7.22% 3.38%/3.37% 2.35%/2.49% 1.72%/1.91% 1.04%/1.10%
+    tau 0.25: old fires 11.00% prec 0.34 | new at same tau fires 18.56% prec 0.29 | new tau for same rate 0.315 prec 0.32
+    tau 0.3: old fires  7.22% prec 0.35 | new at same tau fires 12.48% prec 0.31 | new tau for same rate 0.370 prec 0.37
+    tau 0.4: old fires  3.37% prec 0.42 | new at same tau fires  5.79% prec 0.40 | new tau for same rate 0.481 prec 0.47
+    tau 0.45: old fires  2.49% prec 0.48 | new at same tau fires  4.10% prec 0.43 | new tau for same rate 0.531 prec 0.51
+    tau 0.5: old fires  1.91% prec 0.53 | new at same tau fires  2.99% prec 0.48 | new tau for same rate 0.580 prec 0.53
+    tau 0.6: old fires  1.10% prec 0.65 | new at same tau fires  1.72% prec 0.53 | new tau for same rate 0.706 prec 0.57
+  FERTILIZER  base 28.8%  AUC old 0.786 new 0.769  factor 1.172  fire new*f/old: 34.01%/31.40% 29.01%/26.83% 19.89%/20.25% 16.26%/17.31% 13.11%/14.47% 8.52%/10.26%
+    tau 0.25: old fires 31.40% prec 0.57 | new at same tau fires 29.71% prec 0.56 | new tau for same rate 0.235 prec 0.55
+    tau 0.3: old fires 26.83% prec 0.61 | new at same tau fires 23.97% prec 0.60 | new tau for same rate 0.274 prec 0.58
+    tau 0.4: old fires 20.25% prec 0.65 | new at same tau fires 14.97% prec 0.63 | new tau for same rate 0.337 prec 0.62
+    tau 0.45: old fires 17.31% prec 0.66 | new at same tau fires 11.65% prec 0.63 | new tau for same rate 0.372 prec 0.63
+    tau 0.5: old fires 14.47% prec 0.68 | new at same tau fires  9.03% prec 0.65 | new tau for same rate 0.407 prec 0.63
+    tau 0.6: old fires 10.26% prec 0.71 | new at same tau fires  5.74% prec 0.72 | new tau for same rate 0.475 prec 0.64
+
+== score_24 (thresholds [0.45])
+  WHEAT       base 85.9%  AUC old 0.649 new 0.665  factor 0.650  fire new*f/old: 67.09%/67.09%
+    tau 0.45: old fires 67.09% prec 0.89 | new at same tau fires 85.94% prec 0.88 | new tau for same rate 0.692 prec 0.90
+  CARROT      base 14.0%  AUC old 0.976 new 0.979  factor 1.172  fire new*f/old: 4.42%/4.42%
+    tau 0.45: old fires  4.42% prec 1.00 | new at same tau fires  2.79% prec 1.00 | new tau for same rate 0.384 prec 1.00
+  TOMATO      base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00%
+    tau 0.45: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  STRAWBERRY  base 69.6%  AUC old 0.887 new 0.868  factor 1.047  fire new*f/old: 38.98%/38.98%
+    tau 0.45: old fires 38.98% prec 0.95 | new at same tau fires 36.41% prec 0.93 | new tau for same rate 0.430 prec 0.93
+  MELON       base  2.3%  AUC old 0.927 new 0.929  factor 1.814  fire new*f/old: 0.94%/0.94%
+    tau 0.45: old fires  0.94% prec 1.00 | new at same tau fires  0.51% prec 1.00 | new tau for same rate 0.248 prec 0.67
+  EGG         base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00%
+    tau 0.45: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  MILK        base 91.1%  AUC old 0.685 new 0.645  factor 1.062  fire new*f/old: 37.48%/37.48%
+    tau 0.45: old fires 37.48% prec 0.95 | new at same tau fires 32.69% prec 0.94 | new tau for same rate 0.424 prec 0.94
+  WOOL        base 68.4%  AUC old 0.679 new 0.701  factor 0.872  fire new*f/old: 15.03%/15.03%
+    tau 0.45: old fires 15.03% prec 0.87 | new at same tau fires 20.19% prec 0.86 | new tau for same rate 0.516 prec 0.87
+  FERTILIZER  base 85.3%  AUC old 0.593 new 0.562  factor 1.259  fire new*f/old: 83.14%/83.14%
+    tau 0.45: old fires 83.14% prec 0.87 | new at same tau fires 57.50% prec 0.86 | new tau for same rate 0.357 prec 0.85
+
+== units_24 (thresholds [2.0])
+  WHEAT       base 85.9%  AUC old 0.743 new 0.810  factor 1.428  fire new*f/old: 98.58%/98.58%
+    tau 2.0: old fires 98.58% prec 0.86 | new at same tau fires 93.91% prec 0.87 | new tau for same rate 1.401 prec 0.86
+  CARROT      base 14.0%  AUC old 0.985 new 0.979  factor 0.816  fire new*f/old: 0.60%/0.60%
+    tau 2.0: old fires  0.60% prec 1.00 | new at same tau fires  3.68% prec 1.00 | new tau for same rate 2.450 prec 1.00
+  TOMATO      base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00%
+    tau 2.0: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  STRAWBERRY  base 69.6%  AUC old 0.925 new 0.910  factor 1.266  fire new*f/old: 69.40%/69.40%
+    tau 2.0: old fires 69.40% prec 0.90 | new at same tau fires 65.59% prec 0.91 | new tau for same rate 1.580 prec 0.90
+  MELON       base  2.3%  AUC old 0.897 new 0.924  factor 0.948  fire new*f/old: 0.55%/0.55%
+    tau 2.0: old fires  0.55% prec 1.00 | new at same tau fires  0.61% prec 1.00 | new tau for same rate 2.111 prec 1.00
+  EGG         base  0.0%  AUC old nan new nan  factor 1.000  fire new*f/old: 0.00%/0.00%
+    tau 2.0: skipped (old fires on 0 origins, 0.000%; base rate 0.00%)
+  MILK        base 91.1%  AUC old 0.767 new 0.768  factor 1.076  fire new*f/old: 78.69%/78.69%
+    tau 2.0: old fires 78.69% prec 0.95 | new at same tau fires 74.64% prec 0.95 | new tau for same rate 1.860 prec 0.95
+  WOOL        base 68.4%  AUC old 0.719 new 0.710  factor 0.817  fire new*f/old: 43.56%/43.56%
+    tau 2.0: old fires 43.56% prec 0.85 | new at same tau fires 49.70% prec 0.85 | new tau for same rate 2.449 prec 0.85
+  FERTILIZER  base 85.3%  AUC old 0.547 new 0.542  factor 1.196  fire new*f/old: 98.25%/98.25%
+    tau 2.0: old fires 98.25% prec 0.85 | new at same tau fires 95.26% prec 0.85 | new tau for same rate 1.673 prec 0.85
+
+wrote calibration/ttm_c256_h96_ft_2026-09-23/own_games/calibration.json

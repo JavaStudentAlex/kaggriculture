@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Score predictor checkpoints on ladder replays, as the live oracle would (calibration data).
+"""Score predictor checkpoints on games, as the live oracle would (calibration data).
 
 Shipped as `arena.py` in a payload built by calib_payload.py, so colab_run.py drives it like a
 game batch: the same command line (--jobs, --root, --workers, --out, --trace-dir), one result
 row per job ({'tag', 'seed' = episode id, 'a_seat': 0, 'statuses'}), ARENA_DONE at the end.
 
-For both seats of each episode and every `stride`-th origin t >= context, the model input is
+A job is a Kaggle replay (`member` of games.zip) or one of our arena games (`trace` in traces.zip:
+the per-step actions arena.py records, replayed through the engine with the game's seed; the
+replay must reproduce the recorded final cash, or the job fails). For the job's seats (both by
+default) and every `stride`-th origin t >= context, the model input is
 rows [t - context, t) of [scaled features | log1p targets] (the live oracle's context_block),
 and the forecast covers steps t .. t+95. Per origin and product it keeps what the policy reads:
 score_4 / score_24 (max log1p units over the next 4 / 24 steps) and units_24 (units summed over
@@ -47,20 +50,52 @@ def nets():
     return _NETS
 
 
-def score(job):
+def replay_trace(job):
+    """The Kaggle-style replay of an arena game, rebuilt from its trace (deterministic engine)."""
+    import gzip
+    from kaggle_environments import make
+    with zipfile.ZipFile(Path(ARGS['root']) / 'traces.zip') as zf:
+        trace = json.loads(gzip.decompress(zf.read(job['trace'])))
+
+    def recorded(seat):
+        def agent(obs, config):
+            t = int(obs['step']) + 1
+            return trace[t]['seats'][seat]['action'] if t < len(trace) else {}
+        return agent
+
+    env = make('kaggriculture', configuration={'seed': job['game_seed']}, debug=False)
+    env.run([recorded(0), recorded(1)])
+    got = [s.get('reward') for s in env.steps[-1]]
+    want = [trace[-1]['seats'][s]['reward'] for s in (0, 1)]
+    if got != want:
+        raise RuntimeError(f'replay of {job["trace"]} gives {got}, the trace recorded {want}')
+    doc = env.toJSON()
+    doc.setdefault('info', {})['EpisodeId'] = job['seed']
+    return doc
+
+
+def rows_of(job):
+    """{seat: (X, Y)} feature rows and opponent sells of the job's seats."""
     from extract import episode_rows
     from features import feature_names
-    start = time.time()
-    with zipfile.ZipFile(Path(ARGS['root']) / 'games.zip') as zf:
-        doc = json.loads(zf.read(job['member']))
-    rows = {0: ([], []), 1: ([], [])}
+    if 'trace' in job:
+        doc = replay_trace(job)
+    else:
+        with zipfile.ZipFile(Path(ARGS['root']) / 'games.zip') as zf:
+            doc = json.loads(zf.read(job['member']))
+    seats = job.get('seats', [0, 1])
+    rows = {seat: ([], []) for seat in seats}
     for x, y, d in episode_rows(doc, feature_names()):
-        rows[int(d[2])][0].append(x)
-        rows[int(d[2])][1].append(y)
-    del doc
+        if int(d[2]) in rows:
+            rows[int(d[2])][0].append(x)
+            rows[int(d[2])][1].append(y)
+    return {seat: (np.stack(xs), np.stack(ys).astype(np.float32)) for seat, (xs, ys) in rows.items()}
+
+
+def score(job):
+    start = time.time()
     parts = []
-    for seat, (xs, ys) in rows.items():
-        X, Y = np.stack(xs), np.stack(ys).astype(np.float32)
+    for seat, (X, Y) in rows_of(job).items():
         part = {}
         for name, (net, mean, std) in nets().items():
             ctx = net.context
@@ -77,7 +112,8 @@ def score(job):
         parts.append(part)
     return finish(job, parts, start)
 
-TORCH_INSTALL = ['torch', 'granite-tsfm', '--extra-index-url', 'https://download.pytorch.org/whl/cu128',
+
+TORCH_INSTALL =['torch', 'granite-tsfm', '--extra-index-url', 'https://download.pytorch.org/whl/cu128',
                  '--index-strategy', 'unsafe-best-match']
 
 
@@ -105,17 +141,9 @@ def gpu_ready():
 
 
 def extract(job):
-    """Feature rows of both seats: (job, {seat: (X, Y)}); CPU side of the GPU path."""
-    from extract import episode_rows
-    from features import feature_names
+    """(job, {seat: (X, Y)}, error): the CPU side of the GPU path."""
     try:
-        with zipfile.ZipFile(Path(ARGS['root']) / 'games.zip') as zf:
-            doc = json.loads(zf.read(job['member']))
-        rows = {0: ([], []), 1: ([], [])}
-        for x, y, d in episode_rows(doc, feature_names()):
-            rows[int(d[2])][0].append(x)
-            rows[int(d[2])][1].append(y)
-        return job, {seat: (np.stack(xs), np.stack(ys).astype(np.float32)) for seat, (xs, ys) in rows.items()}, None
+        return job, rows_of(job), None
     except Exception as exc:  # noqa: BLE001
         return job, None, repr(exc)[:500]
 
@@ -176,6 +204,7 @@ def finish(job, parts, start):
     arrays = {k: np.concatenate([p[k] for p in parts]) for k in parts[0]}
     arrays['episode'] = np.full(len(arrays['step']), job['seed'])
     arrays['held_out'] = np.full(len(arrays['step']), bool(job.get('held_out')))
+    arrays['group'] = np.full(len(arrays['step']), job.get('group', 'ladder'))
     if ARGS['trace_dir']:
         np.savez_compressed(Path(ARGS['trace_dir']) / f"cal_{job['seed']}.npz", **arrays)
     return {'tag': job['tag'], 'seed': job['seed'], 'a_seat': job['a_seat'], 'statuses': ['DONE', 'DONE'],
@@ -186,7 +215,6 @@ def finish(job, parts, start):
 def error_row(job, error):
     return {'tag': job['tag'], 'seed': job['seed'], 'a_seat': job['a_seat'], 'statuses': None,
             'errors': [error], 'rewards': None}
-
 
 
 def init(args):
@@ -200,7 +228,6 @@ def safe_score(job):
         return score(job)
     except Exception as exc:  # noqa: BLE001 -- reported in the row; the runner retries it
         return error_row(job, repr(exc)[:500])
-
 
 def main():
     ap = argparse.ArgumentParser()

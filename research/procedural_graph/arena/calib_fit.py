@@ -2,6 +2,7 @@
 often as the reference predictor's do, per product (quantile matching), and report precision and AUC.
 
     python arena/calib_fit.py runs/arena/<eval-id>/traces --out calibration.json [--held-out-only]
+        [--group REGEX]   # only games whose group (the arena tag, or `ladder`) matches
 
 Input: the per-episode npz files of calib_worker.py and, for provenance, the payload's jobs.json
 (default: <traces>/../payload/jobs.json). --reference is the checkpoint the policy's thresholds
@@ -12,7 +13,9 @@ kagg_oracle.forecast() multiplies score_k / units_k by it when calibration.json 
 checkpoint (it reads only `factors`; the other keys record where the numbers came from).
 """
 import argparse
+import collections
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -27,6 +30,9 @@ from mechanics import PRODUCTS  # noqa: E402 -- kagg_oracle's product order (nee
 METRICS = {'score_4': ('s4', [0.25, 0.30, 0.40, 0.45, 0.50, 0.60]),
            'score_24': ('s24', [0.45]),
            'units_24': ('u24', [2.0])}
+MIN_FIRES = 100          # a threshold counts only if the reference fires on this many origins
+MIN_BASE = 0.005         # ... and the product is sold at >= 0.5 % of origins (no evidence: factor 1)
+FACTOR_RANGE = (0.5, 2.0)
 
 
 def auc(score, y):
@@ -50,8 +56,9 @@ def fit(d, ref, cal):
             ratios, lines = [], []
             for tau in taus:
                 rate = (o >= tau).mean()
-                if rate <= 0 or rate >= 1:
-                    lines.append(f'    tau {tau}: {ref} never/always fires ({rate:.3%})')
+                if (o >= tau).sum() < MIN_FIRES or rate >= 1 or y.mean() < MIN_BASE:
+                    lines.append(f'    tau {tau}: skipped ({ref} fires on {(o >= tau).sum()} origins, '
+                                 f'{rate:.3%}; base rate {y.mean():.2%})')
                     continue
                 n_tau = float(np.quantile(n, 1 - rate))
                 prec_o = y[o >= tau].mean()
@@ -63,6 +70,9 @@ def fit(d, ref, cal):
                              f'{(n >= tau).mean():6.2%} prec {prec_same:.2f} | {cal} tau for same rate {n_tau:.3f} '
                              f'prec {prec_n:.2f}')
             f = float(np.exp(np.mean(np.log(ratios)))) if ratios else 1.0
+            if not FACTOR_RANGE[0] <= f <= FACTOR_RANGE[1]:
+                lines.append(f'    factor {f:.3f} clipped to {FACTOR_RANGE}')
+                f = min(max(f, FACTOR_RANGE[0]), FACTOR_RANGE[1])
             factors[metric][p] = round(f, 4)
             after = ' '.join(f'{(n * f >= t).mean():.2%}/{(o >= t).mean():.2%}' for t in taus)
             report.append(f'  {p:11s} base {y.mean():5.1%}  AUC {ref} {auc(o, y):.3f} {cal} {auc(n, y):.3f}  '
@@ -78,14 +88,22 @@ def main():
     ap.add_argument('--reference', default='old', help='model the policy thresholds were tuned with')
     ap.add_argument('--calibrated', default='new', help='model to calibrate')
     ap.add_argument('--held-out-only', action='store_true', help="only the calibrated model's held-out episodes")
+    ap.add_argument('--group', help='only games whose group (arena tag, or `ladder`) matches this regex')
     ap.add_argument('--out', help='write calibration.json here')
     a = ap.parse_args()
     files = sorted(Path(a.traces).glob('cal_*.npz'))
     loaded = [dict(np.load(f)) for f in files]
     d = {k: np.concatenate([x[k] for x in loaded]) for k in loaded[0]}
+    if 'group' not in d:   # npz written before groups existed: Kaggle replays
+        d['group'] = np.full(len(d['step']), 'ladder')
     if a.held_out_only:
         d = {k: v[d['held_out']] for k, v in d.items()}
+    if a.group:
+        keep = np.array([bool(re.search(a.group, str(g))) for g in d['group']])
+        d = {k: v[keep] for k, v in d.items()}
     episodes = len(set(d['episode'].tolist()))
+    games = collections.Counter(g for g, _ in set(zip(d['group'].tolist(), d['episode'].tolist())))
+    print('games by group:', dict(sorted(games.items())))
     print(f"{len(files)} episodes ({episodes} used{', held-out only' if a.held_out_only else ''}), "
           f"origins {len(d['step'])}, steps {d['step'].min()}..{d['step'].max()}")
     factors, report = fit(d, a.reference, a.calibrated)
@@ -97,10 +115,12 @@ def main():
         doc = {'factors': factors,
                'reference': sources.get(a.reference, a.reference),
                'calibrated': sources.get(a.calibrated, a.calibrated),
-               'replays': manifest.get('zip'), 'episodes': episodes,
+               'replays': manifest.get('zip'), 'traces': manifest.get('traces'), 'group_filter': a.group,
+               'games_by_group': dict(sorted(games.items())), 'episodes': episodes,
                'held_out_episodes': int(len(set(d['episode'][d['held_out']].tolist()))),
                'origins': int(len(d['step'])), 'stride': manifest.get('stride'),
                'thresholds': {m: taus for m, (_, taus) in METRICS.items()},
+               'guards': {'min_fires': MIN_FIRES, 'min_base_rate': MIN_BASE, 'factor_range': FACTOR_RANGE},
                'method': 'per product and metric: geometric mean over the thresholds of threshold / the '
                          'calibrated score at the reference firing rate (arena/calib_fit.py)'}
         Path(a.out).write_text(json.dumps(doc, indent=1) + '\n')
