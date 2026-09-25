@@ -114,12 +114,15 @@ def fit(args, eid):
         reports[name] = text
     (out / 'jobs.json').write_text((run / 'payload' / 'jobs.json').read_text())
     factors = {n: json.loads((out / n).read_text())['factors'] for n in GROUPS.values()}
+    ref = json.loads((out / 'calibration.json').read_text()).get('reference') or {}
+    ref_label = (f"{ref.get('dir', args.reference)}, model sha256 {ref.get('model_sha256', '')[:12]}…"
+                 if isinstance(ref, dict) else str(ref))
     aucs = auc_rows(reports['calibration.json'])
     products = list(factors['calibration.json']['score_4'])
     lines = [f'# Calibration of {Path(args.refit).name} for our agent (own games)', '',
              f'Made by `arena/calibrate.py` on {time.strftime("%Y-%m-%d")}: the committed game set '
-             f'(`calibration/game_set`, 600 games), reference `{Path(args.reference).name}` '
-             f'(`hazel_runtime/checkpoint`, the predictor the thresholds were tuned with), every turn, one '
+             f'(`calibration/game_set`, 600 games), reference `{ref_label}` '
+             f'(the predictor the thresholds were tuned with), every turn, one '
              f'Colab T4. `calibration.json` fits all games; `_pool` only feed15 vs Mohui and the champions, '
              f'`_mirror` only feed15 vs feed15. Reports: `fit_report*.txt`.', '',
              '| product | base rate | score_4 AUC reference | score_4 AUC refit | factors score_4 / score_24 / units_24 |',
