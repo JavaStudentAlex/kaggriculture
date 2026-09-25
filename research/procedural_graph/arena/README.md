@@ -136,3 +136,14 @@ and, for local runs, `kaggle-environments==1.32.7`:
 - Brev n2d-highcpu-80 with 60 concurrent games: ~320 s per oracle-vs-oracle game, ~190 s
   against the oracle-free Mohui opponents; ~55 GB RAM in use. Results are identical to the
   same games played locally (deterministic across machines).
+
+## Backbone patch: yarn store as the second shop (2026-09-25)
+
+`yarn_second_fix.py <bundle> <out>` copies a graph bundle and adds one routing rule to its
+Mohui v66 backbone (`candidate_v66_meta_closed_loop.py`, step 144): a YARN_STORE opened second,
+after a shop other than YARN_STORE / PET_CAFE, with no other route active, switches to the
+`bakery_yarn` route (the default route until step 144, the sheep plan after it). The graph's
+runtime pins are recomputed; pass the result to `payload.py --bundle NAME=DIR`.
+`yarnfix_report.py <run dir>` scores such a bundle against the unpatched one: repeats, the
+mirror property of seeds where the rule never fires, and the games where it does. Result
+against Linden Brook on its 59 ladder seeds: `shinka/champions/evidence/linden_brook_loss_audit_20260925/`.

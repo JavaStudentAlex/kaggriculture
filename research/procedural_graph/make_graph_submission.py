@@ -64,6 +64,7 @@ def _module(name, path):
 
 
 PAYLOAD = _module('graph_payload', HERE / 'arena' / 'payload.py')
+YARN_FIX = _module('yarn_second_fix', HERE / 'arena' / 'yarn_second_fix.py')
 MAKE_SUBMISSION = _module('make_submission', SUBMISSIONS / 'make_submission.py')
 sha256, snake, camel = MAKE_SUBMISSION.sha256, MAKE_SUBMISSION.snake, MAKE_SUBMISSION.camel
 
@@ -203,6 +204,7 @@ def build(args) -> int:
 
     graph = json.loads(graph_file.read_text())
     PAYLOAD.write_graph_bundle(stage, graph, name, str(checkpoint), calibration)
+    patch = YARN_FIX.apply(stage) if args.yarn_second_fix else None  # re-pins the graph itself
     (stage / 'main.py').rename(stage / 'agent_graph.py')
     (stage / 'main.py').write_text(MAIN_PY.format(name=name))
     (stage / 'validate.py').write_text(validator(calibration is not None))
@@ -244,6 +246,7 @@ def build(args) -> int:
                         if calibration else None),
         'runtime': {f: sha256(stage / 'hazel_runtime' / f) for f in ('graph_runtime.py', 'champion.py', 'kagg_oracle.py',
                                                                       'kagg_ttm_numpy.py')},
+        'backbone_patch': patch,
         'built': dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'submit': f'kaggle competitions submit -c kaggriculture -f {rel(archive)} -m "{message}"',
     }
@@ -284,11 +287,13 @@ def build(args) -> int:
     (stage / 'MANIFEST.json').write_text(json.dumps(manifest, indent=1) + '\n')
     cal_line = (f"calibration `{manifest['calibration']['source']}` (sha256 `{manifest['calibration']['sha256'][:16]}…`)"
                 if calibration else 'no calibration')
+    patch_line = (f"- backbone patch: `{patch['script']}` (`{patch['file']}` sha256 `{patch['sha256'][:16]}…`)\n"
+                  if patch else '')
     (stage / 'README.md').write_text(
         f"# {name}\n\nSubmission bundle built {manifest['built']} by `research/procedural_graph/make_graph_submission.py`.\n\n"
         f"- graph: `{manifest['graph']['source']}` (sha256 `{manifest['graph']['sha256'][:16]}…`), runtime "
         f"`{manifest['graph']['runtime']}`\n- predictor: `{manifest['predictor']['checkpoint']}` (model sha256 "
-        f"`{manifest['predictor']['model_sha256'][:16]}…`, numpy backend)\n- {cal_line}\n"
+        f"`{manifest['predictor']['model_sha256'][:16]}…`, numpy backend)\n- {cal_line}\n{patch_line}"
         f"- archive: `../{archive.name}` ({manifest['archive_bytes']:,} bytes, sha256 `{manifest['archive_sha256'][:16]}…`)\n"
         f"- validation: {manifest.get('validation', {}).get('result', 'not run')}; fidelity: "
         f"{manifest.get('fidelity', {}).get('result', 'not run')}\n\n{args.note or ''}\n\n"
@@ -315,6 +320,8 @@ def main() -> int:
                     help='also play SEED vs starter via the arena harness; the cash must match the Kaggle loader')
     ap.add_argument('--python', help='clean interpreter with kaggle-environments 1.32.7 and numpy (default: this one)')
     ap.add_argument('--force', action='store_true', help='rebuild an existing staging directory')
+    ap.add_argument('--yarn-second-fix', action='store_true',
+                    help='apply arena/yarn_second_fix.py to the staged backbone (yarn store as second shop -> bakery_yarn)')
     return build(ap.parse_args())
 
 
