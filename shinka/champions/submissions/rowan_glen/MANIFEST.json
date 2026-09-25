@@ -1,0 +1,153 @@
+{
+ "public_name": "Rowan Glen",
+ "message": "Rowan Glen - Adaptive production and trade",
+ "archive": "RowanGlen.tar.gz",
+ "archive_sha256": "1df9cdb225d04d144cedcedbb39ad940924df2484c9e20c3638855a87d80b2fb",
+ "archive_bytes": 4397542,
+ "archive_files": [
+  "agent_graph.py",
+  "hazel_runtime/SOURCE_MANIFEST.json",
+  "hazel_runtime/champion.py",
+  "hazel_runtime/checkpoint/calibration.json",
+  "hazel_runtime/checkpoint/config.json",
+  "hazel_runtime/checkpoint/labels.json",
+  "hazel_runtime/checkpoint/model.safetensors",
+  "hazel_runtime/checkpoint/scaler.npz",
+  "hazel_runtime/engine_contract.py",
+  "hazel_runtime/experimental.py",
+  "hazel_runtime/graph_runtime.py",
+  "hazel_runtime/kagg_oracle.py",
+  "hazel_runtime/kagg_ttm_numpy.py",
+  "hazel_runtime/main.py",
+  "hazel_runtime/mohui_v66/LICENSE",
+  "hazel_runtime/mohui_v66/NOTICE",
+  "hazel_runtime/mohui_v66/candidate_v60_curve_counter.py",
+  "hazel_runtime/mohui_v66/candidate_v62_composite_bakery_yarn.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_cygn_clone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_daniel_backbone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py",
+  "hazel_runtime/mohui_v66/candidate_v65_local_combined.py",
+  "hazel_runtime/mohui_v66/candidate_v66_meta_closed_loop.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/adapter.py",
+  "hazel_runtime/mohui_v66/main.py",
+  "hazel_runtime/opponent_model/features.py",
+  "hazel_runtime/opponent_model/mechanics.py",
+  "hazel_runtime/surgical.py",
+  "main.py",
+  "policy_graph.json"
+ ],
+ "graph": {
+  "source": "research/procedural_graph/evolution_results/feed_fix_2026-09-24/feed15_graph.json",
+  "sha256": "92d48eed5fbee4472e8fc9074ffa6e2921efca50b06ef5ccc7080ef3e4c64683",
+  "packed_sha256": "89d260dc037581219615a2d21d1f1aae628934975cdadd2f0e8f9ba3cf65fc07",
+  "runtime": "hazel_merged_v1",
+  "parameters": {
+   "opening_scalp": {
+    "_OPENING_BUY_WHEAT_QTY": 15,
+    "_OPENING_SELL_WHEAT_QTY": 10
+   },
+   "feed_reserve": {
+    "_FEED_RESERVE_LOOKAHEAD": true
+   },
+   "oracle_frontrun": {
+    "_ORACLE_FRONTRUN_BATCH": 4,
+    "_ORACLE_FRONTRUN_PRICE_RATIO": 0.7
+   }
+  },
+  "note": "Linden Brook (56545702) + the yarn-second route fix (research/procedural_graph/arena/yarn_second_fix.py): feed15 graph, predictor ttm_c256_h96_ft_2026-09-24 and its ladder calibration, and the v66 backbone takes bakery_yarn at step 144 when the second town shop is a YARN_STORE after a shop other than YARN_STORE/PET_CAFE with no route active. Why: Linden Brook lost all 9 of its ladder games with a day-6 yarn store (shinka/champions/evidence/linden_brook_loss_audit_20260925). Arena vs Linden Brook on those 59 ladder seeds, both seats, each twice (run yarnfix, 236 games, Colab): 16-0 in the 8 seeds where the rule fires (+21,772 on average), identical play elsewhere."
+ },
+ "predictor": {
+  "checkpoint": "models/ttm_c256_h96_ft_2026-09-24",
+  "model_sha256": "7dcb717531d04962ceea74065a9774240e5db2ee5c1a4562c150ab78ccd39692",
+  "labels": {
+   "alignment": "next_action",
+   "source": "--dataset /tmp/dataset_stage/day --extra-train /tmp/dataset_stage/prev --extra-train-decay 2.0 --out /kaggle/working/ttm_c256_h96_ft_2026-09-24 --init-from /kaggle/input/datasets/sunshinethroughfog/kaggriculture-ttm-base-pipeline/checkpoint --scaler /kaggle/input/datasets/sunshinethroughfog/kaggriculture-ttm-base-pipeline/checkpoint/scaler.npz --split episode --prediction-filter-length 96 --metric"
+  },
+  "backend": "numpy"
+ },
+ "calibration": {
+  "source": "research/procedural_graph/calibration/ttm_c256_h96_ft_2026-09-24/calibration.json",
+  "sha256": "5a3b75984fa8d1948ba4bccc9e64a2668af0d667c962d176c379610f56caca50",
+  "reference": {
+   "dir": "hazel_runtime/checkpoint",
+   "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+  },
+  "calibrated": {
+   "dir": "../../models/ttm_c256_h96_ft_2026-09-24",
+   "model_sha256": "7dcb717531d04962ceea74065a9774240e5db2ee5c1a4562c150ab78ccd39692"
+  },
+  "replays": "kaggriculture-episodes-2026-09-24.zip",
+  "traces": [],
+  "group_filter": null,
+  "games_by_group": {
+   "ladder": 378
+  },
+  "episodes": 378,
+  "held_out_episodes": 59,
+  "origins": 347004,
+  "stride": 1,
+  "thresholds": {
+   "score_4": [
+    0.25,
+    0.3,
+    0.4,
+    0.45,
+    0.5,
+    0.6
+   ],
+   "score_24": [
+    0.45
+   ],
+   "units_24": [
+    2.0
+   ]
+  },
+  "guards": {
+   "min_fires": 100,
+   "min_base_rate": 0.005,
+   "factor_range": [
+    0.5,
+    2.0
+   ]
+  },
+  "method": "per product and metric: geometric mean over the thresholds of threshold / the calibrated score at the reference firing rate (arena/calib_fit.py)"
+ },
+ "runtime": {
+  "graph_runtime.py": "4ce1293ec71c7177b8fd14eee97f91b2d4da3ac720277d4b42fe12096b78ea8c",
+  "champion.py": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+  "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
+  "kagg_ttm_numpy.py": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda"
+ },
+ "backbone_patch": {
+  "file": "hazel_runtime/mohui_v66/candidate_v66_meta_closed_loop.py",
+  "script": "research/procedural_graph/arena/yarn_second_fix.py",
+  "sha256": "185e7bfa8864e061e109d0f71a0184abf62da9163090e63b13996126f9c73c27"
+ },
+ "built": "2026-09-25T22:32:45Z",
+ "submit": "kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/RowanGlen.tar.gz -m \"Rowan Glen - Adaptive production and trade\"",
+ "validation": {
+  "date": "2026-09-25T22:44:29Z",
+  "python": "/tmp/claude-1000/-home-alex-PycharmProjects-kaggriculture/b86612ba-0d53-407c-930f-46e1760b061f/scratchpad/calvenv/bin/python",
+  "seeds": "101,70102",
+  "result": "PASS",
+  "report": "bundle /tmp/kagg_graph_submission_xnykvdi0/x\nHOME=/tmp/kagg_graph_submission_xnykvdi0/home cwd=/\nseat 0 vs starter seed    101: OK  $   167,523 (DONE) vs $3,648 (DONE) | 720 states, 103 s | steps 719: mean 132 ms, max 3822 ms @0, overage 5.05 s\nseat 0 vs starter seed  70102: OK  $   169,821 (DONE) vs $3,431 (DONE) | 720 states, 92 s | steps 719: mean 116 ms, max 577 ms @629, overage 0.00 s\nseat 0 vs random  seed    101: OK  $   163,531 (DONE) vs $0 (DONE) | 720 states, 87 s | steps 719: mean 110 ms, max 459 ms @442, overage 0.00 s\nseat 0 vs random  seed  70102: OK  $   134,435 (DONE) vs $0 (DONE) | 720 states, 97 s | steps 719: mean 122 ms, max 662 ms @295, overage 0.00 s\nseat 1 vs starter seed    101: OK  $   167,523 (DONE) vs $3,648 (DONE) | 720 states, 85 s | steps 719: mean 107 ms, max 245 ms @260, overage 0.00 s\nseat 1 vs starter seed  70102: OK  $   161,654 (DONE) vs $3,431 (DONE) | 720 states, 92 s | steps 719: mean 117 ms, max 496 ms @485, overage 0.00 s\nseat 1 vs random  seed    101: OK  $   130,285 (DONE) vs $0 (DONE) | 720 states, 90 s | steps 719: mean 113 ms, max 442 ms @12, overage 0.00 s\nseat 1 vs random  seed  70102: OK  $   131,643 (DONE) vs $0 (DONE) | 720 states, 91 s | steps 719: mean 115 ms, max 611 ms @576, overage 0.00 s\nresolution:\n  champion       : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/champion.py  inside=True\n  MOHUI_DIR      : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/mohui_v66  inside=True\n  kagg_oracle    : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/kagg_oracle.py  inside=True\n  checkpoint     : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/checkpoint  inside=True\n  kagg_ttm_numpy : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/kagg_ttm_numpy.py  inside=True\n  features       : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/opponent_model/features.py  inside=True\n  mechanics      : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/opponent_model/mechanics.py  inside=True\n  backend        : numpy  torch imported: False\n  oracle         : device=cpu stats={'forecasts': 463, 'ms_per_forecast': 157.57543155937293, 'errors': 0, 'last_error': ''}\nsteps 5752: max 3822 ms; from turn 512: p99 347 ms, max 1835 ms\n  agent_graph    : /tmp/kagg_graph_submission_xnykvdi0/x/agent_graph.py  inside=True  engine built: True\n  calibration    : /tmp/kagg_graph_submission_xnykvdi0/x/hazel_runtime/checkpoint/calibration.json  (expected: True)\nVALIDATION PASS: games failed=0 oracle_live=True all_resolved_inside_bundle=True graph_ok=True"
+ },
+ "fidelity": {
+  "seed": 101,
+  "result": "PASS",
+  "report": "{\"seed\": 101, \"kaggle_loader\": [167523.0, 3648.0], \"arena_harness\": [167523.0, 3648.0], \"identical\": true}"
+ },
+ "kaggle": {
+  "submission_id": 56561557,
+  "submitted": "2026-09-25T22:48:23Z",
+  "status": "COMPLETE (by 22:56:02Z)",
+  "validation_episode": 113460717,
+  "validation_result": "both seats DONE, 720 states, 58,484 each (self-play, seed 0: bakery then pet cafe, so the yarn rule does not fire; every action identical to Linden Brook's validation episode 113213228)",
+  "initial_public_score": 600.0,
+  "quota_after": "3 remaining on 2026-09-25",
+  "on_kaggle_timings": "agent 0: step 0 4.76 s, mean 210 ms, from turn 512 p99 358 ms / max 364 ms, overage 3.8 s of 60 s; agent 1: step 0 4.86 s, mean 207 ms, p99 342 ms / max 378 ms, overage 3.9 s; no traceback in stderr",
+  "submitted_by": "Claude Code at the user's explicit request"
+ }
+}
