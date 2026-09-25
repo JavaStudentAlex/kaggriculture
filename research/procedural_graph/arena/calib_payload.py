@@ -11,7 +11,8 @@ Ladder games (--zip, a Kaggle daily replay zip): every episode in the newest mod
 val_episodes.json (held out from its training), then a seeded random sample of the rest up to
 --games. Our own games (--trace GLOB[@ours|theirs|both], repeatable): arena traces
 (`<tag>_seed<seed>_aseat<a>.json.gz`), which the worker replays through the engine; `ours` scores
-the candidate's seat (a), `theirs` the opponent's, `both` both (default). Each job is one game;
+the candidate's seat (a), `theirs` the opponent's, `both` both (default). --game-set DIR takes a
+committed set instead (`calibration/game_set`: traces.zip + games.json). Each job is one game;
 calib_worker.py (shipped as arena.py) writes one npz of per-origin scores and truth per game,
 and calib_fit.py fits calibration.json from them.
 """
@@ -44,6 +45,8 @@ def main():
     ap.add_argument('--zip', help="a Kaggle daily replay zip")
     ap.add_argument('--trace', action='append', default=[], metavar='GLOB[@ours|theirs|both]',
                     help='arena traces to replay and score (repeatable)')
+    ap.add_argument('--game-set', help='a committed set of arena games (traces.zip + games.json), '
+                                       'e.g. research/procedural_graph/calibration/game_set')
     ap.add_argument('--model', action='append', required=True, metavar='NAME=DIR')
     ap.add_argument('--held-out', help='val_episodes.json (default: that of the last --model)')
     ap.add_argument('--games', type=int, default=400)
@@ -51,8 +54,8 @@ def main():
     ap.add_argument('--seed', type=int, default=20260924)
     ap.add_argument('--eval-id', required=True)
     args = ap.parse_args()
-    if not args.zip and not args.trace:
-        raise SystemExit('give --zip and/or --trace')
+    if not args.zip and not args.trace and not args.game_set:
+        raise SystemExit('give --zip, --trace and/or --game-set')
     models = dict(m.split('=', 1) for m in args.model)
     held_file = Path(args.held_out or Path(list(models.values())[-1]) / 'val_episodes.json')
     held = set(json.loads(held_file.read_text())) if args.zip else set()
@@ -72,9 +75,20 @@ def main():
                     dst.writestr(f'{e}.json', zf.read(f'{e}.json'))
         jobs += [{'tag': 'cal', 'seed': e, 'a_seat': 0, 'member': f'{e}.json', 'held_out': e in held}
                  for e in chosen]
-    if args.trace:
+    if args.trace or args.game_set:
         name_re = re.compile(r'^(?P<tag>.+)_seed(?P<seed>\d+)_aseat(?P<a>[01])\.json\.gz$')
         with zipfile.ZipFile(out / 'traces.zip', 'w', zipfile.ZIP_STORED) as dst:
+            if args.game_set:
+                gs = Path(args.game_set)
+                meta = json.loads((gs / 'games.json').read_text())
+                if sha(gs / 'traces.zip') != meta['traces_sha256']:
+                    raise SystemExit(f'{gs}/traces.zip does not match games.json')
+                with zipfile.ZipFile(gs / 'traces.zip') as src:
+                    for g in meta['games']:
+                        dst.writestr(g['trace'], src.read(g['trace']))
+                        jobs.append({'tag': 'cal', 'seed': len(jobs) + 1, 'a_seat': 0, 'trace': g['trace'],
+                                     'game_seed': g['game_seed'], 'group': g['group'], 'held_out': False,
+                                     'seats': g['seats']})
             for spec in args.trace:
                 pattern, _, rule = spec.rpartition('@') if spec.rsplit('@', 1)[-1] in ('ours', 'theirs', 'both') \
                     else (spec, '', 'both')
@@ -97,7 +111,7 @@ def main():
             shutil.copy2(Path(d) / f, out / 'models' / name / f)
     shutil.copy2(HERE / 'calib_worker.py', out / 'arena.py')
     manifest = {'evaluation_id': args.eval_id, 'kind': 'calibration',
-                'zip': Path(args.zip).name if args.zip else None, 'traces': args.trace,
+                'zip': Path(args.zip).name if args.zip else None, 'traces': args.trace, 'game_set': args.game_set,
                 'stride': args.stride, 'models': list(models),
                 'model_sources': {n: {'dir': str(d), 'model_sha256': sha(Path(d) / 'model.safetensors')}
                                   for n, d in models.items()},

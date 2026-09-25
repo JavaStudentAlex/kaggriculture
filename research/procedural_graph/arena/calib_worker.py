@@ -205,6 +205,8 @@ def finish(job, parts, start):
     arrays['episode'] = np.full(len(arrays['step']), job['seed'])
     arrays['held_out'] = np.full(len(arrays['step']), bool(job.get('held_out')))
     arrays['group'] = np.full(len(arrays['step']), job.get('group', 'ladder'))
+    from mechanics import PRODUCTS
+    arrays['products'] = np.array(PRODUCTS)   # column order of the per-product arrays
     if ARGS['trace_dir']:
         np.savez_compressed(Path(ARGS['trace_dir']) / f"cal_{job['seed']}.npz", **arrays)
     return {'tag': job['tag'], 'seed': job['seed'], 'a_seat': job['a_seat'], 'statuses': ['DONE', 'DONE'],

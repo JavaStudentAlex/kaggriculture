@@ -405,16 +405,12 @@ from the repo root, with `BASE` = the newest promoted `models/*`:
    nothing to clean up. A forward-in-time check of the recipe (train through `D-1`,
    validate on the whole of `D`) is the same engine with `VAL_DAY=<D>`; run it only when
    the recipe itself is in question.
-4. **Recalibrate the refit before it plays** (user's decision, 2026-09-24). The graph's oracle
-   thresholds were tuned with the reference predictor, `ttm_c256_h96_ft_2026-09-13`. A refit's
-   raw scores sit at other levels: uncalibrated, the 09-23 refit lost to the 09-13 model
-   24W-174L inside feed15. The calibration scores both models on every turn of 400 games of day
-   `D` (the refit's held-out games plus a sample of the rest), on one Colab T4 VM, and fits
-   per-product factors. The steps are in `research/procedural_graph/arena/README.md` ("Predictor
-   calibration"), and the results go to `research/procedural_graph/calibration/<refit>/`. Then
-   check with a rematch (graph with the refit + `calibration.json` vs the same graph with the
-   reference) before the refit replaces the reference in play. Turning these steps into one
-   command is still to do.
+4. **Calibrate the refit for our agent before it plays** (user's decision, 2026-09-24). It is
+   one command, run on this PC in tmux:
+   `python3 research/procedural_graph/arena/calibrate.py --refit models/<line>_ft_<D>`
+   (about 40 min on one Colab T4, a little under 1 compute unit). Then commit
+   `research/procedural_graph/calibration/<refit>/own_games/` and run the rematch. What it does,
+   how to read the result and the rematch: section 13.
 
 ## 8. Evaluation — what the numbers mean
 
@@ -657,3 +653,117 @@ and fix the labels (4.3) in the same run.
   against the shard of the checkpoint's rule) and `game`, and update the two places that
   hardcode day 21: `initial.py`'s evolve block (`if _ENABLE_ORACLE_PRIORITY and step >= 512`)
   and the "None until turn 512 (day 21)" text in `shinka_config.yaml`'s task prompt.
+
+## 13. Calibrating the agent's predictor after a refit (for the agent that fine-tunes)
+
+Every promoted refit gets calibrated for our agent before it plays (user's decision,
+2026-09-24). This section is the whole procedure. Run it after step 2 of the daily routine
+(section 7).
+
+**What calibration changes.** Neither the model's weights nor the agent. It adds one file,
+`calibration.json`, next to the predictor in the agent's bundle
+(`hazel_runtime/checkpoint/calibration.json`). The file holds one multiplier per product for
+three numbers the oracle gives the agent every turn:
+- `score_4`: the largest predicted opponent sale over the next 4 turns, in log1p units;
+- `score_24`: the same over 24 turns;
+- `units_24`: the predicted opponent units summed over 24 turns.
+
+`kagg_oracle.forecast()` multiplies them before the policy reads them. The raw 96×9 forecast and
+the other horizons are untouched.
+
+**Why.** The agent (the feed15 graph) acts on fixed thresholds:
+- front-run when `score_4 ≥ 0.30` (`_ORACLE_FRONTRUN_SCORE`), with bigger batches at 0.45 and 0.60;
+- `score_24 ≥ 0.45` and `units_24 ≥ 2.0`;
+- the town-shop cadence bypass at `score_4` 0.25, 0.40 and 0.50.
+
+They were tuned while the agent played with the **reference** predictor,
+`ttm_c256_h96_ft_2026-09-13` (`research/procedural_graph/hazel_runtime/checkpoint`, model sha256
+3c94bfc5…). A refit's scores sit at other levels, so the same thresholds fire at other moments.
+For each product, the calibration picks the multiplier that makes the refit cross those
+thresholds as often as the reference did, on the same turns of our own arena games. The factor
+is the geometric mean over the thresholds of threshold / (the refit's score at the reference's
+firing rate). The fit has guards: a threshold counts only if the reference fires on at least
+100 origins and the product sells on at least 0.5 % of them (otherwise the factor is 1), and
+factors are clipped to 0.5–2.
+
+A calibration therefore belongs to one model, one set of thresholds and one reference. Refit it
+when any of them changes: a new refit, an evolution run that moves `_ORACLE_FRONTRUN_SCORE` or
+another oracle threshold, or a policy re-tuned on a newer predictor (which then becomes the
+reference). The threshold list is `METRICS` in `arena/calib_fit.py`, copied from
+`hazel_runtime/champion.py` (4c front-run, 5 cadence bypass). Keep the two in step.
+
+**How to run it.** On this PC, which has the `cliproxyapi` ssh alias, python3 with numpy, and
+rsync:
+
+```sh
+tmux new -d -s kagg-calib-<D> 'python3 research/procedural_graph/arena/calibrate.py \
+    --refit models/<line>_ft_<D> 2>&1 | tee /tmp/kagg-calib-<D>.log'
+```
+
+What it does:
+1. Builds a payload from the committed **game set** (`research/procedural_graph/calibration/game_set`),
+   the reference and the refit. The game set is 600 of our arena games, 800 seat-views:
+   - feed15 with the reference against plain Mohui (200 games), and against Hazel, Copper,
+     Orchard, Willow and Mohui13 (40 each), scored from feed15's side;
+   - feed15 with the 09-23 model against feed15 with the reference (200 games), scored from
+     both sides.
+2. Starts `colab_run.py` on cliproxyapi in tmux `kagg-colab-calib-<refit>` on one T4 High-RAM VM
+   (`colab2:t4hm`), and prints the VM's browser link; give it to the user (section 3.1).
+3. The VM replays each game from its trace through the engine. The job fails unless the replay
+   reproduces the recorded final cash. Both models then run as the torch TinyTimeMixer on every
+   turn from 256 to 714, after a check against the numpy port (within 1e-5).
+4. Waits, requires `COLAB_VMS_LEFT=0` and every game scored, pulls the results and deletes the
+   session history.
+5. Writes `research/procedural_graph/calibration/<refit>/own_games/`:
+   - `calibration.json`, fitted on all games;
+   - `calibration_pool.json` and `calibration_mirror.json`, the two subsets;
+   - `fit_report*.txt`;
+   - `jobs.json`;
+   - a README with each product's AUC for both models and the factors.
+
+If it stops (sleep, network), run the same command again: it resumes, pulling a finished remote
+run or waiting for a running one. Commit the output directory.
+
+**Reading the result.** The README table gives each product's `score_4` AUC for the reference and
+the refit on our games. **AUC does not change under any calibration.** If the refit ranks our
+opponents' sales worse on the products the agent trades most, calibration cannot recover that,
+and the agent with the refit will still lose to the agent with the reference. Those products
+are wheat, milk, strawberry, fertilizer and wool. Measured on 2026-09-25:
+- The 09-23 refit ranks top ladder players better (held-out ladder AUC up almost everywhere).
+- But it ranks our Mohui-family opponents worse: `score_4` AUC for wheat 0.682 → 0.642, strawberry
+  0.805 → 0.777, fertilizer 0.786 → 0.769.
+- Calibrated on ladder games, it still lost to the reference 19W-141L (−$265 a game) inside
+  feed15; uncalibrated it lost 24W-174L.
+
+Report the table to the user with the refit's usual metrics. A refit can be better on the ladder
+and worse in our arena at the same time.
+
+**Rematch (acceptance check).** Before a calibrated refit replaces the reference in any agent,
+play the same graph with the refit and the calibration against the same graph with the
+reference. Use the arena validation seeds (200 = 100 per seat, the same seeds as every earlier
+rematch, so the results pair up game by game):
+
+```sh
+K=research/procedural_graph/arena G=research/procedural_graph/evolution_results/feed_fix_2026-09-24/feed15_graph.json
+R=models/<line>_ft_<D> C=research/procedural_graph/calibration/<line>_ft_<D>/own_games/calibration.json
+python3 $K/payload.py --eval-id rematch-<D> --graph cal=$G --graph ref=$G --checkpoint cal=$R \
+    --calibration cal=$C --pairs cal:ref --seeds 200
+# then the launch of section 3.1 with 5 x --vm colab2:hm (about 25 min, about 0.5 units)
+```
+
+The refit plays only if the calibrated side does not lose the rematch. Otherwise it stays
+behind the reference, and the user decides.
+
+**Cost and rules.** A calibration (one T4, about 40 min) plus a rematch (5 CPU VMs, about 25 min)
+comes to roughly 1.5 compute units per refit. These two batches are the standard routine; any
+other batch needs the user's OK (section 3.1). The runner stops its VMs itself. Check
+`COLAB_VMS_LEFT=0` in its log, and `colab2 sessions` if in doubt.
+
+**Other options.**
+- Calibrating on ladder games instead of our own: `calib_payload.py --zip <day zip>`, which uses
+  the refit's held-out games plus a sample of the rest. It is useful for comparison only, since
+  it did not help in the arena.
+- A new game set, when the agent or its opponent pool changes: `calib_payload.py --trace
+  'runs/arena/<run>/traces/<tag>*@ours|@both'`, then copy the payload's `traces.zip` and write
+  `games.json` like the committed one.
+- Details and file formats: `research/procedural_graph/arena/README.md` ("Predictor calibration").

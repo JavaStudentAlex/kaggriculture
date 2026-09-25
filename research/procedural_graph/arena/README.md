@@ -46,43 +46,46 @@ this PC awake, for a runner that has to run here.
 
 ## Predictor calibration (after every refit)
 
-The graph's oracle thresholds (front-run `score_4` 0.30, the batch steps, `score_24` 0.45,
-`units_24` 2.0, the cadence bypass) were tuned with one predictor, the **reference**: at present
-`ttm_c256_h96_ft_2026-09-13`, which is `hazel_runtime/checkpoint`. A refit's raw scores sit at
-other levels, so the same thresholds fire at other moments. Uncalibrated, the 09-23 refit lost to
-the 09-13 model 24W-174L inside feed15. A calibration scales the refit's `score_4`, `score_24` and
-`units_24` per product, so that each threshold fires as often as with the reference. The oracle
-applies a `calibration.json` that sits next to the checkpoint. Always calibrate against the
-reference, not against the previous refit, until the policy is re-tuned on a newer predictor.
+The full procedure, including why, how to read the result and the rematch, is AGENTS.md
+section 13. In short: the graph's oracle thresholds (front-run `score_4` 0.30, the batch steps,
+`score_24` 0.45, `units_24` 2.0, the cadence bypass) were tuned with the **reference** predictor,
+`ttm_c256_h96_ft_2026-09-13` (`hazel_runtime/checkpoint`). A refit's scores sit at other levels.
+`calibration.json` holds per-product multipliers on `score_4`, `score_24` and `units_24`, so the
+refit crosses each threshold as often as the reference did on the same turns of our own games.
+The oracle applies it when it sits next to the checkpoint. The weights and the agent are unchanged,
+and so is ranking (AUC).
 
 ```sh
-K=research/procedural_graph/arena D=2026-09-23 M=models/ttm_c256_h96_ft_$D
-kaggle datasets download kaggle/kaggriculture-episodes-$D -p <replay dir>     # read-only
-# the refit's held-out games (its val_episodes.json) + a seeded sample of the rest of the day, every turn
-python $K/calib_payload.py --zip <replay dir>/kaggriculture-episodes-$D.zip \
-    --model old=research/procedural_graph/hazel_runtime/checkpoint --model new=$M \
-    --games 400 --stride 1 --eval-id calib$D
-rsync -a research/procedural_graph/runs/arena/calib$D/payload cliproxyapi:kagg-colab/runs/calib$D/
-# on cliproxyapi, the launch command above with --vm colab2:t4hm (one T4 High-RAM VM, ~45 min)
-rsync -a cliproxyapi:kagg-colab/runs/calib$D/results.jsonl cliproxyapi:kagg-colab/runs/calib$D/traces \
-    research/procedural_graph/runs/arena/calib$D/
-O=research/procedural_graph/calibration/${M#models/}; mkdir -p $O
-python $K/calib_fit.py research/procedural_graph/runs/arena/calib$D/traces --out $O/calibration.json > $O/fit_report.txt
-python $K/calib_fit.py research/procedural_graph/runs/arena/calib$D/traces --held-out-only \
-    --out $O/calibration_heldout.json > $O/fit_report_heldout.txt
-cp research/procedural_graph/runs/arena/calib$D/payload/jobs.json $O/
-# play it: payload.py --graph G=<graph> --checkpoint G=$M --calibration G=$O/calibration.json ...
+# one command (run in tmux, ~40 min on one T4): payload, Colab run on cliproxyapi, pull, fit
+python3 research/procedural_graph/arena/calibrate.py --refit models/ttm_c256_h96_ft_<D>
+# -> research/procedural_graph/calibration/ttm_c256_h96_ft_<D>/own_games/ (commit it)
+# play it: payload.py --graph G=<graph> --checkpoint G=models/... --calibration G=<that dir>/calibration.json
 ```
 
+The pieces, for other data or a manual run:
+- `calib_payload.py` builds the payload from three kinds of games:
+  - `--game-set calibration/game_set`: the committed 600 own games (traces.zip + games.json);
+  - `--trace 'GLOB[@ours|theirs|both]'`: other arena traces;
+  - `--zip <Kaggle day zip>`: ladder games (the refit's held-out ones plus a sample of the rest).
 - `calib_worker.py` ships in the payload as `arena.py`, so `colab_run.py` drives it like a game
-  batch. On a T4 it installs torch and granite-tsfm into the VM's venv (about 40 s) and checks
-  the torch model against the numpy port (1.7e-6). It forecasts every origin in batches (about
-  330 forecasts/s, about 5.5 s per game for two models) while 8 processes rebuild the features.
-  Without a GPU it falls back to the numpy port, which is about 100x slower.
-- `calib_fit.py` needs `kaggle-environments` (for the product order). Its threshold list mirrors
-  `hazel_runtime/champion.py`; update it when the policy's thresholds change.
-- The fitted file records both models' hashes, the replay day, and the episode and origin
-  counts. `calibration/ttm_c256_h96_ft_2026-09-23/` is the first one; its README has the findings.
+  batch.
+  - A trace is replayed through the engine with its recorded actions and seed. The job fails
+    unless the replay reproduces the recorded final cash.
+  - On a T4 the worker installs torch and granite-tsfm (about 40 s) and checks the torch model
+    against the numpy port (within 1e-5). It then forecasts every origin in batches (about 330
+    forecasts/s; about 15 own games a minute for two models) while 8 processes rebuild the
+    features. Without a GPU it falls back to the numpy port, which is about 100x slower.
+  - Each game's npz records the product order.
+- `calib_fit.py` fits and reports (plain numpy).
+  - `--group REGEX` fits on a subset; `--held-out-only` fits on ladder held-out games only.
+  - Guards: at least 100 reference firings per threshold, a product base rate of at least 0.5 %,
+    and factors clipped to 0.5–2.
+  - Its `METRICS` threshold list mirrors `hazel_runtime/champion.py`. Update it when the
+    policy's thresholds change.
+- `calibrate.py` chains them and resumes a run that was interrupted.
+
+Results so far are in `calibration/ttm_c256_h96_ft_2026-09-23/`: the top level is the ladder fit,
+and `own_games/` is the fit on our own games; their READMEs have the findings.
 
 A Brev CPU box is the alternative (after `brev login`; delete it when done, it bills by the hour):
 

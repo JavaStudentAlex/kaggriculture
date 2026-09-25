@@ -21,9 +21,6 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'opponent_model'))
-from mechanics import PRODUCTS  # noqa: E402 -- kagg_oracle's product order (needs kaggle_environments)
-
 # metric -> (npz key, the thresholds the policy compares it with: hazel_runtime/champion.py,
 # 4c front-run (_ORACLE_FRONTRUN_SCORE 0.30, batch steps 0.45 / 0.60, score_24 0.45, units_24 2.0)
 # and 5 the town-shop cadence bypass (0.25 / 0.40 / 0.50)). Update them when the policy changes.
@@ -44,14 +41,27 @@ def auc(score, y):
     return (r[y].sum() - pos * (pos + 1) / 2) / (pos * neg) if pos and neg else float('nan')
 
 
-def fit(d, ref, cal):
+def products_of(loaded):
+    """The per-product column order: recorded in every npz since 2026-09-25; older files fall back to
+    mechanics.PRODUCTS (kagg_oracle's order), which needs kaggle_environments."""
+    if 'products' in loaded[0]:
+        return [str(p) for p in loaded[0]['products']]
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'opponent_model'))
+    try:
+        from mechanics import PRODUCTS
+        return list(PRODUCTS)
+    except ImportError:   # no kaggle_environments here: the engine's order, checked 2026-09-25
+        return ['WHEAT', 'CARROT', 'TOMATO', 'STRAWBERRY', 'MELON', 'EGG', 'MILK', 'WOOL', 'FERTILIZER']
+
+
+def fit(d, ref, cal, products):
     """(factors, report lines) for arrays `d` of calib_worker.py npz files."""
     truth = {'s4': d['truth4'] > 0, 's24': d['truth24'] > 0, 'u24': d['truth24'] > 0}
     factors, report = {}, []
     for metric, (key, taus) in METRICS.items():
         report.append(f'\n== {metric} (thresholds {taus})')
         factors[metric] = {}
-        for i, p in enumerate(PRODUCTS):
+        for i, p in enumerate(products):
             o, n, y = d[f'{ref}_{key}'][:, i], d[f'{cal}_{key}'][:, i], truth[key][:, i]
             ratios, lines = [], []
             for tau in taus:
@@ -93,6 +103,9 @@ def main():
     a = ap.parse_args()
     files = sorted(Path(a.traces).glob('cal_*.npz'))
     loaded = [dict(np.load(f)) for f in files]
+    products = products_of(loaded)
+    for x in loaded:
+        x.pop('products', None)
     d = {k: np.concatenate([x[k] for x in loaded]) for k in loaded[0]}
     if 'group' not in d:   # npz written before groups existed: Kaggle replays
         d['group'] = np.full(len(d['step']), 'ladder')
@@ -106,7 +119,7 @@ def main():
     print('games by group:', dict(sorted(games.items())))
     print(f"{len(files)} episodes ({episodes} used{', held-out only' if a.held_out_only else ''}), "
           f"origins {len(d['step'])}, steps {d['step'].min()}..{d['step'].max()}")
-    factors, report = fit(d, a.reference, a.calibrated)
+    factors, report = fit(d, a.reference, a.calibrated, products)
     print('\n'.join(report))
     if a.out:
         manifest_path = Path(a.manifest) if a.manifest else Path(a.traces).parent / 'payload' / 'jobs.json'
