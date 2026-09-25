@@ -1,0 +1,118 @@
+games 59 (W 33, L 26); re-simulation mismatches: none
+
+== totals (mean per game), ours | theirs
+  losses final   73,535 |   88,561   revenue  105,497 |  125,482   spend  34,962 |  39,920   revenue days 0-14  43,330 |  41,997   days 15-29  62,166 |  83,484
+  wins   final   95,562 |   75,377   revenue  140,358 |  109,668   spend  47,796 |  37,291   revenue days 0-14  48,645 |  36,936   days 15-29  91,713 |  72,732
+
+== revenue per product (mean $ per game), ours | theirs; the losses' middle column is that line's share of the mean loss margin
+  WHEAT       losses  19,953 |  22,539   +2,586    wins  33,475 |  18,727
+  CARROT      losses     876 |   5,526   +4,650    wins     880 |   1,479
+  TOMATO      losses       0 |   1,816   +1,816    wins       0 |   1,141
+  STRAWBERRY  losses  23,137 |  22,948     -189    wins  33,247 |  27,693
+  MELON       losses  14,444 |  14,185     -259    wins  15,410 |  12,990
+  EGG         losses       0 |   3,083   +3,083    wins       0 |     622
+  MILK        losses  15,136 |  13,220   -1,916    wins  21,263 |  16,752
+  WOOL        losses  17,148 |  27,266  +10,119    wins  20,083 |  17,195
+  FERTILIZER  losses  14,802 |  14,898      +96    wins  16,000 |  13,068
+  spend seed:       6,682 |   6,765      -83    wins   6,622 |   6,692
+  spend animal:     6,204 |   7,573   -1,369    wins   6,494 |   6,930
+  spend product:   12,882 |  16,399   -3,517    wins  25,711 |  14,233
+  spend hire        6,194 |   5,875     +318    wins   5,969 |   6,436
+  spend land        3,000 |   3,308     -308    wins   3,000 |   3,000
+
+== units sold and mean price per product (per game), ours | theirs
+  WHEAT       losses  518u @  38.6 |  562u @  40.1    wins  811u @  41.3 |  441u @  42.5
+  CARROT      losses   12u @  70.3 |   77u @  72.1    wins   13u @  65.4 |   26u @  56.5
+  TOMATO      losses    0u @   nan |   10u @ 173.6    wins    0u @   nan |   11u @  99.3
+  STRAWBERRY  losses  263u @  87.8 |  249u @  92.2    wins  261u @ 127.3 |  241u @ 114.9
+  MELON       losses   72u @ 200.6 |   74u @ 190.4    wins   72u @ 214.0 |   73u @ 177.4
+  EGG         losses    0u @   nan |   51u @  60.1    wins    0u @   nan |   12u @  50.7
+  MILK        losses  256u @  59.2 |  194u @  68.1    wins  247u @  86.1 |  220u @  76.2
+  WOOL        losses  143u @ 119.9 |  185u @ 147.3    wins  166u @ 120.9 |  151u @ 113.9
+  FERTILIZER  losses  323u @  45.9 |  332u @  44.9    wins  331u @  48.4 |  275u @  47.6
+
+== net trading (mean per game): wheat revenue - wheat bought - wheat seed; fertilizer revenue - fertilizer bought
+  losses ours   wheat bought  10,271  net wheat   7,811  net fertilizer  12,192
+  losses theirs wheat bought  14,403  net wheat   6,453  net fertilizer  12,902
+  wins   ours   wheat bought  23,002  net wheat   8,601  net fertilizer  13,291
+  wins   theirs wheat bought  12,824  net wheat   4,459  net fertilizer  11,659
+
+== cumulative revenue gap (theirs - ours) at the end of day d
+  losses d3:    -74  d6:    +85  d9:   -220  d12: -3,130  d15:   -297  d18: +4,722  d21: +6,523  d24:+11,167  d27:+14,965  d29:+19,985
+  wins   d3:   -239  d6:   -463  d9: -1,125  d12: -9,925  d15:-13,669  d18:-19,975  d21:-23,255  d24:-27,179  d27:-29,484  d29:-30,690
+
+== farm at hour 12 of day d (mean), ours | theirs
+  losses d5  quadrants 1.00 | 1.00  hands  5.0 |  4.5  goose  0.0 |  0.0  cow  4.0 |  3.8  sheep  2.0 |  2.2
+  losses d8  quadrants 2.00 | 2.00  hands  9.9 |  8.8  goose  0.0 |  0.6  cow  8.7 |  7.0  sheep  3.2 |  3.9
+  losses d11 quadrants 3.00 | 3.00  hands 11.0 | 10.7  goose  0.0 |  1.7  cow  8.6 |  7.2  sheep  4.5 |  7.3
+  losses d14 quadrants 3.00 | 3.00  hands 10.0 |  9.8  goose  0.0 |  1.7  cow  8.6 |  7.2  sheep  5.4 |  7.4
+  losses d20 quadrants 3.00 | 3.08  hands 12.0 | 11.9  goose  0.0 |  1.7  cow  8.6 |  7.2  sheep  5.4 |  7.8
+  wins   d5  quadrants 1.00 | 1.00  hands  4.8 |  4.4  goose  0.0 |  0.0  cow  4.0 |  3.4  sheep  2.0 |  2.3
+  wins   d8  quadrants 2.00 | 1.97  hands  9.8 |  9.1  goose  0.0 |  0.0  cow  8.2 |  7.3  sheep  3.5 |  3.4
+  wins   d11 quadrants 3.00 | 2.94  hands 11.0 | 11.2  goose  0.0 |  0.6  cow  8.2 |  8.0  sheep  5.6 |  5.4
+  wins   d14 quadrants 3.00 | 2.97  hands 10.0 |  9.8  goose  0.0 |  0.6  cow  8.2 |  8.2  sheep  6.4 |  6.0
+  wins   d20 quadrants 3.00 | 2.97  hands 12.0 | 12.1  goose  0.0 |  0.6  cow  8.2 |  8.1  sheep  6.4 |  6.0
+  losses ours   goose/cow/sheep on day 14: {'0/9/5': 19, '0/8/5': 5, '0/6/10': 1, '0/6/11': 1}
+  losses theirs goose/cow/sheep on day 14: {'0/6/11': 4, '3/8/6': 3, '0/8/9': 3, '5/6/6': 3, '3/9/5': 2, '0/9/8': 2}
+  wins   ours   goose/cow/sheep on day 14: {'0/9/5': 24, '0/6/11': 6, '0/6/10': 2, '0/8/5': 1}
+  wins   theirs goose/cow/sheep on day 14: {'0/9/5': 7, '0/10/4': 3, '0/9/8': 3, '0/8/6': 2, '0/11/4': 2, '0/8/5': 2}
+  losses ours   quadrants at the end: {3: 26}
+  losses theirs quadrants at the end: {3: 24, 4: 2}
+  wins   ours   quadrants at the end: {3: 33}
+  wins   theirs quadrants at the end: {3: 33}
+
+== town shop demand over the game (units per game)
+  wheat  503 |  545  carrot  337 |  309  tomato  174 |  253  strawberry  352 |  417  egg  242 |  194  milk  228 |  292  wool  210 |  159   (losses | wins)
+  STRAWBERRY low demand: our revenue  17,261 at  66.0, lost 16/29   high demand:  39,938 at 152.1, lost 10/30
+  MILK       low demand: our revenue   8,923 at  36.4, lost 15/29   high demand:  27,882 at 108.7, lost 11/30
+  WOOL       low demand: our revenue   6,106 at  44.6, lost 11/29   high demand:  31,050 at 178.1, lost 15/30
+
+== our route (sheep >= 10 on day 14) against the day the yarn store opened
+  cows  yarn store day    6: W  0  L  9
+  cows  yarn store day    9: W  3  L  1
+  cows  yarn store day   12: W  0  L  1
+  cows  yarn store day   15: W  2  L  1
+  cows  yarn store day   18: W  2  L  3
+  cows  yarn store day   21: W  3  L  0
+  cows  yarn store day   24: W  1  L  2
+  cows  yarn store day None: W 14  L  7
+  sheep yarn store day    3: W  7  L  1
+  sheep yarn store day    6: W  1  L  0
+  sheep yarn store day None: W  0  L  1
+
+== where the opponent's revenue edge came from, per loss: {'wool': 11, 'egg/carrot/tomato': 15}
+  wool              n=11 mean margin  -15,697; sheep on day 14 theirs 9.9 ours 5.0; geese theirs 0.0; revenue gaps wool +23,902 egg +24 carrot +1,640 tomato +1,667 strawberry -449 milk -4,950
+  egg/carrot/tomato n=15 mean margin  -14,535; sheep on day 14 theirs 5.6 ours 5.7; geese theirs 2.9; revenue gaps wool +11 egg +5,327 carrot +6,857 tomato +1,925 strawberry +2 milk +308
+
+== every loss: seed, opponent (current rating of that submission), margin, yarn-store day, shops by day 12, largest revenue gaps
+  113222599 09:02 seat 0 seed 1025817768  ayman elamin         1101.3  -47,993  yarn    6  bak YARN piz YARN  cows  | 0/3/15   wool +87,735, tomato +7,354, fertilizer +1,403
+  113223849 09:06 seat 0 seed  131716916  Shardul Gharat       1240.7   -6,370  yarn   15  bak smo bak piz    cows  | 2/9/4    wheat +8,707, egg +4,859, carrot +268
+  113226248 09:14 seat 1 seed  270102265  rishavsaigal         1574.4  -15,410  yarn None  smo fm pet fm      cows  | 3/8/6    carrot +8,848, egg +4,484, wheat +2,934
+  113226277 09:14 seat 1 seed  379442008  Zhong Lyu            1383.4  -36,899  yarn   18  piz piz smo smo    cows  | 3/9/5    tomato +28,875, milk +6,803, egg +3,621
+  113228742 09:22 seat 0 seed 1863161608  Phương Nguyễn Việt   1130.0   -2,195  yarn   24  pet bak piz bak    cows  | 0/9/8    milk +1,043, wool +740, fertilizer +459
+  113229927 09:26 seat 1 seed 1825472073  Kers Aoyagi          1136.0  -11,270  yarn    6  piz YARN ice ice   cows  | 0/8/9    wool +18,302, fertilizer +1,174
+  113231075 09:30 seat 1 seed  925888793  K.nosaka             1024.9   -7,098  yarn    6  ice YARN pet bru   cows  | 0/6/10   wool +29,336, strawberry +1,061, carrot +889
+  113238070 09:54 seat 0 seed 2101348097  Anton Tikhonov       1560.9  -16,829  yarn None  bru pet bak bru    cows  | 5/6/6    wheat +48,703, egg +11,321, carrot +9,706
+  113238122 09:54 seat 1 seed  216987965  zyichi               1090.9   -6,064  yarn    6  smo YARN bak smo   cows  | 0/6/8    wool +17,538, strawberry +694
+  113240486 10:02 seat 1 seed 2049321353  wuy1hao              1202.4  -16,716  yarn    6  bru YARN YARN bru  cows  | 0/9/8    wool +15,859, fertilizer +846, strawberry +581
+  113245144 10:18 seat 1 seed   16002583  AlexMoura2026          None  -35,089  yarn None  pet ice pet fm     cows  | 3/8/6    carrot +32,059, egg +4,384, strawberry +2,345
+  113246316 10:22 seat 0 seed 2043505370  Busya PRIME          1071.3  -14,036  yarn    6  ice YARN bru fm    cows  | 0/8/9    wool +20,166, fertilizer +1,015, milk +548
+  113252276 10:42 seat 1 seed   36705986  Cuong Le             1138.7   -6,275  yarn   18  bru fm pet pet     cows  | 0/9/5    carrot +8,511, strawberry +1,406
+  113255835 10:54 seat 1 seed 1847291811  Justin Mai 16        1119.9   -1,846  yarn None  fm bak pet fm      cows  | 2/8/4    egg +3,785, wheat +494, wool +27
+  113257010 10:58 seat 0 seed 1586964654  williams             1129.6   -7,997  yarn None  bak bak piz fm     cows  | 3/9/5    egg +5,403, carrot +3,297, strawberry +522
+  113261712 11:14 seat 1 seed 1991302409  Matin Urdu             None  -16,430  yarn    6  ice YARN pet smo   cows  | 0/6/11   wheat +40,967, wool +19,892, carrot +5,399
+  113263462 11:22 seat 0 seed 1010027077  Ansh Agarwal         1831.8  -18,388  yarn   12  bak piz bru YARN   cows  | 3/8/6    egg +5,640, wool +4,152, carrot +2,545
+  113264061 11:22 seat 1 seed 1074457773  Jesse Bullard          None   -9,803  yarn None  pet bak bru bru    cows  | 4/5/5    egg +7,978, carrot +5,574, strawberry +1,349
+  113266414 11:30 seat 0 seed  526045270  Xiang Li             1138.2   -1,530  yarn None  pet pet smo bru    sheep | 3/7/4    egg +5,016, milk +965
+  113267586 11:34 seat 0 seed  162630429  Speril               1177.6  -16,426  yarn None  pet bru fm bak     cows  | 3/8/5    carrot +11,281, egg +4,865, milk +370
+  113286389 12:38 seat 1 seed 1336616261  Pranav Thota         1162.5   -6,922  yarn    9  ice bru YARN piz   cows  | 0/6/11   wool +14,097, carrot +3,017, melon +33
+  113326519 14:58 seat 0 seed  140659244  PUN                    None   -8,690  yarn    3  YARN bru fm pet    sheep | 0/6/11   carrot +8,760, wool +874, strawberry +857
+  113336002 15:30 seat 0 seed 1441443537  z7777                2371.7  -17,033  yarn   24  bak bru bak ice    cows  | 5/6/6    wheat +144,917, egg +10,171, carrot +3,187
+  113341838 15:50 seat 1 seed  258395137  Dariush Afshar       1452.9  -19,433  yarn   18  pet bru bak piz    cows  | 5/6/6    egg +8,380, carrot +6,622, wheat +1,944
+  113397704 19:01 seat 0 seed 1690491916  volumatic            1234.5  -18,339  yarn    6  fm YARN ice pet    cows  | 0/8/9    wool +17,542, carrot +4,989, fertilizer +678
+  113421316 20:29 seat 1 seed  282724254  edwinis              1411.1  -25,602  yarn    6  ice YARN fm fm     cows  | 0/6/11   wool +21,712, tomato +10,980, carrot +4,222
+
+== opening market orders of days 0-1 (first 6)
+  ours: BUY_PRODUCT/WHEAT/15 SELL/WHEAT/10 BUY_SEED/WHEAT/7 BUY_SEED/MELON/12 HIRE HIRE
+  losses: 4x BUY_PRODUCT/WHEAT/20 SELL/WHEAT/15 BUY_SEED/WHEAT/1 HIRE HIRE HIRE; 4x BUY_PRODUCT/WHEAT/13 SELL/WHEAT/9 BUY_SEED/WHEAT/7 BUY_SEED/MELON/12 HIRE HIRE; 3x BUY_ANIMAL/COW/2 HIRE HIRE HIRE HIRE HIRE; 2x BUY_PRODUCT/WHEAT/13 BUY_PRODUCT/WHEAT/30 SELL/WHEAT/30 SELL/WHEAT/13 BUY_PRODUCT/WHEAT/5 HIRE; 2x BUY_PRODUCT/WHEAT/5 BUY_SEED/WHEAT/7 BUY_SEED/MELON/12 HIRE HIRE HIRE
+  wins: 7x BUY_PRODUCT/WHEAT/5 BUY_SEED/WHEAT/7 BUY_SEED/MELON/12 HIRE HIRE HIRE; 4x HIRE HIRE HIRE HIRE HIRE BUY_ANIMAL/COW/2; 3x BUY_PRODUCT/WHEAT/4 HIRE HIRE BUY_SEED/MELON/7 BUY_SEED/WHEAT/5 BUY_ANIMAL/SHEEP/4; 3x BUY_PRODUCT/WHEAT/53 SELL/WHEAT/48 BUY_ANIMAL/COW/2 BUY_ANIMAL/SHEEP/2 HIRE HIRE; 2x HIRE HIRE HIRE HIRE HIRE HIRE

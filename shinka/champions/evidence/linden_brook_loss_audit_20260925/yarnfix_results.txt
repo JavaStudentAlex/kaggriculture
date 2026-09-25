@@ -1,0 +1,23 @@
+236 games; not DONE or with errors: none
+(seed, seat) pairs: 118; played more than once: 118; repeats that differ: 0 []
+
+seeds without the trigger: 51; identical cash per seat in both games: 51 (exact ties: 48; the rest differ only by seat); violations: none
+seeds where the yarn store opened second (fix active): 8 of 59
+  seed  216987965  fixed in seat 0: fixed   122,808  old   111,620    +11,188  W   shops by day 6: ['SMOOTHIE_SHOP', 'YARN_STORE']
+  seed  216987965  fixed in seat 1: fixed   122,808  old   111,620    +11,188  W   shops by day 6: ['SMOOTHIE_SHOP', 'YARN_STORE']
+  seed  282724254  fixed in seat 0: fixed   122,043  old    94,762    +27,281  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed  282724254  fixed in seat 1: fixed   122,043  old    94,762    +27,281  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed 1025817768  fixed in seat 0: fixed    90,442  old    59,387    +31,055  W   shops by day 6: ['BAKERY', 'YARN_STORE']
+  seed 1025817768  fixed in seat 1: fixed    90,442  old    59,387    +31,055  W   shops by day 6: ['BAKERY', 'YARN_STORE']
+  seed 1690491916  fixed in seat 0: fixed    94,477  old    73,214    +21,263  W   shops by day 6: ['FARMERS_MARKET', 'YARN_STORE']
+  seed 1690491916  fixed in seat 1: fixed    94,477  old    73,214    +21,263  W   shops by day 6: ['FARMERS_MARKET', 'YARN_STORE']
+  seed 1825472073  fixed in seat 0: fixed   107,339  old    91,701    +15,638  W   shops by day 6: ['SMOOTHIE_SHOP', 'YARN_STORE']
+  seed 1825472073  fixed in seat 1: fixed   107,339  old    91,701    +15,638  W   shops by day 6: ['SMOOTHIE_SHOP', 'YARN_STORE']
+  seed 1991302409  fixed in seat 0: fixed   125,553  old   113,836    +11,717  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed 1991302409  fixed in seat 1: fixed   125,553  old   113,836    +11,717  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed 2043505370  fixed in seat 0: fixed   134,774  old   110,589    +24,185  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed 2043505370  fixed in seat 1: fixed   134,774  old   110,589    +24,185  W   shops by day 6: ['ICE_CREAM_SHOP', 'YARN_STORE']
+  seed 2049321353  fixed in seat 0: fixed   107,792  old    75,945    +31,847  W   shops by day 6: ['BRUNCH_SPOT', 'YARN_STORE']
+  seed 2049321353  fixed in seat 1: fixed   107,792  old    75,945    +31,847  W   shops by day 6: ['BRUNCH_SPOT', 'YARN_STORE']
+fix active: fixed 16W-0L-0T in 16 games (seat 0: 8W-0L, seat 1: 8W-0L), mean margin +21,772
+all (seed, seat) pairs: fixed 19W-3L-96T; mean margin +2,952.1 (non-trigger seeds net to zero seed by seed)

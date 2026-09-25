@@ -1,0 +1,1737 @@
+{
+ "evaluation_id": "yarnfix-2026-09-25",
+ "pairs": [
+  [
+   "fixed",
+   "old"
+  ]
+ ],
+ "seeds": [
+  49281063,
+  1138226094,
+  1206403908,
+  1337162165,
+  1463277522,
+  510092380,
+  325323416,
+  1025817768,
+  131716916,
+  326250946,
+  270102265,
+  379442008,
+  119851509,
+  1131629679,
+  1863161608,
+  1825472073,
+  925888793,
+  730773827,
+  1676432446,
+  1300861651,
+  1607166250,
+  1182967369,
+  2101348097,
+  216987965,
+  1213415531,
+  2049321353,
+  1369218926,
+  1894874391,
+  1388208163,
+  16002583,
+  2043505370,
+  1196987098,
+  264689498,
+  1587348523,
+  447114470,
+  36705986,
+  1332714257,
+  33099102,
+  1847291811,
+  1586964654,
+  1043613510,
+  1258781843,
+  1882021231,
+  1991302409,
+  1400668863,
+  1010027077,
+  1074457773,
+  7640897,
+  526045270,
+  162630429,
+  811743211,
+  1336616261,
+  306664846,
+  140659244,
+  1441443537,
+  258395137,
+  1680638855,
+  1690491916,
+  282724254
+ ],
+ "jobs": [
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 49281063,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 49281063,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1138226094,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1138226094,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1206403908,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1206403908,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1337162165,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1337162165,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1463277522,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1463277522,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 510092380,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 510092380,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 325323416,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 325323416,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1025817768,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1025817768,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 131716916,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 131716916,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 326250946,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 326250946,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 270102265,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 270102265,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 379442008,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 379442008,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 119851509,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 119851509,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1131629679,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1131629679,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1863161608,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1863161608,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1825472073,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1825472073,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 925888793,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 925888793,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 730773827,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 730773827,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1676432446,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1676432446,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1300861651,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1300861651,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1607166250,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1607166250,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1182967369,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1182967369,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2101348097,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2101348097,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 216987965,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 216987965,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1213415531,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1213415531,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2049321353,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2049321353,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1369218926,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1369218926,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1894874391,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1894874391,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1388208163,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1388208163,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 16002583,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 16002583,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2043505370,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2043505370,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1196987098,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1196987098,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 264689498,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 264689498,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1587348523,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1587348523,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 447114470,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 447114470,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 36705986,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 36705986,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1332714257,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1332714257,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 33099102,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 33099102,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1847291811,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1847291811,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1586964654,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1586964654,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1043613510,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1043613510,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1258781843,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1258781843,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1882021231,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1882021231,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1991302409,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1991302409,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1400668863,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1400668863,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1010027077,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1010027077,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1074457773,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1074457773,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 7640897,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 7640897,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 526045270,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 526045270,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 162630429,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 162630429,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 811743211,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 811743211,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1336616261,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1336616261,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 306664846,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 306664846,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 140659244,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 140659244,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1441443537,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1441443537,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 258395137,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 258395137,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1680638855,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1680638855,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1690491916,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1690491916,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 282724254,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r1",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 282724254,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 49281063,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 49281063,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1138226094,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1138226094,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1206403908,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1206403908,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1337162165,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1337162165,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1463277522,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1463277522,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 510092380,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 510092380,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 325323416,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 325323416,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1025817768,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1025817768,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 131716916,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 131716916,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 326250946,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 326250946,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 270102265,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 270102265,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 379442008,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 379442008,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 119851509,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 119851509,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1131629679,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1131629679,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1863161608,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1863161608,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1825472073,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1825472073,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 925888793,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 925888793,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 730773827,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 730773827,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1676432446,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1676432446,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1300861651,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1300861651,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1607166250,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1607166250,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1182967369,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1182967369,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2101348097,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2101348097,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 216987965,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 216987965,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1213415531,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1213415531,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2049321353,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2049321353,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1369218926,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1369218926,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1894874391,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1894874391,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1388208163,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1388208163,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 16002583,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 16002583,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2043505370,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 2043505370,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1196987098,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1196987098,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 264689498,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 264689498,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1587348523,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1587348523,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 447114470,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 447114470,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 36705986,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 36705986,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1332714257,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1332714257,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 33099102,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 33099102,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1847291811,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1847291811,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1586964654,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1586964654,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1043613510,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1043613510,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1258781843,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1258781843,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1882021231,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1882021231,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1991302409,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1991302409,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1400668863,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1400668863,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1010027077,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1010027077,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1074457773,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1074457773,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 7640897,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 7640897,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 526045270,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 526045270,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 162630429,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 162630429,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 811743211,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 811743211,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1336616261,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1336616261,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 306664846,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 306664846,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 140659244,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 140659244,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1441443537,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1441443537,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 258395137,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 258395137,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1680638855,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1680638855,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1690491916,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 1690491916,
+   "a_seat": 1
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 282724254,
+   "a_seat": 0
+  },
+  {
+   "tag": "fixed_r2",
+   "a": "bundles/fixed",
+   "b": "bundles/old",
+   "seed": 282724254,
+   "a_seat": 1
+  }
+ ],
+ "variants": {},
+ "graphs": {
+  "old": {
+   "file": "research/procedural_graph/evolution_results/feed_fix_2026-09-24/feed15_graph.json",
+   "sha256": "92d48eed5fbee4472e8fc9074ffa6e2921efca50b06ef5ccc7080ef3e4c64683",
+   "checkpoint": "models/ttm_c256_h96_ft_2026-09-24",
+   "calibration": "research/procedural_graph/calibration/ttm_c256_h96_ft_2026-09-24/calibration.json"
+  }
+ },
+ "bundles": {
+  "fixed": "/tmp/claude-1000/-home-alex-PycharmProjects-kaggriculture/47903d94-5e6d-4dde-b2ba-d0e375343e4f/scratchpad/fixed_bundle"
+ },
+ "note": "fixed (Linden Brook + yarn-second route, arena/yarn_second_fix.py) vs old (Linden Brook) on the 59 seeds of Linden Brook's ladder games, both seats, each game twice (tags fixed_r1/_r2)"
+}

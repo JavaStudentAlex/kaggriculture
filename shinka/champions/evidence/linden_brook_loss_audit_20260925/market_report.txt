@@ -1,0 +1,143 @@
+games 59 (W 33, L 26); re-simulation mismatches: none
+
+== sales into a glutted market (mean per game): units sold | at the $1 floor | below the base price | revenue;
+   glut = share of the game's 719 steps with the market's stock above its neutral level (price below base)
+  WHEAT      losses glut   1%   ours  518u    0@$1   13<base $ 19,953   theirs  562u    0@$1   13<base $ 22,539
+  WHEAT      wins   glut   0%   ours  811u    0@$1    1<base $ 33,475   theirs  441u    0@$1    1<base $ 18,727
+  CARROT     losses glut   1%   ours   12u    0@$1    0<base $    876   theirs   77u    0@$1    3<base $  5,526
+  CARROT     wins   glut   0%   ours   13u    0@$1    0<base $    880   theirs   26u    0@$1    4<base $  1,479
+  TOMATO     losses glut   0%   ours    0u    0@$1    0<base $      0   theirs   10u    0@$1    0<base $  1,816
+  TOMATO     wins   glut   0%   ours    0u    0@$1    0<base $      0   theirs   11u    0@$1    0<base $  1,141
+  STRAWBERRY losses glut  30%   ours  263u   51@$1  163<base $ 23,137   theirs  249u   48@$1  149<base $ 22,948
+  STRAWBERRY wins   glut  22%   ours  261u   27@$1  114<base $ 33,247   theirs  241u   37@$1  118<base $ 27,693
+  MELON      losses glut  65%   ours   72u    0@$1   62<base $ 14,444   theirs   74u    1@$1   65<base $ 14,185
+  MELON      wins   glut  65%   ours   72u    0@$1   58<base $ 15,410   theirs   73u    2@$1   67<base $ 12,990
+  EGG        losses glut   1%   ours    0u    0@$1    0<base $      0   theirs   51u    0@$1    2<base $  3,083
+  EGG        wins   glut   2%   ours    0u    0@$1    0<base $      0   theirs   12u    0@$1    4<base $    622
+  MILK       losses glut  61%   ours  256u   83@$1  218<base $ 15,136   theirs  194u   60@$1  160<base $ 13,220
+  MILK       wins   glut  54%   ours  247u   47@$1  182<base $ 21,263   theirs  220u   55@$1  172<base $ 16,752
+  WOOL       losses glut  55%   ours  143u   40@$1   99<base $ 17,148   theirs  185u   33@$1  101<base $ 27,266
+  WOOL       wins   glut  59%   ours  166u   48@$1  106<base $ 20,083   theirs  151u   48@$1  101<base $ 17,195
+  FERTILIZER losses glut  96%   ours  323u   20@$1  321<base $ 14,802   theirs  332u   24@$1  330<base $ 14,898
+  FERTILIZER wins   glut  96%   ours  331u   16@$1  329<base $ 16,000   theirs  275u   19@$1  274<base $ 13,068
+
+== strawberries and milk against the town: shops buying the product on day 15 (strawberries and milk come in from ~day 12)
+  STRAWBERRY 0 buyer shops:  2 games, lost  2   ours  267u at $ 12.9,  180 at $1, revenue $  3,444, seeds bought 38.0   theirs  234u at $ 15.3,  174 at $1, revenue $  3,586, seeds bought 30.0
+  STRAWBERRY 1 buyer shops:  5 games, lost  2   ours  252u at $ 47.4,   83 at $1, revenue $ 11,947, seeds bought 34.4   theirs  202u at $ 38.4,   90 at $1, revenue $  7,774, seeds bought 35.6
+  STRAWBERRY 2+ buyer shops: 52 games, lost 22   ours  263u at $119.4,   27 at $1, revenue $ 31,386, seeds bought 37.1   theirs  249u at $113.1,   32 at $1, revenue $ 28,163, seeds bought 36.8
+  MILK       0 buyer shops:  9 games, lost  6   ours  243u at $ 20.9,  155 at $1, revenue $  5,096, cows bought  8.2   theirs  189u at $ 21.4,  120 at $1, revenue $  4,043, cows bought  8.4
+  MILK       1 buyer shops: 21 games, lost 12   ours  254u at $ 39.4,   80 at $1, revenue $ 10,018, cows bought  8.6   theirs  194u at $ 40.4,   74 at $1, revenue $  7,842, cows bought  7.9
+  MILK       2+ buyer shops: 29 games, lost  8   ours  251u at $115.4,   22 at $1, revenue $ 28,930, cows bought  8.4   theirs  225u at $106.6,   25 at $1, revenue $ 23,982, cows bought  8.0
+
+== market price at the start of day d (mean), losses | wins
+  STRAWBERRY d5: 146| 146  d10: 171| 177  d15: 198| 207  d18: 170| 196  d21: 101| 141  d24:  26|  71  d27:  21|  63  d30:  59|  99
+  MILK       d5: 185| 185  d10: 167| 177  d15:  67| 106  d18:  34|  64  d21:  28|  52  d24:  33|  51  d27:  44|  58  d30:  52|  58
+  MELON      d5: 266| 266  d10: 271| 271  d15:  90| 113  d18:  95| 119  d21: 100| 120  d24: 102| 112  d27: 108| 115  d30: 115| 119
+  FERTILIZER d5:  93|  93  d10:  76|  77  d15:  54|  56  d18:  44|  46  d21:  37|  39  d24:  21|  25  d27:  10|  14  d30:   1|   4
+  WOOL       d5: 216| 218  d10: 177| 167  d15: 108|  90  d18: 105|  84  d21: 108|  82  d24: 105|  77  d27:  90|  68  d30:  79|  66
+  WHEAT      d5:  31|  31  d10:  36|  36  d15:  40|  41  d18:  41|  42  d21:  42|  44  d24:  42|  45  d27:  42|  45  d30:  33|  39
+  EGG        d5:  50|  50  d10:  52|  52  d15:  54|  53  d18:  56|  54  d21:  57|  56  d24:  59|  58  d27:  62|  62  d30:  65|  67
+  CARROT     d5:  36|  35  d10:  38|  38  d15:  42|  41  d18:  45|  44  d21:  49|  47  d24:  55|  52  d27:  64|  60  d30:  64|  66
+  TOMATO     d5:  61|  61  d10:  62|  64  d15:  66|  69  d18:  68|  74  d21:  72|  86  d24:  79| 109  d27:  92| 151  d30: 108| 213
+
+== late-game gap: revenue theirs - ours per product (mean per game, losses), days 0-14 | days 15-29
+  WHEAT      losses     -596 |   +3,182     (wins, days 15-29:  -11,113)
+  CARROT     losses      +12 |   +4,638     (wins, days 15-29:     +596)
+  TOMATO     losses      +10 |   +1,806     (wins, days 15-29:   +1,141)
+  STRAWBERRY losses      +57 |     -245     (wins, days 15-29:   -5,811)
+  MELON      losses     -881 |     +622     (wins, days 15-29:   +1,525)
+  EGG        losses     +143 |   +2,940     (wins, days 15-29:     +569)
+  MILK       losses     -740 |   -1,177     (wins, days 15-29:   -2,154)
+  WOOL       losses   +1,064 |   +9,055     (wins, days 15-29:   -2,521)
+  FERTILIZER losses     -402 |     +497     (wins, days 15-29:   -1,214)
+
+== sell timing: price received / highest price of that product in the 24 steps before the sale (unit-weighted mean)
+  WHEAT      losses ours  0.96 theirs  0.97    wins ours  0.98 theirs  0.97
+  CARROT     losses ours  0.97 theirs  0.93    wins ours  0.99 theirs  0.95
+  TOMATO     losses ours   nan theirs  0.96    wins ours   nan theirs  0.93
+  STRAWBERRY losses ours  0.58 theirs  0.60    wins ours  0.72 theirs  0.67
+  MELON      losses ours  0.74 theirs  0.74    wins ours  0.79 theirs  0.72
+  EGG        losses ours   nan theirs  1.00    wins ours   nan theirs  0.99
+  MILK       losses ours  0.55 theirs  0.57    wins ours  0.62 theirs  0.57
+  WOOL       losses ours  0.69 theirs  0.76    wins ours  0.68 theirs  0.64
+  FERTILIZER losses ours  0.85 theirs  0.86    wins ours  0.88 theirs  0.87
+
+== farm waste (mean per game), ours | theirs
+  animal-days                      losses   337.8 |   384.3    wins   350.2 |   342.9
+  unfed animal-days                losses    19.4 |    48.0    wins    18.7 |    27.6
+  animals escaped                  losses     0.2 |     1.8    wins     0.0 |     1.9
+  care days (cared + fed)          losses   314.5 |   331.6    wins   327.7 |   302.5
+  care bonus units paid            losses   292.0 |   301.5    wins   303.1 |   279.9
+  care bonus forfeited (unfed)     losses     5.5 |    13.4    wins     5.5 |     5.5
+  animal units lost at max_held    losses     5.3 |     8.0    wins     4.8 |     7.0
+  crop units lost at max_yield     losses     0.0 |     0.1    wins     0.0 |     0.1
+  plants withered (unwatered)      losses     1.0 |     2.1    wins     1.0 |     5.7
+  crop units rotted in the field   losses     0.0 |     1.2    wins     0.0 |     5.2
+  empty tile-days                  losses    56.5 |    83.2    wins    56.5 |   151.1
+  shed overflow discarded          losses     0.0 |     6.2    wins     0.0 |     8.5
+  days ending with a full shed     losses     0.0 |     2.0    wins     0.1 |     1.3
+  unit-steps (farmer + hands)      losses  7284.3 |  7068.7    wins  7239.2 |  7053.0
+    PASS                           losses   513.4 |   561.8    wins   544.0 |   681.9
+    moves                          losses  3439.7 |  3122.9    wins  3358.1 |  3291.1
+    no-op actions                  losses    70.6 |    41.1    wins    59.0 |    66.1
+    FEED with no wheat in hand     losses    11.3 |     0.5    wins    10.2 |     1.7
+  refused market orders, losses ours: SELL:FERTILIZER:empty_shed 18.3, SELL:WHEAT:empty_shed 16.5, SELL:MILK:empty_shed 9.1, SELL:STRAWBERRY:empty_shed 7.2, SELL:WOOL:empty_shed 7.0, BUY_PRODUCT:WHEAT:no_money 2.0, SELL:CARROT:empty_shed 1.8, BUY_PRODUCT:FERTILIZER:no_money 0.3
+  refused market orders, losses theirs: SELL:MILK:empty_shed 17.2, SELL:WOOL:empty_shed 13.9, SELL:FERTILIZER:empty_shed 11.5, SELL:STRAWBERRY:empty_shed 8.3, SELL:WHEAT:empty_shed 7.1, SELL:CARROT:empty_shed 5.8, SELL:EGG:empty_shed 5.3, SELL:MELON:empty_shed 1.9
+  refused market orders, wins ours: SELL:FERTILIZER:empty_shed 17.6, SELL:WHEAT:empty_shed 15.2, SELL:MILK:empty_shed 9.6, SELL:STRAWBERRY:empty_shed 9.0, SELL:WOOL:empty_shed 6.1, SELL:CARROT:empty_shed 2.0, BUY_PRODUCT:WHEAT:no_money 1.3, BUY_SEED:STRAWBERRY:no_money 0.2
+  refused market orders, wins theirs: SELL:FERTILIZER:empty_shed 26.7, SELL:WHEAT:empty_shed 10.8, SELL:MILK:empty_shed 7.5, SELL:STRAWBERRY:empty_shed 6.9, BUY_PRODUCT:WHEAT:no_money 6.0, SELL:WOOL:empty_shed 5.2, BUY_SEED:STRAWBERRY:no_money 0.8, SELL:CARROT:empty_shed 0.6
+
+== harvest size (units per harvest), ours | theirs
+  WHEAT      losses 3.02 | 3.33    wins 3.05 | 3.33
+  CARROT     losses 2.00 | 2.93    wins 2.00 | 2.67
+  TOMATO     losses  nan | 2.40    wins  nan | 2.01
+  STRAWBERRY losses 1.77 | 1.93    wins 1.79 | 1.91
+  MELON      losses 6.00 | 6.00    wins 6.00 | 6.00
+  EGG        losses  nan | 3.06    wins  nan | 2.12
+  MILK       losses 3.29 | 3.12    wins 3.29 | 3.21
+  WOOL       losses 4.16 | 3.98    wins 4.19 | 4.14
+  FERTILIZER losses  nan |  nan    wins  nan |  nan
+
+== time bank (remainingOverageTime, s; 60 at the start): lowest value in the game
+  ours   mean  56.7, worst  55.4, games below 50: 0, below 30: 0
+  theirs mean  59.8, worst  54.3, games below 50: 0, below 30: 0
+  our five lowest: 113236952 (W) 55.4, 113214609 (W) 55.5, 113421316 (L) 55.8, 113241655 (W) 55.9, 113228742 (L) 56.0
+
+== W-L by the shops buying milk (rows) and strawberries (columns) open on day 15
+              strawberry 0  strawberry 1  strawberry 2+
+  milk  0        0 - 0         0 - 0         3 - 6  
+  milk  1        0 - 2         3 - 1         6 - 9  
+  milk 2+        0 - 0         0 - 1        21 - 7  
+  by fit = shop instances open on day 15 buying milk + those buying strawberries (each adds 6 units a day):
+    fit 1   2 games  W  0 L  2   final cash ours   51,188 theirs   76,282
+    fit 2   8 games  W  3 L  5   final cash ours   74,492 theirs   73,184
+    fit 3  12 games  W  5 L  7   final cash ours   69,608 theirs   70,498
+    fit 4  14 games  W  9 L  5   final cash ours   76,477 theirs   78,750
+    fit 5+ 23 games  W 16 L  7   final cash ours  107,008 theirs   91,457
+
+== our cows by the milk shops open on day 15: milk revenue per cow-day against the feed (1 wheat a day)
+  milk shops 0:  9 games,  202 cow-days a game, milk revenue $  5,096 = $ 25.2 per cow-day; wheat (the feed) $40.3 on days 8-29
+  milk shops 1: 21 games,  211 cow-days a game, milk revenue $ 10,018 = $ 47.4 per cow-day; wheat (the feed) $41.1 on days 8-29
+  milk shops 2+: 29 games,  208 cow-days a game, milk revenue $ 28,930 = $138.9 per cow-day; wheat (the feed) $40.8 on days 8-29
+
+== opponents' geese (games where they held geese on day 14)
+  17 games (our result W 4 L 13): 3.8 geese, 72 goose-days, 102 eggs at $57.9 a game = 1.43 eggs and $83 per goose-day
+
+== opponents rated >= 1400 now: farm on day 14 and revenue
+  z7777              2372 L  -17,033  quadrants 3, hands 9, animals {'GOOSE': 5, 'COW': 6, 'SHEEP': 6}, plants {'WHEAT': 24, 'STRAWBERRY': 33}; spent $170,163
+      revenue wheat 160,283, strawberry 22,186, fertilizer 15,681, melon 14,389, egg 10,171, wool 6,995, milk 6,856, carrot 3,689
+  Ansh Agarwal       1832 L  -18,388  quadrants 3, hands 9, animals {'GOOSE': 3, 'COW': 8, 'SHEEP': 6}, plants {'WHEAT': 24, 'STRAWBERRY': 33}; spent $28,626
+      revenue wool 24,539, wheat 17,566, fertilizer 15,703, melon 14,389, strawberry 10,840, milk 9,972, egg 5,640, carrot 2,929
+  rishavsaigal       1574 L  -15,410  quadrants 3, hands 9, animals {'GOOSE': 3, 'COW': 8, 'SHEEP': 6}, plants {'WHEAT': 24, 'STRAWBERRY': 33}; spent $29,651
+      revenue strawberry 41,117, wheat 16,459, fertilizer 16,131, melon 14,389, milk 12,624, carrot 10,014, wool 5,530, egg 4,484
+  Anton Tikhonov     1561 L  -16,829  quadrants 3, hands 9, animals {'GOOSE': 5, 'COW': 6, 'SHEEP': 6}, plants {'WHEAT': 23, 'STRAWBERRY': 33}; spent $85,094
+      revenue wheat 64,227, strawberry 22,299, fertilizer 16,726, melon 14,389, egg 11,321, carrot 10,351, wool 5,598, milk 4,271
+  Dariush Afshar     1453 L  -19,433  quadrants 3, hands 9, animals {'GOOSE': 5, 'COW': 6, 'SHEEP': 6}, plants {'WHEAT': 24, 'STRAWBERRY': 33}; spent $27,972
+      revenue wheat 15,842, fertilizer 15,488, strawberry 15,378, melon 14,389, wool 8,949, egg 8,380, carrot 7,508, milk 4,623
+  edwinis            1411 L  -25,602  quadrants 4, hands 10, animals {'SHEEP': 11, 'COW': 6}, plants {'WHEAT': 23, 'STRAWBERRY': 33}; spent $37,162
+      revenue wool 44,144, strawberry 31,152, fertilizer 14,979, melon 14,389, wheat 13,651, milk 12,006, tomato 10,980, carrot 4,933
+
+== the opponent family with 33 strawberry and 23-24 wheat plants on day 14 (ours: 38 and 22)
+  family        20 games  W  5 L 15  mean margin  -11,040; opponents rated >= 1200 now: 9; melon revenue exactly $14,389: 14
+  everyone else 39 games  W 28 L 11  mean margin  +12,724; opponents rated >= 1200 now: 1; melon revenue exactly $14,389: 3
+  family herds on day 14 (geese/cows/sheep): {'0/9/8': 5, '0/6/11': 4, '3/8/6': 3, '5/6/6': 3, '3/9/5': 2, '0/8/9': 2, '3/8/5': 1}
+  family games, revenue theirs - ours per game: wheat -3,388, carrot +4,165, tomato +1,993, strawberry -267, melon +106, egg +2,856, milk -566, wool +3,476, fertilizer +598
