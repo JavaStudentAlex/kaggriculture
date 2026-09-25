@@ -14,10 +14,9 @@ from pathlib import Path
 
 import numpy as np
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE / 'arena'))
+from arena import calibrate
 
-import calibrate  # noqa: E402
+HERE = Path(__file__).resolve().parent
 
 PRODUCTS = ['WHEAT', 'EGG', 'MILK']
 
