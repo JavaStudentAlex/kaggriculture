@@ -1,0 +1,13 @@
+{
+ "name": "abo_v57",
+ "notebook": "ahmedberatozer/kaggriculture-v57-funding-order-invariant",
+ "notebook_id": 135369205,
+ "title": "Kaggriculture V57 — Funding-Order Invariant",
+ "url": "https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v57-funding-order-invariant",
+ "decoded": "SOURCE_BLOB (b85+zlib)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "2ee689fdc58f38b7bf6b80b8d3f48129d19b47201dbee51fdcbd977498a5106f"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

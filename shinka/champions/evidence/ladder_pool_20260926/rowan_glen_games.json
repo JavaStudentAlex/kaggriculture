@@ -1,0 +1,3098 @@
+[
+ {
+  "id": 113463162,
+  "t": "2026-09-25T22:58:19.361Z",
+  "seed": 1394802501,
+  "seat": 0,
+  "res": "W",
+  "diff": 99150,
+  "team": "Asanka Pradeep",
+  "osub": 55717379,
+  "orate": 557.8,
+  "shops": [
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP",
+   "SMOOTHIE_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 4,
+    "SHEEP": 1
+   },
+   {
+    "WHEAT": 1,
+    "STRAWBERRY": 21,
+    "MELON": 17
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    1
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    8
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ]
+  ]
+ },
+ {
+  "id": 113464321,
+  "t": "2026-09-25T23:02:18.495Z",
+  "seed": 835543751,
+  "seat": 1,
+  "res": "W",
+  "diff": 57334,
+  "team": "maniginam",
+  "osub": 56537260,
+  "orate": null,
+  "shops": [
+   "ICE_CREAM_SHOP",
+   "BAKERY",
+   "PET_CAFE",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 5,
+    "GOOSE": 1,
+    "SHEEP": 2
+   },
+   {
+    "STRAWBERRY": 29,
+    "WHEAT": 5,
+    "MELON": 8
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    2
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    2
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    7
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    12
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    6
+   ]
+  ]
+ },
+ {
+  "id": 113465455,
+  "t": "2026-09-25T23:06:19.323Z",
+  "seed": 103075044,
+  "seat": 0,
+  "res": "W",
+  "diff": 20775,
+  "team": "henri66",
+  "osub": 55531079,
+  "orate": 685.8,
+  "shops": [
+   "BAKERY",
+   "PIZZA_SHOP",
+   "YARN_STORE",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "STRAWBERRY": 34,
+    "WHEAT": 3,
+    "MELON": 9
+   }
+  ],
+  "op_open": [
+   [
+    "SELL",
+    "WHEAT",
+    3
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    1
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    1
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    6
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    6
+   ]
+  ]
+ },
+ {
+  "id": 113466594,
+  "t": "2026-09-25T23:10:18.872Z",
+  "seed": 2066323877,
+  "seat": 1,
+  "res": "W",
+  "diff": 37793,
+  "team": "Q.qlmmm",
+  "osub": 55724187,
+  "orate": 751.8,
+  "shops": [
+   "PIZZA_SHOP",
+   "PET_CAFE",
+   "BRUNCH_SPOT",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 7,
+    "MELON": 12,
+    "STRAWBERRY": 41
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    2
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    2
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    7
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    12
+   ]
+  ]
+ },
+ {
+  "id": 113467737,
+  "t": "2026-09-25T23:14:18.925Z",
+  "seed": 17018964,
+  "seat": 0,
+  "res": "W",
+  "diff": 44555,
+  "team": "FilipJ",
+  "osub": 55466337,
+  "orate": 820.2,
+  "shops": [
+   "YARN_STORE",
+   "SMOOTHIE_SHOP",
+   "PIZZA_SHOP",
+   "PET_CAFE"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 4,
+    "COW": 6
+   },
+   {
+    "WHEAT": 13,
+    "STRAWBERRY": 34,
+    "MELON": 14
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    4
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    5
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ]
+  ]
+ },
+ {
+  "id": 113468892,
+  "t": "2026-09-25T23:18:19.784Z",
+  "seed": 2124522630,
+  "seat": 1,
+  "res": "W",
+  "diff": 45786,
+  "team": "Psyrax",
+  "osub": 56308928,
+  "orate": 903.3,
+  "shops": [
+   "YARN_STORE",
+   "FARMERS_MARKET",
+   "PET_CAFE",
+   "YARN_STORE"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 4,
+    "COW": 8
+   },
+   {
+    "WHEAT": 13,
+    "STRAWBERRY": 36,
+    "MELON": 12
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    14
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    4
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    5
+   ],
+   [
+    "HIRE"
+   ]
+  ]
+ },
+ {
+  "id": 113470020,
+  "t": "2026-09-25T23:22:18.750Z",
+  "seed": 750240956,
+  "seat": 0,
+  "res": "W",
+  "diff": 12743,
+  "team": "TongY26",
+  "osub": 55664827,
+  "orate": 872.4,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "SMOOTHIE_SHOP",
+   "SMOOTHIE_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 4,
+    "COW": 8
+   },
+   {
+    "WHEAT": 13,
+    "STRAWBERRY": 36,
+    "MELON": 12
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    14
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    4
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    5
+   ],
+   [
+    "HIRE"
+   ]
+  ]
+ },
+ {
+  "id": 113471147,
+  "t": "2026-09-25T23:26:18.561Z",
+  "seed": 689507749,
+  "seat": 0,
+  "res": "W",
+  "diff": 13771,
+  "team": "Matthew B",
+  "osub": 56488218,
+  "orate": 1004.4,
+  "shops": [
+   "FARMERS_MARKET",
+   "BAKERY",
+   "ICE_CREAM_SHOP",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 9,
+    "COW": 6,
+    "SHEEP": 3
+   },
+   {
+    "WHEAT": 4,
+    "STRAWBERRY": 38,
+    "MELON": 2
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ]
+  ]
+ },
+ {
+  "id": 113472305,
+  "t": "2026-09-25T23:30:18.777Z",
+  "seed": 1601415496,
+  "seat": 0,
+  "res": "W",
+  "diff": 1010,
+  "team": "cracker_1_war",
+  "osub": 56136580,
+  "orate": 1246.0,
+  "shops": [
+   "YARN_STORE",
+   "FARMERS_MARKET",
+   "SMOOTHIE_SHOP",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    13
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113473454,
+  "t": "2026-09-25T23:34:18.724Z",
+  "seed": 1324216955,
+  "seat": 0,
+  "res": "L",
+  "diff": -7407,
+  "team": "AkiraIshikawa",
+  "osub": 56561672,
+  "orate": 2154.5,
+  "shops": [
+   "YARN_STORE",
+   "BAKERY",
+   "ICE_CREAM_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113474639,
+  "t": "2026-09-25T23:43:24.904Z",
+  "seed": 439772244,
+  "seat": 0,
+  "res": "L",
+  "diff": -36806,
+  "team": "keith70",
+  "osub": 56093063,
+  "orate": 1265.8,
+  "shops": [
+   "BRUNCH_SPOT",
+   "PET_CAFE",
+   "PIZZA_SHOP",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 5,
+    "SHEEP": 3
+   },
+   {
+    "WHEAT": 18,
+    "STRAWBERRY": 31
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 5,
+    "COW": 6,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113476502,
+  "t": "2026-09-25T23:47:03.453Z",
+  "seed": 1116779760,
+  "seat": 1,
+  "res": "W",
+  "diff": 3721,
+  "team": "Mostafa H",
+  "osub": 55931830,
+  "orate": 1054.7,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "SMOOTHIE_SHOP",
+   "PIZZA_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op_open": []
+ },
+ {
+  "id": 113477669,
+  "t": "2026-09-25T23:51:04.677Z",
+  "seed": 1876447474,
+  "seat": 0,
+  "res": "L",
+  "diff": -19639,
+  "team": "Thomas Deng",
+  "osub": 56538807,
+  "orate": null,
+  "shops": [
+   "PIZZA_SHOP",
+   "SMOOTHIE_SHOP",
+   "FARMERS_MARKET",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 13,
+    "GOOSE": 6,
+    "SHEEP": 3
+   },
+   {
+    "STRAWBERRY": 36,
+    "WHEAT": 25,
+    "TOMATO": 14
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ]
+  ]
+ },
+ {
+  "id": 113478880,
+  "t": "2026-09-25T23:55:04.034Z",
+  "seed": 1626605331,
+  "seat": 1,
+  "res": "W",
+  "diff": 6859,
+  "team": "Nadeem",
+  "osub": 55757473,
+  "orate": 1015.5,
+  "shops": [
+   "FARMERS_MARKET",
+   "BAKERY",
+   "BRUNCH_SPOT",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 11,
+    "SHEEP": 4
+   },
+   {
+    "WHEAT": 7,
+    "STRAWBERRY": 40,
+    "CARROT": 8,
+    "MELON": 4
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    4
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    7
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    4
+   ]
+  ]
+ },
+ {
+  "id": 113480068,
+  "t": "2026-09-25T23:59:05.423Z",
+  "seed": 1764730129,
+  "seat": 1,
+  "res": "W",
+  "diff": 1118,
+  "team": "Himanshu",
+  "osub": 56253987,
+  "orate": 1081.0,
+  "shops": [
+   "YARN_STORE",
+   "SMOOTHIE_SHOP",
+   "SMOOTHIE_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "COW": 16,
+    "SHEEP": 12
+   },
+   {
+    "STRAWBERRY": 39,
+    "MELON": 8
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    6
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    2
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    2
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    7
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    12
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ]
+  ]
+ },
+ {
+  "id": 113481316,
+  "t": "2026-09-26T00:03:05.607Z",
+  "seed": 1512126400,
+  "seat": 1,
+  "res": "W",
+  "diff": 19384,
+  "team": "\u041f\u0430\u043b \u041b\u0430\u0438\u0447",
+  "osub": 55891030,
+  "orate": 1057.5,
+  "shops": [
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "BAKERY",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "COW": 7,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 37,
+    "MELON": 2
+   }
+  ],
+  "op_open": []
+ },
+ {
+  "id": 113482511,
+  "t": "2026-09-26T00:07:02.428Z",
+  "seed": 1018152346,
+  "seat": 1,
+  "res": "L",
+  "diff": -12492,
+  "team": "tetsuro731",
+  "osub": 56121705,
+  "orate": 1246.7,
+  "shops": [
+   "FARMERS_MARKET",
+   "PIZZA_SHOP",
+   "PET_CAFE",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    13
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113483754,
+  "t": "2026-09-26T00:11:02.439Z",
+  "seed": 1740377193,
+  "seat": 0,
+  "res": "W",
+  "diff": 10229,
+  "team": "tine.sh agent",
+  "osub": 56505920,
+  "orate": null,
+  "shops": [
+   "PET_CAFE",
+   "YARN_STORE",
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 12,
+    "COW": 5
+   },
+   {
+    "STRAWBERRY": 22,
+    "TOMATO": 1,
+    "WHEAT": 20,
+    "CARROT": 8,
+    "MELON": 6
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    2
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    2
+   ]
+  ]
+ },
+ {
+  "id": 113484948,
+  "t": "2026-09-26T00:15:02.935Z",
+  "seed": 1684445780,
+  "seat": 0,
+  "res": "L",
+  "diff": -7070,
+  "team": "YuRuiZe",
+  "osub": 56052394,
+  "orate": 1184.8,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "FARMERS_MARKET",
+   "BAKERY",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113486133,
+  "t": "2026-09-26T00:19:03.503Z",
+  "seed": 1206565867,
+  "seat": 1,
+  "res": "W",
+  "diff": 1811,
+  "team": "Samvrcai",
+  "osub": 56288473,
+  "orate": 1237.6,
+  "shops": [
+   "PIZZA_SHOP",
+   "SMOOTHIE_SHOP",
+   "BRUNCH_SPOT",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 6,
+    "COW": 8,
+    "GOOSE": 4
+   },
+   {
+    "STRAWBERRY": 30,
+    "WHEAT": 23,
+    "TOMATO": 1
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    20
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    15
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    12
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    12
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113487240,
+  "t": "2026-09-26T00:23:07.697Z",
+  "seed": 981469533,
+  "seat": 1,
+  "res": "L",
+  "diff": -70689,
+  "team": "YUK",
+  "osub": 56236772,
+  "orate": 1332.8,
+  "shops": [
+   "FARMERS_MARKET",
+   "SMOOTHIE_SHOP",
+   "FARMERS_MARKET",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "SHEEP": 3,
+    "COW": 2
+   },
+   {
+    "WHEAT": 19,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    14
+   ]
+  ]
+ },
+ {
+  "id": 113488472,
+  "t": "2026-09-26T00:27:03.422Z",
+  "seed": 1445028510,
+  "seat": 1,
+  "res": "W",
+  "diff": 2612,
+  "team": "clammpon",
+  "osub": 56492773,
+  "orate": 1225.5,
+  "shops": [
+   "PET_CAFE",
+   "PET_CAFE",
+   "ICE_CREAM_SHOP",
+   "YARN_STORE"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "COW": 6,
+    "SHEEP": 4,
+    "GOOSE": 2
+   },
+   {
+    "MELON": 2,
+    "CARROT": 13,
+    "STRAWBERRY": 29,
+    "WHEAT": 16
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    2
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    3
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ]
+  ]
+ },
+ {
+  "id": 113489435,
+  "t": "2026-09-26T00:31:07.464Z",
+  "seed": 963277090,
+  "seat": 1,
+  "res": "L",
+  "diff": -15893,
+  "team": "Rashid Khazeiynasab",
+  "osub": 56563498,
+  "orate": 2174.9,
+  "shops": [
+   "PET_CAFE",
+   "SMOOTHIE_SHOP",
+   "ICE_CREAM_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    8
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    3
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113489641,
+  "t": "2026-09-26T00:31:07.787Z",
+  "seed": 974865802,
+  "seat": 1,
+  "res": "L",
+  "diff": -8115,
+  "team": "volumatic",
+  "osub": 56142801,
+  "orate": 1225.4,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "BAKERY",
+   "ICE_CREAM_SHOP",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113490841,
+  "t": "2026-09-26T00:35:07.793Z",
+  "seed": 558300139,
+  "seat": 0,
+  "res": "L",
+  "diff": -60642,
+  "team": "Harshith revuru",
+  "osub": 56195164,
+  "orate": 1232.5,
+  "shops": [
+   "PIZZA_SHOP",
+   "ICE_CREAM_SHOP",
+   "PIZZA_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 5,
+    "SHEEP": 3
+   },
+   {
+    "WHEAT": 18,
+    "STRAWBERRY": 31
+   }
+  ],
+  "op14": [
+   {
+    "COW": 11,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113492020,
+  "t": "2026-09-26T00:39:08.392Z",
+  "seed": 649400230,
+  "seat": 0,
+  "res": "L",
+  "diff": -646,
+  "team": "rrishavrraj",
+  "osub": 56549408,
+  "orate": 1239.3,
+  "shops": [
+   "PIZZA_SHOP",
+   "PIZZA_SHOP",
+   "YARN_STORE",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    20
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    15
+   ]
+  ]
+ },
+ {
+  "id": 113493201,
+  "t": "2026-09-26T00:43:08.724Z",
+  "seed": 223782814,
+  "seat": 1,
+  "res": "L",
+  "diff": -47741,
+  "team": "ASH",
+  "osub": 56092644,
+  "orate": 1199.8,
+  "shops": [
+   "PET_CAFE",
+   "YARN_STORE",
+   "PIZZA_SHOP",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 7,
+    "COW": 2
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 26
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 10,
+    "COW": 7
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113494525,
+  "t": "2026-09-26T00:47:05.227Z",
+  "seed": 1849173283,
+  "seat": 1,
+  "res": "W",
+  "diff": 7107,
+  "team": "Yassinovich",
+  "osub": 56038534,
+  "orate": 1110.2,
+  "shops": [
+   "FARMERS_MARKET",
+   "YARN_STORE",
+   "ICE_CREAM_SHOP",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113495618,
+  "t": "2026-09-26T00:51:05.826Z",
+  "seed": 554787389,
+  "seat": 0,
+  "res": "W",
+  "diff": 3537,
+  "team": "ChrisXie",
+  "osub": 56088763,
+  "orate": 1114.9,
+  "shops": [
+   "BRUNCH_SPOT",
+   "FARMERS_MARKET",
+   "ICE_CREAM_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 7,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    43
+   ]
+  ]
+ },
+ {
+  "id": 113496787,
+  "t": "2026-09-26T00:55:03.190Z",
+  "seed": 938587383,
+  "seat": 1,
+  "res": "L",
+  "diff": -8550,
+  "team": "volumatic",
+  "osub": 56121253,
+  "orate": 1177.5,
+  "shops": [
+   "BAKERY",
+   "SMOOTHIE_SHOP",
+   "BAKERY",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113497954,
+  "t": "2026-09-26T00:59:05.034Z",
+  "seed": 103885608,
+  "seat": 1,
+  "res": "L",
+  "diff": -11373,
+  "team": "HHHyyds",
+  "osub": 56032751,
+  "orate": 1173.1,
+  "shops": [
+   "FARMERS_MARKET",
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113499171,
+  "t": "2026-09-26T01:03:06.009Z",
+  "seed": 1921538428,
+  "seat": 0,
+  "res": "W",
+  "diff": 17883,
+  "team": "Furious Monk",
+  "osub": 56545123,
+  "orate": 1071.0,
+  "shops": [
+   "YARN_STORE",
+   "BRUNCH_SPOT",
+   "BRUNCH_SPOT",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 6,
+    "SHEEP": 7
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    13
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113500313,
+  "t": "2026-09-26T01:07:02.411Z",
+  "seed": 705611003,
+  "seat": 1,
+  "res": "L",
+  "diff": -6075,
+  "team": "Danilo Lapegna",
+  "osub": 56419880,
+  "orate": 1124.8,
+  "shops": [
+   "ICE_CREAM_SHOP",
+   "BAKERY",
+   "PET_CAFE",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113501488,
+  "t": "2026-09-26T01:11:03.266Z",
+  "seed": 1959326185,
+  "seat": 1,
+  "res": "W",
+  "diff": 8157,
+  "team": "Toheeb Ogunade",
+  "osub": 56108229,
+  "orate": 1130.9,
+  "shops": [
+   "YARN_STORE",
+   "FARMERS_MARKET",
+   "BAKERY",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "COW": 5,
+    "SHEEP": 12
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 28,
+    "TOMATO": 4
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_ANIMAL",
+    "COW",
+    2
+   ]
+  ]
+ },
+ {
+  "id": 113502659,
+  "t": "2026-09-26T01:15:03.093Z",
+  "seed": 186928689,
+  "seat": 0,
+  "res": "W",
+  "diff": 1638,
+  "team": "JoJa",
+  "osub": 56451902,
+  "orate": 1201.4,
+  "shops": [
+   "BRUNCH_SPOT",
+   "SMOOTHIE_SHOP",
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 7,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    13
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113503829,
+  "t": "2026-09-26T01:19:04.237Z",
+  "seed": 571068527,
+  "seat": 0,
+  "res": "L",
+  "diff": -8498,
+  "team": "IMosia",
+  "osub": 56422573,
+  "orate": 1209.5,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "FARMERS_MARKET",
+   "BAKERY",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    10
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113504953,
+  "t": "2026-09-26T01:23:12.207Z",
+  "seed": 1812464993,
+  "seat": 1,
+  "res": "L",
+  "diff": -40371,
+  "team": "ropeadope",
+  "osub": 56490958,
+  "orate": 1212.3,
+  "shops": [
+   "BAKERY",
+   "SMOOTHIE_SHOP",
+   "PET_CAFE",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 5,
+    "SHEEP": 3
+   },
+   {
+    "WHEAT": 18,
+    "STRAWBERRY": 31
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113506213,
+  "t": "2026-09-26T01:27:03.216Z",
+  "seed": 1156946761,
+  "seat": 1,
+  "res": "L",
+  "diff": -27111,
+  "team": "Harvest Sun",
+  "osub": 56093366,
+  "orate": 1228.9,
+  "shops": [
+   "YARN_STORE",
+   "YARN_STORE",
+   "BRUNCH_SPOT",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "SHEEP": 8,
+    "COW": 3
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 29
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 31
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113507391,
+  "t": "2026-09-26T01:31:03.388Z",
+  "seed": 1558162095,
+  "seat": 0,
+  "res": "L",
+  "diff": -10842,
+  "team": "Andrew9603",
+  "osub": 56046626,
+  "orate": 1118.9,
+  "shops": [
+   "FARMERS_MARKET",
+   "FARMERS_MARKET",
+   "YARN_STORE",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113508596,
+  "t": "2026-09-26T01:35:03.323Z",
+  "seed": 515355552,
+  "seat": 0,
+  "res": "L",
+  "diff": -11721,
+  "team": "Saravana Rajan B",
+  "osub": 56079370,
+  "orate": 1180.0,
+  "shops": [
+   "PET_CAFE",
+   "PET_CAFE",
+   "SMOOTHIE_SHOP",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    30
+   ]
+  ]
+ },
+ {
+  "id": 113510091,
+  "t": "2026-09-26T01:39:32.830Z",
+  "seed": 1480868548,
+  "seat": 1,
+  "res": "W",
+  "diff": 33218,
+  "team": "Logorhythms",
+  "osub": 56521246,
+  "orate": 1062.7,
+  "shops": [
+   "YARN_STORE",
+   "PIZZA_SHOP",
+   "BRUNCH_SPOT",
+   "YARN_STORE"
+  ],
+  "me14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 32
+   }
+  ],
+  "op14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    10
+   ]
+  ]
+ },
+ {
+  "id": 113510558,
+  "t": "2026-09-26T01:43:36.102Z",
+  "seed": 2113046413,
+  "seat": 1,
+  "res": "L",
+  "diff": -6803,
+  "team": "Shane Thivaharraja",
+  "osub": 56565439,
+  "orate": 2188.4,
+  "shops": [
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "BAKERY",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 11,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113511109,
+  "t": "2026-09-26T01:43:37.035Z",
+  "seed": 626377611,
+  "seat": 1,
+  "res": "W",
+  "diff": 9098,
+  "team": "Pascal",
+  "osub": 56024444,
+  "orate": 1128.4,
+  "shops": [
+   "BAKERY",
+   "YARN_STORE",
+   "SMOOTHIE_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113512142,
+  "t": "2026-09-26T01:47:33.549Z",
+  "seed": 515323481,
+  "seat": 0,
+  "res": "L",
+  "diff": -1348,
+  "team": "MilanJoshi",
+  "osub": 55939546,
+  "orate": 1113.4,
+  "shops": [
+   "PET_CAFE",
+   "BRUNCH_SPOT",
+   "ICE_CREAM_SHOP",
+   "PIZZA_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 37
+   }
+  ],
+  "op_open": []
+ },
+ {
+  "id": 113513202,
+  "t": "2026-09-26T01:51:34.041Z",
+  "seed": 453552434,
+  "seat": 0,
+  "res": "L",
+  "diff": -13195,
+  "team": "MP Gamimg",
+  "osub": 56547879,
+  "orate": 1144.2,
+  "shops": [
+   "BRUNCH_SPOT",
+   "PET_CAFE",
+   "BAKERY",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op14": [
+   {
+    "COW": 4,
+    "GOOSE": 8,
+    "SHEEP": 3
+   },
+   {
+    "STRAWBERRY": 29,
+    "WHEAT": 19,
+    "TOMATO": 6,
+    "MELON": 1
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113514508,
+  "t": "2026-09-26T01:55:37.593Z",
+  "seed": 1428978032,
+  "seat": 0,
+  "res": "W",
+  "diff": 4461,
+  "team": "XuanxuChem",
+  "osub": 56166069,
+  "orate": 1137.8,
+  "shops": [
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "FARMERS_MARKET",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 30
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    30
+   ]
+  ]
+ },
+ {
+  "id": 113515698,
+  "t": "2026-09-26T01:59:42.031Z",
+  "seed": 1501650513,
+  "seat": 1,
+  "res": "L",
+  "diff": -6167,
+  "team": "random_numb",
+  "osub": 56513830,
+  "orate": 1159.4,
+  "shops": [
+   "BAKERY",
+   "PIZZA_SHOP",
+   "PIZZA_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113516845,
+  "t": "2026-09-26T02:03:36.048Z",
+  "seed": 1359526534,
+  "seat": 1,
+  "res": "W",
+  "diff": 4476,
+  "team": "Scott Willis",
+  "osub": 56562988,
+  "orate": null,
+  "shops": [
+   "BAKERY",
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 2,
+    "COW": 10,
+    "GOOSE": 1
+   },
+   {
+    "MELON": 12,
+    "STRAWBERRY": 36,
+    "WHEAT": 12
+   }
+  ],
+  "op_open": [
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_ANIMAL",
+    "COW",
+    3
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    2
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    5
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    8
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    11
+   ]
+  ]
+ },
+ {
+  "id": 113516886,
+  "t": "2026-09-26T02:03:36.118Z",
+  "seed": 120489142,
+  "seat": 0,
+  "res": "W",
+  "diff": 20259,
+  "team": "esprit",
+  "osub": 55926371,
+  "orate": 1072.8,
+  "shops": [
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "YARN_STORE",
+   "SMOOTHIE_SHOP"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "COW": 6,
+    "SHEEP": 8
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op_open": []
+ },
+ {
+  "id": 113518069,
+  "t": "2026-09-26T02:07:36.922Z",
+  "seed": 1882989945,
+  "seat": 1,
+  "res": "L",
+  "diff": -52788,
+  "team": "Manav",
+  "osub": 56078980,
+  "orate": 1193.5,
+  "shops": [
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP",
+   "YARN_STORE",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "COW": 5,
+    "SHEEP": 3
+   },
+   {
+    "WHEAT": 18,
+    "STRAWBERRY": 31
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113519247,
+  "t": "2026-09-26T02:11:35.790Z",
+  "seed": 2132738114,
+  "seat": 1,
+  "res": "L",
+  "diff": -11661,
+  "team": "phi",
+  "osub": 56106041,
+  "orate": 1167.9,
+  "shops": [
+   "SMOOTHIE_SHOP",
+   "BRUNCH_SPOT",
+   "BAKERY",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113520031,
+  "t": "2026-09-26T02:15:33.688Z",
+  "seed": 1566745884,
+  "seat": 1,
+  "res": "L",
+  "diff": -21753,
+  "team": "woldy",
+  "osub": 56565503,
+  "orate": 1311.3,
+  "shops": [
+   "PET_CAFE",
+   "BRUNCH_SPOT",
+   "YARN_STORE",
+   "YARN_STORE"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 5,
+    "COW": 6,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    37
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    37
+   ]
+  ]
+ },
+ {
+  "id": 113520457,
+  "t": "2026-09-26T02:15:34.440Z",
+  "seed": 524550568,
+  "seat": 1,
+  "res": "W",
+  "diff": 298,
+  "team": "Speril",
+  "osub": 56157330,
+  "orate": 1158.7,
+  "shops": [
+   "BRUNCH_SPOT",
+   "ICE_CREAM_SHOP",
+   "ICE_CREAM_SHOP",
+   "YARN_STORE"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 3,
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113535535,
+  "t": "2026-09-26T03:07:56.435Z",
+  "seed": 2111251219,
+  "seat": 1,
+  "res": "W",
+  "diff": 4594,
+  "team": "latter0206",
+  "osub": 56002397,
+  "orate": 1141.8,
+  "shops": [
+   "PET_CAFE",
+   "PET_CAFE",
+   "ICE_CREAM_SHOP",
+   "BAKERY"
+  ],
+  "me14": [
+   {
+    "SHEEP": 10,
+    "COW": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op14": [
+   {
+    "SHEEP": 8,
+    "COW": 9
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    13
+   ]
+  ]
+ },
+ {
+  "id": 113546895,
+  "t": "2026-09-26T03:47:33.353Z",
+  "seed": 73034081,
+  "seat": 0,
+  "res": "L",
+  "diff": -25702,
+  "team": "Pii",
+  "osub": 56567463,
+  "orate": 2726.7,
+  "shops": [
+   "FARMERS_MARKET",
+   "PET_CAFE",
+   "YARN_STORE",
+   "FARMERS_MARKET"
+  ],
+  "me14": [
+   {
+    "COW": 8,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 6,
+    "GOOSE": 6,
+    "SHEEP": 9
+   },
+   {
+    "STRAWBERRY": 26,
+    "WHEAT": 22,
+    "CARROT": 12,
+    "TOMATO": 13
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_ANIMAL",
+    "COW",
+    1
+   ],
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    5
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    0
+   ]
+  ]
+ },
+ {
+  "id": 113558580,
+  "t": "2026-09-26T04:27:32.484Z",
+  "seed": 1952013913,
+  "seat": 1,
+  "res": "L",
+  "diff": -15167,
+  "team": "julien gaza",
+  "osub": 56568505,
+  "orate": 2091.4,
+  "shops": [
+   "BRUNCH_SPOT",
+   "BAKERY",
+   "BRUNCH_SPOT",
+   "BRUNCH_SPOT"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 36
+   }
+  ],
+  "op14": [
+   {
+    "GOOSE": 5,
+    "COW": 5,
+    "SHEEP": 6
+   },
+   {
+    "WHEAT": 24,
+    "STRAWBERRY": 33
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    6
+   ],
+   [
+    "SELL",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    1
+   ]
+  ]
+ },
+ {
+  "id": 113586163,
+  "t": "2026-09-26T06:00:10.419Z",
+  "seed": 2009260509,
+  "seat": 1,
+  "res": "W",
+  "diff": 14446,
+  "team": "jrcjrcjrc",
+  "osub": 55958698,
+  "orate": 1016.8,
+  "shops": [
+   "PIZZA_SHOP",
+   "BAKERY",
+   "BRUNCH_SPOT",
+   "ICE_CREAM_SHOP"
+  ],
+  "me14": [
+   {
+    "COW": 9,
+    "SHEEP": 5
+   },
+   {
+    "WHEAT": 21,
+    "STRAWBERRY": 38
+   }
+  ],
+  "op14": [
+   {
+    "COW": 8,
+    "SHEEP": 5,
+    "GOOSE": 2
+   },
+   {
+    "WHEAT": 7,
+    "STRAWBERRY": 37,
+    "TOMATO": 1,
+    "MELON": 6,
+    "CARROT": 8
+   }
+  ],
+  "op_open": [
+   [
+    "BUY_PRODUCT",
+    "WHEAT",
+    4
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "HIRE"
+   ],
+   [
+    "BUY_SEED",
+    "MELON",
+    7
+   ],
+   [
+    "BUY_SEED",
+    "WHEAT",
+    5
+   ],
+   [
+    "BUY_ANIMAL",
+    "SHEEP",
+    4
+   ]
+  ]
+ }
+]

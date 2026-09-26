@@ -53,10 +53,12 @@ MODEL_SPECS: dict[str, dict[str, Any]] = {
 
 
 class UCB1Bandit:
-    def __init__(self, state_file: Path, exploration_c: float = 1.414):
+    def __init__(self, state_file: Path, exploration_c: float = 1.414, arms: list | None = None):
         self.state_file = state_file
         self.c = exploration_c
-        self.arms = list(MODEL_SPECS.keys())
+        self.arms = [a for a in MODEL_SPECS if arms is None or a in arms]
+        if not self.arms:
+            raise ValueError(f"no bandit arm among {arms}; known models: {list(MODEL_SPECS)}")
         self.state: dict[str, dict[str, Any]] = {
             m: {"pulls": 0, "total_reward": 0.0, "crowns": 0} for m in self.arms
         }

@@ -1,0 +1,12 @@
+[
+ {"episode": 113596527, "seed": 483261298, "tag": "haideptry_2965", "opponent": "yf D", "rating": 1227.0, "kaggle_seat": 0, "submission": "rowan_glen", "assigned_by": "fallback: animals-first opening, no pool match"},
+ {"episode": 113601087, "seed": 1276828182, "tag": "haideptry_2965", "opponent": "lyts", "rating": null, "kaggle_seat": 1, "submission": "rowan_glen", "assigned_by": "fallback: cow + buy 5 / sell 2 opening"},
+ {"episode": 113607979, "seed": 954440421, "tag": "haideptry_2965", "opponent": "Syed Asad Ali", "rating": 1809.4, "kaggle_seat": 0, "submission": "rowan_glen", "assigned_by": "fallback: sells at step 0"},
+ {"episode": 113644088, "seed": 1571685337, "tag": "abo_v57_open13", "opponent": "wppepi", "rating": 1226.3, "kaggle_seat": 0, "submission": "rowan_glen", "assigned_by": "opening: buy 13 wheat"},
+ {"episode": 113652206, "seed": 542904321, "tag": "haideptry_2965", "opponent": "lyts", "rating": 1055.9, "kaggle_seat": 0, "submission": "rowan_glen", "assigned_by": "fallback: cow + buy 5 / sell 2 opening"},
+ {"episode": 113653965, "seed": 1514363055, "tag": "haideptry_2965", "opponent": "wenya hao", "rating": 1703.2, "kaggle_seat": 1, "submission": "rowan_glen", "assigned_by": "opening: buy 20 / sell 15"},
+ {"episode": 113594375, "seed": 121602332, "tag": "haideptry_2965", "opponent": "NoPlanB", "rating": 1213.4, "kaggle_seat": 1, "submission": "linden_brook", "assigned_by": "fallback: hire + melon seeds opening"},
+ {"episode": 113629307, "seed": 882781173, "tag": "haideptry_2965", "opponent": "Ci Zhu", "rating": 1669.8, "kaggle_seat": 1, "submission": "linden_brook", "assigned_by": "opening: buy 20 / sell 15"},
+ {"episode": 113635927, "seed": 1239389803, "tag": "haideptry_2965", "opponent": "Shota Takano", "rating": 1125.7, "kaggle_seat": 1, "submission": "linden_brook", "assigned_by": "fallback: buy 3 + five hires opening"},
+ {"episode": 113653879, "seed": 76206111, "tag": "tetsutani_demand", "opponent": "David Goldrajch", "rating": 2421.3, "kaggle_seat": 1, "submission": "linden_brook", "assigned_by": "opening: buy 5 wheat + 1 seed"}
+]

@@ -1,0 +1,1742 @@
+[
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1324216955,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113473454,
+  "opponent": "AkiraIshikawa",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1324216955,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113473454,
+  "opponent": "AkiraIshikawa",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 439772244,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113474639,
+  "opponent": "keith70",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 439772244,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113474639,
+  "opponent": "keith70",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1876447474,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113477669,
+  "opponent": "Thomas Deng",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1876447474,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113477669,
+  "opponent": "Thomas Deng",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1018152346,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113482511,
+  "opponent": "tetsuro731",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1018152346,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113482511,
+  "opponent": "tetsuro731",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1684445780,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113484948,
+  "opponent": "YuRuiZe",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1684445780,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113484948,
+  "opponent": "YuRuiZe",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 981469533,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113487240,
+  "opponent": "YUK",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 981469533,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113487240,
+  "opponent": "YUK",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 963277090,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113489435,
+  "opponent": "Rashid Khazeiynasab",
+  "kaggle_seat": 1,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 963277090,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113489435,
+  "opponent": "Rashid Khazeiynasab",
+  "kaggle_seat": 1,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 974865802,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113489641,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 974865802,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113489641,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 558300139,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113490841,
+  "opponent": "Harshith revuru",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 558300139,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113490841,
+  "opponent": "Harshith revuru",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 649400230,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113492020,
+  "opponent": "rrishavrraj",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 649400230,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113492020,
+  "opponent": "rrishavrraj",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 223782814,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113493201,
+  "opponent": "ASH",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 223782814,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113493201,
+  "opponent": "ASH",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 938587383,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113496787,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 938587383,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113496787,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 103885608,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113497954,
+  "opponent": "HHHyyds",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 103885608,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113497954,
+  "opponent": "HHHyyds",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 705611003,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113500313,
+  "opponent": "Danilo Lapegna",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 705611003,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113500313,
+  "opponent": "Danilo Lapegna",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 571068527,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113503829,
+  "opponent": "IMosia",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 571068527,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113503829,
+  "opponent": "IMosia",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1812464993,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113504953,
+  "opponent": "ropeadope",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1812464993,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113504953,
+  "opponent": "ropeadope",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1156946761,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113506213,
+  "opponent": "Harvest Sun",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1156946761,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113506213,
+  "opponent": "Harvest Sun",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1558162095,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113507391,
+  "opponent": "Andrew9603",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1558162095,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113507391,
+  "opponent": "Andrew9603",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515355552,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113508596,
+  "opponent": "Saravana Rajan B",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515355552,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113508596,
+  "opponent": "Saravana Rajan B",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2113046413,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113510558,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2113046413,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113510558,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515323481,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113512142,
+  "opponent": "MilanJoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515323481,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113512142,
+  "opponent": "MilanJoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 453552434,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113513202,
+  "opponent": "MP Gamimg",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 453552434,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113513202,
+  "opponent": "MP Gamimg",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1501650513,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113515698,
+  "opponent": "random_numb",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1501650513,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113515698,
+  "opponent": "random_numb",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1882989945,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113518069,
+  "opponent": "Manav",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1882989945,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113518069,
+  "opponent": "Manav",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 2132738114,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113519247,
+  "opponent": "phi",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 2132738114,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113519247,
+  "opponent": "phi",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1566745884,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113520031,
+  "opponent": "woldy",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1566745884,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113520031,
+  "opponent": "woldy",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 73034081,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113546895,
+  "opponent": "Pii",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 73034081,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113546895,
+  "opponent": "Pii",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "hanifnoerrofiq_pioneers",
+  "seed": 1952013913,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113558580,
+  "opponent": "julien gaza",
+  "kaggle_seat": 1,
+  "assigned_by": "match 211 steps"
+ },
+ {
+  "tag": "hanifnoerrofiq_pioneers",
+  "seed": 1952013913,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113558580,
+  "opponent": "julien gaza",
+  "kaggle_seat": 1,
+  "assigned_by": "match 211 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1025817768,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113222599,
+  "opponent": "ayman elamin",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1025817768,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113222599,
+  "opponent": "ayman elamin",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 131716916,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113223849,
+  "opponent": "Shardul Gharat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 131716916,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113223849,
+  "opponent": "Shardul Gharat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 270102265,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113226248,
+  "opponent": "rishavsaigal",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 270102265,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113226248,
+  "opponent": "rishavsaigal",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 379442008,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113226277,
+  "opponent": "Zhong Lyu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 379442008,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113226277,
+  "opponent": "Zhong Lyu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1863161608,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113228742,
+  "opponent": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1863161608,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113228742,
+  "opponent": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1825472073,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113229927,
+  "opponent": "Kers Aoyagi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1825472073,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113229927,
+  "opponent": "Kers Aoyagi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 925888793,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113231075,
+  "opponent": "K.nosaka",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 925888793,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113231075,
+  "opponent": "K.nosaka",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2101348097,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113238070,
+  "opponent": "Anton Tikhonov",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2101348097,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113238070,
+  "opponent": "Anton Tikhonov",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 216987965,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113238122,
+  "opponent": "zyichi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 216987965,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113238122,
+  "opponent": "zyichi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 2049321353,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113240486,
+  "opponent": "wuy1hao",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 2049321353,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113240486,
+  "opponent": "wuy1hao",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 16002583,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113245144,
+  "opponent": "AlexMoura2026",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 16002583,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113245144,
+  "opponent": "AlexMoura2026",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2043505370,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113246316,
+  "opponent": "Busya PRIME",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2043505370,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113246316,
+  "opponent": "Busya PRIME",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 36705986,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113252276,
+  "opponent": "Cuong Le",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 36705986,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113252276,
+  "opponent": "Cuong Le",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1847291811,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113255835,
+  "opponent": "Justin Mai 16",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1847291811,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113255835,
+  "opponent": "Justin Mai 16",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1586964654,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113257010,
+  "opponent": "williams",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1586964654,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113257010,
+  "opponent": "williams",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1991302409,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113261712,
+  "opponent": "Matin Urdu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1991302409,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113261712,
+  "opponent": "Matin Urdu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1010027077,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113263462,
+  "opponent": "Ansh Agarwal",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1010027077,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113263462,
+  "opponent": "Ansh Agarwal",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1074457773,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113264061,
+  "opponent": "Jesse Bullard",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1074457773,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113264061,
+  "opponent": "Jesse Bullard",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 526045270,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113266414,
+  "opponent": "Xiang Li",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 526045270,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113266414,
+  "opponent": "Xiang Li",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 162630429,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113267586,
+  "opponent": "Speril",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 162630429,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113267586,
+  "opponent": "Speril",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1336616261,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113286389,
+  "opponent": "Pranav Thota",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1336616261,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113286389,
+  "opponent": "Pranav Thota",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 140659244,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113326519,
+  "opponent": "PUN",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 140659244,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113326519,
+  "opponent": "PUN",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1441443537,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113336002,
+  "opponent": "z7777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1441443537,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113336002,
+  "opponent": "z7777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v43",
+  "seed": 258395137,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113341838,
+  "opponent": "Dariush Afshar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v43",
+  "seed": 258395137,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113341838,
+  "opponent": "Dariush Afshar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1690491916,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113397704,
+  "opponent": "volumatic",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1690491916,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113397704,
+  "opponent": "volumatic",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 282724254,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113421316,
+  "opponent": "edwinis",
+  "kaggle_seat": 1,
+  "assigned_by": "match 411 steps"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 282724254,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113421316,
+  "opponent": "edwinis",
+  "kaggle_seat": 1,
+  "assigned_by": "match 411 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1015676924,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113434138,
+  "opponent": "Excluding",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1015676924,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113434138,
+  "opponent": "Excluding",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 656359252,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113455583,
+  "opponent": "dengddd",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 656359252,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113455583,
+  "opponent": "dengddd",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1698360945,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113485254,
+  "opponent": "WENBO ZHANG",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1698360945,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113485254,
+  "opponent": "WENBO ZHANG",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 190969665,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113498875,
+  "opponent": "sneaky6767",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 190969665,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113498875,
+  "opponent": "sneaky6767",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 960190487,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113508517,
+  "opponent": "H\u00e9ctor Valverde",
+  "kaggle_seat": 0,
+  "assigned_by": "match 196 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 960190487,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113508517,
+  "opponent": "H\u00e9ctor Valverde",
+  "kaggle_seat": 0,
+  "assigned_by": "match 196 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 752129207,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113550965,
+  "opponent": "Mark",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 752129207,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113550965,
+  "opponent": "Mark",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ }
+]

@@ -10,12 +10,25 @@ mutation surface of the evolution:
 - `order` on routine_dispatch: 'submitted' or 'sells_first';
 - the top-level `surgical` config (`hazel_runtime/surgical.py` OVERRIDES).
 
+On a graph whose backbone runs a ladder engine (make_ladder_graph.py) there are also:
+
+- `engine_parameters` on the backbone node: the engine's top-level constants (engines.py);
+- the channels: `enabled` on the farmer, hands and market turn nodes (false = the engine's
+  action passes through) and on the optional oracle_guard node (the predictor's front-run);
+- `experimental.switches`: the extension stages of hazel_runtime/experimental.py.
+
 An edit is a JSON object with any of these keys, applied to a full graph:
 
     {"parameters": {"_NAME": value or null},   # null: back to the submitted value
      "stages": {"stage_id": true or false},
      "dispatch_order": "submitted" or "sells_first",
-     "surgical": {"enabled": bool, "overrides": {...}}}
+     "surgical": {"enabled": bool, "overrides": {...}},
+     "engine_parameters": {"NAME": value or null},
+     "channels": {"farmer" | "hands" | "market" | "oracle_guard": true or false},
+     "experimental": {"<switch>": true or false}}
+
+A setting that cannot change play (a market parameter while the market channel is off, say)
+is refused, so no gauntlet is spent on it.
 
 `apply_edit` checks names and types offline; `validate_graph` then builds the runtime
 and plays the opening turns in a child process, which is what catches the rest.
@@ -35,10 +48,14 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from hazel_runtime import graph_runtime, surgical  # noqa: E402
+from hazel_runtime import engines, experimental, graph_runtime, oracle_guard, surgical  # noqa: E402
 
 CHAMPION = HERE / 'hazel_runtime' / 'champion.py'
-EDIT_KEYS = ('parameters', 'stages', 'dispatch_order', 'surgical')
+EDIT_KEYS = ('parameters', 'stages', 'dispatch_order', 'surgical', 'engine_parameters', 'channels',
+             'experimental')
+CHANNEL_DEFAULTS = {'farmer': True, 'hands': True, 'market': True, 'oracle_guard': False}
+ENGINES_DIR = HERE / 'hazel_runtime' / 'engines'
+_ENGINE_CATALOGS = {}
 NODE_FEATURES = ('parameters', 'enabled', 'order')
 ALWAYS_ON = ('market_setup', 'routine_dispatch')
 MARKET_IDS = [stage[0] for stage in graph_runtime.MARKET_STAGES]
@@ -109,7 +126,49 @@ def catalog(source_path=CHAMPION):
         out[name] = {'default': default, 'type': type(default).__name__,
                      'stages': [_RUNTIME_HOME[name]], 'home': _RUNTIME_HOME[name],
                      'note': _RUNTIME_NOTES.get(name, 'runtime parameter'), 'used': True}
+    for name, default in oracle_guard.PARAMETERS.items():
+        out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['oracle_guard'],
+                     'home': 'oracle_guard', 'note': oracle_guard.NOTES.get(name, ''), 'used': True}
     return out
+
+
+def engine_name(graph):
+    backbone = next((n for n in graph['turn']['nodes'] if n['id'] == 'backbone'), {})
+    return backbone.get('engine', graph_runtime.DEFAULT_ENGINE)
+
+
+def engine_catalog(graph):
+    """{name: {default, type, note}} of the graph engine's editable constants ({} for Mohui)."""
+    name = engine_name(graph)
+    if name == graph_runtime.DEFAULT_ENGINE:
+        return {}
+    if name not in _ENGINE_CATALOGS:
+        meta = json.loads((ENGINES_DIR / name / 'SOURCE.json').read_text())
+        source = (ENGINES_DIR / name / 'agent' / meta['entry']).read_text(encoding='utf-8')
+        _ENGINE_CATALOGS[name] = {k: v for k, v in engines.catalog(source).items() if v['used']}
+    return _ENGINE_CATALOGS[name]
+
+
+def channels(graph):
+    """Effective channel flags (a graph without the oracle_guard node cannot enable it)."""
+    nodes = {n['id']: n for n in graph['turn']['nodes']}
+    out = {key: nodes[key].get('enabled', default) for key, default in CHANNEL_DEFAULTS.items() if key in nodes}
+    return out
+
+
+def _inert(graph, spec_stages):
+    """Whether settings read only in `spec_stages` cannot change play under the graph's channels."""
+    on = channels(graph)
+    for stage in spec_stages:
+        if stage in MARKET_IDS and on.get('market'):
+            return False
+        if stage in ('farmer', 'hands') and on.get(stage):
+            return False
+        if stage == 'state' and (on.get('farmer') or on.get('hands') or on.get('market')):
+            return False
+        if stage == 'oracle_guard' and on.get('oracle_guard'):
+            return False
+    return True
 
 
 def _chain_nodes(graph):
@@ -144,8 +203,23 @@ def settings(graph, constants=None):
     enabled = surgical.enabled(config)
     surgical_settings = ({'enabled': True, 'overrides': surgical.overrides(config)}
                          if enabled else {'enabled': False})
-    return {'parameters': dict(sorted(params.items())), 'stages': dict(sorted(stages.items())),
-            'dispatch_order': order, 'surgical': surgical_settings}
+    out = {'parameters': dict(sorted(params.items())), 'stages': dict(sorted(stages.items())),
+           'dispatch_order': order, 'surgical': surgical_settings}
+    engine = engine_name(graph)
+    if engine != graph_runtime.DEFAULT_ENGINE:
+        spec = engine_catalog(graph)
+        backbone = _chain_nodes(graph)['backbone']
+        values = {}
+        for name, value in (backbone.get('engine_parameters') or {}).items():
+            if name in spec and engines.to_json(engines.from_json(value, spec[name]['default'], name)) != \
+                    engines.to_json(spec[name]['default']):
+                values[name] = engines.to_json(engines.from_json(value, spec[name]['default'], name))
+        flags = {k: v for k, v in channels(graph).items() if v != CHANNEL_DEFAULTS[k]}
+        switches = experimental.settings((graph.get('experimental') or {}).get('switches'))
+        out.update(engine=engine, engine_parameters=dict(sorted(values.items())), channels=dict(sorted(flags.items())),
+                   experimental={k: v for k, v in sorted(switches.items()) if v})
+        out['stages'] = {k: v for k, v in out['stages'].items() if k in MARKET_IDS}
+    return out
 
 
 def settings_key(graph, constants=None):
@@ -211,9 +285,90 @@ def apply_edit(graph, edit, constants=None):
         config = edit['surgical']
         surgical.enabled(config)  # fails closed on unknown names/values
         out['surgical'] = copy.deepcopy(config)
+    ladder = engine_name(out) != graph_runtime.DEFAULT_ENGINE
+    if any(k in edit for k in ('engine_parameters', 'channels', 'experimental')) and not ladder:
+        raise ValueError('engine_parameters, channels and experimental need a graph with a ladder engine')
+    engine_params = edit.get('engine_parameters') or {}
+    if not isinstance(engine_params, dict):
+        raise ValueError('edit.engine_parameters must be an object {NAME: value}')
+    if engine_params:
+        spec = engine_catalog(out)
+        holder = nodes['backbone'].setdefault('engine_parameters', {})
+        for name, value in engine_params.items():
+            if name not in spec:
+                raise ValueError(f'unknown engine parameter {name}; editable ones are listed under ENGINE PARAMETERS')
+            if value is None:
+                holder.pop(name, None)
+            else:
+                holder[name] = engines.to_json(engines.from_json(value, spec[name]['default'], name))
+        if not holder:
+            nodes['backbone'].pop('engine_parameters')
+    flags = edit.get('channels') or {}
+    if not isinstance(flags, dict):
+        raise ValueError('edit.channels must be an object {channel: bool}')
+    for channel, flag in flags.items():
+        if channel not in CHANNEL_DEFAULTS or channel not in nodes:
+            raise ValueError(f'unknown channel {channel}; channels are {sorted(set(CHANNEL_DEFAULTS) & set(nodes))}')
+        if type(flag) is not bool:
+            raise ValueError(f'channel {channel} must be true or false')
+        if flag == CHANNEL_DEFAULTS[channel]:
+            nodes[channel].pop('enabled', None)
+        else:
+            nodes[channel]['enabled'] = flag
+    switches = edit.get('experimental') or {}
+    if not isinstance(switches, dict):
+        raise ValueError('edit.experimental must be an object {switch: bool}')
+    if switches:
+        current = dict((out.get('experimental') or {}).get('switches') or {})
+        current.update(switches)
+        experimental.settings(current)   # unknown switches, types and dependencies fail here
+        out.setdefault('experimental', {})['switches'] = {k: v for k, v in current.items() if v}
+    if ladder:
+        inert = [name for name in params if params[name] is not None
+                 and _inert(out, constants[name]['stages'])]
+        inert += [f'stage {k}' for k in stage_flags if _inert(out, [k])]
+        if 'dispatch_order' in edit and _inert(out, ['routine_dispatch']):
+            inert.append('dispatch_order')
+        if 'surgical' in edit and _inert(out, ['market_setup', 'farmer']):
+            inert.append('surgical')
+        if inert:
+            raise ValueError(f"no effect with the current channels: {', '.join(inert)} (their channel is off; "
+                             'switch it on in the same edit with "channels", or edit engine_parameters)')
     if settings_key(out, constants) == settings_key(graph, constants):
         raise ValueError('edit changes nothing: every value equals the current setting')
     return out
+
+
+MIGRATION_KEYS = ('parameters', 'stages', 'engine_parameters', 'channels', 'experimental')
+_RESET = {'parameters': None, 'engine_parameters': None, 'stages': True, 'experimental': False}
+_ABSENT = object()
+
+
+def migration_edit(recipient, donor, seed, constants=None):
+    """The edit that gives `recipient` what `donor` changed relative to `seed` (island mixing).
+
+    A setting the recipient changed itself keeps the recipient's value; a setting the donor put
+    back to its default is reset. None when the donor has nothing the recipient lacks.
+    """
+    constants = constants or catalog()
+    start, given, own = (settings(g, constants) for g in (seed, donor, recipient))
+    edit = {}
+    for key in MIGRATION_KEYS:
+        s, d, r = (x.get(key) or {} for x in (start, given, own))
+        changed = {}
+        for name in sorted(set(s) | set(d)):
+            before = s.get(name, _ABSENT)
+            if d.get(name, _ABSENT) == before or r.get(name, _ABSENT) != before:
+                continue
+            if name in d:
+                changed[name] = d[name]
+            else:
+                changed[name] = CHANNEL_DEFAULTS[name] if key == 'channels' else _RESET[key]
+        if changed:
+            edit[key] = changed
+    if given['dispatch_order'] != start['dispatch_order'] and own['dispatch_order'] == start['dispatch_order']:
+        edit['dispatch_order'] = given['dispatch_order']
+    return edit or None
 
 
 def diff(before, after, constants=None):
@@ -235,6 +390,22 @@ def diff(before, after, constants=None):
         lines.append(f"routine_dispatch order: {a['dispatch_order']} -> {b['dispatch_order']}")
     if a['surgical'] != b['surgical']:
         lines.append(f"surgical: {json.dumps(a['surgical'])} -> {json.dumps(b['surgical'])}")
+    if 'engine' in a or 'engine' in b:
+        spec = engine_catalog(after)
+        ea, eb = a.get('engine_parameters', {}), b.get('engine_parameters', {})
+        for name in sorted(set(ea) | set(eb)):
+            old = ea.get(name, engines.to_json(spec[name]['default']) if name in spec else None)
+            new = eb.get(name, engines.to_json(spec[name]['default']) if name in spec else None)
+            if old != new:
+                lines.append(f"engine {name}: {json.dumps(old)[:200]} -> {json.dumps(new)[:200]}")
+        ca, cb = channels(before), channels(after)
+        for channel in CHANNEL_DEFAULTS:
+            if ca.get(channel) != cb.get(channel):
+                lines.append(f"channel {channel}: {'on' if ca.get(channel) else 'off'} -> {'on' if cb.get(channel) else 'off'}")
+        xa, xb = a.get('experimental', {}), b.get('experimental', {})
+        for switch in sorted(set(xa) | set(xb)):
+            if xa.get(switch, False) != xb.get(switch, False):
+                lines.append(f"experimental {switch}: {xa.get(switch, False)} -> {xb.get(switch, False)}")
     return lines
 
 
@@ -265,6 +436,36 @@ def describe_controls(graph, constants=None):
                 f"{list(graph_runtime.ORDER_POLICIES)}")
     rows.append(f"SURGICAL: {json.dumps(current['surgical'])}; overrides and allowed values "
                 f"{json.dumps({k: list(v) for k, v in surgical.OVERRIDES.items()})}")
+    hazel_rows = [r for r in rows if not r.startswith(('_OG_',))]
+    if 'engine' in current:
+        spec = engine_catalog(graph)
+        on = channels(graph)
+        rows = [f"PRODUCTION ENGINE: {current['engine']} (a public ladder agent; everything it does is set by "
+                'the ENGINE PARAMETERS below, and our layers act on its action only where a channel is on).',
+                '',
+                'CHANNELS (on/off): ' + ', '.join(f'{k}={"on" if v else "off"}' for k, v in on.items()),
+                '  farmer/hands on = our idle-unit rescues edit the engine\'s unit actions; market on = our full '
+                'market pipeline (the PARAMETERS and MARKET STAGES below) rewrites the engine\'s orders; '
+                'oracle_guard on = only the predictor front-run (the _OG_* parameters) adds sells into the '
+                "engine's empty order slots. Off = the engine's own action passes through.",
+                '',
+                'ENGINE PARAMETERS (name | type | current | engine default | note):']
+        values = current.get('engine_parameters', {})
+        for name, item in sorted(spec.items(), key=lambda kv: kv[1]['lineno']):
+            value = values.get(name, engines.to_json(item['default']))
+            rows.append(f"{name} | {item['type']} | {json.dumps(value)[:300]} | "
+                        f"{json.dumps(engines.to_json(item['default']))[:300]} | {item['note'][:160]}")
+        rows += ['', 'EXPERIMENTAL SWITCHES (need a channel on to matter; capacity_liquidation and '
+                 'opponent_pressure need order_arbitration): ' + ', '.join(
+                     f"{k}={current['experimental'].get(k, False)}" for k in experimental.SWITCHES), '']
+        guard = [(n, c) for n, c in constants.items() if c['home'] == 'oracle_guard']
+        rows.append('ORACLE GUARD PARAMETERS (name | type | current | default | note):')
+        for name, c in guard:
+            rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
+                        f"{json.dumps(_json_value(c['default']))} | {c['note']}")
+        hazel = [r for r in hazel_rows if r]
+        rows += ['', 'OUR MARKET-PIPELINE CONTROLS (only matter with the market channel on; the farmer/hands '
+                 'rescue constants only with those channels on):'] + hazel
     return '\n'.join(rows)
 
 

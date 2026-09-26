@@ -236,9 +236,9 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
         """
         system_prompt = (
             "You tune an executable policy graph for the Kaggriculture Kaggle simulation "
-            "(two farms, 720 turns, final cash decides). The graph runs a fixed champion "
-            "program; you can change only the listed executable controls. Propose ONE small, "
-            "mechanism-driven edit and return ONLY a JSON object with keys 'rationale' and 'edit'.")
+            "(two farms, 720 turns, final cash decides). The graph runs a fixed production engine "
+            "and our layers on top of it; you can change only the listed executable controls. Propose "
+            "ONE small, mechanism-driven edit and return ONLY a JSON object with keys 'rationale' and 'edit'.")
         history_block = "\n".join(f"- {line}" for line in history[-12:]) or "- none yet"
         guidance_block = "\n".join(f"- {line}" for line in guidance[-5:]) or "- none"
         ideas_block = "\n".join(f"- {line}" for line in (ideas or [])[:20]) or "- none"
@@ -278,8 +278,13 @@ You may change any control, but prefer this area.
   "edit": {{"parameters": {{"<_CONSTANT>": <value of the same type, or null for the submitted value>}},
             "stages": {{"<market stage id>": true or false}},
             "dispatch_order": "submitted" or "sells_first",
-            "surgical": {{"enabled": true or false, "overrides": {{...}}}}}}}}
-Include only the keys you change (usually 1-3 controls). Tuples and lists are JSON arrays.
+            "surgical": {{"enabled": true or false, "overrides": {{...}}}},
+            "engine_parameters": {{"<ENGINE CONSTANT>": <value of the same type, or null for the engine default>}},
+            "channels": {{"farmer" | "hands" | "market" | "oracle_guard": true or false}},
+            "experimental": {{"<switch>": true or false}}}}}}
+Include only the keys you change (usually 1-3 controls); keys that the CONTROLS section does not
+list do not exist for this graph. Tuples and lists are JSON arrays; a table keyed by shop pairs
+takes keys "SHOP_A|SHOP_B" and must be given complete (every key of the current value).
 """
         content = self._chat(model_name, system_prompt, prompt, "outer_mutator_llm")
         parsed = extract_json_block(content)

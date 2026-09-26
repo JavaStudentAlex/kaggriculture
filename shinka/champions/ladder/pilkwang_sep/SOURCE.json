@@ -1,0 +1,19 @@
+{
+ "name": "pilkwang_sep",
+ "notebook": "pilkwang/kaggriculture-structured-economic-policy",
+ "notebook_id": 129273466,
+ "title": "Kaggriculture: Structured Economic Policy",
+ "url": "https://www.kaggle.com/code/pilkwang/kaggriculture-structured-economic-policy",
+ "decoded": "archive_bytes (b64+gzip+tar)",
+ "entry": "main.py",
+ "files": {
+  "NOTICE.txt": "bdf3ce2bb14da2c07cba307966b984ea570f5e47a357ac2195ae599982504223",
+  "README.md": "b2710352de4b7bc3e677c06f49079d805dd7f5501f5d89bba78ed1fd4c16daa0",
+  "candidate_config.json": "9e6ed4e18fa28cf51a63475b084baba7cdf3aee69757a457266bb903a162a04c",
+  "main.py": "21e4b79bbc7bca97ad1af6337322303987d73d95b963b08ebe80a67900bd5360",
+  "market_primitives.py": "dcfade4643811388ee0264046de23a1f69e44e72cb421e9fcac0930e6a48e67c",
+  "sheep_admission.py": "16b34ffd055dcfdab0ff728c0ac5524c1a83aacfae2f291eba56573ee4e4e4a4",
+  "upstream.py": "7eb5ab6c48581c82906ab6fa6b2cc5c9607513249ef59b2c45fcd6176e8653dd"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

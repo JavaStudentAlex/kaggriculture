@@ -38,7 +38,8 @@ class GraphEditTests(unittest.TestCase):
         cls.constants = graph_edits.catalog()
 
     def test_catalog_lists_every_evolvable_constant_with_its_stage(self):
-        self.assertEqual(len(self.constants), 42)  # 40 champion constants + 2 runtime parameters
+        # 40 champion constants + 2 runtime parameters + the oracle guard's parameters
+        self.assertEqual(len(self.constants), 42 + len(graph_edits.oracle_guard.PARAMETERS))
         spec = self.constants['_OPENING_BUY_WHEAT_QTY']
         self.assertEqual((spec['default'], spec['type'], spec['home']), (35, 'int', 'opening_scalp'))
         self.assertEqual(self.constants['_TOWN_CADENCE_PHASE']['home'], 'town_and_fertilizer')
@@ -98,6 +99,26 @@ class GraphEditTests(unittest.TestCase):
                     {'dispatch_order': 'buys_first'}, {'surgical': {'enabled': True, 'overrides': {'x': 1}}}):
             with self.assertRaises(ValueError, msg=bad):
                 graph_edits.apply_edit(seed_graph(), bad)
+
+    def test_migration_edit_gives_the_donor_changes_and_keeps_the_recipient_own(self):
+        seed = seed_graph()
+        donor = graph_edits.apply_edit(seed, {'dispatch_order': 'sells_first', 'stages': {'investment_freeze': False},
+                                              'parameters': {'_SHOP_SELL_BATCH_MAX': 5, '_TOWN_CADENCE_PHASE': 3}})
+        own = graph_edits.apply_edit(seed, {'parameters': {'_SHOP_SELL_BATCH_MAX': 6}})
+        edit = graph_edits.migration_edit(own, donor, seed)
+        self.assertEqual(edit, {'parameters': {'_TOWN_CADENCE_PHASE': 3}, 'stages': {'investment_freeze': False},
+                                'dispatch_order': 'sells_first'})
+        mixed = graph_edits.settings(graph_edits.apply_edit(own, edit))
+        self.assertEqual(mixed['parameters'], {'_SHOP_SELL_BATCH_MAX': 6, '_TOWN_CADENCE_PHASE': 3})
+        self.assertIsNone(graph_edits.migration_edit(donor, donor, seed))
+        # a setting the donor put back to its default is reset in the recipient
+        start = graph_edits.apply_edit(seed, {'parameters': {'_SHOP_SELL_BATCH_MAX': 5},
+                                              'stages': {'investment_freeze': False}})
+        back = graph_edits.apply_edit(start, {'parameters': {'_SHOP_SELL_BATCH_MAX': None},
+                                              'stages': {'investment_freeze': True}})
+        edit = graph_edits.migration_edit(start, back, start)
+        self.assertEqual(edit, {'parameters': {'_SHOP_SELL_BATCH_MAX': None}, 'stages': {'investment_freeze': True}})
+        self.assertEqual(graph_edits.settings_key(graph_edits.apply_edit(start, edit)), graph_edits.settings_key(back))
 
     def test_settings_key_ignores_explicit_defaults_and_prose(self):
         graph = seed_graph()
@@ -247,6 +268,16 @@ class GauntletTests(unittest.TestCase):
             cached = g.baseline(cand)
             self.assertEqual(len(played), 1)  # the pool games were cached by evaluate()
             self.assertEqual(set(cached['margins']), {k for k in result['margins'] if k.startswith('mohui')})
+            # the same graph against another incumbent (islands mixing) plays only the head-to-head block
+            other = graph_edits.apply_edit(seed, {'parameters': {'_TOWN_CADENCE_PHASE': 3}})
+            again = g.evaluate(cand, other)
+            self.assertEqual(len(played), 2)
+            name = f'{g.bundle(cand)}_vs_{g.bundle(other)}'
+            jobs = json.loads((run / 'jobs' / f'{name}.json').read_text())['jobs']
+            self.assertEqual({j['tag'] for j in jobs}, {'incumbent'})
+            self.assertEqual(len(again['margins']), 8)
+            self.assertEqual(sorted(again['jobs']), sorted(again['margins']))
+            self.assertEqual(graph_gauntlet.compare(again, cached)['jobs'], 8)
 
 
     def test_fallbacks_are_attributed_to_the_candidate_graph(self):
@@ -343,8 +374,11 @@ class EvolutionLoopTests(unittest.TestCase):
             # already-seen settings: refused before any game, fed back to the model.
             self.assertEqual(len(loop.gauntlet.evaluated), 1)
             self.assertEqual(town['history'], [])
-            # Every island's prompt lists the edits played anywhere in the run, per opponent.
+            # Every island's prompt lists the edits played anywhere in the run, per opponent, and
+            # the edits other models already proposed in the same iteration.
             self.assertEqual(mutator.histories[0], [])
+            self.assertEqual(mutator.histories[1], ['[this iteration, proposed by another model, not played yet] '
+                                                    'routine_dispatch order: submitted -> sells_first'])
             self.assertEqual(len(mutator.histories[-1]), 1)
             self.assertTrue(mutator.histories[-1][0].startswith('[Island-Opening] routine_dispatch order'))
             self.assertIn('per opponent (W-L-T, mean change): hazel 20-0-0 $+5; incumbent 20-0-0 $+1',
@@ -361,6 +395,76 @@ class EvolutionLoopTests(unittest.TestCase):
             self.assertEqual(resumed.state['next_iteration'], 3)
             self.assertIn(str(run / 'seed_graph.json'), [str(p) for p in validated])
         self.assertEqual((ROOT / 'policy_graph.json').read_bytes(), committed)
+
+    def test_islands_mix_the_best_champion_into_the_others(self):
+        seed = seed_graph()
+        donor = graph_edits.apply_edit(seed, {'dispatch_order': 'sells_first', 'parameters': {'_SHOP_SELL_BATCH_MAX': 5}})
+        own = graph_edits.apply_edit(seed, {'parameters': {'_SHOP_SELL_BATCH_MAX': 6}})
+
+        class FakeGauntlet:
+            alpha = 0.05
+            stop_after_first = False
+
+            def __init__(self):
+                self.evaluated = []
+
+            @staticmethod
+            def gain(graph):
+                return 5.0 if graph_edits.settings(graph)['dispatch_order'] == 'sells_first' else 0.0
+
+            def baseline(self, graph):
+                return {'margins': {f'hazel|{i}|{i % 2}': self.gain(graph) for i in range(20)}}
+
+            def evaluate(self, graph, incumbent):
+                self.evaluated.append(graph)
+                if self.stop_after_first:
+                    evo._RUNNING = False   # a Ctrl-C during the first island's gauntlet
+                margins = {f'hazel|{i}|{i % 2}': self.gain(graph) for i in range(20)}
+                margins.update({f'incumbent|{i}|{i % 2}': 1.0 for i in range(20)})
+                return {'bundle': 'g_x', 'jobs': sorted(margins), 'margins': margins, 'errors': [], 'fallbacks': 0}
+
+        class FailingMutator:
+            def mutate_edit(self, *args, **kwargs):
+                raise ValueError('no idea')
+
+        def make(run, gauntlet, **kw):
+            return evo.EditEvolution(run, gauntlet, FailingMutator(), None, UCB1Bandit(run / 'b.json'),
+                                     lambda path: None, lambda *a, **k: [], 'facts', mix_interval=6, **kw)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            gauntlet = FakeGauntlet()
+            loop = make(run, gauntlet, seed_graph=seed)
+            islands = loop.state['islands']
+            islands[0]['graph'], islands[0]['history'] = donor, [{'iteration': 1, 'changes': ['promoted']}]
+            islands[1]['graph'] = own
+            self.assertEqual([loop.mix_due(a) for a in (0, 5, 6, 9)], [False, False, True, True])
+            gauntlet.stop_after_first = True
+            try:
+                self.assertFalse(loop.mix(6))
+            finally:
+                evo._RUNNING = True
+            self.assertEqual(loop.state['mixing']['done'], [islands[1]['name']])
+            gauntlet.stop_after_first = False
+            resumed = make(run, gauntlet)          # from the checkpoint: the rest of the same mixing
+            self.assertTrue(resumed.mix(6))
+            self.assertEqual(len(gauntlet.evaluated), 5)   # every other island once, the donor never
+            got = [graph_edits.settings(i['graph']) for i in resumed.state['islands']]
+            self.assertEqual({s['dispatch_order'] for s in got}, {'sells_first'})
+            self.assertEqual(got[1]['parameters'], {'_SHOP_SELL_BATCH_MAX': 6})   # its own value stays
+            self.assertEqual(got[2]['parameters'], {'_SHOP_SELL_BATCH_MAX': 5})   # the donor's value
+            record = resumed.state['islands'][2]['history'][-1]
+            self.assertEqual((record['model'], record['donor'], record['iteration']), ('mixing', islands[0]['name'], 6))
+            self.assertIn(graph_edits.settings_key(resumed.state['islands'][2]['graph']), resumed.state['seen'])
+            # run(): the next mixing comes after iteration 12, once
+            resumed.state['next_iteration'], resumed.state['mixed_after'] = 7, 6
+            calls = []
+            mix = resumed.mix
+            resumed.mix = lambda after: calls.append(after) or mix(after)
+            resumed.run(iterations=13)
+            self.assertEqual(calls, [12])
+            self.assertEqual((resumed.state['mixed_after'], resumed.state['next_iteration']), (12, 14))
+            self.assertEqual(len(gauntlet.evaluated), 5)   # nothing new to give: no games
 
     def test_proxy_outage_waits_instead_of_spending_attempts(self):
         import urllib.error

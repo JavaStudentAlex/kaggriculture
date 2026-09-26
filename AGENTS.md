@@ -768,3 +768,89 @@ other batch needs the user's OK (section 3.1). The runner stops its VMs itself. 
   'runs/arena/<run>/traces/<tag>*@ours|@both'`, then copy the payload's `traces.zip` and write
   `games.json` like the committed one.
 - Details and file formats: `research/procedural_graph/arena/README.md` ("Predictor calibration").
+
+## 14. The ladder pool and ladder-engine graph evolution (2026-09-26)
+
+**Why.** The opponents that beat Linden Brook and Rowan Glen run public Kaggle notebooks. Recovered
+into `shinka/champions/ladder/` (README there), they beat our Mohui-based agent in almost every game
+(Rowan Glen 0-96 against the V57 family, -$18k to -$20k a game), and the strongest of them, tetsutani's
+"Demand-Preserving" agent, beats even the V57 family. Parameter evolution of the Mohui graph cannot
+close that gap (Mohui's routes have no geese or tomatoes and a step-1 cash crunch), so the graph now
+runs a ladder agent as its production engine and evolution tunes that engine and our layers on it.
+
+- **The pool.** `shinka/champions/ladder/build_ladder_pool.py` pulls the notebooks read-only and
+  recovers their agents statically (no notebook code runs); `match_ladder_games.py` checks a bundle
+  move for move against a recorded ladder game (5 exact matches, including the 2155- and 2188-rated
+  players). Arena opponents by name: `payload.py --pairs x:tetsutani_demand` or `--bundle`.
+- **Ladder graphs.** `make_ladder_graph.py --engine <bundle>` copies the agent into
+  `hazel_runtime/engines/<bundle>/` and writes a graph whose `backbone` node has `engine`; with the
+  farmer, hands and market channels off it ties the public agent to the dollar. `engine_parameters`
+  set the engine's literal constants (`hazel_runtime/engines.py` catalogs them; game-rule tables are
+  excluded); the optional `oracle_guard` turn stage adds the predictor's front-run sells into the
+  engine's empty order slots (`_OG_*` parameters). Ladder engines put deliberate empty `[]` entries in
+  their order lists (both seats clear index by index): a passed-through market keeps them, and
+  anything that rewrites orders must too. With every channel and the guard off the oracle is not run.
+- **Colab VM pool.** `arena/colab_pool.py` keeps VMs between batches: a client writes
+  `<pool>/inbox/<name>.json` ({name, root, jobs}), the pool uploads each (content-addressed) bundle to
+  a VM once, plays, and writes `<pool>/outbox/<name>.jsonl|.log|.done`; `graph_gauntlet.ColabPoolExecutor`
+  is that client. `STOP` in the pool dir ends it; idle VMs stop after `--idle-stop`. Same watch rules as
+  colab_run.py (keep-alive polls, token refresh, replacement), same `COLAB_VMS_LEFT=0` check. A slot gets
+  `--replacements` (2) new VMs for VMs that die young; a VM that served `--long-life` (3 h) before it went
+  away does not count, so a pool that runs for days keeps its slots when Colab ends long-running VMs.
+- **Evolution run.** On cliproxyapi (the LLM proxy is its localhost:8317): code copy in
+  `~/kagg-evo/repo` (rsync of `research/procedural_graph` without runs/calibration, `shinka/champions/ladder`,
+  `shinka/champions/submissions/hazel_weir/mohui_v66`, `shinka/evolution/pool_upgrade_bundle_agent.py`),
+  venv `~/kagg-evo/venv` (python3.12, kaggle-environments 1.32.7, numpy), pool `~/kagg-evo/pool`
+  (tmux `kagg-colab-evo`), loop in tmux `kagg-evo-<run>`:
+  `highcpu_island_evolution.py --executor colab-pool --pool_dir ~/kagg-evo/pool --islands ladder
+  --plan evolution_results/ladder_2026-09-26/plan.json --knowledge evolution_knowledge_ladder.md
+  --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json
+  --seeds_per_opponent 20 --mix_interval 12`. The plan (`ladder_seed_plan.py`) is every lost ladder seed
+  against the bundle that plays like the rival who beat us there, from both seats, plus 10 random seeds
+  against each pool member; `--seeds_per_opponent` then only sizes the head-to-head block. The bandit
+  pulls only the models the proxy serves.
+- **Island mixing** (user's requirement, 2026-09-26). The islands evolve separately, and an edit whose
+  settings were played on any island is refused as a repeat, so the models cannot pass a champion to
+  another island. Every `--mix_interval` iterations (12 = two rounds of the six ladder islands; a run
+  that turns it on mid-block mixes at once) the island whose champion gains most over the seed is the
+  donor, and every other island is offered its champion plus the donor's changes. A setting the island
+  changed itself keeps its own value (`graph_edits.migration_edit`). The usual gauntlet decides, and pool
+  games a graph already played are reused, so a champion moving to another island costs only the 20
+  head-to-head games. The log shows `MIXING after iteration n` and one `[MIX]` line per island; the
+  records carry `"model": "mixing"` and `"donor"`. A stop during a mixing resumes with the islands not yet
+  offered, with the same donor.
+- **Steering a running loop.** The `--ideas` and `--knowledge` files are both re-read every iteration.
+  Edit them in `~/kagg-evo/repo` (after editing here) and they take effect on the next iteration. Later
+  models in an iteration see the edits the earlier ones proposed.
+- **Stopping or restarting.** A stop (Ctrl-C, or SIGTERM to the python PID) ends the loop after the
+  current iteration and saves it. The checkpoint is written before `ITERATION n` is logged, so a loop
+  that runs old code can also be killed right after that line. `~/kagg-evo/restart_ladder1.sh
+  <iterations> [--pool]` (run it in tmux; a copy is in `evolution_results/ladder_2026-09-26/`) does that at
+  the next boundary and resumes in a new tmux session that appends to the same log. With `--pool` it also
+  restarts the idle pool (new pool code): the old pool must report `COLAB_VMS_LEFT=0` first, and the new
+  one makes new VMs on the loop's first request (give the user their links).
+  - The loop's wrapper touches the pool's STOP file when the loop ends, so the script kills the
+    wrapper first. Killing only the python process would stop the pool and its VMs.
+  - Run ladder1 has a budget of 200 iterations since 12:35 UTC 09-26. An iteration takes 12-35 min (35
+    when both graphs run the predictor), so 200 iterations take about 3-4.5 days and 100-140 compute
+    units at 1.3 units/h (the account had 180.8 units at 14:00 UTC 09-26).
+  - Cached baselines survive a restart only if the gauntlet fingerprint is unchanged. The fingerprint
+    covers the opponent bundles, everything under `hazel_runtime/`, `agent_graph.py`, the harness, the
+    seeds and the plan. Loop, prompt and knowledge files are not in it.
+  - Check it before restarting: `Gauntlet(...).prepare()` must equal the `fingerprint` in
+    `<run>/scores/*.json`.
+- **Aim edits at layers that act.** `engine_activity.py` shows which of an engine's layers change its
+  actions in play and which parameters each layer reads. It wraps each saved parent `agent`, and the
+  recorded games equal unwrapped ones. For tetsutani_demand, 34 of 76 layers never acted in 48 games,
+  and edits of their parameters changed 1-3 of 230 gauntlet games. The result is in
+  `evolution_results/ladder_2026-09-26/engine_activity.json`, and the knowledge file summarises it.
+  Run it on Colab or cliproxyapi, never on this PC.
+- **Validation.** `ladder_validate.py` plays graphs from the run's checkpoint through the same pool:
+  - which graphs: `seed`, `island:<name>`, `merge:<A>+<B>` (island A plus what B changed relative to
+    the seed), or a file;
+  - which games: arena validation seeds (salt 20260924) against every opponent, plus held-out lost
+    seeds (`--lost`) from both seats;
+  - the report pairs every graph with the first one.
+
+  Its request queues in the pool between gauntlets and delays the loop by its own length.
+- Results and the iteration table: `evolution_results/ladder_2026-09-26/README.md`.

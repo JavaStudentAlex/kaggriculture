@@ -1202,7 +1202,7 @@
       "checkpoint/labels.json": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75",
       "checkpoint/model.safetensors": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
       "checkpoint/scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
-      "graph_runtime.py": "4ce1293ec71c7177b8fd14eee97f91b2d4da3ac720277d4b42fe12096b78ea8c",
+      "graph_runtime.py": "5d6e8a1a30c61a237042eeb9cfe41a0bc96fe5092cb360737a98a3b00d8ffa3d",
       "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
       "kagg_ttm_numpy.py": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda",
       "main.py": "5a075f904496ee8242deeec9ffb6402c4dbd7ca4aefb56a79b4b27530bd9f0bd",
@@ -1223,7 +1223,9 @@
       "opponent_model/mechanics.py": "8276afa5ea74b52836e3fc70be0977d3856f77f732d014422f3cf5532fa9bad9",
       "experimental.py": "6cb173d51ac0a7f15dab0222110e9e127d7661097d9daee7dad1634f9c68a3b5",
       "engine_contract.py": "a1136efc24fc4a907c76964e531882dd30ce70815959ebdc12008715ba8cf48e",
-      "surgical.py": "f3f242ce6ae015a0e9883d6918a03d27daec0baa69f383f425b5546a177cafab"
+      "surgical.py": "f3f242ce6ae015a0e9883d6918a03d27daec0baa69f383f425b5546a177cafab",
+      "engines.py": "1a54e54da0b1c1ec5da7efa40299a8db62d89d0e6234bfe3302636fdcea41408",
+      "oracle_guard.py": "da87aadf649da6950eaf1379f93a699cc106ea451f0664164557b9da84985561"
     },
     "entrypoint_sha256": "818399ca2d2bf1068c16bf661257687488e19095e7fc8d91e4a5480e311c5421"
   },

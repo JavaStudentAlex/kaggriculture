@@ -196,11 +196,68 @@ class SSHExecutor:
             raise RuntimeError(f'remote arena ended with {probe.stdout.strip()}; see logs/{name}.log')
 
 
+class ColabPoolExecutor:
+    """Plays a jobs file on a Colab VM pool (arena/colab_pool.py) that runs on this host.
+
+    The request names the run directory as its root: the pool reads the bundles there and
+    uploads each to a VM once. Only jobs not yet finished in games/<name>.jsonl are sent; the
+    results and the VMs' arena logs (the agents' stderr, where graph fallbacks are reported)
+    are appended to games/<name>.jsonl and logs/<name>.log.
+    """
+
+    def __init__(self, pool_dir, poll=15.0, timeout=8 * 3600.0):
+        self.pool_dir, self.poll, self.timeout = Path(pool_dir).resolve(), poll, timeout
+
+    def describe(self):
+        return {'executor': 'colab-pool', 'pool': str(self.pool_dir), 'engine': ENGINE_VERSION}
+
+    def run(self, run_dir, name, bundles):
+        run_dir = Path(run_dir).resolve()
+        jobs = json.loads((run_dir / 'jobs' / f'{name}.json').read_text())['jobs']
+        out = run_dir / 'games' / f'{name}.jsonl'
+        done = set()
+        if out.exists():
+            for line in out.read_text().splitlines():
+                try:
+                    row = json.loads(line)
+                except ValueError:
+                    continue
+                if row.get('statuses') and not row.get('errors'):
+                    done.add(job_key(row))
+        todo = [j for j in jobs if job_key(j) not in done]
+        if not todo:
+            return
+        batch = f'{name[:80]}-{time.time_ns() % 10**12}'
+        inbox, outbox = self.pool_dir / 'inbox', self.pool_dir / 'outbox'
+        inbox.mkdir(parents=True, exist_ok=True)
+        tmp = inbox / f'.{batch}.tmp'
+        tmp.write_text(json.dumps({'name': batch, 'root': str(run_dir), 'jobs': todo}))
+        tmp.rename(inbox / f'{batch}.json')
+        t0 = time.time()
+        while not (outbox / f'{batch}.done').exists():
+            if time.time() - t0 > self.timeout:
+                raise RuntimeError(f'Colab pool batch {batch} not done after {self.timeout:.0f} s')
+            time.sleep(self.poll)
+        summary = json.loads((outbox / f'{batch}.done').read_text())
+        with out.open('a') as fh:
+            fh.write((outbox / f'{batch}.jsonl').read_text())
+        with (run_dir / 'logs' / f'{name}.log').open('a') as fh:
+            fh.write((outbox / f'{batch}.log').read_text(errors='replace') + '\n')
+        if summary['finished'] < summary['games']:
+            raise RuntimeError(f'Colab pool batch {batch} incomplete: {summary}')
+
+
 class Gauntlet:
-    def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05):
+    """`plan` (optional) replaces the default job set: a list of {"tag": opponent bundle, "seed",
+    "a_seat", "set"} entries (e.g. every lost ladder seed against the agent that beat us there,
+    from both seats, plus random seeds against the pool; ladder_seed_plan.py writes one). With a
+    plan the head-to-head block plays the first `seeds_per_opponent` evolution seeds."""
+
+    def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05, plan=None):
         self.run_dir = Path(run_dir).resolve()  # arena.py runs with cwd=run_dir
         self.executor = executor
-        self.opponents = tuple(opponents)
+        self.plan = [dict(e) for e in plan] if plan else None
+        self.opponents = (tuple(sorted({e['tag'] for e in self.plan})) if self.plan else tuple(opponents))
         self.seeds = seed_list(seeds_per_opponent)
         self.alpha = alpha
         self.fingerprint = None
@@ -220,7 +277,7 @@ class Gauntlet:
         files += [HERE / 'agent_graph.py', self.run_dir / 'arena.py', self.run_dir / 'bundle_agent.py']
         self.fingerprint = hashlib.sha256(json.dumps({
             'files': _tree_digest(files), 'seeds': self.seeds, 'opponents': self.opponents,
-            'engine': self.executor.describe().get('engine')}, sort_keys=True).encode()).hexdigest()
+            'plan': self.plan, 'engine': self.executor.describe().get('engine')}, sort_keys=True).encode()).hexdigest()
         return self.fingerprint
 
     def bundle(self, graph):
@@ -235,8 +292,12 @@ class Gauntlet:
         return name
 
     def jobs(self, candidate, incumbent=None):
-        jobs = [{'tag': o, 'a': f'bundles/{candidate}', 'b': f'bundles/{o}', 'seed': s, 'a_seat': i % 2}
-                for o in self.opponents for i, s in enumerate(self.seeds)]
+        if self.plan:
+            jobs = [{'tag': e['tag'], 'a': f'bundles/{candidate}', 'b': f"bundles/{e['tag']}", 'seed': e['seed'],
+                     'a_seat': e['a_seat'], **({'set': e['set']} if 'set' in e else {})} for e in self.plan]
+        else:
+            jobs = [{'tag': o, 'a': f'bundles/{candidate}', 'b': f'bundles/{o}', 'seed': s, 'a_seat': i % 2}
+                    for o in self.opponents for i, s in enumerate(self.seeds)]
         if incumbent:
             jobs += [{'tag': HEAD_TO_HEAD, 'a': f'bundles/{candidate}', 'b': f'bundles/{incumbent}',
                       'seed': s, 'a_seat': i % 2} for i, s in enumerate(self.seeds)]
@@ -271,7 +332,9 @@ class Gauntlet:
                    if 'graph fallback' in line and f'[{bundle}]' in line)
 
     def evaluate(self, graph, incumbent_graph=None):
-        """Play the pool jobs (+ head-to-head vs the incumbent) for a graph."""
+        """Play the pool jobs (+ head-to-head vs the incumbent) for a graph. A graph that already
+        played the pool jobs under this fingerprint (an island champion offered to another island
+        when islands mix) plays only the head-to-head block."""
         if self.fingerprint is None:
             raise RuntimeError('prepare() first')
         candidate = self.bundle(graph)
@@ -280,14 +343,18 @@ class Gauntlet:
             raise ValueError('candidate and incumbent are the same graph')
         name = f'{candidate}_vs_{incumbent}' if incumbent else candidate
         jobs = self.jobs(candidate, incumbent)
+        cached = self._cached(candidate)
+        todo = [j for j in jobs if job_key(j) not in cached]
         bundles = sorted({candidate, *self.opponents, *([incumbent] if incumbent else [])})
-        rows = self._play(name, jobs, bundles)
-        wanted = {job_key(j) for j in jobs}
+        rows = self._play(name, todo, bundles) if todo else []
+        wanted = {job_key(j) for j in todo}
         found, errors = margins([r for r in rows if job_key(r) in wanted], candidate)
         missing = sorted(wanted - set(found) - {e['job'] for e in errors})
+        found.update({job_key(j): cached[job_key(j)] for j in jobs if job_key(j) in cached})
         result = {'bundle': candidate, 'incumbent': incumbent, 'fingerprint': self.fingerprint,
-                  'jobs': sorted(wanted), 'margins': found, 'errors': errors + [{'job': m, 'errors': 'missing'} for m in missing],
-                  'fallbacks': self.fallbacks(name, candidate)}
+                  'jobs': sorted(job_key(j) for j in jobs), 'margins': found,
+                  'errors': errors + [{'job': m, 'errors': 'missing'} for m in missing],
+                  'fallbacks': self.fallbacks(name, candidate) if todo else 0}
         pool = {k: v for k, v in found.items() if not k.startswith(HEAD_TO_HEAD + '|')}
         if not result['errors'] and not result['fallbacks']:
             self._store(candidate, pool)
@@ -297,14 +364,21 @@ class Gauntlet:
         atomic_json(self.run_dir / 'scores' / f'{bundle}.json',
                     {'fingerprint': self.fingerprint, 'margins': pool_margins})
 
-    def baseline(self, graph):
-        """Pool-job margins of a graph (cached per evaluation fingerprint)."""
-        bundle = self.bundle(graph)
+    def _cached(self, bundle):
+        """Pool-job margins the bundle already has under the current fingerprint ({} if none)."""
         path = self.run_dir / 'scores' / f'{bundle}.json'
         if path.exists():
             cached = json.loads(path.read_text())
             if cached.get('fingerprint') == self.fingerprint:
-                return {'bundle': bundle, 'margins': cached['margins']}
+                return cached['margins']
+        return {}
+
+    def baseline(self, graph):
+        """Pool-job margins of a graph (cached per evaluation fingerprint)."""
+        bundle = self.bundle(graph)
+        cached = self._cached(bundle)
+        if cached:
+            return {'bundle': bundle, 'margins': cached}
         result = self.evaluate(graph)
         if result['errors'] or result['fallbacks']:
             raise RuntimeError(f'baseline evaluation of {bundle} failed: '

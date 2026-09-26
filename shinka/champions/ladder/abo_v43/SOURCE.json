@@ -1,0 +1,13 @@
+{
+ "name": "abo_v43",
+ "notebook": "ahmedberatozer/kaggriculture-v43-recovering-lost-harvests",
+ "notebook_id": 134403057,
+ "title": "Kaggriculture V43: Recovering Lost Harvests",
+ "url": "https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v43-recovering-lost-harvests",
+ "decoded": "SOURCE_BYTES (raw+)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "919fc1d61050cd96f799979e49177ae3ac7bce98ec9835724238bea73f4a08ed"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

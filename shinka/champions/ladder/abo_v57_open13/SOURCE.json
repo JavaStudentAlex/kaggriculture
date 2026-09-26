@@ -1,0 +1,15 @@
+{
+ "name": "abo_v57_open13",
+ "notebook": "ahmedberatozer/kaggriculture-v57-funding-order-invariant",
+ "notebook_id": 135369205,
+ "title": "Kaggriculture V57 — Funding-Order Invariant",
+ "url": "https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v57-funding-order-invariant",
+ "decoded": "SOURCE_BLOB (b85+zlib)",
+ "entry": "open13.py",
+ "derived": "abo_v57 with the ladder's 13-wheat opening (buy 13 at step 0, sell 9 at step 1) in place of V57's step-0/1 wheat orders; open13.py is local, agent.py is V57 byte for byte",
+ "files": {
+  "agent.py": "2ee689fdc58f38b7bf6b80b8d3f48129d19b47201dbee51fdcbd977498a5106f",
+  "open13.py": "27791193f6793b2727c535f65c3f143c59404881314b8382661fa475d0c8450f"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

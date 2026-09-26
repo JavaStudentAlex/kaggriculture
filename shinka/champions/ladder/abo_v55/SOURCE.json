@@ -1,0 +1,13 @@
+{
+ "name": "abo_v55",
+ "notebook": "ahmedberatozer/kaggriculture-v55-one-turn-market-race-edge",
+ "notebook_id": 135231505,
+ "title": " Kaggriculture V55 — One-Turn Market Race Edge",
+ "url": "https://www.kaggle.com/code/ahmedberatozer/kaggriculture-v55-one-turn-market-race-edge",
+ "decoded": "SOURCE_BLOB (b85+zlib)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "f09034624844da494669c4ab0e0d9a797da1a19db95eb138b875d309bd1aa01b"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

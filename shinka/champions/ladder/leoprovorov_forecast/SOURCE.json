@@ -1,0 +1,13 @@
+{
+ "name": "leoprovorov_forecast",
+ "notebook": "leoprovorov/four-turn-forecast-notebook-version-2",
+ "notebook_id": 133108545,
+ "title": "Four-Turn Forecast — Notebook Version 2",
+ "url": "https://www.kaggle.com/code/leoprovorov/four-turn-forecast-notebook-version-2",
+ "decoded": "SOURCE (b85+zlib)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "4f8637a3e33348b98f531de246d353f5d2955b2f85480e3fd02bf4a7874f0d01"
+ },
+ "pulled_utc": "2026-09-26T07:03Z"
+}

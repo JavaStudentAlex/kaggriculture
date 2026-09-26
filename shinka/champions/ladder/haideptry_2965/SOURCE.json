@@ -1,0 +1,13 @@
+{
+ "name": "haideptry_2965",
+ "notebook": "haideptry/the-2965-master-hybrid-engine",
+ "notebook_id": 135178936,
+ "title": "The 2965 Master Hybrid Engine",
+ "url": "https://www.kaggle.com/code/haideptry/the-2965-master-hybrid-engine",
+ "decoded": "AGENT_B64 (b64+gzip)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "cda529cb6b359fc4a9ab124d4d7950d5912bd5de846dcec4be70ca83b7150b2d"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

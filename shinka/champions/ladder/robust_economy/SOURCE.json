@@ -1,0 +1,13 @@
+{
+ "name": "robust_economy",
+ "notebook": "nihilisticneuralnet/kaggriculture-population-robust-economy",
+ "notebook_id": 135290730,
+ "title": "Kaggriculture: Population-Robust Economy",
+ "url": "https://www.kaggle.com/code/nihilisticneuralnet/kaggriculture-population-robust-economy",
+ "decoded": "MAIN_BLOB (b85+zlib)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "3ec06d07c1076dd8fdfe444cb5e19f1789f1e4f8d66597db3b3f70a5e80895fc"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

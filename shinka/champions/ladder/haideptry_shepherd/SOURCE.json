@@ -1,0 +1,13 @@
+{
+ "name": "haideptry_shepherd",
+ "notebook": "haideptry/the-shepherds-ledger-herd-safe-sovereign",
+ "notebook_id": 135478583,
+ "title": "The Shepherds Ledger Herd Safe Sovereign",
+ "url": "https://www.kaggle.com/code/haideptry/the-shepherds-ledger-herd-safe-sovereign",
+ "decoded": "AGENT_B64 (b64+gzip)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "8378f73c82db7624ce5d0369cf896aa0761a662af147b119f67254f1f8634c56"
+ },
+ "pulled_utc": "2026-09-25T23:27Z"
+}

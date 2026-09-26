@@ -1,0 +1,1895 @@
+{
+ "engine": "tetsutani_demand",
+ "parameters": {},
+ "games": [
+  {
+   "tag": "tetsutani_demand",
+   "seed": 1324216955,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    84645.0,
+    84645.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 56.5
+  },
+  {
+   "tag": "tetsutani_demand",
+   "seed": 1876447474,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    130939.0,
+    130939.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 57.4
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 974865802,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    79720.0,
+    87387.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 58.2
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 981469533,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    124884.0,
+    113990.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 60.2
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 223782814,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    81858.0,
+    74155.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 60.3
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 103885608,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    96135.0,
+    105077.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 62.4
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 515323481,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    102753.0,
+    102260.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 52.6
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1812464993,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    119328.0,
+    112376.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 54.6
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1558162095,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    121046.0,
+    132987.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 54.1
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 1566745884,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    98486.0,
+    99280.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 52.8
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1501650513,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    72792.0,
+    81161.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 53.0
+  },
+  {
+   "tag": "hanifnoerrofiq_pioneers",
+   "seed": 1952013913,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    88705.0,
+    94166.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 54.7
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 2101348097,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    62989.0,
+    62888.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 136.5
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 2049321353,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    99126.0,
+    109107.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 136.0
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 270102265,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    81138.0,
+    81425.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 136.8
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1586964654,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    73679.0,
+    81441.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 145.7
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 36705986,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    106002.0,
+    105866.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 143.0
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1863161608,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    53523.0,
+    57908.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 156.2
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 162630429,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    75964.0,
+    81800.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 92.6
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 1074457773,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    65294.0,
+    64152.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 100.6
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1690491916,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    109899.0,
+    122899.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 87.3
+  },
+  {
+   "tag": "abo_v55",
+   "seed": 190969665,
+   "a_seat": 1,
+   "set": "lost",
+   "rewards": [
+    101322.0,
+    102623.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 88.1
+  },
+  {
+   "tag": "haideptry_shepherd",
+   "seed": 1441443537,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    70098.0,
+    67587.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 104.0
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 656359252,
+   "a_seat": 0,
+   "set": "lost",
+   "rewards": [
+    122766.0,
+    109316.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 96.8
+  },
+  {
+   "tag": "tetsutani_demand",
+   "seed": 717423234,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    103274.0,
+    103274.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 63.0
+  },
+  {
+   "tag": "tetsutani_demand",
+   "seed": 1225771581,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    81992.0,
+    81992.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 59.7
+  },
+  {
+   "tag": "tetsutani_demand",
+   "seed": 1105611591,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    99767.0,
+    99767.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 61.1
+  },
+  {
+   "tag": "tetsutani_demand",
+   "seed": 1434585680,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    108588.0,
+    108588.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 55.7
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 1659410303,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    144221.0,
+    143889.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 54.6
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 937016811,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    132893.0,
+    133158.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 53.5
+  },
+  {
+   "tag": "haideptry_2965",
+   "seed": 1720794470,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    86630.0,
+    85696.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 47.3
+  },
+  {
+   "tag": "haideptry_shepherd",
+   "seed": 289070015,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    72003.0,
+    74118.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 46.9
+  },
+  {
+   "tag": "haideptry_shepherd",
+   "seed": 261830200,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    148437.0,
+    146924.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 47.8
+  },
+  {
+   "tag": "haideptry_shepherd",
+   "seed": 1601463528,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    95952.0,
+    95500.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 48.4
+  },
+  {
+   "tag": "abo_v57",
+   "seed": 717423234,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    103716.0,
+    102835.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 47.9
+  },
+  {
+   "tag": "abo_v57",
+   "seed": 1105611591,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    99621.0,
+    100280.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 46.7
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1659410303,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    116695.0,
+    107151.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 65.5
+  },
+  {
+   "tag": "abo_v57",
+   "seed": 1225771581,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    82496.0,
+    81236.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 68.0
+  },
+  {
+   "tag": "abo_v57",
+   "seed": 1434585680,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    107869.0,
+    109328.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 67.9
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 937016811,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    105283.0,
+    114220.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 68.0
+  },
+  {
+   "tag": "abo_v55",
+   "seed": 289070015,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    72125.0,
+    74131.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 67.8
+  },
+  {
+   "tag": "abo_v57_open13",
+   "seed": 1720794470,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    143988.0,
+    136345.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 69.9
+  },
+  {
+   "tag": "abo_v55",
+   "seed": 261830200,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    148689.0,
+    146321.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 69.1
+  },
+  {
+   "tag": "abo_v55",
+   "seed": 1601463528,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    95179.0,
+    96575.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 69.1
+  },
+  {
+   "tag": "leoprovorov_forecast",
+   "seed": 717423234,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    103712.0,
+    103383.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 70.7
+  },
+  {
+   "tag": "leoprovorov_forecast",
+   "seed": 1105611591,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    99751.0,
+    100100.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 70.4
+  },
+  {
+   "tag": "leoprovorov_forecast",
+   "seed": 1225771581,
+   "a_seat": 0,
+   "set": "random",
+   "rewards": [
+    82476.0,
+    81027.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 69.5
+  },
+  {
+   "tag": "leoprovorov_forecast",
+   "seed": 1434585680,
+   "a_seat": 1,
+   "set": "random",
+   "rewards": [
+    108072.0,
+    109174.0
+   ],
+   "statuses": [
+    "DONE",
+    "DONE"
+   ],
+   "seconds": 72.6
+  }
+ ],
+ "layers": [
+  {
+   "line": 914,
+   "saved_as": "_IMPL",
+   "comment": "--------------------------------------------------------------------------- factory",
+   "turns": 34233,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 984,
+   "saved_as": "_SHOP_PARENT",
+   "comment": "",
+   "turns": 34233,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 995,
+   "saved_as": "_PRE_TERMINAL_AGENT",
+   "comment": "",
+   "turns": 34233,
+   "acted_turns": 9,
+   "acted_per_game": 0.2,
+   "games_acted": 9,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1038,
+   "saved_as": "_ORIGINAL_SHADOW_TERMINAL",
+   "comment": "Exactly v27's final projected DROP ordering, in the planner's private state.",
+   "turns": 39,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 39,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1067,
+   "saved_as": "_PRE_ROOM_AGENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 45,
+   "acted_per_game": 0.9,
+   "games_acted": 45,
+   "games": 48,
+   "replaced_turns": 234,
+   "multi_call_turns": 45,
+   "parameters": []
+  },
+  {
+   "line": 1123,
+   "saved_as": "_V28_CORE",
+   "comment": "EXP-154: aurax7 Reactive v2 day-end storage guard, adapted to our v27 view.",
+   "turns": 34512,
+   "acted_turns": 35,
+   "acted_per_game": 0.7,
+   "games_acted": 26,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1219,
+   "saved_as": "_V219_PARENT",
+   "comment": "Final public-entry guard; measured separately and compared on captured observations.",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1294,
+   "saved_as": "_V13V_ORIG_REQUEST",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN",
+    "_V219_FERTILIZE"
+   ]
+  },
+  {
+   "line": 1407,
+   "saved_as": "_EXPERIMENT_PARENT",
+   "comment": "Final return has priority once only the exact distance plus DROP remains.",
+   "turns": 34512,
+   "acted_turns": 1037,
+   "acted_per_game": 21.6,
+   "games_acted": 6,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 1704,
+   "parameters": [
+    "CROP_MIN_PRICE",
+    "V13V_SKIP_DAYS"
+   ]
+  },
+  {
+   "line": 1470,
+   "saved_as": "_R46_SHADOW_PARENT",
+   "comment": "Crop workers own their final routes after commitment. A private parent shadow does not contain these obligations, so terminal rescue must abstain there.",
+   "turns": 45,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 6,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1481,
+   "saved_as": "_ORDER_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "APPLY_TIMING"
+   ]
+  },
+  {
+   "line": 1511,
+   "saved_as": "_V31_CORE",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 4145,
+   "acted_per_game": 86.4,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1525,
+   "saved_as": "_V231_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1633,
+   "saved_as": "_R36_SALE_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 12,
+   "acted_per_game": 0.2,
+   "games_acted": 2,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_V231_CAP"
+   ]
+  },
+  {
+   "line": 1673,
+   "saved_as": "_V9_RACEGATE_RESERVE",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1721,
+   "saved_as": "_R37_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 1788,
+   "acted_per_game": 37.2,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 34512,
+   "parameters": []
+  },
+  {
+   "line": 1886,
+   "saved_as": "_RELEASE_PARENT",
+   "comment": "EXP-168: adapted from lucifer19 / Harvest Nocturne, Apache-2.0. All rivalry features use public occupied tiles; no private rival inventory.",
+   "turns": 34512,
+   "acted_turns": 1059,
+   "acted_per_game": 22.1,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_ADAPTIVE",
+    "_R37_HINGE_GAIN",
+    "_R37_QUOTE"
+   ]
+  },
+  {
+   "line": 1929,
+   "saved_as": "_V233_PARENT",
+   "comment": "Export guard: normal decisions stay identical to the frozen screened policy.",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1959,
+   "saved_as": "_VE_ELIGIBLE",
+   "comment": "Adapted from prvsiyan / The Soil Remembers Rain, Apache-2.0. V233: bounded, financed six-sheep SE discovery investment.",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 1971,
+   "saved_as": "_SL_REQUEST",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2014,
+   "saved_as": "_SL_WORKER",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2047,
+   "saved_as": "_VT_RESCUE",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2069,
+   "saved_as": "_R46_SHEEP_AGENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 1143,
+   "acted_per_game": 23.8,
+   "games_acted": 3,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 21840,
+   "parameters": []
+  },
+  {
+   "line": 2129,
+   "saved_as": "_R51_INPUT_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2281,
+   "saved_as": "_R51_WAREHOUSE_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 3090,
+   "acted_per_game": 64.4,
+   "games_acted": 45,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN",
+    "_R51_INPUT_CROPS",
+    "_R51_INPUT_MAX_WORKERS"
+   ]
+  },
+  {
+   "line": 2354,
+   "saved_as": "_R53_LABOR_PARENT",
+   "comment": "Even if every other carried item deposits first, this grain reserve fits.",
+   "turns": 34512,
+   "acted_turns": 12,
+   "acted_per_game": 0.2,
+   "games_acted": 12,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2397,
+   "saved_as": "_R70_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2504,
+   "saved_as": "_R85_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2611,
+   "saved_as": "_R95_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 1673,
+   "acted_per_game": 34.9,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R85_FEED",
+    "_R85_FERT",
+    "_R88_HORIZON",
+    "_R88_PHASE"
+   ]
+  },
+  {
+   "line": 2748,
+   "saved_as": "_R97_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 39,
+   "acted_per_game": 0.8,
+   "games_acted": 31,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 2878,
+   "saved_as": "_V9_COURIER_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 94,
+   "acted_per_game": 2.0,
+   "games_acted": 43,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 3011,
+   "saved_as": "_V9_CARROT_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 409,
+   "acted_per_game": 8.5,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_COURIER_FROM_HOUR",
+    "V9_COURIER_ITEMS"
+   ]
+  },
+  {
+   "line": 3123,
+   "saved_as": "_V9_HERD_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_CARROT_BOOM_RATIO",
+    "V9_CARROT_BOOM_RESERVE",
+    "V9_CARROT_FIRST_DAY",
+    "V9_CARROT_LAST_DAY",
+    "V9_CARROT_RATIO",
+    "V9_CARROT_WHEAT_RESERVE"
+   ]
+  },
+  {
+   "line": 3227,
+   "saved_as": "_V9_FERT_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 3319,
+   "saved_as": "_V9_OPENING_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 300,
+   "acted_per_game": 6.2,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_FERT_AGES",
+    "V9_FERT_CROPS",
+    "V9_FERT_FIRST_DAY"
+   ]
+  },
+  {
+   "line": 3376,
+   "saved_as": "_V9_RACE_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_OPENING_STEP0",
+    "V9_OPENING_TAPE"
+   ]
+  },
+  {
+   "line": 3514,
+   "saved_as": "_V9_RACEPX_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_RACE_DEFAULT",
+    "V9_RACE_GAP",
+    "V9_RACE_ITEMS",
+    "V9_RACE_MARGIN",
+    "V9_RACE_MAX",
+    "V9_RACE_WINDOW"
+   ]
+  },
+  {
+   "line": 3620,
+   "saved_as": "_V9_RACEGATE_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 3652,
+   "saved_as": "_RACE_ORIG_RESERVE",
+   "comment": " Evidence: see README (v9/3 round). ---------------------------------------------------------------------------",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_RACEGATE_BASE",
+    "V9_RACEGATE_MARGIN"
+   ]
+  },
+  {
+   "line": 3717,
+   "saved_as": "_P_ctrtable_336053",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 3774,
+   "saved_as": "_P_overflow_338343",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 3860,
+   "saved_as": "_CA_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 38,
+   "acted_per_game": 0.8,
+   "games_acted": 18,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 3890,
+   "saved_as": "_VT_REQUEST",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 3924,
+   "saved_as": "_VT_WORKER",
+   "comment": "",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 4254,
+   "saved_as": "_OR2_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 1974,
+   "acted_per_game": 41.1,
+   "games_acted": 30,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_CA_BUFFER",
+    "_CA_CASH",
+    "_CA_DROP",
+    "_CA_FEED_DAYS",
+    "_CA_FROM",
+    "_CA_MARGIN",
+    "_CA_RESCUE",
+    "_CA_TO"
+   ]
+  },
+  {
+   "line": 4456,
+   "saved_as": "_CH_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 1161,
+   "acted_per_game": 24.2,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_OR2_CAP",
+    "_OR2_SLOT_H",
+    "_OR2_SLOT_MARGIN",
+    "_OR2_SN_H",
+    "_OR2_SN_ITEMS",
+    "_OR2_SN_K",
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 4695,
+   "saved_as": "_SR_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 286,
+   "acted_per_game": 6.0,
+   "games_acted": 29,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_CH_SELL",
+    "_CH_SHED"
+   ]
+  },
+  {
+   "line": 4811,
+   "saved_as": "_HD2_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 156,
+   "acted_per_game": 3.2,
+   "games_acted": 36,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_SR_HOURS",
+    "_SR_MARGIN"
+   ]
+  },
+  {
+   "line": 5156,
+   "saved_as": "_CS_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 143,
+   "acted_per_game": 3.0,
+   "games_acted": 6,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_HD2_CARE",
+    "_HD2_FROM",
+    "_HD2_FUTURE",
+    "_HD2_MIN_GAIN",
+    "_HD2_OPTIONS",
+    "_HD2_RATIO",
+    "_HD2_TO",
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 5296,
+   "saved_as": "_RACE_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 35,
+   "acted_per_game": 0.7,
+   "games_acted": 2,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_CS_FROM",
+    "_CS_MIN_GAIN",
+    "_CS_OPTIONS",
+    "_CS_RATIO",
+    "_CS_SHOP_RULE",
+    "_CS_TO",
+    "_HD2_CARE",
+    "_HD2_FUTURE",
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 5514,
+   "saved_as": "_R127_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_RACE_HORIZON_ESCALATED",
+    "_RACE_HORIZON_MIRROR",
+    "_RACE_ITEMS"
+   ]
+  },
+  {
+   "line": 5629,
+   "saved_as": "_PG_HOST",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 35,
+   "acted_per_game": 0.7,
+   "games_acted": 35,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 5681,
+   "saved_as": "_V44Y_HOST",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_Y_HOURS",
+    "_Y_ITEMS",
+    "_Y_MARGIN",
+    "_Y_MIN_DAY"
+   ]
+  },
+  {
+   "line": 5833,
+   "saved_as": "_Y_HOST",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 591,
+   "acted_per_game": 12.3,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_R37_HINGE_GAIN",
+    "_V44Y_REORDER_GATE"
+   ]
+  },
+  {
+   "line": 5970,
+   "saved_as": "_E334_BASE",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 44,
+   "acted_per_game": 0.9,
+   "games_acted": 4,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_Y_CFG"
+   ]
+  },
+  {
+   "line": 5995,
+   "saved_as": "_E335_ORIGINAL_COMPACT",
+   "comment": "EXP334: remove useless cash-product sale slots without moving purchases.",
+   "turns": 0,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6062,
+   "saved_as": "_V11_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 2219,
+   "acted_per_game": 46.2,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 5960,
+   "parameters": []
+  },
+  {
+   "line": 6076,
+   "saved_as": "_V13V_PARENT",
+   "comment": "namespace.  Rebind it to a fresh `agent` so the packaged name matches the rest of the v9 releases (and so validate.py's name check passes). ---------------------------------------------------------------------------",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6125,
+   "saved_as": "_E343_WL_BASE",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6182,
+   "saved_as": "_ADV_PARENT",
+   "comment": "2. detect new weed-blocked build/plant events (chassis has turned them into DIG)",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_E343_WL_OPS",
+    "_E343_WL_STEPS"
+   ]
+  },
+  {
+   "line": 6282,
+   "saved_as": "agent",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 470,
+   "acted_per_game": 9.8,
+   "games_acted": 47,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_ADV_BOOK",
+    "_ADV_FROM",
+    "_ADV_FRONT",
+    "_ADV_ITEMS",
+    "_ADV_LOOK",
+    "_ADV_PROTECT",
+    "_ADV_SUBTRACT_DEBTS",
+    "_ADV_TO"
+   ]
+  },
+  {
+   "line": 6334,
+   "saved_as": "_PIPE_PARENT",
+   "comment": "Build market orders strictly selling these goods",
+   "turns": 34512,
+   "acted_turns": 19,
+   "acted_per_game": 0.4,
+   "games_acted": 19,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6468,
+   "saved_as": "_MA_INNER",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 48,
+   "acted_per_game": 1.0,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_PIPE_MODE"
+   ]
+  },
+  {
+   "line": 6485,
+   "saved_as": "_MA_ENTRY",
+   "comment": "=========================================================================== MIRROR-LIKE CLASSIFIER (behavior only; no recorded streams) ===========================================================================",
+   "turns": 34512,
+   "acted_turns": 0,
+   "acted_per_game": 0.0,
+   "games_acted": 0,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6522,
+   "saved_as": "_WB3_ENTRY",
+   "comment": "=========================================================================== WHEAT BUY-FIRST (gated): profitable pairs + mirror-like opponent ===========================================================================",
+   "turns": 34512,
+   "acted_turns": 36,
+   "acted_per_game": 0.8,
+   "games_acted": 1,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 6706,
+   "saved_as": "_FX_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 180,
+   "acted_per_game": 3.8,
+   "games_acted": 41,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "V9_RACE_ITEMS",
+    "_EV_H",
+    "_EV_HOURS",
+    "_FX_FLOW_MIN",
+    "_FX_FLOW_WIN",
+    "_FX_ITEMS",
+    "_FX_LEAD_H",
+    "_FX_MIN_STEP",
+    "_FX_QUOTE_WIN"
+   ]
+  },
+  {
+   "line": 6808,
+   "saved_as": "_DP_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 179,
+   "acted_per_game": 3.7,
+   "games_acted": 41,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_DP_H",
+    "_DP_HOURS",
+    "_FX_ITEMS",
+    "_FX_QUOTE_WIN"
+   ]
+  },
+  {
+   "line": 6881,
+   "saved_as": "_MP_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 289,
+   "acted_per_game": 6.0,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_FX_ITEMS",
+    "_FX_QUOTE_WIN",
+    "_MP_H",
+    "_MP_HOURS"
+   ]
+  },
+  {
+   "line": 6959,
+   "saved_as": "_BD_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 288,
+   "acted_per_game": 6.0,
+   "games_acted": 40,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_BD_CAP",
+    "_BD_DEADLINE",
+    "_BD_ITEM",
+    "_BD_MIN",
+    "_BD_WIN"
+   ]
+  },
+  {
+   "line": 7063,
+   "saved_as": "_MPX_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 886,
+   "acted_per_game": 18.5,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_MPX_ITEMS",
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 7156,
+   "saved_as": "_SM_ENTRY",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 13,
+   "acted_per_game": 0.3,
+   "games_acted": 13,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_SM_MILK_SHOP"
+   ]
+  },
+  {
+   "line": 7242,
+   "saved_as": "_E410_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 539,
+   "acted_per_game": 11.2,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": [
+    "_CXD_BUDGET",
+    "_CXD_FIXED",
+    "_CXD_FROM",
+    "_R37_HINGE_GAIN"
+   ]
+  },
+  {
+   "line": 7265,
+   "saved_as": "_E402_PARENT",
+   "comment": "==== F5: EXP410 fertilizer guard (pipe18 `e410_agent`) ====",
+   "turns": 34512,
+   "acted_turns": 119,
+   "acted_per_game": 2.5,
+   "games_acted": 36,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 7323,
+   "saved_as": "_MG_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 442,
+   "acted_per_game": 9.2,
+   "games_acted": 30,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 7396,
+   "saved_as": "_IG_PARENT",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 331,
+   "acted_per_game": 6.9,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  },
+  {
+   "line": 7467,
+   "saved_as": "(final agent)",
+   "comment": "",
+   "turns": 34512,
+   "acted_turns": 796,
+   "acted_per_game": 16.6,
+   "games_acted": 48,
+   "games": 48,
+   "replaced_turns": 0,
+   "multi_call_turns": 0,
+   "parameters": []
+  }
+ ],
+ "load_time_or_chassis_parameters": [
+  "FRONT_RUN_ITEMS",
+  "V9_HERD_MAX_EGG_SHOPS",
+  "V9_HERD_MAX_EGG_SHOPS_COW",
+  "V9_HERD_MIN_MILK",
+  "V9_HERD_MIN_MILK_SHOPS",
+  "V9_HERD_MIN_WOOL",
+  "V9_RACEPX_BASE",
+  "V9_RACEPX_MARGIN",
+  "_R110_OLD_SHOPS",
+  "_R42_OPENING",
+  "_SETTINGS",
+  "_V92_TABLE"
+ ],
+ "unused_parameters": [
+  "_HD2_LOOKBACK"
+ ]
+}

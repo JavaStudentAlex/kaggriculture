@@ -27,7 +27,7 @@ if str(RUNTIME) not in sys.path:
 
 from engine_contract import CROPS, PRODUCTS, SHOPS, market_price
 from experimental import Extensions, STAGES, SWITCHES, settings
-from graph_runtime import HazelGraph, validate_chain, TURN_STAGES, MARKET_STAGES
+from graph_runtime import HazelGraph, validate_chain, TURN_STAGES, MARKET_STAGES, OPTIONAL_TURN_STAGES
 import agent_graph
 
 
@@ -80,7 +80,8 @@ class TestExperimentalProceduralGraph(unittest.TestCase):
 
     def test_01_provenance_and_chain_integrity(self):
         # 1. Turn and Market chains valid
-        turn_ids = [s[0] for s in TURN_STAGES]
+        present = {n["id"] for n in self.graph_data["turn"]["nodes"]}
+        turn_ids = [s[0] for s in TURN_STAGES if s[0] not in OPTIONAL_TURN_STAGES or s[0] in present]
         market_ids = [s[0] for s in MARKET_STAGES]
         validate_chain(self.graph_data["turn"], turn_ids)
         validate_chain(self.graph_data["market"], market_ids)

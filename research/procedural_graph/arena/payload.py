@@ -28,6 +28,7 @@ HERE = Path(__file__).resolve().parent
 PG = HERE.parent
 REPO = PG.parents[1]
 SUBMISSIONS = REPO / 'shinka/champions/submissions'
+LADDER = REPO / 'shinka/champions/ladder'   # public ladder agents (build_ladder_pool.py)
 PACKAGES = {'hazel': ('hazel_weir', 'MANIFEST.json'), 'copper': ('copper_weir', 'MANIFEST.json'),
             'orchard': ('orchard_tide', 'SUBMISSION_MANIFEST.json')}
 NODE_FEATURES = ('parameters', 'enabled', 'order')
@@ -69,8 +70,16 @@ def write_graph_bundle(dst, graph, name, checkpoint='committed', calibration=Non
     the given graph, named `name` and re-pinned to the copied runtime files. `calibration`: a
     calibration.json (arena/calib_fit.py) put next to the predictor, which the oracle applies."""
     graph = copy.deepcopy(graph)
-    shutil.copytree(PG / 'hazel_runtime', dst / 'hazel_runtime',
-                    ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.bak'))
+    engine = next((n.get('engine') for n in graph['turn']['nodes'] if n['id'] == 'backbone'), None)
+    skip = shutil.ignore_patterns('__pycache__', '*.pyc', '*.bak')
+
+    def ignore(directory, names):
+        # of the bundled ladder engines only the graph's own goes into the bundle
+        if Path(directory).name == 'engines' and Path(directory).parent.name == 'hazel_runtime':
+            return {n for n in names if n != engine}
+        return skip(directory, names)
+
+    shutil.copytree(PG / 'hazel_runtime', dst / 'hazel_runtime', ignore=ignore)
     shutil.copy2(PG / 'agent_graph.py', dst / 'main.py')
     runtime = dst / 'hazel_runtime'
     if checkpoint == 'hazel':
@@ -122,6 +131,8 @@ def build_opponent(out, name):
                         ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
         if name == 'mohui13':
             shutil.copy2(HERE / 'mohui13_main.py', dst / 'main.py')
+    elif (LADDER / name / 'SOURCE.json').is_file():
+        shutil.copytree(LADDER / name, dst, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
     elif name == 'willow':
         # Willow Ford (roster, 2026-09-08): Mohui v66 + Keiz opening + town-shop harvesting.
         # Closest local agent to the Harvest Current submission (56085502, ladder 1669.8),
@@ -148,6 +159,11 @@ def main():
                     help='play the --graph NAME with the predictor in DIR instead of the committed one')
     ap.add_argument('--seeds', type=int, default=40)
     ap.add_argument('--seed-salt', type=int, default=20260924)
+    ap.add_argument('--seed-list', default=None,
+                    help='JSON list of seeds played by every pair instead of --seeds salted ones: ints or '
+                         '{"seed", "a_seat" or "a_seats", "set"} ("set" is copied into the job and its result)')
+    ap.add_argument('--both-seats', action='store_true',
+                    help='the candidate plays every seed from both seats (default: its seat alternates)')
     ap.add_argument('--mirror-seeds', type=int, default=4, help='cap for the mirror sanity variant')
     ap.add_argument('--out', default=None)
     args = ap.parse_args()
@@ -179,14 +195,20 @@ def main():
             built.add(name)
     shutil.copy2(HERE / 'arena.py', out / 'arena.py')
     shutil.copy2(REPO / 'shinka/evolution/pool_upgrade_bundle_agent.py', out / 'bundle_agent.py')
-    seeds = random.Random(args.seed_salt).sample(range(10_000_000, 2_000_000_000), args.seeds)
+    if args.seed_list:
+        entries = [e if isinstance(e, dict) else {'seed': e} for e in json.loads(Path(args.seed_list).read_text())]
+    else:
+        entries = [{'seed': s} for s in random.Random(args.seed_salt).sample(range(10_000_000, 2_000_000_000), args.seeds)]
+    seeds = [e['seed'] for e in entries]
     jobs = []
-    for i, seed in enumerate(seeds):
+    for i, entry in enumerate(entries):
+        seats = entry.get('a_seats') or ([entry['a_seat']] if 'a_seat' in entry else [0, 1] if args.both_seats else [i % 2])
         for a, b in pairs:
             if a == 'mirror' and i >= args.mirror_seeds:
                 continue
-            jobs.append({'tag': a if b == 'hazel' else f'{a}@{b}', 'a': f'bundles/{a}', 'b': f'bundles/{b}',
-                         'seed': seed, 'a_seat': i % 2})
+            for seat in seats:
+                jobs.append({'tag': a if b == 'hazel' else f'{a}@{b}', 'a': f'bundles/{a}', 'b': f'bundles/{b}',
+                             'seed': entry['seed'], 'a_seat': seat, **({'set': entry['set']} if 'set' in entry else {})})
     manifest = {'evaluation_id': args.eval_id, 'pairs': pairs, 'seeds': seeds, 'jobs': jobs,
                 'variants': {n: library['variants'][n] for n in sorted(built) if n in library['variants']},
                 'graphs': {n: {'file': graphs[n], 'sha256': sha(Path(graphs[n])), 'checkpoint': checkpoints.get(n, 'committed'),

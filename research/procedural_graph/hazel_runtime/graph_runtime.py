@@ -10,7 +10,16 @@ Behaviour the graph itself controls (policy changes are graph edits, not code):
   EVOLVE-block constants (same JSON-compatible type), plus RUNTIME_PARAMETERS;
 - `enabled: false` on a market chain node: that stage's statements are not
   compiled (its checkpoint stays) unless a later stage reads a name it defines;
-- `order` on the routine_dispatch node: 'submitted' or 'sells_first'.
+- `order` on the routine_dispatch node: 'submitted' or 'sells_first';
+- `engine` on the backbone node: the production engine, 'mohui_v66' (default) or a public
+  ladder agent bundled in engines/<name>/ (engines.py), with `engine_parameters` for its
+  top-level constants;
+- `enabled: false` on the farmer, hands or market turn node: that channel of the backbone's
+  action is passed through unchanged (a ladder engine with all three off plays exactly as
+  the public agent does);
+- the optional `oracle_guard` turn node (after `market`; off unless `enabled: true`): the
+  predictor's front-run sells added to the market orders (oracle_guard.py), with its `_OG_*`
+  `parameters`.
 """
 from __future__ import annotations
 
@@ -26,9 +35,11 @@ from pathlib import Path
 try:
     from experimental import Extensions, STAGES as EXTENSION_STAGES
     import surgical
+    import engines
+    import oracle_guard
 except ImportError:
     from hazel_runtime.experimental import Extensions, STAGES as EXTENSION_STAGES
-    from hazel_runtime import surgical
+    from hazel_runtime import surgical, engines, oracle_guard
 
 # Statement boundaries in the hash-pinned submitted champion.py (1-indexed).
 MARKET_STAGES = (
@@ -55,6 +66,7 @@ TURN_STAGES = (
     ('farmer', 'Preserve backbone action; idle-only weed/water/feed rescue'),
     ('hands', 'Preserve backbone hand actions; idle-only coordinated maintenance'),
     ('market', 'Execute the complete source-pinned market subgraph'),
+    ('oracle_guard', 'Optional: predictor front-run sells added to the engine market orders'),
     *EXTENSION_STAGES,
     ('sanitize', 'Preserve legal actions including DROP; enforce hand count and order cap'),
     ('oracle_record', 'Record the final action actually dispatched'),
@@ -108,6 +120,13 @@ _PARAMETERIZED = {
           '(step >= 672 and (step - _TOWN_CADENCE_PHASE) % 2 == 0)'),
 }
 ORDER_POLICIES = ('submitted', 'sells_first')
+DEFAULT_ENGINE = 'mohui_v66'
+CHANNELS = ('farmer', 'hands', 'market')
+# The engine walks both seats' order lists index by index (lockstep) and reads at most 10 entries.
+# Ladder engines place deliberate empty entries ([]) to delay later orders by a slot; a passed-through
+# market keeps them, which the champion's sanitizer (it drops empty entries) would not.
+MARKET_SLOTS = 10
+OPTIONAL_TURN_STAGES = ('oracle_guard',)   # a graph without the node runs without the stage
 
 
 def evolvable_constants(tree, source):
@@ -155,7 +174,7 @@ def _like(value, template, name):
 
 def graph_parameters(graph, champion, tree, source):
     """Merge node-level `parameters` of both chains; conflicting duplicates fail."""
-    allowed = evolvable_constants(tree, source) | set(RUNTIME_PARAMETERS)
+    allowed = evolvable_constants(tree, source) | set(RUNTIME_PARAMETERS) | set(oracle_guard.PARAMETERS)
     merged, owner = {}, {}
     for chain in ('turn', 'market'):
         for node in graph[chain]['nodes']:
@@ -165,7 +184,8 @@ def graph_parameters(graph, champion, tree, source):
             for name, value in params.items():
                 if name not in allowed:
                     raise ValueError(f'Unknown graph parameter {name} on {node["id"]}')
-                template = champion.__dict__.get(name, RUNTIME_PARAMETERS.get(name))
+                template = (oracle_guard.PARAMETERS[name] if name in oracle_guard.PARAMETERS
+                            else champion.__dict__.get(name, RUNTIME_PARAMETERS.get(name)))
                 value = _like(value, template, name)
                 if name in merged and merged[name] != value:
                     raise ValueError(f'Graph parameter {name} set differently by {owner[name]} and {node["id"]}')
@@ -211,17 +231,41 @@ class HazelGraph:
         actual = hashlib.sha256(source).hexdigest()
         if actual != self.graph['source']['champion_sha256']:
             raise ValueError('Submitted source fingerprint mismatch')
-        self.turn_ids = [s[0] for s in TURN_STAGES]
+        present = {n['id'] for n in self.graph['turn'].get('nodes', [])}
+        self.turn_ids = [s[0] for s in TURN_STAGES if s[0] not in OPTIONAL_TURN_STAGES or s[0] in present]
         self.market_ids = [s[0] for s in MARKET_STAGES]
-        validate_chain(self.graph['turn'], self.turn_ids)
+        turn_nodes = validate_chain(self.graph['turn'], self.turn_ids)
         market_nodes = validate_chain(self.graph['market'], self.market_ids)
+        backbone = turn_nodes['backbone']
+        self.engine_name = backbone.get('engine', DEFAULT_ENGINE)
+        if self.engine_name == DEFAULT_ENGINE:
+            if backbone.get('engine_parameters'):
+                raise ValueError('engine_parameters need a ladder engine on the backbone node')
+            self.engine = None
+        else:
+            if not isinstance(self.engine_name, str) or not re.fullmatch(r'[a-z0-9_]+', self.engine_name):
+                raise ValueError(f'invalid engine name {self.engine_name!r}')
+            self.engine = engines.Engine(Path(__file__).resolve().parent / 'engines' / self.engine_name,
+                                         backbone.get('engine_parameters') or {})
+        self.channels = {key: turn_nodes[key].get('enabled', True) for key in CHANNELS}
+        if any(type(value) is not bool for value in self.channels.values()):
+            raise ValueError('farmer/hands/market enabled flags must be booleans')
+        guard = turn_nodes.get('oracle_guard', {})
+        self.guard_enabled = guard.get('enabled', False)
+        if type(self.guard_enabled) is not bool:
+            raise ValueError('oracle_guard enabled flag must be a boolean')
+        # The forecast is read only by our channels and the guard; with all of them off it is not
+        # computed at all (the oracle costs most of a turn's time from step 256 on).
+        self.oracle_needed = self.guard_enabled or any(self.channels.values())
         text = source.decode()
         tree = ast.parse(text)
         function = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
                         and n.name == 'evolve_market_orders')
         # Graph-declared constants replace the champion's before anything is compiled;
         # the compiled market stages and the farmer/hand channels read these globals.
-        self.parameters = graph_parameters(self.graph, champion, tree, text)
+        parameters = graph_parameters(self.graph, champion, tree, text)
+        self.guard_parameters = {k: v for k, v in parameters.items() if k in oracle_guard.PARAMETERS}
+        self.parameters = {k: v for k, v in parameters.items() if k not in oracle_guard.PARAMETERS}
         champion.__dict__.update(self.parameters)
         for line, (name, original, parameterized) in _PARAMETERIZED.items():
             if name not in self.parameters:
@@ -342,7 +386,8 @@ class HazelGraph:
             self.last_trace.append(key)
             if key == 'backbone':
                 try:
-                    base = c._mohui.kaggle_agent_v66_meta_closed_loop(obs, configuration)
+                    base = (self.engine.agent(obs, configuration) if self.engine is not None
+                            else c._mohui.kaggle_agent_v66_meta_closed_loop(obs, configuration))
                 except Exception as exc:
                     self._fallback(key, obs, exc)
                 if not isinstance(base, dict):
@@ -351,7 +396,16 @@ class HazelGraph:
                 farm = farms[player] if player < len(farms) else {}
                 n_hands = len(farm.get('hands') or [])
             elif key == 'oracle_observe':
-                forecast = c._oracle_observe(obs, configuration)
+                forecast = c._oracle_observe(obs, configuration) if self.oracle_needed else None
+            elif key in CHANNELS and not self.channels[key]:
+                if not failed:
+                    evolved[key] = base.get(key)
+            elif key == 'oracle_guard':
+                if self.guard_enabled and not failed:
+                    try:
+                        evolved['market'] = oracle_guard.apply(obs, evolved.get('market'), state, self.guard_parameters)
+                    except Exception as exc:
+                        self._fallback(key, obs, exc)
             elif key in ('state', 'farmer', 'hands', 'market'):
                 try:
                     if key == 'state':
@@ -385,6 +439,11 @@ class HazelGraph:
                         self.extensions.ctx = None
             elif key == 'sanitize':
                 final = c._sanitize(evolved, base, n_hands)
+                orders = evolved.get('market') if isinstance(evolved, dict) else None
+                if not self.channels['market'] and isinstance(orders, list):
+                    # the engine's list with its empty slots (the champion's sanitizer drops them)
+                    final['market'] = [list(o) if isinstance(o, (list, tuple)) else [] for o in orders][:MARKET_SLOTS]
             elif key == 'oracle_record':
-                c._oracle_record(final)
+                if self.oracle_needed:
+                    c._oracle_record(final)
         return final
