@@ -4,7 +4,9 @@ Covers:
 - Codec constants, field_sizes length 129 repeating, vocab sizes.
 - Deterministic action encode / decode roundtrip.
 - Refusal of hand_count > 32 and rejection of out-of-range / MASK categories.
-- Unsupported op/item rejection with DataError counters (never silent relabeling).
+- Commands the engine skips become counted empty slots; codec violations the engine would act
+  on still reject the episode (DataError).
+- Team and seat ratings of a day from its manifest.csv game scores (add_ratings).
 - Numerical quantity parsing, engine sentinels (999/1000), truncation to 101.
 - Active field mask computation.
 - Observation featurization (FEATURE_DIM property), leak-free public/private checks.
@@ -49,6 +51,7 @@ from data import (
     QUANTITY_BINS,
     WindowDataset,
     active_field_mask,
+    add_ratings,
     decode_action,
     encode_action,
     encode_observation,
@@ -179,26 +182,74 @@ class TestActionCodec(unittest.TestCase):
         self.assertEqual(enc_str[33 * 3 + 2], 12)
         self.assertEqual(stats["quantity_numeric_strings"], 1)
 
-    def test_unsupported_ops_and_items_reject_episode(self):
-        # Unsupported op
-        with self.assertRaises(DataError) as ctx:
-            encode_action({"farmer": ["FLY"], "hands": [], "market": []})
-        self.assertEqual(ctx.exception.code, "unsupported_operation")
+    def test_engine_ignored_commands_are_empty_slots(self):
+        # Commands engine 1.32.7 skips without effect: the empty slot at the same index, counted
+        order = ["SELL", "WHEAT", 3]
+        cases = (
+            ({"farmer": ["FLY"], "market": [order]}, {"market": [order]}, "unsupported_operation"),
+            ({"farmer": ["HIRE"], "market": [order]}, {"market": [order]}, "unsupported_operation_slot"),
+            ({"farmer": ["PICKUP", "GOLD", 1], "market": [order]}, {"market": [order]}, "unsupported_item"),
+            ({"hands": [["PLANT", "GOOSE"], ["WATER"]]}, {"hands": [[], ["WATER"]]}, "unsupported_item"),
+            ({"market": [["INVALID"], order]}, {"market": [[], order]}, "unsupported_operation"),
+            ({"market": [["PASS"], order]}, {"market": [[], order]}, "unsupported_operation_slot"),
+            ({"market": [["BUY_PRODUCT", "TOMATO", 2], ["BUY_PRODUCT", "WHEAT", 2]]},
+             {"market": [[], ["BUY_PRODUCT", "WHEAT", 2]]}, "unsupported_item"),
+            ({"market": [["SELL", "WHEAT"], order]}, {"market": [[], order]}, "missing_quantity"),
+            ({"market": [["SELL", "WHEAT", "ALL"], order]}, {"market": [[], order]}, "unsupported_quantity"),
+            (None, {}, "malformed_action"),
+            ({"hands": "oops", "market": [order]}, {"market": [order]}, "malformed_action"),
+        )
+        for action, same_as, code in cases:
+            stats = Counter()
+            np.testing.assert_array_equal(encode_action(action, stats=stats), encode_action(same_as), err_msg=repr(action))
+            self.assertEqual(stats["skipped_" + code], 1, repr(action))
+        # An operation without an item ignores a stray argument, as the engine does
+        stats = Counter()
+        np.testing.assert_array_equal(encode_action({"farmer": ["NORTH", "junk"]}, stats=stats),
+                                      encode_action({"farmer": ["NORTH"]}))
+        self.assertEqual(stats["ignored_arguments"], 1)
 
-        # Unsupported item
-        with self.assertRaises(DataError) as ctx:
-            encode_action({"farmer": ["PICKUP", "GOLD", 1], "hands": [], "market": []})
-        self.assertEqual(ctx.exception.code, "unsupported_item")
+    def test_codec_violations_the_engine_would_act_on_reject_episode(self):
+        for action, code in (({"farmer": ["PASS"], "hands": [["PASS"]] * 33, "market": []}, "too_many_hands"),
+                             ({"farmer": [7]}, "unsupported_operation"),
+                             ({"farmer": ["PICKUP", "WHEAT", "ALL"]}, "unsupported_quantity"),
+                             ({"farmer": ["PICKUP", "WHEAT", 1, 2]}, "malformed_command")):
+            with self.assertRaises(DataError) as ctx:
+                encode_action(action)
+            self.assertEqual(ctx.exception.code, code, repr(action))
 
-        # Misplaced slot: market op on farmer
-        with self.assertRaises(DataError) as ctx:
-            encode_action({"farmer": ["HIRE"], "hands": [], "market": []})
-        self.assertEqual(ctx.exception.code, "unsupported_operation_slot")
-
-        # Hands > 32
-        with self.assertRaises(DataError) as ctx:
-            encode_action({"farmer": ["PASS"], "hands": [["PASS"]] * 33, "market": []})
-        self.assertEqual(ctx.exception.code, "too_many_hands")
+    def test_add_ratings_from_game_scores(self):
+        true = {"A": 3100.0, "B": 3000.0, "C": 2900.0}
+        games = {"1": ("A", "B"), "2": ("C", "B"), "3": ("A", "C"), "4": ("B", "A")}
+        cash = {"1": (105000, 95000), "2": (90000, 110000), "3": (100000, 100000), "4": (99000, 101000)}
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source = Path(tmpdir) / "day.zip"
+            rows = ["episode_id,create_time,avg_score,min_score,sum_score,agent_count,size_bytes"]
+            for eid, (t0, t1) in games.items():
+                a, b = true[t0], true[t1]
+                rows.append(f"{eid},x,{(a + b) / 2},{min(a, b)},{a + b},2,1")
+            with zipfile.ZipFile(source, "w") as z:
+                z.writestr("manifest.csv", "\n".join(rows) + "\n")
+            files = [{"source": str(source), "episode_id": eid, "seat": seat, "team": team,
+                      "cash": cash[eid][seat], "opponent_cash": cash[eid][1 - seat]}
+                     for eid, pair in games.items() for seat, team in enumerate(pair)]
+            manifest = {"files": files, "sources": [{"source": str(source)}]}
+            add_ratings(manifest)
+        for record in files:
+            self.assertAlmostEqual(record["team_rating"], true[record["team"]], delta=0.5)
+            self.assertAlmostEqual(record["rating"], true[record["team"]], delta=0.5)
+            self.assertEqual(record["team_rank"], "ABC".index(record["team"]) + 1)
+        self.assertEqual([t["team"] for t in manifest["sources"][0]["teams"]], ["A", "B", "C"])
+        # Margins: cash lead over the opponent / mean cash; expected: the rating edge times the
+        # day's fitted margin per rating point (through the origin)
+        edges = {eid: true[a] - true[b] for eid, (a, b) in games.items()}
+        leads = {eid: (c0 - c1) / ((c0 + c1) / 2) for eid, (c0, c1) in cash.items()}
+        per_point = sum(edges[e] * leads[e] for e in games) / sum(edges[e] ** 2 for e in games)
+        self.assertAlmostEqual(manifest["sources"][0]["margin_fit"]["per_point"], per_point, places=6)
+        for record in files:
+            sign = 1 if record["seat"] == 0 else -1
+            self.assertAlmostEqual(record["margin"], sign * leads[record["episode_id"]], places=4)
+            self.assertAlmostEqual(record["expected_margin"], sign * per_point * edges[record["episode_id"]], places=4)
 
     def test_active_field_mask(self):
         action = {
