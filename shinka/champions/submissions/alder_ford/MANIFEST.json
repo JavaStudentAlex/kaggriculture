@@ -1,0 +1,116 @@
+{
+ "public_name": "Alder Ford",
+ "message": "Alder Ford - Adaptive production and trade",
+ "archive": "AlderFord.tar.gz",
+ "archive_sha256": "b514b6a573274141f6b3b1c17147e6e901815d14a2a68a4116c7431c3d28aeb3",
+ "archive_bytes": 4583541,
+ "archive_files": [
+  "agent_graph.py",
+  "hazel_runtime/SOURCE_MANIFEST.json",
+  "hazel_runtime/champion.py",
+  "hazel_runtime/checkpoint/config.json",
+  "hazel_runtime/checkpoint/labels.json",
+  "hazel_runtime/checkpoint/model.safetensors",
+  "hazel_runtime/checkpoint/scaler.npz",
+  "hazel_runtime/engine_contract.py",
+  "hazel_runtime/engines.py",
+  "hazel_runtime/engines/tetsutani_demand/LICENSE",
+  "hazel_runtime/engines/tetsutani_demand/NOTICE",
+  "hazel_runtime/engines/tetsutani_demand/SOURCE.json",
+  "hazel_runtime/engines/tetsutani_demand/agent/main.py",
+  "hazel_runtime/experimental.py",
+  "hazel_runtime/graph_runtime.py",
+  "hazel_runtime/kagg_oracle.py",
+  "hazel_runtime/kagg_ttm_numpy.py",
+  "hazel_runtime/main.py",
+  "hazel_runtime/mohui_v66/LICENSE",
+  "hazel_runtime/mohui_v66/NOTICE",
+  "hazel_runtime/mohui_v66/candidate_v60_curve_counter.py",
+  "hazel_runtime/mohui_v66/candidate_v62_composite_bakery_yarn.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_cygn_clone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_daniel_backbone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py",
+  "hazel_runtime/mohui_v66/candidate_v65_local_combined.py",
+  "hazel_runtime/mohui_v66/candidate_v66_meta_closed_loop.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/adapter.py",
+  "hazel_runtime/mohui_v66/main.py",
+  "hazel_runtime/opponent_model/features.py",
+  "hazel_runtime/opponent_model/mechanics.py",
+  "hazel_runtime/oracle_guard.py",
+  "hazel_runtime/surgical.py",
+  "main.py",
+  "policy_graph.json"
+ ],
+ "graph": {
+  "source": "research/procedural_graph/evolution_results/ladder_2026-09-26/opening_champion_graph.json",
+  "sha256": "2f4da012e222f1d5b2098f16cb10bd6d1add6a66937036608654f5daf7acf591",
+  "packed_sha256": "22f17342a984860c85eb46b638701dc7d9de129f130a5e2c774f403df4ff0ef9",
+  "runtime": "hazel_merged_v1",
+  "parameters": {
+   "oracle_guard": {
+    "_OG_ITEMS": [
+     "MILK",
+     "WOOL",
+     "STRAWBERRY"
+    ],
+    "_OG_SCORE": 0.5,
+    "_OG_PRICE_RATIO": 0.75,
+    "_OG_KEEP": 2,
+    "_OG_BATCH": 4
+   },
+   "opening_scalp": {
+    "_OPENING_BUY_WHEAT_QTY": 15,
+    "_OPENING_SELL_WHEAT_QTY": 10
+   },
+   "feed_reserve": {
+    "_FEED_RESERVE_LOOKAHEAD": true
+   },
+   "oracle_frontrun": {
+    "_ORACLE_FRONTRUN_BATCH": 4,
+    "_ORACLE_FRONTRUN_PRICE_RATIO": 0.7
+   }
+  },
+  "note": "ladder1 Island-Opening champion (arena bundle g_560d76b781114338, promoted in iteration 11): the tetsutani_demand engine (public notebook tetsutani/demand-preserving-turn-sale-timing, Apache-2.0) + oracle_guard on MILK/WOOL/STRAWBERRY (score 0.5, batch 4, keep 2, price ratio 0.75) + engine _CXD_BUDGET 1050; predictor: the committed reference ttm_c256_h96_ft_2026-09-13, no calibration (as in the arena). validate1, 260 games on arena validation seeds: 217-35-8 against the 12-agent ladder pool; +53 USD a game over the plain engine (92 better, 49 worse, p=0.0004); 14-0-8 head-to-head against tetsutani_demand."
+ },
+ "predictor": {
+  "checkpoint": "research/procedural_graph/hazel_runtime/checkpoint",
+  "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+  "labels": {
+   "alignment": "next_action",
+   "source": "--dataset /results/kagg/dataset_ft_2026-09-13_p4_g3_d2_s4/day --extra-train /results/kagg/dataset_ft_2026-09-13_p4_g3_d2_s4/prev --extra-train-decay 2 --out /results/kagg/runs/ft_2026-09-13_p4_g3_d2_s4 --init-from models/ttm_c256_h96 --scaler models/ttm_c256_h96/scaler.npz --split episode --prediction-filter-length 96 --metric-horizon all --eval-on-start --max-episodes 100000 --epochs 30 --patienc"
+  },
+  "backend": "numpy"
+ },
+ "calibration": null,
+ "runtime": {
+  "graph_runtime.py": "5d6e8a1a30c61a237042eeb9cfe41a0bc96fe5092cb360737a98a3b00d8ffa3d",
+  "champion.py": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+  "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
+  "kagg_ttm_numpy.py": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda"
+ },
+ "backbone_patch": null,
+ "built": "2026-09-26T14:39:15Z",
+ "submit": "kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/AlderFord.tar.gz -m \"Alder Ford - Adaptive production and trade\"",
+ "validation": {
+  "date": "2026-09-26T14:48:02Z",
+  "python": "/home/alex/kagg-evo/venv/bin/python",
+  "seeds": "101,70102",
+  "result": "PASS",
+  "report": "bundle /tmp/kagg_graph_submission_qedw2qe6/x\nHOME=/tmp/kagg_graph_submission_qedw2qe6/home cwd=/\nseat 0 vs starter seed    101: OK  $   181,469 (DONE) vs $3,754 (DONE) | 720 states, 75 s | steps 719: mean 97 ms, max 3709 ms @0, overage 2.71 s\nseat 0 vs starter seed  70102: OK  $   182,734 (DONE) vs $3,431 (DONE) | 720 states, 66 s | steps 719: mean 85 ms, max 1765 ms @0, overage 0.77 s\nseat 0 vs random  seed    101: OK  $   143,085 (DONE) vs $30 (DONE) | 720 states, 66 s | steps 719: mean 86 ms, max 2055 ms @0, overage 1.05 s\nseat 0 vs random  seed  70102: OK  $   140,056 (DONE) vs $0 (DONE) | 720 states, 64 s | steps 719: mean 83 ms, max 1976 ms @0, overage 0.98 s\nseat 1 vs starter seed    101: OK  $   181,469 (DONE) vs $3,754 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 1995 ms @0, overage 1.00 s\nseat 1 vs starter seed  70102: OK  $   187,071 (DONE) vs $3,451 (DONE) | 720 states, 65 s | steps 719: mean 85 ms, max 1909 ms @0, overage 0.91 s\nseat 1 vs random  seed    101: OK  $   163,319 (DONE) vs $0 (DONE) | 720 states, 63 s | steps 719: mean 82 ms, max 2763 ms @0, overage 1.76 s\nseat 1 vs random  seed  70102: OK  $   178,995 (DONE) vs $0 (DONE) | 720 states, 62 s | steps 719: mean 81 ms, max 1520 ms @0, overage 0.52 s\nresolution:\n  champion       : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/champion.py  inside=True\n  MOHUI_DIR      : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/mohui_v66  inside=True\n  kagg_oracle    : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/kagg_oracle.py  inside=True\n  checkpoint     : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/checkpoint  inside=True\n  kagg_ttm_numpy : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/kagg_ttm_numpy.py  inside=True\n  features       : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/opponent_model/features.py  inside=True\n  mechanics      : /tmp/kagg_graph_submission_qedw2qe6/x/hazel_runtime/opponent_model/mechanics.py  inside=True\n  backend        : numpy  torch imported: False\n  oracle         : device=cpu stats={'forecasts': 463, 'ms_per_forecast': 117.09840132223269, 'errors': 0, 'last_error': ''}\nsteps 5752: max 3709 ms; from turn 512: p99 182 ms, max 2763 ms\n  agent_graph    : /tmp/kagg_graph_submission_qedw2qe6/x/agent_graph.py  inside=True  engine built: True\n  calibration    : None  (expected: False)\nVALIDATION PASS: games failed=0 oracle_live=True all_resolved_inside_bundle=True graph_ok=True"
+ },
+ "fidelity": {
+  "seed": 101,
+  "result": "PASS",
+  "report": "{\"seed\": 101, \"kaggle_loader\": [181469.0, 3754.0], \"arena_harness\": [181469.0, 3754.0], \"identical\": true}"
+ },
+ "kaggle": {
+  "submission_id": 56582140,
+  "submitted": "2026-09-26T14:50:55Z",
+  "status": "COMPLETE (by 14:56:16Z)",
+  "initial_public_score": 600.0,
+  "quota_after": "4 remaining on 2026-09-26",
+  "submitted_from": "this PC (uvx kaggle), archive sha256 checked against this manifest after the copy from cliproxyapi"
+ }
+}

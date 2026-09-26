@@ -175,6 +175,32 @@ sys.exit(0 if kaggle == arena else 1)
 '''
 
 
+ENGINE_NOTICE = '''This directory holds the agent of the public Kaggle notebook "{title}"
+{url}
+pulled {pulled} and shipped unmodified (SOURCE.json lists the sha256 of each file).
+
+The notebook is released under the Apache License, Version 2.0 (LICENSE). The agent file keeps its
+upstream copyright and attribution notices, which name the earlier public work it derives from.
+
+The graph policy (policy_graph.json, "engine_parameters") sets some of the file's module-level
+constants when the engine loads, and hazel_runtime/ adds its own layers on top of the agent's actions.
+'''
+
+
+def add_engine_notice(stage, graph):
+    """A ladder engine ships with the Apache-2.0 text and a NOTICE naming its notebook (not pinned:
+    the runtime verifies only the pinned files)."""
+    engine = next((n.get('engine') for n in graph['turn']['nodes'] if n['id'] == 'backbone'), None)
+    if not engine:
+        return None
+    engine_dir = stage / 'hazel_runtime' / 'engines' / engine
+    source = json.loads((engine_dir / 'SOURCE.json').read_text())
+    shutil.copy2(stage / 'hazel_runtime' / 'mohui_v66' / 'LICENSE', engine_dir / 'LICENSE')
+    (engine_dir / 'NOTICE').write_text(ENGINE_NOTICE.format(title=source.get('title', engine), url=source.get('url', ''),
+                                                            pulled=source.get('pulled_utc', '')))
+    return engine
+
+
 def clean_run(py, script, args, tmp):
     fakehome = Path(tmp) / 'home'
     fakehome.mkdir(exist_ok=True)
@@ -204,6 +230,7 @@ def build(args) -> int:
 
     graph = json.loads(graph_file.read_text())
     PAYLOAD.write_graph_bundle(stage, graph, name, str(checkpoint), calibration)
+    add_engine_notice(stage, graph)
     patch = YARN_FIX.apply(stage) if args.yarn_second_fix else None  # re-pins the graph itself
     (stage / 'main.py').rename(stage / 'agent_graph.py')
     (stage / 'main.py').write_text(MAIN_PY.format(name=name))

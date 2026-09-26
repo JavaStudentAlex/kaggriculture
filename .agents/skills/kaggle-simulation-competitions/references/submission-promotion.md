@@ -143,6 +143,14 @@ What it adds on top of section 6:
    on `agent_graph.py`). The cash must be identical, so the package is exactly the agent the
    arena tested.
 5. **Names.** The same neutral codename rules as section 6, also rejecting "feed" and "graph".
+6. **Ladder engines** (graphs whose backbone runs a public agent, `make_ladder_graph.py`). The engine's
+   directory in the package gets the Apache-2.0 `LICENSE` and a `NOTICE` that names the notebook (from
+   its `SOURCE.json`). They are not pinned, and the runtime verifies only pinned files. Pass the graph
+   exactly as the evolution played it (e.g. the island champion from the run's `checkpoint.json`) and
+   keep the predictor the arena used: the run's bundles use the committed reference in
+   `hazel_runtime/checkpoint/` without calibration, which is `--checkpoint`'s default. Build and
+   validate on cliproxyapi (`~/kagg-evo/venv` has kaggle-environments 1.32.7 and numpy, no torch), never
+   on this PC; copy the archive back, check its sha256 against the manifest, then submit from here.
 
 Timing, measured 2026-09-25 on one laptop core:
 - The cold start (exec of `main.py` including the engine build) takes 5.5–6.8 s, against about
