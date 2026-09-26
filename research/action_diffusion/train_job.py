@@ -15,8 +15,9 @@ data.prepare into <root>/days/<day>/ and deletes the zip.
    rebuilt from the finished days, so each round trains on more days. Validation stays fixed:
    the held-out episodes of the newest --val-days days (the other days' held-out episodes
    train). The first round starts from --init-from with --eval-on-start (step 0 = the
-   starting weights); later rounds, and a replacement VM that got the driver's last.pt,
-   resume from <root>/run/last.pt.
+   starting weights; given several checkpoints, train.py scores each on the validation games
+   and starts from the best); later rounds, and a replacement VM that got the driver's
+   last.pt, resume from <root>/run/last.pt.
 4. The job ends when train.py reports its schedule complete (<root>/run/complete) or train.py
    fails. Stage lines are `JOB_STAGE ...`; the last line is `JOB_EXIT=<code>`.
 Rerunning the same command on the same VM skips the days already encoded, and so does a day
@@ -118,10 +119,18 @@ def flag_values(arguments, names):
     return [x for i, a in enumerate(arguments[:-1]) if a in names for x in (a, arguments[i + 1])]
 
 
+def model_flags(arguments):
+    """The flags of a train.py argument list that shape the model and its data (seat weights,
+    conditions), which the self-test runs with too."""
+    return flag_values(arguments, ('--rating-halving', '--weight-floor', '--margin-doubling', '--recency-halving',
+                                   '--condition-dropout', '--condition-drop-all')) + \
+        (['--condition'] if '--condition' in arguments else [])
+
+
 def selftest(root, day, workers, init_from, gpus, weighting=()):
     """Minutes on 12 episodes before hours of work: parallel prepare, a GPU run from init_from
-    with evaluation and checkpoints (DDP when gpus > 1), then a resume on the time-based
-    schedule to completion. `weighting`: the run's seat-weight flags (--rating-halving ...)."""
+    (a list of checkpoints) with evaluation and checkpoints (DDP when gpus > 1), then a resume on
+    the time-based schedule to completion. `weighting`: the run's model_flags."""
     log('JOB_STAGE self-test')
     archive = root / 'replays' / f'{day}.zip'
     if not archive.exists() and not fetch(DATASET.format(slug=f'kaggriculture-episodes-{day}'), archive):
@@ -135,7 +144,7 @@ def selftest(root, day, workers, init_from, gpus, weighting=()):
         raise RuntimeError(f'self-test: prepare gave {counts}, errors {manifest["errors"]}')
     base = ['--data', str(test / 'data'), '--out', str(test / 'run'),
             '--batch-size', '16', '--workers', '1', '--val-batches', '3', '--buffer-files', '4', *weighting]
-    legs = ((['--init-from', init_from] if init_from else []) + ['--eval-on-start', '--steps', '20', '--eval-every', '10'],
+    legs = ((['--init-from', *init_from] if init_from else []) + ['--eval-on-start', '--steps', '20', '--eval-every', '10'],
             ['--resume', str(test / 'run' / 'last.pt'), '--schedule-hours', '0.01', '--eval-every', '100'])
     for leg in legs:
         code = subprocess.run(train_command(gpus, base + leg), cwd=HERE).returncode
@@ -191,7 +200,8 @@ def main():
     ap.add_argument('--val-days', type=int, default=1, help='newest days whose held-out episodes validate')
     ap.add_argument('--workers', type=int, default=0, help='encoding processes before training (0: every CPU)')
     ap.add_argument('--round-hours', type=float, default=2.0, help='train.py restarts this often to take new days')
-    ap.add_argument('--init-from', help='weights of the first round when there is no last.pt')
+    ap.add_argument('--init-from', nargs='+',
+                    help='weights of the first round when there is no last.pt (several: train.py takes the best)')
     ap.add_argument('--run-dir', help='where train.py writes checkpoints and metrics (default <root>/run)')
     ap.add_argument('--gpus', type=int, default=1, help='GPUs for train.py (torchrun DDP when > 1)')
     ap.add_argument('--deadline-hours', type=float, default=0.0,
@@ -224,9 +234,7 @@ def main():
         log(f'JOB_STAGE start: {len(days)} days {days[0]}..{days[-1]}; the first {args.start_days} with '
             f'{workers} workers; validation on the held-out episodes of {val_days}')
         if not (root / 'selftest.ok').exists():
-            selftest(root, days[0], workers, args.init_from, args.gpus,
-                     flag_values(extra, ('--rating-halving', '--weight-floor', '--margin-doubling',
-                                         '--recency-halving')))
+            selftest(root, days[0], workers, args.init_from, args.gpus, model_flags(extra))
         for day in days[:args.start_days]:
             extract_day(root, day, workers)
         rest = days[args.start_days:]
@@ -252,7 +260,7 @@ def main():
             used, n_train, n_val = combine(root, days, val_days)
             rounds += 1
             start = ['--resume', str(run / 'last.pt')] if (run / 'last.pt').exists() else (
-                (['--init-from', args.init_from] if args.init_from else []) + ['--eval-on-start'])
+                (['--init-from', *args.init_from] if args.init_from else []) + ['--eval-on-start'])
             log(f'JOB_STAGE train round {rounds}: {len(used)} days ({used[-1]}..{used[0]}), '
                 f'{n_train} training files, {n_val} validation files, {round_hours:.2f} h')
             command = train_command(args.gpus, ['--data', str(root / 'current'), '--out', str(run), *start,

@@ -2,11 +2,39 @@
 
 New model trained from scratch, inspired by masked discrete diffusion (D3PM),
 NOT a DiffusionGemma checkpoint or port. No pretrained language weights.
+
+With Config.condition_dim > 0 the model also reads the game it comes from (CONDITIONS: the date,
+the team's rating below the day's best, the result, the margin above expectation), so it learns
+how play differs between days, teams and results instead of averaging them, and can be asked for
+one kind of play (a prompt such as "the newest day, the top team, a win").
 """
 from dataclasses import asdict, dataclass
+import datetime
 import torch
 from torch import nn
 from torch.nn import functional as F
+
+# A conditioned model's inputs about the game, in this order (encode_condition).
+CONDITIONS = ('date', 'rating_gap', 'win', 'excess_margin')
+EPOCH = datetime.date(2026, 7, 30)   # the first published replay day
+
+
+def encode_condition(day=None, rating_gap=None, win=None, excess_margin=None):
+    """One game's conditions as [values..., known flags...] (2 * len(CONDITIONS) floats); None is
+    unknown (value 0, flag 0), and so is every condition of an unconditioned prediction.
+
+    date: the day (YYYY-MM-DD or a date), as days after EPOCH / 60. rating_gap: the team's rating
+    minus the day's best team rating (<= 0), / 100, from -3. win: 1 won, 0.5 tie, 0 lost, as
+    +1 / 0 / -1. excess_margin: the seat's cash lead over its opponent minus the lead its rating
+    edge predicts, both as fractions of the game's mean cash (data.add_ratings), / 0.1, within +-3.
+    """
+    if isinstance(day, str):
+        day = datetime.date.fromisoformat(day)
+    values = [None if day is None else (day - EPOCH).days / 60,
+              None if rating_gap is None else max(min(rating_gap, 0.0), -300.0) / 100,
+              None if win is None else 2 * win - 1,
+              None if excess_margin is None else max(min(excess_margin / 0.1, 3.0), -3.0)]
+    return [0.0 if v is None else float(v) for v in values] + [0.0 if v is None else 1.0 for v in values]
 
 
 @dataclass
@@ -21,6 +49,7 @@ class Config:
     field_embed: int = 8
     context_patch: int = 4
     dropout: float = 0.1
+    condition_dim: int = 0   # len(CONDITIONS) for a conditioned model, 0 for an unconditioned one
 
 
 class ActionDiffusion(nn.Module):
@@ -44,8 +73,16 @@ class ActionDiffusion(nn.Module):
         self.norm = nn.LayerNorm(c.width)
         self.output = nn.Linear(c.width, sum(c.field_sizes))
         self.register_buffer('vocab_mask', torch.arange(max(c.field_sizes))[None, :] < self.sizes[:, None])
+        if c.condition_dim:
+            # The conditions shift every token. The last layer starts at zero, so a conditioned model
+            # grown from an unconditioned checkpoint (train.load_weights) starts out predicting as it.
+            self.condition = nn.Sequential(nn.Linear(2 * c.condition_dim, c.width), nn.SiLU(),
+                                           nn.Linear(c.width, c.width))
+            nn.init.zeros_(self.condition[2].weight)
+            nn.init.zeros_(self.condition[2].bias)
 
-    def forward(self, context, context_mask, noisy_actions, noise_fraction):
+    def forward(self, context, context_mask, noisy_actions, noise_fraction, condition=None):
+        """`condition`: (batch, 2 * condition_dim) from encode_condition; None = all unknown."""
         c = self.config
         b = context.shape[0]
         # Pool only known past observations, never future states or padded frames.
@@ -56,7 +93,11 @@ class ActionDiffusion(nn.Module):
         act = self.embedding(noisy_actions + self.offsets).flatten(-2)
         act = self.action_proj(act) + self.time(noise_fraction[:, None])[:, None, :]
         tokens = torch.cat([ctx, act], dim=1) + self.position
-        padding = torch.cat([~mask.any(-1), torch.zeros(b, c.horizon, dtype=torch.bool, device=ctx.device)], 1)
+        if c.condition_dim:
+            if condition is None:
+                condition = torch.zeros(b, 2 * c.condition_dim, device=tokens.device)
+            tokens = tokens + self.condition(condition.float())[:, None, :]
+        padding =torch.cat([~mask.any(-1), torch.zeros(b, c.horizon, dtype=torch.bool, device=ctx.device)], 1)
         h = self.encoder(tokens, src_key_padding_mask=padding)[:, -c.horizon:]
         raw = self.output(self.norm(h))
         chunks = raw.split(c.field_sizes, dim=-1)
@@ -90,11 +131,15 @@ def masked_loss(logits, targets, corruption_mask, action_mask):
 
 
 @torch.no_grad()
-def predict(model, context, context_mask, steps=1):
+def predict(model, context, context_mask, steps=1, condition=None, guidance=1.0):
     """One-pass readout or confidence-ordered iterative mask removal.
 
     Per-slot marginals are not a calibrated joint distribution. Iterative
     prediction lets later denoising passes condition on earlier decisions.
+    A conditioned model predicts the play `condition` describes (None: unconditioned); guidance > 1
+    pushes further in that direction, logits = unconditioned + guidance * (conditioned -
+    unconditioned) (classifier-free guidance: training hides the conditions at times, so the model
+    knows both).
     """
     if steps < 1:
         raise ValueError('steps must be >= 1')
@@ -105,7 +150,10 @@ def predict(model, context, context_mask, steps=1):
     for k in range(steps):
         masked = x == model.sizes
         t = masked.float().mean((1, 2))
-        logits = model(context, context_mask, x, t)
+        logits = model(context, context_mask, x, t, condition)
+        if condition is not None and guidance != 1.0:
+            free = model(context, context_mask, x, t)
+            logits = free + guidance * (logits - free)
         probs = logits.float().softmax(-1)
         confidence, labels = probs.max(-1)
         if k == steps - 1:

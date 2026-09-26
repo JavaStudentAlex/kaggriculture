@@ -4,8 +4,17 @@ Usage: torchrun --standalone --nproc_per_node=<gpus> train.py --data ... --out .
 CPU --smoke mode is solely a functional test, not a strength benchmark.
 
 --init-from <checkpoint> starts from trained weights (e.g. runs/action_diffusion_run/best.pt)
-with a fresh optimizer and learning-rate schedule; --resume <last.pt> continues a run exactly.
---eval-on-start scores the starting weights first (step 0), the number training must beat.
+with a fresh optimizer and learning-rate schedule; given several, each is scored on the
+validation games first (init_candidate lines) and training starts from the best. --resume
+<last.pt> continues a run exactly. --eval-on-start scores the starting weights first (step 0),
+the number training must beat.
+--condition trains a conditioned model (model.CONDITIONS): every window also gets its game's
+date, its team's rating below the day's best, its result and its margin above expectation, some
+of them hidden (--condition-dropout, --condition-drop-all) so that partial and unconditioned
+predictions work too. Validation then scores it with each game's conditions (the metrics best.pt
+follows) and without them (unconditioned_*, comparable with unconditioned models). Checkpoints
+carry `conditions`, whose prompt (the newest day, the day's top team, a typical winning margin)
+asks for the play to copy (inference.Forecaster).
 Validation reports the executed action separately: the first_* metrics score horizon slot 0,
 and first_command_accuracy_by_hour splits it by game hour (anchor step % 24).
 Seat weights (seat_weights) favour good play: --rating-halving N samples a seat in proportion
@@ -23,16 +32,18 @@ import os
 import random
 import re
 import time
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
 import torch
 import torch.distributed as dist
 import torch.nn.functional as F
+from torch import nn
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, DistributedSampler, IterableDataset, get_worker_info
 
-from model import ActionDiffusion, Config, corrupt, masked_loss, predict
+from model import ActionDiffusion, CONDITIONS, Config, EPOCH, corrupt, encode_condition, masked_loss, predict
 
 
 def move(batch, device):
@@ -71,10 +82,7 @@ def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0
     """
     days = [record_day(f) for f in dataset.files]
     newest = max((datetime.date.fromisoformat(d) for d in days if d), default=None)
-    best = {}
-    for record in dataset.manifest['files']:
-        if record.get('team_rating') is not None:
-            best[record['source']] = max(best.get(record['source'], -math.inf), record['team_rating'])
+    best = day_best(dataset)
     team = [max(floor, 2 ** ((f['team_rating'] - best[f['source']]) / halving))
             if halving and f.get('team_rating') is not None else None for f in dataset.files]
     rated = [w for w in team if w is not None]
@@ -89,6 +97,70 @@ def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0
             recent = 2 ** (-(newest - datetime.date.fromisoformat(day)).days / recency_halving)
         weights.append((fill if w is None else w) * game * recent)
     return weights
+
+
+def day_best(dataset):
+    """The best team rating of each source (one Kaggle day) in a WindowDataset's manifest."""
+    best = {}
+    for record in dataset.manifest['files']:
+        if record.get('team_rating') is not None:
+            best[record['source']] = max(best.get(record['source'], -math.inf), record['team_rating'])
+    return best
+
+
+def condition_table(dataset):
+    """float32 (files, 2 * len(CONDITIONS)): each file's game conditions (model.encode_condition),
+    from its record: its day, its team's rating minus the day's best, its result, and its cash lead
+    minus the lead its rating edge predicts."""
+    best = day_best(dataset)
+    rows = []
+    for f in dataset.files:
+        gap = f['team_rating'] - best[f['source']] if f.get('team_rating') is not None else None
+        excess = (f['margin'] - f['expected_margin']
+                  if f.get('margin') is not None and f.get('expected_margin') is not None else None)
+        rows.append(encode_condition(record_day(f), gap, f.get('win'), excess))
+    return np.asarray(rows, dtype=np.float32).reshape(len(rows), 2 * len(CONDITIONS))
+
+
+def condition_prompt(*datasets):
+    """The conditions that ask a model trained on these datasets for the play to copy: the newest
+    day, the day's top team, a win by the median excess margin of the winning seats."""
+    files = [f for dataset in datasets for f in dataset.files]
+    days = [d for d in map(record_day, files) if d]
+    excess = sorted(f['margin'] - f['expected_margin'] for f in files
+                    if f.get('win') == 1 and f.get('margin') is not None and f.get('expected_margin') is not None)
+    return dict(fields=list(CONDITIONS), epoch=EPOCH.isoformat(),
+                prompt=dict(day=max(days) if days else None, rating_gap=0.0, win=1.0,
+                            excess_margin=round(excess[len(excess) // 2], 5) if excess else None))
+
+
+def hide_conditions(condition, each, everything):
+    """Training windows' conditions with some hidden: each one with probability `each`, all of a
+    window's with `everything`, so the model also learns partial prompts and the unconditioned
+    case (which guidance needs)."""
+    n = condition.shape[1] // 2
+    keep = ((torch.rand(len(condition), n, device=condition.device) >= each)
+            & (torch.rand(len(condition), 1, device=condition.device) >= everything))
+    known = condition[:, n:] * keep
+    return torch.cat([condition[:, :n] * known, known], 1)
+
+
+def load_weights(model, state):
+    """Load a checkpoint's weights (its 'config' and 'model'). A conditioned model also takes an
+    unconditioned checkpoint's weights; its condition layers then start afresh, the last one at
+    zero, so it predicts exactly as the checkpoint."""
+    saved, mine = asdict(Config(**state['config'])), model.config_dict()
+    same = {k: v for k, v in saved.items() if k != 'condition_dim'} == {k: v for k, v in mine.items() if k != 'condition_dim'}
+    assert same, 'the checkpoint has another model config'
+    if saved['condition_dim'] == mine['condition_dim']:
+        model.load_state_dict(state['model'])
+        return
+    assert not saved['condition_dim'], 'a conditioned checkpoint cannot start an unconditioned model'
+    missing, unexpected = model.load_state_dict(state['model'], strict=False)
+    assert not unexpected and missing and all(k.startswith('condition.') for k in missing), (missing, unexpected)
+    model.condition[0].reset_parameters()
+    nn.init.zeros_(model.condition[2].weight)
+    nn.init.zeros_(model.condition[2].bias)
 
 
 class ShuffledWindows(IterableDataset):
@@ -140,13 +212,15 @@ class ShuffledWindows(IterableDataset):
                     if not anchors:
                         continue
                 rng.shuffle(anchors)
-                held.append((X, A, anchors))
+                held.append((int(index), X, A, anchors))
 
         fill()
         while held:
             k = int(rng.integers(len(held)))
-            X, A, anchors = held[k]
-            yield self.windows.window(X, A, anchors.pop())
+            index, X, A, anchors = held[k]
+            item = self.windows.window(X, A, anchors.pop())
+            item['file'] = np.int64(index)   # index into windows.files, e.g. for the game's conditions
+            yield item
             if not anchors:
                 held[k] = held[-1]
                 held.pop()
@@ -154,11 +228,13 @@ class ShuffledWindows(IterableDataset):
 
 
 @torch.no_grad()
-def evaluate(model, loader, device, max_batches=0, weights=None):
+def evaluate(model, loader, device, max_batches=0, weights=None, conditions=None):
     """Fixed fully masked readout: comparable across checkpoints, no random masks.
 
     `weights` (one per validation file, see seat_weights) adds *_weighted metrics in which each
-    window counts by its seat's weight; the unweighted metrics are unchanged.
+    window counts by its seat's weight; the unweighted metrics are unchanged. `conditions` (a
+    tensor, one row per validation file, condition_table) gives a conditioned model each game's
+    conditions; without them it predicts unconditioned.
     """
     model.eval()
     totals = torch.zeros(14, dtype=torch.float64, device=device)
@@ -172,8 +248,9 @@ def evaluate(model, loader, device, max_batches=0, weights=None):
         y = batch['actions'].long()
         amask = batch['action_mask'].bool()
         noisy = model.sizes[None, None, :].expand_as(y)
+        condition = None if conditions is None else conditions[batch['file'].long()]
         logits = model(batch['context'].float(), batch['context_mask'].bool(), noisy,
-                       torch.ones(len(y), device=device))
+                       torch.ones(len(y), device=device), condition)
         valid = amask[:, :, None].expand_as(y)
         loss = masked_loss(logits, y, torch.ones_like(y, dtype=torch.bool), amask)
         pred = logits.argmax(-1)
@@ -221,6 +298,17 @@ def evaluate(model, loader, device, max_batches=0, weights=None):
     return metrics
 
 
+def validate(model, loader, device, max_batches=0, weights=None, conditions=None):
+    """evaluate(); a conditioned model is scored twice: with each game's conditions (the metrics
+    best.pt follows) and without them (unconditioned_*, comparable with an unconditioned model)."""
+    metrics = evaluate(model, loader, device, max_batches, weights, conditions)
+    if conditions is not None:
+        free = evaluate(model, loader, device, max_batches, weights)
+        metrics.update({'unconditioned_' + k: v for k, v in free.items()
+                        if k not in ('val_windows', 'first_command_accuracy_by_hour')})
+    return metrics
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--data', required=True)
@@ -258,8 +346,18 @@ def main():
     p.add_argument('--recency-halving', type=float, default=0.0,
                    help="favour the fresher days: times 2 ** (-(days before the newest day) / this), so 14 halves "
                         "a day two weeks older than the newest. 0: every day alike")
+    p.add_argument('--condition', action='store_true',
+                   help="a conditioned model (model.CONDITIONS): each window also gets its game's date, its team's "
+                        "rating below the day's best, the result and the margin above expectation. Starting from "
+                        "an unconditioned checkpoint adds the condition layers, at first without effect")
+    p.add_argument('--condition-dropout', type=float, default=0.15,
+                   help='chance that a training window hides each one of its conditions (partial prompts)')
+    p.add_argument('--condition-drop-all', type=float, default=0.15,
+                   help='chance that a training window hides all of them (unconditioned predictions, guidance)')
     p.add_argument('--resume')
-    p.add_argument('--init-from', help='start from these weights with a fresh optimizer and schedule')
+    p.add_argument('--init-from', nargs='+',
+                   help='start from these weights with a fresh optimizer and schedule; given several, each is '
+                        'scored on the validation games and training starts from the best')
     p.add_argument('--smoke', action='store_true')
     args = p.parse_args()
     from data import WindowDataset, FEATURE_DIM, field_sizes
@@ -312,18 +410,25 @@ def main():
     vs = list(range(rank, len(val), world))
     vl = DataLoader(val, batch_size=args.batch_size, sampler=vs, num_workers=min(2, args.workers))
     assert len(loader), 'Dataset too small for requested batch size'
-    config = Config(FEATURE_DIM, list(field_sizes))
+    train_conditions = val_conditions = conditions = None
+    if args.condition:
+        train_conditions = torch.as_tensor(condition_table(train), device=device)
+        val_conditions = torch.as_tensor(condition_table(val), device=device)
+        conditions = condition_prompt(train, val)
+    config = Config(FEATURE_DIM, list(field_sizes), condition_dim=len(CONDITIONS) if args.condition else 0)
     if args.smoke:
         config.width, config.layers, config.heads = 48, 2, 4
     model = ActionDiffusion(config).to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=.01)
     scaler = torch.amp.GradScaler('cuda', enabled=device.type=='cuda')
+    val_batches = 2 if args.smoke else args.val_batches
     start = 0
     best = float('inf')
     trained_s = 0.0   # training time of earlier invocations (--schedule-hours)
+    initial = None    # the --init-from checkpoint training starts from
     if args.resume:
         state = torch.load(args.resume, map_location=device, weights_only=False)
-        assert state['config'] == model.config_dict()
+        assert asdict(Config(**state['config'])) == model.config_dict(), 'the --resume checkpoint has another model config'
         model.load_state_dict(state['model'])
         opt.load_state_dict(state['optimizer'])
         scaler.load_state_dict(state['scaler'])
@@ -331,22 +436,36 @@ def main():
         best = state['best_val']
         trained_s = state.get('trained_s', 0.0)
     elif args.init_from:
-        state = torch.load(args.init_from, map_location=device, weights_only=False)
-        assert state['config'] == model.config_dict(), 'the --init-from checkpoint has another model config'
-        model.load_state_dict(state['model'])
+        candidates = []
+        for path in args.init_from:
+            state = torch.load(path, map_location='cpu', weights_only=False)
+            candidates.append(dict(path=path, step=state.get('step'), recorded=state.get('metrics'),
+                                   config=state['config'], model=state['model']))
+        initial = candidates[0]
+        if len(candidates) > 1:   # every rank scores every candidate (validation is split over the ranks)
+            for candidate in candidates:
+                load_weights(model, candidate)
+                candidate['metrics'] = validate(model, vl, device, val_batches, val_weights, val_conditions)
+                if rank == 0:
+                    print(json.dumps(dict(event='init_candidate', path=candidate['path'], step=candidate['step'],
+                                          metrics=candidate['metrics'])), flush=True)
+            initial = min(candidates, key=lambda c: c['metrics'][select])
+        load_weights(model, initial)
         if rank == 0:
-            print(json.dumps(dict(event='init_from', path=args.init_from, step=state.get('step'),
-                                  metrics=state.get('metrics'))), flush=True)
+            print(json.dumps(dict(event='init_from', path=initial['path'], step=initial['step'],
+                                  metrics=initial['recorded'])), flush=True)
     net = DDP(model, device_ids=[local] if device.type=='cuda' else None) if world>1 else model
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     if rank == 0:
         metadata = dict(model_name='KAD-MD-24', diffusion='conditional absorbing-mask discrete diffusion',
-                        pretrained_checkpoint=args.init_from, config=model.config_dict(),
+                        pretrained_checkpoint=initial and initial['path'], config=model.config_dict(),
                         parameters=sum(x.numel() for x in model.parameters()), world_size=world,
                         train_windows=len(train), validation_windows=len(val),
                         train_files=len(train.files), validation_files=len(val.files), args=vars(args),
                         best_checkpoint_metric=select)
+        if conditions:
+            metadata['conditions'] = conditions
         if train_weights is not None:
             # share of the training windows of the day's top teams, of game winners, of seats that beat
             # their expected margin and of the newest days, before and after weighting
@@ -376,11 +495,11 @@ def main():
     def save_last(step, metrics):
         atomic_save(dict(config=model.config_dict(), model=model.state_dict(), optimizer=opt.state_dict(),
                          scaler=scaler.state_dict(), step=step, best_val=best, metrics=metrics,
-                         trained_s=spent()), out/'last.pt')
+                         trained_s=spent(), conditions=conditions), out/'last.pt')
 
     metrics = {}
     if args.eval_on_start and not args.resume:
-        metrics = evaluate(model, vl, device, max_batches=2 if args.smoke else args.val_batches, weights=val_weights)
+        metrics = (initial or {}).get('metrics') or validate(model, vl, device, val_batches, val_weights, val_conditions)
         if rank == 0:
             print(json.dumps(dict(event='validation', step=0, **metrics)), flush=True)
             with (out/'metrics.jsonl').open('a') as f:
@@ -411,13 +530,17 @@ def main():
         b = move(batch, device)
         y = b['actions'].long()
         noisy, mask, fraction = corrupt(y, model.sizes)
+        condition = None
+        if train_conditions is not None:
+            condition = hide_conditions(train_conditions[b['file'].long()], args.condition_dropout,
+                                        args.condition_drop_all)
         done = progress(step)
         lr_factor = min(1., step/args.warmup) * .5*(1+math.cos(math.pi*min(done, 1.)))
         for group in opt.param_groups:
             group['lr'] = args.lr*max(lr_factor, .05)
         opt.zero_grad(set_to_none=True)
         with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=device.type=='cuda'):
-            logits = net(b['context'].float(), b['context_mask'].bool(), noisy, fraction)
+            logits = net(b['context'].float(), b['context_mask'].bool(), noisy, fraction, condition)
             loss = masked_loss(logits, y, mask, b['action_mask'].bool())
         finite = torch.tensor(int(torch.isfinite(loss)), device=device)
         if world > 1:
@@ -446,7 +569,7 @@ def main():
             with (out/'metrics.jsonl').open('a') as f:
                 f.write(json.dumps(row)+'\n')
         if step % args.eval_every == 0 or stop.item():
-            metrics = evaluate(model, vl, device, max_batches=2 if args.smoke else args.val_batches, weights=val_weights)
+            metrics = validate(model, vl, device, val_batches, val_weights, val_conditions)
             if rank==0:
                 print(json.dumps(dict(event='validation', step=step, **metrics)), flush=True)
                 with (out/'metrics.jsonl').open('a') as f:
@@ -457,7 +580,7 @@ def main():
                 last_save = time.monotonic()
                 if improved:
                     atomic_save(dict(config=model.config_dict(), model=model.state_dict(), step=step,
-                                     metrics=metrics), out/'best.pt')
+                                     metrics=metrics, conditions=conditions), out/'best.pt')
                 (out/'scores.json').write_text(json.dumps(dict(step=step, trained_s=round(spent()), complete=finished,
                                                                **metrics), indent=2))
             if world>1:

@@ -7,7 +7,8 @@ Every day encoded first on CPU notebooks, then training on all of them:
     for k in 1 2 3 4 5; do kaggle kernels push -p /tmp/kad_prep/$k; done
     # once all five are COMPLETE:
     python3 make_kaggle_kernel.py --data-parts 5 --out /tmp/kad_kernel --user sunshinethroughfog \
-        --init-dataset sunshinethroughfog/kaggriculture-action-diffusion-v2-weights
+        --init-dataset sunshinethroughfog/kaggriculture-action-diffusion-v2-weights \
+        [--init-kernel sunshinethroughfog/kaggriculture-action-diffusion-all] [--slug ...]
     kaggle kernels push -p /tmp/kad_kernel --accelerator NvidiaTeslaT4
 
 --prep-parts N writes N CPU notebooks, <data-slug>-1..N. Each downloads its share of --days
@@ -16,8 +17,12 @@ Every day encoded first on CPU notebooks, then training on all of them:
 CPU sessions of an account at once.
 
 The training notebook carries this directory's code (train_job.py, data.py, model.py,
-train.py, inference.py) as an embedded tar and finds init.pt (else best.pt) in the attached
---init-dataset (the starting weights: a best.pt, or a last.pt of an earlier run). With
+train.py, inference.py) as an embedded tar. Its starting weights are every init.pt, best.pt
+and last.pt under its inputs: the attached --init-dataset (e.g. a best.pt saved as init.pt)
+and the outputs of the --init-kernel notebooks (an earlier training run's ad_run/best.pt and
+last.pt; that run must have finished). Given several, train.py scores each on the validation
+games and starts from the best. The default --train-args train a conditioned model
+(train.py --condition). With
 --data-parts N it attaches the outputs of the N data notebooks, unpacks their days into
 /tmp/ad/days and runs train_job.py on every day in one round (a day missing there is encoded
 before training). Without it, train_job.py downloads and encodes the days itself: the first
@@ -59,7 +64,9 @@ gpus = torch.cuda.device_count()
 print('torch', torch.__version__, '| GPUs', gpus, [torch.cuda.get_device_name(i) for i in range(gpus)],
       '| CPUs', os.cpu_count(), '| disk free GB', round(shutil.disk_usage('/tmp').free / 1e9, 1), flush=True)
 assert gpus >= 2, 'this kernel needs the GPU T4 x2 accelerator'
-init = next(p for name in ('init.pt', 'best.pt') for p in sorted(Path('/kaggle/input').rglob(name)))
+inits = sorted({{p for name in ('init.pt', 'best.pt', 'last.pt') for p in Path('/kaggle/input').rglob(name)}})
+assert inits, 'no starting weights (init.pt, best.pt, last.pt) under /kaggle/input'
+print('starting weights:', *map(str, inits), flush=True)
 if PREPARED:
     tars = sorted(Path('/kaggle/input').rglob('days/*.tar'))
     assert tars, 'no prepared days (days/<day>.tar) under /kaggle/input'
@@ -73,7 +80,7 @@ if PREPARED:
 subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'orjson'])
 out = Path('/kaggle/working')
 command = [sys.executable, str(code / 'train_job.py'), '--root', '/tmp/ad', '--run-dir', str(out / 'ad_run'),
-           '--gpus', str(gpus), '--init-from', str(init), *JOB_ARGS, '--', *TRAIN_ARGS]
+           '--gpus', str(gpus), '--init-from', *map(str, inits), *JOB_ARGS, '--', *TRAIN_ARGS]
 print('job:', ' '.join(command), flush=True)
 exit_code = subprocess.run(command, cwd=code).returncode
 for name in ('extract.log', 'current/manifest.json'):
@@ -181,6 +188,8 @@ def main():
     ap.add_argument('--data-parts', type=int, default=0,
                     help='train on the days encoded by this many data notebooks (attached as inputs)')
     ap.add_argument('--init-dataset', help='dataset holding init.pt or best.pt (owner/slug); required for training')
+    ap.add_argument('--init-kernel', action='append', default=[],
+                    help='a finished training notebook (owner/slug) whose output checkpoints are starting weights too')
     ap.add_argument('--days', default='all', help='all, last:N or a comma list of YYYY-MM-DD')
     ap.add_argument('--start-days', type=int, default=4, help='without --data-parts: days encoded before training')
     ap.add_argument('--background-workers', type=int, default=3,
@@ -190,7 +199,7 @@ def main():
     ap.add_argument('--deadline-hours', type=float, default=11.3)
     ap.add_argument('--train-args', default='--batch-size 64 --lr 3e-4 --workers 1 --buffer-files 24 '
                                             '--eval-every 5000 --save-every-min 10 --rating-halving 50 --margin-doubling 0.1 '
-                                            '--recency-halving 14')
+                                            '--recency-halving 14 --condition')
     args = ap.parse_args()
     out = Path(args.out)
     code = code_archive()
@@ -223,7 +232,7 @@ def main():
                                                          prepared=bool(args.data_parts)))
     (out / 'kernel-metadata.json').write_text(metadata(f'{args.user}/{args.slug}', 'kaggle_train.py', gpu=True,
                                                        dataset_sources=[args.init_dataset],
-                                                       kernel_sources=sources))
+                                                       kernel_sources=sources + args.init_kernel))
     print(f'wrote {out}/kaggle_train.py ({(out / "kaggle_train.py").stat().st_size / 1e3:.0f} kB) and '
           f'kernel-metadata.json' + (f'; {len(days)} prepared days from {len(sources)} data notebooks'
                                      if args.data_parts else ''))
