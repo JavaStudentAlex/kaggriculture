@@ -13,13 +13,16 @@ data.prepare into <root>/days/<day>/ and deletes the zip.
    --background-workers processes, newest first, while training runs.
 3. Training runs in rounds of --round-hours. Before each round <root>/current/manifest.json is
    rebuilt from the finished days, so each round trains on more days. Validation stays fixed:
-   the held-out episodes of the newest --val-days days (the other days' held-out episodes are
-   left out). The first round starts from --init-from with --eval-on-start (step 0 = the
+   the held-out episodes of the newest --val-days days (the other days' held-out episodes
+   train). The first round starts from --init-from with --eval-on-start (step 0 = the
    starting weights); later rounds, and a replacement VM that got the driver's last.pt,
    resume from <root>/run/last.pt.
 4. The job ends when train.py reports its schedule complete (<root>/run/complete) or train.py
    fails. Stage lines are `JOB_STAGE ...`; the last line is `JOB_EXIT=<code>`.
-Rerunning the same command on the same VM skips the days already encoded.
+Rerunning the same command on the same VM skips the days already encoded, and so does a day
+put into <root>/days/<day>/ beforehand: the training notebook unpacks the days its data
+notebooks encoded there (make_kaggle_kernel.py --data-parts), so with --start-days covering
+every day it trains on all of them from the first step.
 """
 from __future__ import annotations
 
@@ -148,20 +151,28 @@ def selftest(root, day, workers, init_from, gpus, weighting=()):
 
 
 def combine(root, days, val_days):
-    """<root>/current/manifest.json over the encoded days: the training files of every day and
-    the validation files of val_days. Returns (days, training files, validation files)."""
-    files, header, used = [], None, []
+    """<root>/current/manifest.json over the encoded days: the held-out episodes of val_days
+    validate, every other episode trains (the other days' held-out episodes too, unless the same
+    game is a validation game). Returns (days, training files, validation files)."""
+    manifests = {}
     for day in days:
         path = root / 'days' / day / 'manifest.json'
-        if not path.exists():
-            continue
-        manifest = json.loads(path.read_text())
-        header = header or manifest
-        used.append(day)
-        files += [dict(f, path=f'../days/{day}/{f["path"]}') for f in manifest['files']
-                  if f['split'] == 'train' or day in val_days]
-    if header is None:
+        if path.exists():
+            manifests[day] = json.loads(path.read_text())
+    if not manifests:
         raise RuntimeError('no day is encoded yet')
+    used = list(manifests)
+    held_out = {f['episode_id'] for day in val_days if day in manifests
+                for f in manifests[day]['files'] if f['split'] == 'val'}
+    files = []
+    for day, manifest in manifests.items():
+        for f in manifest['files']:
+            if f['split'] == 'val' and day not in val_days:
+                if f['episode_id'] in held_out:
+                    continue
+                f = dict(f, split='train')
+            files.append(dict(f, path=f'../days/{day}/{f["path"]}'))
+    header = manifests[used[0]]
     current = root / 'current'
     current.mkdir(exist_ok=True)
     combined = {k: header[k] for k in ('version', 'alignment', 'feature_dim', 'field_sizes', 'codec', 'split')}
@@ -214,7 +225,8 @@ def main():
             f'{workers} workers; validation on the held-out episodes of {val_days}')
         if not (root / 'selftest.ok').exists():
             selftest(root, days[0], workers, args.init_from, args.gpus,
-                     flag_values(extra, ('--rating-halving', '--weight-floor', '--margin-doubling')))
+                     flag_values(extra, ('--rating-halving', '--weight-floor', '--margin-doubling',
+                                         '--recency-halving')))
         for day in days[:args.start_days]:
             extract_day(root, day, workers)
         rest = days[args.start_days:]

@@ -15,9 +15,10 @@ A command the engine skips without effect (e.g. a literal "INVALID" order, or
 BUY_PRODUCT of a product the market does not sell) is an empty slot at its index,
 counted as skipped_*; before, one such command dropped the whole episode.
 
-Records carry each seat's team and the final cash of both seats; for a Kaggle daily
-zip, add_ratings() also rates every team of the day and every seat from the zip's
-manifest.csv game ratings.
+Records carry each seat's team, the final cash of both seats, the result (win 1, loss 0,
+draw 0.5: more final cash wins) and the day (the YYYY-MM-DD in the source's file name, for
+recency weighting); for a Kaggle daily zip, add_ratings() also rates every team of the day
+and every seat from the zip's manifest.csv game ratings.
 
 Each worker loads one JSON episode at a time (prepare(workers=N) runs N of them).
 Outputs are per-seat compressed NPZ; WindowDataset caches a bounded number/size of
@@ -578,6 +579,10 @@ def _extract(task):
                                           for a in info.get("Agents") or []]
         final = (doc.get("steps") or [[]])[-1]   # the last step's reward is each seat's final cash
         cash = [final[s].get("reward") if s < len(final) and isinstance(final[s], Mapping) else None for s in (0, 1)]
+        known = all(isinstance(c, (int, float)) for c in cash)
+        win = [(1.0 if cash[s] > cash[1 - s] else 0.0 if cash[s] < cash[1 - s] else 0.5) if known else None
+               for s in (0, 1)]
+        day = re.search(r"\d{4}-\d{2}-\d{2}", source.name)
         stats = Counter()
         arrays = episode_arrays(doc, stats=stats)
         del doc
@@ -595,7 +600,8 @@ def _extract(task):
             records.append({"path": rel.as_posix(), "episode_id": identifier, "seat": seat, "split": split,
                             "length": len(X), "source": str(source), "member": member,
                             "team": teams[seat] if seat < len(teams) else None,
-                            "cash": cash[seat], "opponent_cash": cash[1 - seat]})
+                            "cash": cash[seat], "opponent_cash": cash[1 - seat], "win": win[seat],
+                            "day": day.group(0) if day else None})
         result.update(records=records, split=split, rows=sum(len(x) for x, _ in arrays), stats=stats,
                       parts=written)
     except (DataError, ValueError, TypeError, KeyError, IndexError, OverflowError) as exc:

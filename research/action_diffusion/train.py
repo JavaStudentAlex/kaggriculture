@@ -11,14 +11,17 @@ and first_command_accuracy_by_hour splits it by game hour (anchor step % 24).
 Seat weights (seat_weights) favour good play: --rating-halving N samples a seat in proportion
 to 2 ** ((its team's rating - the day's best team rating) / N), and --margin-doubling M times
 2 ** ((its cash lead over the opponent - the lead its rating edge predicts) / M), leads as a
-fraction of the game's mean cash. With either, validation also reports *_weighted metrics and
-best.pt follows val_masked_ce_weighted.
+fraction of the game's mean cash, and --recency-halving D times 2 ** (-(days before the newest
+day) / D), so the fresher days are sampled more. With any of them, validation also reports
+*_weighted metrics and best.pt follows val_masked_ce_weighted.
 """
 import argparse
+import datetime
 import json
 import math
 import os
 import random
+import re
 import time
 from pathlib import Path
 
@@ -42,9 +45,18 @@ def atomic_save(state, path):
     tmp.replace(path)
 
 
-def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0):
+def record_day(record):
+    """The file's day (YYYY-MM-DD): its `day`, else the date in its source's name, else None."""
+    if record.get('day'):
+        return record['day']
+    found = re.search(r'\d{4}-\d{2}-\d{2}', Path(record.get('source') or '').name)
+    return found.group(0) if found else None
+
+
+def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0, recency_halving=0.0):
     """Relative sampling weight of each file (one seat of one game) of a WindowDataset: how good
-    the seat's team was that day times how well the seat played that game (data.add_ratings).
+    the seat's team was that day times how well the seat played that game (data.add_ratings),
+    times how recent the day is.
 
     Team (halving > 0): 2 ** ((team_rating - best) / halving), where best is the top team rating
     of the file's day (its source): the day's best team weighs 1, a team `halving` points below
@@ -54,7 +66,11 @@ def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0
     mean cash and expected_margin the lead its rating edge predicts. Beating that by
     margin_doubling (0.05: 5% of the game's cash) doubles the weight; 1 when unknown. Absolute
     cash is not used: the game, not the player, sets it (both seats end with similar cash).
+    Day (recency_halving > 0): 2 ** (-(days before the newest day of the dataset) / recency_halving),
+    so the newest day weighs 1 and a day recency_halving days older 1/2; 1 when the day is unknown.
     """
+    days = [record_day(f) for f in dataset.files]
+    newest = max((datetime.date.fromisoformat(d) for d in days if d), default=None)
     best = {}
     for record in dataset.manifest['files']:
         if record.get('team_rating') is not None:
@@ -64,11 +80,14 @@ def seat_weights(dataset, halving=0.0, floor=0.125, margin_doubling=0.0, cap=4.0
     rated = [w for w in team if w is not None]
     fill = sum(rated) / len(rated) if rated else 1.0
     weights = []
-    for f, w in zip(dataset.files, team):
+    for f, w, day in zip(dataset.files, team, days):
         game = 1.0
         if margin_doubling and f.get('margin') is not None and f.get('expected_margin') is not None:
             game = min(cap, max(1 / cap, 2 ** ((f['margin'] - f['expected_margin']) / margin_doubling)))
-        weights.append((fill if w is None else w) * game)
+        recent = 1.0
+        if recency_halving and day:
+            recent = 2 ** (-(newest - datetime.date.fromisoformat(day)).days / recency_halving)
+        weights.append((fill if w is None else w) * game * recent)
     return weights
 
 
@@ -233,9 +252,12 @@ def main():
     p.add_argument('--margin-doubling', type=float, default=0.0,
                    help="favour seats that played their game well: times 2 ** ((cash lead over the opponent - "
                         "the lead the seat's rating edge predicts) / this), leads as a fraction of the game's mean "
-                        "cash, capped at 4x either way; 0.05 doubles a seat 5%% ahead of expectation. With this "
-                        "or --rating-halving, validation adds *_weighted metrics and best.pt follows "
-                        "val_masked_ce_weighted. 0: off")
+                        "cash, capped at 4x either way; 0.05 doubles a seat 5%% ahead of expectation. With this, "
+                        "--rating-halving or --recency-halving, validation adds *_weighted metrics and best.pt "
+                        "follows val_masked_ce_weighted. 0: off")
+    p.add_argument('--recency-halving', type=float, default=0.0,
+                   help="favour the fresher days: times 2 ** (-(days before the newest day) / this), so 14 halves "
+                        "a day two weeks older than the newest. 0: every day alike")
     p.add_argument('--resume')
     p.add_argument('--init-from', help='start from these weights with a fresh optimizer and schedule')
     p.add_argument('--smoke', action='store_true')
@@ -265,13 +287,15 @@ def main():
         val.select([val.files[int(i * every)] for i in range(args.val_files)])
     assert len(train) and len(val), 'Both episode-level train and validation splits required'
     train_weights = val_weights = None
-    weighted = bool(args.rating_halving or args.margin_doubling)
+    weighted = bool(args.rating_halving or args.margin_doubling or args.recency_halving)
     if weighted:
         assert args.loader == 'shuffle', 'seat weights need the shuffle loader'
-        train_weights = seat_weights(train, args.rating_halving, args.weight_floor, args.margin_doubling)
+        train_weights = seat_weights(train, args.rating_halving, args.weight_floor, args.margin_doubling,
+                                     recency_halving=args.recency_halving)
         mean = sum(train_weights) / len(train_weights)
         train_weights = [w / mean for w in train_weights]
-        val_weights = seat_weights(val, args.rating_halving, args.weight_floor, args.margin_doubling)
+        val_weights = seat_weights(val, args.rating_halving, args.weight_floor, args.margin_doubling,
+                                   recency_halving=args.recency_halving)
     select = 'val_masked_ce_weighted' if weighted else 'val_masked_ce'
     if args.loader == 'shuffle':
         train_ds = ShuffledWindows(train, rank, world, buffer=args.buffer_files, weights=train_weights)
@@ -324,16 +348,21 @@ def main():
                         train_files=len(train.files), validation_files=len(val.files), args=vars(args),
                         best_checkpoint_metric=select)
         if train_weights is not None:
-            # share of the training windows of the day's top teams, of game winners and of seats that beat
-            # their expected margin, before and after weighting
+            # share of the training windows of the day's top teams, of game winners, of seats that beat
+            # their expected margin and of the newest days, before and after weighting
             ranks = [f.get('team_rank') for f in train.files]
             share = {}
-            won = [(f.get('margin') or 0) > 0 for f in train.files]
+            won = [f['win'] == 1 if f.get('win') is not None else (f.get('margin') or 0) > 0 for f in train.files]
             beat = [f.get('margin') is not None and f.get('expected_margin') is not None
                     and f['margin'] > f['expected_margin'] for f in train.files]
+            days = [record_day(f) for f in train.files]
+            newest = max((datetime.date.fromisoformat(d) for d in days if d), default=None)
+            age = [(newest - datetime.date.fromisoformat(d)).days if d else None for d in days]
             for name, inside in (('top3', [r is not None and r <= 3 for r in ranks]),
                                  ('top10', [r is not None and r <= 10 for r in ranks]), ('winners', won),
-                                 ('above_expectation', beat)):
+                                 ('above_expectation', beat),
+                                 ('last_7_days', [a is not None and a < 7 for a in age]),
+                                 ('last_14_days', [a is not None and a < 14 for a in age])):
                 share[name] = dict(uniform=round(sum(inside) / len(inside), 3),
                                    weighted=round(sum(w for w, i in zip(train_weights, inside) if i) / len(inside), 3))
             metadata['seat_weights'] = dict(rated_files=sum(r is not None for r in ranks), share=share)

@@ -434,6 +434,14 @@ class TestRealReplayPipeline(unittest.TestCase):
             self.assertEqual(total_episodes, 2)
             self.assertEqual(len(manifest["sources"]), 1)
             self.assertEqual(manifest["sources"][0]["accepted"], 2)
+            # every seat record carries its day (from the file name) and result (more final cash wins)
+            games = {}
+            for record in manifest["files"]:
+                self.assertEqual(record["day"], "2026-08-28")
+                self.assertEqual(record["win"], 1.0 if record["cash"] > record["opponent_cash"] else
+                                 0.0 if record["cash"] < record["opponent_cash"] else 0.5)
+                games.setdefault(record["episode_id"], []).append(record["win"])
+            self.assertTrue(all(sum(results) == 1.0 for results in games.values()))
 
             # Test WindowDataset
             # Check which split has files
