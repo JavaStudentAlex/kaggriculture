@@ -1,0 +1,7 @@
+{
+  "step": 2500,
+  "val_masked_ce": 0.5591765971233448,
+  "field_accuracy": 0.5641135131675139,
+  "active_operation_accuracy": 0.18616646010105825,
+  "active_command_accuracy": 0.1556106397177996
+}
