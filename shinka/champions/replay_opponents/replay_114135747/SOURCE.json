@@ -1,0 +1,19 @@
+{
+ "name": "replay_114135747",
+ "episode": 114135747,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "yuikag",
+ "opponent_submission": 56602257,
+ "seed": 2144772010,
+ "recorded_rewards": [
+  133817.0,
+  133622.0
+ ],
+ "recorded_margin_for_us": 195,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "467699a78aec19f2f935f2321ece9ccd9692ff71e2ae651cd0ef49112999b83d"
+ }
+}

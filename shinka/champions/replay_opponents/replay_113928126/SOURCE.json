@@ -1,0 +1,19 @@
+{
+ "name": "replay_113928126",
+ "episode": 113928126,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Запрети мне брать H100",
+ "opponent_submission": 56588073,
+ "seed": 823637499,
+ "recorded_rewards": [
+  106242.0,
+  106229.0
+ ],
+ "recorded_margin_for_us": 13,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "003ad495476437efe98afa19f9b9c5d770fac2893579c81e2bdca8b8f44d6a11"
+ }
+}

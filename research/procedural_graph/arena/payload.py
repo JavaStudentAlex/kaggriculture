@@ -108,6 +108,10 @@ def write_graph_bundle(dst, graph, name, checkpoint='committed', calibration=Non
             'source': str(calibration), 'sha256': sha(runtime / 'checkpoint' / 'calibration.json')}
     pins = graph['provenance']['runtime_bundle_hashes']
     for relative in list(pins):
+        parts = Path(relative).parts
+        if len(parts) > 1 and parts[0] == 'engines' and parts[1] != engine:
+            del pins[relative]  # another ladder engine's files (e.g. the base graph's): not in this bundle
+            continue
         pins[relative] = sha(runtime / relative)
     graph['provenance']['entrypoint_sha256'] = sha(dst / 'main.py')
     graph['name'] = name

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114122738",
+ "episode": 114122738,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Edwards Neuron",
+ "opponent_submission": 56601913,
+ "seed": 1244746674,
+ "recorded_rewards": [
+  90242.0,
+  89918.0
+ ],
+ "recorded_margin_for_us": 324,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b84beb0039db5dcd0e8daf2e992828f403955c5f91cf781aaf005c5ea6847e70"
+ }
+}

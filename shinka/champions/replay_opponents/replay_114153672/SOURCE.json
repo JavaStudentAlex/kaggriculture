@@ -1,0 +1,19 @@
+{
+ "name": "replay_114153672",
+ "episode": 114153672,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Zhongyi Dai",
+ "opponent_submission": 56599599,
+ "seed": 1565301235,
+ "recorded_rewards": [
+  66622.0,
+  67989.0
+ ],
+ "recorded_margin_for_us": -1367,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "317c557f7a42ff72bdf520b5ddf25e4032f29db4f596f225d8b2fb6f7a4863c8"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114184350",
+ "episode": 114184350,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Soshi Uejima",
+ "opponent_submission": 56523336,
+ "seed": 1225032106,
+ "recorded_rewards": [
+  83349.0,
+  83740.0
+ ],
+ "recorded_margin_for_us": 391,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "20d27449e0dcb676d3ff4d31ee59a7f69ba3ba2bfec45584a033fbe706ee045e"
+ }
+}

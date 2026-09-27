@@ -1,0 +1,19 @@
+{
+ "name": "replay_114016460",
+ "episode": 114016460,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Nimish Shinde",
+ "opponent_submission": 56584514,
+ "seed": 1381462816,
+ "recorded_rewards": [
+  73178.0,
+  73104.0
+ ],
+ "recorded_margin_for_us": -74,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "71fe988b50055dd982bed5b8785ef5b7ba353f6d79a9802139a4174718a6c09a"
+ }
+}

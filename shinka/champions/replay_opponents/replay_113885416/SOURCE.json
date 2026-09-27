@@ -1,0 +1,19 @@
+{
+ "name": "replay_113885416",
+ "episode": 113885416,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Pralay Ghosh",
+ "opponent_submission": 56576867,
+ "seed": 1141034375,
+ "recorded_rewards": [
+  114531.0,
+  114671.0
+ ],
+ "recorded_margin_for_us": -140,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "76ab941ac6040ce5f7a2eef52a756730c96a60690c3899086de7a6a18aa357d2"
+ }
+}

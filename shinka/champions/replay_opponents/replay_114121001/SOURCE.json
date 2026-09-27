@@ -1,0 +1,19 @@
+{
+ "name": "replay_114121001",
+ "episode": 114121001,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "liama liama",
+ "opponent_submission": 56578466,
+ "seed": 1095122291,
+ "recorded_rewards": [
+  72113.0,
+  72846.0
+ ],
+ "recorded_margin_for_us": 733,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f59efac4921580291cae813220db2e62d867b2a386c3217f763ad9244511a2b7"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114157680",
+ "episode": 114157680,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Minh Đăng Lê",
+ "opponent_submission": 56604584,
+ "seed": 1215426596,
+ "recorded_rewards": [
+  88761.0,
+  88746.0
+ ],
+ "recorded_margin_for_us": -15,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "971c96ec5a94d3491f6dc03819fe2aac4c7a01ddf7a9dd076b83ed0f43f7b27f"
+ }
+}

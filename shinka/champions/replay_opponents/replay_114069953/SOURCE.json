@@ -1,0 +1,19 @@
+{
+ "name": "replay_114069953",
+ "episode": 114069953,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "CrazyML",
+ "opponent_submission": 56600222,
+ "seed": 6115189,
+ "recorded_rewards": [
+  81588.0,
+  80841.0
+ ],
+ "recorded_margin_for_us": -747,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "d0c6eb85adba4fb675210fda1e37c2c9ce7fa2e295aeabba995dc1ab8374579c"
+ }
+}

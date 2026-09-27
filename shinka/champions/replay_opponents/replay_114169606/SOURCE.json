@@ -1,0 +1,19 @@
+{
+ "name": "replay_114169606",
+ "episode": 114169606,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Memory Engineer",
+ "opponent_submission": 56569005,
+ "seed": 1243138273,
+ "recorded_rewards": [
+  75270.0,
+  75162.0
+ ],
+ "recorded_margin_for_us": 108,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0b42f28ed6afa881384d9f99226cc3fc26347852501c936c3a429b65e6426217"
+ }
+}

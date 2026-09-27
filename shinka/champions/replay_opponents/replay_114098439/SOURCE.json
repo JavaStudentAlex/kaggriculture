@@ -1,0 +1,19 @@
+{
+ "name": "replay_114098439",
+ "episode": 114098439,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Prajwal M",
+ "opponent_submission": 56578227,
+ "seed": 798798306,
+ "recorded_rewards": [
+  95370.0,
+  95373.0
+ ],
+ "recorded_margin_for_us": -3,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "243dc3ea4d8f6ce0d24d775e7f462ade72723d3aed503d2b9d5746cd72588ee6"
+ }
+}

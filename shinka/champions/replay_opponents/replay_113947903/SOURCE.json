@@ -1,0 +1,19 @@
+{
+ "name": "replay_113947903",
+ "episode": 113947903,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Pramit Das",
+ "opponent_submission": 56586029,
+ "seed": 947631667,
+ "recorded_rewards": [
+  57794.0,
+  58025.0
+ ],
+ "recorded_margin_for_us": -231,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "fd6ba2a42554a07220dce1d89105facb859569dca87c0b9d27660d58c5ae3b17"
+ }
+}

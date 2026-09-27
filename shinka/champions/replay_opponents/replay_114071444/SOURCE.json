@@ -1,0 +1,19 @@
+{
+ "name": "replay_114071444",
+ "episode": 114071444,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "GeHaohua",
+ "opponent_submission": 56600487,
+ "seed": 1484295839,
+ "recorded_rewards": [
+  110387.0,
+  112095.0
+ ],
+ "recorded_margin_for_us": -1708,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "42f3fd026bd6371079a1dd618453e508183974597b747ccccfb45fcbd4593f55"
+ }
+}

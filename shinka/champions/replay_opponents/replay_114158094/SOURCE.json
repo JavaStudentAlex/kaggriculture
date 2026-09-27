@@ -1,0 +1,19 @@
+{
+ "name": "replay_114158094",
+ "episode": 114158094,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "suk1yak1",
+ "opponent_submission": 56603060,
+ "seed": 2137537545,
+ "recorded_rewards": [
+  89781.0,
+  88821.0
+ ],
+ "recorded_margin_for_us": -960,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e9d034e8befb349104c73dea4ef1bc028da6ca4915f76199083475b658cd0a6b"
+ }
+}

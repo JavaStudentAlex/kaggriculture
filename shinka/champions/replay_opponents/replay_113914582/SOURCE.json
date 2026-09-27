@@ -1,0 +1,19 @@
+{
+ "name": "replay_113914582",
+ "episode": 113914582,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Will Rice",
+ "opponent_submission": 56589112,
+ "seed": 1674089336,
+ "recorded_rewards": [
+  124010.0,
+  123765.0
+ ],
+ "recorded_margin_for_us": 245,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "dc407faecbbf02e444aa00bc0b2314717e936ef28825f1cc22a7bee48052a4e6"
+ }
+}

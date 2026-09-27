@@ -1,0 +1,19 @@
+{
+ "name": "replay_114214959",
+ "episode": 114214959,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Field General",
+ "opponent_submission": 56606224,
+ "seed": 2121242092,
+ "recorded_rewards": [
+  80488.0,
+  80625.0
+ ],
+ "recorded_margin_for_us": 137,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3e127393d1f1eac3dd7aa22abb80003f516cc9f8c4f3b302ab000e569798dd9b"
+ }
+}

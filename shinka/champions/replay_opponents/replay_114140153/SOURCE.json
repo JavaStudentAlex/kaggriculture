@@ -1,0 +1,19 @@
+{
+ "name": "replay_114140153",
+ "episode": 114140153,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Illia Dolenko",
+ "opponent_submission": 56445672,
+ "seed": 2073360944,
+ "recorded_rewards": [
+  116516.0,
+  116758.0
+ ],
+ "recorded_margin_for_us": -242,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6cab1f48ffaa4b25c962caa757e1af91ad1e4c2650437753f766a7feeee79c09"
+ }
+}

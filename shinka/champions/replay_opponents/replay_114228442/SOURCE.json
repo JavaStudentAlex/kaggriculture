@@ -1,0 +1,19 @@
+{
+ "name": "replay_114228442",
+ "episode": 114228442,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "KevlarZanderChi",
+ "opponent_submission": 56609941,
+ "seed": 1671753385,
+ "recorded_rewards": [
+  76803.0,
+  77637.0
+ ],
+ "recorded_margin_for_us": -834,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1379f26d6060e7895f8678a876fc9c24f627cbfdfda67eb423242e3eca5ad1ba"
+ }
+}

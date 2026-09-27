@@ -1,0 +1,19 @@
+{
+ "name": "replay_114198804",
+ "episode": 114198804,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Squirrel",
+ "opponent_submission": 56605818,
+ "seed": 652622232,
+ "recorded_rewards": [
+  92088.0,
+  92146.0
+ ],
+ "recorded_margin_for_us": -58,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5a79c378b3120f56b5a8cc0d0b75e594d0c0a979f88b8ba510cfcd8ca1356098"
+ }
+}

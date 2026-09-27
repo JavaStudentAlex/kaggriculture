@@ -316,6 +316,61 @@ class GauntletTests(unittest.TestCase):
             self.assertEqual(g3.prepare(), g.fingerprint)
             self.assertEqual(set(g3._cached(g3.bundle(seed))), {'mohui|11|0', 'mohui|11|1'})
 
+    def test_a_staged_gauntlet_stops_inert_and_losing_candidates(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            played = []
+            gain = {}  # bundle -> margin change on every game it plays
+
+            class FakeExecutor:
+                def describe(self):
+                    return {'engine': 'fake'}
+
+                def run(self, run_dir, name, bundles):
+                    jobs = json.loads((run_dir / 'jobs' / f'{name}.json').read_text())['jobs']
+                    out = run_dir / 'games' / f'{name}.jsonl'
+                    done = {graph_gauntlet.job_key(json.loads(line)) for line in out.read_text().splitlines()} \
+                        if out.exists() else set()
+                    todo = [j for j in jobs if graph_gauntlet.job_key(j) not in done]
+                    played.append(len(todo))
+                    with out.open('a') as fh:
+                        for j in todo:
+                            a = j['a'].split('/')[-1]
+                            margin = (0.0 if j['tag'] == 'incumbent' else 100.0) + gain.get(a, 0.0)
+                            rewards = [1000.0 + margin, 1000.0]
+                            fh.write(json.dumps(dict(j, rewards=rewards if j['a_seat'] == 0 else rewards[::-1],
+                                                     statuses=['DONE', 'DONE'], errors=[])) + '\n')
+
+            plan = [{'tag': 'mohui', 'seed': s, 'a_seat': seat} for s in range(30) for seat in (0, 1)]
+            g = graph_gauntlet.Gauntlet(run, FakeExecutor(), seeds_per_opponent=10, plan=plan, stage_fraction=0.4)
+            g.prepare()
+            seed = seed_graph()
+            base = g.baseline(seed)
+            self.assertEqual(played, [60])  # a baseline (pool jobs only) is always played whole
+            first = sum(graph_gauntlet.first_stage(graph_gauntlet.job_key(j), 0.4)
+                        for j in g.jobs('x', 'y'))
+            self.assertTrue(10 < first < 50)
+            inert = graph_edits.apply_edit(seed, {'dispatch_order': 'sells_first'})
+            result = g.evaluate(inert, seed, baseline=base)
+            self.assertEqual(result['stopped']['reason'], 'inert')
+            self.assertEqual(played[-1], first)
+            self.assertFalse(graph_gauntlet.compare(result, base)['promote'])
+            self.assertFalse(graph_gauntlet.compare(result, base)['valid'])
+            worse = graph_edits.apply_edit(seed, {'parameters': {'_TOWN_CADENCE_PHASE': 3}})
+            gain[g.bundle(worse)] = -20.0
+            self.assertEqual(g.evaluate(worse, seed, baseline=base)['stopped']['reason'], 'not better')
+            better = graph_edits.apply_edit(seed, {'parameters': {'_SHOP_SELL_BATCH_MAX': 5}})
+            gain[g.bundle(better)] = 20.0
+            result = g.evaluate(better, seed, baseline=base)
+            self.assertNotIn('stopped', result)
+            self.assertEqual(played[-2:], [first, 70 - first])  # the rest, in a second batch
+            self.assertTrue(graph_gauntlet.compare(result, base)['promote'])
+            # without a baseline (or with stage_fraction 0) everything is played at once
+            g.stage_fraction = 0.0
+            other = graph_edits.apply_edit(seed, {'parameters': {'_SHOP_SELL_BATCH_MAX': 6}})
+            self.assertNotIn('stopped', g.evaluate(other, seed, baseline=base))
+            self.assertEqual(played[-1], 70)
+
     def test_fallbacks_are_attributed_to_the_candidate_graph(self):
         with tempfile.TemporaryDirectory() as tmp:
             g = graph_gauntlet.Gauntlet(Path(tmp), None, seeds_per_opponent=2, opponents=('mohui',))
@@ -373,7 +428,7 @@ class EvolutionLoopTests(unittest.TestCase):
                 gain = 5.0 if graph_edits.settings(graph)['dispatch_order'] == 'sells_first' else 0.0
                 return {'margins': {f'hazel|{i}|{i % 2}': gain for i in range(20)}}
 
-            def evaluate(self, graph, incumbent):
+            def evaluate(self, graph, incumbent, baseline=None):
                 self.evaluated.append(graph)
                 margins = {f'hazel|{i}|{i % 2}': 5.0 for i in range(20)}
                 margins.update({f'incumbent|{i}|{i % 2}': 1.0 for i in range(20)})
@@ -432,6 +487,61 @@ class EvolutionLoopTests(unittest.TestCase):
             self.assertIn(str(run / 'seed_graph.json'), [str(p) for p in validated])
         self.assertEqual((ROOT / 'policy_graph.json').read_bytes(), committed)
 
+    def test_prefetch_proposes_the_next_island_while_a_gauntlet_plays(self):
+        import threading
+        seed = seed_graph()
+        proposed = threading.Event()
+        background = []  # the edits proposed outside the main thread
+
+        class FakeGauntlet:
+            alpha = 0.05
+
+            def has_baseline(self, graph):
+                return True
+
+            def baseline(self, graph):
+                return {'margins': {f'hazel|{i}|{i % 2}': 0.0 for i in range(20)}}
+
+            def evaluate(self, graph, incumbent, baseline=None):
+                self.proposed_meanwhile = proposed.wait(10)  # the next island's proposals arrive while this plays
+                margins = {f'hazel|{i}|{i % 2}': -5.0 for i in range(20)}
+                margins.update({f'incumbent|{i}|{i % 2}': -1.0 for i in range(20)})
+                return {'bundle': 'g_x', 'jobs': sorted(margins), 'margins': margins, 'errors': [], 'fallbacks': 0}
+
+        class Mutator:
+            edits = iter([{'parameters': {'_TOWN_CADENCE_PHASE': 3}}, {'parameters': {'_TOWN_CADENCE_PHASE': 3}},
+                          {'parameters': {'_SHOP_SELL_BATCH_MAX': 5}}])
+
+            def mutate_edit(self, *args, **kwargs):
+                edit = next(self.edits)
+                if threading.current_thread() is not threading.main_thread():
+                    background.append(edit)
+                    if len(background) == 2:
+                        proposed.set()
+                return edit, 'a model proposes'
+
+        class FakeJudge:
+            def rank_edits(self, proposals, knowledge, context):
+                return [(p, 1.0) for p in proposals], 0
+
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            gauntlet = FakeGauntlet()
+            loop = evo.EditEvolution(run, gauntlet, Mutator(), FakeJudge(), UCB1Bandit(run / 'bandit.json'),
+                                     lambda path: None, lambda *a, **k: [], 'facts', seed_graph=seed,
+                                     candidates=1, retries=2, supervisor_interval=100, prefetch=True)
+            first = loop.iteration(1, last=2)
+            self.assertTrue(gauntlet.proposed_meanwhile)
+            self.assertEqual(first['changes'], ['_TOWN_CADENCE_PHASE (town_and_fertilizer): 0 -> 3'])
+            # both islands start from the seed: the edit being played counts as seen, so the second island's
+            # model was asked again, and that proposal is what iteration 2 plays, without asking again
+            second = loop.iteration(2, last=2)
+            self.assertEqual(second['island'], loop.state['islands'][1]['name'])
+            self.assertTrue(second['changes'][0].startswith('_SHOP_SELL_BATCH_MAX'))
+            self.assertEqual(len(background), 2)
+            log = [json.loads(line) for line in (run / 'candidates.jsonl').read_text().splitlines()]
+            self.assertTrue(any(r.get('iteration') == 2 and 'already evaluated' in r.get('error', '') for r in log))
+
     def test_a_queued_edit_is_played_instead_of_the_proposals(self):
         seed = seed_graph()
 
@@ -441,7 +551,7 @@ class EvolutionLoopTests(unittest.TestCase):
             def baseline(self, graph):
                 return {'margins': {f'hazel|{i}|{i % 2}': 0.0 for i in range(20)}}
 
-            def evaluate(self, graph, incumbent):
+            def evaluate(self, graph, incumbent, baseline=None):
                 margins = {f'hazel|{i}|{i % 2}': 5.0 for i in range(20)}
                 margins.update({f'incumbent|{i}|{i % 2}': 1.0 for i in range(20)})
                 return {'bundle': 'g_x', 'jobs': sorted(margins), 'margins': margins, 'errors': [], 'fallbacks': 0}
@@ -497,7 +607,7 @@ class EvolutionLoopTests(unittest.TestCase):
             def baseline(self, graph):
                 return {'margins': {f'hazel|{i}|{i % 2}': self.gain(graph) for i in range(20)}}
 
-            def evaluate(self, graph, incumbent):
+            def evaluate(self, graph, incumbent, baseline=None):
                 self.evaluated.append(graph)
                 if self.stop_after_first:
                     evo._RUNNING = False   # a Ctrl-C during the first island's gauntlet

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114054708",
+ "episode": 114054708,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "ReCurSiON",
+ "opponent_submission": 56586062,
+ "seed": 493457576,
+ "recorded_rewards": [
+  102426.0,
+  102412.0
+ ],
+ "recorded_margin_for_us": 14,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "a863e8fef38a7d7002700fbd6be830bc063c2c8f2fc013fa368b0b6940988e3e"
+ }
+}

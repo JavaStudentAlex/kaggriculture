@@ -1,0 +1,19 @@
+{
+ "name": "replay_113983390",
+ "episode": 113983390,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "BAHUMANYA R G",
+ "opponent_submission": 56549882,
+ "seed": 1306843948,
+ "recorded_rewards": [
+  80116.0,
+  80271.0
+ ],
+ "recorded_margin_for_us": 155,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "195e961dd5689f9298956355a4a171e6f3759a29a4daa001837457f2dc098b34"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114100383",
+ "episode": 114100383,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "clammpon",
+ "opponent_submission": 56492773,
+ "seed": 1863163751,
+ "recorded_rewards": [
+  110136.0,
+  102955.0
+ ],
+ "recorded_margin_for_us": 7181,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f0051c584d082a70683cb5fe7ffcc84479cf149bcc574e9c0f6c2198f0f24df4"
+ }
+}

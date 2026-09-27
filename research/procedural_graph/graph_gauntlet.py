@@ -9,6 +9,10 @@ head-to-head baseline is its own mirror, margin 0 (measured exact). An exact sig
 test over the jobs whose result changed, plus a positive mean change, decides
 promotion. Games run in process-isolated agents (arena/arena.py), locally or on a
 remote box over ssh; everything is written under the run directory.
+
+A staged evaluation (`stage_fraction`) plays a fixed share of the jobs first and the rest only
+if those games leave the candidate a chance, so edits that change nothing, or that lose, cost
+that share instead of the whole gauntlet.
 """
 from __future__ import annotations
 
@@ -37,6 +41,7 @@ EVOLUTION_SALT = 20260925
 VALIDATION_SALT = 20260924  # arena validation rounds (arena/payload.py): never used for selection
 HEAD_TO_HEAD = 'incumbent'
 ENGINE_VERSION = '1.32.7'
+STAGE_SALT = 'first stage'
 
 
 def seed_list(n, salt=EVOLUTION_SALT, held_out_salt=VALIDATION_SALT, held_out=200):
@@ -60,6 +65,12 @@ def _tree_digest(paths):
 
 def job_key(job):
     return f"{job['tag']}|{job['seed']}|{job['a_seat']}"
+
+
+def first_stage(key, fraction):
+    """Whether a job is in the share of the jobs a staged evaluation plays first. It depends on the
+    job key only, so every candidate's first stage is the same games, spread over opponents and seats."""
+    return int(hashlib.sha256(f'{STAGE_SALT}|{key}'.encode()).hexdigest()[:12], 16) < fraction * 16 ** 12
 
 
 def margins(rows, candidate):
@@ -255,15 +266,23 @@ class Gauntlet:
 
     A graph's pool margins are cached per job (scores/<bundle>.json). A margin stays valid while
     the fingerprint (runtime, harness, head-to-head seeds, engine version) and the digest of its
-    opponent's bundle are unchanged, so a plan that grows plays only its new jobs."""
+    opponent's bundle are unchanged, so a plan that grows plays only its new jobs.
 
-    def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05, plan=None):
+    With `stage_fraction` > 0 a candidate evaluated against an incumbent's baseline plays that share
+    of its jobs first (`first_stage`), and the rest only if they leave it a chance
+    (`stop_after_first_stage`)."""
+
+    INERT_CHANGES = 4  # a first stage with this many changed games or fewer stops
+
+    def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05, plan=None,
+                 stage_fraction=0.0):
         self.run_dir = Path(run_dir).resolve()  # arena.py runs with cwd=run_dir
         self.executor = executor
         self.plan = [dict(e) for e in plan] if plan else None
         self.opponents = (tuple(sorted({e['tag'] for e in self.plan})) if self.plan else tuple(opponents))
         self.seeds = seed_list(seeds_per_opponent)
         self.alpha = alpha
+        self.stage_fraction = stage_fraction
         self.fingerprint = None
         self.opponent_digests = {}
 
@@ -337,10 +356,14 @@ class Gauntlet:
         return sum(1 for line in log.read_text(errors='replace').splitlines()
                    if 'graph fallback' in line and f'[{bundle}]' in line)
 
-    def evaluate(self, graph, incumbent_graph=None):
+    def evaluate(self, graph, incumbent_graph=None, baseline=None):
         """Play the pool jobs (+ head-to-head vs the incumbent) for a graph. Pool jobs the graph
         already played (cached, see the class docstring) are not played again: an island champion
-        offered to another island when islands mix plays only the head-to-head block."""
+        offered to another island when islands mix plays only the head-to-head block.
+
+        With a stage_fraction and the incumbent's `baseline`, the first stage's jobs are played
+        first and the rest only if stop_after_first_stage() finds no reason to stop. A stopped result
+        carries `stopped` and lacks the other jobs, so compare() finds it incomplete: never promoted."""
         if self.fingerprint is None:
             raise RuntimeError('prepare() first')
         candidate = self.bundle(graph)
@@ -352,19 +375,52 @@ class Gauntlet:
         cached = self._cached(candidate)
         todo = [j for j in jobs if job_key(j) not in cached]
         bundles = sorted({candidate, *self.opponents, *([incumbent] if incumbent else [])})
-        rows = self._play(name, todo, bundles) if todo else []
-        wanted = {job_key(j) for j in todo}
-        found, errors = margins([r for r in rows if job_key(r) in wanted], candidate)
-        missing = sorted(wanted - set(found) - {e['job'] for e in errors})
-        found.update({job_key(j): cached[job_key(j)] for j in jobs if job_key(j) in cached})
+        stages = [todo]
+        if self.stage_fraction and baseline is not None:
+            first = [j for j in todo if first_stage(job_key(j), self.stage_fraction)]
+            if 0 < len(first) < len(todo):
+                stages = [first, todo]
+        stopped = None
+        for number, stage in enumerate(stages, 1):
+            rows = self._play(name, stage, bundles) if stage else []
+            wanted = {job_key(j) for j in stage}
+            found, errors = margins([r for r in rows if job_key(r) in wanted], candidate)
+            missing = sorted(wanted - set(found) - {e['job'] for e in errors})
+            errors += [{'job': m, 'errors': 'missing'} for m in missing]
+            found.update({job_key(j): cached[job_key(j)] for j in jobs if job_key(j) in cached})
+            if errors:
+                break
+            if number < len(stages):
+                stopped = self.stop_after_first_stage(found, baseline)
+                if stopped:
+                    stopped.update(played=len(stage), of=len(todo))
+                    break
         result = {'bundle': candidate, 'incumbent': incumbent, 'fingerprint': self.fingerprint,
-                  'jobs': sorted(job_key(j) for j in jobs), 'margins': found,
-                  'errors': errors + [{'job': m, 'errors': 'missing'} for m in missing],
+                  'jobs': sorted(job_key(j) for j in jobs), 'margins': found, 'errors': errors,
                   'fallbacks': self.fallbacks(name, candidate) if todo else 0}
+        if stopped:
+            result['stopped'] = stopped
         pool = {k: v for k, v in found.items() if not k.startswith(HEAD_TO_HEAD + '|')}
         if not result['errors'] and not result['fallbacks']:
             self._store(candidate, pool)
         return result
+
+    def stop_after_first_stage(self, found, baseline):
+        """Why a staged evaluation ends after its first stage, or None. A promotion needs more games
+        better than worse, a positive mean change and a significant sign test over all the jobs, so
+        the rest is not played when the first stage changed at most INERT_CHANGES games ("inert"), or
+        when its changed games went worse at least as often as better ("not better"). On run ladder1's
+        71 played candidates (stage_replay.py) a 30% first stage stopped 35, none of the 20 promoted,
+        and saved 32% of the games."""
+        stats = compare({'margins': found}, baseline, self.alpha)
+        if stats['wins'] + stats['losses'] <= self.INERT_CHANGES:
+            reason = 'inert'
+        elif stats['wins'] <= stats['losses']:
+            reason = 'not better'
+        else:
+            return None
+        return {'reason': reason, 'wins': stats['wins'], 'losses': stats['losses'],
+                'mean_change': stats['mean_change']}
 
     def _store(self, bundle, pool_margins):
         tags = sorted({key.split('|')[0] for key in pool_margins})
@@ -383,6 +439,11 @@ class Gauntlet:
                 return {key: margin for key, margin in cached['margins'].items()
                         if digests.get(key.split('|')[0]) == self.opponent_digests.get(key.split('|')[0])}
         return {}
+
+    def has_baseline(self, graph):
+        """Whether baseline() would play nothing: every pool job of the graph is cached."""
+        bundle = self.bundle(graph)
+        return {job_key(j) for j in self.jobs(bundle)} <= set(self._cached(bundle))
 
     def baseline(self, graph):
         """Pool-job margins of a graph; only the jobs it has not played yet are played."""

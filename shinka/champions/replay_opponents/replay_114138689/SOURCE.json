@@ -1,0 +1,19 @@
+{
+ "name": "replay_114138689",
+ "episode": 114138689,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Takuto Inoue",
+ "opponent_submission": 56595649,
+ "seed": 717112481,
+ "recorded_rewards": [
+  125941.0,
+  125331.0
+ ],
+ "recorded_margin_for_us": 610,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "16873d5b296eb23e5bdd5459200fe143b720c9cc4578c3fb5ad842352c6a9ef8"
+ }
+}

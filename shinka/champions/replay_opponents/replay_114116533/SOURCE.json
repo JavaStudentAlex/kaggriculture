@@ -1,0 +1,19 @@
+{
+ "name": "replay_114116533",
+ "episode": 114116533,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "masayoshi",
+ "opponent_submission": 56587644,
+ "seed": 1583448569,
+ "recorded_rewards": [
+  68929.0,
+  85915.0
+ ],
+ "recorded_margin_for_us": -16986,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "fb5dcae5b7b653e3ce1139af88f2926233023f882bc9043de5bbc6f85369909b"
+ }
+}

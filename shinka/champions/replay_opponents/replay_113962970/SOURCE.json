@@ -1,0 +1,19 @@
+{
+ "name": "replay_113962970",
+ "episode": 113962970,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "k hori ",
+ "opponent_submission": 56593792,
+ "seed": 1881782405,
+ "recorded_rewards": [
+  96020.0,
+  95899.0
+ ],
+ "recorded_margin_for_us": 121,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b6341637c07b8580131223039696affd7dcdc0a0599be5941824183eb320ab3c"
+ }
+}

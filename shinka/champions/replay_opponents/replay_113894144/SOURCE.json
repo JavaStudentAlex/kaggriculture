@@ -1,0 +1,19 @@
+{
+ "name": "replay_113894144",
+ "episode": 113894144,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Capitaalgain",
+ "opponent_submission": 56581434,
+ "seed": 102371381,
+ "recorded_rewards": [
+  83939.0,
+  90585.0
+ ],
+ "recorded_margin_for_us": 6646,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "045b9a4fe5015b83e822ce3cc83f50706167d577b8901327d5b3788810237a40"
+ }
+}

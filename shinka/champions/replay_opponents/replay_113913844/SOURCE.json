@@ -1,0 +1,19 @@
+{
+ "name": "replay_113913844",
+ "episode": 113913844,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "pavan rajr",
+ "opponent_submission": 56583003,
+ "seed": 377644321,
+ "recorded_rewards": [
+  93982.0,
+  93398.0
+ ],
+ "recorded_margin_for_us": -584,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0995ef16632bfcc1df802e3c9898d4ae5c1619692f1745bc3b9f68e2707ed2ab"
+ }
+}

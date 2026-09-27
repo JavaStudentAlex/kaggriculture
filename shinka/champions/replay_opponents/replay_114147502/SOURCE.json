@@ -1,0 +1,19 @@
+{
+ "name": "replay_114147502",
+ "episode": 114147502,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Charles Coonce",
+ "opponent_submission": 56589457,
+ "seed": 1649758072,
+ "recorded_rewards": [
+  114304.0,
+  114869.0
+ ],
+ "recorded_margin_for_us": 565,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "98f23ab0943ce2b3739d8bfe9120b1a7bc422d59c9d8df43b1a95c52706bbdba"
+ }
+}

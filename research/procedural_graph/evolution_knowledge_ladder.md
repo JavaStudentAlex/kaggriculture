@@ -176,13 +176,100 @@ After 100 games (22:29 UTC, 58W-31L-11T, rating 2,086; `shinka/champions/evidenc
   more cows, early hiring. No sale-timing setting changes them; leaning the herd to cows cost more
   elsewhere (-$337 a game on the replays).
 
+## The rival counter: counter-settings per rival class (since 2026-09-27)
+
+The optional `rival_counter` turn stage (channel `rival_counter`; an edit that switches it on inserts it)
+compares the rival's public farm with ours every turn. On the same seed a copy of our engine has our money
+and our farm step for step, so by step 93 the rival falls into one class, fixed for the game:
+- `mirror`: equal to us past step 92. In Alder Ford's 132 classified ladder games: 53 of the 54 copies of the
+  public engine (its near-copies depart only at steps 160-661, or never) and 5 others.
+- `nsell_opener`: its money first falls behind ours at step 92 by the price of 3 wheat (-$87 to -$90): a
+  "buy N / sell N-5" opener that sold its 3 spare wheat at step 0 while our engine sells them at 92. All 23
+  Forecast-family games, 13 of 20 2965-family games, 15 others; the public engine's 09-27 version opens so.
+- `wheat92_seller`: the reverse (it sells at 92 what we sold at step 0); `other_opening`: differs before
+  step 92 (13-wheat, "buy 8 / sell 8", some 2965 variants); `other`.
+From its class on, a class's `counters` apply: values for switchable engine constants (118 of the old
+engine's 120 parameters are read at call time) and `_OG_*` guard parameters. Until then, and for classes
+without counters, the graph's own settings play. Edit: {"channels": {"rival_counter": true},
+"counters": {"mirror": {"_EV_H": 12, "_DP_H": 12, "_MP_H": 12}}}.
+
+What the classes are worth (Alder Ford's graph against the recorded moves of its rivals; + lead 12 =
+_ADV_LOOK 4 and _EV_H/_DP_H/_MP_H 8 -> 12):
+- mirror: + lead 12 gained +$717 a game (20 better, 1 worse; 5-6-10 -> 17-4-0) on 82 games and +$592
+  (21/1; 8-10-4 -> 19-3-0) on 49 newer ones; _ADV_LOOK 4 alone +$81 and +$200. Against the public engine in
+  the arena + lead 12 wins 20-0 where Alder Ford draws 8 of 20. Most of the win/loss gain is here.
+- nsell_opener: + lead 12 +$244 (26/8) and +$195 (5/2) against recorded rivals but no more wins (22-12 ->
+  23-11; 2-5 -> 1-6), and against reacting Forecast agents in the arena it lost $78-98 a game.
+- other_opening: + lead 12 +$181 (5/3) and +$125 (5/2), no result changed on balance.
+So a counter per class can take the mirror gains without the costs against the others.
+
+Iteration 51 played lead 12 for every rival on Island-Market (engine_parameters _EV_H/_DP_H/_MP_H 12): rejected,
+164 games better and 130 worse, +$126 a game, p = 0.054. Better where the rival plays our engine
+(tetsutani_demand 47 better / 1 worse, +$494; the incumbent 18/2, +$404; 18 of the 24 replays of recorded
+rivals; haideptry_2965 40/14, +$138), worse against agents that react (abo_v57_open13 5/37, -$138;
+leoprovorov_forecast 5/14, -$146; haideptry_shepherd 3/8, -$104; pilkwang_sep 0/4, -$196; abo_v55 3/12, -$74).
+The mirror counter keeps the first group and leaves the second.
+
+The mirror counter was then promoted: iteration 53 on Island-Opening ({"mirror": {"_ADV_LOOK": 4, "_EV_H": 12,
+"_DP_H": 12, "_MP_H": 12}}: 134 games better, 6 worse, 259 unchanged, +$153 a game, p = 1e-15) and iteration 54 on
+Island-Endgame (the same without _ADV_LOOK: 136 better, 4 worse). Only games against rivals classed as mirrors
+changed: tetsutani_demand 93 better / 1 worse (+$448 a game), the incumbent 18/2 (+$404), replays 47/3 (56
+unchanged); every other pool agent, the 09-27 engine included (an nsell_opener), played exactly as before. The
+mixing carries this counter to the other islands, so do not propose it again. Open questions: the best lead
+against mirrors (16 and 20 were played in iterations 57-58, below) and counters for the other classes.
+In iteration 51 lead 12 for everyone gained against haideptry_2965 (+$138) and haideptry_2965_0926 (+$96) but
+lost against leoprovorov_forecast (-$146); all three are "buy N / sell N-5" openers, so the class alone does not
+separate them.
+
+Birch Hollow (Alder Ford + _ADV_LOOK 4, on the ladder since 09-27 08:50) lost 28 of its 84 games by 17:00 UTC
+(rating 2,044). By class: 10 against mirrors (all play the old public engine, 169-719 moves: the mirror counter's
+target), 11 against nsell_openers (4 play the public engine's 09-27 version, 3 of them all 719 moves, -$834 to
+-$1,367; 3 Forecast-like, 2 like statma, 1 like 2965, 1 unknown) and 7 against other openings that no public agent
+plays (three of them -$7.8k to -$17k). Since the restart after iteration 55 these 28 are in the plan (both seats
+against the stand-in, and their replays). The 09-27 engine is the growing threat: no graph of ours beats it yet,
+and a counter against it needs something that separates it from the Forecast family within nsell_opener.
+
+The public engine's 09-27 version (`tetsutani_demand_0927`, a pool opponent since the restart) beats every
+graph we had 18-2 in the arena (Alder Ford, _ADV_LOOK 4, + lead 12, the Island-Market champion: $660-710 a
+game). It drops the old engine's ready-stock and hour-window lead sells (_ADV_*, _EV_*, _DP_*, _MP_*) and
+adds a library-based predictor of the rival's sales (_V92_P_*, _V92_Q_*), more race layers (_RACE_*), a
+hybrid opening (_ALT_MODE) and rival-keyed routes. Islands named Island-Next-* evolve on it.
+
+Iterations 55-58 (09-27 evening):
+- The lead against mirrors: 12 is the best of 12, 16 and 20. Island-Herd took lead 16 (iteration 57) and
+  Island-Crops lead 20 (58), both promoted over champions without a counter. Paired with Island-Opening (lead 12)
+  on the same games, lead 16 is 35 games better and 91 worse against tetsutani_demand (-$44 a game), lead 20
+  21/105 (-$236); wins against it 122-6 with 12 or 16, 118-10 with 20. Against the recorded moves of Birch
+  Hollow's 10 lost mirror games longer leads win more (6, 7 and 9 of 10), but a recorded rival does not answer
+  our earlier sales and the public engine does. Leads 10 and 14 are untested.
+- The oracle guard on the 09-27 engine (Island-Next-Market, 55): rejected, 50 better / 51 worse, $0.
+- _SR_MARGIN 8 -> 12 on the 09-27 engine (Island-Next-Production, 56): promoted, 165 better / 37 worse, +$9.
+- The two engines side by side on the plan's 382 games against stand-ins (both seats; the replays are left out
+  because a recorded rival fits the engine it played against): Island-Next-Production wins 320, Island-Opening
+  323. The 09-27 line wins more against haideptry_2965 (53-3 vs 44-12), leoprovorov_forecast (24-4 vs 18-10),
+  haideptry_shepherd (12-0 vs 10-2) and the 09-27 engine (8-2 and 14 ties vs 1-23: the old line loses $989 a
+  game to it). The old line wins more against the old public engine (122-6 vs 98-30; +$704 vs +$357 a game), by
+  its mirror counter.
+- On a 09-27 graph the classes are relative to the 09-27 engine: its copies are `mirror`, and the old public
+  engine should be `wheat92_seller` (at step 92 it sells the 3 wheat the 09-27 engine sold at step 0). The 09-27
+  engine has none of the old engine's lead-sell constants (_EV_*, _DP_*, _MP_*, _ADV_*), so the old line's mirror
+  counter does not carry over. A counter against wheat92_seller on Island-Next-* has to use the 09-27 engine's own
+  sale timing: _RACE_* (the race layers, e.g. _RACE_HORIZON_MIRROR and _RACE_HORIZON_ESCALATED, 24), _SR_*, _OR2_*,
+  _S738_* (look 4, steps 144-718), _S758_ITEMS, _V92_P_*/_V92_Q_* (horizon 48); all are switchable, so all can be
+  counters. The 30 games the 09-27 line loses to the old public engine are the largest open gain there.
+
 ## What a candidate must do to be promoted
 
 It plays the same games as its island champion: every lost ladder seed (Rowan Glen's and Linden
 Brook's losses, and since 09-26 19:30 UTC Alder Ford's 22 losses and 2 ties) against the bundle
 that plays like the rival who beat us there, from both seats, plus random seeds against the pool,
 plus head-to-head games against the champion, and since iteration 31 each of Alder Ford's 24 lost or
-tied games against a replay of the rival's recorded moves (below): 282 pool games and 20 head-to-head. A rival no pool
+tied games against a replay of the rival's recorded moves (below): 282 pool games and 20 head-to-head. Since
+the 09-27 restart also Alder Ford's 29 newer lost or tied games (from both seats against stand-ins,
+and their replays) and 10 random seeds against the public engine's 09-27 version: 379 pool games; since the restart after
+iteration 55 Birch Hollow's 28 lost games as well: 463 pool games. The gauntlet is staged: 30% of the games are
+played first, and a candidate that changed at most four of them, or made at least as many worse as better,
+stops there (rejected). Edits of layers that never act are therefore cheap to refute but still wasted. A rival no pool
 agent reproduces for 100 moves gets the agent of its opening, else tetsutani_demand (Alder Ford's)
 or haideptry_2965 (Rowan Glen's and Linden Brook's). Five 13-wheat losses of Rowan Glen and Linden
 Brook moved from abo_v57_open13 to tetsutani_shape_shop on 09-26 at 19:35 UTC, when it was found.

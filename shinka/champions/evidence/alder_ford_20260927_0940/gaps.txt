@@ -1,0 +1,34 @@
+episode    res rival            rate   final   d10   d15   d20   d25 | herd us  them   | rival step0  | biggest gaps (ours - theirs)
+113957020 L   Michael Timbs    2160  -31557   +565   -346  -1334    +59 | 6C/6S/4G 4C/1S/5G | BUY_13 SELL13 | TOMATO -38118, WHEAT +10655, land -4000, hire -3076
+113896876 L   Vaibhav Gupta           -5731   -103    -70  -4255  -3910 | 6C/6S/5G 6C/6S/5G | BUY_8 SELL8  | WHEAT -3365, WOOL -960, MELON -744, MILK -704
+113947758 L   WeAreFarmers     2326   -2372   -216   -185   -361  -1174 | 12C/5S/0G 12C/5S/0G | BUY_6 SELL1  | WHEAT -1351, MILK -631, STRAWBERRY -328, TOMATO -75
+114045950 L   Kirderf          2241   -2080    -22   -318   -124  -1577 | 11C/5S/0G 12C/5S/0G | BUY_8 SELL8  | CARROT +2221, MILK -1706, WHEAT -1523, STRAWBERRY -753
+114071444 L   GeHaohua         2112   -1708    +81   -121   -188   -439 | 9C/5S/3G 9C/5S/3G | BUY_8 SELL3  | MILK -1559, WHEAT -122, seeds -30, CARROT +23
+113888062 L   linchuhan        2130   -1372   +192    +32    +62   -854 | 11C/5S/0G 11C/5S/0G | BUY_20 SELL15 | STRAWBERRY -896, MILK -624, seeds +140, CARROT +130
+114082240 L   ziheng           2110   -1301   +217    -65   -118   -538 | 8C/6S/3G 8C/6S/3G | BUY_10 SELL5 | STRAWBERRY -689, WHEAT -315, MILK -303, WOOL -301
+114003017 L   Cheese Burgers   2049   -1094   -422  -1053    +91   -763 | 6C/6S/5G 6C/6S/5G | BUY_10 SELL10 | MILK -569, WOOL -411, MELON -398, FERTILIZER +327
+114100809 L   Sarthak Sharma   2047   -1037     +0     +0   -861  -1039 | 8C/6S/2G 8C/6S/2G | BUY_5 BUY_1  | STRAWBERRY -962, WHEAT -116, FERTILIZER +56, WOOL -34
+114069953 L   CrazyML                  -747   +217    -67   -156   -189 | 8C/6S/3G 8C/6S/3G | BUY_8 SELL3  | MILK -820, EGG +122, WHEAT +80, WOOL -80
+114009773 L   Yukino487        2090    -643     +0     +0   -135   -569 | 8C/9S/0G 8C/9S/0G | BUY_5 BUY_1  | WOOL -449, MILK -223, CARROT -162, WHEAT +154
+113913844 L   pavan rajr       2135    -584     +0     +0     +0     +5 | 4C/6S/6G 4C/6S/6G | BUY_5 BUY_1  | STRAWBERRY -635, MILK +49, WOOL -4, FERTILIZER +4
+114063004 L   wonder777        2143    -571   -198   -284   -239   +550 | 6C/11S/0G 6C/11S/0G | BUY_5 BUY_1  | CARROT -2814, STRAWBERRY +2175, TOMATO -2079, hire +1419
+114068311 L   Dean0016         2490    -477    +56    +53   -106    -84 | 8C/6S/2G 8C/6S/3G | BUY_8 SELL3  | WHEAT +502, CARROT -417, MILK -281, EGG -182
+114000539 L   wei chang        2179    -307     -5     -5     -5    +80 | 8C/6S/2G 8C/6S/2G | BUY_5 BUY_1  | STRAWBERRY -274, MILK -32, WOOL -5, FERTILIZER +4
+113947903 L   Pramit Das       2138    -231     +0     +0     +0     +0 | 8C/6S/2G 8C/6S/3G | BUY_5 BUY_1  | EGG -292, WHEAT +74, FERTILIZER -13
+113885416 L   Pralay Ghosh             -140     +0     +0    -23   -140 | 9C/5S/3G 9C/5S/3G | BUY_5 BUY_1  | STRAWBERRY -128, MILK -25, FERTILIZER +18, WOOL -4
+114017447 L   Huseyin Battal   2053    -100     +0    -27   -423   -119 | 8C/6S/3G 8C/6S/3G | BUY_20 SELL15 | CARROT +685, WHEAT -611, seeds -130, MILK -81
+114016460 L   Nimish Shinde    2128     -74     +0     +0     +0    -21 | 6C/11S/0G 6C/11S/0G | BUY_5 BUY_1  | FERTILIZER -104, MILK +60, STRAWBERRY -30
+113997400 L   Jane Street Farm 2160     -41     +0     +0     +0     +0 | 6C/6S/5G 6C/6S/5G | BUY_5 BUY_1  | FERTILIZER -26, MILK -20, EGG +7, STRAWBERRY -2
+114036398 L   hank0123         2030     -28     +0     +0     +0    +83 | 8C/15S/0G 8C/15S/0G | BUY_5 BUY_1  | WOOL -35, MILK +4, STRAWBERRY +2, WHEAT +1
+114025187 L   Shane Thivaharra 2133     -10     +0     +0     +0     +0 | 6C/6S/4G 6C/6S/4G | BUY_5 BUY_1  | CARROT -19, EGG +12, FERTILIZER -2, STRAWBERRY -1
+114098439 L   Prajwal M        2181      -3     +0     +0     +0     +0 | 8C/8S/0G 8C/8S/0G | BUY_5 BUY_1  | FERTILIZER -3
+114025794 L   Kagdew Valley_He 2035      -2    -17    -17    -17    -17 | 8C/6S/2G 8C/6S/2G | BUY_5 BUY_1  | WHEAT -17, FERTILIZER +17, STRAWBERRY -2
+113898176 T   Snorf            2043      +0     +0     +0     +0     +0 | 6C/17S/0G 6C/17S/0G | BUY_5 BUY_1  | 
+113915265 T   Frost Cerberus   2093      +0     +0     +0     +0     +0 | 8C/6S/2G 8C/6S/2G | BUY_5 BUY_1  | 
+113940093 T   HUNGRED XYIS     2019      +0     +0     +0     +0     +0 | 6C/11S/0G 6C/11S/0G | BUY_5 BUY_1  | 
+114034562 T   minghao mei      2097      +0     +0     +0     +0     +0 | 6C/6S/4G 6C/6S/4G | BUY_5 BUY_1  | 
+114102100 T   kaito ide 31     2019      +0     +0     +0     +0     +0 | 6C/6S/5G 6C/6S/5G | BUY_5 BUY_1  | 
+
+close (18 games): summed gaps by category: CARROT -2562, TOMATO -2079, WHEAT -588, EGG -450, MILK -417, seeds -160, WOOL +446, FERTILIZER +709, STRAWBERRY +1114, hire +1419
+
+large (11 games): summed gaps by category: TOMATO -38193, MILK -4927, land -4000, EGG -2876, hire -2843, WOOL -2496, STRAWBERRY -1854, MELON -1142, animals -200, seeds -170, FERTILIZER +1803, CARROT +3303, WHEAT +3953

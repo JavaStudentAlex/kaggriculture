@@ -1,0 +1,19 @@
+{
+ "name": "replay_114017447",
+ "episode": 114017447,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Huseyin Battal",
+ "opponent_submission": 56534766,
+ "seed": 659056658,
+ "recorded_rewards": [
+  82272.0,
+  82172.0
+ ],
+ "recorded_margin_for_us": -100,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "98a59929dbf93a25c9f59647fa2113abf85943f2be930215eb6050d8c496fa02"
+ }
+}

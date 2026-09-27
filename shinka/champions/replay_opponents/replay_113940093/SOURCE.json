@@ -1,0 +1,19 @@
+{
+ "name": "replay_113940093",
+ "episode": 113940093,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "HUNGRED XYIS",
+ "opponent_submission": 56547399,
+ "seed": 2001598069,
+ "recorded_rewards": [
+  99506.0,
+  99506.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1bb01bd844c75eecf04eedd4151ea6e483be485be2341568530c232149ab034e"
+ }
+}

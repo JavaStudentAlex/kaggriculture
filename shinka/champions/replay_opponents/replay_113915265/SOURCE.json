@@ -1,0 +1,19 @@
+{
+ "name": "replay_113915265",
+ "episode": 113915265,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Frost Cerberus",
+ "opponent_submission": 56541433,
+ "seed": 654400768,
+ "recorded_rewards": [
+  91358.0,
+  91358.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8dca8f2d1baf3ce96b257047460b98fbab3adb5a6417c47b5026ab72c0c6cfe1"
+ }
+}

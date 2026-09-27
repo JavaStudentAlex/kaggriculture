@@ -1,0 +1,19 @@
+{
+ "name": "replay_114228391",
+ "episode": 114228391,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Kamilek",
+ "opponent_submission": 56595955,
+ "seed": 1642711115,
+ "recorded_rewards": [
+  133254.0,
+  133468.0
+ ],
+ "recorded_margin_for_us": 214,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "72828a6e1f4908c215be14d93291b9b360ff0c424b1e30cefc04050b302ab954"
+ }
+}

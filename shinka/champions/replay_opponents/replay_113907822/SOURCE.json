@@ -1,0 +1,19 @@
+{
+ "name": "replay_113907822",
+ "episode": 113907822,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "lvisdd",
+ "opponent_submission": 56589685,
+ "seed": 1584554301,
+ "recorded_rewards": [
+  130029.0,
+  129987.0
+ ],
+ "recorded_margin_for_us": 42,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "507a59f4505069e6bb1ea23caf8fec20ac23a2cc3d541cb78571ef5b9609a7af"
+ }
+}

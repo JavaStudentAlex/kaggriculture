@@ -1,0 +1,19 @@
+{
+ "name": "replay_114125498",
+ "episode": 114125498,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "t-enstar",
+ "opponent_submission": 56575811,
+ "seed": 731711701,
+ "recorded_rewards": [
+  91953.0,
+  91979.0
+ ],
+ "recorded_margin_for_us": -26,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "7397ca8a997b0aace0fbcce9e55c38080fe248fa1f70c6230f4a61df0f0bc309"
+ }
+}

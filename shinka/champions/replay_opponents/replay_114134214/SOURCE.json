@@ -1,0 +1,19 @@
+{
+ "name": "replay_114134214",
+ "episode": 114134214,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Have a nice trip in USST",
+ "opponent_submission": 56604619,
+ "seed": 1262640298,
+ "recorded_rewards": [
+  99601.0,
+  98771.0
+ ],
+ "recorded_margin_for_us": 830,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "c03c8d3216274cb4cb9c92b27de7edd9ee3ca8891c9fca887ce271f68c4f8851"
+ }
+}

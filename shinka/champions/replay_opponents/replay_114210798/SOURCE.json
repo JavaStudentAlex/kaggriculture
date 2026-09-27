@@ -1,0 +1,19 @@
+{
+ "name": "replay_114210798",
+ "episode": 114210798,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Yin Li",
+ "opponent_submission": 56541513,
+ "seed": 1445544527,
+ "recorded_rewards": [
+  105191.0,
+  105265.0
+ ],
+ "recorded_margin_for_us": -74,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e7d960b6d6cbc93a6489f1f885321a5d2a958bb54e0bcf83e21c52756781437b"
+ }
+}

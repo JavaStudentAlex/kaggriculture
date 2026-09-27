@@ -1,0 +1,19 @@
+{
+ "name": "replay_113925674",
+ "episode": 113925674,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Michael Jordan",
+ "opponent_submission": 56544965,
+ "seed": 218975372,
+ "recorded_rewards": [
+  80337.0,
+  80456.0
+ ],
+ "recorded_margin_for_us": 119,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8da1eb49b3f327ee1027984a8cbcf43731c9bf7b163dda66b6e3ffa70a03e713"
+ }
+}

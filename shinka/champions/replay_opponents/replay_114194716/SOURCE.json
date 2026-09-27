@@ -1,0 +1,19 @@
+{
+ "name": "replay_114194716",
+ "episode": 114194716,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "zy",
+ "opponent_submission": 56585821,
+ "seed": 505118185,
+ "recorded_rewards": [
+  70180.0,
+  70270.0
+ ],
+ "recorded_margin_for_us": -90,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6309165cf8e2c4d086dda36f615e37b5c2debdfaa53063033257f1e1c62e16c4"
+ }
+}

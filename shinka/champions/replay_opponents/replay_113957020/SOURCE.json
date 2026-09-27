@@ -1,0 +1,19 @@
+{
+ "name": "replay_113957020",
+ "episode": 113957020,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Michael Timbs",
+ "opponent_submission": 56581054,
+ "seed": 1659299084,
+ "recorded_rewards": [
+  134572.0,
+  103015.0
+ ],
+ "recorded_margin_for_us": -31557,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ea1e1ccf4a04c784b12639d739fe7257c951a542329de287e48c8fb67471a22e"
+ }
+}

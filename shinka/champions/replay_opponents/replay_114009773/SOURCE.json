@@ -1,0 +1,19 @@
+{
+ "name": "replay_114009773",
+ "episode": 114009773,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Yukino487",
+ "opponent_submission": 56594785,
+ "seed": 380147623,
+ "recorded_rewards": [
+  87288.0,
+  87931.0
+ ],
+ "recorded_margin_for_us": -643,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "2a56825e4c7c94c84aba450c968af7fcc1c034f7bfd3cc4a59820840911a895b"
+ }
+}

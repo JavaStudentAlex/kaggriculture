@@ -1,0 +1,19 @@
+{
+ "name": "replay_114122483",
+ "episode": 114122483,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Naru041104",
+ "opponent_submission": 56602717,
+ "seed": 1964026901,
+ "recorded_rewards": [
+  76183.0,
+  74694.0
+ ],
+ "recorded_margin_for_us": -1489,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3a04081901a64719f120607b7fedf2e26a643a6375cbc840f811a53e016321ad"
+ }
+}

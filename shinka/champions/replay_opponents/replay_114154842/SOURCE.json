@@ -1,0 +1,19 @@
+{
+ "name": "replay_114154842",
+ "episode": 114154842,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "ABHIRUP DAS",
+ "opponent_submission": 56528740,
+ "seed": 499267518,
+ "recorded_rewards": [
+  98149.0,
+  97532.0
+ ],
+ "recorded_margin_for_us": 617,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f62dee618a17575343b8839674193b018dce1706568290501204e04018c67af1"
+ }
+}

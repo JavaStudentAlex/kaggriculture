@@ -1,0 +1,19 @@
+{
+ "name": "replay_114143095",
+ "episode": 114143095,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Mohamed Saeed",
+ "opponent_submission": 56527054,
+ "seed": 711146375,
+ "recorded_rewards": [
+  72401.0,
+  72584.0
+ ],
+ "recorded_margin_for_us": 183,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "df340fcb36493a42efa49d4cc589eb383dd4524d16b3361f4c3bac9e5f8cae05"
+ }
+}

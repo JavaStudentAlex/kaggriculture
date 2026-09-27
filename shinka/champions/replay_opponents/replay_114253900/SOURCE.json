@@ -1,0 +1,19 @@
+{
+ "name": "replay_114253900",
+ "episode": 114253900,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "islet",
+ "opponent_submission": 56611883,
+ "seed": 1518765379,
+ "recorded_rewards": [
+  90901.0,
+  90982.0
+ ],
+ "recorded_margin_for_us": -81,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "11b9f53092a98c7293ad5ef52a6f9230d2e6ceec0ae73b59616755ec730f1314"
+ }
+}

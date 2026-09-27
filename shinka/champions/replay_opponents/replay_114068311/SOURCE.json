@@ -1,0 +1,19 @@
+{
+ "name": "replay_114068311",
+ "episode": 114068311,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Dean0016",
+ "opponent_submission": 56600807,
+ "seed": 1172045335,
+ "recorded_rewards": [
+  65954.0,
+  66431.0
+ ],
+ "recorded_margin_for_us": -477,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "35997b07c309c5a1cce16c802ea2683b6742b63fa6c90ad90c5ef04f4e7722c1"
+ }
+}

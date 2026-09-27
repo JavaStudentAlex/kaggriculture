@@ -15,7 +15,10 @@ On a graph whose backbone runs a ladder engine (make_ladder_graph.py) there are 
 - `engine_parameters` on the backbone node: the engine's top-level constants (engines.py);
 - the channels: `enabled` on the farmer, hands and market turn nodes (false = the engine's
   action passes through) and on the optional oracle_guard node (the predictor's front-run);
-- `experimental.switches`: the extension stages of hazel_runtime/experimental.py.
+- `experimental.switches`: the extension stages of hazel_runtime/experimental.py;
+- the optional rival_counter node (channel `rival_counter`; an edit that switches it on inserts it) and its
+  `counters`: per rival family (hazel_runtime/rival_model.py), values for switchable engine constants and
+  `_OG_*` guard parameters that apply while the rival looks like that family.
 
 An edit is a JSON object with any of these keys, applied to a full graph:
 
@@ -24,8 +27,9 @@ An edit is a JSON object with any of these keys, applied to a full graph:
      "dispatch_order": "submitted" or "sells_first",
      "surgical": {"enabled": bool, "overrides": {...}},
      "engine_parameters": {"NAME": value or null},
-     "channels": {"farmer" | "hands" | "market" | "oracle_guard": true or false},
-     "experimental": {"<switch>": true or false}}
+     "channels": {"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter": true or false},
+     "experimental": {"<switch>": true or false},
+     "counters": {"<family>": {"NAME": value or null} or null}}
 
 A setting that cannot change play (a market parameter while the market channel is off, say)
 is refused, so no gauntlet is spent on it.
@@ -37,6 +41,7 @@ from __future__ import annotations
 
 import ast
 import copy
+import hashlib
 import json
 import os
 import re
@@ -48,12 +53,15 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from hazel_runtime import engines, experimental, graph_runtime, oracle_guard, surgical  # noqa: E402
+from hazel_runtime import engines, experimental, graph_runtime, oracle_guard, rival_model, surgical  # noqa: E402
 
 CHAMPION = HERE / 'hazel_runtime' / 'champion.py'
 EDIT_KEYS = ('parameters', 'stages', 'dispatch_order', 'surgical', 'engine_parameters', 'channels',
-             'experimental')
-CHANNEL_DEFAULTS = {'farmer': True, 'hands': True, 'market': True, 'oracle_guard': False}
+             'experimental', 'counters')
+CHANNEL_DEFAULTS = {'farmer': True, 'hands': True, 'market': True, 'oracle_guard': False, 'rival_counter': False}
+RIVAL_NODE = {'id': 'rival_counter', 'binding': 'rival_counter', 'enabled': True,
+              'summary': "The rival's family from its public farm; that family's counter-settings"}
+_SWITCHABLE = {}
 ENGINES_DIR = HERE / 'hazel_runtime' / 'engines'
 _ENGINE_CATALOGS = {}
 NODE_FEATURES = ('parameters', 'enabled', 'order')
@@ -129,7 +137,73 @@ def catalog(source_path=CHAMPION):
     for name, default in oracle_guard.PARAMETERS.items():
         out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['oracle_guard'],
                      'home': 'oracle_guard', 'note': oracle_guard.NOTES.get(name, ''), 'used': True}
+    for name, default in rival_model.PARAMETERS.items():
+        out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['rival_counter'],
+                     'home': 'rival_counter', 'note': rival_model.NOTES.get(name, ''), 'used': True}
     return out
+
+
+def rival_families():
+    """{class: description} of the rival_counter stage (rival_model.CLASSES)."""
+    return dict(rival_model.CLASSES)
+
+
+def switchable_engine_parameters(graph):
+    """Engine parameters of the graph's engine that a rival counter may set during a game."""
+    name = engine_name(graph)
+    if name == graph_runtime.DEFAULT_ENGINE:
+        return set()
+    if name not in _SWITCHABLE:
+        meta = json.loads((ENGINES_DIR / name / 'SOURCE.json').read_text())
+        source = (ENGINES_DIR / name / 'agent' / meta['entry']).read_text(encoding='utf-8')
+        _SWITCHABLE[name] = engines.switchable(source)
+    return _SWITCHABLE[name]
+
+
+def _insert_rival_node(graph):
+    turn = graph['turn']
+    turn['nodes'].insert(0, copy.deepcopy(RIVAL_NODE))
+    turn['edges'].insert(0, {'source': 'rival_counter', 'target': turn['entry'], 'relation': 'NEXT'})
+    turn['entry'] = 'rival_counter'
+    if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'rival_counter' for n in graph['nodes']):
+        graph['nodes'].append({
+            'id': 'rival_counter', 'name': 'rival counter',
+            'description': ("Compare the rival's public farm with ours every turn; by step 93 the rival is a mirror of "
+                            'our engine, a buy-N/sell-N-5 opener, a wheat-92 seller, another opening or other '
+                            "(rival_model.MirrorTracker), and that class's counters (engine constants, _OG_* guard "
+                            'parameters) apply for the rest of the game.'),
+            'bindings': ['rival_counter'], 'binding_semantics': 'Executable stage'})
+        graph.setdefault('edges', []).append({'source': 'rival_counter', 'target': 'backbone',
+                                              'relation': 'CONFIGURES', 'scope': 'turn'})
+    pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
+    if isinstance(pins, dict):
+        pins['rival_model.py'] = _sha(HERE / 'hazel_runtime' / 'rival_model.py')
+
+
+def _sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def repinned(graph):
+    """The graph with its pinned runtime files re-hashed as they are on disk (write_graph_bundle does
+    the same inside every bundle), so a runtime change does not invalidate the graphs being evolved."""
+    out = copy.deepcopy(graph)
+    pins = (out.get('provenance') or {}).get('runtime_bundle_hashes') or {}
+    for relative in list(pins):
+        path = HERE / 'hazel_runtime' / relative
+        if path.exists():
+            pins[relative] = _sha(path)
+    if 'entrypoint_sha256' in (out.get('provenance') or {}):
+        out['provenance']['entrypoint_sha256'] = _sha(HERE / 'agent_graph.py')
+    return out
+
+
+def counter_settings(graph):
+    """{family: {NAME: JSON value}} of the rival_counter node ({} when absent or off)."""
+    node = _chain_nodes(graph).get('rival_counter')
+    if not node or not node.get('enabled', False):
+        return {}
+    return {f: dict(sorted(v.items())) for f, v in sorted((node.get('counters') or {}).items()) if v}
 
 
 def engine_name(graph):
@@ -167,6 +241,8 @@ def _inert(graph, spec_stages):
         if stage == 'state' and (on.get('farmer') or on.get('hands') or on.get('market')):
             return False
         if stage == 'oracle_guard' and on.get('oracle_guard'):
+            return False
+        if stage == 'rival_counter' and on.get('rival_counter'):
             return False
     return True
 
@@ -219,6 +295,9 @@ def settings(graph, constants=None):
         out.update(engine=engine, engine_parameters=dict(sorted(values.items())), channels=dict(sorted(flags.items())),
                    experimental={k: v for k, v in sorted(switches.items()) if v})
         out['stages'] = {k: v for k, v in out['stages'].items() if k in MARKET_IDS}
+        counters = counter_settings(graph)
+        if counters:            # only graphs that use the stage get the key (earlier settings keys stay valid)
+            out['counters'] = counters
     return out
 
 
@@ -286,8 +365,8 @@ def apply_edit(graph, edit, constants=None):
         surgical.enabled(config)  # fails closed on unknown names/values
         out['surgical'] = copy.deepcopy(config)
     ladder = engine_name(out) != graph_runtime.DEFAULT_ENGINE
-    if any(k in edit for k in ('engine_parameters', 'channels', 'experimental')) and not ladder:
-        raise ValueError('engine_parameters, channels and experimental need a graph with a ladder engine')
+    if any(k in edit for k in ('engine_parameters', 'channels', 'experimental', 'counters')) and not ladder:
+        raise ValueError('engine_parameters, channels, experimental and counters need a graph with a ladder engine')
     engine_params = edit.get('engine_parameters') or {}
     if not isinstance(engine_params, dict):
         raise ValueError('edit.engine_parameters must be an object {NAME: value}')
@@ -306,6 +385,9 @@ def apply_edit(graph, edit, constants=None):
     flags = edit.get('channels') or {}
     if not isinstance(flags, dict):
         raise ValueError('edit.channels must be an object {channel: bool}')
+    if flags.get('rival_counter') is True and 'rival_counter' not in nodes and ladder:
+        _insert_rival_node(out)
+        nodes = _chain_nodes(out)
     for channel, flag in flags.items():
         if channel not in CHANNEL_DEFAULTS or channel not in nodes:
             raise ValueError(f'unknown channel {channel}; channels are {sorted(set(CHANNEL_DEFAULTS) & set(nodes))}')
@@ -323,6 +405,47 @@ def apply_edit(graph, edit, constants=None):
         current.update(switches)
         experimental.settings(current)   # unknown switches, types and dependencies fail here
         out.setdefault('experimental', {})['switches'] = {k: v for k, v in current.items() if v}
+    counters = edit.get('counters') or {}
+    if not isinstance(counters, dict):
+        raise ValueError('edit.counters must be an object {family: {NAME: value or null} or null}')
+    if counters:
+        node = _chain_nodes(out).get('rival_counter')
+        if node is None:
+            raise ValueError('counters need the rival_counter stage: add "channels": {"rival_counter": true} '
+                             'to the same edit')
+        families = rival_families()
+        switchable = switchable_engine_parameters(out)
+        spec = engine_catalog(out)
+        table = copy.deepcopy(node.get('counters') or {})
+        for family, values in counters.items():
+            if family not in families:
+                raise ValueError(f'unknown rival family {family!r}; families are {sorted(families)}')
+            if values is None:
+                table.pop(family, None)
+                continue
+            if not isinstance(values, dict) or not values:
+                raise ValueError(f'counters of {family} must be an object {{NAME: value or null}}')
+            entry = table.setdefault(family, {})
+            for name, value in values.items():
+                if name in oracle_guard.PARAMETERS:
+                    typed = None if value is None else _json_value(
+                        graph_runtime._like(value, oracle_guard.PARAMETERS[name], name))
+                elif name in switchable and name in spec:
+                    typed = None if value is None else engines.to_json(
+                        engines.from_json(value, spec[name]['default'], name))
+                else:
+                    raise ValueError(f'{name} cannot be set per rival family; allowed are the _OG_* guard parameters '
+                                     f'and these engine parameters: {sorted(switchable & set(spec))}')
+                if typed is None:
+                    entry.pop(name, None)
+                else:
+                    entry[name] = typed
+            if not entry:
+                table.pop(family)
+        if table:
+            node['counters'] = table
+        else:
+            node.pop('counters', None)
     if ladder:
         inert = [name for name in params if params[name] is not None
                  and _inert(out, constants[name]['stages'])]
@@ -331,6 +454,8 @@ def apply_edit(graph, edit, constants=None):
             inert.append('dispatch_order')
         if 'surgical' in edit and _inert(out, ['market_setup', 'farmer']):
             inert.append('surgical')
+        if counters and _inert(out, ['rival_counter']):
+            inert.append('counters')
         if inert:
             raise ValueError(f"no effect with the current channels: {', '.join(inert)} (their channel is off; "
                              'switch it on in the same edit with "channels", or edit engine_parameters)')
@@ -339,8 +464,8 @@ def apply_edit(graph, edit, constants=None):
     return out
 
 
-MIGRATION_KEYS = ('parameters', 'stages', 'engine_parameters', 'channels', 'experimental')
-_RESET = {'parameters': None, 'engine_parameters': None, 'stages': True, 'experimental': False}
+MIGRATION_KEYS = ('parameters', 'stages', 'engine_parameters', 'channels', 'experimental', 'counters')
+_RESET = {'parameters': None, 'engine_parameters': None, 'stages': True, 'experimental': False, 'counters': None}
 _ABSENT = object()
 
 
@@ -406,6 +531,13 @@ def diff(before, after, constants=None):
         for switch in sorted(set(xa) | set(xb)):
             if xa.get(switch, False) != xb.get(switch, False):
                 lines.append(f"experimental {switch}: {xa.get(switch, False)} -> {xb.get(switch, False)}")
+        ra, rb = a.get('counters', {}), b.get('counters', {})
+        for family in sorted(set(ra) | set(rb)):
+            fa, fb = ra.get(family, {}), rb.get(family, {})
+            for name in sorted(set(fa) | set(fb)):
+                if fa.get(name) != fb.get(name):
+                    lines.append(f"counter vs {family}: {name} {json.dumps(fa.get(name, 'default'))} -> "
+                                 f"{json.dumps(fb.get(name, 'default'))}")
     return lines
 
 
@@ -464,7 +596,21 @@ def describe_controls(graph, constants=None):
         for name, c in guard:
             rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
                         f"{json.dumps(_json_value(c['default']))} | {c['note']}")
-        hazel = [r for r in hazel_rows if r]
+        families = rival_families()
+        if families:
+            switch = sorted(switchable_engine_parameters(graph) & set(spec))
+            rows += ['', f"RIVAL COUNTER (channel rival_counter={'on' if on.get('rival_counter') else 'off'}; "
+                     'an edit that switches it on inserts the stage). Every turn it compares the rival\'s public farm '
+                     '(money, hands, land, crops, herd) with ours: on the same seed a copy of our engine plays exactly '
+                     'as we do. By step 93 it puts the rival in one class below; from then on that class\'s counters '
+                     'apply (engine constants and _OG_* guard parameters). Classes without counters, and every rival '
+                     'before its class is known, play the graph\'s own settings.',
+                     'RIVAL CLASSES (decided by step 93, then fixed for the game):'] + [f'  {f}: {d}' for f, d in families.items()] + [
+                     'ENGINE PARAMETERS A COUNTER MAY SET (read at call time): ' + ', '.join(switch),
+                     'CURRENT COUNTERS: ' + json.dumps(current.get('counters', {})),
+                     'Edit example: {"channels": {"rival_counter": true}, "counters": {"mirror": {"_EV_H": 12, '
+                     '"_DP_H": 12}}}; {"counters": {"nsell_opener": null}} removes a class\'s counters.']
+        hazel = [r for r in hazel_rows if r and not r.startswith('_RC_')]
         rows += ['', 'OUR MARKET-PIPELINE CONTROLS (only matter with the market channel on; the farmer/hands '
                  'rescue constants only with those channels on):'] + hazel
     return '\n'.join(rows)
@@ -498,8 +644,15 @@ def validate_graph(graph_path, steps=30, seed=20260925, python=None, timeout=600
                CUDA_VISIBLE_DEVICES='', KAGG_ORACLE_BACKEND='numpy', KAGG_ORACLE_DEVICE='cpu',
                PYTHONDONTWRITEBYTECODE='1')
     env.pop('KAGG_GRAPH_EXPERIMENTS', None)
-    proc = subprocess.run([python or sys.executable, '-c', _VALIDATE, str(Path(graph_path).resolve()), str(steps), str(seed)],
-                          cwd=HERE, env=env, capture_output=True, text=True, timeout=timeout)
+    import tempfile
+    with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as tmp:
+        # the pins re-hashed as write_graph_bundle does, so the graph is checked against this runtime
+        tmp.write(json.dumps(repinned(json.loads(Path(graph_path).read_text()))))
+    try:
+        proc = subprocess.run([python or sys.executable, '-c', _VALIDATE, tmp.name, str(steps), str(seed)],
+                              cwd=HERE, env=env, capture_output=True, text=True, timeout=timeout)
+    finally:
+        os.unlink(tmp.name)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-6:]
         raise ValueError('runtime rejected the graph: ' + ' | '.join(tail)[:1500])

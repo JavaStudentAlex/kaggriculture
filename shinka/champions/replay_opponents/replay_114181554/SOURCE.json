@@ -1,0 +1,19 @@
+{
+ "name": "replay_114181554",
+ "episode": 114181554,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Md Abu Saif",
+ "opponent_submission": 56531474,
+ "seed": 1403754991,
+ "recorded_rewards": [
+  115438.0,
+  115853.0
+ ],
+ "recorded_margin_for_us": 415,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "9271d570a6f7a8188df90ed6472f2393a2a327e45e45dffc882a1ff9a5835bc9"
+ }
+}

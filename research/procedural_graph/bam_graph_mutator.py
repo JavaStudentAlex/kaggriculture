@@ -280,8 +280,9 @@ You may change any control, but prefer this area.
             "dispatch_order": "submitted" or "sells_first",
             "surgical": {{"enabled": true or false, "overrides": {{...}}}},
             "engine_parameters": {{"<ENGINE CONSTANT>": <value of the same type, or null for the engine default>}},
-            "channels": {{"farmer" | "hands" | "market" | "oracle_guard": true or false}},
-            "experimental": {{"<switch>": true or false}}}}}}
+            "channels": {{"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter": true or false}},
+            "experimental": {{"<switch>": true or false}},
+            "counters": {{"<rival class>": {{"<ENGINE CONSTANT or _OG_* parameter>": <value, or null>}} or null}}}}}}
 Include only the keys you change (usually 1-3 controls); keys that the CONTROLS section does not
 list do not exist for this graph. Tuples and lists are JSON arrays; a table keyed by shop pairs
 takes keys "SHOP_A|SHOP_B" and must be given complete (every key of the current value).

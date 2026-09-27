@@ -181,10 +181,64 @@ after its second rejection (iteration 37). Tables and caveats:
 | 42 | Endgame | gemini-3.8-flash | `_CH_SHED` 100 → 96 | 4-21 | -$4 | 9e-4 | rejected |
 | 43 | Herd | gemini-3.8-flash | `_HD2_MIN_GAIN` 600 → 350 | 2-1 | $0 | 1 | rejected |
 | 44 | Crops | gemini-3.8-flash | `_CA_FROM` 10 → 9 | 2-3 | -$4 | 1 | rejected |
+| 45 | Market | claude-sonnet-5 | `_ADV_ITEMS`: EGG and MILK swapped | 1-1 | $0 | 1 | rejected (inert) |
+| 46 | Oracle | gemini-3.8-flash | `_OG_SCORE` 0.5 → 0.55 | 18-20 | $0 | 0.87 | rejected |
+| 47 | Opening | gpt-6-sol | `_BD_MIN` 8 → 4 | 116-158 | -$105 | 0.013 | rejected |
+| 48 | Endgame | claude-sonnet-5 | `_SR_MARGIN` 12 → 14 | 61-55 | -$2 | 0.64 | rejected |
+| mix | Herd, Crops, Oracle, Opening | (mixing, donor Market) | `_ADV_LOOK` 3 → 4 | 159-109 | +$28 | 0.003 | **promoted** on all four |
+| mix | Endgame | (mixing) | the donor's guard, `_CXD_BUDGET` 1050, `_OR2_SLOT_MARGIN` 0 and `_ADV_LOOK` 4 | 167-129 | +$21 | 0.03 | **promoted** |
+| 49 | Herd | gpt-6-luna | `_ADV_FROM` 216 → 144 | 1-0 | $0 | 1 | rejected (inert) |
+| 50 | Crops | gpt-6-luna | `V9_FERT_AGES` [1] → [1, 2] | 116-162 | +$36 | 0.007 | rejected (more games worse) |
+| 51 | Market | (queue) | lead sells 12 for every rival (`_EV_H`, `_DP_H`, `_MP_H` 8 → 12) | 164-130 | +$126 | 0.054 | rejected (tetsutani_demand 47-1 +$494; Forecast, V57-open13, Shepherd, pilkwang, V55 -$74 to -$196) |
+| 52 | Oracle | gemini-3.8-flash | `_OG_KEEP` 2 → 1 | 80-86 | +$6 | 0.7 | rejected |
+| 53 | Opening | (queue) | rival counter: lead sells 12 (and `_ADV_LOOK` 4) against mirrors only | 134-6 | +$153 | 1e-15 | **promoted** (tetsutani_demand 93-1 +$448, head-to-head 18-2 +$404, replays 47-3; every other opponent unchanged) |
+| 54 | Endgame | gemini-3.1-pro-preview | rival counter: lead sells 12 against mirrors | 136-4 | +$154 | 1e-15 | **promoted** |
+| 55 | Next-Market | (queue) | the oracle guard (Island-Opening's settings) on the 09-27 engine | 50-51 | $0 | 1 | rejected |
+| 56 | Next-Production | gpt-6-astra | `_SR_MARGIN` 8 → 12 on the 09-27 engine | 165-37 | +$9 | 1e-15 | **promoted** (tetsutani_demand 51-9, leoprovorov_forecast 13-0) |
+| 57 | Herd | (queue) | rival counter: lead sells 16 against mirrors | 170-14 | +$173 | 2e-15 | **promoted** (over a champion without the counter; lead 12 is better, below) |
+| 58 | Crops | (queue) | rival counter: lead sells 20 against mirrors | 158-25 | +$111 | 2e-15 | **promoted** (likewise) |
+| 59 | Market | gpt-6-astra | `_OR2_SLOT_MARGIN` 0 → 8 | 23-59 | -$3 | 9e-5 | rejected (stopped after 156 of 483 games) |
+| 60 | Oracle | gpt-6-astra | `_OG_SCORE` 0.5 → 0.55 | 7-14 | -$9 | 0.19 | rejected (stopped after 156 of 483 games) |
+| mix | Market, Oracle | (mixing, donor Opening) | the mirror counter (lead 12) | 175-9 | +$180 | 2e-15 | **promoted** (all games from the cache) |
+| mix | Next-Market | (mixing, donor Next-Production) | `_SR_MARGIN` 8 → 12 | 165-37 | +$9 | 1e-15 | **promoted**; Herd, Crops and Endgame already had every change of the donor |
+
+Paired on the same games with Island-Opening (lead 12), the longer leads lose against the public engine, which answers
+our earlier sales: lead 16 35 better / 91 worse (-$44 a game), lead 20 21/105 (-$236); wins against it 122-6 with 12
+or 16, 118-10 with 20. Against the recorded moves of Birch Hollow's 10 lost mirror games they win more (6, 7 and 9).
+After the mixing Island-Market and Island-Oracle held the same graph as Island-Opening, so at the iteration-62
+boundary Island-Oracle became Island-Next-Counter (`convert_island.py`, `before_restart_counter.sh`): a third
+island on the 09-27 engine, starting from Island-Next-Production's champion, for rival counters on that engine. It
+plays at iterations 68, 76, ... The Island-Opening champion was submitted as Cedar Ridge (Kaggle 56619997, 21:43 UTC 09-27).
 
 From iteration 29 the gauntlet has 278 games (258 pool + 20 head-to-head), from iteration 31 302 (282 pool,
-24 of them replays, + 20 head-to-head). After iteration 44 Island-Market leads: +$34.6 a game over the seed on
-the 282 pool games (162 better, 117 worse, 3 the same; p = 0.008).
+24 of them replays, + 20 head-to-head), from iteration 52 399 (379 pool: + Alder Ford's 29 newer lost or tied
+games from both seats and as replays, + 16 games against the public engine's 09-27 version), from iteration 56 483
+(463 pool: + Birch Hollow's 28 lost games from both seats and as replays), played in two stages. After iteration 44
+Island-Market leads: +$34.6 a game over the seed on the 282 pool games (162 better, 117 worse, 3 the same; p = 0.008).
+
+## 09-27: rival counters, the 09-27 engine, a staged gauntlet
+
+- **12:35 UTC restart** (`before_restart_0927.sh`): the `rival_counter` stage
+  (`hazel_runtime/rival_model.MirrorTracker`, per-class `counters`); the plan 282 → 379 pool games; islands
+  Island-Next-Market and Island-Next-Production on the public engine's 09-27 version (`tetsutani_demand_0927`,
+  their own seed `../ladder_2026-09-27/seed_graph_engine0927.json`, mixing only with each other). Before the
+  cache carried over (`carry_fingerprint.py`, 54 score files), the Island-Market champion rebuilt with the new
+  runtime replayed its 20 games against the 09-27 engine exactly (`same_games.py`).
+- The mirror counter (iterations 53 and 54) is the first change that is only good: it changes the games against
+  rivals that play our engine and nothing else. Iteration 51 had shown why a counter is needed: the same lead
+  sells for every rival lost against agents that react.
+- **15:31 UTC crash** in iteration 55: the new islands' seed was made from the old seed graph and still pinned
+  the old engine's files, which a bundle leaves out (`FileNotFoundError` in `payload.write_graph_bundle`). Fixed
+  there (pins of other engines are dropped; test in `test_ladder_graph.py`); pool and loop restarted 16:26 UTC.
+- **Restart after iteration 55** with `--stage_fraction 0.3 --prefetch`. The staged gauntlet plays 30% of a
+  candidate's games first (the same games for every candidate) and stops a candidate that changed at most four
+  of them, or made at least as many of them worse as better. Replayed on the 71 candidates played so far
+  (`stage_replay.py`), it stops 35, none of the 20 promoted, and saves 32% of the games. With `--prefetch` the
+  models propose the next island's candidate while a gauntlet plays (3-12 minutes a model iteration during
+  which the pool was idle).
+- Queued: mirror lead sells 16 (Island-Herd) and 20 (Island-Crops), on the same base graph as iteration 53, so
+  their games pair with its. A queued entry is re-applied to the island's current champion, so a played entry
+  would play again once a mixing changes that champion: entries are removed once played.
 
 Iterations 17 and 18 show that the guard and `_SR_MARGIN` 12 do not add up on the plan's games. Each
 helps alone, but together they lose on average against haideptry_shepherd (-$95 a game in iteration 17,

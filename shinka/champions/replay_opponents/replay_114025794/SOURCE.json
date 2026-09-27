@@ -1,0 +1,19 @@
+{
+ "name": "replay_114025794",
+ "episode": 114025794,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Kagdew Valley_HeNU",
+ "opponent_submission": 56588824,
+ "seed": 1127517290,
+ "recorded_rewards": [
+  74488.0,
+  74490.0
+ ],
+ "recorded_margin_for_us": -2,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "4bfc1d3c1930ee5cb5196b950bcc793c072bab4355ee3da829f5ddd949ff3af3"
+ }
+}

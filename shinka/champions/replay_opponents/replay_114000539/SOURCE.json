@@ -1,0 +1,19 @@
+{
+ "name": "replay_114000539",
+ "episode": 114000539,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "wei chang",
+ "opponent_submission": 56577668,
+ "seed": 471483250,
+ "recorded_rewards": [
+  92877.0,
+  93184.0
+ ],
+ "recorded_margin_for_us": -307,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "34747f348486ae529510a30cd10f78ac2761f5493013fad37e975dba4062bb82"
+ }
+}

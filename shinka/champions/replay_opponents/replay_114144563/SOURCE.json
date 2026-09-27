@@ -1,0 +1,19 @@
+{
+ "name": "replay_114144563",
+ "episode": 114144563,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "RyotaroAbe",
+ "opponent_submission": 56524832,
+ "seed": 1263152309,
+ "recorded_rewards": [
+  99939.0,
+  100224.0
+ ],
+ "recorded_margin_for_us": -285,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "10b0c003ccb4a5308e16439d042ba9ecf8d25119ed583f92607d41eaeefb6e3c"
+ }
+}

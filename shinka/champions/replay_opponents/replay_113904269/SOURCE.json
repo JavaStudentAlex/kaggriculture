@@ -1,0 +1,19 @@
+{
+ "name": "replay_113904269",
+ "episode": 113904269,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Taeyang",
+ "opponent_submission": 56541212,
+ "seed": 2045358424,
+ "recorded_rewards": [
+  93184.0,
+  93421.0
+ ],
+ "recorded_margin_for_us": 237,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1ba9cd9d9a6ec0cf3f9359ac5e6ca0a1cb3a9deda3e15ec67eb798cfbe80105b"
+ }
+}

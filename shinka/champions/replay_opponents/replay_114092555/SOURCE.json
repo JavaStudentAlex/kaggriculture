@@ -1,0 +1,19 @@
+{
+ "name": "replay_114092555",
+ "episode": 114092555,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Yassine Ben Zekri",
+ "opponent_submission": 56531783,
+ "seed": 1226654239,
+ "recorded_rewards": [
+  67862.0,
+  67848.0
+ ],
+ "recorded_margin_for_us": 14,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "c881e65f7d55fce488b79889e706fd593db9e250d4fbf0c0f596880f252aac1a"
+ }
+}

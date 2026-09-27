@@ -1,0 +1,19 @@
+{
+ "name": "replay_114082240",
+ "episode": 114082240,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "ziheng",
+ "opponent_submission": 56597090,
+ "seed": 1977630138,
+ "recorded_rewards": [
+  87138.0,
+  85837.0
+ ],
+ "recorded_margin_for_us": -1301,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "73ae05385b17fc34e29675e71ecd2cf996228d6e0a22dfddd9e577183d6b0171"
+ }
+}

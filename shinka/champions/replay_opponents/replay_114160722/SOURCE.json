@@ -1,0 +1,19 @@
+{
+ "name": "replay_114160722",
+ "episode": 114160722,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "xinwang",
+ "opponent_submission": 56581674,
+ "seed": 1630517454,
+ "recorded_rewards": [
+  83706.0,
+  83656.0
+ ],
+ "recorded_margin_for_us": 50,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1ae28ea5825957f9a6b2525efdf088740685aadd9c94cda44d3b5a5d77f5b385"
+ }
+}

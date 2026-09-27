@@ -61,3 +61,11 @@ public "Demand-Preserving" engine (tetsutani_demand) as-is.
   at +$24 mean but lost more games than it won), the _CA_* layer (41 turns a game in 30 of 48 games).
 - Opening: the engine's opening comes from _PIPE_MODE ('EarlyCycle'); it beats the 13-wheat openers
   20-0, so do not weaken it. Wheat buy-the-dip (_BD_*) and the cash reserve (_CXD_*) act every game.
+- Rival counters (knowledge: "The rival counter"). The first counter to try is the one the recorded games
+  support: {"channels": {"rival_counter": true}, "counters": {"mirror": {"_EV_H": 12, "_DP_H": 12, "_MP_H": 12,
+  "_ADV_LOOK": 4}}} on an old-engine island (leave out _ADV_LOOK where the champion already has 4). Then per
+  class: what wins against nsell_openers (they are the Forecast family and the 09-27 engine: sale timing that
+  reacts to their selling, the guard's _OG_* per class) and against other openings. Counters change play only
+  against their class, so a counter edit's changed games are that class's games.
+- The public engine's 09-27 version beats all our graphs 18-2. On the Island-Next-* islands (that engine as
+  the backbone): start from its mirror, find its layers that act, and give it our guard and rival counters.

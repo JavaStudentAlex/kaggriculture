@@ -1,0 +1,19 @@
+{
+ "name": "replay_114182750",
+ "episode": 114182750,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "mmwstudy",
+ "opponent_submission": 56573315,
+ "seed": 2112205206,
+ "recorded_rewards": [
+  85506.0,
+  85411.0
+ ],
+ "recorded_margin_for_us": 95,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e8902b1b936785fc453800d0af167adbbafacfae353d89a854bcfc79574ded4e"
+ }
+}

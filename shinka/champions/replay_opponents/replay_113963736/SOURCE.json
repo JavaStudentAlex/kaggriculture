@@ -1,0 +1,19 @@
+{
+ "name": "replay_113963736",
+ "episode": 113963736,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "AdamJonesJohnson",
+ "opponent_submission": 56547252,
+ "seed": 956810918,
+ "recorded_rewards": [
+  92976.0,
+  92927.0
+ ],
+ "recorded_margin_for_us": 49,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "db35496f4afc42a76a27a78986ec854856a9cddffe245cd6cfe11ec2b9fef295"
+ }
+}

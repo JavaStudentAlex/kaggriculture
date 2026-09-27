@@ -1,0 +1,19 @@
+{
+ "name": "replay_114045950",
+ "episode": 114045950,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Kirderf",
+ "opponent_submission": 56587057,
+ "seed": 1299263274,
+ "recorded_rewards": [
+  102034.0,
+  99954.0
+ ],
+ "recorded_margin_for_us": -2080,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e72a13d03b7e413debd87c54ff8296ca7cd08da453e3838f8575dfea36787238"
+ }
+}

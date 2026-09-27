@@ -1,0 +1,19 @@
+{
+ "name": "replay_114100809",
+ "episode": 114100809,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Sarthak Sharma ",
+ "opponent_submission": 56599813,
+ "seed": 2067219821,
+ "recorded_rewards": [
+  93206.0,
+  92169.0
+ ],
+ "recorded_margin_for_us": -1037,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "9866ba0226c895580685d666ef5974f3396f461c45ded2c0d3275016b0864588"
+ }
+}

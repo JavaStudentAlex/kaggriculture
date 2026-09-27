@@ -1,0 +1,19 @@
+{
+ "name": "replay_113937258",
+ "episode": 113937258,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "kekuru",
+ "opponent_submission": 56528638,
+ "seed": 364120337,
+ "recorded_rewards": [
+  94173.0,
+  94089.0
+ ],
+ "recorded_margin_for_us": 84,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f6b19324f652d300b26b6d24240131a19a1f1a634437408a081b53d707308068"
+ }
+}

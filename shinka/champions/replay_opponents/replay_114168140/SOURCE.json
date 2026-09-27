@@ -1,0 +1,19 @@
+{
+ "name": "replay_114168140",
+ "episode": 114168140,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Jacky Chan",
+ "opponent_submission": 56533613,
+ "seed": 717034807,
+ "recorded_rewards": [
+  126210.0,
+  126552.0
+ ],
+ "recorded_margin_for_us": 342,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "a0298e516f64d5b3e4ea200f80474bfb01a015509ab8f88a2d4404603e204d61"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114243132",
+ "episode": 114243132,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "MachineLearner",
+ "opponent_submission": 56593343,
+ "seed": 630726150,
+ "recorded_rewards": [
+  74448.0,
+  74926.0
+ ],
+ "recorded_margin_for_us": -478,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "d9f61cb694cb8aee43ed60923aa76b956b056628fcaa452eed15b2a34a9afb2f"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114166657",
+ "episode": 114166657,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "MauoXX",
+ "opponent_submission": 56581759,
+ "seed": 2059967881,
+ "recorded_rewards": [
+  76080.0,
+  76681.0
+ ],
+ "recorded_margin_for_us": -601,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b701e6f7d42f5ef82fc68a4c36597eb11f94ca24e6fda739110fcf1dbadfe7c8"
+ }
+}

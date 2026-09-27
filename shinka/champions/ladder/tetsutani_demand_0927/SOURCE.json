@@ -1,0 +1,17 @@
+{
+ "name": "tetsutani_demand_0927",
+ "notebook": "tetsutani/demand-preserving-turn-sale-timing",
+ "decoded": "ARCHIVE_B85 (b85+tar)",
+ "entry": "main.py",
+ "files": {
+  "LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+  "main.py": "55be5d5f124c8daaaa63c1a29ba4aab096004909666f04748007603c67b7d2a8"
+ },
+ "pulled_utc": "2026-09-27T10:00Z",
+ "notebook_id": 134878109,
+ "title": "🌾 Demand-Preserving Turn Sale Timing",
+ "url": "https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing",
+ "variant": "step1009_step1008_fortyfirst_final_fixedsell_closure",
+ "note": "the notebook as re-run 2026-09-27 02:50 UTC (archive now ARCHIVE_B85); plays Alder Ford rivals Dean0016 and GeHaohua exactly"
+}

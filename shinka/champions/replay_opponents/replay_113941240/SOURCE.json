@@ -1,0 +1,19 @@
+{
+ "name": "replay_113941240",
+ "episode": 113941240,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Roland Luethy",
+ "opponent_submission": 56589054,
+ "seed": 48639011,
+ "recorded_rewards": [
+  108848.0,
+  108922.0
+ ],
+ "recorded_margin_for_us": 74,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5f262c73308819e77735b797580505de2223740d5fdd69539667942ed9de8bde"
+ }
+}

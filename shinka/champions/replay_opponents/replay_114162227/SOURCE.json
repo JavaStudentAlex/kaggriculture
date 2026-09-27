@@ -1,0 +1,19 @@
+{
+ "name": "replay_114162227",
+ "episode": 114162227,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Snorf",
+ "opponent_submission": 56581881,
+ "seed": 388171783,
+ "recorded_rewards": [
+  77579.0,
+  77537.0
+ ],
+ "recorded_margin_for_us": 42,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "39fba7ab69707127796bdd51fa882f3f7fb3c94f9ad8f9f679173b7ce96855c6"
+ }
+}

@@ -15,6 +15,7 @@ sys.path.insert(0, str(HERE / 'hazel_runtime'))
 
 import graph_edits  # noqa: E402
 import make_ladder_graph  # noqa: E402
+from arena import payload  # noqa: E402
 from hazel_runtime import engines, oracle_guard  # noqa: E402
 
 ENGINE = 'tetsutani_demand'
@@ -150,6 +151,22 @@ class LadderGraphTests(unittest.TestCase):
         base = json.loads(make_ladder_graph.BASE.read_text())
         with self.assertRaisesRegex(ValueError, 'ladder engine'):
             graph_edits.apply_edit(base, {'engine_parameters': {'V9_CARROT_RATIO': 2.0}}, self.constants)
+
+    def test_bundle_pins_only_its_own_engine(self):
+        # made from the old engine's seed graph, it still pins that engine's files, which the bundle leaves out
+        path = HERE / 'evolution_results' / 'ladder_2026-09-27' / 'seed_graph_engine0927.json'
+        graph = json.loads(path.read_text())
+        self.assertTrue(any(k.startswith('engines/tetsutani_demand/') for k in
+                            graph['provenance']['runtime_bundle_hashes']))
+        with tempfile.TemporaryDirectory() as tmp:
+            dst = payload.write_graph_bundle(Path(tmp) / 'b', graph, 'test')
+            pins = json.loads((dst / 'policy_graph.json').read_text())['provenance']['runtime_bundle_hashes']
+            self.assertEqual(sorted(p.name for p in (dst / 'hazel_runtime' / 'engines').iterdir()),
+                             ['tetsutani_demand_0927'])
+            self.assertFalse([k for k in pins if k.startswith('engines/tetsutani_demand/')])
+            self.assertIn('engines/tetsutani_demand_0927/agent/main.py', pins)
+            for relative, digest in pins.items():
+                self.assertEqual(payload.sha(dst / 'hazel_runtime' / relative), digest, relative)
 
     def test_prompt_lists_engine_controls(self):
         text = graph_edits.describe_controls(self.graph, self.constants)

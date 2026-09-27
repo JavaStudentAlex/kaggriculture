@@ -1,0 +1,19 @@
+{
+ "name": "replay_114179935",
+ "episode": 114179935,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "RAVEN",
+ "opponent_submission": 56600933,
+ "seed": 892835952,
+ "recorded_rewards": [
+  112351.0,
+  112313.0
+ ],
+ "recorded_margin_for_us": -38,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "2ea3b0f2edd3aa973b2a2988d3eb83459e643744becb13252c3f99f78b7eb7dc"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113997400",
+ "episode": 113997400,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Jane Street Farmers",
+ "opponent_submission": 56594625,
+ "seed": 1445372795,
+ "recorded_rewards": [
+  70474.0,
+  70433.0
+ ],
+ "recorded_margin_for_us": -41,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "34ae349e00adddb2c4760b326156e9c84b0505266dff5e46654d270b6c7df269"
+ }
+}

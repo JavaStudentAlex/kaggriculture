@@ -1,0 +1,19 @@
+{
+ "name": "replay_114151915",
+ "episode": 114151915,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Max Bloom",
+ "opponent_submission": 56556285,
+ "seed": 848591973,
+ "recorded_rewards": [
+  139904.0,
+  138900.0
+ ],
+ "recorded_margin_for_us": -1004,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "330b2176d2a6d067e9f3180108c45f1d205f1ff6edf772ce1f2845b96043921c"
+ }
+}

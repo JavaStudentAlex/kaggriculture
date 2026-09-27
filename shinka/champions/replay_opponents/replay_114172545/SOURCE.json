@@ -1,0 +1,19 @@
+{
+ "name": "replay_114172545",
+ "episode": 114172545,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "KTAcosmo",
+ "opponent_submission": 56593682,
+ "seed": 1621833872,
+ "recorded_rewards": [
+  82639.0,
+  83107.0
+ ],
+ "recorded_margin_for_us": 468,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e5d4f11943cecb278e3fd8b1855815ef488156937d5aa3bd1484d713f8e9edde"
+ }
+}

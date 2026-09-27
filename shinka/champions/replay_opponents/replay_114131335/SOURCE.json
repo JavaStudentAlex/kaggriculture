@@ -1,0 +1,19 @@
+{
+ "name": "replay_114131335",
+ "episode": 114131335,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "DeeSaa",
+ "opponent_submission": 56600848,
+ "seed": 48853276,
+ "recorded_rewards": [
+  73530.0,
+  73374.0
+ ],
+ "recorded_margin_for_us": -156,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e74608e9b4fb7dd9889f8927fb1ff23b36b43a4cf6051d0dc03ca9abe5b9b811"
+ }
+}

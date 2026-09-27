@@ -1,0 +1,19 @@
+{
+ "name": "replay_114175486",
+ "episode": 114175486,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "なーでぃー牧場",
+ "opponent_submission": 56598208,
+ "seed": 729871697,
+ "recorded_rewards": [
+  109353.0,
+  107438.0
+ ],
+ "recorded_margin_for_us": 1915,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3925c6c5e09cded5506ca223a9bdf4ff9a8351fef26df6fd1dba539401056279"
+ }
+}

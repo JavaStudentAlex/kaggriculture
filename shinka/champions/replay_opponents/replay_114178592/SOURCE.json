@@ -1,0 +1,19 @@
+{
+ "name": "replay_114178592",
+ "episode": 114178592,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Hangyu Yu",
+ "opponent_submission": 56598138,
+ "seed": 1128547946,
+ "recorded_rewards": [
+  95535.0,
+  95443.0
+ ],
+ "recorded_margin_for_us": -92,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "cd51ede7e8e40eeba39a1bec08a28e0bf44b1a27d15348d28aca07560741fe93"
+ }
+}

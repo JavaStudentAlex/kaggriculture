@@ -1,0 +1,19 @@
+{
+ "name": "replay_114106198",
+ "episode": 114106198,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "emreaydin",
+ "opponent_submission": 56603417,
+ "seed": 1699043624,
+ "recorded_rewards": [
+  119486.0,
+  111658.0
+ ],
+ "recorded_margin_for_us": -7828,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f253c1e06b7ebb837118cb68aa89fe68e02c9368f66a49ccdf1bf188cc0de356"
+ }
+}

@@ -1,0 +1,1322 @@
+{
+ "113757153": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "aaaaLiu123",
+  "res": "W",
+  "diff": 67,
+  "orate": null
+ },
+ "113759502": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Nader",
+  "res": "W",
+  "diff": 1283,
+  "orate": null
+ },
+ "113760690": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Sam-wiz",
+  "res": "W",
+  "diff": 595,
+  "orate": 1901.1
+ },
+ "113761895": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Igor V",
+  "res": "L",
+  "diff": -542,
+  "orate": 2295.3
+ },
+ "113763097": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "shuinno",
+  "res": "T",
+  "diff": 0,
+  "orate": 2105.4
+ },
+ "113764294": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Addison Howard (ineligible)",
+  "res": "L",
+  "diff": -698,
+  "orate": 1985.9
+ },
+ "113765330": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "AlexMoura2026",
+  "res": "W",
+  "diff": 125,
+  "orate": null
+ },
+ "113765488": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "あかつき",
+  "res": "L",
+  "diff": -696,
+  "orate": null
+ },
+ "113766750": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Umataro Tenma",
+  "res": "L",
+  "diff": -181,
+  "orate": null
+ },
+ "113768003": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Rohan L",
+  "res": "L",
+  "diff": -345,
+  "orate": 1876.6
+ },
+ "113769256": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Cherie01",
+  "res": "W",
+  "diff": 1061,
+  "orate": null
+ },
+ "113769447": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "rhythm master",
+  "res": "L",
+  "diff": -39,
+  "orate": null
+ },
+ "113771539": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 10.0,
+  "team": "ikevayansky",
+  "res": "L",
+  "diff": -36,
+  "orate": null
+ },
+ "113772707": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -220.0,
+  "team": "IamDiganta.7",
+  "res": "W",
+  "diff": 468,
+  "orate": null
+ },
+ "113773889": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Stefano",
+  "res": "W",
+  "diff": 1258,
+  "orate": null
+ },
+ "113775062": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "RiyaSoni20",
+  "res": "W",
+  "diff": 817,
+  "orate": null
+ },
+ "113776421": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Yusuraume",
+  "res": "L",
+  "diff": -167,
+  "orate": null
+ },
+ "113777461": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "デワンシュ",
+  "res": "L",
+  "diff": -2976,
+  "orate": null
+ },
+ "113778672": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Miz",
+  "res": "W",
+  "diff": 285,
+  "orate": 1908.2
+ },
+ "113779811": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "auouer",
+  "res": "W",
+  "diff": 542,
+  "orate": null
+ },
+ "113781002": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "ADRIANO ALMEIDA",
+  "res": "L",
+  "diff": -1703,
+  "orate": 1893.7
+ },
+ "113782374": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "edwinis",
+  "res": "L",
+  "diff": -33,
+  "orate": null
+ },
+ "113783348": {
+  "class": "other_opening",
+  "decided_at": 2,
+  "diverged_at": 2,
+  "gap": -901.0,
+  "team": "Konstantin Zhar",
+  "res": "L",
+  "diff": -528,
+  "orate": null
+ },
+ "113784517": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "lucataco",
+  "res": "W",
+  "diff": 982,
+  "orate": null
+ },
+ "113786822": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "デワンシュ",
+  "res": "L",
+  "diff": -985,
+  "orate": null
+ },
+ "113788032": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "King-damon",
+  "res": "L",
+  "diff": -407,
+  "orate": null
+ },
+ "113789079": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "BorisV",
+  "res": "W",
+  "diff": 118,
+  "orate": null
+ },
+ "113789218": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Shangshang Zhang",
+  "res": "L",
+  "diff": -1170,
+  "orate": null
+ },
+ "113790239": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "Pilea55",
+  "res": "L",
+  "diff": -520,
+  "orate": 2345.4
+ },
+ "113790393": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "J.Moriuchi",
+  "res": "L",
+  "diff": -1148,
+  "orate": 2211.7
+ },
+ "113791069": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "BostonKaggle",
+  "res": "W",
+  "diff": 1191,
+  "orate": 1874.1
+ },
+ "113791589": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "coke lu",
+  "res": "W",
+  "diff": 480,
+  "orate": 1952.8
+ },
+ "113792781": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Dante Lok",
+  "res": "W",
+  "diff": 127,
+  "orate": null
+ },
+ "113793427": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 10.0,
+  "team": "syouya tobita",
+  "res": "L",
+  "diff": -9275,
+  "orate": 2272.7
+ },
+ "113793970": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "DLTLM",
+  "res": "W",
+  "diff": 1175,
+  "orate": 1917.4
+ },
+ "113796091": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "Grigor Sargsyan",
+  "res": "W",
+  "diff": 1074,
+  "orate": null
+ },
+ "113797241": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Nikita Makarov",
+  "res": "L",
+  "diff": -6771,
+  "orate": null
+ },
+ "113797509": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "AI After Hours",
+  "res": "L",
+  "diff": -426,
+  "orate": null
+ },
+ "113798678": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Artem Bakalinskiy",
+  "res": "W",
+  "diff": 2687,
+  "orate": 1875.0
+ },
+ "113799841": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -220.0,
+  "team": "Sadettin Şamil Verdil",
+  "res": "L",
+  "diff": -876,
+  "orate": 2190.0
+ },
+ "113800967": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Yi Wang",
+  "res": "W",
+  "diff": 1081,
+  "orate": 1933.8
+ },
+ "113802291": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "BorisV",
+  "res": "T",
+  "diff": 0,
+  "orate": null
+ },
+ "113803415": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Kaan Dınız",
+  "res": "W",
+  "diff": 1939,
+  "orate": null
+ },
+ "113804580": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "nofreewill42",
+  "res": "W",
+  "diff": 379,
+  "orate": 1882.1
+ },
+ "113805858": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "kentaro_kato",
+  "res": "W",
+  "diff": 1828,
+  "orate": null
+ },
+ "113807099": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Khor Yin Loon",
+  "res": "W",
+  "diff": 614,
+  "orate": 1983.7
+ },
+ "113808349": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Sai Syam",
+  "res": "W",
+  "diff": 440,
+  "orate": 1904.9
+ },
+ "113808766": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Shadow",
+  "res": "W",
+  "diff": 1475,
+  "orate": 1925.1
+ },
+ "113809614": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "T.Uehira",
+  "res": "W",
+  "diff": 6015,
+  "orate": null
+ },
+ "113809879": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Arnav Goel",
+  "res": "W",
+  "diff": 1952,
+  "orate": 1922.3
+ },
+ "113810857": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Paritosh Kumar Tripathi",
+  "res": "W",
+  "diff": 645,
+  "orate": 2066.1
+ },
+ "113812115": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "jasonyoung",
+  "res": "W",
+  "diff": 84,
+  "orate": 2067.5
+ },
+ "113813359": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -516.0,
+  "team": "Alexander Sokolov",
+  "res": "L",
+  "diff": -4798,
+  "orate": 2151.7
+ },
+ "113814578": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "arumajiro",
+  "res": "W",
+  "diff": 451,
+  "orate": null
+ },
+ "113814673": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 149.0,
+  "team": "Jeryos",
+  "res": "W",
+  "diff": 2712,
+  "orate": null
+ },
+ "113815065": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "auouer",
+  "res": "W",
+  "diff": 514,
+  "orate": null
+ },
+ "113815972": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "ГИМНАЗИЯ14ЙОШКАРОЛА",
+  "res": "T",
+  "diff": 0,
+  "orate": null
+ },
+ "113817133": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "ZJUwlm",
+  "res": "T",
+  "diff": 0,
+  "orate": null
+ },
+ "113818373": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "GURU Prasaatha S",
+  "res": "T",
+  "diff": 0,
+  "orate": null
+ },
+ "113819609": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "test_money",
+  "res": "L",
+  "diff": -328,
+  "orate": 2093.9
+ },
+ "113820851": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Nakul Maurya",
+  "res": "W",
+  "diff": 403,
+  "orate": 2021.2
+ },
+ "113822100": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -516.0,
+  "team": "shivam kanojia",
+  "res": "L",
+  "diff": -3592,
+  "orate": 2258.5
+ },
+ "113823323": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Roland Luethy",
+  "res": "T",
+  "diff": 0,
+  "orate": 2036.8
+ },
+ "113824286": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 10.0,
+  "team": "sonny_01",
+  "res": "W",
+  "diff": 830,
+  "orate": 2279.3
+ },
+ "113824601": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "funny farm",
+  "res": "W",
+  "diff": 4290,
+  "orate": null
+ },
+ "113825386": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Joseph Ayanda",
+  "res": "L",
+  "diff": -1429,
+  "orate": null
+ },
+ "113825832": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Mike Kim",
+  "res": "T",
+  "diff": 0,
+  "orate": 2042.3
+ },
+ "113827089": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Alperen Söylen",
+  "res": "L",
+  "diff": -2244,
+  "orate": null
+ },
+ "113828344": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Marwan Ashref",
+  "res": "T",
+  "diff": 0,
+  "orate": 2045.4
+ },
+ "113832379": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Lynxx",
+  "res": "W",
+  "diff": 132,
+  "orate": null
+ },
+ "113839583": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "extra eclaire",
+  "res": "L",
+  "diff": -1782,
+  "orate": null
+ },
+ "113844158": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Shivam_2212",
+  "res": "W",
+  "diff": 7,
+  "orate": null
+ },
+ "113850784": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "robikscube",
+  "res": "L",
+  "diff": -393,
+  "orate": null
+ },
+ "113852507": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "sue124",
+  "res": "W",
+  "diff": 1535,
+  "orate": 1927.5
+ },
+ "113854101": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Joseph Ayanda",
+  "res": "L",
+  "diff": -157,
+  "orate": null
+ },
+ "113860592": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Akash Deep",
+  "res": "T",
+  "diff": 0,
+  "orate": 2052.6
+ },
+ "113866804": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Rushil Desai",
+  "res": "W",
+  "diff": 5407,
+  "orate": null
+ },
+ "113871485": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Itikela Bhaskar",
+  "res": "L",
+  "diff": -1712,
+  "orate": null
+ },
+ "113872202": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "daphne",
+  "res": "W",
+  "diff": 77,
+  "orate": 2008.0
+ },
+ "113877988": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "choqui62",
+  "res": "W",
+  "diff": 922,
+  "orate": null
+ },
+ "113878227": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Ahmed Hazem Abdeltawab",
+  "res": "T",
+  "diff": 0,
+  "orate": 2096.4
+ },
+ "113879175": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "tmcoder",
+  "res": "L",
+  "diff": -317,
+  "orate": 2159.8
+ },
+ "113879276": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "InSociEUP",
+  "res": "T",
+  "diff": 0,
+  "orate": 2019.5
+ },
+ "113885416": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Pralay Ghosh",
+  "res": "L",
+  "diff": -140,
+  "orate": null
+ },
+ "113888062": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 10.0,
+  "team": "linchuhan",
+  "res": "L",
+  "diff": -1372,
+  "orate": 2130.4
+ },
+ "113894144": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -2785.0,
+  "team": "Capitaalgain",
+  "res": "W",
+  "diff": 6646,
+  "orate": 2103.7
+ },
+ "113896876": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "Vaibhav Gupta",
+  "res": "L",
+  "diff": -5731,
+  "orate": null
+ },
+ "113898176": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Snorf",
+  "res": "T",
+  "diff": 0,
+  "orate": 2043.5
+ },
+ "113904269": {
+  "class": "other_opening",
+  "decided_at": 54,
+  "diverged_at": 54,
+  "gap": 0.0,
+  "team": "Taeyang",
+  "res": "W",
+  "diff": 237,
+  "orate": null
+ },
+ "113907822": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "lvisdd",
+  "res": "W",
+  "diff": 42,
+  "orate": null
+ },
+ "113913844": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "pavan rajr",
+  "res": "L",
+  "diff": -584,
+  "orate": 2135.9
+ },
+ "113914582": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 10.0,
+  "team": "Will Rice",
+  "res": "W",
+  "diff": 245,
+  "orate": 1986.2
+ },
+ "113915265": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Frost Cerberus",
+  "res": "T",
+  "diff": 0,
+  "orate": 2093.1
+ },
+ "113921783": {
+  "class": "other_opening",
+  "decided_at": 34,
+  "diverged_at": 34,
+  "gap": 0.0,
+  "team": "Cheese Burgers",
+  "res": "W",
+  "diff": 5454,
+  "orate": 2049.2
+ },
+ "113925674": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Michael Jordan",
+  "res": "W",
+  "diff": 119,
+  "orate": null
+ },
+ "113928126": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Запрети мне брать H100",
+  "res": "W",
+  "diff": 13,
+  "orate": 2025.9
+ },
+ "113934758": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Lorenzo Regalado",
+  "res": "W",
+  "diff": 27,
+  "orate": 2059.5
+ },
+ "113937258": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "kekuru",
+  "res": "W",
+  "diff": 84,
+  "orate": null
+ },
+ "113940093": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "HUNGRED XYIS",
+  "res": "T",
+  "diff": 0,
+  "orate": 2019.1
+ },
+ "113941240": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Roland Luethy",
+  "res": "W",
+  "diff": 74,
+  "orate": 2053.5
+ },
+ "113947758": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "WeAreFarmers",
+  "res": "L",
+  "diff": -2372,
+  "orate": 2326.2
+ },
+ "113947903": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Pramit Das",
+  "res": "L",
+  "diff": -231,
+  "orate": 2138.6
+ },
+ "113954510": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "Dicere",
+  "res": "W",
+  "diff": 881,
+  "orate": 2005.2
+ },
+ "113957020": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": -220.0,
+  "team": "Michael Timbs",
+  "res": "L",
+  "diff": -31557,
+  "orate": 2160.0
+ },
+ "113962970": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "k hori ",
+  "res": "W",
+  "diff": 121,
+  "orate": null
+ },
+ "113963736": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "AdamJonesJohnson",
+  "res": "W",
+  "diff": 49,
+  "orate": 2180.2
+ },
+ "113968794": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "today",
+  "res": "W",
+  "diff": 192,
+  "orate": 2069.4
+ },
+ "113975667": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "ShimonHori",
+  "res": "W",
+  "diff": 536,
+  "orate": null
+ },
+ "113983390": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "BAHUMANYA R G",
+  "res": "W",
+  "diff": 155,
+  "orate": 2123.1
+ },
+ "113991257": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Hıdır BozkurtT",
+  "res": "W",
+  "diff": 385,
+  "orate": 2168.0
+ },
+ "113997400": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Jane Street Farmers",
+  "res": "L",
+  "diff": -41,
+  "orate": 2160.6
+ },
+ "114000539": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "wei chang",
+  "res": "L",
+  "diff": -307,
+  "orate": 2179.6
+ },
+ "114003017": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "Cheese Burgers",
+  "res": "L",
+  "diff": -1094,
+  "orate": 2049.2
+ },
+ "114009773": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Yukino487",
+  "res": "L",
+  "diff": -643,
+  "orate": 2090.6
+ },
+ "114016460": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Nimish Shinde",
+  "res": "L",
+  "diff": -74,
+  "orate": 2128.9
+ },
+ "114017447": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Huseyin Battal",
+  "res": "L",
+  "diff": -100,
+  "orate": 2053.4
+ },
+ "114025187": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Shane Thivaharraja",
+  "res": "L",
+  "diff": -10,
+  "orate": 2133.7
+ },
+ "114025794": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Kagdew Valley_HeNU",
+  "res": "L",
+  "diff": -2,
+  "orate": 2035.4
+ },
+ "114034562": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "minghao mei",
+  "res": "T",
+  "diff": 0,
+  "orate": 2097.4
+ },
+ "114036398": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "hank0123",
+  "res": "L",
+  "diff": -28,
+  "orate": 2030.2
+ },
+ "114045950": {
+  "class": "other_opening",
+  "decided_at": 1,
+  "diverged_at": 1,
+  "gap": 139.0,
+  "team": "Kirderf",
+  "res": "L",
+  "diff": -2080,
+  "orate": 2241.2
+ },
+ "114054708": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "ReCurSiON",
+  "res": "W",
+  "diff": 14,
+  "orate": 2031.1
+ },
+ "114063004": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "wonder777",
+  "res": "L",
+  "diff": -571,
+  "orate": 2143.1
+ },
+ "114068311": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -87.0,
+  "team": "Dean0016",
+  "res": "L",
+  "diff": -477,
+  "orate": 2490.3
+ },
+ "114069953": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "CrazyML",
+  "res": "L",
+  "diff": -747,
+  "orate": null
+ },
+ "114071444": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "GeHaohua",
+  "res": "L",
+  "diff": -1708,
+  "orate": 2112.7
+ },
+ "114082240": {
+  "class": "nsell_opener",
+  "decided_at": 92,
+  "diverged_at": 92,
+  "gap": -90.0,
+  "team": "ziheng",
+  "res": "L",
+  "diff": -1301,
+  "orate": 2110.7
+ },
+ "114092555": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Yassine Ben Zekri",
+  "res": "W",
+  "diff": 14,
+  "orate": 2051.3
+ },
+ "114098439": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Prajwal M",
+  "res": "L",
+  "diff": -3,
+  "orate": 2181.5
+ },
+ "114100809": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "Sarthak Sharma ",
+  "res": "L",
+  "diff": -1037,
+  "orate": 2047.9
+ },
+ "114102100": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "kaito ide 31",
+  "res": "T",
+  "diff": 0,
+  "orate": 2019.7
+ },
+ "114102429": {
+  "class": "mirror",
+  "decided_at": 93,
+  "diverged_at": null,
+  "gap": null,
+  "team": "y3uanm",
+  "res": "W",
+  "diff": 15,
+  "orate": 2045.5
+ }
+}

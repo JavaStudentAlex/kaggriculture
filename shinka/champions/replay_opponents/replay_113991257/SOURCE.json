@@ -1,0 +1,19 @@
+{
+ "name": "replay_113991257",
+ "episode": 113991257,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Hıdır BozkurtT",
+ "opponent_submission": 56587788,
+ "seed": 2000281647,
+ "recorded_rewards": [
+  80885.0,
+  80500.0
+ ],
+ "recorded_margin_for_us": 385,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "78d2b26d2bd28c5e88e7461c5f1fe91c6f05fdf3d808464239fdbd921e59df0a"
+ }
+}

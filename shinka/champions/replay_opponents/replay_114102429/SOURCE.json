@@ -1,0 +1,19 @@
+{
+ "name": "replay_114102429",
+ "episode": 114102429,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "y3uanm",
+ "opponent_submission": 56596825,
+ "seed": 777483006,
+ "recorded_rewards": [
+  94663.0,
+  94648.0
+ ],
+ "recorded_margin_for_us": 15,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8adc11bc53ef2016c278a4dd693fe7350894da841b594b9f66b97349aa6213f5"
+ }
+}

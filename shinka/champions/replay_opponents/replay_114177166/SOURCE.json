@@ -1,0 +1,19 @@
+{
+ "name": "replay_114177166",
+ "episode": 114177166,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Rospel",
+ "opponent_submission": 56588419,
+ "seed": 1844489472,
+ "recorded_rewards": [
+  75302.0,
+  71600.0
+ ],
+ "recorded_margin_for_us": -3702,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "d86deb61b1a2d6e084753936ba4d099349e697b068d32dee42f2ea81de625cf3"
+ }
+}

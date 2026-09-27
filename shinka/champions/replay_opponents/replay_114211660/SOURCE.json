@@ -1,0 +1,19 @@
+{
+ "name": "replay_114211660",
+ "episode": 114211660,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Azathoth",
+ "opponent_submission": 56608422,
+ "seed": 1510811713,
+ "recorded_rewards": [
+  77259.0,
+  87078.0
+ ],
+ "recorded_margin_for_us": -9819,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3c891250ba706ce5f45f51f7a05a1529320a22da33308c256fec8ce0029e4fae"
+ }
+}

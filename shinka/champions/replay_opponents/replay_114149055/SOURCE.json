@@ -1,0 +1,19 @@
+{
+ "name": "replay_114149055",
+ "episode": 114149055,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "私立ホルスタイン学園",
+ "opponent_submission": 56593669,
+ "seed": 96376406,
+ "recorded_rewards": [
+  70512.0,
+  70684.0
+ ],
+ "recorded_margin_for_us": -172,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "40d6e8021e52e302560b424a024e75d2a0ed84dcef7cf13e8f1f84a28db7376b"
+ }
+}

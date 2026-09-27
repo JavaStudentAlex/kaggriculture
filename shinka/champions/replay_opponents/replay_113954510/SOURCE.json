@@ -1,0 +1,19 @@
+{
+ "name": "replay_113954510",
+ "episode": 113954510,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Dicere",
+ "opponent_submission": 56489358,
+ "seed": 1519267714,
+ "recorded_rewards": [
+  67424.0,
+  66543.0
+ ],
+ "recorded_margin_for_us": 881,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "4522e1046198b44b77d722431c9d013f70ab0dbaef55eea1bbcc92ef3ea44ed5"
+ }
+}

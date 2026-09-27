@@ -1,0 +1,19 @@
+{
+ "name": "replay_114025187",
+ "episode": 114025187,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Shane Thivaharraja",
+ "opponent_submission": 56597065,
+ "seed": 759578487,
+ "recorded_rewards": [
+  66625.0,
+  66615.0
+ ],
+ "recorded_margin_for_us": -10,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3b85ebd1d1c890de80428b6bbc1bf0ed9b2145dc05aeccf2c4f8119126a611ec"
+ }
+}

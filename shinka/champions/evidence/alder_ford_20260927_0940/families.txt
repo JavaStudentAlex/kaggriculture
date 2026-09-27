@@ -1,0 +1,62 @@
+113885416 L     -140  tetsutani (buy 5 + seed)           Pralay Ghosh             
+113888062 L    -1372  2965 (buy 20 / sell 15)            linchuhan                2130.4
+113894144 W    +6646  other (buy 4 / sell 0 + seed)      Capitaalgain             2103.7
+113896876 L    -5731  other (buy 8 / sell 8 + seed)      Vaibhav Gupta            
+113898176 T       +0  tetsutani (buy 5 + seed)           Snorf                    2043.5
+113904269 W     +237  2965 (buy 20 / sell 15)            Taeyang                  
+113907822 W      +42  tetsutani (buy 5 + seed)           lvisdd                   
+113913844 L     -584  tetsutani (buy 5 + seed)           pavan rajr               2135.9
+113914582 W     +245  other (buy 10 / sell 5)            Will Rice                1986.2
+113915265 T       +0  tetsutani (buy 5 + seed)           Frost Cerberus           2093.1
+113921783 W    +5454  other (buy 15 / sell 10 + seed)    Cheese Burgers           2049.2
+113925674 W     +119  tetsutani (buy 5 + seed)           Michael Jordan           
+113928126 W      +13  tetsutani (buy 5 + seed)           Запрети мне брать H100   2025.9
+113934758 W      +27  tetsutani (buy 5 + seed)           Lorenzo Regalado         2059.5
+113937258 W      +84  tetsutani (buy 5 + seed)           kekuru                   
+113940093 T       +0  tetsutani (buy 5 + seed)           HUNGRED XYIS             2019.1
+113941240 W      +74  tetsutani (buy 5 + seed)           Roland Luethy            2053.5
+113947758 L    -2372  other (buy 6 / sell 1 + seed)      WeAreFarmers             2326.2
+113947903 L     -231  tetsutani (buy 5 + seed)           Pramit Das               2138.6
+113954510 W     +881  other (buy 5 / sell 5 + seed)      Dicere                   2005.2
+113957020 L   -31557  shape shop (buy 13)                Michael Timbs            2160.0
+113962970 W     +121  tetsutani (buy 5 + seed)           k hori                   
+113963736 W      +49  other (buy 10 / sell 5 + seed)     AdamJonesJohnson         2180.2
+113968794 W     +192  tetsutani (buy 5 + seed)           today                    2069.4
+113975667 W     +536  forecast (buy 8 / sell 3)          ShimonHori               
+113983390 W     +155  tetsutani (buy 5 + seed)           BAHUMANYA R G            2123.1
+113991257 W     +385  forecast (buy 8 / sell 3)          Hıdır BozkurtT           2168.0
+113997400 L      -41  tetsutani (buy 5 + seed)           Jane Street Farmers      2160.6
+114000539 L     -307  tetsutani (buy 5 + seed)           wei chang                2179.6
+114003017 L    -1094  other (buy 15 / sell 10 + seed)    Cheese Burgers           2049.2
+114009773 L     -643  tetsutani (buy 5 + seed)           Yukino487                2090.6
+114016460 L      -74  tetsutani (buy 5 + seed)           Nimish Shinde            2128.9
+114017447 L     -100  2965 (buy 20 / sell 15)            Huseyin Battal           2053.4
+114025187 L      -10  tetsutani (buy 5 + seed)           Shane Thivaharraja       2133.7
+114025794 L       -2  tetsutani (buy 5 + seed)           Kagdew Valley_HeNU       2035.4
+114034562 T       +0  tetsutani (buy 5 + seed)           minghao mei              2097.4
+114036398 L      -28  tetsutani (buy 5 + seed)           hank0123                 2030.2
+114045950 L    -2080  other (buy 8 / sell 8 + seed)      Kirderf                  2241.2
+114054708 W      +14  tetsutani (buy 5 + seed)           ReCurSiON                2031.1
+114063004 L     -571  tetsutani (buy 5 + seed)           wonder777                2143.1
+114068311 L     -477  forecast (buy 8 / sell 3)          Dean0016                 2490.3
+114069953 L     -747  forecast (buy 8 / sell 3)          CrazyML                  
+114071444 L    -1708  forecast (buy 8 / sell 3)          GeHaohua                 2112.7
+114082240 L    -1301  other (buy 10 / sell 5 + seed)     ziheng                   2110.7
+114092555 W      +14  tetsutani (buy 5 + seed)           Yassine Ben Zekri        2051.3
+114098439 L       -3  tetsutani (buy 5 + seed)           Prajwal M                2181.5
+114100809 L    -1037  tetsutani (buy 5 + seed)           Sarthak Sharma           2047.9
+114102100 T       +0  tetsutani (buy 5 + seed)           kaito ide 31             2019.7
+114102429 W      +15  tetsutani (buy 5 + seed)           y3uanm                   2045.5
+
+rival family                       games  W-L-T    mean margin  losses > $600
+tetsutani (buy 5 + seed)            30   12-13-5        -93   2
+forecast (buy 8 / sell 3)            5   2-3-0         -402   2
+2965 (buy 20 / sell 15)              3   1-2-0         -412   1
+other (buy 8 / sell 8 + seed)        2   0-2-0        -3906   2
+other (buy 15 / sell 10 + seed)      2   1-1-0        +2180   1
+other (buy 10 / sell 5 + seed)       2   1-1-0         -626   1
+other (buy 4 / sell 0 + seed)        1   1-0-0        +6646   0
+other (buy 10 / sell 5)              1   1-0-0         +245   0
+other (buy 6 / sell 1 + seed)        1   0-1-0        -2372   1
+other (buy 5 / sell 5 + seed)        1   1-0-0         +881   0
+shape shop (buy 13)                  1   0-1-0       -31557   1

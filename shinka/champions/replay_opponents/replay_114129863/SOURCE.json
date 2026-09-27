@@ -1,0 +1,19 @@
+{
+ "name": "replay_114129863",
+ "episode": 114129863,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "안녕하세요이세입니다잘부탁드립니다",
+ "opponent_submission": 56595990,
+ "seed": 222287963,
+ "recorded_rewards": [
+  63766.0,
+  64517.0
+ ],
+ "recorded_margin_for_us": -751,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "7eb9f308bd2936af82d48352f6208615e76b67f14afd874af6503dbf4c8a572b"
+ }
+}

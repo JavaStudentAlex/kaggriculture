@@ -1,0 +1,19 @@
+{
+ "name": "replay_113888062",
+ "episode": 113888062,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "linchuhan",
+ "opponent_submission": 56564942,
+ "seed": 1861760729,
+ "recorded_rewards": [
+  101597.0,
+  102969.0
+ ],
+ "recorded_margin_for_us": -1372,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6092d228d76b11df819940e74296bfa1be5cdf0c7868ba6e01b7e9595a9b2592"
+ }
+}

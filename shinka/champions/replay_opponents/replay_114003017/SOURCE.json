@@ -1,0 +1,19 @@
+{
+ "name": "replay_114003017",
+ "episode": 114003017,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Cheese Burgers",
+ "opponent_submission": 56539093,
+ "seed": 525549075,
+ "recorded_rewards": [
+  62674.0,
+  61580.0
+ ],
+ "recorded_margin_for_us": -1094,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1e79dae1c9a47699d93f955fa89007e88838dcf8315792560169e68f85ae3c05"
+ }
+}

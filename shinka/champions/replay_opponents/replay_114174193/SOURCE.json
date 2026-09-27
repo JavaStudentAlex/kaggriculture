@@ -1,0 +1,19 @@
+{
+ "name": "replay_114174193",
+ "episode": 114174193,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Bohdan Boklah",
+ "opponent_submission": 56575018,
+ "seed": 2001530726,
+ "recorded_rewards": [
+  84604.0,
+  84560.0
+ ],
+ "recorded_margin_for_us": 44,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e8d6c67bcc2eb6cc6b0b946ab1e67782f89284596f7e1d0a3d6511afe9866945"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113934758",
+ "episode": 113934758,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Lorenzo Regalado",
+ "opponent_submission": 56583542,
+ "seed": 1681559504,
+ "recorded_rewards": [
+  104630.0,
+  104603.0
+ ],
+ "recorded_margin_for_us": 27,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "646718093641a2a309cc337d42fce456a8102db5d4657645b48a7ed09d8e5c99"
+ }
+}

@@ -14,7 +14,10 @@ Each iteration works on one island:
 3. Paired gauntlet (graph_gauntlet.py): the same seeds against the opponent pool
    (--opponents, default Mohui13, Mohui, Hazel and Willow), plus head-to-head games
    against the island champion. The winner replaces the champion only if the exact sign
-   test over the changed games is significant and the mean change is positive.
+   test over the changed games is significant and the mean change is positive. With
+   --stage_fraction the gauntlet plays that share of the games first and stops a candidate
+   that changed at most four of them, or made at least as many of them worse as better
+   ("stopped after n of m games" in the log).
 
 Every --supervisor_interval iterations the meta-supervisor turns recent results into
 guidance for the next prompts. Every --mix_interval iterations the islands mix: the island
@@ -25,6 +28,8 @@ champion moving to another island costs only the head-to-head block. The prompts
 this: an edit whose settings were evaluated on any island is refused as a repeat.
 A --queue file lets a person test a specific edit: an island's next iteration plays its first
 queued edit not played yet (model "queue"), with the same gauntlet, instead of the proposals.
+With --prefetch the models propose the next island's candidate while a gauntlet plays ("[NEXT]"
+in the log); the next iteration takes it if that island's champion did not change meanwhile.
 Everything is written under --run_dir (checkpoint.json, candidates.jsonl, best_graph.json,
 status.json, games and logs); policy_graph.json is read once as the seed and never written:
 promoting a result is a reviewed commit.
@@ -44,6 +49,7 @@ import json
 import logging
 from pathlib import Path
 import signal
+import threading
 import sys
 import time
 from typing import Any, Callable, Dict, List, Optional
@@ -170,7 +176,10 @@ def _result_line(record: Dict[str, Any]) -> str:
     verdict = record.get("verdict") or {}
     if not verdict:
         return f"{'; '.join(record['changes'])} | not played: {record.get('cause', '')[:160]}"
-    outcome = "PROMOTED" if verdict.get("promote") else "rejected"
+    stopped = record.get("stopped")
+    outcome = ("PROMOTED" if verdict.get("promote") else
+               f"stopped after {stopped['played']} of {stopped['of']} games ({stopped['reason']})" if stopped else
+               "rejected")
     per = "; ".join(f"{tag} {s['wins']}-{s['losses']}-{s['ties']} ${s['mean']:+,.0f}"
                     for tag, s in sorted((verdict.get("per_opponent") or {}).items()))
     return (f"{'; '.join(record['changes'])} | changed games {verdict['wins']}W-{verdict['losses']}L "
@@ -189,12 +198,14 @@ class EditEvolution:
                  retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8,
                  ideas_path: Optional[Path] = None, proxy_ready: Callable[[], bool] = lambda: True,
                  islands=None, knowledge_path: Optional[Path] = None, mix_interval: int = 0,
-                 queue_path: Optional[Path] = None):
+                 queue_path: Optional[Path] = None, prefetch: bool = False):
         self.run_dir = Path(run_dir)
         self.queue_path = Path(queue_path) if queue_path else None
         self.islands = islands
         self.mix_interval = mix_interval
         self.proxy_ready = proxy_ready
+        self.prefetch = prefetch
+        self._next = None  # (thread, holder) of the next iteration's proposals
         self.ideas_path = Path(ideas_path) if ideas_path else None
         self.knowledge_path = Path(knowledge_path) if knowledge_path else None
         self.gauntlet, self.mutator, self.judge, self.bandit = gauntlet, mutator, judge, bandit
@@ -290,7 +301,7 @@ class EditEvolution:
                 for _, name, r in played[-12:]]
 
     # ------------------------------------------------------------------ one iteration
-    def propose(self, island, iteration, results, models_used) -> List[Dict[str, Any]]:
+    def propose(self, island, iteration, results, models_used, extra_seen=()) -> List[Dict[str, Any]]:
         proposals = []
         champion = island["graph"]
         controls = graph_edits.describe_controls(champion, self.constants)
@@ -324,7 +335,7 @@ class EditEvolution:
                     graph = graph_edits.apply_edit(champion, edit, self.constants)
                     key = graph_edits.settings_key(graph, self.constants)
                     changes = graph_edits.diff(champion, graph, self.constants)
-                    if key in self.state["seen"] or any(p["key"] == key for p in proposals):
+                    if key in self.state["seen"] or key in extra_seen or any(p["key"] == key for p in proposals):
                         raise ValueError("these settings were already evaluated: " + "; ".join(changes))
                     path = self.run_dir / "candidates" / f"iter{iteration:04d}_{index}.json"
                     atomic_json(path, graph)
@@ -342,35 +353,103 @@ class EditEvolution:
                 self.bandit.update(model, reward=0.0, crowned=False)
         return proposals
 
-    def iteration(self, iteration: int):
+    def choose(self, island, iteration, extra_seen=()):
+        """The models' candidate for an island: SIFT proposals, then the judge. (winner, votes), or None
+        when the proxy is down or no proposal is viable."""
+        results = self.results_text(island["graph"])
+        if not self.proxy_ready():
+            return None
+        proposals = self.propose(island, iteration, results, [], extra_seen)
+        if not proposals:
+            logging.warning("  no viable candidate for iteration %d", iteration)
+            return None
+        context = f"Island focus: {island['focus']}\n{results}"
+        ranked, votes = self.judge.rank_edits(proposals, self.current_knowledge(), context)
+        for proposal, _ in ranked[1:]:
+            self.bandit.update(proposal["model"], reward=0.15, crowned=False)
+        return ranked[0][0], votes
+
+    def _start_prefetch(self, iteration, last, playing_key):
+        """With --prefetch, the models propose the next iteration's candidate while this gauntlet plays
+        (the pool is idle during proposals otherwise). Not before a mixing or a meta-supervisor run, or
+        for an island with queued edits or with pool games still to play; the candidate being played
+        counts as seen."""
+        self._next = None
+        n, islands = iteration + 1, self.state["islands"]
+        if (not self.prefetch or (last is not None and n > last) or len(islands) < 2 or self.mix_due(iteration)
+                or iteration % self.supervisor_interval == 0):
+            return
+        island = islands[(n - 1) % len(islands)]
+        if island["name"] in self._queued_islands() or not self.gauntlet.has_baseline(island["graph"]):
+            return
+        holder = {"iteration": n, "island": island["name"],
+                  "key": graph_edits.settings_key(island["graph"], self.constants)}
+
+        def work():
+            try:
+                logging.info("  [NEXT] iteration %d (%s): proposals while this gauntlet plays", n, island["name"])
+                holder["chosen"] = self.choose(island, n, extra_seen=(playing_key,))
+            except Exception as exc:
+                logging.warning("  [NEXT] proposals for iteration %d failed: %s", n, str(exc)[:300])
+
+        thread = threading.Thread(target=work, name=f"proposals-{n}", daemon=True)
+        thread.start()
+        self._next = (thread, holder)
+
+    def _join_prefetch(self):
+        if self._next:
+            self._next[0].join()
+
+    def _take_prefetched(self, island, iteration):
+        """The candidate proposed during the previous gauntlet: only for this iteration and island, with
+        the island's champion unchanged and the candidate's settings still not played."""
+        if not self._next:
+            return None
+        thread, holder = self._next
+        self._next = None
+        chosen = holder.get("chosen")
+        if (thread.is_alive() or not chosen or holder["iteration"] != iteration or holder["island"] != island["name"]
+                or holder["key"] != graph_edits.settings_key(island["graph"], self.constants)
+                or chosen[0]["key"] in self.state["seen"]):
+            return None
+        logging.info("  [NEXT] the candidate proposed during the previous gauntlet")
+        return chosen
+
+    def _queued_islands(self):
+        if not self.queue_path or not self.queue_path.exists():
+            return set()
+        try:
+            return {e.get("island") for e in json.loads(self.queue_path.read_text())}
+        except ValueError:
+            return set()
+
+    def iteration(self, iteration: int, last: Optional[int] = None):
         island = self.state["islands"][(iteration - 1) % len(self.state["islands"])]
         logging.info("-" * 65)
         logging.info("ITERATION %d | %s", iteration, island["name"])
         winner, votes = self.queued(island, iteration), 0
         if winner:
+            self._next = None
             logging.info("  [QUEUE] candidate: %s", "; ".join(winner["changes"]))
         else:
-            results = self.results_text(island["graph"])
-            if not self.proxy_ready():
+            chosen = self._take_prefetched(island, iteration) or self.choose(island, iteration)
+            if chosen is None:
                 return None
-            proposals = self.propose(island, iteration, results, [])
-            if not proposals:
-                logging.warning("  no viable candidate this iteration")
-                return None
-            context = f"Island focus: {island['focus']}\n{results}"
-            ranked, votes = self.judge.rank_edits(proposals, self.current_knowledge(), context)
-            winner = ranked[0][0]
+            winner, votes = chosen
             logging.info("  [SIFT] %d valid votes; winner %s: %s", votes, winner["model"], "; ".join(winner["changes"]))
-            for proposal, _ in ranked[1:]:
-                self.bandit.update(proposal["model"], reward=0.15, crowned=False)
         baseline = self.gauntlet.baseline(island["graph"])
-        evaluation = self.gauntlet.evaluate(winner["graph"], island["graph"])
+        self._start_prefetch(iteration, last, winner["key"])
+        try:
+            evaluation = self.gauntlet.evaluate(winner["graph"], island["graph"], baseline=baseline)
+        finally:
+            self._join_prefetch()
         verdict = compare(evaluation, baseline, self.gauntlet.alpha)
         self.state["seen"].append(winner["key"])
         record = {"iteration": iteration, "island": island["name"], "model": winner["model"],
                   "rationale": winner["rationale"], "edit": winner["edit"], "changes": winner["changes"],
                   "bundle": evaluation["bundle"], "verdict": verdict, "judge_votes": votes,
-                  "errors": evaluation["errors"][:5], "fallbacks": evaluation["fallbacks"]}
+                  "errors": evaluation["errors"][:5], "fallbacks": evaluation["fallbacks"],
+                  **({"stopped": evaluation["stopped"]} if evaluation.get("stopped") else {})}
         self._log_candidate(dict(record, stage="gauntlet"))
         logging.info("  gauntlet: %s", _result_line(record))
         if verdict["promote"]:
@@ -395,30 +474,56 @@ class EditEvolution:
         return bool(self.mix_interval and after >= self.mix_interval and
                     after // self.mix_interval > self.state.get("mixed_after", 0) // self.mix_interval)
 
+    def seed_of(self, island) -> Dict[str, Any]:
+        """The graph an island started from: its own `seed` (islands added later, e.g. on another
+        engine), else the run's seed graph."""
+        return island.get("seed") or self.state["seed_graph"]
+
+    def donors(self) -> Dict[str, Dict[str, Any]]:
+        """Per production engine, the island champion with the largest mean gain over its seed on the
+        pool games: {engine: {"donor", "graph"}}. Islands on different engines do not mix (their
+        engine parameters differ)."""
+        best = {}
+        for island in self.state["islands"]:
+            if not island["history"]:
+                continue
+            stats = compare(self.gauntlet.baseline(island["graph"]), self.gauntlet.baseline(self.seed_of(island)),
+                            self.gauntlet.alpha)
+            engine = graph_edits.engine_name(island["graph"])
+            if engine not in best or stats["mean_change"] > best[engine][0]:
+                best[engine] = (stats["mean_change"], island)
+        return {e: {"donor": i["name"], "graph": copy.deepcopy(i["graph"])} for e, (_, i) in best.items()}
+
     def mix(self, after: int) -> bool:
-        """Offer every island the donor's changes. The donor is fixed when the mixing starts and
-        saved, so a stopped mixing resumes with the islands not yet offered. False if a stop
+        """Offer every island its engine's donor's changes. The donors are fixed when the mixing starts
+        and saved, so a stopped mixing resumes with the islands not yet offered. False if a stop
         arrived before every island was offered them."""
         mixing = self.state.get("mixing")
+        if mixing and "donor" in mixing and "donors" not in mixing:   # a mixing saved by the earlier code
+            mixing["donors"] = {graph_edits.engine_name(mixing["graph"]): {"donor": mixing["donor"],
+                                                                            "graph": mixing["graph"]}}
         if not mixing or mixing.get("after") != after:
             self.update_best()
-            best = self.state.get("best")
-            if not best:
-                logging.info("MIXING after iteration %d: no island champion beats the seed yet", after)
+            donors = self.donors()
+            if not donors:
+                logging.info("MIXING after iteration %d: no island champion beats its seed yet", after)
                 return True
-            donor = next(i for i in self.state["islands"] if i["name"] == best["island"])
-            mixing = {"after": after, "donor": donor["name"], "graph": copy.deepcopy(donor["graph"]), "done": []}
+            mixing = {"after": after, "donors": donors, "done": []}
             self.state["mixing"] = mixing
             self.persist()
         logging.info("-" * 65)
-        logging.info("MIXING after iteration %d | donor %s: %s", after, mixing["donor"],
-                     "; ".join(graph_edits.diff(self.state["seed_graph"], mixing["graph"], self.constants)))
+        for engine, d in sorted(mixing["donors"].items()):
+            seed = next((self.seed_of(i) for i in self.state["islands"] if i["name"] == d["donor"]),
+                        self.state["seed_graph"])
+            logging.info("MIXING after iteration %d | %s | donor %s: %s", after, engine, d["donor"],
+                         "; ".join(graph_edits.diff(seed, d["graph"], self.constants)))
         for island in self.state["islands"]:
-            if island["name"] == mixing["donor"] or island["name"] in mixing["done"]:
+            d = mixing["donors"].get(graph_edits.engine_name(island["graph"]))
+            if not d or island["name"] == d["donor"] or island["name"] in mixing["done"]:
                 continue
             if not _RUNNING:
                 return False
-            self.migrate(island, mixing)
+            self.migrate(island, {"after": after, **d})
             mixing["done"].append(island["name"])
             self.persist()
         self.status(after, "mixed")
@@ -427,7 +532,7 @@ class EditEvolution:
     def migrate(self, island, mixing):
         """One island offered the donor's changes; the gauntlet decides as for an edit."""
         after, donor = mixing["after"], mixing["donor"]
-        edit = graph_edits.migration_edit(island["graph"], mixing["graph"], self.state["seed_graph"], self.constants)
+        edit = graph_edits.migration_edit(island["graph"], mixing["graph"], self.seed_of(island), self.constants)
         if edit is None:
             logging.info("  [MIX] %s already has every change of %s", island["name"], donor)
             return None
@@ -443,7 +548,7 @@ class EditEvolution:
             return None
         changes = graph_edits.diff(island["graph"], graph, self.constants)
         baseline = self.gauntlet.baseline(island["graph"])
-        evaluation = self.gauntlet.evaluate(graph, island["graph"])
+        evaluation = self.gauntlet.evaluate(graph, island["graph"], baseline=baseline)
         verdict = compare(evaluation, baseline, self.gauntlet.alpha)
         key = graph_edits.settings_key(graph, self.constants)
         if key not in self.state["seen"]:
@@ -451,7 +556,8 @@ class EditEvolution:
         record = {"iteration": after, "island": island["name"], "model": "mixing",
                   "rationale": f"island mixing: the changes of {donor}", "edit": edit, "changes": changes,
                   "donor": donor, "bundle": evaluation["bundle"], "verdict": verdict,
-                  "errors": evaluation["errors"][:5], "fallbacks": evaluation["fallbacks"]}
+                  "errors": evaluation["errors"][:5], "fallbacks": evaluation["fallbacks"],
+                  **({"stopped": evaluation["stopped"]} if evaluation.get("stopped") else {})}
         self._log_candidate(dict(record, stage="mixing"))
         logging.info("  [MIX] %s: %s", island["name"], _result_line(record))
         if verdict["promote"]:
@@ -464,7 +570,7 @@ class EditEvolution:
         return record
 
     def update_best(self):
-        """The island champion with the largest mean gain over the seed on the pool games."""
+        """The island champion with the largest mean gain over the run's seed on the pool games."""
         seed_baseline = self.gauntlet.baseline(self.state["seed_graph"])
         best = None
         for island in self.state["islands"]:
@@ -473,7 +579,7 @@ class EditEvolution:
             stats = compare(self.gauntlet.baseline(island["graph"]), seed_baseline, self.gauntlet.alpha)
             if best is None or stats["mean_change"] > best["vs_seed"]["mean_change"]:
                 best = {"island": island["name"], "vs_seed": stats,
-                        "changes": graph_edits.diff(self.state["seed_graph"], island["graph"], self.constants)}
+                        "changes": graph_edits.diff(self.seed_of(island), island["graph"], self.constants)}
                 atomic_json(self.run_dir / "best_graph.json", island["graph"])
         self.state["best"] = best
         if best:
@@ -484,7 +590,7 @@ class EditEvolution:
             "updated_unix": time.time(), "iteration": iteration, "event": event,
             "islands": [{"name": i["name"], "promotions": len(i["history"]),
                          "rejections": len(i["rejections"]),
-                         "changes_vs_seed": graph_edits.diff(self.state["seed_graph"], i["graph"], self.constants)}
+                         "changes_vs_seed": graph_edits.diff(self.seed_of(i), i["graph"], self.constants)}
                         for i in self.state["islands"]],
             "best": self.state.get("best"), "bandit": self.bandit.summary()})
 
@@ -501,7 +607,7 @@ class EditEvolution:
                 self.persist()
                 if not _RUNNING:
                     break
-            record = self.iteration(n)
+            record = self.iteration(n, last=iterations)
             if not _RUNNING and record is None:
                 break  # stopped before a game was played: repeat this iteration on resume
             # a stop that arrives during the gauntlet ends the run after this iteration is saved
@@ -552,6 +658,11 @@ def main():
     parser.add_argument("--supervisor_interval", type=int, default=8)
     parser.add_argument("--mix_interval", type=int, default=12,
                         help="islands mix after every N iterations (0: never); see the module docstring")
+    parser.add_argument("--stage_fraction", type=float, default=0.0,
+                        help="play this share of a candidate's gauntlet first and the rest only if the candidate "
+                             "can still be promoted (graph_gauntlet.Gauntlet.stop_after_first_stage); 0: one stage")
+    parser.add_argument("--prefetch", action="store_true",
+                        help="the models propose the next iteration's candidate while a gauntlet plays")
     parser.add_argument("--queue", type=Path, default=None,
                         help="JSON list of {island, edit, rationale}: an island's next iteration plays its first "
                              "queued edit not played yet instead of the models' proposals; re-read each iteration")
@@ -577,7 +688,8 @@ def main():
         executor = ColabPoolExecutor(args.pool_dir)
     plan = json.loads(args.plan.read_text()) if args.plan else None
     gauntlet = Gauntlet(args.run_dir, executor, args.seeds_per_opponent,
-                        opponents=tuple(o for o in args.opponents.split(",") if o), alpha=args.alpha, plan=plan)
+                        opponents=tuple(o for o in args.opponents.split(",") if o), alpha=args.alpha, plan=plan,
+                        stage_fraction=args.stage_fraction)
     fingerprint = gauntlet.prepare()
     served = served_models()
     wanted = [m for m in args.models.split(",") if m] or served
@@ -589,11 +701,13 @@ def main():
         args.knowledge.read_text(), seed_graph=json.loads(args.seed_graph.read_text()),
         candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas,
         proxy_ready=wait_for_proxy, islands=LADDER_ISLANDS if args.islands == "ladder" else None,
-        knowledge_path=args.knowledge, mix_interval=args.mix_interval, queue_path=args.queue)
+        knowledge_path=args.knowledge, mix_interval=args.mix_interval, queue_path=args.queue,
+        prefetch=args.prefetch)
     logging.info("=" * 70)
     logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds (%d per seat) x %s + head-to-head | "
-                 "evaluation %s", len(evolution.state["islands"]), executor.describe(), args.seeds_per_opponent,
-                 args.seeds_per_opponent // 2, ",".join(gauntlet.opponents), fingerprint[:12])
+                 "evaluation %s | first stage %s", len(evolution.state["islands"]), executor.describe(),
+                 args.seeds_per_opponent, args.seeds_per_opponent // 2, ",".join(gauntlet.opponents), fingerprint[:12],
+                 f"{args.stage_fraction:.0%} of the jobs" if args.stage_fraction else "off")
     logging.info("=" * 70)
     evolution.run(args.iterations)
 

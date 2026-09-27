@@ -1,0 +1,19 @@
+{
+ "name": "replay_114063004",
+ "episode": 114063004,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "wonder777",
+ "opponent_submission": 56598812,
+ "seed": 1359955554,
+ "recorded_rewards": [
+  70788.0,
+  71359.0
+ ],
+ "recorded_margin_for_us": -571,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8945dd9448fb974c125e81dbe8154355967395a9d8b4bac711204fa0d4759793"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114189001",
+ "episode": 114189001,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "cocoaAI",
+ "opponent_submission": 56578394,
+ "seed": 32093276,
+ "recorded_rewards": [
+  70819.0,
+  70518.0
+ ],
+ "recorded_margin_for_us": 301,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "35d6491af84ee6a89d915e2b16760755715b0aeda452228f32b595098b82fde0"
+ }
+}

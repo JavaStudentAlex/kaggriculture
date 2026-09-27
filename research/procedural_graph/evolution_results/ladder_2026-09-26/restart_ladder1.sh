@@ -66,6 +66,6 @@ if [ -n "${BEFORE_START:-}" ]; then
 fi
 
 echo "=== RESTART $(date -u +%FT%T) --iterations $ITERATIONS ===" >> "$LOG"
-tmux new -d -s kagg-evo-ladder1 "cd /home/alex/kagg-evo/repo/research/procedural_graph && /home/alex/kagg-evo/venv/bin/python highcpu_island_evolution.py --executor colab-pool --pool_dir $POOL --plan evolution_results/ladder_2026-09-26/plan.json --islands ladder --knowledge evolution_knowledge_ladder.md --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json --run_dir /home/alex/kagg-evo/runs/ladder1 --iterations $ITERATIONS --seeds_per_opponent 20 --supervisor_interval 6 --mix_interval 12 --queue evolution_queue_ladder.json >> $LOG 2>&1; echo EVO_EXIT=\$? >> $LOG; touch $POOL/STOP"
+tmux new -d -s kagg-evo-ladder1 "cd /home/alex/kagg-evo/repo/research/procedural_graph && /home/alex/kagg-evo/venv/bin/python highcpu_island_evolution.py --executor colab-pool --pool_dir $POOL --plan evolution_results/ladder_2026-09-26/plan.json --islands ladder --knowledge evolution_knowledge_ladder.md --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json --run_dir /home/alex/kagg-evo/runs/ladder1 --iterations $ITERATIONS --seeds_per_opponent 20 --supervisor_interval 6 --mix_interval 12 --queue evolution_queue_ladder.json --stage_fraction 0.3 --prefetch >> $LOG 2>&1; echo EVO_EXIT=\$? >> $LOG; touch $POOL/STOP"
 sleep 30
 tmux ls | grep kagg-evo-ladder1 && grep -E "RESTART|bandit models|MIXING|] ITERATION [0-9]" "$LOG" | tail -3

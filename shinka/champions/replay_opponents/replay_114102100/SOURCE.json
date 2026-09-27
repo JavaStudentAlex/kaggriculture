@@ -1,0 +1,19 @@
+{
+ "name": "replay_114102100",
+ "episode": 114102100,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "kaito ide 31",
+ "opponent_submission": 56602016,
+ "seed": 2014559973,
+ "recorded_rewards": [
+  106419.0,
+  106419.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "da416ea90bdbb9361ca766edf8b84f1e03b90a07ed1324affed8b5a66c8c9640"
+ }
+}

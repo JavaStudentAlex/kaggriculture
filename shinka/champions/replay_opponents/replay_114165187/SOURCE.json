@@ -1,0 +1,19 @@
+{
+ "name": "replay_114165187",
+ "episode": 114165187,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "KIT0",
+ "opponent_submission": 56585183,
+ "seed": 1186882769,
+ "recorded_rewards": [
+  100738.0,
+  100692.0
+ ],
+ "recorded_margin_for_us": 46,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "4f9aa1c9b3bd9e278cb6d75796995a8edb070b480cf1503d6c482d2007552610"
+ }
+}

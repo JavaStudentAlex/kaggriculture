@@ -1,0 +1,19 @@
+{
+ "name": "replay_114036398",
+ "episode": 114036398,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "hank0123",
+ "opponent_submission": 56598649,
+ "seed": 1919780197,
+ "recorded_rewards": [
+  98818.0,
+  98790.0
+ ],
+ "recorded_margin_for_us": -28,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "adbbc7408c341152feb3f2ca3c135093daf4b49de19fceeae4bd8a6620136aa2"
+ }
+}

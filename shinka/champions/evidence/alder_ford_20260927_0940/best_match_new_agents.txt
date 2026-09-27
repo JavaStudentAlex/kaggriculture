@@ -1,0 +1,29 @@
+113885416 Pralay Ghosh                 tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113888062 linchuhan                    tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113896876 Vaibhav Gupta                tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113898176 Snorf                        tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113913844 pavan rajr                   tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113915265 Frost Cerberus               tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113940093 HUNGRED XYIS                 tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113947758 WeAreFarmers                 tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113947903 Pramit Das                   tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113957020 Michael Timbs                tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+113997400 Jane Street Farmers          tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114000539 wei chang                    tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114003017 Cheese Burgers               tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114009773 Yukino487                    tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114016460 Nimish Shinde                tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114017447 Huseyin Battal               tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114025187 Shane Thivaharraja           tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114025794 Kagdew Valley_HeNU           tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114034562 minghao mei                  tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114036398 hank0123                     tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114045950 Kirderf                      tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114063004 wonder777                    tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114068311 Dean0016               EXACT tetsutani_demand_0927 719, lynn_idle 719, haodou_ledger 719
+114069953 CrazyML                      tetsutani_demand_0927 252, lynn_idle 252, haodou_ledger 252
+114071444 GeHaohua               EXACT tetsutani_demand_0927 719, lynn_idle 719, haodou_ledger 719
+114082240 ziheng                       tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114098439 Prajwal M                    tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114100809 Sarthak Sharma               tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0
+114102100 kaito ide 31                 tetsutani_demand_0927 0, lynn_idle 0, haodou_ledger 0

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114128787",
+ "episode": 114128787,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Cherie01",
+ "opponent_submission": 56601110,
+ "seed": 940851501,
+ "recorded_rewards": [
+  107422.0,
+  107372.0
+ ],
+ "recorded_margin_for_us": -50,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1e6f228b475e9cd70b42b105d4578bcb43bd51cf6f570331d97dee5d6660035c"
+ }
+}

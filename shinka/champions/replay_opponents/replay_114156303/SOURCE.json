@@ -1,0 +1,19 @@
+{
+ "name": "replay_114156303",
+ "episode": 114156303,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Chaos",
+ "opponent_submission": 56584394,
+ "seed": 1798201637,
+ "recorded_rewards": [
+  146086.0,
+  146325.0
+ ],
+ "recorded_margin_for_us": 239,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "66c91cdc56bc2261bdf0c592e0ca109f5a201257be063aff8eac424656133da1"
+ }
+}

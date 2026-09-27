@@ -1,0 +1,19 @@
+{
+ "name": "replay_114171081",
+ "episode": 114171081,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Reinforcement Larping",
+ "opponent_submission": 56586749,
+ "seed": 317566289,
+ "recorded_rewards": [
+  89888.0,
+  91430.0
+ ],
+ "recorded_margin_for_us": -1542,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "efa94f1fa12167856880dcebb10ac718210a58bab5e05408b9c59450d7fc0c8a"
+ }
+}

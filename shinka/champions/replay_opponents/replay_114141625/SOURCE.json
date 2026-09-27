@@ -1,0 +1,19 @@
+{
+ "name": "replay_114141625",
+ "episode": 114141625,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Stephen Schott",
+ "opponent_submission": 56550083,
+ "seed": 1244060634,
+ "recorded_rewards": [
+  82928.0,
+  83845.0
+ ],
+ "recorded_margin_for_us": 917,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3f5756b86dd3f264d86bb3898b3e2097ad5119f6bdba4bccfe73de9fc83887ce"
+ }
+}

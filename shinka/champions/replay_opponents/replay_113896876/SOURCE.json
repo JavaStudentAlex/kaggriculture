@@ -1,0 +1,19 @@
+{
+ "name": "replay_113896876",
+ "episode": 113896876,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Vaibhav Gupta",
+ "opponent_submission": 56586390,
+ "seed": 15282244,
+ "recorded_rewards": [
+  99071.0,
+  104802.0
+ ],
+ "recorded_margin_for_us": -5731,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5dd8717026ffe5f5e9522d13155c34b8e5ca1a0cdcaccb283f7c9078909b1179"
+ }
+}

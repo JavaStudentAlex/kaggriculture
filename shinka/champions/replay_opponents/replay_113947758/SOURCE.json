@@ -1,0 +1,19 @@
+{
+ "name": "replay_113947758",
+ "episode": 113947758,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "WeAreFarmers",
+ "opponent_submission": 56582664,
+ "seed": 1488409399,
+ "recorded_rewards": [
+  113432.0,
+  111060.0
+ ],
+ "recorded_margin_for_us": -2372,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "355c22bc571158668a076cd037b99ada46a3fbb388682cadbebfc3ab4a1de5a1"
+ }
+}

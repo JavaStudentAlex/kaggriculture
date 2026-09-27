@@ -809,7 +809,8 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   `highcpu_island_evolution.py --executor colab-pool --pool_dir ~/kagg-evo/pool --islands ladder
   --plan evolution_results/ladder_2026-09-26/plan.json --knowledge evolution_knowledge_ladder.md
   --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json
-  --seeds_per_opponent 20 --mix_interval 12 --queue evolution_queue_ladder.json`. The plan (`ladder_seed_plan.py`) is every lost ladder seed
+  --seeds_per_opponent 20 --mix_interval 12 --queue evolution_queue_ladder.json --stage_fraction 0.3 --prefetch`.
+  The plan (`ladder_seed_plan.py`) is every lost ladder seed
   against the bundle that plays like the rival who beat us there, from both seats, plus 10 random seeds
   against each pool member; `--seeds_per_opponent` then only sizes the head-to-head block. The bandit
   pulls only the models the proxy serves.
@@ -830,7 +831,20 @@ runs a ladder agent as its production engine and evolution tunes that engine and
 - **Queued edits.** `--queue evolution_queue_ladder.json` (a JSON list of {island, edit, rationale}, re-read
   every iteration): an island's next iteration plays its first queued edit not played yet, instead of the
   models' proposals, with the same gauntlet and promotion rule (`"model": "queue"`, no bandit update). Use it
-  to test a specific hypothesis; edit the file in `~/kagg-evo/repo` after editing here.
+  to test a specific hypothesis; edit the file in `~/kagg-evo/repo` after editing here. An entry is re-applied to
+  the island's current champion every iteration, so once a mixing changes that champion a played entry counts
+  as new and plays again: remove entries once played.
+- **Staged gauntlet and proposals ahead** (since 09-27). `--stage_fraction 0.3` plays 30% of a candidate's games
+  first (the same games for every candidate, `graph_gauntlet.first_stage`) and stops a candidate that changed at
+  most four of them or made at least as many worse as better (`stopped after n of m games` in the log; never
+  promoted, the seen list and the bandit treat it as rejected). On the run's first 71 candidates it would have
+  stopped 35, none of the 20 promoted, and saved 32% of the games
+  (`evolution_results/ladder_2026-09-26/stage_replay.py` re-checks this on a run). `--prefetch` has the models
+  propose the next island's candidate while a gauntlet plays (`[NEXT]` in the log), except before a mixing or a
+  meta-supervisor run, for an island with queued edits, or when that island's baseline still has games to play;
+  the next iteration takes it only if the island's champion is unchanged and its settings are still new.
+  Neither is in the gauntlet fingerprint (only `hazel_runtime/`, `agent_graph.py`, the harness, seeds and engine
+  are), so switching them keeps the cache.
 - **Island mixing** (user's requirement, 2026-09-26). The islands evolve separately, and an edit whose
   settings were played on any island is refused as a repeat, so the models cannot pass a champion to
   another island. Every `--mix_interval` iterations (12 = two rounds of the six ladder islands; a run
@@ -888,4 +902,25 @@ runs a ladder agent as its production engine and evolution tunes that engine and
     A candidate for submission gets a backtest and then a fresh-seed validation. Scripts on cliproxyapi:
     `~/kagg-evo/backtest2.sh`, `validate_best.sh <label> <graph>`; results in
     `shinka/champions/evidence/alder_ford_20260927/README.md`.
+  - The game cache is keyed by label, opponent, seed and seat, not by the graph: reuse a file only with the
+    same labels for byte-identical graphs (a dry run prints each label's bundle id; compare them).
+- **Rival counters (since 2026-09-27).** The optional `rival_counter` turn stage (first in the chain) runs
+  `hazel_runtime/rival_model.MirrorTracker`: every observation shows the rival's whole farm, and on the same
+  seed a copy of our engine has our money and farm step for step. By step 93 the rival is `mirror`,
+  `nsell_opener` (money first behind ours at step 92 by the price of 3 wheat: buy N / sell N-5 openers such as
+  the Forecast family, most 2965 agents and the public engine's 09-27 version), `wheat92_seller`,
+  `other_opening` or `other`; from then on the node's `counters` for that class apply ({class: {NAME: value}}:
+  engine constants read at call time, `engines.switchable`, and `_OG_*` guard parameters), set in the engine's
+  module namespace, and the graph's own values otherwise. Edits: `{"channels": {"rival_counter": true},
+  "counters": {...}}` (switching the channel on inserts the node, its concept node and its pin); graphs
+  without the node play exactly as before. Evidence and the per-class value of each change:
+  `shinka/champions/evidence/alder_ford_20260927_0940/README.md`; offline tools in
+  `research/procedural_graph/rival/` (`rival_features.py`, `class_value.py`); tests `test_rival_counter.py`.
+- **Islands on another engine.** An island may carry its own `seed` (`add_islands.py` adds one,
+  `convert_island.py` moves an existing island onto another island's champion and seed in its place in the
+  rotation, as Island-Oracle became Island-Next-Counter on 09-27); it mixes only with
+  islands on the same engine (`EditEvolution.donors`). `graph_edits.validate_graph` checks a copy re-pinned to
+  the runtime on disk (as `write_graph_bundle` does in every bundle), so a runtime change does not invalidate the
+  graphs being evolved. A runtime change still changes the gauntlet fingerprint: check that unchanged graphs
+  replay their cached games, then `carry_fingerprint.py`.
 - Results and the iteration table: `evolution_results/ladder_2026-09-26/README.md`.

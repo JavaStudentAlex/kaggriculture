@@ -1,0 +1,19 @@
+{
+ "name": "replay_114118055",
+ "episode": 114118055,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "willam wu",
+ "opponent_submission": 56545458,
+ "seed": 1163278190,
+ "recorded_rewards": [
+  105335.0,
+  106431.0
+ ],
+ "recorded_margin_for_us": 1096,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "003a929711d15b0aa8478b1a9be444d9c720e085799d36d27a058ca0a4433c63"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_114034562",
+ "episode": 114034562,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "minghao mei",
+ "opponent_submission": 56539396,
+ "seed": 1616502154,
+ "recorded_rewards": [
+  59162.0,
+  59162.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "248cc0117269f0890a61717a5a4cb03c8b3d43127502c36509e4c0587cbc7143"
+ }
+}

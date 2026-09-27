@@ -1,0 +1,19 @@
+{
+ "name": "replay_113975667",
+ "episode": 113975667,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "ShimonHori",
+ "opponent_submission": 56572667,
+ "seed": 1232300707,
+ "recorded_rewards": [
+  91405.0,
+  91941.0
+ ],
+ "recorded_margin_for_us": 536,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "334e71f729b71d517abace1c6edf1735b63a39637e325a2407a4d4f78dfc2342"
+ }
+}

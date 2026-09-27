@@ -1,0 +1,19 @@
+{
+ "name": "replay_114244384",
+ "episode": 114244384,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "s_a_ai_engineer",
+ "opponent_submission": 56607546,
+ "seed": 1431139523,
+ "recorded_rewards": [
+  102019.0,
+  100670.0
+ ],
+ "recorded_margin_for_us": -1349,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6e0a54e6f11fc05b87c4635199bbee9bde665dbeda6300312e2c246cd707aded"
+ }
+}

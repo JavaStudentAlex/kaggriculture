@@ -1,0 +1,19 @@
+{
+ "name": "replay_114176968",
+ "episode": 114176968,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Shunsuke Hayashi",
+ "opponent_submission": 56533224,
+ "seed": 571871808,
+ "recorded_rewards": [
+  78592.0,
+  78752.0
+ ],
+ "recorded_margin_for_us": 160,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "84c274aa79780faef14e22ebb6e369f098e4460e1cd53f67bdfac1d242ff4042"
+ }
+}
