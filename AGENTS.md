@@ -18,9 +18,9 @@ plus the 9 `log1p` targets as channels; ~1.03 M params. Context length is a prop
 of each checkpoint (`config.json`): **256 turns** for the current model (forecasts from
 day 10 h16); the retired 512-context line was silent until day 21.
 
-Current model: **`models/ttm_c256_h96_ft_2026-09-25/`** — the 256-context base
+Current model: **`models/ttm_c256_h96_ft_2026-09-26/`** — the 256-context base
 (`ttm_c256_h96`, trained on the 44 corrected-label days through 09-11, section 12)
-refit on 09-21..09-25 by the daily recipe (section 6): AUC 0.852 → 0.854 on 09-25's
+refit on 09-22..09-26 by the daily recipe (section 6): AUC 0.853 → 0.855 on 09-26's
 held-out games; README inside, committed in git. `models/` holds only the promoted
 checkpoint; run dirs are deleted once their best is promoted (section 6).
 The model IS wired into a playing agent: the Shinka seed program serves a copy of
@@ -31,7 +31,7 @@ section 4.3.**
 
 | path | what |
 |---|---|
-| `models/ttm_c256_h96_ft_2026-09-25/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
+| `models/ttm_c256_h96_ft_2026-09-26/` | the promoted checkpoint (committed): `model.safetensors`, `config.json`, **`scaler.npz`** (input mean/std — required at inference), `labels.json`, `val_episodes.json`, `scores.json`, README |
 | `replays/kaggriculture-episodes-<date>.zip` | Kaggle's daily replay datasets, 2026-07-30 → 09-13 so far (46 days, 22.5 GB); not in git — the 00:30 UTC cron adds each new day (4.1) |
 | `datasets/shards/` | **the only shard directory**: one `kaggriculture-episodes-<date>.npz` per day (46 days, 2.4 GB) with `next_action` labels (4.2–4.3) and one `labels.json`; ceph copy of `/results/kagg/datasets/shards`. Not in git. Never inside the code directory |
 | `research/opponent_model/` | all model code: `extract.py` / `extract_parallel.py` (replays → shards), `features.py`, `mechanics.py`, `ttm_dataset.py` (windows, episode split, scaler), `metrics.py` (streaming histogram AUC/AP), `train_ttm.py`, `evaluate.py` (the one scorer; uses the checkpoint's `scaler.npz` and `val_episodes.json`) |
@@ -301,7 +301,8 @@ alignment); all of them were deleted on 2026-09-13 except the checkpoint in play
 
 | model | context / labels | status |
 |---|---|---|
-| `models/ttm_c256_h96_ft_2026-09-25` | 256 / next_action | **current**: the daily refit of the base through 09-25 (`train_5days.py` dual-GPU, 2026-09-26, early-stopped at epoch 7, best 2): on 09-25's held-out episodes AUC 0.852 → **0.854**, AP 0.408 → **0.414** (all 96 steps pooled); README in the dir. |
+| `models/ttm_c256_h96_ft_2026-09-26` | 256 / next_action | **current**: the daily refit of the base through 09-26 (`train_5days.py` dual-GPU, 2026-09-27, early-stopped at epoch 10, best 5): on 09-26's held-out episodes AUC 0.853 → **0.855**, AP 0.395 → **0.400** (all 96 steps pooled); README in the dir. |
+| `ttm_c256_h96_ft_2026-09-25` (256 / next_action) | — | previous refit through 09-25; in git history (commit a376de4) |
 | `ttm_c256_h96_ft_2026-09-24` (256 / next_action) | — | previous refit through 09-24; in git history (commit 4e1039a) |
 | `ttm_c256_h96_ft_2026-09-23` (256 / next_action) | — | previous refit through 09-23; in git history (commit 5e40c2f) |
 | `ttm_c256_h96_ft_2026-09-22` (256 / next_action) | — | previous refit through 09-22; in git history (commit edf06d0) |
@@ -387,6 +388,7 @@ Promoted as `models/ttm_c256_h96_ft_2026-09-13`.
 | `ft_2026-09-23` from `ttm_c256_h96_ft_2026-09-22` | 09-19..09-23 | 0.853 / 0.391 | 0.855 / 0.398 (13) | early, epoch 18 |
 | `ft_2026-09-24` from `ttm_c256_h96_ft_2026-09-23` | 09-20..09-24 | 0.852 / 0.405 | 0.853 / 0.411 (7) | early, epoch 12 |
 | `ft_2026-09-25` from `ttm_c256_h96_ft_2026-09-24` | 09-21..09-25 | 0.852 / 0.408 | 0.854 / 0.414 (2) | early, epoch 7 |
+| `ft_2026-09-26` from `ttm_c256_h96_ft_2026-09-25` | 09-22..09-26 | 0.853 / 0.395 | 0.855 / 0.400 (5) | early, epoch 10 |
 
 ## 7. Daily routine when a new day appears
 
