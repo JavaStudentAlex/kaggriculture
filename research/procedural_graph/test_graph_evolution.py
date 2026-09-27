@@ -280,6 +280,42 @@ class GauntletTests(unittest.TestCase):
             self.assertEqual(graph_gauntlet.compare(again, cached)['jobs'], 8)
 
 
+    def test_a_growing_plan_plays_only_its_new_jobs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            played = []
+
+            class FakeExecutor:
+                def describe(self):
+                    return {'engine': 'fake'}
+
+                def run(self, run_dir, name, bundles):
+                    jobs = json.loads((run_dir / 'jobs' / f'{name}.json').read_text())['jobs']
+                    played.append(sorted(graph_gauntlet.job_key(j) for j in jobs))
+                    with (run_dir / 'games' / f'{name}.jsonl').open('a') as fh:
+                        for j in jobs:
+                            rewards = [1000.0, 900.0] if j['a_seat'] == 0 else [900.0, 1000.0]
+                            fh.write(json.dumps(dict(j, rewards=rewards, statuses=['DONE', 'DONE'], errors=[])) + '\n')
+
+            plan = [{'tag': 'mohui', 'seed': 11, 'a_seat': 0}, {'tag': 'mohui', 'seed': 11, 'a_seat': 1}]
+            g = graph_gauntlet.Gauntlet(run, FakeExecutor(), seeds_per_opponent=2, plan=plan)
+            g.prepare()
+            seed = seed_graph()
+            self.assertEqual(set(g.baseline(seed)['margins']), {'mohui|11|0', 'mohui|11|1'})
+            grown = plan + [{'tag': 'mohui13', 'seed': 12, 'a_seat': 0, 'set': 'lost'}]
+            g2 = graph_gauntlet.Gauntlet(run, FakeExecutor(), seeds_per_opponent=2, plan=grown)
+            self.assertEqual(g2.prepare(), g.fingerprint)  # the plan is not part of the fingerprint
+            base = g2.baseline(seed)
+            self.assertEqual(played, [['mohui|11|0', 'mohui|11|1'], ['mohui13|12|0']])
+            self.assertEqual(set(base['margins']), {'mohui|11|0', 'mohui|11|1', 'mohui13|12|0'})
+            g2.baseline(seed)
+            self.assertEqual(len(played), 2)  # complete: nothing more to play
+            # a changed opponent bundle invalidates its own jobs only
+            (run / 'bundles' / 'mohui13' / 'main.py').write_text('# another agent\n')
+            g3 = graph_gauntlet.Gauntlet(run, FakeExecutor(), seeds_per_opponent=2, plan=grown)
+            self.assertEqual(g3.prepare(), g.fingerprint)
+            self.assertEqual(set(g3._cached(g3.bundle(seed))), {'mohui|11|0', 'mohui|11|1'})
+
     def test_fallbacks_are_attributed_to_the_candidate_graph(self):
         with tempfile.TemporaryDirectory() as tmp:
             g = graph_gauntlet.Gauntlet(Path(tmp), None, seeds_per_opponent=2, opponents=('mohui',))
@@ -395,6 +431,52 @@ class EvolutionLoopTests(unittest.TestCase):
             self.assertEqual(resumed.state['next_iteration'], 3)
             self.assertIn(str(run / 'seed_graph.json'), [str(p) for p in validated])
         self.assertEqual((ROOT / 'policy_graph.json').read_bytes(), committed)
+
+    def test_a_queued_edit_is_played_instead_of_the_proposals(self):
+        seed = seed_graph()
+
+        class FakeGauntlet:
+            alpha = 0.05
+
+            def baseline(self, graph):
+                return {'margins': {f'hazel|{i}|{i % 2}': 0.0 for i in range(20)}}
+
+            def evaluate(self, graph, incumbent):
+                margins = {f'hazel|{i}|{i % 2}': 5.0 for i in range(20)}
+                margins.update({f'incumbent|{i}|{i % 2}': 1.0 for i in range(20)})
+                return {'bundle': 'g_x', 'jobs': sorted(margins), 'margins': margins, 'errors': [], 'fallbacks': 0}
+
+        class CountingMutator:
+            calls = 0
+
+            def mutate_edit(self, *args, **kwargs):
+                CountingMutator.calls += 1
+                return {'parameters': {'_TOWN_CADENCE_PHASE': 3}}, 'the model proposes cadence phase 3'
+
+        class FakeJudge:
+            def rank_edits(self, proposals, knowledge, context):
+                return [(p, 1.0) for p in proposals], 0
+
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            queue = run / 'queue.json'
+            queue.write_text(json.dumps([
+                {'island': 'Island-Opening', 'edit': {'dispatch_order': 'bogus'}, 'rationale': 'refused'},
+                {'island': 'Island-Opening', 'edit': {'dispatch_order': 'sells_first'}, 'rationale': 'test it'}]))
+            loop = evo.EditEvolution(run, FakeGauntlet(), CountingMutator(), FakeJudge(),
+                                     UCB1Bandit(run / 'bandit.json'), lambda path: None, lambda *a, **k: [],
+                                     'facts', seed_graph=seed, candidates=1, supervisor_interval=100,
+                                     queue_path=queue)
+            record = loop.iteration(1)
+            self.assertEqual((record['model'], record['rationale']), ('queue', 'test it'))
+            self.assertEqual(CountingMutator.calls, 0)
+            opening = loop.state['islands'][0]
+            self.assertEqual(graph_edits.settings(opening['graph'])['dispatch_order'], 'sells_first')
+            self.assertEqual(opening['history'][-1]['model'], 'queue')
+            # a queued edit is played once: the island's next iteration asks the models again
+            record = loop.iteration(1 + len(loop.state['islands']))
+            self.assertNotEqual(record['model'], 'queue')
+            self.assertEqual(CountingMutator.calls, 1)
 
     def test_islands_mix_the_best_champion_into_the_others(self):
         seed = seed_graph()

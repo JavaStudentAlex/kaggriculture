@@ -1,0 +1,19 @@
+{
+ "name": "replay_113817133",
+ "episode": 113817133,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "ZJUwlm",
+ "opponent_submission": 56577369,
+ "seed": 1985347352,
+ "recorded_rewards": [
+  75523.0,
+  75523.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "95289fda2f3f6f501139ec1f99d02effbffa0fdd1f3b094504eead47023bf83d"
+ }
+}

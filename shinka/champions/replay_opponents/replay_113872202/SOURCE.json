@@ -1,0 +1,19 @@
+{
+ "name": "replay_113872202",
+ "episode": 113872202,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "daphne",
+ "opponent_submission": 56566406,
+ "seed": 1493070823,
+ "recorded_rewards": [
+  62006.0,
+  61929.0
+ ],
+ "recorded_margin_for_us": 77,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e212a25016cff326cec0ed731f488f38b28a880d80166a7a7984ab979cd4c0e3"
+ }
+}

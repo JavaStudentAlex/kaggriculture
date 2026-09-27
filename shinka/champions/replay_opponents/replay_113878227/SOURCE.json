@@ -1,0 +1,19 @@
+{
+ "name": "replay_113878227",
+ "episode": 113878227,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Ahmed Hazem Abdeltawab",
+ "opponent_submission": 56560631,
+ "seed": 265220395,
+ "recorded_rewards": [
+  80859.0,
+  80859.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "19ca2bf12a10550ea31a5d1356b4b77ba29bf5d117e2ea721f30772599197558"
+ }
+}

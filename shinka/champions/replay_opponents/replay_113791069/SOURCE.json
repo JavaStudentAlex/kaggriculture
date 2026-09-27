@@ -1,0 +1,19 @@
+{
+ "name": "replay_113791069",
+ "episode": 113791069,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "BostonKaggle",
+ "opponent_submission": 56561156,
+ "seed": 1117246807,
+ "recorded_rewards": [
+  130121.0,
+  131312.0
+ ],
+ "recorded_margin_for_us": 1191,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ebfdbae6cc6a527bd106b776c058124529e5f42d6864a3a26b1987a4dd36d7c1"
+ }
+}

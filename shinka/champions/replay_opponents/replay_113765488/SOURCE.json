@@ -1,0 +1,19 @@
+{
+ "name": "replay_113765488",
+ "episode": 113765488,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "あかつき",
+ "opponent_submission": 56555289,
+ "seed": 1889307780,
+ "recorded_rewards": [
+  63666.0,
+  62970.0
+ ],
+ "recorded_margin_for_us": -696,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b6174e57e6feb673248b1898c351d8c2065262f279438a1de3e54d3d099b0767"
+ }
+}

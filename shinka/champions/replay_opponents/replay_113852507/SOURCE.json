@@ -1,0 +1,19 @@
+{
+ "name": "replay_113852507",
+ "episode": 113852507,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "sue124",
+ "opponent_submission": 56587723,
+ "seed": 1294823827,
+ "recorded_rewards": [
+  91284.0,
+  92819.0
+ ],
+ "recorded_margin_for_us": 1535,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6f9a27fd5af79b04c31d25014778c65c44e3b11f508dc20da03f23d1ca650494"
+ }
+}

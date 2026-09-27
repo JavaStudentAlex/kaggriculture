@@ -1,0 +1,13 @@
+{
+ "name": "tetsutani_shape_shop",
+ "notebook": "tetsutani/shape-the-shop-work-the-pasture-kaggriculture",
+ "notebook_id": 132511782,
+ "title": "🌾 Shape the Shop Work the Pasture | Kaggriculture",
+ "url": "https://www.kaggle.com/code/tetsutani/shape-the-shop-work-the-pasture-kaggriculture",
+ "decoded": "MAIN_B64 (b64+)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "2b97e2c653018ac4aeffb8463ec91c8f26b097b4cef81289acc25ccdbc68f916"
+ },
+ "pulled_utc": "2026-09-26T19:24Z"
+}

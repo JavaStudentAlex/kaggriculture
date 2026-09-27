@@ -9,8 +9,9 @@ policy_graph.json, hazel_runtime/) with the variant's graph edits from variants.
 provenance hashes are re-pinned so the graph's integrity checks still pass. Opponents:
 the submitted packages (hazel, copper, orchard: MANIFEST archive files only), the
 bundled Mohui v66 backbone (mohui), mohui13 (backbone + the 13/9 opening of the top
-Mohui-based ladder opponents) and willow (Willow Ford, the closest local agent to the
-Harvest Current submission). One game per seed: the engine is seat-symmetric and the
+Mohui-based ladder opponents), willow (Willow Ford, the closest local agent to the
+Harvest Current submission), the public ladder agents (shinka/champions/ladder) and the
+replay opponents (shinka/champions/replay_opponents: one seat of a recorded ladder game). One game per seed: the engine is seat-symmetric and the
 agents deterministic (a swapped-seat replay gives identical cash), so the candidate's
 seat alternates with the seed index instead of playing both seats.
 """
@@ -29,6 +30,7 @@ PG = HERE.parent
 REPO = PG.parents[1]
 SUBMISSIONS = REPO / 'shinka/champions/submissions'
 LADDER = REPO / 'shinka/champions/ladder'   # public ladder agents (build_ladder_pool.py)
+REPLAYS = REPO / 'shinka/champions/replay_opponents'   # recorded ladder rivals (make_replay_opponents.py)
 PACKAGES = {'hazel': ('hazel_weir', 'MANIFEST.json'), 'copper': ('copper_weir', 'MANIFEST.json'),
             'orchard': ('orchard_tide', 'SUBMISSION_MANIFEST.json')}
 NODE_FEATURES = ('parameters', 'enabled', 'order')
@@ -133,6 +135,8 @@ def build_opponent(out, name):
             shutil.copy2(HERE / 'mohui13_main.py', dst / 'main.py')
     elif (LADDER / name / 'SOURCE.json').is_file():
         shutil.copytree(LADDER / name, dst, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+    elif (REPLAYS / name / 'SOURCE.json').is_file():
+        shutil.copytree(REPLAYS / name, dst, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
     elif name == 'willow':
         # Willow Ford (roster, 2026-09-08): Mohui v66 + Keiz opening + town-shop harvesting.
         # Closest local agent to the Harvest Current submission (56085502, ladder 1669.8),

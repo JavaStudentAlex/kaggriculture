@@ -1,0 +1,19 @@
+{
+ "name": "replay_113814673",
+ "episode": 113814673,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Jeryos",
+ "opponent_submission": 56582086,
+ "seed": 1938758682,
+ "recorded_rewards": [
+  55790.0,
+  58502.0
+ ],
+ "recorded_margin_for_us": 2712,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "d2511f7aecc4c7b322ceabd15cfc2927cfbbab2ed7faf9109c5e8946dfd87658"
+ }
+}

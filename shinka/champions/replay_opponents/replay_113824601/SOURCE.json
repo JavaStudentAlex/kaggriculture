@@ -1,0 +1,19 @@
+{
+ "name": "replay_113824601",
+ "episode": 113824601,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "funny farm",
+ "opponent_submission": 56559698,
+ "seed": 1975461306,
+ "recorded_rewards": [
+  115950.0,
+  120240.0
+ ],
+ "recorded_margin_for_us": 4290,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8c3e8ffea852f3b52e6d820a3ef8d962a41b3836d98da629e20ea4a5895b614d"
+ }
+}

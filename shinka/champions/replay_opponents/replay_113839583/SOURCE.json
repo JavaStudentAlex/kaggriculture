@@ -1,0 +1,19 @@
+{
+ "name": "replay_113839583",
+ "episode": 113839583,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "extra eclaire",
+ "opponent_submission": 56579362,
+ "seed": 1487701711,
+ "recorded_rewards": [
+  112447.0,
+  114229.0
+ ],
+ "recorded_margin_for_us": -1782,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "57a89cc4b44a38edd81d65bb4e930846e37cbb01ad50ec9a0af018bd36820ec0"
+ }
+}

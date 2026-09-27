@@ -1,0 +1,19 @@
+{
+ "name": "replay_113813359",
+ "episode": 113813359,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Alexander Sokolov",
+ "opponent_submission": 56581970,
+ "seed": 1607395298,
+ "recorded_rewards": [
+  68067.0,
+  63269.0
+ ],
+ "recorded_margin_for_us": -4798,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3a84a30f24d2d67e39660a71beb64f3b1099ca1ad55428ba093fff00e81eab3b"
+ }
+}

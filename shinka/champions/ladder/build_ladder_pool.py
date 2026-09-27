@@ -47,8 +47,14 @@ MEMBERS = {
     "pilkwang_sep": ("pilkwang/kaggriculture-structured-economic-policy", "archive_bytes", "main.py"),
     "haideptry_shepherd": ("haideptry/the-shepherds-ledger-herd-safe-sovereign", "AGENT_B64", "agent.py"),
     "haideptry_2965": ("haideptry/the-2965-master-hybrid-engine", "AGENT_B64", "agent.py"),
+    # the same notebook's version of 2026-09-26 13:54 UTC (haideptry_2965 keeps the one of 09-25, the
+    # evidence of Rowan Glen's and Linden Brook's losses); it plays Alder Ford's rival ADRIANO ALMEIDA exactly
+    "haideptry_2965_0926": ("haideptry/the-2965-master-hybrid-engine", "AGENT_B64", "agent.py"),
     "robust_economy": ("nihilisticneuralnet/kaggriculture-population-robust-economy", "MAIN_BLOB", "agent.py"),
     "tetsutani_demand": ("tetsutani/demand-preserving-turn-sale-timing", "ARCHIVE_B64", "main.py"),
+    # tetsutani's earlier notebook (09-06): the 13-wheat opening; plays three of Rowan Glen's and Linden
+    # Brook's 13-wheat rivals move for move (evidence/ladder_pool_20260926/open13_match.jsonl)
+    "tetsutani_shape_shop": ("tetsutani/shape-the-shop-work-the-pasture-kaggriculture", "MAIN_B64", "agent.py"),
     "leoprovorov_forecast": ("leoprovorov/four-turn-forecast-notebook-version-2", "SOURCE", "agent.py"),
     "hanifnoerrofiq_pioneers": ("hanifnoerrofiq/pioneers-of-kaggle-town-candidate-2", "content", "agent.py"),
 }

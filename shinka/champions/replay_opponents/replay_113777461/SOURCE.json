@@ -1,0 +1,19 @@
+{
+ "name": "replay_113777461",
+ "episode": 113777461,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "デワンシュ",
+ "opponent_submission": 56582036,
+ "seed": 88147910,
+ "recorded_rewards": [
+  99661.0,
+  102637.0
+ ],
+ "recorded_margin_for_us": -2976,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "9d8c60cd084574873b0f67d104a20d28535b39be12040a3f46cb147bed894f20"
+ }
+}

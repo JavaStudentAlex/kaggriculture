@@ -6,10 +6,17 @@
         --graph combo=merge:Island-Opening+Island-Endgame --seeds 20 \
         --lost evolution_results/ladder_2026-09-26/new_losses.json
 
+    # a backtest against the ladder: every graph against the rivals' recorded moves of our games
+    python ladder_validate.py ... --name backtest1 --graph champion=island:Island-Opening --graph plain=seed \
+        --seeds 0 --replays ~/kagg-evo/repo/shinka/champions/replay_opponents
+
 Every graph plays the same jobs: --seeds arena validation seeds (salt 20260924, the seeds
 arena/payload.py uses; evolution never selects on them) against every opponent bundle of the run,
 the graph's seat alternating, plus every --lost entry ({"seed", "tag", ...}) from both seats
-against its opponent. Graphs: `seed` (the run's seed graph), `island:<name>` (that island's
+against its opponent, plus every --replays bundle (replay_<episode>, make_replay_opponents.py)
+once, from the seat we played on the ladder: set replay:W, replay:L or replay:T by the ladder result.
+Against a replay the graph that played the game reproduces its ladder margin, so a replay backtest
+shows what another graph would have scored against the same rival moves. Graphs: `seed` (the run's seed graph), `island:<name>` (that island's
 champion in the run's checkpoint), `merge:<A>+<B>+...` (island A's champion plus the non-default
 settings of the other islands' champions, later ones winning a conflict), or a graph JSON file.
 
@@ -32,6 +39,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 import graph_edits  # noqa: E402
+from arena import payload  # noqa: E402
 from graph_gauntlet import VALIDATION_SALT, ColabPoolExecutor, Gauntlet, job_key, margins, sign_test  # noqa: E402
 
 MERGE_KEYS = ('parameters', 'stages', 'engine_parameters', 'channels', 'experimental')
@@ -122,6 +130,8 @@ def main():
     ap.add_argument('--opponents', default='', help='comma list (default: every opponent bundle of the run)')
     ap.add_argument('--seeds', type=int, default=20, help='validation seeds per opponent')
     ap.add_argument('--lost', type=Path, default=None, help='JSON list of {"seed", "tag", ...}: played from both seats')
+    ap.add_argument('--replays', type=Path, default=None,
+                    help='directory of replay_<episode> bundles: each played once, from our ladder seat')
     ap.add_argument('--dry_run', action='store_true', help='build the bundles and the jobs, submit nothing')
     args = ap.parse_args()
 
@@ -138,8 +148,15 @@ def main():
         bundles[label] = gauntlet.bundle(resolve(spec, state, constants))
         print(f'{label}: {spec} -> bundles/{bundles[label]}', flush=True)
     opponents = [o for o in args.opponents.split(',') if o] or sorted(
-        p.name for p in (run_dir / 'bundles').iterdir() if p.is_dir() and not p.name.startswith(('g_', '.')))
+        p.name for p in (run_dir / 'bundles').iterdir() if p.is_dir() and not p.name.startswith(('g_', '.', 'replay_')))
     lost = json.loads(args.lost.read_text()) if args.lost else []
+    replays = []
+    for src in sorted(args.replays.glob('replay_*/SOURCE.json')) if args.replays else []:
+        meta = json.loads(src.read_text())
+        if not (run_dir / 'bundles' / meta['name']).is_dir():
+            payload.build_opponent(run_dir, meta['name'])
+        margin = meta.get('recorded_margin_for_us') or 0
+        replays.append((meta, 'W' if margin > 0 else 'L' if margin < 0 else 'T'))
     jobs = []
     for label in labels:
         for opponent in opponents:
@@ -148,6 +165,9 @@ def main():
         for entry in lost:
             jobs += [{'tag': f"{label}@{entry['tag']}", 'a': f'bundles/{bundles[label]}', 'b': f"bundles/{entry['tag']}",
                       'seed': int(entry['seed']), 'a_seat': seat, 'set': 'lost'} for seat in (0, 1)]
+        jobs += [{'tag': f"{label}@{meta['name']}", 'a': f'bundles/{bundles[label]}', 'b': f"bundles/{meta['name']}",
+                  'seed': int(meta['seed']), 'a_seat': int(meta['our_seat']), 'set': f'replay:{result}'}
+                 for meta, result in replays]
     keys = [job_key(j) for j in jobs]
     if len(set(keys)) != len(keys):
         raise SystemExit('duplicate jobs (a lost seed equal to a validation seed against the same opponent?)')
@@ -155,7 +175,7 @@ def main():
     if missing:
         raise SystemExit(f'opponent bundles missing in the run directory: {missing}')
     print(f'{len(jobs)} jobs: {len(labels)} graphs x ({len(opponents)} opponents x {args.seeds} validation seeds '
-          f'+ {len(lost)} lost seeds x 2 seats)', flush=True)
+          f'+ {len(lost)} lost seeds x 2 seats + {len(replays)} replays)', flush=True)
     if args.dry_run:
         return
     (run_dir / 'jobs' / f'{args.name}.json').write_text(json.dumps({'evaluation_id': args.name, 'jobs': jobs}))
@@ -171,12 +191,13 @@ def main():
     for label, per in report['graphs'].items():
         a = per['all']
         print(f"{label}: {a['wins']}W-{a['losses']}L-{a['ties']}T, mean margin ${a['mean_margin']:+,.0f} | " + '; '.join(
-            f"{k} {t['wins']}-{t['losses']}-{t['ties']} ${t['mean_margin']:+,.0f}" for k, t in per.items() if k != 'all'))
+            f"{k} {t['wins']}-{t['losses']}-{t['ties']} ${t['mean_margin']:+,.0f}" for k, t in per.items()
+            if k != 'all' and not k.startswith('replay_')))
     for pair, per in report['paired'].items():
         a = per['all']
         print(f"{pair}: {a['better']} better, {a['worse']} worse, {a['same']} same, mean change ${a['mean_change']:+,.0f}, "
               f"p={a['p']:.2g} | " + '; '.join(f"{k} {t['better']}-{t['worse']} ${t['mean_change']:+,.0f}"
-                                                for k, t in per.items() if k != 'all'))
+                                                for k, t in per.items() if k != 'all' and not k.startswith('replay_')))
     print(f'report: {out}')
 
 

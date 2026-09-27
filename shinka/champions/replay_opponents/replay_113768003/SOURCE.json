@@ -1,0 +1,19 @@
+{
+ "name": "replay_113768003",
+ "episode": 113768003,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Rohan L",
+ "opponent_submission": 56483403,
+ "seed": 1731771566,
+ "recorded_rewards": [
+  135876.0,
+  135531.0
+ ],
+ "recorded_margin_for_us": -345,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "393f6bd32b6ec283788f2c6d604b185a665823407867398cfa91f2b100645970"
+ }
+}

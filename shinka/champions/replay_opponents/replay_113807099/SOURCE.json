@@ -1,0 +1,19 @@
+{
+ "name": "replay_113807099",
+ "episode": 113807099,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Khor Yin Loon",
+ "opponent_submission": 56565703,
+ "seed": 1757708833,
+ "recorded_rewards": [
+  82312.0,
+  81698.0
+ ],
+ "recorded_margin_for_us": 614,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5553d213b0a4037d601e3edcc57a710b5e461a2baad951338e3215edf66fe0e6"
+ }
+}

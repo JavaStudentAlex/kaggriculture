@@ -1,0 +1,19 @@
+{
+ "name": "replay_113804580",
+ "episode": 113804580,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "nofreewill42",
+ "opponent_submission": 56518767,
+ "seed": 142513907,
+ "recorded_rewards": [
+  101427.0,
+  101806.0
+ ],
+ "recorded_margin_for_us": 379,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5e8650a985b297475bd183a2fc4b690bc97c6e87e3749176ea6d81af398608b7"
+ }
+}

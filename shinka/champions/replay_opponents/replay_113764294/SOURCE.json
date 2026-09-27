@@ -1,0 +1,19 @@
+{
+ "name": "replay_113764294",
+ "episode": 113764294,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Addison Howard (ineligible)",
+ "opponent_submission": 56557939,
+ "seed": 1989059184,
+ "recorded_rewards": [
+  59382.0,
+  58684.0
+ ],
+ "recorded_margin_for_us": -698,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b18631ce57122b92f59770f4bf929bc03e605ab3e06747678ea49a4b063dc660"
+ }
+}

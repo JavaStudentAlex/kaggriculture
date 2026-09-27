@@ -1,0 +1,19 @@
+{
+ "name": "replay_113805858",
+ "episode": 113805858,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "kentaro_kato",
+ "opponent_submission": 56564273,
+ "seed": 117864180,
+ "recorded_rewards": [
+  101009.0,
+  102837.0
+ ],
+ "recorded_margin_for_us": 1828,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b10bc712d772b8d73a05f31d059122c22e4679184a87089c4f44ce7358d5531e"
+ }
+}

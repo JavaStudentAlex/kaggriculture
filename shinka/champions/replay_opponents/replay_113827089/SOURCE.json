@@ -1,0 +1,19 @@
+{
+ "name": "replay_113827089",
+ "episode": 113827089,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Alperen Söylen",
+ "opponent_submission": 56576915,
+ "seed": 2000009653,
+ "recorded_rewards": [
+  92707.0,
+  90463.0
+ ],
+ "recorded_margin_for_us": -2244,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "2bf3ee7ed2676bf793e25bbe58452ac921eac4df656eb8318a3c754eae1fb157"
+ }
+}

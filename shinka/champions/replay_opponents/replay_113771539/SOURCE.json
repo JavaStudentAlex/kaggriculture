@@ -1,0 +1,19 @@
+{
+ "name": "replay_113771539",
+ "episode": 113771539,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "ikevayansky",
+ "opponent_submission": 56579642,
+ "seed": 199237929,
+ "recorded_rewards": [
+  86194.0,
+  86158.0
+ ],
+ "recorded_margin_for_us": -36,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5c67d1885f9ca2e01fc718c63f39876d747efccc4a8ab7eec56bb8060e19487c"
+ }
+}

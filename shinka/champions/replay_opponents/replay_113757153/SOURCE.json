@@ -1,0 +1,19 @@
+{
+ "name": "replay_113757153",
+ "episode": 113757153,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "aaaaLiu123",
+ "opponent_submission": 56565609,
+ "seed": 755309920,
+ "recorded_rewards": [
+  55616.0,
+  55549.0
+ ],
+ "recorded_margin_for_us": 67,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f425ff266caf43e18b9ef3496c216c70311f955601a33e1d263681ec75f5b85c"
+ }
+}

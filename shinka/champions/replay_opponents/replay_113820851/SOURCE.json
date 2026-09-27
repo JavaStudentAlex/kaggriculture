@@ -1,0 +1,19 @@
+{
+ "name": "replay_113820851",
+ "episode": 113820851,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Nakul Maurya",
+ "opponent_submission": 56498781,
+ "seed": 926680770,
+ "recorded_rewards": [
+  81811.0,
+  82214.0
+ ],
+ "recorded_margin_for_us": 403,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "d79ed095c078436157a81aaf6068c8620b3f62cbf7b419df89eda83c014f29d9"
+ }
+}

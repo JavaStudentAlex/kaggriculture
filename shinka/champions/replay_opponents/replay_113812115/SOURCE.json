@@ -1,0 +1,19 @@
+{
+ "name": "replay_113812115",
+ "episode": 113812115,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "jasonyoung",
+ "opponent_submission": 56560398,
+ "seed": 1960184539,
+ "recorded_rewards": [
+  116076.0,
+  115992.0
+ ],
+ "recorded_margin_for_us": 84,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "a375efe915cad65ba70b26810c46466fcd372acb35f5d6940c40f13f5d585be6"
+ }
+}

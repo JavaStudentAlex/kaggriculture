@@ -1,0 +1,19 @@
+{
+ "name": "replay_113798678",
+ "episode": 113798678,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Artem Bakalinskiy",
+ "opponent_submission": 56546352,
+ "seed": 985714659,
+ "recorded_rewards": [
+  110226.0,
+  112913.0
+ ],
+ "recorded_margin_for_us": 2687,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1ea4b1df117a7d46bdd64980eb020f0f33e64ddcecdac1103877bde01000ae53"
+ }
+}

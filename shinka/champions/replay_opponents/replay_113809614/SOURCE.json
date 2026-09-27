@@ -1,0 +1,19 @@
+{
+ "name": "replay_113809614",
+ "episode": 113809614,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "T.Uehira",
+ "opponent_submission": 56554131,
+ "seed": 184397501,
+ "recorded_rewards": [
+  84316.0,
+  78301.0
+ ],
+ "recorded_margin_for_us": 6015,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "2c8ebf787e4cc2e49558714b3f61ed5474f7fd4f3028c2b0bb5ac7fbd808bf14"
+ }
+}

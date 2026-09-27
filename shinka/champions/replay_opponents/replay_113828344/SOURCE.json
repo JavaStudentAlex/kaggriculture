@@ -1,0 +1,19 @@
+{
+ "name": "replay_113828344",
+ "episode": 113828344,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Marwan Ashref",
+ "opponent_submission": 56586238,
+ "seed": 1438699233,
+ "recorded_rewards": [
+  73538.0,
+  73538.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "70c38b4f311efb1992d44cf47a30646195f451f9dd3d7628b6371433fa029624"
+ }
+}

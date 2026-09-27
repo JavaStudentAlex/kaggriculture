@@ -1,0 +1,19 @@
+{
+ "name": "replay_113796091",
+ "episode": 113796091,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Grigor Sargsyan",
+ "opponent_submission": 56568988,
+ "seed": 240587000,
+ "recorded_rewards": [
+  127763.0,
+  126689.0
+ ],
+ "recorded_margin_for_us": 1074,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0f9decfec2b3a375344bee9d7d15fa95ad6b581f1bc950d4f49ae4705d013b4d"
+ }
+}

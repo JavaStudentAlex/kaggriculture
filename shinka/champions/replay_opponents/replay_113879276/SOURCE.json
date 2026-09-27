@@ -1,0 +1,19 @@
+{
+ "name": "replay_113879276",
+ "episode": 113879276,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "InSociEUP",
+ "opponent_submission": 56522842,
+ "seed": 1724680786,
+ "recorded_rewards": [
+  98725.0,
+  98725.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "dece3278d9fe2b032d31d369a5c79248ea4b83608dbb3e7a65928c252fdf3e86"
+ }
+}

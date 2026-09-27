@@ -1,0 +1,19 @@
+{
+ "name": "replay_113791589",
+ "episode": 113791589,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "coke lu",
+ "opponent_submission": 56517016,
+ "seed": 672273330,
+ "recorded_rewards": [
+  123993.0,
+  124473.0
+ ],
+ "recorded_margin_for_us": 480,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "a204d31ecfba7936f544e9f8d6fbe0390bdfa7b28fd4c04362aca6336c13cb0f"
+ }
+}

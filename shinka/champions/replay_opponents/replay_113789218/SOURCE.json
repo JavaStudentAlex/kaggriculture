@@ -1,0 +1,19 @@
+{
+ "name": "replay_113789218",
+ "episode": 113789218,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Shangshang Zhang",
+ "opponent_submission": 56574347,
+ "seed": 885676963,
+ "recorded_rewards": [
+  104630.0,
+  105800.0
+ ],
+ "recorded_margin_for_us": -1170,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "e4c1a4b0924292e23f1ae5ef8d087bdc75d31413da355bcfa3f3bb8b41fc9e8c"
+ }
+}

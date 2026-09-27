@@ -9,6 +9,8 @@
 # With --pool the Colab pool is restarted as well (new pool code), while it is idle: the loop was
 # killed during its proposals, before it sent a gauntlet. The old pool stops its VMs (it must report
 # COLAB_VMS_LEFT=0, or nothing is restarted) and the new one makes new VMs on the loop's first request.
+# BEFORE_START (environment, optional) is a shell command run after the loop is killed and before it
+# starts again (e.g. upgrade_scores.py); if it fails, the loop is not restarted.
 set -u
 LOG=/home/alex/kagg-evo/runs/ladder1.log
 POOL=/home/alex/kagg-evo/pool
@@ -58,7 +60,12 @@ if [ "$RESTART_POOL" = 1 ]; then
     echo "$(date -u +%T) new pool $POOL_RUN started"
 fi
 
+if [ -n "${BEFORE_START:-}" ]; then
+    echo "$(date -u +%T) running: $BEFORE_START"
+    bash -c "$BEFORE_START" || { echo "BEFORE_START failed: the loop was not restarted"; exit 1; }
+fi
+
 echo "=== RESTART $(date -u +%FT%T) --iterations $ITERATIONS ===" >> "$LOG"
-tmux new -d -s kagg-evo-ladder1 "cd /home/alex/kagg-evo/repo/research/procedural_graph && /home/alex/kagg-evo/venv/bin/python highcpu_island_evolution.py --executor colab-pool --pool_dir $POOL --plan evolution_results/ladder_2026-09-26/plan.json --islands ladder --knowledge evolution_knowledge_ladder.md --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json --run_dir /home/alex/kagg-evo/runs/ladder1 --iterations $ITERATIONS --seeds_per_opponent 20 --supervisor_interval 6 --mix_interval 12 >> $LOG 2>&1; echo EVO_EXIT=\$? >> $LOG; touch $POOL/STOP"
+tmux new -d -s kagg-evo-ladder1 "cd /home/alex/kagg-evo/repo/research/procedural_graph && /home/alex/kagg-evo/venv/bin/python highcpu_island_evolution.py --executor colab-pool --pool_dir $POOL --plan evolution_results/ladder_2026-09-26/plan.json --islands ladder --knowledge evolution_knowledge_ladder.md --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json --run_dir /home/alex/kagg-evo/runs/ladder1 --iterations $ITERATIONS --seeds_per_opponent 20 --supervisor_interval 6 --mix_interval 12 --queue evolution_queue_ladder.json >> $LOG 2>&1; echo EVO_EXIT=\$? >> $LOG; touch $POOL/STOP"
 sleep 30
 tmux ls | grep kagg-evo-ladder1 && grep -E "RESTART|bandit models|MIXING|] ITERATION [0-9]" "$LOG" | tail -3

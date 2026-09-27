@@ -1,0 +1,19 @@
+{
+ "name": "replay_113799841",
+ "episode": 113799841,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Sadettin Şamil Verdil",
+ "opponent_submission": 56570811,
+ "seed": 39778478,
+ "recorded_rewards": [
+  93534.0,
+  94410.0
+ ],
+ "recorded_margin_for_us": -876,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "c671fad67e7c1e7b026720813ee03298fae8a5ef013a1506802ed5c9e3d696c0"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113773889",
+ "episode": 113773889,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Stefano",
+ "opponent_submission": 56564209,
+ "seed": 909224213,
+ "recorded_rewards": [
+  93076.0,
+  91818.0
+ ],
+ "recorded_margin_for_us": 1258,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "76cf7e88c8e55b126125d08350e2fc42c029db05c287a2ead2664371b8bbda13"
+ }
+}

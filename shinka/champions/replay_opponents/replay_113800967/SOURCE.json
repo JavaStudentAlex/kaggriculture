@@ -1,0 +1,19 @@
+{
+ "name": "replay_113800967",
+ "episode": 113800967,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Yi Wang",
+ "opponent_submission": 56509086,
+ "seed": 582466497,
+ "recorded_rewards": [
+  102086.0,
+  101005.0
+ ],
+ "recorded_margin_for_us": 1081,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "73afa3913ea8056122b43188b8a38eec130068c7e223363bffc5406ea094f6ac"
+ }
+}

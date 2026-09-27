@@ -1,0 +1,19 @@
+{
+ "name": "replay_113860592",
+ "episode": 113860592,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Akash Deep",
+ "opponent_submission": 56577263,
+ "seed": 1803356585,
+ "recorded_rewards": [
+  76433.0,
+  76433.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "2c4986a40c76b19c23bd87fd963254e37a42b76930b0ec5005730bf269b6f481"
+ }
+}

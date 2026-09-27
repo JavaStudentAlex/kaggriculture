@@ -23,6 +23,8 @@ champion plus the donor's changes (a setting the island changed itself keeps its
 The same paired gauntlet decides; pool games a graph already played are reused, so a
 champion moving to another island costs only the head-to-head block. The prompts cannot do
 this: an edit whose settings were evaluated on any island is refused as a repeat.
+A --queue file lets a person test a specific edit: an island's next iteration plays its first
+queued edit not played yet (model "queue"), with the same gauntlet, instead of the proposals.
 Everything is written under --run_dir (checkpoint.json, candidates.jsonl, best_graph.json,
 status.json, games and logs); policy_graph.json is read once as the seed and never written:
 promoting a result is a reviewed commit.
@@ -67,6 +69,7 @@ KNOWLEDGE = CURRENT_DIR / "evolution_knowledge.md"
 # SIFT parameters (from MIT+Sakana AI paper arXiv:2609.19526)
 SIFT_CANDIDATES_PER_ITERATION = 3   # Generate N candidates, judge pairwise, play only the winner
 SIFT_MUTATION_RETRIES = 3           # Self-healing: retry failed mutations with error feedback
+QUEUE = "queue"                     # the "model" of an edit played from the --queue file
 
 # (name, focus, market stages it centres on)
 ISLANDS = (
@@ -185,8 +188,10 @@ class EditEvolution:
                  candidates: int = SIFT_CANDIDATES_PER_ITERATION,
                  retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8,
                  ideas_path: Optional[Path] = None, proxy_ready: Callable[[], bool] = lambda: True,
-                 islands=None, knowledge_path: Optional[Path] = None, mix_interval: int = 0):
+                 islands=None, knowledge_path: Optional[Path] = None, mix_interval: int = 0,
+                 queue_path: Optional[Path] = None):
         self.run_dir = Path(run_dir)
+        self.queue_path = Path(queue_path) if queue_path else None
         self.islands = islands
         self.mix_interval = mix_interval
         self.proxy_ready = proxy_ready
@@ -250,6 +255,32 @@ class EditEvolution:
         if self.knowledge_path and self.knowledge_path.exists():
             self.knowledge = self.knowledge_path.read_text()
         return self.knowledge
+
+    def queued(self, island, iteration) -> Optional[Dict[str, Any]]:
+        """The first --queue entry for this island whose settings were not played yet, as the
+        iteration's candidate: it skips the models' proposals and the judge. The queue file (a JSON
+        list of {"island", "edit", "rationale"}) is re-read every iteration, like the ideas."""
+        if not self.queue_path or not self.queue_path.exists():
+            return None
+        for entry in json.loads(self.queue_path.read_text()):
+            if entry.get("island") != island["name"]:
+                continue
+            try:
+                graph = graph_edits.apply_edit(island["graph"], entry["edit"], self.constants)
+                key = graph_edits.settings_key(graph, self.constants)
+                if key in self.state["seen"]:
+                    continue
+                path = self.run_dir / "candidates" / f"iter{iteration:04d}_queue.json"
+                atomic_json(path, graph)
+                self.validate(path)
+            except Exception as exc:
+                logging.warning("  [QUEUE] %s refused: %s", json.dumps(entry.get("edit")), str(exc)[:200])
+                self._log_candidate({"iteration": iteration, "island": island["name"], "model": QUEUE,
+                                     "stage": "proposal", "edit": entry.get("edit"), "error": str(exc)[:1200]})
+                continue
+            return {"graph": graph, "edit": entry["edit"], "rationale": entry.get("rationale", ""), "model": QUEUE,
+                    "key": key, "changes": graph_edits.diff(island["graph"], graph, self.constants), "path": str(path)}
+        return None
 
     def _history(self, island) -> List[str]:
         """Every edit played in this run on any island, oldest first; this island's own marked."""
@@ -315,19 +346,23 @@ class EditEvolution:
         island = self.state["islands"][(iteration - 1) % len(self.state["islands"])]
         logging.info("-" * 65)
         logging.info("ITERATION %d | %s", iteration, island["name"])
-        results = self.results_text(island["graph"])
-        if not self.proxy_ready():
-            return None
-        proposals = self.propose(island, iteration, results, [])
-        if not proposals:
-            logging.warning("  no viable candidate this iteration")
-            return None
-        context = f"Island focus: {island['focus']}\n{results}"
-        ranked, votes = self.judge.rank_edits(proposals, self.current_knowledge(), context)
-        winner = ranked[0][0]
-        logging.info("  [SIFT] %d valid votes; winner %s: %s", votes, winner["model"], "; ".join(winner["changes"]))
-        for proposal, _ in ranked[1:]:
-            self.bandit.update(proposal["model"], reward=0.15, crowned=False)
+        winner, votes = self.queued(island, iteration), 0
+        if winner:
+            logging.info("  [QUEUE] candidate: %s", "; ".join(winner["changes"]))
+        else:
+            results = self.results_text(island["graph"])
+            if not self.proxy_ready():
+                return None
+            proposals = self.propose(island, iteration, results, [])
+            if not proposals:
+                logging.warning("  no viable candidate this iteration")
+                return None
+            context = f"Island focus: {island['focus']}\n{results}"
+            ranked, votes = self.judge.rank_edits(proposals, self.current_knowledge(), context)
+            winner = ranked[0][0]
+            logging.info("  [SIFT] %d valid votes; winner %s: %s", votes, winner["model"], "; ".join(winner["changes"]))
+            for proposal, _ in ranked[1:]:
+                self.bandit.update(proposal["model"], reward=0.15, crowned=False)
         baseline = self.gauntlet.baseline(island["graph"])
         evaluation = self.gauntlet.evaluate(winner["graph"], island["graph"])
         verdict = compare(evaluation, baseline, self.gauntlet.alpha)
@@ -341,13 +376,15 @@ class EditEvolution:
         if verdict["promote"]:
             island["graph"] = winner["graph"]
             island["history"].append({k: v for k, v in record.items() if k != "errors"})
-            self.bandit.update(winner["model"], reward=1.0, crowned=True)
+            if winner["model"] != QUEUE:
+                self.bandit.update(winner["model"], reward=1.0, crowned=True)
             logging.info("  [CROWNED] new champion of %s", island["name"])
         else:
             island["rejections"].append({k: v for k, v in record.items() if k != "errors"})
             decided = verdict["wins"] + verdict["losses"]
             share = (verdict["wins"] - verdict["losses"]) / decided if decided and verdict["valid"] else 0.0
-            self.bandit.update(winner["model"], reward=0.5 * max(0.0, share), crowned=False)
+            if winner["model"] != QUEUE:
+                self.bandit.update(winner["model"], reward=0.5 * max(0.0, share), crowned=False)
         self.update_best()
         return record
 
@@ -515,6 +552,9 @@ def main():
     parser.add_argument("--supervisor_interval", type=int, default=8)
     parser.add_argument("--mix_interval", type=int, default=12,
                         help="islands mix after every N iterations (0: never); see the module docstring")
+    parser.add_argument("--queue", type=Path, default=None,
+                        help="JSON list of {island, edit, rationale}: an island's next iteration plays its first "
+                             "queued edit not played yet instead of the models' proposals; re-read each iteration")
     args = parser.parse_args()
     if args.seeds_per_opponent % 2 or args.seeds_per_opponent < (10 if args.plan else 40):
         parser.error("--seeds_per_opponent must be even and at least 40 (20 games per seat); "
@@ -549,7 +589,7 @@ def main():
         args.knowledge.read_text(), seed_graph=json.loads(args.seed_graph.read_text()),
         candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas,
         proxy_ready=wait_for_proxy, islands=LADDER_ISLANDS if args.islands == "ladder" else None,
-        knowledge_path=args.knowledge, mix_interval=args.mix_interval)
+        knowledge_path=args.knowledge, mix_interval=args.mix_interval, queue_path=args.queue)
     logging.info("=" * 70)
     logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds (%d per seat) x %s + head-to-head | "
                  "evaluation %s", len(evolution.state["islands"]), executor.describe(), args.seeds_per_opponent,

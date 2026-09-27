@@ -1,0 +1,19 @@
+{
+ "name": "replay_113825386",
+ "episode": 113825386,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Joseph Ayanda",
+ "opponent_submission": 56585959,
+ "seed": 733297446,
+ "recorded_rewards": [
+  71052.0,
+  72481.0
+ ],
+ "recorded_margin_for_us": -1429,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "9522496959b786f50d8fcb8b58e673ceb048d6b91971b7b905e4ba27e9f9ee11"
+ }
+}

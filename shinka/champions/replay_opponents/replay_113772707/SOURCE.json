@@ -1,0 +1,19 @@
+{
+ "name": "replay_113772707",
+ "episode": 113772707,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "IamDiganta.7",
+ "opponent_submission": 56566122,
+ "seed": 1598683087,
+ "recorded_rewards": [
+  80569.0,
+  81037.0
+ ],
+ "recorded_margin_for_us": 468,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0dd8026d5c172e2da9f7cfa7d13cc4e9b75159d7dfc1beba13dd212c5581863f"
+ }
+}

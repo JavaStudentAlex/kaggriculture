@@ -1,0 +1,19 @@
+{
+ "name": "replay_113803415",
+ "episode": 113803415,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Kaan Dınız",
+ "opponent_submission": 56482851,
+ "seed": 98383831,
+ "recorded_rewards": [
+  104612.0,
+  102673.0
+ ],
+ "recorded_margin_for_us": 1939,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0628598f641bc3843f3b6a4cc7de3b98816fa36f06bc344e2ed67fbf84394f3c"
+ }
+}

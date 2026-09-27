@@ -1,0 +1,19 @@
+{
+ "name": "replay_113763097",
+ "episode": 113763097,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "shuinno",
+ "opponent_submission": 56569759,
+ "seed": 1228281317,
+ "recorded_rewards": [
+  58258.0,
+  58258.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "a2e7939633ee36679fa15d9273a107110959f242574bdb5398e4a263ef4e3a8f"
+ }
+}

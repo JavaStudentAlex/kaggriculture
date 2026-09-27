@@ -1,0 +1,19 @@
+{
+ "name": "replay_113879175",
+ "episode": 113879175,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "tmcoder",
+ "opponent_submission": 56561111,
+ "seed": 1694250951,
+ "recorded_rewards": [
+  82831.0,
+  83148.0
+ ],
+ "recorded_margin_for_us": -317,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b245df839afc48a095243cdbf7228faae01b0fea7484ba78bf0c8416fea76c46"
+ }
+}

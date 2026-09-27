@@ -1,0 +1,13 @@
+[
+ {
+  "island": "Island-Market",
+  "edit": {
+   "engine_parameters": {
+    "_EV_H": 12,
+    "_DP_H": 12,
+    "_MP_H": 12
+   }
+  },
+  "rationale": "Lead sells 12 turns ahead instead of 8. The engine's evening (hours 15-20), dawn (0-2) and midday (10-13) lead-sell layers move about three quarters of the carrot, tomato, strawberry, melon, egg, milk and wool sales the tape plans for the next _H turns into the current turn, first order slot, while the price is at or above its 12-turn average. Whoever sells first gets the better price. On top of _ADV_LOOK 4 (this island's champion has it), measured on 2026-09-27: against the recorded moves of Alder Ford's 82 ladder games 56-26-0 instead of 51-30-1 (all 11 ties won; replays do not react, so this may overstate); on 300 fresh arena games (validate1) +$37 a game over _ADV_LOOK 4 (145 better / 155 worse), +$345 against tetsutani_demand (19/1) and +$450 on the 2965 family's held-out lost seeds (14/2), but -$122 against pilkwang_sep (1/19), -$110 against haideptry_shepherd and -$78 against leoprovorov_forecast. The gauntlet decides."
+ }
+]

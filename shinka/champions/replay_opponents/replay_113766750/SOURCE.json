@@ -1,0 +1,19 @@
+{
+ "name": "replay_113766750",
+ "episode": 113766750,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Umataro Tenma",
+ "opponent_submission": 56579885,
+ "seed": 1259157688,
+ "recorded_rewards": [
+  94416.0,
+  94597.0
+ ],
+ "recorded_margin_for_us": -181,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "c29d607ce0f8d47bebba0f60407f5d2dab4da891d6e717da3da78d3d7d33b94d"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113824286",
+ "episode": 113824286,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "sonny_01",
+ "opponent_submission": 56584913,
+ "seed": 1095381350,
+ "recorded_rewards": [
+  100773.0,
+  99943.0
+ ],
+ "recorded_margin_for_us": 830,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "3421ac62605bd65b88099e46627185fe67b2d7ea5799c8158a898cfbfa6fd368"
+ }
+}

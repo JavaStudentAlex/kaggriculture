@@ -1,0 +1,19 @@
+{
+ "name": "replay_113808349",
+ "episode": 113808349,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Sai Syam",
+ "opponent_submission": 56517243,
+ "seed": 656184,
+ "recorded_rewards": [
+  66198.0,
+  66638.0
+ ],
+ "recorded_margin_for_us": 440,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "43bd3ea6ad032eeceebc2063fa633eeed743ab9cd401b791549e551eb24e8cdb"
+ }
+}

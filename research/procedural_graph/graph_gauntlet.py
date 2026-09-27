@@ -251,7 +251,11 @@ class Gauntlet:
     """`plan` (optional) replaces the default job set: a list of {"tag": opponent bundle, "seed",
     "a_seat", "set"} entries (e.g. every lost ladder seed against the agent that beat us there,
     from both seats, plus random seeds against the pool; ladder_seed_plan.py writes one). With a
-    plan the head-to-head block plays the first `seeds_per_opponent` evolution seeds."""
+    plan the head-to-head block plays the first `seeds_per_opponent` evolution seeds.
+
+    A graph's pool margins are cached per job (scores/<bundle>.json). A margin stays valid while
+    the fingerprint (runtime, harness, head-to-head seeds, engine version) and the digest of its
+    opponent's bundle are unchanged, so a plan that grows plays only its new jobs."""
 
     def __init__(self, run_dir, executor, seeds_per_opponent=40, opponents=OPPONENTS, alpha=0.05, plan=None):
         self.run_dir = Path(run_dir).resolve()  # arena.py runs with cwd=run_dir
@@ -261,6 +265,7 @@ class Gauntlet:
         self.seeds = seed_list(seeds_per_opponent)
         self.alpha = alpha
         self.fingerprint = None
+        self.opponent_digests = {}
 
     def prepare(self):
         for sub in ('bundles', 'jobs', 'games', 'logs', 'scores'):
@@ -271,13 +276,14 @@ class Gauntlet:
         shutil.copy2(HERE / 'arena' / 'arena.py', self.run_dir / 'arena.py')
         shutil.copy2(HERE.parents[1] / 'shinka/evolution/pool_upgrade_bundle_agent.py',
                      self.run_dir / 'bundle_agent.py')
-        files = [p for name in self.opponents for p in (self.run_dir / 'bundles' / name).rglob('*') if p.is_file()]
-        files += [p for p in (HERE / 'hazel_runtime').rglob('*')
-                  if p.is_file() and '__pycache__' not in p.parts]
+        self.opponent_digests = {name: _tree_digest(p for p in (self.run_dir / 'bundles' / name).rglob('*')
+                                                    if p.is_file()) for name in self.opponents}
+        files = [p for p in (HERE / 'hazel_runtime').rglob('*')
+                 if p.is_file() and '__pycache__' not in p.parts]
         files += [HERE / 'agent_graph.py', self.run_dir / 'arena.py', self.run_dir / 'bundle_agent.py']
         self.fingerprint = hashlib.sha256(json.dumps({
-            'files': _tree_digest(files), 'seeds': self.seeds, 'opponents': self.opponents,
-            'plan': self.plan, 'engine': self.executor.describe().get('engine')}, sort_keys=True).encode()).hexdigest()
+            'files': _tree_digest(files), 'seeds': self.seeds,
+            'engine': self.executor.describe().get('engine')}, sort_keys=True).encode()).hexdigest()
         return self.fingerprint
 
     def bundle(self, graph):
@@ -332,9 +338,9 @@ class Gauntlet:
                    if 'graph fallback' in line and f'[{bundle}]' in line)
 
     def evaluate(self, graph, incumbent_graph=None):
-        """Play the pool jobs (+ head-to-head vs the incumbent) for a graph. A graph that already
-        played the pool jobs under this fingerprint (an island champion offered to another island
-        when islands mix) plays only the head-to-head block."""
+        """Play the pool jobs (+ head-to-head vs the incumbent) for a graph. Pool jobs the graph
+        already played (cached, see the class docstring) are not played again: an island champion
+        offered to another island when islands mix plays only the head-to-head block."""
         if self.fingerprint is None:
             raise RuntimeError('prepare() first')
         candidate = self.bundle(graph)
@@ -361,24 +367,30 @@ class Gauntlet:
         return result
 
     def _store(self, bundle, pool_margins):
+        tags = sorted({key.split('|')[0] for key in pool_margins})
         atomic_json(self.run_dir / 'scores' / f'{bundle}.json',
-                    {'fingerprint': self.fingerprint, 'margins': pool_margins})
+                    {'fingerprint': self.fingerprint, 'opponents': {t: self.opponent_digests[t] for t in tags},
+                     'margins': pool_margins})
 
     def _cached(self, bundle):
-        """Pool-job margins the bundle already has under the current fingerprint ({} if none)."""
+        """Pool-job margins the bundle already has that are still valid: same fingerprint, and the
+        job's opponent bundle unchanged ({} if none)."""
         path = self.run_dir / 'scores' / f'{bundle}.json'
         if path.exists():
             cached = json.loads(path.read_text())
             if cached.get('fingerprint') == self.fingerprint:
-                return cached['margins']
+                digests = cached.get('opponents') or {}
+                return {key: margin for key, margin in cached['margins'].items()
+                        if digests.get(key.split('|')[0]) == self.opponent_digests.get(key.split('|')[0])}
         return {}
 
     def baseline(self, graph):
-        """Pool-job margins of a graph (cached per evaluation fingerprint)."""
+        """Pool-job margins of a graph; only the jobs it has not played yet are played."""
         bundle = self.bundle(graph)
         cached = self._cached(bundle)
-        if cached:
-            return {'bundle': bundle, 'margins': cached}
+        wanted = {job_key(j) for j in self.jobs(bundle)}
+        if wanted <= set(cached):
+            return {'bundle': bundle, 'margins': {key: cached[key] for key in wanted}}
         result = self.evaluate(graph)
         if result['errors'] or result['fallbacks']:
             raise RuntimeError(f'baseline evaluation of {bundle} failed: '

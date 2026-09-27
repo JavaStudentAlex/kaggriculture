@@ -1,0 +1,19 @@
+{
+ "name": "replay_113850784",
+ "episode": 113850784,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "robikscube",
+ "opponent_submission": 56578363,
+ "seed": 945114004,
+ "recorded_rewards": [
+  94318.0,
+  94711.0
+ ],
+ "recorded_margin_for_us": -393,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "44b87dc77d004332cd1ec37758614264b78a004b932fa550ad35934d5bc8e543"
+ }
+}

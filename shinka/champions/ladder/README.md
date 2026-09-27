@@ -11,13 +11,19 @@ byte for byte, so the arena can play the ladder's opponents instead of our own o
 | `abo_v55` | Ahmed Berat Ozer, "Kaggriculture V55 — One-Turn Market Race Edge" | **exact**: Ansh Agarwal (1808-1832), beat Linden Brook |
 | `abo_v57` | Ahmed Berat Ozer, "Kaggriculture V57 — Funding-Order Invariant" | **exact**: PUN, beat Linden Brook |
 | `abo_v43` | Ahmed Berat Ozer, "Kaggriculture V43: Recovering Lost Harvests" | **exact**: Dariush Afshar (1453), beat Linden Brook |
-| `haideptry_2965` | haideptry, "The 2965 Master Hybrid Engine" (V57 + order-book slot evaluator) | 150-196 steps: Matin Urdu, Hector Valverde, sneaky6767 (1920) |
+| `haideptry_2965` | haideptry, "The 2965 Master Hybrid Engine" (V57 + order-book slot evaluator), the notebook's version of 09-25 | 150-196 steps: Matin Urdu, Hector Valverde, sneaky6767 (1920) |
+| `haideptry_2965_0926` | the same notebook's version of 2026-09-26 13:54 UTC | **exact**: ADRIANO ALMEIDA (2031), beat Alder Ford; 159-241 steps: Rohan L, edwinis |
 | `haideptry_shepherd` | haideptry, "The Shepherds Ledger Herd Safe Sovereign" (opening buy 8 / sell 3) | 150-169 steps: z7777 (2437), Rashid Khazeiynasab (2175) |
 | `leoprovorov_forecast` | leoprovorov, "Four-Turn Forecast — Notebook Version 2" | 217 steps: Rashid Khazeiynasab (2175) |
 | `hanifnoerrofiq_pioneers` | hanifnoerrofiq, "Pioneers of Kaggle Town - Candidate 2" (opening buy 6 / sell 5) | 211 steps: julien gaza (2091) |
 | `pilkwang_sep` | pilkwang, "Kaggriculture: Structured Economic Policy" | 347-411 steps: Zhong Lyu (1383), edwinis (1411) |
 | `robust_economy` | nihilisticneuralnet, "Kaggriculture: Population-Robust Economy" (Metav4 lineage) | 289 steps: AlexMoura2026 |
-| `abo_v57_open13` | derived: V57 with the ladder's 13-wheat opening (buy 13 at step 0, sell 9 at step 1) | the opening of 16 of Rowan Glen's first 28 losses; no public notebook opens this way |
+| `tetsutani_shape_shop` | tetsutani, "Shape the Shop Work the Pasture" (09-06): the ladder's 13-wheat opening (buy 13 at step 0, sell 9 at step 1) | **exact**: wuy1hao, random_numb, phi; 623 and 106 steps: YuRuiZe, williams (all beat Rowan Glen or Linden Brook; `../evidence/ladder_pool_20260926/open13_match.jsonl`) |
+| `abo_v57_open13` | derived: V57 with the ladder's 13-wheat opening | the opening of 16 of Rowan Glen's first 28 losses; the stand-in before `tetsutani_shape_shop` was found, it matches none of those rivals past step 0 |
+
+`tetsutani_demand` also plays exactly like Yusuraume (2055) and BorisV, who beat and tied Alder Ford, and
+`leoprovorov_forecast` reproduces King-damon for 216 moves. Alder Ford's losses and 20 candidates from
+newer notebooks: `../evidence/alder_ford_20260926/`.
 
 "Exact" means the bundle, playing the opponent's seat of the recorded ladder game while our seat
 replays our recorded actions, chooses the recorded action at every one of the 719 steps. The step

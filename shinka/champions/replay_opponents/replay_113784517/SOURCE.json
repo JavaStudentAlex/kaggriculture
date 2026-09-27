@@ -1,0 +1,19 @@
+{
+ "name": "replay_113784517",
+ "episode": 113784517,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "lucataco",
+ "opponent_submission": 56561152,
+ "seed": 1977898294,
+ "recorded_rewards": [
+  109156.0,
+  108174.0
+ ],
+ "recorded_margin_for_us": 982,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b346420b377fda839f32216ca906b936f951693bd0cec43841dfea5c98835d05"
+ }
+}

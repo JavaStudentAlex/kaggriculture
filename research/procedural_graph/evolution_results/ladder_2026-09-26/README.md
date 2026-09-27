@@ -23,6 +23,13 @@ are played by a persistent Colab VM pool (`arena/colab_pool.py`, 5 High-RAM VMs 
 - `new_losses.json`: Rowan Glen's and Linden Brook's 10 ladder losses after the plan was built (6 and
   4 games, 06:28-09:56 UTC). Each carries the opponent bundle assigned by opening; 7 of them fall back
   to haideptry_2965. These seeds are held out from the evolution and used in validation only.
+- `upgrade_scores.py`: the one-off conversion of the run's cached pool margins to the gauntlet's
+  per-game cache (19:35 UTC restart).
+- `opening_champion_graph.json`: Alder Ford (the Opening champion, submitted 09-26).
+- `alder_ford_look4_graph.json`: Alder Ford with engine `_ADV_LOOK` 4 (arena bundle g_303b063b37c58a0c),
+  packaged as "Birch Hollow" (`shinka/champions/submissions/birch_hollow/`, Kaggle submission 56603928, 09-27).
+- `alder_ford_look4_lead12_graph.json`: the same plus the lead-sell horizons `_EV_H`, `_DP_H`, `_MP_H` 12
+  (bundle g_e5e21e76b673be23), backtest2's best.
 
 ## Loop
 
@@ -52,6 +59,11 @@ played (an existing champion) plays only the 20 head-to-head games.
 - ~14:30 UTC, iteration-19 boundary: island mixing, and the Colab pool restarted with new code. A VM
   that served 3 hours before Colab ended it no longer uses up one of its slot's 2 replacements, so the
   pool survives Colab's runtime limits over several days.
+- ~19:35 UTC, iteration-29 boundary: the plan grew to 258 pool games (next section), and the gauntlet's
+  cache became per game, so the champions play only the new games (`upgrade_scores.py` carried the 28
+  cached graphs over). The ideas and knowledge files now steer the models away from small guard tweaks
+  and towards the ready-stock advancing layer (`_ADV_*`).
+- ~21:10 UTC, iteration-31 boundary: replay opponents and the edit queue (next section).
 
 Fixes in the 10:49 loop:
 - The knowledge file is re-read every iteration.
@@ -63,6 +75,57 @@ Iterations 1-11 saw a stale engine description: the knowledge file still named h
 while the controls table said tetsutani_demand. The corrected file adds the layer-activity map.
 
 The pool fingerprint was unchanged by the restart (checked), so every cached baseline was reused.
+
+## Alder Ford's losses in the plan (19:35 UTC)
+
+Alder Ford, the Opening champion on the ladder, reached 2,078 after 70 games (46W-22L-2T); most of
+its losses at 2,000-2,250 were by a few hundred dollars. Its 22 lost and 2 tied seeds were added from
+both seats (48 games), each against the pool agent that reproduces the rival longest
+(`shinka/champions/evidence/alder_ford_20260926/`): tetsutani_demand 28 games, haideptry_2965_0926 10,
+leoprovorov_forecast 8, tetsutani_shape_shop 2. Two new pool agents came out of the matching:
+- haideptry_2965_0926: the 2965 notebook's version of 09-26 13:54 UTC, which plays one rival exactly.
+- tetsutani_shape_shop: tetsutani's earlier "Shape the Shop" notebook. It plays three of the 13-wheat
+  rivals who beat Rowan Glen and Linden Brook exactly, and two more for 106-623 moves. Those five
+  games (10 plan entries) moved to it from abo_v57_open13, which matches none of them past step 0.
+
+## Replay opponents and queued edits (iteration 31)
+
+The loss analysis (`shinka/champions/evidence/alder_ford_20260926/README.md`) showed that the stand-in
+agents are weaker than the rivals who beat Alder Ford: on 21 of its 24 lost or tied seeds the champion beat
+the stand-in 13 times. So the plan now also plays each of those 24 games against a replay of the rival's
+recorded moves (`shinka/champions/replay_opponents/`): 282 pool games plus 20 head-to-head. Against all
+24 replays the champion reproduced the ladder margins to the dollar.
+
+`--queue evolution_queue_ladder.json` plays a listed edit as an island's next candidate. Queued first, from
+the rivals' most common change (cows where the engine buys sheep or geese):
+- Herd (iteration 31): the HERD2 layer may turn the tape's goose purchase on days 8-15 only into cows,
+  whenever their expected value is at least the geese's (`_HD2_OPTIONS` COW, `_HD2_RATIO` 1.0,
+  `_HD2_MIN_GAIN` 0, `_HD2_FUTURE` 1.0).
+- Crops (iteration 32): the same, choosing cows or sheep by expected value. Withdrawn before it played:
+  the backtest (below) showed the cows-only edit losing $337 a game against the recorded rivals.
+
+A sheep purchase cannot become cows by a parameter: the engine's tape harvests sheep every third day.
+
+## Backtest against the recorded rivals (22:15 UTC)
+
+Alder Ford's 72 games against rivals rated 1,900 or more (or unlisted) were played again with one change
+each, against the rivals' recorded moves (`ladder_validate.py --replays`; table in
+`shinka/champions/evidence/alder_ford_20260926/README.md`). Alder Ford reproduced all 72 ladder results.
+`_ADV_LOOK` 3 -> 4 gained $60 a game (49 better, 15 worse, p = 2e-5): the 36-28-8 record would have been
+44-27-1, with gains against every rival family. The gauntlet's stand-ins had rejected the same change in
+iteration 24. The plain engine would have scored $16 a game less than Alder Ford; guard variants changed
+little; cows-only HERD2 lost $337 a game.
+
+On fresh arena games (validate1, 300 per graph) `_ADV_LOOK` 4 gained $32 a game (158 better, 111 worse,
+p = 0.005), and against the public engine 12-0-8 became 19-1-0. Backtest 2 (23:39 UTC, all 82 recorded games,
+`~/kagg-evo/backtest2.sh`): `_ADV_LOOK` 4 plus lead sells 12 turns ahead (`_EV_H`, `_DP_H`, `_MP_H` 8 -> 12)
+went 56W-26L-0T against Alder Ford's 40W-31L-11T, +$365 a game; `_ADV_LOOK` 5 and 6 added nothing over 4.
+On validate1's 300 fresh games (2026-09-27 00:09 UTC) the lead-sell variant gained only $37 a game over
+`_ADV_LOOK` 4 alone (145 better, 155 worse; 269W-31L against 267W-33L): +$345 against the public engine and
++$318 on the held-out lost seeds, -$60 to -$122 against pilkwang_sep, Shepherd, Forecast, V55 and V57. Queued for
+Island-Market (iteration 51), whose champion already has `_ADV_LOOK` 4; the cows-only edit left the queue
+after its second rejection (iteration 37). Tables and caveats:
+`shinka/champions/evidence/alder_ford_20260927/README.md`.
 
 ## Results so far
 
@@ -86,6 +149,42 @@ The pool fingerprint was unchanged by the restart (checked), so every cached bas
 | 16 | Oracle | claude-opus-5.5 | `_OG_TO_STEP` 696 → 714 | 2-0 | $0 | 0.5 | rejected (inert) |
 | 17 | Opening | claude-opus-5.5 | `_SR_MARGIN` 8 → 12 on the guard + `_CXD_BUDGET` line | 75-42 | -$22 | 0.003 | rejected (mean < 0) |
 | 18 | Endgame | claude-opus-5.5 | the promoted guard on the `_SR_MARGIN` 12 line | 66-55 | -$2 | 0.36 | rejected |
+| mix | Herd, Crops, Market | (mixing) | the Opening champion (guard + `_CXD_BUDGET` 1050) | 92-65 | +$31 | 0.038 | **promoted** on all three |
+| mix | Oracle / Endgame | (mixing) | the same changes | 39-23 / 82-73 | $0 / -$2 | 0.056 / 0.52 | rejected |
+| 19 | Herd | claude-opus-5.5 | `V9_HERD_MAX_EGG_SHOPS_COW` 0 → 1 | 1-1 | $0 | 1 | rejected |
+| 20 | Crops | gemini-3.8-flash | `_CA_FEED_DAYS` 1 → 2 | 24-69 | -$100 | 3e-6 | rejected |
+| 21 | Market | gpt-6-astra | `_OG_STRONG_SCORE` 0.6 → 0.7 | 12-10 | +$1 | 0.83 | rejected |
+| 22 | Oracle | claude-opus-5.5 | `_OG_PRICE_RATIO` 0.75 → 0.8 | 4-6 | +$1 | 0.75 | rejected |
+| 23 | Opening | gemini-3.8-flash | `_BD_CAP` 64 → 40 | 6-6 | -$1 | 1 | rejected |
+| 24 | Endgame | gpt-6-luna | `_ADV_LOOK` 3 → 4 | 104-93 | +$13 | 0.48 | rejected (+$226 head-to-head, +$124 against tetsutani, about -$95 against V55, V57, Forecast) |
+| mix | Oracle / Endgame | (mixing) | nothing new: the donor Herd had the Opening champion's changes | | | | rejected again from the cache |
+| 25 | Herd | gemini-3.1-pro-preview | `V9_HERD_MIN_MILK_SHOPS` 3 → 2 | 1-0 | $0 | 1 | rejected |
+| 26 | Crops | gemini-3.8-flash | `_CA_BUFFER` 8 → 6 | 4-3 | $0 | 1 | rejected |
+| 27 | Market | gpt-6-astra | `_ADV_FRONT` false → true | 52-176 | +$4 | 2e-15 | rejected (more games worse) |
+| 28 | Oracle | gpt-6-sol | `_OG_TO_STEP` 696 → 712 | 2-1 | $0 | 1 | rejected |
+| 29 | Opening | gemini-3.8-flash | `_BD_MIN` 8 → 4 | 106-150 | -$113 | 0.007 | rejected |
+| 30 | Endgame | gpt-6-astra | `_SR_MARGIN` 12 → 16 | 68-53 | +$3 | 0.2 | rejected |
+| 31 | Herd | (queue) | cows-only HERD2: `_HD2_OPTIONS` COW, `_HD2_RATIO` 1.0, `_HD2_MIN_GAIN` 0, `_HD2_FUTURE` 1.0 | 34-47 | -$32 | 0.18 | rejected (won back Nikita Makarov's replay, +$4,358, lost 4 other replays) |
+| 32 | Crops | claude-opus-5.5 | `V9_FERT_FIRST_DAY` 14 → 12 | 65-52 | -$17 | 0.27 | rejected |
+| 33 | Market | gpt-6-astra | `_OR2_SLOT_MARGIN` 12 → 0 | 101-52 | +$2 | 9e-5 | **promoted** |
+| 34 | Oracle | gpt-6-astra | guard without MILK (`_OG_ITEMS` WOOL, STRAWBERRY) | 29-41 | $0 | 0.19 | rejected |
+| 35 | Opening | gpt-6-luna | `_CXD_BUDGET` 1050 → 1200 | 5-3 | $0 | 0.73 | rejected |
+| 36 | Endgame | gpt-6-astra | `_SR_HOURS` 21-23 → 20-23 | 88-83 | +$7 | 0.76 | rejected |
+| mix | Herd, Crops, Opening | (mixing, donor Market) | `_OR2_SLOT_MARGIN` 12 → 0 | 101-52 | +$2 | 9e-5 | **promoted** on all three |
+| mix | Oracle | (mixing) | `_OR2_SLOT_MARGIN` 12 → 0 and `_CXD_BUDGET` 1050 | 133-62 | +$2 | 4e-7 | **promoted** |
+| mix | Endgame | (mixing) | the donor's guard, `_CXD_BUDGET` 1050 and `_OR2_SLOT_MARGIN` 0 | 148-107 | -$1 | 0.012 | rejected (mean < 0) |
+| 37 | Herd | (queue) | cows-only HERD2 again, on the new champion | 34-47 | -$29 | 0.18 | rejected |
+| 38 | Crops | gpt-6-astra | `_CA_TO` 28 → 24 | 38-153 | -$115 | 8e-16 | rejected |
+| 39 | Market | gemini-3.8-flash | `_ADV_LOOK` 3 → 4 | 159-109 | +$28 | 0.003 | **promoted** |
+| 40 | Oracle | gemini-3.8-flash | `_OG_KEEP` 2 → 1 | 64-76 | +$6 | 0.35 | rejected |
+| 41 | Opening | claude-sonnet-5 | `_CXD_BUDGET` 1050 → 1200, on the new champion | 4-3 | $0 | 1 | rejected |
+| 42 | Endgame | gemini-3.8-flash | `_CH_SHED` 100 → 96 | 4-21 | -$4 | 9e-4 | rejected |
+| 43 | Herd | gemini-3.8-flash | `_HD2_MIN_GAIN` 600 → 350 | 2-1 | $0 | 1 | rejected |
+| 44 | Crops | gemini-3.8-flash | `_CA_FROM` 10 → 9 | 2-3 | -$4 | 1 | rejected |
+
+From iteration 29 the gauntlet has 278 games (258 pool + 20 head-to-head), from iteration 31 302 (282 pool,
+24 of them replays, + 20 head-to-head). After iteration 44 Island-Market leads: +$34.6 a game over the seed on
+the 282 pool games (162 better, 117 worse, 3 the same; p = 0.008).
 
 Iterations 17 and 18 show that the guard and `_SR_MARGIN` 12 do not add up on the plan's games. Each
 helps alone, but together they lose on average against haideptry_shepherd (-$95 a game in iteration 17,
@@ -161,3 +260,9 @@ The Opening champion is the strongest validated graph. At the user's request it 
 `shinka/champions/submissions/alder_ford/`. The Kaggle-style validation passed: 8 of 8 games DONE, the
 predictor live on numpy, moves averaging 81-97 ms. Seed 101 against starter ends with the same cash
 ($181,469) through the Kaggle loader and the arena harness.
+
+**Birch Hollow** is Alder Ford with engine `_ADV_LOOK` 4, the fix from the loss analysis that held on both the
+replay backtest and fresh seeds (`shinka/champions/evidence/alder_ford_20260927/README.md`). At the user's
+request it was submitted as Kaggle submission 56603928 at 08:50 UTC on 09-27 and was COMPLETE by 08:56 UTC
+(starting rating 600). Its graph is `alder_ford_look4_graph.json`; the package and manifest are in
+`shinka/champions/submissions/birch_hollow/`. The same validation and fidelity checks passed.

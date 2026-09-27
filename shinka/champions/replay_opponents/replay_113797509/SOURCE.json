@@ -1,0 +1,19 @@
+{
+ "name": "replay_113797509",
+ "episode": 113797509,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "AI After Hours",
+ "opponent_submission": 56583536,
+ "seed": 1855726663,
+ "recorded_rewards": [
+  109441.0,
+  109015.0
+ ],
+ "recorded_margin_for_us": -426,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5b276e3b03ed61e7a0dc1be2e0758a58f1935072cc0c7a28f6795c0a64f084eb"
+ }
+}

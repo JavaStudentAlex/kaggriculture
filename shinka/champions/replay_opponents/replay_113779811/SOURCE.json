@@ -1,0 +1,19 @@
+{
+ "name": "replay_113779811",
+ "episode": 113779811,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "auouer",
+ "opponent_submission": 56577854,
+ "seed": 73844937,
+ "recorded_rewards": [
+  72493.0,
+  71951.0
+ ],
+ "recorded_margin_for_us": 542,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "fb76fc1b664523659691c7e2a3f4c483a923b7898166c3a1ea562331aaab3135"
+ }
+}

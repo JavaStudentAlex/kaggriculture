@@ -1,0 +1,19 @@
+{
+ "name": "replay_113793427",
+ "episode": 113793427,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "syouya tobita",
+ "opponent_submission": 56571595,
+ "seed": 1976127715,
+ "recorded_rewards": [
+  92089.0,
+  82814.0
+ ],
+ "recorded_margin_for_us": -9275,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "991d06dc55f533269e5ba2a50ac370ca9ff7aeb1c0a895865ea710d84e01cf11"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113808766",
+ "episode": 113808766,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Shadow",
+ "opponent_submission": 56478342,
+ "seed": 1003625970,
+ "recorded_rewards": [
+  103513.0,
+  102038.0
+ ],
+ "recorded_margin_for_us": 1475,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b463e69b37caff9b5c420bd69a7e4e67f021c01dc9d93a6b6ea3d768037f3612"
+ }
+}

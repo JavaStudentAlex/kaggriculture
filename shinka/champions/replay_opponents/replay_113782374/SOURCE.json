@@ -1,0 +1,19 @@
+{
+ "name": "replay_113782374",
+ "episode": 113782374,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "edwinis",
+ "opponent_submission": 56561384,
+ "seed": 847781885,
+ "recorded_rewards": [
+  109605.0,
+  109638.0
+ ],
+ "recorded_margin_for_us": -33,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "944a78280d8b31e1df4d913898c909981c6f59f32dfd55a21daea85982962276"
+ }
+}

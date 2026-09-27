@@ -1,0 +1,19 @@
+{
+ "name": "replay_113822100",
+ "episode": 113822100,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "shivam kanojia",
+ "opponent_submission": 56583067,
+ "seed": 400366564,
+ "recorded_rewards": [
+  106333.0,
+  109925.0
+ ],
+ "recorded_margin_for_us": -3592,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ba9756bbfae881542d2e0ac2b9af0e722951e0b59a3866bb04457b7ef663fea4"
+ }
+}

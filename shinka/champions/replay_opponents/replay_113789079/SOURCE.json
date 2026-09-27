@@ -1,0 +1,19 @@
+{
+ "name": "replay_113789079",
+ "episode": 113789079,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "BorisV",
+ "opponent_submission": 56583553,
+ "seed": 457345662,
+ "recorded_rewards": [
+  106492.0,
+  106610.0
+ ],
+ "recorded_margin_for_us": 118,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1402df33fc1575545a9dc5fae203406d8287d4780234abc761ade34413ba0bb2"
+ }
+}

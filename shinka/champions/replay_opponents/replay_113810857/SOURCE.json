@@ -1,0 +1,19 @@
+{
+ "name": "replay_113810857",
+ "episode": 113810857,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Paritosh Kumar Tripathi",
+ "opponent_submission": 56570269,
+ "seed": 289283376,
+ "recorded_rewards": [
+  93380.0,
+  92735.0
+ ],
+ "recorded_margin_for_us": 645,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "43280936225480984c00e3d4ebbadb57a41da6335be854ff2b535879639e0d1a"
+ }
+}

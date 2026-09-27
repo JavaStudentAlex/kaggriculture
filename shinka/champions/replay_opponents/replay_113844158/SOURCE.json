@@ -1,0 +1,19 @@
+{
+ "name": "replay_113844158",
+ "episode": 113844158,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Shivam_2212",
+ "opponent_submission": 56585790,
+ "seed": 1228166873,
+ "recorded_rewards": [
+  90786.0,
+  90793.0
+ ],
+ "recorded_margin_for_us": 7,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f972218389290295329195af61596fd083bfeb3486961ed968e84f2c07686b57"
+ }
+}

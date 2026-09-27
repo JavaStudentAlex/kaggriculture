@@ -1,0 +1,19 @@
+{
+ "name": "replay_113797241",
+ "episode": 113797241,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Nikita Makarov",
+ "opponent_submission": 56584204,
+ "seed": 1197057374,
+ "recorded_rewards": [
+  131266.0,
+  124495.0
+ ],
+ "recorded_margin_for_us": -6771,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ed09cc16d68ef200db84d7f7214b8bc83d65d62dc67e21776dbc6cd3a16e997c"
+ }
+}

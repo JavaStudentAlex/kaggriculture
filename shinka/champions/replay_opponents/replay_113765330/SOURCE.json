@@ -1,0 +1,19 @@
+{
+ "name": "replay_113765330",
+ "episode": 113765330,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "AlexMoura2026",
+ "opponent_submission": 56576801,
+ "seed": 1777611939,
+ "recorded_rewards": [
+  66419.0,
+  66544.0
+ ],
+ "recorded_margin_for_us": 125,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "b7e6cacc1f11ca19d21c34f3d6c4326649b3acc7a21395bf5321fb024dd5843b"
+ }
+}

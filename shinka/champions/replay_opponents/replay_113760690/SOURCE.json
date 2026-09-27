@@ -1,0 +1,19 @@
+{
+ "name": "replay_113760690",
+ "episode": 113760690,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Sam-wiz",
+ "opponent_submission": 56551754,
+ "seed": 81300542,
+ "recorded_rewards": [
+  69461.0,
+  70056.0
+ ],
+ "recorded_margin_for_us": 595,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "1938c6201a59c83ae749cd4a9816df3151dee37ceaa71aebc16a50a73697348d"
+ }
+}

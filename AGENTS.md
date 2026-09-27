@@ -809,10 +809,28 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   `highcpu_island_evolution.py --executor colab-pool --pool_dir ~/kagg-evo/pool --islands ladder
   --plan evolution_results/ladder_2026-09-26/plan.json --knowledge evolution_knowledge_ladder.md
   --ideas evolution_ideas_ladder.md --seed_graph evolution_results/ladder_2026-09-26/seed_graph.json
-  --seeds_per_opponent 20 --mix_interval 12`. The plan (`ladder_seed_plan.py`) is every lost ladder seed
+  --seeds_per_opponent 20 --mix_interval 12 --queue evolution_queue_ladder.json`. The plan (`ladder_seed_plan.py`) is every lost ladder seed
   against the bundle that plays like the rival who beat us there, from both seats, plus 10 random seeds
   against each pool member; `--seeds_per_opponent` then only sizes the head-to-head block. The bandit
   pulls only the models the proxy serves.
+- **Adding a submission's new losses** (done 09-26 for Alder Ford, 22 losses and 2 ties): list its games and
+  download the lost replays (`fetch_games.py`-style, read-only API, here), rsync them to cliproxyapi, run
+  `match_ladder_games.py` there for every pool bundle (plus candidates recovered from newer public
+  notebooks; `build_ladder_pool.py` reports a notebook that changed), add a bundle that matches a rival to
+  the pool, then `ladder_seed_plan.py --extend <plan> --with-ties --losses <index>=<replays> --evidence
+  <matches> --fallback tetsutani_demand --replay-opponents shinka/champions/replay_opponents` (its old
+  entries stay as they are) and restart the loop. Only the new games are played for the existing champions.
+  Record: `shinka/champions/evidence/alder_ford_20260926/` (its README also has the loss analysis).
+- **Replay opponents** (`shinka/champions/replay_opponents/`, README there). Build them first with
+  `make_replay_opponents.py <index> <replay dir>` (on cliproxyapi, where the replays are). The bundle
+  `replay_<episode>` plays the rival's recorded moves of one lost game. Against it the champion replays the
+  ladder game to the dollar (all 24 of Alder Ford's), whereas our stand-in agents were beaten on 13 of 21
+  lost seeds. Use them only for losses of an agent close to the candidates (Alder Ford's). They are one-seat
+  jobs next to the stand-in's both-seat jobs.
+- **Queued edits.** `--queue evolution_queue_ladder.json` (a JSON list of {island, edit, rationale}, re-read
+  every iteration): an island's next iteration plays its first queued edit not played yet, instead of the
+  models' proposals, with the same gauntlet and promotion rule (`"model": "queue"`, no bandit update). Use it
+  to test a specific hypothesis; edit the file in `~/kagg-evo/repo` after editing here.
 - **Island mixing** (user's requirement, 2026-09-26). The islands evolve separately, and an edit whose
   settings were played on any island is refused as a repeat, so the models cannot pass a champion to
   another island. Every `--mix_interval` iterations (12 = two rounds of the six ladder islands; a run
@@ -835,14 +853,18 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   one makes new VMs on the loop's first request (give the user their links).
   - The loop's wrapper touches the pool's STOP file when the loop ends, so the script kills the
     wrapper first. Killing only the python process would stop the pool and its VMs.
-  - Run ladder1 has a budget of 200 iterations since 12:35 UTC 09-26. An iteration takes 12-35 min (35
-    when both graphs run the predictor), so 200 iterations take about 3-4.5 days and 100-140 compute
-    units at 1.3 units/h (the account had 180.8 units at 14:00 UTC 09-26).
-  - Cached baselines survive a restart only if the gauntlet fingerprint is unchanged. The fingerprint
-    covers the opponent bundles, everything under `hazel_runtime/`, `agent_graph.py`, the harness, the
-    seeds and the plan. Loop, prompt and knowledge files are not in it.
-  - Check it before restarting: `Gauntlet(...).prepare()` must equal the `fingerprint` in
-    `<run>/scores/*.json`.
+  - Run ladder1 has a budget of 200 iterations since 12:35 UTC 09-26. With the predictor in both graphs an
+    iteration takes about 30 min, about 38 with the 302-game gauntlet since iteration 31, so the rest takes
+    about 4 days and 120-140 compute units at 1.3 units/h (the account had 175.7 units at 18:00 UTC 09-26).
+  - Pool margins are cached per game (`<run>/scores/<bundle>.json`). A margin stays valid while the
+    gauntlet fingerprint (everything under `hazel_runtime/`, `agent_graph.py`, the harness, the
+    head-to-head seeds and the engine version) and the digest of its opponent's bundle are unchanged. The
+    plan is not in the fingerprint, so a plan that grows plays only its new games; loop, prompt and
+    knowledge files are in neither. Check before restarting: `Gauntlet(...).prepare()` must equal the
+    `fingerprint` in `<run>/scores/*.json`.
+  - `BEFORE_START='<command>' restart_ladder1.sh ...` runs a command after the kill and before the new start;
+    if it fails, the loop is not restarted. The 09-26 19:35 restart used it for `upgrade_scores.py`, which
+    carried the cache over to the per-game format (the old fingerprint had covered the plan).
 - **Aim edits at layers that act.** `engine_activity.py` shows which of an engine's layers change its
   actions in play and which parameters each layer reads. It wraps each saved parent `agent`, and the
   recorded games equal unwrapped ones. For tetsutani_demand, 34 of 76 layers never acted in 48 games,
@@ -853,8 +875,17 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   - which graphs: `seed`, `island:<name>`, `merge:<A>+<B>` (island A plus what B changed relative to
     the seed), or a file;
   - which games: arena validation seeds (salt 20260924) against every opponent, plus held-out lost
-    seeds (`--lost`) from both seats;
+    seeds (`--lost`) from both seats, plus `--replays <replay_opponents dir>`: every replay opponent once,
+    from our ladder seat (sets `replay:W|L|T`);
   - the report pairs every graph with the first one.
 
-  Its request queues in the pool between gauntlets and delays the loop by its own length.
+  Its request queues in the pool between gauntlets and delays the loop by its own length. Games are cached
+  under the run name (`<run>/games/<name>.jsonl`): a rerun plays only missing games, and copying an earlier
+  run's file to the new name reuses its games for the same labels.
+  - **Ladder backtest** (`--seeds 0 --replays ...`): every graph against the recorded moves of all our
+    replayed ladder games, won ones included, so it shows which lost games a change wins and which won ones
+    it gives away. Changes a rival would not answer (sale timing, the guard) are measured most faithfully.
+    A candidate for submission gets a backtest and then a fresh-seed validation. Scripts on cliproxyapi:
+    `~/kagg-evo/backtest2.sh`, `validate_best.sh <label> <graph>`; results in
+    `shinka/champions/evidence/alder_ford_20260927/README.md`.
 - Results and the iteration table: `evolution_results/ladder_2026-09-26/README.md`.

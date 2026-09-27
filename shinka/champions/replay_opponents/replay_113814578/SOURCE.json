@@ -1,0 +1,19 @@
+{
+ "name": "replay_113814578",
+ "episode": 113814578,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "arumajiro",
+ "opponent_submission": 56575267,
+ "seed": 1430802985,
+ "recorded_rewards": [
+  125147.0,
+  124696.0
+ ],
+ "recorded_margin_for_us": 451,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "bae7f33861d462545cc04bd534ec5f1f58afcb2149c07a427614f66c1fe09178"
+ }
+}

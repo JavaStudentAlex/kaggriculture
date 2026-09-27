@@ -1,0 +1,19 @@
+{
+ "name": "replay_113818373",
+ "episode": 113818373,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "GURU Prasaatha S",
+ "opponent_submission": 56538123,
+ "seed": 1605290964,
+ "recorded_rewards": [
+  73402.0,
+  73402.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "c2809499dc7c54f28bcabb4e92131355d6d0115cff7ab20befb44af7dc120c04"
+ }
+}

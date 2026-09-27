@@ -1,0 +1,19 @@
+{
+ "name": "replay_113866804",
+ "episode": 113866804,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Rushil Desai",
+ "opponent_submission": 56543080,
+ "seed": 1213266499,
+ "recorded_rewards": [
+  92582.0,
+  97989.0
+ ],
+ "recorded_margin_for_us": 5407,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8a8770caf51327fe88b5fef7ee33bf4e3dc8a7a0f1a87f86e6dcfed8d3c87f28"
+ }
+}

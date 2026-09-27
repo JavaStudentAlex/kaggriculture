@@ -1,0 +1,19 @@
+{
+ "name": "replay_113776421",
+ "episode": 113776421,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Yusuraume",
+ "opponent_submission": 56565863,
+ "seed": 1328876977,
+ "recorded_rewards": [
+  116312.0,
+  116479.0
+ ],
+ "recorded_margin_for_us": -167,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "11bab6530308fe1d1e66d0772517da08d4b47e8e19b4ff76b7d83fa735a1fcd2"
+ }
+}

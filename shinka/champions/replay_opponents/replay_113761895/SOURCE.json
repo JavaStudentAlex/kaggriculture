@@ -1,0 +1,19 @@
+{
+ "name": "replay_113761895",
+ "episode": 113761895,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Igor V",
+ "opponent_submission": 56575960,
+ "seed": 389373681,
+ "recorded_rewards": [
+  148363.0,
+  147821.0
+ ],
+ "recorded_margin_for_us": -542,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ab1eba11ee70eaef08a6394e50c52abd560e6482501ce3d801a98ef7551e19b1"
+ }
+}

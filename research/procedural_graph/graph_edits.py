@@ -459,7 +459,8 @@ def describe_controls(graph, constants=None):
                  'opponent_pressure need order_arbitration): ' + ', '.join(
                      f"{k}={current['experimental'].get(k, False)}" for k in experimental.SWITCHES), '']
         guard = [(n, c) for n, c in constants.items() if c['home'] == 'oracle_guard']
-        rows.append('ORACLE GUARD PARAMETERS (name | type | current | default | note):')
+        rows.append('ORACLE GUARD PARAMETERS (edit them under the key "parameters", e.g. {"parameters": '
+                    '{"_OG_SCORE": 0.55}}; they are not engine parameters) (name | type | current | default | note):')
         for name, c in guard:
             rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
                         f"{json.dumps(_json_value(c['default']))} | {c['note']}")

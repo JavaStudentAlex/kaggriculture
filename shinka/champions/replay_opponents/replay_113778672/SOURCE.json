@@ -1,0 +1,19 @@
+{
+ "name": "replay_113778672",
+ "episode": 113778672,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Miz",
+ "opponent_submission": 56543811,
+ "seed": 1430958706,
+ "recorded_rewards": [
+  123273.0,
+  123558.0
+ ],
+ "recorded_margin_for_us": 285,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f2e2ef7336a0e06581c1394aeb845a83943eabde8a4cb55ff00dc0f7c6832c3f"
+ }
+}

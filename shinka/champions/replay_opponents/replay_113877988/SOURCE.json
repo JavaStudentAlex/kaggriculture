@@ -1,0 +1,19 @@
+{
+ "name": "replay_113877988",
+ "episode": 113877988,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "choqui62",
+ "opponent_submission": 56543977,
+ "seed": 807041245,
+ "recorded_rewards": [
+  85148.0,
+  84226.0
+ ],
+ "recorded_margin_for_us": 922,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "f8dbaad77b4b902249b3de456f218275fdd30f56dd03089dbc0b8901b2923c4c"
+ }
+}

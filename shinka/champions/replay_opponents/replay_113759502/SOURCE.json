@@ -1,0 +1,19 @@
+{
+ "name": "replay_113759502",
+ "episode": 113759502,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Nader",
+ "opponent_submission": 56555103,
+ "seed": 1946784964,
+ "recorded_rewards": [
+  88964.0,
+  90247.0
+ ],
+ "recorded_margin_for_us": 1283,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "ae048fb75408717eaff9919406229f751c6fa779486066cc6b960aab64285690"
+ }
+}

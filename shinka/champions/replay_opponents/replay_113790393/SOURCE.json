@@ -1,0 +1,19 @@
+{
+ "name": "replay_113790393",
+ "episode": 113790393,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "J.Moriuchi",
+ "opponent_submission": 56579024,
+ "seed": 1422367119,
+ "recorded_rewards": [
+  87755.0,
+  88903.0
+ ],
+ "recorded_margin_for_us": -1148,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "6dd530363cf30ecf0a7290293f9cb54bc66dc6845eb85e92372e78f936e2630f"
+ }
+}

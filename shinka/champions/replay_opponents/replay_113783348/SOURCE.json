@@ -1,0 +1,19 @@
+{
+ "name": "replay_113783348",
+ "episode": 113783348,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Konstantin Zhar",
+ "opponent_submission": 56561248,
+ "seed": 921196316,
+ "recorded_rewards": [
+  86475.0,
+  85947.0
+ ],
+ "recorded_margin_for_us": -528,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "bc606deab2f89f28c2ed0a0f69e5df040db5298b60692ca8a0d1fac8ba73e2d8"
+ }
+}

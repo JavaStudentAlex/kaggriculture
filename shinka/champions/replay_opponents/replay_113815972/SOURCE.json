@@ -1,0 +1,19 @@
+{
+ "name": "replay_113815972",
+ "episode": 113815972,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "ГИМНАЗИЯ14ЙОШКАРОЛА",
+ "opponent_submission": 56573181,
+ "seed": 1274756426,
+ "recorded_rewards": [
+  81597.0,
+  81597.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "0496fafda8697f08bd8e0de59568cfc76dd599bc585a57b6a00aba853fb283f4"
+ }
+}

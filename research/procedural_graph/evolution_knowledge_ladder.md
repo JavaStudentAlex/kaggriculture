@@ -79,24 +79,32 @@ the carrot planner V9_CARROT_*, the opening tape V9_OPENING_STEP0 / V9_OPENING_T
 V9_RACE_*, V9_RACEGATE_*, _RACE_*, the yarn-town reorder _Y_HOURS / _Y_ITEMS / _Y_MARGIN / _Y_MIN_DAY,
 the weed-lag replay _E343_WL_*, APPLY_TIMING, _V219_FERTILIZE.
 Read only while the module loads (they shape the route tapes and settings, so an edit changes only
-the towns whose tape they touch): V9_HERD_*, _R110_OLD_SHOPS, _V92_TABLE, _R42_OPENING, _SETTINGS,
-FRONT_RUN_ITEMS, V9_RACEPX_*.
-Measured in run ladder1: edits of _CS_*, V9_HERD_*, _FX_FLOW_MIN and _SETTINGS.terminal_liquidation
-changed 1-3 of 230 games; V9_CARROT_LAST_DAY 23 -> 25 woke the carrot planner and lost 24 of the 27
-games it changed.
+the towns whose tape they touch): _R110_OLD_SHOPS, _V92_TABLE, _R42_OPENING, _SETTINGS,
+FRONT_RUN_ITEMS, V9_RACEPX_*. V9_HERD_* can never change play: the public agent defines that goose-swap
+layer (`_v9_herd`) but its wrapper never calls it.
+Herd layers that do act: HERD2 (_HD2_*) turns the tape's goose purchase on days 8-15 into cows or sheep
+when their expected value is at least _HD2_RATIO (1.3) times the geese's and $600 more (_HD2_MIN_GAIN),
+and only if the farm has no coop yet; COWSWAP (_CS_*) weighs the tape's first cow purchase (days 6-8)
+against geese. A sheep purchase cannot be turned into cows by a parameter: the tape harvests sheep every
+third day, so cows placed there would lose milk.
+Measured in run ladder1: edits of _CS_*, V9_HERD_* (four edits), _FX_FLOW_MIN and
+_SETTINGS.terminal_liquidation changed 0-3 of 230 games; V9_CARROT_LAST_DAY 23 -> 25 woke the carrot
+planner and lost 24 of the 27 games it changed.
 
 ## The gauntlet's opponents (public agents; exact = reproduces a recorded ladder game move for move)
 
 | bundle | what it is | ladder evidence |
 |---|---|---|
-| tetsutani_demand | the engine itself (mirror): "Demand-Preserving Turn Sale Timing", step-0 wheat BUY 5 | exact: AkiraIshikawa (2155), Shane Thivaharraja (2188) |
-| haideptry_2965 | "The 2965 Master Hybrid Engine": V57 + an order-book evaluator that permutes the cash-sale slots; step-0 buy 20 / sell 15 wheat (>= $1,050 left after step 1) | ~ Matin Urdu, Hector Valverde, sneaky6767 (1920) |
+| tetsutani_demand | the engine itself (mirror): "Demand-Preserving Turn Sale Timing", step-0 wheat BUY 5 | exact: AkiraIshikawa (2155), Shane Thivaharraja (2188); Yusuraume (2055) and BorisV, who beat and tied Alder Ford; ~ J.Moriuchi (372 steps), Shangshang Zhang (226), Igor V (150) |
+| haideptry_2965 | "The 2965 Master Hybrid Engine" (the notebook's version of 09-25): V57 + an order-book evaluator that permutes the cash-sale slots; step-0 buy 20 / sell 15 wheat (>= $1,050 left after step 1) | ~ Matin Urdu, Hector Valverde, sneaky6767 (1920) |
+| haideptry_2965_0926 | the same notebook's version of 09-26 13:54 UTC, same opening | exact: ADRIANO ALMEIDA (2031), who beat Alder Ford; ~ Rohan L (241 steps), edwinis (159) |
 | haideptry_shepherd | "Shepherd's Ledger": V57 family, opening buy 8 / sell 3 | ~ z7777 (2437), Rashid K. (2175) |
 | abo_v57 | Ahmed Berat Ozer V57 | exact: PUN |
 | abo_v55 | V55 | exact: Ansh Agarwal (1808) |
 | abo_v43 | V43 | exact: Dariush Afshar (1453) |
-| abo_v57_open13 | V57 with the ladder's 13-wheat opening (buy 13 at step 0, sell 9 at step 1) | the opening of 16 of Rowan Glen's first 28 losses |
-| leoprovorov_forecast | "Four-Turn Forecast" | ~ Rashid K. (2175) |
+| tetsutani_shape_shop | tetsutani's earlier notebook "Shape the Shop Work the Pasture" (09-06): the 13-wheat opening (buy 13 at step 0, sell 9 at step 1) | exact: wuy1hao, random_numb, phi; ~ YuRuiZe (623 steps), williams (106), all of whom beat Rowan Glen or Linden Brook |
+| abo_v57_open13 | V57 with the same 13-wheat opening (our stand-in before tetsutani_shape_shop was found; it matches none of these rivals past step 0) | the 13-wheat losses that no public agent reproduces past step 1 |
+| leoprovorov_forecast | "Four-Turn Forecast", opening buy 8 / sell 3 | ~ Rashid K. (2175); King-damon (216 steps) and AI After Hours (150), who beat Alder Ford |
 | hanifnoerrofiq_pioneers | "Pioneers of Kaggle Town", opening buy 6 / sell 5 | ~ julien gaza (2091) |
 | robust_economy | nihilisticneuralnet "Population-Robust Economy" (Metav4 lineage) | ~ AlexMoura2026 |
 | pilkwang_sep | "Structured Economic Policy" | ~ Zhong Lyu, edwinis |
@@ -123,6 +131,14 @@ Run ladder1 (2026-09-26, iterations 1-11), promoted edits:
 - Endgame island: _SR_MARGIN 8 -> 12 (night shed guard): 81W-38L, +$9 a game, p = 0.0001.
 - Opening island: _CXD_BUDGET 800 -> 1050: 40W-22L, +$2 a game, p = 0.03.
 Rejected with many changed games: V9_FERT_FIRST_DAY 14 -> 16 (33W-44L, +$24 mean, p = 0.25).
+Iterations 12-28 promoted nothing. The first island mixing (after iteration 18) gave Herd, Crops and
+Market the Opening champion (+$31 a game over their old champions); Oracle and Endgame rejected it.
+Rejected on the stronger line: _ADV_FRONT on (twice: 51W-177L and 52W-176L), _CA_FEED_DAYS 1 -> 2
+(24W-69L, -$100 a game), _ADV_LOOK 3 -> 4 (104W-93L, +$13, p = 0.48: +$226 a game head-to-head against
+the champion and +$124 against tetsutani_demand, but about -$95 against abo_v55, abo_v57 and
+leoprovorov_forecast). Nearly inert (at most 22 of 230 games changed, no gain): _OG_STRONG_SCORE 0.7,
+_OG_PRICE_RATIO 0.8, _OG_TO_STEP 714, _BD_CAP 40, _CA_BUFFER 6, V9_HERD_MIN_MILK_SHOPS 2,
+V9_HERD_MAX_EGG_SHOPS_COW 1.
 Each island keeps its own champion; an edit that adds another island's promoted edit to this
 island's champion is valid and tests whether the gains add up.
 
@@ -135,11 +151,72 @@ against everyone else. Seven losses of $27k-$71k came against rivals who bought 
 step 0: our step-1 purchases left ~$20, the day-1 hire got 2 hands, a cow starved on day 2 and the
 farm never recovered. The engine does not have this weakness: it beats the 13-wheat opener 20-0.
 
+## Alder Ford on the ladder (the Opening champion, submitted 2026-09-26 14:50 UTC)
+
+Alder Ford is the Opening island's champion of iteration 11 (the guard on MILK/WOOL/STRAWBERRY plus
+_CXD_BUDGET 1050). By 19:00 UTC it had played 70 ladder games: 46W-22L-2T, rating 2,078 (our earlier
+best submission reached 1,378). It won its first 17 games, up to a 1,966-rated rival; against rivals
+rated 1,900-2,250 it is about even. Those games are near-mirrors: 18 of its 22 losses were by less
+than $1,800 (median about $600); the largest were $9,275 (syouya tobita, 2965 opening), $6,771 (Nikita
+Makarov, buy 18 / sell 13) and $4,798 (Alexander Sokolov, buy 3 wheat and five hires at step 0).
+The 24 lost or tied games by the rival's step-0 opening: buy 5 (tetsutani) 6, buy 20 / sell 15 (2965)
+5, buy 8 / sell 3 (Forecast family) 4, buy 8 / sell 8 3, and one each of buy 6 / sell 1, 7 / 2, 10 / 10,
+18 / 13, 13 and buy 3 with hires. Three rivals run a pool agent exactly (tetsutani_demand twice,
+haideptry_2965_0926 once): even the plain engine beats or ties our champion on some seeds.
+
+After 100 games (22:29 UTC, 58W-31L-11T, rating 2,086; `shinka/champions/evidence/alder_ford_20260927/`):
+- 10 of the 11 ties are against the public engine run exactly (all 719 moves). Alder Ford plays it move
+  for move, so both farms earn the same every day. A mirror is beaten only by selling first.
+- All 15 losses by at most $600 are against rivals with exactly our herd (the same route tape). They are
+  sale races, lost after day 20 on milk, strawberries, wool or wheat. The rivals that leave the public
+  engine win by selling first or more: 2 wool where the engine sells 1 (test_money, from step 468),
+  strawberries ordered before wheat in the same turn (Bhaskar #2, step 385; both seats' orders clear
+  slot by slot).
+- The 16 losses above $600 are other strategies: 2965-family wheat trading, more geese (eggs), carrots,
+  more cows, early hiring. No sale-timing setting changes them; leaning the herd to cows cost more
+  elsewhere (-$337 a game on the replays).
+
 ## What a candidate must do to be promoted
 
 It plays the same games as its island champion: every lost ladder seed (Rowan Glen's and Linden
-Brook's losses) against the bundle that plays like the rival who beat us there, from both seats,
-plus random seeds against the pool, plus head-to-head games against the champion. The mirror of
+Brook's losses, and since 09-26 19:30 UTC Alder Ford's 22 losses and 2 ties) against the bundle
+that plays like the rival who beat us there, from both seats, plus random seeds against the pool,
+plus head-to-head games against the champion, and since iteration 31 each of Alder Ford's 24 lost or
+tied games against a replay of the rival's recorded moves (below): 282 pool games and 20 head-to-head. A rival no pool
+agent reproduces for 100 moves gets the agent of its opening, else tetsutani_demand (Alder Ford's)
+or haideptry_2965 (Rowan Glen's and Linden Brook's). Five 13-wheat losses of Rowan Glen and Linden
+Brook moved from abo_v57_open13 to tetsutani_shape_shop on 09-26 at 19:35 UTC, when it was found.
+
+Replay opponents (`shinka/champions/replay_opponents/`, tags replay_<episode>) play the rival's
+recorded moves. They do not react, so they measure what a change to our play earns against the moves
+that actually beat us. The champion replays the ladder game exactly: in all 24 its margin equals the
+ladder margin to the dollar (e.g. -$6,771 against Nikita Makarov's replay, -$1,148 against J.Moriuchi's). The stand-in agents do not: on the
+21 seeds without an exact public agent the champion beat them 13 times and lost 3 times. A replay game
+therefore shows a candidate's effect on a real loss, and small late changes (sale timing, the guard,
+herd choice) are measured most faithfully.
+
+Backtest against the recorded rivals of Alder Ford's 72 games with strong rivals (2026-09-26 22:15 UTC,
+one change each on the champion; `shinka/champions/evidence/alder_ford_20260926/README.md`):
+_ADV_LOOK 3 -> 4 +$60 a game (49 better, 15 worse, p = 2e-5; +$143 against tetsutani-family rivals, +$64
+against the 2965 family), the plain engine -$16, guard without MILK +$11, _OG_SCORE 0.6 +$6, guard stop
+on day 21 -$2, cows-only HERD2 -$337. The gauntlet's stand-ins had judged _ADV_LOOK 4 a loss (iteration 24).
+On 300 fresh arena games (validate1: 20 validation seeds against each of the 14 pool agents, plus 10 held-out
+lost seeds from both seats) _ADV_LOOK 4 on the champion gained +$32 a game (158 better, 111 worse, p = 0.005;
+267W-33L-0T against 253W-39L-8T). On the public engine's 20 validation seeds 12-0-8 became 19-1-0 (+$200 a
+game, 18 better, 2 worse); abo_v43 +$268 (18 better, 0 worse); the other 12 agents +$2 a game over 240 games
+(-$42 to +$46 per agent, none significant); the held-out lost seeds -$8.
+Backtest 2 (2026-09-26 23:39 UTC, all 82 recorded games; the champion is 40W-31L-11T on them): _ADV_LOOK 4 plus
+the three hour-window lead-sell horizons _EV_H, _DP_H and _MP_H 8 -> 12 went 56W-26L-0T, +$365 a game (64
+better, 18 worse): all 11 ties and 7 close losses won, 2 close wins lost. _ADV_LOOK 5 and 6 add nothing over 4
+(about as many games worse as better); guard without MILK adds $1 on top of _ADV_LOOK 4. Replays do not react,
+so large sale-timing changes can look better on them than live; a fresh-seed validation decides. On the same 300
+fresh games (2026-09-27) the lead-sell horizons 12 on top of _ADV_LOOK 4 gained +$37 a game over _ADV_LOOK 4 alone
+(145 better, 155 worse, not significant; 269W-31L against 267W-33L): +$345 against tetsutani_demand (19 better, 1
+worse), +$450 on the 2965 family's held-out lost seeds (14/2) and +$150 against haideptry_2965 and 2965_0926, but
+-$122 against pilkwang_sep (1/19), -$110 against haideptry_shepherd, -$78 against leoprovorov_forecast and -$30
+against abo_v57_open13 (4/16). Selling earlier wins the races against the engine's clones and gives away price
+against agents that sell later. In the loop, _ADV_LOOK 4 was promoted on Island-Market at iteration 39 (159W-109L,
++$28 a game, p = 0.003); the cows-only HERD2 edit was rejected on Island-Herd at iterations 31 and 37 (-$32, -$29). The mirror of
 the engine ties itself, so head-to-head margins start at 0. A change is promoted only if an exact
 sign test over the games whose result changed is significant (p <= 0.05) with a positive mean.
 Small margins among the V57 family mean most games change by a few hundred dollars: an edit that

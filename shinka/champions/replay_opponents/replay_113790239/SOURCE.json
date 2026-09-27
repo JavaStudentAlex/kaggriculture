@@ -1,0 +1,19 @@
+{
+ "name": "replay_113790239",
+ "episode": 113790239,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Pilea55",
+ "opponent_submission": 56583642,
+ "seed": 346780542,
+ "recorded_rewards": [
+  61054.0,
+  60534.0
+ ],
+ "recorded_margin_for_us": -520,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "17f428a5da5a94fa570bb1f8935ca4d426aab93a43729119e18a6fc4ec2c065a"
+ }
+}

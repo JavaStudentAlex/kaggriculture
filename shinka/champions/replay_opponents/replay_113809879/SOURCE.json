@@ -1,0 +1,19 @@
+{
+ "name": "replay_113809879",
+ "episode": 113809879,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Arnav Goel",
+ "opponent_submission": 56526909,
+ "seed": 1951587120,
+ "recorded_rewards": [
+  96476.0,
+  94524.0
+ ],
+ "recorded_margin_for_us": 1952,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "740268ec2534ec36d46d6bd6d21248b9484c193ce9af4b232b98b4b97b42e282"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "replay_113793970",
+ "episode": 113793970,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "DLTLM",
+ "opponent_submission": 56494180,
+ "seed": 1806757356,
+ "recorded_rewards": [
+  83124.0,
+  84299.0
+ ],
+ "recorded_margin_for_us": 1175,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "5e95ce041ea3ea7557357ae48826b662346aba72dc4a53c675bdcf2e82208197"
+ }
+}

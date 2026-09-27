@@ -1,0 +1,19 @@
+{
+ "name": "replay_113825832",
+ "episode": 113825832,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "Mike Kim",
+ "opponent_submission": 56582893,
+ "seed": 805327292,
+ "recorded_rewards": [
+  67227.0,
+  67227.0
+ ],
+ "recorded_margin_for_us": 0,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8c8baacc59e803c5d01e6286f723bcbe09fcdd0262567705d55387200aef422c"
+ }
+}

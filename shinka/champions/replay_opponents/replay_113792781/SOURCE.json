@@ -1,0 +1,19 @@
+{
+ "name": "replay_113792781",
+ "episode": 113792781,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Dante Lok",
+ "opponent_submission": 56525184,
+ "seed": 335330594,
+ "recorded_rewards": [
+  103302.0,
+  103429.0
+ ],
+ "recorded_margin_for_us": 127,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "8c9ecddb124c0f54e7ad2c05bc0e3ea6d168305548cfe32ec518fcbba7371457"
+ }
+}

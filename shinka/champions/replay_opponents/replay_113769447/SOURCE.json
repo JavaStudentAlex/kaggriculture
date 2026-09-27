@@ -1,0 +1,19 @@
+{
+ "name": "replay_113769447",
+ "episode": 113769447,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "rhythm master",
+ "opponent_submission": 56580569,
+ "seed": 381442528,
+ "recorded_rewards": [
+  64861.0,
+  64822.0
+ ],
+ "recorded_margin_for_us": -39,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "cfb24dbcb9f5742ab08f9dec22f9d3ee11884a56a48616794f504cdd544ea201"
+ }
+}

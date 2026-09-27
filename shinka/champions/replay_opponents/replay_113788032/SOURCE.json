@@ -1,0 +1,19 @@
+{
+ "name": "replay_113788032",
+ "episode": 113788032,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "King-damon",
+ "opponent_submission": 56579096,
+ "seed": 862047447,
+ "recorded_rewards": [
+  113227.0,
+  113634.0
+ ],
+ "recorded_margin_for_us": -407,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "79db607fed726678a3d1383a079e9ae24cc66990eba526f2396d24a49831af0d"
+ }
+}

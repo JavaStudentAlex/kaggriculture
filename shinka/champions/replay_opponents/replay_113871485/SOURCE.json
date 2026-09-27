@@ -1,0 +1,19 @@
+{
+ "name": "replay_113871485",
+ "episode": 113871485,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Bhaskar #2",
+ "opponent_submission": 56587028,
+ "seed": 839135821,
+ "recorded_rewards": [
+  111850.0,
+  110138.0
+ ],
+ "recorded_margin_for_us": -1712,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "7413e58430d8f1aa257ab9f321e6b49bc934c6691f25ec083f2c232356d52535"
+ }
+}

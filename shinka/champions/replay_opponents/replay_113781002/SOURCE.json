@@ -1,0 +1,19 @@
+{
+ "name": "replay_113781002",
+ "episode": 113781002,
+ "seat": 1,
+ "our_seat": 0,
+ "opponent": "ADRIANO ALMEIDA",
+ "opponent_submission": 56506367,
+ "seed": 34782783,
+ "recorded_rewards": [
+  74507.0,
+  76210.0
+ ],
+ "recorded_margin_for_us": -1703,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "02c8c16a6de54734f51962835849e26f18edfa4b20798f7bfce67acbde4a0db6"
+ }
+}

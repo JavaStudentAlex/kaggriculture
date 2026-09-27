@@ -1,0 +1,206 @@
+{
+ "abo_v54": {
+  "notebook": "ahmedberatozer/kaggriculture-v54-productive-wheat-and-patient",
+  "title": " Kaggriculture V54 — Productive Wheat and Patient ",
+  "entry": "agent.py",
+  "decoded": "SOURCE_BLOB (b85+zlib)",
+  "files": {
+   "agent.py": "5fbb75c9c40e6d9e26d95272ace47329b1ca319b3b2118232404de30806e7e9c"
+  }
+ },
+ "abo_v56": {
+  "notebook": "ahmedberatozer/kaggriculture-v56-smarter-seeds-and-fertilizer",
+  "title": "Kaggriculture V56 — Smarter Seeds and Fertilizer",
+  "entry": "agent.py",
+  "decoded": "SOURCE_BLOB (b85+zlib)",
+  "files": {
+   "agent.py": "a1ad0fd1d174477ee2cbdd561a812bcb7029647ce34599e79d6b79e9057eff6c"
+  }
+ },
+ "ars_herdsafe_v3": {
+  "notebook": "arsgorynich/herd-safe-v3-experimental-risk-aware-feed",
+  "title": "Herd Safe v3 Experimental Risk Aware Feed",
+  "entry": "agent.py",
+  "decoded": "SOURCE (b85+zlib)",
+  "files": {
+   "agent.py": "4f8637a3e33348b98f531de246d353f5d2955b2f85480e3fd02bf4a7874f0d01"
+  }
+ },
+ "cha22": {
+  "notebook": "abhinav0370/cha22-agent",
+  "title": "cha22 agent",
+  "entry": "agent.py",
+  "decoded": "SOURCE_BYTES (raw+)",
+  "files": {
+   "agent.py": "127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652"
+  }
+ },
+ "flexon_multiroute": {
+  "notebook": "flexonafft/kaggriculture-multi-route-farming-agent",
+  "title": "Kaggriculture | Multi-Route Farming Agent",
+  "entry": "agent.py",
+  "decoded": "AGENT_B64 (b64+gzip)",
+  "files": {
+   "agent.py": "36812d632b181fee7e0f249fa3a1eb364e0d373d6e4211f4e49803e8dd3582aa"
+  }
+ },
+ "guru_master_v3": {
+  "notebook": "guruprasaathas111/kaggriculture-master-engine-v3",
+  "title": "Kaggriculture Master Engine V3",
+  "entry": "agent.py",
+  "decoded": "SOURCE_BYTES (raw+)",
+  "files": {
+   "agent.py": "127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652"
+  }
+ },
+ "haideptry_2965_0926": {
+  "notebook": "haideptry/the-2965-master-hybrid-engine",
+  "title": "The 2965 Master Hybrid Engine",
+  "entry": "agent.py",
+  "decoded": "AGENT_B64 (b64+gzip)",
+  "files": {
+   "agent.py": "1816efad1aecfba6c0791132a3bee16ddd4115fcd1f10a8d271b4a2af1e68ad9"
+  }
+ },
+ "haideptry_shepherd_0926": {
+  "notebook": "haideptry/the-shepherds-ledger-herd-safe-sovereign",
+  "title": "The Shepherds Ledger Herd Safe Sovereign",
+  "entry": "agent.py",
+  "decoded": "AGENT_B64 (b64+gzip)",
+  "files": {
+   "agent.py": "36812d632b181fee7e0f249fa3a1eb364e0d373d6e4211f4e49803e8dd3582aa"
+  }
+ },
+ "hak_2887": {
+  "notebook": "hakdevelopment/kaggriculture-2887-score-fieldcraft-agent",
+  "title": "Kaggriculture 2887 Score Fieldcraft Agent",
+  "entry": "agent.py",
+  "decoded": "mirror_plan.py (b85+zlib)",
+  "files": {
+   "agent.py": "65727d56185b2d61fa6ca6ec999650b4a1f7dc060099ccbee8ce88d35a3b05a0"
+  }
+ },
+ "lynn_wheat": {
+  "notebook": "lynnsakurai/farmer-john-and-the-wheat-seller",
+  "title": "Farmer John and the Wheat Seller",
+  "entry": "agent.py",
+  "decoded": "SOURCE_B85 (b85+zlib)",
+  "files": {
+   "agent.py": "a91efdd0fb1c96f7342e89e59217e72764160fcebac5f0de5c9ea6c6b775e788"
+  }
+ },
+ "nathan_pipe18": {
+  "notebook": "nathanjacob/kaggriculture-pipe18-six-layers",
+  "title": "Kaggriculture Pipe18 Six Layers",
+  "entry": "agent.py",
+  "decoded": "AGENT_B64 (b64+gzip)",
+  "files": {
+   "agent.py": "a4a563c66ea84746cdb5b18341e78d97677ba5a8cef67e9a157afdaf1d6207d7"
+  }
+ },
+ "shiiin9_orderbook": {
+  "notebook": "shiiin9/your-market-list-is-an-order-book",
+  "title": "Your Market List Is an Order Book",
+  "entry": "agent.py",
+  "decoded": "PAYLOAD (b85+zlib)",
+  "files": {
+   "agent.py": "a16e0e9b40c489972630a0b9d04f30e9c1cab03159fa78676db74277d84d82ab"
+  }
+ },
+ "statma_ca20": {
+  "notebook": "statma/kaggriculture-herd-safe-sale-window-race-ca20",
+  "title": "Kaggriculture: Herd-Safe Sale Window race ca20",
+  "entry": "main.py",
+  "decoded": "ARCHIVE_BYTES (b64+gzip+tar)",
+  "files": {
+   "LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+   "main.py": "29454a13477f827c34615300f90a7bdb074ea3c9bcb948f3372bf95fa1fb207d"
+  }
+ },
+ "statma_ca25": {
+  "notebook": "statma/kaggriculture-herd-safe-sale-window-race-ca25",
+  "title": "Kaggriculture: Herd-Safe Sale Window race ca25",
+  "entry": "main.py",
+  "decoded": "ARCHIVE_BYTES (b64+gzip+tar)",
+  "files": {
+   "LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+   "main.py": "c4b72e64acede4053c4b41d797afb562ce2aeadf5d9d0cf58e18aed9baa33c9e"
+  }
+ },
+ "statma_submit": {
+  "notebook": "statma/kaggriculture-herd-safe-sale-window-submit",
+  "title": "Kaggriculture: Herd-Safe Sale Window submit",
+  "entry": "main.py",
+  "decoded": "ARCHIVE_BYTES (b64+gzip+tar)",
+  "files": {
+   "LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+   "main.py": "4889137f1adf1f9266b2ad5a6ac6700c40e9be6dfe3654e39db375fb55b71341"
+  }
+ },
+ "statma_tetsutani": {
+  "notebook": "statma/kaggriculture-tetsutani-demand-preserving",
+  "title": "kaggriculture-tetsutani-demand-preserving",
+  "entry": "main.py",
+  "decoded": "ARCHIVE_B64 (b64+gzip+tar)",
+  "files": {
+   "main.py": "939c445771d83901f27478561d0cc3137133e2233b3ef266f26277aa0b2c7714"
+  }
+ },
+ "tetsu_adaptive": {
+  "notebook": "tetsutani/adaptive-farming-strategy-for-kaggriculture",
+  "title": "🌾Adaptive Farming Strategy for Kaggriculture",
+  "entry": "agent.py",
+  "decoded": "main.py (raw+)",
+  "files": {
+   "agent.py": "c26402b67a0d04a46348353069645b1a49c3cb3df6df69d7fa35d8adbbdbeae4"
+  }
+ },
+ "tetsu_market_smart": {
+  "notebook": "tetsutani/market-smart-farming-kaggriculture",
+  "title": "🌾 Market-Smart Farming | Kaggriculture",
+  "entry": "main.py",
+  "decoded": "ARCHIVE_B64 (b64+gzip+tar)",
+  "files": {
+   "main.py": "f6a756cfb900b9d5f499905d596b63f1fde2445342ac4b1ae04e353739bd62d2"
+  }
+ },
+ "tetsutani_shape_shop": {
+  "notebook": "tetsutani/shape-the-shop-work-the-pasture-kaggriculture",
+  "title": "🌾 Shape the Shop Work the Pasture | Kaggriculture",
+  "entry": "agent.py",
+  "decoded": "MAIN_B64 (b64+)",
+  "files": {
+   "agent.py": "2b97e2c653018ac4aeffb8463ec91c8f26b097b4cef81289acc25ccdbc68f916"
+  }
+ },
+ "tt_2945_farm": {
+  "notebook": "thomastschinkel/the-2945-farm-96-vs-the-top-10-public-bots",
+  "title": "The 2945 Farm: 96% vs the Top-10 Public Bots",
+  "entry": "main.py",
+  "decoded": "%%writefile",
+  "files": {
+   "main.py": "bfee70e9daaebeae0737a880f1df8f1c60d0783c59af620136cc0d28ef482bc7"
+  }
+ },
+ "tt_metav4_v13": {
+  "notebook": "thomastschinkel/the-metav4-farm-submission-v13",
+  "title": "The Metav4 Farm: Submission v13",
+  "entry": "agent.py",
+  "decoded": "_PAYLOAD (b64+zlib)",
+  "files": {
+   "agent.py": "9d63494603f88219857a3101d7dc19cc750ded04e5886732ee428580326967d9"
+  }
+ },
+ "yhay_router0909": {
+  "notebook": "yhay81/shop-router-0909",
+  "title": "Shop Router 0909",
+  "entry": "main.py",
+  "decoded": "%%writefile",
+  "files": {
+   "main.py": "d6d74997dc5b483db63d8e39cafa1afeec0f366824e75107e109123f111e866b"
+  }
+ }
+}

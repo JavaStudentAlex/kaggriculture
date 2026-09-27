@@ -1,0 +1,19 @@
+{
+ "name": "replay_113832379",
+ "episode": 113832379,
+ "seat": 0,
+ "our_seat": 1,
+ "opponent": "Lynxx",
+ "opponent_submission": 56572138,
+ "seed": 116163199,
+ "recorded_rewards": [
+  91842.0,
+  91974.0
+ ],
+ "recorded_margin_for_us": 132,
+ "steps": 719,
+ "entry": "main.py",
+ "files": {
+  "actions.json.gz": "9ffdafdae12854184e86a35360a3cee16a9f9de18bbb59970c4906a1ab5e8f98"
+ }
+}
