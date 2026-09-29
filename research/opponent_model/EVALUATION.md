@@ -5,10 +5,10 @@ the methodology in sync with `evaluate.py` (the one scorer).
 
 | | |
 |---|---|
-| Last updated | 2026-09-28 (refit) |
+| Last updated | 2026-09-29 (refit) |
 | Scorer | `research/opponent_model/evaluate.py` |
 | Data | `datasets/shards/` — one shard per Kaggle day, `next_action` labels (AGENTS.md 4.2–4.3) |
-| Results | section 4 — `models/ttm_c256_h96_ft_2026-09-27` (promoted 2026-09-28; earlier checkpoints kept for reference) |
+| Results | section 4 — `models/ttm_c256_h96_ft_2026-09-28` (promoted 2026-09-29; earlier checkpoints kept for reference) |
 
 ## 1. What is being predicted, and why it is hard
 
@@ -145,6 +145,7 @@ GPU time:
 | `models/ttm_c256_h96_ft_2026-09-25` (2026-09-26; `scores.json` in the dir, 809,856 windows, dual-GPU) | held-out episodes of 09-25 (the refit's own val split) | pooled AUC 0.854 / AP 0.414 / 4.8× | 0.414 pooled | baseline rate 0.085 (AP 4.8× lift) | mae 3.98 when sold vs 4.65 all-zero | — |
 | `models/ttm_c256_h96_ft_2026-09-26` (2026-09-27; `scores.json` in the dir, 838,272 windows, dual-GPU) | held-out episodes of 09-26 (the refit's own val split) | pooled AUC 0.855 / AP 0.400 / 4.6× | 0.400 pooled | baseline rate 0.086 (AP 4.6× lift) | mae 3.92 when sold vs 4.54 all-zero | — |
 | `models/ttm_c256_h96_ft_2026-09-27` (2026-09-28; `scores.json` in the dir, 852,480 windows, dual-GPU) | held-out episodes of 09-27 (the refit's own val split) | pooled AUC 0.854 / AP 0.373 / 4.8× | 0.373 pooled | baseline rate 0.078 (AP 4.8× lift) | mae 4.13 when sold vs 4.71 all-zero | — |
+| `models/ttm_c256_h96_ft_2026-09-28` (2026-09-29; `scores.json` in the dir, 838,272 windows, dual-GPU) | held-out episodes of 09-28 (the refit's own val split) | pooled AUC 0.856 / AP 0.385 / 4.7× | 0.385 pooled | baseline rate 0.082 (AP 4.7× lift) | mae 4.08 when sold vs 4.67 all-zero | — |
 
 `ttm_c256_h96` per product at t+1 (AUC / AP): WHEAT 0.847 / 0.475, CARROT 0.951 / 0.211, TOMATO 0.956 / 0.494,
 STRAWBERRY 0.853 / 0.434, MELON 0.857 / 0.214, EGG 0.940 / 0.602, MILK 0.808 / 0.388,
