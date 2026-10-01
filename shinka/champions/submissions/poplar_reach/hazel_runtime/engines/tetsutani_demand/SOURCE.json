@@ -1,0 +1,13 @@
+{
+ "name": "tetsutani_demand",
+ "notebook": "tetsutani/demand-preserving-turn-sale-timing",
+ "notebook_id": 134878109,
+ "title": "🌾 Demand-Preserving Turn Sale Timing",
+ "url": "https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing",
+ "decoded": "ARCHIVE_B64 (b64+gzip+tar)",
+ "entry": "main.py",
+ "files": {
+  "main.py": "127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652"
+ },
+ "pulled_utc": "2026-09-26T07:03Z"
+}

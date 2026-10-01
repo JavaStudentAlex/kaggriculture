@@ -1,0 +1,55 @@
+farm keys: ['farm_d10', 'farm_d20']
+
+114896463 juliencst (2392.6) seat 0 margin -24,448; cash gap by day 5/10/15/20/25: [595.0, 3523.0, -14373.0, -17654.0, -20165.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 15, "COW": 8, "WHEAT": 25, "MELON": 12, "SHEEP": 12, "GOOSE": 2, "empty_coop": 1, "hands": 0, "quadrants": 3}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}
+             rival {"STRAWBERRY": 16, "WHEAT": 31, "COW": 8, "GOOSE": 6, "SHEEP": 12, "empty_coop": 1, "hands": 0, "quadrants": 3}
+
+114938970 cununn (None) seat 0 margin -16,386; cash gap by day 5/10/15/20/25: [266.0, 3443.0, -4386.0, -4616.0, -8127.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 17, "MELON": 10, "WHEAT": 19, "SHEEP": 11, "COW": 7, "GOOSE": 2, "TOMATO": 3, "hands": 0, "quadrants": 3}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}
+             rival {"TOMATO": 14, "WHEAT": 32, "STRAWBERRY": 14, "CARROT": 3, "SHEEP": 12, "COW": 7, "empty_pasture": 1, "GOOSE": 4, "hands": 0, "quadrants": 4}
+
+114928894 HireMe (None) seat 1 margin -12,565; cash gap by day 5/10/15/20/25: [0.0, 10.0, 4276.0, 1901.0, -6667.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 5, "GOOSE": 2, "hands": 0, "quadrants": 2}
+             rival {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 5, "GOOSE": 2, "hands": 0, "quadrants": 2}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "GOOSE": 5, "COW": 6, "SHEEP": 6, "hands": 0, "quadrants": 3}
+             rival {"WHEAT": 25, "STRAWBERRY": 43, "GOOSE": 5, "COW": 6, "SHEEP": 6, "hands": 0, "quadrants": 4}
+
+114883083 Breaking1800 (2350.5) seat 1 margin -8,477; cash gap by day 5/10/15/20/25: [108.0, 3132.0, 1493.0, 715.0, 4415.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 11, "MELON": 10, "WHEAT": 20, "SHEEP": 12, "COW": 7, "TOMATO": 4, "GOOSE": 1, "hands": 0, "quadrants": 3}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 11, "COW": 6, "hands": 0, "quadrants": 3}
+             rival {"TOMATO": 15, "WHEAT": 30, "STRAWBERRY": 20, "SHEEP": 15, "COW": 7, "GOOSE": 3, "hands": 0, "quadrants": 4}
+
+114899444 Zhu Liang (2562.0) seat 1 margin -8,096; cash gap by day 5/10/15/20/25: [615.0, 3049.0, 1018.0, 1745.0, -4666.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 10, "SHEEP": 9, "WHEAT": 9, "COW": 7, "MELON": 13, "hands": 0, "quadrants": 2}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 11, "COW": 6, "hands": 0, "quadrants": 3}
+             rival {"STRAWBERRY": 11, "WHEAT": 38, "SHEEP": 12, "CARROT": 6, "COW": 7, "hands": 0, "quadrants": 3}
+
+114866049 GPTatoes (2340.9) seat 0 margin -7,557; cash gap by day 5/10/15/20/25: [615.0, 811.0, -10874.0, -12786.0, -9150.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 9, "SHEEP": 4, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 20, "COW": 11, "WHEAT": 23, "MELON": 12, "SHEEP": 3, "GOOSE": 6, "hands": 0, "quadrants": 3}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "COW": 12, "SHEEP": 5, "hands": 0, "quadrants": 3}
+             rival {"STRAWBERRY": 23, "CARROT": 8, "WHEAT": 21, "COW": 11, "SHEEP": 5, "GOOSE": 6, "hands": 0, "quadrants": 3}
+
+115051399 Closed Loop (2168.3) seat 0 margin -7,045; cash gap by day 5/10/15/20/25: [92.0, 2152.0, 4925.0, -1363.0, -3863.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 9, "SHEEP": 4, "hands": 0, "quadrants": 2}
+             rival {"STRAWBERRY": 21, "MELON": 10, "WHEAT": 10, "COW": 11, "SHEEP": 3, "GOOSE": 3, "TOMATO": 1, "hands": 0, "quadrants": 3}
+  farm_d20   ours  {"WHEAT": 24, "STRAWBERRY": 33, "GOOSE": 3, "COW": 9, "SHEEP": 5, "CARROT": 1, "hands": 0, "quadrants": 3}
+             rival {"WHEAT": 20, "TOMATO": 12, "STRAWBERRY": 18, "CARROT": 3, "COW": 11, "SHEEP": 5, "GOOSE": 3, "hands": 0, "quadrants": 3}
+
+114881743 Carson Rodrigues (2216.1) seat 1 margin -5,242; cash gap by day 5/10/15/20/25: [-87.0, -71.0, -564.0, -1296.0, -3625.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}
+             rival {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}
+
+114971296 wally0593 (None) seat 0 margin -2,216; cash gap by day 5/10/15/20/25: [-341.0, 2390.0, 792.0, -516.0, -2257.0]
+  farm_d10   ours  {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+             rival {"WHEAT": 5, "STRAWBERRY": 20, "MELON": 12, "COW": 6, "SHEEP": 7, "hands": 0, "quadrants": 2}
+  farm_d20   ours  {"WHEAT": 25, "STRAWBERRY": 33, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}
+             rival {"WHEAT": 21, "STRAWBERRY": 33, "CARROT": 4, "SHEEP": 17, "COW": 6, "hands": 0, "quadrants": 4}

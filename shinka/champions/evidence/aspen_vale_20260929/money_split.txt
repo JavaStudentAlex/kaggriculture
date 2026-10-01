@@ -1,0 +1,46 @@
+flows_avL2.json: 25 games, money mismatches 0
+flows_avW2.json: 19 games, money mismatches 0
+flows_avL.json: 31 games, money mismatches 0
+flows_avW.json: 36 games, money mismatches 0
+
+| category | avL2 (25) | per game | avW2 (19) | per game | avL (31) | per game | avW (36) | per game |
+|---|---|---|---|---|---|---|---|---|
+| WHEAT | -51,101 | -2,044 | +2,177 | +115 | -2,681 | -86 | -2,939 | -82 |
+| EGG | -28,784 | -1,151 | +287 | +15 | -16,085 | -519 | -14,169 | -394 |
+| STRAWBERRY | -19,397 | -776 | +1,438 | +76 | -2,900 | -94 | -8,335 | -232 |
+| TOMATO | -19,191 | -768 | +0 | +0 | -32,237 | -1,040 | +55,485 | +1,541 |
+| CARROT | -18,519 | -741 | -1,114 | -59 | -7,619 | -246 | -9,355 | -260 |
+| WOOL | -13,461 | -538 | +1,039 | +55 | -2,294 | -74 | +46,476 | +1,291 |
+| FERTILIZER | +154 | +6 | +408 | +21 | -1,820 | -59 | -1,599 | -44 |
+| land | +4,000 | +160 | +0 | +0 | +4,000 | +129 | -16,000 | -444 |
+| MILK | +8,415 | +337 | +278 | +15 | +9,115 | +294 | -6,909 | -192 |
+| hires | +9,198 | +368 | +0 | +0 | +4,618 | +149 | -13,591 | -378 |
+| seeds, animals | +9,680 | +387 | +150 | +8 | +2,550 | +82 | -1,500 | -42 |
+| MELON | +20,450 | +818 | +0 | +0 | +1,935 | +62 | +4,608 | +128 |
+
+per game of flows_avL2.json (margin, the three largest categories against us, tomatoes and land):
+  114896463 juliencst                2393 seat 0  -24448 | WHEAT -9,174, EGG -7,115, land -4,000 | tomato units 0 vs 0 | land 7,000 vs 3,000
+  114938970 cununn                      0 seat 0  -16386 | WHEAT -13,400, EGG -5,939, TOMATO -5,884 | tomato units 0 vs 92 | land 7,000 vs 7,000
+  114928894 HireMe                      0 seat 1  -12565 | STRAWBERRY -14,537, WHEAT -8,007, EGG -109 | tomato units 0 vs 0 | land 3,000 vs 7,000
+  114883083 Breaking1800             2350 seat 1   -8477 | WOOL -8,625, TOMATO -6,664, WHEAT -5,943 | tomato units 0 vs 102 | land 3,000 vs 7,000
+  114899444 Zhu Liang                2562 seat 1   -8096 | CARROT -7,421, WOOL -6,952, WHEAT -6,449 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114866049 GPTatoes                 2341 seat 0   -7557 | EGG -9,453, CARROT -3,566, WHEAT -3,379 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  115051399 Closed Loop              2168 seat 0   -7045 | TOMATO -6,306, STRAWBERRY -5,542, WHEAT -4,518 | tomato units 0 vs 89 | land 3,000 vs 3,000
+  114881743 Carson Rodrigues         2216 seat 1   -5242 | WOOL -2,277, hires -1,830, STRAWBERRY -621 | tomato units 0 vs 0 | land 7,000 vs 7,000
+  114971296 wally0593                   0 seat 0   -2216 | WHEAT -1,272, STRAWBERRY -999, hires -521 | tomato units 0 vs 0 | land 7,000 vs 7,000
+  115000953 crasal                      0 seat 1   -1812 | MILK -894, STRAWBERRY -625, CARROT -166 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114934892 DASH村                       0 seat 1    -832 | WOOL -587, STRAWBERRY -189, CARROT -28 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114875945 Ryo                      2226 seat 1    -782 | WHEAT -2,130, CARROT -160, EGG -111 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114923017 shreyash kumar           2210 seat 1    -637 | STRAWBERRY -394, MILK -226, WOOL -41 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  115069665 Mehrdad Naderi           2141 seat 0    -414 | STRAWBERRY -476, hires -233, MILK -153 | tomato units 80 vs 80 | land 7,000 vs 7,000
+  114901262 zijun zhang              2128 seat 1    -409 | TOMATO -402, STRAWBERRY -126, EGG -44 | tomato units 79 vs 80 | land 7,000 vs 7,000
+  114909455 codezzzsleep             2171 seat 1    -367 | WOOL -189, STRAWBERRY -105, MILK -54 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114935187 Yam                      2270 seat 0    -329 | STRAWBERRY -121, MILK -92, WOOL -77 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  115116110 Canon                    2178 seat 1    -260 | MILK -260, STRAWBERRY -30, WHEAT -5 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114950439 Hıdır BozkurtT           2216 seat 1    -197 | MILK -121, FERTILIZER -54, STRAWBERRY -40 | tomato units 80 vs 80 | land 7,000 vs 7,000
+  114916288 Tien N.                     0 seat 1    -141 | MILK -122, STRAWBERRY -34, CARROT -6 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  115123516 YKuma                    2142 seat 1     -97 | CARROT -451, WOOL -18, EGG -14 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114948633 Gaiar Baimuratov         2181 seat 1     -91 | MILK -158, STRAWBERRY -81, CARROT -4 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114962712 Pranav Thota             2214 seat 0     -90 | CARROT -469, FERTILIZER -125, STRAWBERRY -58 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  115125107 YKuma                    2142 seat 1     -43 | WHEAT -455, FERTILIZER -49, WOOL -4 | tomato units 0 vs 0 | land 3,000 vs 3,000
+  114881292 Hamachi                     0 seat 0     -23 | STRAWBERRY -4,609, hires -89, WOOL -76 | tomato units 0 vs 0 | land 3,000 vs 3,000

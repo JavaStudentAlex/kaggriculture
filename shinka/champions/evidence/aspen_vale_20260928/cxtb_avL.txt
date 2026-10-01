@@ -1,0 +1,32 @@
+episode    margin team            | proj rev  cxtb base | tomato $ ours / rival (units) | quads d20
+114854232  -9,776 PrasadChopade21 |    4,035 False False |       0 /       0 (0/0) | 3/3
+114759539  -8,778 Ichika          |   36,527 True  True  |  26,224 /  40,141 (80/126) | 4/4
+114815928  -4,251 别ban我claude     |    5,734 False False |       0 /       0 (0/0) | 3/3
+114789305  -3,904 leave you       |    6,094 False False |       0 /   6,242 (0/77) | 3/3
+114836375  -3,668 Kaggriculture A |    7,785 False True  |       0 /  11,004 (0/80) | 3/4
+114845317  -2,529 奶龙宝宝爱种田吖        |    5,734 False False |       0 /       0 (0/0) | 3/3
+114814280  -2,282 Yunho Hwang     |    9,767 True  True  |   8,221 /   8,221 (80/80) | 4/4
+114765686  -1,244 tyz123456       |    5,868 False False |       0 /   1,126 (0/15) | 3/3
+114821820    -920 xxxx0314        |    5,993 False False |       0 /       0 (0/0) | 3/3
+114830636    -708 Haalandspring   |   16,717 True  True  |  13,422 /  13,370 (80/80) | 4/4
+114837309    -696 vn1111          |    8,202 False False |       0 /       0 (0/0) | 3/3
+114775958    -662 Apollo's cattle |    4,035 False False |       0 /       0 (0/0) | 3/3
+114808376    -560 satoooh         |   11,143 True  True  |   9,117 /   9,117 (80/80) | 4/4
+114830697    -559 Pai             |   32,798 True  True  |  35,207 /  35,207 (80/80) | 4/4
+114817408    -509 Mario           |    6,691 False False |       0 /       0 (0/0) | 3/3
+114790800    -389 sime_saba       |    7,463 False False |       0 /       0 (0/0) | 3/3
+114815908    -269 ekkkcz          |    5,734 False False |       0 /       0 (0/0) | 3/3
+114785014    -244 Ignat           |   19,077 True  True  |  15,271 /  15,271 (80/80) | 4/4
+114792276    -216 Tien N.         |    7,463 False False |       0 /       0 (0/0) | 3/3
+114812825    -212 Riki Uchida     |    6,966 False False |       0 /       0 (0/0) | 3/3
+114826243    -184 ktaery          |    5,906 False False |       0 /       0 (0/0) | 3/3
+114786373    -180 ShionMatsuoka   |    6,511 False False |       0 /       0 (0/0) | 3/3
+114783412    -114 charmq          |    5,560 False False |       0 /       0 (0/0) | 3/3
+114793768    -114 Andrey Shpigar  |    6,966 False False |       0 /       0 (0/0) | 3/3
+114862877    -100 habe.sq         |    5,906 False False |       0 /       0 (0/0) | 3/3
+114845474     -99 한밭대학교컴퓨터공학과정우민  |   29,319 True  True  |  31,568 /  31,568 (80/80) | 4/4
+114823450     -86 Aniket Sharma   |    5,560 False False |       0 /       0 (0/0) | 3/3
+114777461     -64 UCAS_fish_wang  |   20,366 False False |       0 /       0 (0/0) | 4/4
+114808655     -39 stephenlau      |    4,035 False False |       0 /       0 (0/0) | 3/3
+114811400     -39 抹茶屋             |    6,511 False False |       0 /       0 (0/0) | 3/3
+114805644     -23 Malyshev Danil  |    5,389 False False |       0 /       0 (0/0) | 3/3

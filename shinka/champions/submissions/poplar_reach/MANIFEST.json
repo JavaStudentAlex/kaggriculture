@@ -1,0 +1,208 @@
+{
+ "public_name": "Poplar Reach",
+ "message": "Poplar Reach - Adaptive production and trade",
+ "archive": "PoplarReach.tar.gz",
+ "archive_sha256": "1eedf71d29f0f8e0b67a8d4a8d866727f8c14fab71fb3744b2bb186a795fa755",
+ "archive_bytes": 44832484,
+ "archive_files": [
+  "agent_graph.py",
+  "hazel_runtime/SOURCE_MANIFEST.json",
+  "hazel_runtime/champion.py",
+  "hazel_runtime/checkpoint/calibration.json",
+  "hazel_runtime/checkpoint/config.json",
+  "hazel_runtime/checkpoint/labels.json",
+  "hazel_runtime/checkpoint/model.safetensors",
+  "hazel_runtime/checkpoint/scaler.npz",
+  "hazel_runtime/engine_contract.py",
+  "hazel_runtime/engines.py",
+  "hazel_runtime/engines/haodou_ledger_0928/LICENSE",
+  "hazel_runtime/engines/haodou_ledger_0928/NOTICE",
+  "hazel_runtime/engines/haodou_ledger_0928/SOURCE.json",
+  "hazel_runtime/engines/haodou_ledger_0928/agent/agent.py",
+  "hazel_runtime/engines/leo_pi/LICENSE",
+  "hazel_runtime/engines/leo_pi/NOTICE",
+  "hazel_runtime/engines/leo_pi/SOURCE.json",
+  "hazel_runtime/engines/leo_pi/agent/agent.py",
+  "hazel_runtime/engines/tetsutani_demand/LICENSE",
+  "hazel_runtime/engines/tetsutani_demand/NOTICE",
+  "hazel_runtime/engines/tetsutani_demand/SOURCE.json",
+  "hazel_runtime/engines/tetsutani_demand/agent/main.py",
+  "hazel_runtime/engines/tetsutani_demand_0927/LICENSE",
+  "hazel_runtime/engines/tetsutani_demand_0927/NOTICE",
+  "hazel_runtime/engines/tetsutani_demand_0927/SOURCE.json",
+  "hazel_runtime/engines/tetsutani_demand_0927/agent/LICENSE.txt",
+  "hazel_runtime/engines/tetsutani_demand_0927/agent/NOTICE.txt",
+  "hazel_runtime/engines/tetsutani_demand_0927/agent/main.py",
+  "hazel_runtime/experimental.py",
+  "hazel_runtime/graph_runtime.py",
+  "hazel_runtime/kad/__init__.py",
+  "hazel_runtime/kad/kad_data.py",
+  "hazel_runtime/kad/kad_numpy.py",
+  "hazel_runtime/kad/weights.npz",
+  "hazel_runtime/kad_copilot.py",
+  "hazel_runtime/kagg_oracle.py",
+  "hazel_runtime/kagg_ttm_numpy.py",
+  "hazel_runtime/land_plot.py",
+  "hazel_runtime/main.py",
+  "hazel_runtime/mohui_v66/LICENSE",
+  "hazel_runtime/mohui_v66/NOTICE",
+  "hazel_runtime/mohui_v66/candidate_v60_curve_counter.py",
+  "hazel_runtime/mohui_v66/candidate_v62_composite_bakery_yarn.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_cygn_clone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_daniel_backbone.py",
+  "hazel_runtime/mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py",
+  "hazel_runtime/mohui_v66/candidate_v65_local_combined.py",
+  "hazel_runtime/mohui_v66/candidate_v66_meta_closed_loop.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/__init__.py",
+  "hazel_runtime/mohui_v66/kaggriculture_agent/env/adapter.py",
+  "hazel_runtime/mohui_v66/main.py",
+  "hazel_runtime/opponent_model/features.py",
+  "hazel_runtime/opponent_model/mechanics.py",
+  "hazel_runtime/oracle_guard.py",
+  "hazel_runtime/rival_emulator.py",
+  "hazel_runtime/rival_model.py",
+  "hazel_runtime/surgical.py",
+  "hazel_runtime/tactic.py",
+  "main.py",
+  "policy_graph.json"
+ ],
+ "graph": {
+  "source": "/home/alex/kagg-evo/candidate_b/graph.json",
+  "sha256": "a29a750dfc29a9db6eca14e5c66889186ac92a9b44bcd455a11a853de6da2c03",
+  "packed_sha256": "84b3257abc98cc6977f56b06aea16ed6f1cee4bd21a24d680a4eaac0a976525c",
+  "runtime": "hazel_merged_v1",
+  "parameters": {
+   "rival_emulator": {
+    "_EM_ENGINES": [
+     "tetsutani_demand",
+     "tetsutani_demand_0927",
+     "haodou_ledger_0928",
+     "leo_pi"
+    ],
+    "_EM_REPAIR": 300
+   },
+   "oracle_guard": {
+    "_OG_ITEMS": [
+     "MILK",
+     "WOOL",
+     "STRAWBERRY"
+    ],
+    "_OG_SCORE": 0.5,
+    "_OG_STRONG_SCORE": 0.6,
+    "_OG_BATCH": 4,
+    "_OG_KEEP": 2,
+    "_OG_PRICE_RATIO": 0.75,
+    "_OG_MAX_ORDERS": 2,
+    "_OG_FROM_STEP": 256,
+    "_OG_TO_STEP": 696
+   },
+   "kad_copilot": {
+    "_KC_EVERY": 2,
+    "_KC_FROM_STEP": 144,
+    "_KC_TO_STEP": 671,
+    "_KC_SELL": false,
+    "_KC_HANDS": true,
+    "_KC_JOBS": [
+     "WATER"
+    ],
+    "_KC_JOB_P": 0.6
+   },
+   "opening_scalp": {
+    "_OPENING_BUY_WHEAT_QTY": 15,
+    "_OPENING_SELL_WHEAT_QTY": 10
+   },
+   "feed_reserve": {
+    "_FEED_RESERVE_LOOKAHEAD": true
+   },
+   "oracle_frontrun": {
+    "_ORACLE_FRONTRUN_BATCH": 4,
+    "_ORACLE_FRONTRUN_PRICE_RATIO": 0.7
+   }
+  },
+  "note": "Elm Crossing (56712000) with a wider rival-emulator repair: after the 12 original market lists, up to 120 more single edits of the predicted list (drops, blanks, moves, quantity changes, swaps) per repair, capped at 160 a step and 5000 a game, off below 25 s of overage bank (runtime copy lit0930d, rival_emulator sha 30fc9a72); graph identical to Elm Crossing"
+ },
+ "predictor": {
+  "checkpoint": "/home/alex/kagg-evo/kad-20260929/models/ttm_c256_h96_ft_2026-09-28",
+  "model_sha256": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c",
+  "labels": {
+   "alignment": "next_action",
+   "source": "--dataset /content/refit/stage/day --extra-train /content/refit/stage/prev --extra-train-decay 2.0 --out /content/refit/run --eval-on-start --max-episodes 100000 --epochs 30 --patience 5 --plateau --plateau-factor 0.5 --plateau-patience 2 --window-stride 4 --init-from /content/refit/base --scaler /content/refit/base/scaler.npz --split episode --prediction-filter-length 96 --metric-horizon all --ba"
+  },
+  "backend": "numpy"
+ },
+ "calibration": {
+  "source": "/home/alex/kagg-evo/kad-20260929/calibration/ttm_c256_h96_ft_2026-09-28/own_games/calibration.json",
+  "sha256": "6ac918acf0fd0a588da33f51c9192131d646b40f9d4e7378c996126ae80a0eca",
+  "reference": {
+   "dir": "/home/alex/kagg-evo/kad-20260929/checkpoint_0913",
+   "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+  },
+  "calibrated": {
+   "dir": "/home/alex/kagg-evo/kad-20260929/models/ttm_c256_h96_ft_2026-09-28",
+   "model_sha256": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c"
+  },
+  "replays": null,
+  "traces": [],
+  "group_filter": null,
+  "games_by_group": {
+   "feed15": 40,
+   "feed15@copper": 40,
+   "feed15@mohui": 200,
+   "feed15@mohui13": 40,
+   "feed15@orchard": 40,
+   "feed15@willow": 40,
+   "feed15new@feed15old": 200
+  },
+  "episodes": 600,
+  "held_out_episodes": 0,
+  "origins": 367200,
+  "stride": 1,
+  "thresholds": {
+   "score_4": [
+    0.25,
+    0.3,
+    0.4,
+    0.45,
+    0.5,
+    0.6
+   ],
+   "score_24": [
+    0.45
+   ],
+   "units_24": [
+    2.0
+   ]
+  },
+  "guards": {
+   "min_fires": 100,
+   "min_base_rate": 0.005,
+   "factor_range": [
+    0.5,
+    2.0
+   ]
+  },
+  "method": "per product and metric: geometric mean over the thresholds of threshold / the calibrated score at the reference firing rate (arena/calib_fit.py)"
+ },
+ "runtime": {
+  "graph_runtime.py": "9f9e645323136921c0ee319908da9f10e7f1117a2b4db2e587ccf9748d8351f7",
+  "champion.py": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+  "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
+  "kagg_ttm_numpy.py": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda"
+ },
+ "backbone_patch": null,
+ "built": "2026-09-30T16:42:27Z",
+ "submit": "kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/PoplarReach.tar.gz -m \"Poplar Reach - Adaptive production and trade\"",
+ "validation": {
+  "date": "2026-09-30T16:57:23Z",
+  "python": "/home/alex/kagg-evo/venv/bin/python",
+  "seeds": "101,70102",
+  "result": "PASS",
+  "report": "bundle /tmp/kagg_graph_submission_srneza1b/x\nHOME=/tmp/kagg_graph_submission_srneza1b/home cwd=/\nseat 0 vs starter seed    101: OK  $   181,445 (DONE) vs $3,754 (DONE) | 720 states, 113 s | steps 719: mean 151 ms, max 14347 ms @0, overage 13.35 s\nseat 0 vs starter seed  70102: OK  $   182,595 (DONE) vs $3,431 (DONE) | 720 states, 110 s | steps 719: mean 147 ms, max 12045 ms @0, overage 11.04 s\nseat 0 vs random  seed    101: OK  $   153,967 (DONE) vs $0 (DONE) | 720 states, 111 s | steps 719: mean 149 ms, max 12089 ms @0, overage 11.09 s\nseat 0 vs random  seed  70102: OK  $   107,797 (DONE) vs $0 (DONE) | 720 states, 110 s | steps 719: mean 146 ms, max 12032 ms @0, overage 11.03 s\nseat 1 vs starter seed    101: OK  $   181,445 (DONE) vs $3,754 (DONE) | 720 states, 111 s | steps 719: mean 148 ms, max 12041 ms @0, overage 11.04 s\nseat 1 vs starter seed  70102: OK  $   186,886 (DONE) vs $3,451 (DONE) | 720 states, 115 s | steps 719: mean 154 ms, max 12035 ms @0, overage 11.04 s\nseat 1 vs random  seed    101: OK  $   147,997 (DONE) vs $0 (DONE) | 720 states, 112 s | steps 719: mean 149 ms, max 12136 ms @0, overage 11.14 s\nseat 1 vs random  seed  70102: OK  $   185,053 (DONE) vs $0 (DONE) | 720 states, 110 s | steps 719: mean 146 ms, max 12205 ms @0, overage 11.21 s\nresolution:\n  champion       : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/champion.py  inside=True\n  MOHUI_DIR      : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/mohui_v66  inside=True\n  kagg_oracle    : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/kagg_oracle.py  inside=True\n  checkpoint     : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/checkpoint  inside=True\n  kagg_ttm_numpy : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/kagg_ttm_numpy.py  inside=True\n  features       : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/opponent_model/features.py  inside=True\n  mechanics      : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/opponent_model/mechanics.py  inside=True\n  backend        : numpy  torch imported: False\n  oracle         : device=cpu stats={'forecasts': 463, 'ms_per_forecast': 117.75665568161683, 'errors': 0, 'last_error': ''}\nsteps 5752: max 14347 ms; from turn 512: p99 355 ms, max 12205 ms\n  agent_graph    : /tmp/kagg_graph_submission_srneza1b/x/agent_graph.py  inside=True  engine built: True\n  calibration    : /tmp/kagg_graph_submission_srneza1b/x/hazel_runtime/checkpoint/calibration.json  (expected: True)\n  oracle needed  : True\nVALIDATION PASS: games failed=0 oracle_live=True all_resolved_inside_bundle=True graph_ok=True oracle_needed=True"
+ },
+ "fidelity": {
+  "seed": 101,
+  "result": "PASS",
+  "report": "{\"seed\": 101, \"kaggle_loader\": [181445.0, 3754.0], \"arena_harness\": [181445.0, 3754.0], \"identical\": true}"
+ }
+}

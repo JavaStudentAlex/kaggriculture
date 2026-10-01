@@ -1,0 +1,741 @@
+{
+ "114854232": {
+  "id": 114854232,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -9776,
+  "team": "PrasadChopade213",
+  "orate": 2223.9,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114759539": {
+  "id": 114759539,
+  "seat": 0,
+  "class": "wheat92_seller",
+  "diff": -8778,
+  "team": "Ichika",
+  "orate": 1771.0,
+  "steps": 156,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114815928": {
+  "id": 114815928,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -4251,
+  "team": "别ban我claude",
+  "orate": 2194.1,
+  "steps": 159,
+  "kind": "long",
+  "agent": "tt_metav4_v13",
+  "ties": [
+   "tt_metav4_v13",
+   "tt_2945_farm",
+   "robust_economy",
+   "leo_gods_mode_0928b"
+  ],
+  "runner_up": [
+   [
+    0,
+    "tetsutani_shape_shop"
+   ],
+   [
+    0,
+    "tetsutani_demand_0927"
+   ]
+  ]
+ },
+ "114789305": {
+  "id": 114789305,
+  "seat": 1,
+  "class": "wheat92_seller",
+  "diff": -3904,
+  "team": "leave you",
+  "orate": 2510.3,
+  "steps": 408,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114836375": {
+  "id": 114836375,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -3668,
+  "team": "Kaggriculture Agent",
+  "orate": 2150.6,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114845317": {
+  "id": 114845317,
+  "seat": 0,
+  "class": "wheat92_seller",
+  "diff": -2529,
+  "team": "奶龙宝宝爱种田吖",
+  "orate": 2177.7,
+  "steps": 31,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "114814280": {
+  "id": 114814280,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -2282,
+  "team": "Yunho Hwang",
+  "orate": 2312.0,
+  "steps": 241,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114765686": {
+  "id": 114765686,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -1244,
+  "team": "tyz123456",
+  "orate": 2052.5,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114821820": {
+  "id": 114821820,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -920,
+  "team": "xxxx0314",
+  "orate": 2269.4,
+  "steps": 49,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    0,
+    "tetsutani_shape_shop"
+   ],
+   [
+    0,
+    "tetsutani_demand_0927"
+   ]
+  ]
+ },
+ "114830636": {
+  "id": 114830636,
+  "seat": 1,
+  "class": "wheat92_seller",
+  "diff": -708,
+  "team": "Haalandspring",
+  "orate": 2261.6,
+  "steps": 224,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114837309": {
+  "id": 114837309,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -696,
+  "team": "vn1111",
+  "orate": 2274.7,
+  "steps": 91,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114775958": {
+  "id": 114775958,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -662,
+  "team": "Apollo's cattles",
+  "orate": null,
+  "steps": 290,
+  "kind": "long",
+  "agent": "haideptry_2965_new",
+  "ties": [
+   "haideptry_2965_new",
+   "haideptry_2965_0926"
+  ],
+  "runner_up": [
+   [
+    264,
+    "nathan_pipe18"
+   ],
+   [
+    264,
+    "abo_v57"
+   ]
+  ]
+ },
+ "114808376": {
+  "id": 114808376,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -560,
+  "team": "satoooh",
+  "orate": 2238.8,
+  "steps": 150,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "statma_submit",
+   "statma_ca25",
+   "statma_ca20"
+  ],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "114830697": {
+  "id": 114830697,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -559,
+  "team": "Pai",
+  "orate": 2219.6,
+  "steps": 150,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "statma_submit",
+   "statma_ca25",
+   "statma_ca20"
+  ],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "114817408": {
+  "id": 114817408,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -509,
+  "team": "Mario",
+  "orate": null,
+  "steps": 260,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114790800": {
+  "id": 114790800,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -389,
+  "team": "sime_saba",
+  "orate": 2243.6,
+  "steps": 381,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "haodou_ledger_0928b",
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    291,
+    "statma_submit"
+   ],
+   [
+    291,
+    "leoprovorov_forecast_0927"
+   ]
+  ]
+ },
+ "114815908": {
+  "id": 114815908,
+  "seat": 0,
+  "class": "wheat92_seller",
+  "diff": -269,
+  "team": "ekkkcz",
+  "orate": 2239.2,
+  "steps": 290,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114785014": {
+  "id": 114785014,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -244,
+  "team": "Ignat",
+  "orate": 2182.5,
+  "steps": 80,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114792276": {
+  "id": 114792276,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -216,
+  "team": "Tien N.",
+  "orate": 2179.6,
+  "steps": 673,
+  "kind": "long",
+  "agent": "haodou_ledger_0928",
+  "ties": [
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    384,
+    "tetsutani_demand_0927"
+   ],
+   [
+    384,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "114812825": {
+  "id": 114812825,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -212,
+  "team": "Riki Uchida",
+  "orate": 2200.6,
+  "steps": 481,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114826243": {
+  "id": 114826243,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -184,
+  "team": "ktaery",
+  "orate": 2205.4,
+  "steps": 409,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    169,
+    "statma_submit"
+   ],
+   [
+    169,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114786373": {
+  "id": 114786373,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -180,
+  "team": "ShionMatsuoka",
+  "orate": 2195.1,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114783412": {
+  "id": 114783412,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -114,
+  "team": "charmq",
+  "orate": 2268.3,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114793768": {
+  "id": 114793768,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -114,
+  "team": "Andrey Shpigar",
+  "orate": 2187.8,
+  "steps": 719,
+  "kind": "exact",
+  "agent": "leo_pi",
+  "ties": [
+   "leo_pi"
+  ],
+  "runner_up": [
+   [
+    160,
+    "tetsutani_demand_0927"
+   ],
+   [
+    160,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "114862877": {
+  "id": 114862877,
+  "seat": 0,
+  "class": "wheat92_seller",
+  "diff": -100,
+  "team": "habe.sq",
+  "orate": 2266.6,
+  "steps": 151,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114845474": {
+  "id": 114845474,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -99,
+  "team": "한밭대학교컴퓨터공학과정우민",
+  "orate": 2376.7,
+  "steps": 497,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114823450": {
+  "id": 114823450,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -86,
+  "team": "Aniket Sharma",
+  "orate": 2258.0,
+  "steps": 264,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "statma_submit",
+   "statma_ca25",
+   "statma_ca20"
+  ],
+  "runner_up": [
+   [
+    150,
+    "haideptry_shepherd"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114777461": {
+  "id": 114777461,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -64,
+  "team": "UCAS_fish_wang",
+  "orate": 2221.0,
+  "steps": 145,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "statma_submit",
+   "statma_ca25",
+   "statma_ca20"
+  ],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "114808655": {
+  "id": 114808655,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -39,
+  "team": "stephenlau",
+  "orate": 2178.7,
+  "steps": 343,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114811400": {
+  "id": 114811400,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -39,
+  "team": "抹茶屋",
+  "orate": 2233.4,
+  "steps": 406,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "haodou_ledger_0928b",
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    325,
+    "leo_pi"
+   ],
+   [
+    292,
+    "statma_submit"
+   ]
+  ]
+ },
+ "114805644": {
+  "id": 114805644,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -23,
+  "team": "Malyshev Danil",
+  "orate": 2301.7,
+  "steps": 350,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ }
+}

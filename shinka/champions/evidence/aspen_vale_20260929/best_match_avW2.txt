@@ -1,0 +1,19 @@
+114983123 seat 0       +12  2140.1 yarneo                 other_opening    0 -     no public agent
+114896975 seat 0       +14  2127.6 l1aF                   mirror         361 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114995138 seat 0       +30  2021.0 Yusuraume              mirror         719 exact leo_pi
+115123979 seat 0       +39  2114.9 jorge fabian avila     mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114896386 seat 1       +40  2140.3 Yeswanthperni          mirror         719 exact leo_pi
+114983245 seat 0       +49  2140.3 Yeswanthperni          mirror         719 exact leo_pi
+115021688 seat 1       +55  2193.1 Mencius silverio MENSA mirror         355 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114881769 seat 0       +75  2181.2 infamemconculcemus     mirror         290 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+114952386 seat 0       +79  2097.1 Follow Me Gradient     mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114966580 seat 1       +81       - Bantam                 mirror         600 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114995101 seat 0      +120       - Tagir Analyzes         mirror         456 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+115091169 seat 0      +124  2154.5 junseok lee            mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger_0928
+114907939 seat 0      +155       - Chattso-GPT (Yasuhito  mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114872574 seat 0      +196  2152.9 Rita-1021              mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114917468 seat 0      +216  2162.9 Field General          mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114889433 seat 1      +446  2155.4 Akshay #3              mirror           0 -     no public agent
+115008858 seat 1      +481  2206.9 Riki Uchida            mirror         336 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+115031571 seat 1    +1,185  2445.6 Shawn404               other_opening    0 -     no public agent
+114940781 seat 1    +1,266       - Bantam                 mirror         457 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b

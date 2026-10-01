@@ -1,0 +1,32 @@
+episode   margin  team            | day 18: quads money  tomato$ pizza+FM | tomatoes day 20 ours/rival, quads | rival first tomato
+114854232  -9,776 PrasadChopade21 | 3  38,498    62 0 (SMOOT,BAKER,PET_C,ICE_C,BAKER,ICE_C) | 0/0, 3/3 | - | blocked: price,shops
+114759539  -8,778 Ichika          | 3  37,162   103 4 (PIZZA,FARME,FARME,BRUNC,FARME,YARN_) | 10/18, 4/4 | day 18 h5 | blocked: nothing
+114815928  -4,251 别ban我claude     | 3  32,833    69 1 (BRUNC,BRUNC,FARME,BRUNC,BRUNC,PET_C) | 0/0, 3/3 | - | blocked: price,shops
+114789305  -3,904 leave you       | 3  45,153    66 2 (ICE_C,ICE_C,BAKER,FARME,YARN_,FARME) | 0/11, 3/3 | day 17 h11 | blocked: price,shops
+114836375  -3,668 Kaggriculture A | 3  32,334    71 3 (BRUNC,PET_C,PIZZA,PET_C,PIZZA,PIZZA) | 0/10, 3/4 | day 18 h5 | blocked: nothing
+114845317  -2,529 奶龙宝宝爱种田吖        | 3  37,452    69 1 (BRUNC,BRUNC,FARME,YARN_,ICE_C,SMOOT) | 0/0, 3/3 | - | blocked: price,shops
+114814280  -2,282 Yunho Hwang     | 3  32,745    75 3 (BRUNC,BRUNC,FARME,FARME,FARME,PET_C) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114765686  -1,244 tyz123456       | 3  34,972    73 1 (PIZZA,BAKER,BAKER,BRUNC,SMOOT,BAKER) | 0/2, 3/3 | day 8 h16 | blocked: shops
+114821820    -920 xxxx0314        | 3  52,526    64 2 (ICE_C,YARN_,SMOOT,PET_C,FARME,PIZZA) | 0/0, 3/3 | - | blocked: price,shops
+114830636    -708 Haalandspring   | 3  42,381    84 3 (FARME,YARN_,FARME,PIZZA,BAKER,PET_C) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114837309    -696 vn1111          | 3  41,652    79 2 (FARME,SMOOT,PIZZA,ICE_C,PET_C,BAKER) | 0/0, 3/3 | - | blocked: shops
+114775958    -662 Apollo's cattle | 3  52,735    62 0 (SMOOT,YARN_,ICE_C,BRUNC,PET_C,YARN_) | 0/0, 3/3 | - | blocked: price,shops
+114808376    -560 satoooh         | 3  35,700    77 3 (PIZZA,PET_C,BRUNC,FARME,BRUNC,PIZZA) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114830697    -559 Pai             | 3  42,803    94 4 (PIZZA,PIZZA,BRUNC,FARME,FARME,YARN_) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114817408    -509 Mario           | 3  44,460    73 2 (PIZZA,ICE_C,ICE_C,BAKER,BRUNC,FARME) | 0/0, 3/3 | - | blocked: shops
+114790800    -389 sime_saba       | 3  44,400    77 2 (YARN_,FARME,FARME,BAKER,BAKER,SMOOT) | 0/0, 3/3 | - | blocked: shops
+114815908    -269 ekkkcz          | 3  43,707    69 1 (PET_C,YARN_,PIZZA,ICE_C,ICE_C,PET_C) | 0/0, 3/3 | - | blocked: price,shops
+114785014    -244 Ignat           | 3  42,832    87 3 (PIZZA,PIZZA,BRUNC,FARME,BRUNC,BAKER) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114792276    -216 Tien N.         | 3  45,023    77 2 (PIZZA,SMOOT,SMOOT,FARME,ICE_C,PET_C) | 0/0, 3/3 | - | blocked: shops
+114812825    -212 Riki Uchida     | 3  34,865    75 2 (BRUNC,FARME,SMOOT,FARME,PET_C,SMOOT) | 0/0, 3/3 | - | blocked: shops
+114826243    -184 ktaery          | 3  39,071    71 1 (BRUNC,PIZZA,BAKER,YARN_,YARN_,YARN_) | 0/0, 3/3 | - | blocked: shops
+114786373    -180 ShionMatsuoka   | 3  32,188    71 2 (PET_C,FARME,BRUNC,SMOOT,BAKER,FARME) | 0/0, 3/3 | - | blocked: shops
+114783412    -114 charmq          | 3  41,602    66 1 (YARN_,PET_C,PET_C,FARME,BAKER,BRUNC) | 0/0, 3/3 | - | blocked: price,shops
+114793768    -114 Andrey Shpigar  | 3  38,660    75 2 (PET_C,FARME,YARN_,PIZZA,SMOOT,ICE_C) | 0/0, 3/3 | - | blocked: shops
+114862877    -100 habe.sq         | 3  37,188    71 1 (BAKER,PIZZA,SMOOT,BAKER,BRUNC,YARN_) | 0/0, 3/3 | - | blocked: shops
+114845474     -99 한밭대학교컴퓨터공학과정우민  | 3  38,859    87 4 (PIZZA,BRUNC,FARME,PIZZA,FARME,PET_C) | 10/10, 4/4 | day 18 h5 | blocked: nothing
+114823450     -86 Aniket Sharma   | 3  54,286    66 1 (YARN_,SMOOT,ICE_C,PIZZA,BAKER,PET_C) | 0/0, 3/3 | - | blocked: price,shops
+114777461     -64 UCAS_fish_wang  | 4  39,929    79 4 (YARN_,PIZZA,FARME,YARN_,FARME,PIZZA) | 0/0, 4/4 | - | blocked: quadrants
+114808655     -39 stephenlau      | 3  32,764    62 0 (BRUNC,PET_C,ICE_C,BAKER,BAKER,PET_C) | 0/0, 3/3 | - | blocked: price,shops
+114811400     -39 抹茶屋             | 3  40,219    71 2 (PET_C,YARN_,FARME,PET_C,FARME,ICE_C) | 0/0, 3/3 | - | blocked: shops
+114805644     -23 Malyshev Danil  | 3  33,355    64 1 (BRUNC,PET_C,SMOOT,BRUNC,FARME,BAKER) | 0/0, 3/3 | - | blocked: price,shops

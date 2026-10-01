@@ -1,0 +1,11 @@
+{
+ "name": "leo_icefire_0930",
+ "notebook": "leoprovorov/a-song-of-ice-and-fire-fixed-flexible",
+ "decoded": "blob MAIN_GZ_B64 (b64+gzip)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "020be9d5655e2c06099838a85f375ff7c86dd8e62c7710801c36d402f9e900d5"
+ },
+ "pulled_utc": "2026-09-30T17:05Z",
+ "note": "notebook run 2026-09-30 15:31 UTC: leo_pi with _OR2_SN_K = 1 (front-runs the rival\u2019s stock)"
+}

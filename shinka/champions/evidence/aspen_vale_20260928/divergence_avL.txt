@@ -1,0 +1,65 @@
+114793768 Andrey Shpigar      -114 leo_pi                 left at step 719 (day 29 h23)
+114792276 Tien N.             -216 haodou_ledger_0928     left at step 673 (day 28 h1)
+    market: engine [["SELL", "STRAWBERRY", 20], ["SELL", "MILK", 6], ["SELL", "FERTILIZER", 11], ["SELL", "WHEAT", 2], ["SELL", "CARROT", 2], ["SELL", "WOOL", 2], ["HIRE"], ["HIRE"]]
+            rival  [["SELL", "STRAWBERRY", 20], ["SELL", "MILK", 6], ["SELL", "FERTILIZER", 11], ["SELL", "WHEAT", 2], ["SELL", "CARROT", 5], ["SELL", "WOOL", 2], ["HIRE"], ["HIRE"]]
+114845474 한밭대학교컴퓨터공학과정우민       -99 tetsutani_demand_0927  left at step 497 (day 20 h17)
+    market: engine [["SELL", "STRAWBERRY", 8]]
+            rival  [["SELL", "STRAWBERRY", 8], ["SELL", "EGG", 3]]
+114812825 Riki Uchida         -212 tetsutani_demand_0927  left at step 481 (day 20 h1)
+    market: engine [["SELL", "STRAWBERRY", 6], ["SELL", "FERTILIZER", 3], ["SELL", "EGG", 12], ["HIRE"], ["HIRE"], ["BUY_PRODUCT", "FERTILIZER", 4]]
+            rival  [["SELL", "STRAWBERRY", 6], ["SELL", "FERTILIZER", 3], ["SELL", "EGG", 12], ["HIRE"], ["HIRE"], ["BUY_PRODUCT", "FERTILIZER", 4], ["SELL", "FERTILIZER", 2]]
+114826243 ktaery              -184 tetsutani_demand_0927  left at step 409 (day 17 h1)
+    hand 5: engine ['PICKUP', 'FERTILIZER', 4] | rival ['PICKUP', 'FERTILIZER', 5]
+    market: engine [["SELL", "FERTILIZER", 13], ["SELL", "EGG", 2], ["HIRE"], ["HIRE"]]
+            rival  [["SELL", "FERTILIZER", 12], ["SELL", "EGG", 2], ["HIRE"], ["HIRE"]]
+114789305 leave you         -3,904 tetsutani_demand       left at step 408 (day 17 h0)
+    farmer: engine ['WEST'] | rival ['PICKUP', 'WHEAT', 3]
+    market: engine [["SELL", "MILK", 9], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"]]
+            rival  [["SELL", "WHEAT", 17], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["BUY_SEED", "TOMATO", 3]]
+114811400 抹茶屋                  -39 tetsutani_demand_0927  left at step 406 (day 16 h22)
+    market: engine [["SELL", "WOOL", 9], ["BUY_SEED", "CARROT", 1], ["SELL", "WHEAT", 2]]
+            rival  [["SELL", "WOOL", 14], ["BUY_SEED", "CARROT", 1], ["SELL", "WHEAT", 2]]
+114790800 sime_saba           -389 tetsutani_demand_0927  left at step 381 (day 15 h21)
+    market: engine []
+            rival  [["SELL", "WHEAT", 2]]
+114805644 Malyshev Danil       -23 tetsutani_demand_0927  left at step 350 (day 14 h14)
+    market: engine [["BUY_SEED", "WHEAT", 2], ["BUY_PRODUCT", "FERTILIZER", 1]]
+            rival  [["BUY_PRODUCT", "FERTILIZER", 1], ["BUY_SEED", "WHEAT", 2]]
+114808655 stephenlau           -39 tetsutani_demand_0927  left at step 343 (day 14 h7)
+    market: engine [["SELL", "WOOL", 3], ["BUY_PRODUCT", "WHEAT", 1]]
+            rival  [["SELL", "WOOL", 5], ["BUY_PRODUCT", "WHEAT", 1]]
+114775958 Apollo's cattles    -662 haideptry_2965_new     left at step 290 (day 12 h2)
+    market: engine [["SELL", "WOOL", 5]]
+            rival  [["SELL", "WOOL", 6]]
+114815908 ekkkcz              -269 tetsutani_demand       left at step 290 (day 12 h2)
+    market: engine [["SELL", "WOOL", 5]]
+            rival  [["SELL", "WOOL", 6]]
+114823450 Aniket Sharma        -86 tetsutani_demand_0927  left at step 264 (day 11 h0)
+    market: engine [["SELL", "MELON", 12], ["SELL", "FERTILIZER", 13], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["BUY_PRODUCT", "WHEAT", 5], ["BUY_ANIMAL", "SHEEP", 1]]
+            rival  [["SELL", "MELON", 12], ["SELL", "FERTILIZER", 13], ["BUY_PRODUCT", "WHEAT", 5], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["HIRE"], ["BUY_ANIMAL", "SHEEP", 1]]
+114817408 Mario               -509 tetsutani_demand_0927  left at step 260 (day 10 h20)
+    market: engine [["BUY_SEED", "WHEAT", 1]]
+            rival  [["BUY_SEED", "WHEAT", 1], ["BUY_PRODUCT", "WHEAT", 38]]
+114814280 Yunho Hwang       -2,282 tetsutani_demand_0927  left at step 241 (day 10 h1)
+    market: engine [["HIRE"], ["HIRE"], ["BUY_ANIMAL", "GOOSE", 2], ["BUY_PRODUCT", "FERTILIZER", 3]]
+            rival  [["BUY_PRODUCT", "FERTILIZER", 3], ["HIRE"], ["HIRE"], ["BUY_ANIMAL", "GOOSE", 2]]
+114830636 Haalandspring       -708 tetsutani_demand       left at step 224 (day 9 h8)
+    market: engine []
+            rival  [["BUY_PRODUCT", "WHEAT", 60]]
+114815928 别ban我claude       -4,251 tt_metav4_v13          left at step 159 (day 6 h15)
+    hand 0: engine ['BUILD_PASTURE'] | rival ['BUILD_COOP']
+114759539 Ichika            -8,778 tetsutani_demand       left at step 156 (day 6 h12)
+    market: engine [["SELL", "WOOL", 2], ["BUY_PRODUCT", "WHEAT", 3], ["BUY_SEED", "STRAWBERRY", 2]]
+            rival  [["BUY_PRODUCT", "WHEAT", 3], ["BUY_SEED", "STRAWBERRY", 2]]
+114862877 habe.sq             -100 tetsutani_demand       left at step 151 (day 6 h7)
+    market: engine [["SELL", "FERTILIZER", 1], ["BUY_PRODUCT", "FERTILIZER", 1]]
+            rival  []
+114808376 satoooh             -560 tetsutani_demand_0927  left at step 150 (day 6 h6)
+    market: engine [["SELL", "WOOL", 4], ["BUY_PRODUCT", "WHEAT", 2], ["BUY_LAND"], ["BUY_ANIMAL", "COW", 2], ["BUY_PRODUCT", "FERTILIZER", 1]]
+            rival  [["SELL", "WOOL", 4], ["BUY_PRODUCT", "WHEAT", 2], ["BUY_LAND"], ["BUY_PRODUCT", "FERTILIZER", 4], ["BUY_ANIMAL", "COW", 2], ["SELL", "FERTILIZER", 4], ["BUY_PRODUCT", "FERTILIZER", 1]]
+114830697 Pai                 -559 tetsutani_demand_0927  left at step 150 (day 6 h6)
+    market: engine [["SELL", "WOOL", 4], ["BUY_PRODUCT", "WHEAT", 2], ["BUY_LAND"], ["BUY_ANIMAL", "COW", 2], ["BUY_PRODUCT", "FERTILIZER", 1]]
+            rival  [["SELL", "WOOL", 6], ["BUY_PRODUCT", "WHEAT", 2], ["BUY_LAND"], ["BUY_ANIMAL", "COW", 2], ["BUY_PRODUCT", "FERTILIZER", 1]]
+114777461 UCAS_fish_wang       -64 tetsutani_demand_0927  left at step 145 (day 6 h1)
+    market: engine [["HIRE"], ["HIRE"], ["HIRE"], ["BUY_SEED", "CARROT", 8]]
+            rival  [["HIRE"], ["HIRE"], ["HIRE"]]

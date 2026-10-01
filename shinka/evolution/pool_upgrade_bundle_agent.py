@@ -51,9 +51,11 @@ def _environment(bundle):
         'KAGG_TTM_DIR': str(bundle / 'checkpoint'),
         'KAGG_OPP_MODEL_SRC': str(bundle / 'opponent_model'),
         'KAGG_TASK_DIR': str(bundle),
-        'KAGG_ORACLE_BACKEND': 'numpy',
-        'KAGG_ORACLE_DEVICE': 'cpu',
-        'CUDA_VISIBLE_DEVICES': '',
+        'KAGG_ORACLE_BACKEND': os.environ.get('KAGG_ORACLE_BACKEND', 'numpy'),
+        'KAGG_ORACLE_DEVICE': os.environ.get('KAGG_ORACLE_DEVICE', 'cpu'),
+        'CUDA_VISIBLE_DEVICES': os.environ.get('KAD_ALLOW_GPU', os.environ.get('CUDA_VISIBLE_DEVICES', '')),
+        'KAGG_KAD_BACKEND': os.environ.get('KAGG_KAD_BACKEND', 'auto'),
+        'KAGG_KAD_DEVICE': os.environ.get('KAGG_KAD_DEVICE', 'auto'),
     })
     env.update({key: '1' for key in _THREAD_VARS})
     return env

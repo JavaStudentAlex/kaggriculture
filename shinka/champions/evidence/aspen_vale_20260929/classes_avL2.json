@@ -1,0 +1,512 @@
+{
+ "114896463": {
+  "id": 114896463,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -24448,
+  "team": "juliencst",
+  "orate": 2392.6,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114938970": {
+  "id": 114938970,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -16386,
+  "team": "cununn",
+  "orate": null,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114928894": {
+  "id": 114928894,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -12565,
+  "team": "HireMe",
+  "orate": null,
+  "steps": 91,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114883083": {
+  "id": 114883083,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -8477,
+  "team": "Breaking1800",
+  "orate": 2350.5,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114899444": {
+  "id": 114899444,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -8096,
+  "team": "Zhu Liang",
+  "orate": 2562.0,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114866049": {
+  "id": 114866049,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -7557,
+  "team": "GPTatoes",
+  "orate": 2340.9,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "115051399": {
+  "id": 115051399,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -7045,
+  "team": "Closed Loop",
+  "orate": 2168.3,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114881743": {
+  "id": 114881743,
+  "seat": 1,
+  "class": "wheat92_seller",
+  "diff": -5242,
+  "team": "Carson Rodrigues",
+  "orate": 2216.1,
+  "steps": 288,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114971296": {
+  "id": 114971296,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -2216,
+  "team": "wally0593",
+  "orate": null,
+  "steps": 33,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "115000953": {
+  "id": 115000953,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -1812,
+  "team": "crasal",
+  "orate": null,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114934892": {
+  "id": 114934892,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -832,
+  "team": "DASH村",
+  "orate": null,
+  "steps": 576,
+  "kind": "long",
+  "agent": "haodou_ledger_0928",
+  "ties": [
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    384,
+    "tetsutani_demand_0927"
+   ],
+   [
+    384,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "114875945": {
+  "id": 114875945,
+  "seat": 1,
+  "class": "wheat92_seller",
+  "diff": -782,
+  "team": "Ryo",
+  "orate": 2226.0,
+  "steps": 299,
+  "kind": "long",
+  "agent": "tetsutani_demand",
+  "ties": [
+   "tetsutani_demand",
+   "lynn_wheat",
+   "haideptry_shepherd_new",
+   "guru_master_v3"
+  ],
+  "runner_up": [
+   [
+    53,
+    "haideptry_shepherd_0928"
+   ],
+   [
+    0,
+    "tt_metav4_v13"
+   ]
+  ]
+ },
+ "114923017": {
+  "id": 114923017,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -637,
+  "team": "shreyash kumar",
+  "orate": 2210.0,
+  "steps": 498,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca20"
+   ]
+  ]
+ },
+ "115069665": {
+  "id": 115069665,
+  "seat": 0,
+  "class": "other_opening",
+  "diff": -414,
+  "team": "Mehrdad Naderi",
+  "orate": 2141.1,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114901262": {
+  "id": 114901262,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -409,
+  "team": "zijun zhang",
+  "orate": 2128.3,
+  "steps": 337,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114909455": {
+  "id": 114909455,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -367,
+  "team": "codezzzsleep",
+  "orate": 2171.0,
+  "steps": 447,
+  "kind": "long",
+  "agent": "haodou_ledger_0928",
+  "ties": [
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    384,
+    "tetsutani_demand_0927"
+   ],
+   [
+    384,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "114935187": {
+  "id": 114935187,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -329,
+  "team": "Yam",
+  "orate": 2269.6,
+  "steps": 150,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "statma_submit",
+   "statma_ca25",
+   "statma_ca20"
+  ],
+  "runner_up": [
+   [
+    0,
+    "tt_metav4_v13"
+   ],
+   [
+    0,
+    "tt_2945_farm"
+   ]
+  ]
+ },
+ "115116110": {
+  "id": 115116110,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -260,
+  "team": "Canon",
+  "orate": 2178.4,
+  "steps": 528,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114950439": {
+  "id": 114950439,
+  "seat": 1,
+  "class": "other_opening",
+  "diff": -197,
+  "team": "Hıdır BozkurtT",
+  "orate": 2215.7,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114916288": {
+  "id": 114916288,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -141,
+  "team": "Tien N.",
+  "orate": null,
+  "steps": 673,
+  "kind": "long",
+  "agent": "haodou_ledger_0928",
+  "ties": [
+   "haodou_ledger_0928"
+  ],
+  "runner_up": [
+   [
+    576,
+    "tetsutani_demand_0927"
+   ],
+   [
+    576,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "115123516": {
+  "id": 115123516,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -97,
+  "team": "YKuma",
+  "orate": 2141.9,
+  "steps": 457,
+  "kind": "long",
+  "agent": "leo_pi",
+  "ties": [
+   "leo_pi"
+  ],
+  "runner_up": [
+   [
+    373,
+    "tetsutani_demand_0927"
+   ],
+   [
+    373,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "114948633": {
+  "id": 114948633,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -91,
+  "team": "Gaiar Baimuratov",
+  "orate": 2181.0,
+  "steps": 0,
+  "kind": "-",
+  "agent": "no public agent",
+  "ties": [],
+  "runner_up": []
+ },
+ "114962712": {
+  "id": 114962712,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -90,
+  "team": "Pranav Thota",
+  "orate": 2213.9,
+  "steps": 221,
+  "kind": "long",
+  "agent": "leo_pi",
+  "ties": [
+   "leo_pi"
+  ],
+  "runner_up": [
+   [
+    169,
+    "tetsutani_demand_0927"
+   ],
+   [
+    169,
+    "lynn_idle"
+   ]
+  ]
+ },
+ "115125107": {
+  "id": 115125107,
+  "seat": 1,
+  "class": "mirror",
+  "diff": -43,
+  "team": "YKuma",
+  "orate": 2141.9,
+  "steps": 385,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    291,
+    "statma_submit"
+   ],
+   [
+    291,
+    "statma_ca25"
+   ]
+  ]
+ },
+ "114881292": {
+  "id": 114881292,
+  "seat": 0,
+  "class": "mirror",
+  "diff": -23,
+  "team": "Hamachi",
+  "orate": null,
+  "steps": 289,
+  "kind": "long",
+  "agent": "tetsutani_demand_0927",
+  "ties": [
+   "tetsutani_demand_0927",
+   "lynn_idle",
+   "leo_pi",
+   "haodou_ledger_0928b"
+  ],
+  "runner_up": [
+   [
+    151,
+    "statma_submit"
+   ],
+   [
+    151,
+    "statma_ca20"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,4 @@
+listed 99, with earlier indexes 99
+team-submissions 16699741 ConnectionError HTTPSConnectionPool(host='api.kaggle.com', port=443): Max retries exceeded with 
+99 public games: W 42 L 57 T 0; 85 against strong or unlisted rivals, replays {'ok': 85}
+FETCH_EXIT=0

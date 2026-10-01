@@ -1,0 +1,25 @@
+115357469 seat 0   -16,229  1846.7 rhythm master          other_opening    0 -     no public agent
+115322930 seat 1   -13,566       - darasty                other_opening    0 -     no public agent
+115314313 seat 1   -12,921  1870.7 Efnutrrionpy           other_opening    0 -     no public agent
+115320285 seat 1    -6,034  1846.7 rhythm master          other_opening    0 -     no public agent
+115329933 seat 1    -4,710  1873.3 arumajiro              other_opening  291 long  haideptry_2965_new, haideptry_2965_0926
+115395806 seat 0    -2,989  2165.3 CHEN Xiang             other_opening    0 -     no public agent
+115325610 seat 0    -2,542  1699.2 Sayandeep Ghosh        mirror         150 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115351299 seat 1    -2,006  1885.7 asteriam               mirror         148 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115315647 seat 0    -1,951  1776.1 JamesJJJJJ             mirror           0 -     no public agent
+115327008 seat 1    -1,941  1885.7 asteriam               mirror         148 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115357052 seat 0    -1,869       - venks                  other_opening    0 -     no public agent
+115305810 seat 1    -1,647  1845.1 wahaka                 mirror         408 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+115335697 seat 1    -1,144  1764.6 Thomas Deng            wheat92_seller 290 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+115341458 seat 0      -796  1855.3 tyz123456              other_opening    0 -     no public agent
+115364642 seat 0      -740  1872.6 Hak                    wheat92_seller 256 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+115358585 seat 1      -655  1796.1 ekkkcz                 wheat92_seller 292 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+115348495 seat 1      -626  1836.9 lvisdd                 mirror          91 -     no public agent
+115390864 seat 0      -450  1957.8 sadanamaru             mirror         149 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115347067 seat 0      -344  1927.4 Yuta                   mirror         436 long  haodou_ledger_0928
+115352686 seat 1      -238  1907.8 Aacceeo                mirror         288 long  statma_submit, statma_ca20, leoprovorov_forecast_0927, leoprovorov_forecast
+115355481 seat 1      -173  1984.6 アメリカ農業研究会              mirror         150 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115295814 seat 0       -41  1472.9 ominteam               other_opening  151 long  tt_metav4_v13, tt_2945_farm, robust_economy, leo_gods_mode_0928b
+115351826 seat 0       -10  1832.6 Kitsune0o              other_opening    0 -     no public agent
+115378894 seat 0        -4  1799.8 Stefano Blando         mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+115293015 seat 0        +0  1688.4 mekduy                 mirror           5 -     no public agent

@@ -1,0 +1,33 @@
+114896463 seat 0   -24,448  2392.6 juliencst              other_opening    0 -     no public agent
+114938970 seat 0   -16,386       - cununn                 other_opening    0 -     no public agent
+114928894 seat 1   -12,565       - HireMe                 mirror          91 -     no public agent
+114883083 seat 1    -8,477  2350.5 Breaking1800           other_opening    0 -     no public agent
+114899444 seat 1    -8,096  2562.0 Zhu Liang              other_opening    0 -     no public agent
+114866049 seat 0    -7,557  2340.9 GPTatoes               other_opening    0 -     no public agent
+115051399 seat 0    -7,045  2168.3 Closed Loop            other_opening    0 -     no public agent
+114881743 seat 1    -5,242  2216.1 Carson Rodrigues       wheat92_seller 288 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114971296 seat 0    -2,216       - wally0593              other_opening   33 -     no public agent
+115000953 seat 1    -1,812       - crasal                 other_opening    0 -     no public agent
+114934892 seat 1      -832       - DASH村                  mirror         576 long  haodou_ledger_0928
+114875945 seat 1      -782  2226.0 Ryo                    wheat92_seller 299 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114923017 seat 1      -637  2210.0 shreyash kumar         mirror         498 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+115069665 seat 0      -414  2141.1 Mehrdad Naderi         other_opening    0 -     no public agent
+114901262 seat 1      -409  2128.3 zijun zhang            mirror         337 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114909455 seat 1      -367  2171.0 codezzzsleep           mirror         447 long  haodou_ledger_0928
+114935187 seat 0      -329  2269.6 Yam                    mirror         150 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+115116110 seat 1      -260  2178.4 Canon                  mirror         528 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114950439 seat 1      -197  2215.7 Hıdır BozkurtT         other_opening    0 -     no public agent
+114916288 seat 1      -141       - Tien N.                mirror         673 long  haodou_ledger_0928
+115123516 seat 1       -97  2141.9 YKuma                  mirror         457 long  leo_pi
+114948633 seat 1       -91  2181.0 Gaiar Baimuratov       mirror           0 -     no public agent
+114962712 seat 0       -90  2213.9 Pranav Thota           mirror         221 long  leo_pi
+115125107 seat 1       -43  2141.9 YKuma                  mirror         385 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114881292 seat 0       -23       - Hamachi                mirror         289 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+
+avL2: by class: {'other_opening': 10, 'mirror': 13, 'wheat92_seller': 2}
+by best match (exact = 700+ equal moves, long = 100+):
+   12 -     no public agent              median margin -7,045
+    6 long  tetsutani_demand_0927        median margin -260
+    3 long  haodou_ledger_0928           median margin -367
+    2 long  tetsutani_demand             median margin -782
+    2 long  leo_pi                       median margin -90

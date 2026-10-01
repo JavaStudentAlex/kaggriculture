@@ -50,6 +50,13 @@ MEMBERS = {
     # the same notebook's version of 2026-09-26 13:54 UTC (haideptry_2965 keeps the one of 09-25, the
     # evidence of Rowan Glen's and Linden Brook's losses); it plays Alder Ford's rival ADRIANO ALMEIDA exactly
     "haideptry_2965_0926": ("haideptry/the-2965-master-hybrid-engine", "AGENT_B64", "agent.py"),
+    # the notebook's version of 2026-09-27 02:50 UTC (tetsutani_demand keeps the one of 09-25)
+    "tetsutani_demand_0927": ("tetsutani/demand-preserving-turn-sale-timing", "ARCHIVE_B64", "main.py"),
+    # the notebook's version of 2026-09-28 02:23 UTC: 3 of Cedar Ridge's losses move for move
+    "haodou_ledger_0928": ("haodou092/kaggriculture-harvest-ledger", "", "agent.py"),
+    # the notebook's version of 2026-09-27 17:57 UTC: tetsutani_demand_0927 with an empty-order guard in its sale
+    # reordering and _CA_MARGIN -22; played one of Aspen Vale's losses move for move (all 719)
+    "leo_pi": ("leoprovorov/31415926535897932384626433832795058202884197169399", "", "agent.py"),
     "robust_economy": ("nihilisticneuralnet/kaggriculture-population-robust-economy", "MAIN_BLOB", "agent.py"),
     "tetsutani_demand": ("tetsutani/demand-preserving-turn-sale-timing", "ARCHIVE_B64", "main.py"),
     # tetsutani's earlier notebook (09-06): the 13-wheat opening; plays three of Rowan Glen's and Linden

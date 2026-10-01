@@ -1,0 +1,9 @@
+This directory holds the agent of the public Kaggle notebook "🌾 Demand-Preserving Turn Sale Timing"
+https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing
+pulled 2026-09-26T07:03Z and shipped unmodified (SOURCE.json lists the sha256 of each file).
+
+The notebook is released under the Apache License, Version 2.0 (LICENSE). The agent file keeps its
+upstream copyright and attribution notices, which name the earlier public work it derives from.
+
+hazel_runtime/rival_emulator.py runs this agent unmodified, from our own observations, to predict the
+orders of an opponent that plays it.

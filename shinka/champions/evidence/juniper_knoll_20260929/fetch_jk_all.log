@@ -1,0 +1,7 @@
+listed 84, with earlier indexes 84
+replay 115295814 SSLError HTTPSConnectionPool(host='api.kaggle.com', port=443): Max retries exceeded with 
+replay 115294387 SSLError HTTPSConnectionPool(host='api.kaggle.com', port=443): Max retries exceeded with 
+replay 115294387 ConnectionError ('Connection aborted.', RemoteDisconnected('Remote end closed connection without
+replay 115295814 ConnectionError ('Connection aborted.', RemoteDisconnected('Remote end closed connection without
+84 public games: W 59 L 24 T 1; 84 against strong or unlisted rivals, replays {'ok': 75, 'have': 9}
+FETCH_EXIT=0

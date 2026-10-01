@@ -1,0 +1,602 @@
+{
+  "checked_at_utc": "2026-09-28T23:12:28.329720+00:00",
+  "host_alias": "cliproxyapi",
+  "checkpoints": {
+    "repo/research/procedural_graph/hazel_runtime/checkpoint": {
+      "model.safetensors": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+      "scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+      "config.json": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+      "labels.json": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75",
+      "calibration.json": null
+    },
+    "pred26/research/procedural_graph/hazel_runtime/checkpoint": {
+      "model.safetensors": "d165b7a4e425e7d8e980f9d0add4542b8779f7d46d90604520b1ecfae2a04ae7",
+      "scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+      "config.json": "423b46c4cad2c9ee8cc87038b06e529a1dee93da85c66469349e1fa6ad100cd0",
+      "labels.json": "47e8ca56407b646528f230fe4fcd8e18349237f6bfcdfa2c7681819321eceec6",
+      "calibration.json": "91d873b1eeab1d2546cde109f5ee8c7231b7606acb48153b802d41bbfeed939e"
+    },
+    "runs/ladder1/bundles/g_5f5c5b5203548c6d/hazel_runtime/checkpoint": {
+      "model.safetensors": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+      "scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+      "config.json": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+      "labels.json": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75",
+      "calibration.json": null
+    },
+    "repo/shinka/champions/submissions/maple_crest/hazel_runtime/checkpoint": {
+      "model.safetensors": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+      "scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+      "config.json": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+      "labels.json": "c2a90375674ed20307f814ccb46733b442bcbffc1f5f94c2ccb3f31b11c98f75",
+      "calibration.json": null
+    }
+  },
+  "reports": {
+    "backtest_av.json": {
+      "sha256": "cf684abed46fc3e304e369211149a0a630a1315794062575123e46aecea858b4",
+      "name": "backtest_av",
+      "jobs": 335,
+      "played": 335,
+      "bundles": {
+        "aspen": "g_16bb4af65a704f00",
+        "next_market": "g_0dc79b00075f72b8",
+        "aspen_ca22": "g_b61c10d66dcc8cc3",
+        "crops": "g_e096a89b8a65c907",
+        "tactics": "g_9717dfe1c3034317"
+      },
+      "graphs": {
+        "aspen": {
+          "all": {
+            "wins": 36,
+            "losses": 31,
+            "ties": 0,
+            "games": 67,
+            "mean_margin": -167.9
+          },
+          "set:replay:L": {
+            "wins": 0,
+            "losses": 31,
+            "ties": 0,
+            "games": 31,
+            "mean_margin": -1400.6
+          },
+          "set:replay:W": {
+            "wins": 36,
+            "losses": 0,
+            "ties": 0,
+            "games": 36,
+            "mean_margin": 893.7
+          }
+        },
+        "next_market": {
+          "all": {
+            "wins": 36,
+            "losses": 31,
+            "ties": 0,
+            "games": 67,
+            "mean_margin": -165.2
+          },
+          "set:replay:L": {
+            "wins": 0,
+            "losses": 31,
+            "ties": 0,
+            "games": 31,
+            "mean_margin": -1389.8
+          },
+          "set:replay:W": {
+            "wins": 36,
+            "losses": 0,
+            "ties": 0,
+            "games": 36,
+            "mean_margin": 889.2
+          }
+        },
+        "aspen_ca22": {
+          "all": {
+            "wins": 38,
+            "losses": 29,
+            "ties": 0,
+            "games": 67,
+            "mean_margin": -103.5
+          },
+          "set:replay:L": {
+            "wins": 4,
+            "losses": 27,
+            "ties": 0,
+            "games": 31,
+            "mean_margin": -1296.4
+          },
+          "set:replay:W": {
+            "wins": 34,
+            "losses": 2,
+            "ties": 0,
+            "games": 36,
+            "mean_margin": 923.6
+          }
+        },
+        "crops": {
+          "all": {
+            "wins": 14,
+            "losses": 52,
+            "ties": 1,
+            "games": 67,
+            "mean_margin": -519.9
+          },
+          "set:replay:L": {
+            "wins": 6,
+            "losses": 25,
+            "ties": 0,
+            "games": 31,
+            "mean_margin": -1262.0
+          },
+          "set:replay:W": {
+            "wins": 8,
+            "losses": 27,
+            "ties": 1,
+            "games": 36,
+            "mean_margin": 119.2
+          }
+        },
+        "tactics": {
+          "all": {
+            "wins": 13,
+            "losses": 53,
+            "ties": 1,
+            "games": 67,
+            "mean_margin": -538.1
+          },
+          "set:replay:L": {
+            "wins": 6,
+            "losses": 25,
+            "ties": 0,
+            "games": 31,
+            "mean_margin": -1283.0
+          },
+          "set:replay:W": {
+            "wins": 7,
+            "losses": 28,
+            "ties": 1,
+            "games": 36,
+            "mean_margin": 103.3
+          }
+        }
+      },
+      "paired": {
+        "next_market vs aspen": {
+          "all": {
+            "better": 26,
+            "worse": 7,
+            "same": 34,
+            "mean_change": 2.6,
+            "p": 0.0013187271542847157
+          },
+          "set:replay:L": {
+            "better": 11,
+            "worse": 2,
+            "same": 18,
+            "mean_change": 10.8,
+            "p": 0.0224609375
+          },
+          "set:replay:W": {
+            "better": 15,
+            "worse": 5,
+            "same": 16,
+            "mean_change": -4.4,
+            "p": 0.04138946533203125
+          }
+        },
+        "aspen_ca22 vs aspen": {
+          "all": {
+            "better": 35,
+            "worse": 15,
+            "same": 17,
+            "mean_change": 64.3,
+            "p": 0.006600447966810918
+          },
+          "set:replay:L": {
+            "better": 21,
+            "worse": 2,
+            "same": 8,
+            "mean_change": 104.2,
+            "p": 6.604194641113281e-05
+          },
+          "set:replay:W": {
+            "better": 14,
+            "worse": 13,
+            "same": 9,
+            "mean_change": 30.0,
+            "p": 1.0
+          }
+        },
+        "crops vs aspen": {
+          "all": {
+            "better": 16,
+            "worse": 51,
+            "same": 0,
+            "mean_change": -352.0,
+            "p": 2.1689238760717064e-05
+          },
+          "set:replay:L": {
+            "better": 14,
+            "worse": 17,
+            "same": 0,
+            "mean_change": 138.6,
+            "p": 0.720100131817162
+          },
+          "set:replay:W": {
+            "better": 2,
+            "worse": 34,
+            "same": 0,
+            "mean_change": -774.5,
+            "p": 1.941225491464138e-08
+          }
+        },
+        "tactics vs aspen": {
+          "all": {
+            "better": 16,
+            "worse": 51,
+            "same": 0,
+            "mean_change": -370.3,
+            "p": 2.1689238760717064e-05
+          },
+          "set:replay:L": {
+            "better": 14,
+            "worse": 17,
+            "same": 0,
+            "mean_change": 117.6,
+            "p": 0.720100131817162
+          },
+          "set:replay:W": {
+            "better": 2,
+            "worse": 34,
+            "same": 0,
+            "mean_change": -790.4,
+            "p": 1.941225491464138e-08
+          }
+        }
+      }
+    },
+    "lost_av.json": {
+      "sha256": "f84384c282e28b2ac59f67d16b4be94d80fbf2dd6293e5c5f15e47ab69f6ae46",
+      "name": "lost_av",
+      "jobs": 310,
+      "played": 310,
+      "bundles": {
+        "aspen": "g_16bb4af65a704f00",
+        "next_market": "g_0dc79b00075f72b8",
+        "aspen_ca22": "g_b61c10d66dcc8cc3",
+        "crops": "g_e096a89b8a65c907",
+        "tactics": "g_9717dfe1c3034317"
+      },
+      "graphs": {
+        "aspen": {
+          "all": {
+            "wins": 51,
+            "losses": 11,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 709.1
+          },
+          "set:lost": {
+            "wins": 51,
+            "losses": 11,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 709.1
+          }
+        },
+        "next_market": {
+          "all": {
+            "wins": 51,
+            "losses": 11,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 710.0
+          },
+          "set:lost": {
+            "wins": 51,
+            "losses": 11,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 710.0
+          }
+        },
+        "aspen_ca22": {
+          "all": {
+            "wins": 53,
+            "losses": 9,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 818.8
+          },
+          "set:lost": {
+            "wins": 53,
+            "losses": 9,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 818.8
+          }
+        },
+        "crops": {
+          "all": {
+            "wins": 44,
+            "losses": 18,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 762.0
+          },
+          "set:lost": {
+            "wins": 44,
+            "losses": 18,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 762.0
+          }
+        },
+        "tactics": {
+          "all": {
+            "wins": 44,
+            "losses": 18,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 826.8
+          },
+          "set:lost": {
+            "wins": 44,
+            "losses": 18,
+            "ties": 0,
+            "games": 62,
+            "mean_margin": 826.8
+          }
+        }
+      },
+      "paired": {
+        "next_market vs aspen": {
+          "all": {
+            "better": 18,
+            "worse": 7,
+            "same": 37,
+            "mean_change": 1.0,
+            "p": 0.043285250663757324
+          },
+          "set:lost": {
+            "better": 18,
+            "worse": 7,
+            "same": 37,
+            "mean_change": 1.0,
+            "p": 0.043285250663757324
+          }
+        },
+        "aspen_ca22 vs aspen": {
+          "all": {
+            "better": 42,
+            "worse": 2,
+            "same": 18,
+            "mean_change": 109.7,
+            "p": 1.1266365618212149e-10
+          },
+          "set:lost": {
+            "better": 42,
+            "worse": 2,
+            "same": 18,
+            "mean_change": 109.7,
+            "p": 1.1266365618212149e-10
+          }
+        },
+        "crops vs aspen": {
+          "all": {
+            "better": 28,
+            "worse": 34,
+            "same": 0,
+            "mean_change": 53.0,
+            "p": 0.5257733601756501
+          },
+          "set:lost": {
+            "better": 28,
+            "worse": 34,
+            "same": 0,
+            "mean_change": 53.0,
+            "p": 0.5257733601756501
+          }
+        },
+        "tactics vs aspen": {
+          "all": {
+            "better": 30,
+            "worse": 32,
+            "same": 0,
+            "mean_change": 117.8,
+            "p": 0.899076313652859
+          },
+          "set:lost": {
+            "better": 30,
+            "worse": 32,
+            "same": 0,
+            "mean_change": 117.8,
+            "p": 0.899076313652859
+          }
+        }
+      }
+    }
+  },
+  "game_caches": {
+    "backtest_av": {
+      "rows": 335,
+      "unique": 335,
+      "errors": 0,
+      "labels": {
+        "aspen_ca22": 67,
+        "aspen": 67,
+        "next_market": 67,
+        "crops": 67,
+        "tactics": 67
+      },
+      "ca22_vs_aspen_by_seat": {
+        "0": {
+          "games": 32,
+          "aspen_wins": 18,
+          "ca22_wins": 18,
+          "wins_gained": 1,
+          "wins_lost": 1,
+          "mean_margin_change": 50.21875
+        },
+        "1": {
+          "games": 35,
+          "aspen_wins": 18,
+          "ca22_wins": 20,
+          "wins_gained": 3,
+          "wins_lost": 1,
+          "mean_margin_change": 77.22857142857143
+        }
+      }
+    },
+    "lost_av": {
+      "rows": 310,
+      "unique": 310,
+      "errors": 0,
+      "labels": {
+        "aspen_ca22": 62,
+        "aspen": 62,
+        "next_market": 62,
+        "crops": 62,
+        "tactics": 62
+      },
+      "ca22_vs_aspen_by_seat": {
+        "0": {
+          "games": 31,
+          "aspen_wins": 25,
+          "ca22_wins": 26,
+          "wins_gained": 1,
+          "wins_lost": 0,
+          "mean_margin_change": 110.38709677419355
+        },
+        "1": {
+          "games": 31,
+          "aspen_wins": 26,
+          "ca22_wins": 27,
+          "wins_gained": 1,
+          "wins_lost": 0,
+          "mean_margin_change": 109.03225806451613
+        }
+      }
+    },
+    "backtest_av3": {
+      "rows": 335,
+      "unique": 335,
+      "errors": 0,
+      "labels": {
+        "aspen_ca22": 67,
+        "aspen": 67,
+        "next_market": 67,
+        "crops": 67,
+        "tactics": 67
+      },
+      "ca22_vs_aspen_by_seat": {
+        "0": {
+          "games": 32,
+          "aspen_wins": 18,
+          "ca22_wins": 18,
+          "wins_gained": 1,
+          "wins_lost": 1,
+          "mean_margin_change": 50.21875
+        },
+        "1": {
+          "games": 35,
+          "aspen_wins": 18,
+          "ca22_wins": 20,
+          "wins_gained": 3,
+          "wins_lost": 1,
+          "mean_margin_change": 77.22857142857143
+        }
+      }
+    },
+    "lost_av3": {
+      "rows": 310,
+      "unique": 310,
+      "errors": 0,
+      "labels": {
+        "aspen_ca22": 62,
+        "aspen": 62,
+        "next_market": 62,
+        "crops": 62,
+        "tactics": 62
+      },
+      "ca22_vs_aspen_by_seat": {
+        "0": {
+          "games": 31,
+          "aspen_wins": 25,
+          "ca22_wins": 26,
+          "wins_gained": 1,
+          "wins_lost": 0,
+          "mean_margin_change": 110.38709677419355
+        },
+        "1": {
+          "games": 31,
+          "aspen_wins": 26,
+          "ca22_wins": 27,
+          "wins_gained": 1,
+          "wins_lost": 0,
+          "mean_margin_change": 109.03225806451613
+        }
+      }
+    },
+    "fresh_av": {
+      "rows": 0,
+      "unique": 0,
+      "errors": 0,
+      "labels": {},
+      "ca22_vs_aspen_by_seat": {}
+    }
+  },
+  "source_sha256": {
+    "graph_gauntlet.py": "e0f670bb5ec8e7477b492d6752fffce79b82c7709824992ed4265f2ed20ab7f3",
+    "test_ladder_graph.py": "d7555ff380d020a203c7d81c731486aa43c8b1c523ca615705e77ad6df1da928",
+    "hazel_runtime/oracle_guard.py": "da87aadf649da6950eaf1379f93a699cc106ea451f0664164557b9da84985561",
+    "hazel_runtime/engine_contract.py": "a1136efc24fc4a907c76964e531882dd30ce70815959ebdc12008715ba8cf48e"
+  },
+  "logs": {
+    "backtest_av3.log": "aspen: evolution_results/ladder_2026-09-26/next_counter_emulator_graph.json -> bundles/g_16bb4af65a704f00\naspen_guard26: /home/alex/kagg-evo/aspen_vale/aspen_guard_graph.json -> bundles/g_5f5c5b5203548c6d\n134 jobs: 2 graphs x (17 opponents x 0 validation seeds + 0 lost seeds x 2 seats + 67 replays)\n",
+    "lost_av3.log": "aspen: evolution_results/ladder_2026-09-26/next_counter_emulator_graph.json -> bundles/g_16bb4af65a704f00\naspen_guard26: /home/alex/kagg-evo/aspen_vale/aspen_guard_graph.json -> bundles/g_5f5c5b5203548c6d\n124 jobs: 2 graphs x (17 opponents x 0 validation seeds + 31 lost seeds x 2 seats + 0 replays)\n",
+    "fresh_av.log": "aspen: evolution_results/ladder_2026-09-26/next_counter_emulator_graph.json -> bundles/g_16bb4af65a704f00\naspen_guard: /home/alex/kagg-evo/aspen_vale/aspen_guard_graph.json -> bundles/g_5f5c5b5203548c6d\n360 jobs: 2 graphs x (18 opponents x 10 validation seeds + 0 lost seeds x 2 seats + 0 replays)\n",
+    "build_oracle_on.log": "staged  : /home/alex/kagg-evo/repo/shinka/champions/submissions/maple_crest\narchive : /home/alex/kagg-evo/repo/shinka/champions/submissions/MapleCrest.tar.gz (5,255,301 bytes, 46 files, sha256 afc62dba6559436c\u2026)\n\nvalidating the extracted archive with /home/alex/kagg-evo/venv/bin/python (python -I, one core, empty HOME, no repo env)\u2026\nbundle /tmp/kagg_graph_submission_je2c_grk/x\nHOME=/tmp/kagg_graph_submission_je2c_grk/home cwd=/\nseat 0 vs starter seed    101: OK  $   181,531 (DONE) vs $3,757 (DONE) | 720 states, 84 s | steps 719: mean 109 ms, max 10249 ms @0, overage 9.25 s\nseat 0 vs starter seed  70102: OK  $   182,595 (DONE) vs $3,431 (DONE) | 720 states, 89 s | steps 719: mean 116 ms, max 7142 ms @0, overage 6.14 s\nseat 0 vs random  seed    101: OK  $   131,571 (DONE) vs $0 (DONE) | 720 states, 81 s | steps 719: mean 105 ms, max 6904 ms @0, overage 5.90 s\nseat 0 vs random  seed  70102: OK  $   233,771 (DONE) vs $0 (DONE) | 720 states, 83 s | steps 719: mean 108 ms, max 7336 ms @0, overage 6.34 s\nseat 1 vs starter seed    101: OK  $   181,531 (DONE) vs $3,757 (DONE) | 720 states, 80 s | steps 719: mean 105 ms, max 7426 ms @0, overage 6.43 s\nseat 1 vs starter seed  70102: OK  $   186,886 (DONE) vs $3,451 (DONE) | 720 states, 78 s | steps 719: mean 101 ms, max 7185 ms @0, overage 6.18 s\nseat 1 vs random  seed    101: OK  $   156,107 (DONE) vs $0 (DONE) | 720 states, 98 s | steps 719: mean 128 ms, max 6709 ms @0, overage 5.71 s\nseat 1 vs random  seed  70102: OK  $   186,343 (DONE) vs $0 (DONE) | 720 states, 109 s | steps 719: mean 142 ms, max 11890 ms @0, overage 10.89 s\nresolution:\n  champion       : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/champion.py  inside=True\n  MOHUI_DIR      : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/mohui_v66  inside=True\n  kagg_oracle    : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/kagg_oracle.py  inside=True\n  checkpoint     : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/checkpoint  inside=True\n  kagg_ttm_numpy : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/kagg_ttm_numpy.py  inside=True\n  features       : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/opponent_model/features.py  inside=True\n  mechanics      : /tmp/kagg_graph_submission_je2c_grk/x/hazel_runtime/opponent_model/mechanics.py  inside=True\n  backend        : numpy  torch imported: False\n  oracle         : device=cpu stats={'forecasts': 463, 'ms_per_forecast': 184.42425024886793, 'errors': 0, 'last_error': ''}\nsteps 5752: max 11890 ms; from turn 512: p99 266 ms, max 11890 ms\n  agent_graph    : /tmp/kagg_graph_submission_je2c_grk/x/agent_graph.py  inside=True  engine built: True\n  calibration    : None  (expected: False)\n  oracle needed  : True\nVALIDATION PASS: games failed=0 oracle_live=True all_resolved_inside_bundle=True graph_ok=True oracle_needed=True\n\nfidelity: seed 101 vs starter, Kaggle loader vs arena harness\u2026\n{\"seed\": 101, \"kaggle_loader\": [181531.0, 3757.0], \"arena_harness\": [181531.0, 3757.0], \"identical\": true}\n\nsubmit  : kaggle competitions submit -c kaggriculture -f shinka/champions/submissions/MapleCrest.tar.gz -m \"Maple Crest - Adaptive production and trade\"\nSUBMIT_BUILD_EXIT=0\n"
+  },
+  "engine_version": "1.32.7",
+  "guard_graph": {
+    "sha256": "fc9a659d179ea331395a076d261dd186a2510a5f19de9c5f4a68b26afde7b477",
+    "nodes": [
+      {
+        "id": "backbone",
+        "binding": "backbone",
+        "summary": "Submitted Mohui v66 production, routing, hiring and base trading",
+        "engine": "tetsutani_demand_0927",
+        "engine_parameters": {
+          "_SR_MARGIN": 12
+        }
+      },
+      {
+        "id": "oracle_guard",
+        "binding": "oracle_guard",
+        "enabled": true,
+        "summary": "Predictor front-run sells added to the engine market orders",
+        "parameters": {
+          "_OG_ITEMS": [
+            "MILK",
+            "WOOL",
+            "STRAWBERRY"
+          ],
+          "_OG_SCORE": 0.5,
+          "_OG_BATCH": 4,
+          "_OG_KEEP": 2,
+          "_OG_PRICE_RATIO": 0.75
+        }
+      }
+    ]
+  },
+  "lost_seed_opponents": {
+    "tetsutani_demand": 13,
+    "haideptry_2965_0926": 2,
+    "leoprovorov_forecast": 4,
+    "haodou_ledger_0928": 10,
+    "leo_pi": 1,
+    "robust_economy": 1
+  }
+}

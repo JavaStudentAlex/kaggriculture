@@ -1,0 +1,36 @@
+114829205 seat 1       +22  2184.3 Terence0914            mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger_0928
+114799669 seat 0       +33  2195.1 Arnav Goel             mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114768589 seat 1       +34       - Kilupy                 mirror         719 exact haodou_ledger_0928
+114824522 seat 1       +60  2187.8 Rita-1021              mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114806870 seat 1       +90  2266.4 Georgy Mamarin         mirror         498 long  leo_pi
+114788382 seat 0       +97  2108.3 Luvsh81                mirror         719 exact leo_pi
+114801149 seat 1       +97  2214.3 Mason Cao              mirror         167 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114781937 seat 0      +109  2186.6 Chattso-GPT (Yasuhito  mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114771608 seat 0      +112  2167.2 Meng Di                mirror         265 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114773189 seat 0      +120  2140.6 Kagdew Valley_HeNU     mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114782142 seat 1      +134  2167.2 hb and ys              mirror         719 exact haodou_ledger_0928
+114798321 seat 1      +150  2207.4 wyz0210                mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114795287 seat 1      +167  2134.6 Linh Le                mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114764123 seat 1      +185  1973.6 Supermercado           mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger_0928
+114767722 seat 0      +194  2000.3 ykuroka                mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114770097 seat 0      +217  2061.2 Guido Tapia            mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114796979 seat 0      +229  2141.3 Timon Wendland         mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114820361 seat 1      +238  2215.8 Владислав Ковкін       other_opening    1 -     no public agent
+114774446 seat 1      +241  2241.3 Sian                   mirror         673 long  tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114809660 seat 0      +254  2216.8 yygg2026               mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger_0928
+114804183 seat 0      +259  2182.7 dvv_ram                mirror         150 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+114818945 seat 1      +288       - misis biznessmenlb     mirror         150 long  tetsutani_demand_0927, statma_submit, statma_ca25, statma_ca20
+114789654 seat 1      +290  2223.5 Carson Rodrigues       wheat92_seller 288 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114831863 seat 0      +293  2244.4 PeterDreamHan          mirror         254 long  tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114792296 seat 1      +308       - umair zia              other_opening    0 -     no public agent
+114778229 seat 1      +350  2207.6 HiroyukiSasaki         mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger
+114829158 seat 1      +437  2294.0 colum2131              wheat92_seller 410 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114855695 seat 0      +480  2160.0 hatakazu93             wheat92_seller   1 -     no public agent
+114767093 seat 0      +511       - yoshino                wheat92_seller 298 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114827834 seat 0      +603  2174.2 Sophinator             wheat92_seller 360 long  tetsutani_demand, lynn_wheat, haideptry_shepherd_new, guru_master_v3
+114779154 seat 0    +1,240  2107.9 koala_bear             mirror         719 exact tetsutani_demand_0927, lynn_idle, haodou_ledger_0928b, haodou_ledger_0928
+114832235 seat 0    +2,476  2114.4 lihaoruolhr            wheat92_seller  91 -     no public agent
+114802687 seat 0    +2,939  2143.8 lyre lin               mirror         719 exact tetsutani_demand_0927, lynn_idle, leo_pi, haodou_ledger_0928b
+114752255 seat 1    +3,246       - GoPreCure              other_opening    0 -     no public agent
+114780447 seat 0    +3,886  2208.1 Siyuan Wang            other_opening    0 -     no public agent
+114822044 seat 1   +11,783  2120.3 pangzi233              other_opening    0 -     no public agent

@@ -1,0 +1,21 @@
+fidelity (the submitted bundle replays its own games): all exact
+
+juniper, lost or tied: 25 games replayed
+  aspen       25 games: plays differently in  22 (first at step 160, median 406); results changed {'L->W': 2, 'T->W': 1} (net +2.5); margin -2 a game
+  j_ca15      25 games: plays differently in  16 (first at step 160, median 417); results changed {'L->W': 2, 'T->W': 1} (net +2.5); margin -17 a game
+  j_look3     25 games: plays differently in   4 (first at step 380, median 380); results changed none (net +0.0); margin +0 a game
+  j_noguard   25 games: plays differently in   4 (first at step 552, median 600); results changed none (net +0.0); margin +4 a game
+  j_sr12      25 games: plays differently in  13 (first at step 405, median 454); results changed none (net +0.0); margin -8 a game
+
+juniper, won: 19 games replayed
+  aspen       19 games: plays differently in  17 (first at step 160, median 454); results changed {'W->L': 3, 'W->T': 1} (net -3.5); margin -16 a game
+  j_ca15      15 games: plays differently in  10 (first at step 160, median 429); results changed {'W->L': 2} (net -2.0); margin +3 a game
+  j_look3      2 games: plays differently in   0 (first at step -, median -); results changed none (net +0.0); margin +0 a game
+  j_noguard    2 games: plays differently in   1 (first at step 600, median 600); results changed none (net +0.0); margin +0 a game
+  j_sr12       1 games: plays differently in   1 (first at step 551, median 551); results changed {'W->L': 1} (net -1.0); margin -4 a game
+
+aspen, lost or tied: 45 games replayed
+  j_noguard   45 games: plays differently in  41 (first at step 150, median 455); results changed {'L->W': 5} (net +5.0); margin +75 a game
+  juniper     45 games: plays differently in  43 (first at step 150, median 465); results changed {'L->W': 5} (net +5.0); margin +70 a game
+
+aspen, won: 0 games replayed
