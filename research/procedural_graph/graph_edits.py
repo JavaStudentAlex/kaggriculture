@@ -18,7 +18,17 @@ On a graph whose backbone runs a ladder engine (make_ladder_graph.py) there are 
 - `experimental.switches`: the extension stages of hazel_runtime/experimental.py;
 - the optional rival_counter node (channel `rival_counter`; an edit that switches it on inserts it) and its
   `counters`: per rival family (hazel_runtime/rival_model.py), values for switchable engine constants and
-  `_OG_*` guard parameters that apply while the rival looks like that family.
+  `_OG_*` guard parameters that apply while the rival looks like that family;
+- the optional rival_emulator node (channel `rival_emulator`, inserted the same way) with its `_EM_*`
+  parameters: the public engines it runs in the rival's place (hazel_runtime/rival_emulator.py). While one
+  of them matches the rival exactly, the counter family `engine:<name>` applies and, with `_EM_RACE`, our
+  market orders are rearranged against the rival's known orders;
+- the optional tactic node (channel `tactic`, inserted the same way) and its `code`: a Python function
+  `tactic(obs, action, memory, info)` the evolution writes, run in a sandbox on our action every turn
+  (hazel_runtime/tactic.py);
+- the optional land_plot node (channel `land_plot`, inserted the same way) with its `_LP_*` parameters: the
+  fourth quadrant bought from an evolved day and farmed with a crop or geese by hands hired for it
+  (hazel_runtime/land_plot.py).
 
 An edit is a JSON object with any of these keys, applied to a full graph:
 
@@ -27,9 +37,11 @@ An edit is a JSON object with any of these keys, applied to a full graph:
      "dispatch_order": "submitted" or "sells_first",
      "surgical": {"enabled": bool, "overrides": {...}},
      "engine_parameters": {"NAME": value or null},
-     "channels": {"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter": true or false},
+     "channels": {"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter" | "rival_emulator" |
+                  "land_plot" | "tactic": bool},
      "experimental": {"<switch>": true or false},
-     "counters": {"<family>": {"NAME": value or null} or null}}
+     "counters": {"<family>": {"NAME": value or null} or null},
+     "tactic": "<python source defining tactic(obs, action, memory, info)>" or null}
 
 A setting that cannot change play (a market parameter while the market channel is off, say)
 is refused, so no gauntlet is spent on it.
@@ -53,14 +65,26 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from hazel_runtime import engines, experimental, graph_runtime, oracle_guard, rival_model, surgical  # noqa: E402
+from hazel_runtime import (engines, experimental, graph_runtime, land_plot, oracle_guard, rival_emulator,  # noqa: E402
+                            rival_model, surgical, tactic)
+from hazel_runtime import kad_copilot  # noqa: E402
 
 CHAMPION = HERE / 'hazel_runtime' / 'champion.py'
 EDIT_KEYS = ('parameters', 'stages', 'dispatch_order', 'surgical', 'engine_parameters', 'channels',
-             'experimental', 'counters')
-CHANNEL_DEFAULTS = {'farmer': True, 'hands': True, 'market': True, 'oracle_guard': False, 'rival_counter': False}
+             'experimental', 'counters', 'tactic')
+CHANNEL_DEFAULTS = {'farmer': True, 'hands': True, 'market': True, 'oracle_guard': False, 'rival_counter': False,
+                    'rival_emulator': False, 'tactic': False, 'land_plot': False, 'kad_copilot': False}
 RIVAL_NODE = {'id': 'rival_counter', 'binding': 'rival_counter', 'enabled': True,
               'summary': "The rival's family from its public farm; that family's counter-settings"}
+EMULATOR_NODE = {'id': 'rival_emulator', 'binding': 'rival_emulator', 'enabled': True,
+                 'summary': "The rival's public engine run in its place from our view; its known orders"}
+TACTIC_NODE = {'id': 'tactic', 'binding': 'tactic', 'enabled': True,
+               'summary': 'The evolved Python tactic, run in a sandbox on our action'}
+LAND_NODE = {'id': 'land_plot', 'binding': 'land_plot', 'enabled': True,
+             'summary': 'The fourth quadrant bought from an evolved day and farmed by hired hands'}
+KAD_NODE = {'id': 'kad_copilot', 'binding': 'kad_copilot', 'enabled': True,
+            'summary': 'KAD-HP-1 (top-player replay policy) adds confident sales and idle-hand jobs'}
+KAD_FILES = ('kad_copilot.py', 'kad/__init__.py', 'kad/kad_numpy.py', 'kad/kad_data.py', 'kad/weights.npz')
 _SWITCHABLE = {}
 ENGINES_DIR = HERE / 'hazel_runtime' / 'engines'
 _ENGINE_CATALOGS = {}
@@ -140,12 +164,34 @@ def catalog(source_path=CHAMPION):
     for name, default in rival_model.PARAMETERS.items():
         out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['rival_counter'],
                      'home': 'rival_counter', 'note': rival_model.NOTES.get(name, ''), 'used': True}
+    for name, default in rival_emulator.PARAMETERS.items():
+        out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['rival_emulator'],
+                     'home': 'rival_emulator', 'note': rival_emulator.NOTES.get(name, ''), 'used': True}
+    for name, default in land_plot.PARAMETERS.items():
+        out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['land_plot'],
+                     'home': 'land_plot', 'note': land_plot.NOTES.get(name, ''), 'used': True}
+    for name, default in kad_copilot.PARAMETERS.items():
+        out[name] = {'default': default, 'type': type(default).__name__, 'stages': ['kad_copilot'],
+                     'home': 'kad_copilot', 'note': kad_copilot.NOTES.get(name, ''), 'used': True}
     return out
 
 
-def rival_families():
-    """{class: description} of the rival_counter stage (rival_model.CLASSES)."""
-    return dict(rival_model.CLASSES)
+def emulated_engines(graph):
+    """The engines the graph's rival_emulator node runs ([] without the node or with it off)."""
+    node = _chain_nodes(graph).get('rival_emulator')
+    if not node or not node.get('enabled', False):
+        return []
+    return list((node.get('parameters') or {}).get('_EM_ENGINES', rival_emulator.PARAMETERS['_EM_ENGINES']))
+
+
+def rival_families(graph=None):
+    """{class: description} of the rival_counter stage (rival_model.CLASSES), plus `engine:<name>` for every
+    engine the graph's rival_emulator runs."""
+    out = dict(rival_model.CLASSES)
+    for name in (emulated_engines(graph) if graph is not None else []):
+        out[f'engine:{name}'] = (f'plays the public engine {name} exactly (the rival_emulator matched it move for '
+                                 f'move); its orders of each turn are known before ours')
+    return out
 
 
 def switchable_engine_parameters(graph):
@@ -160,11 +206,23 @@ def switchable_engine_parameters(graph):
     return _SWITCHABLE[name]
 
 
+def _insert_before(turn, node, before):
+    """Put `node` into the turn chain right before the node `before`, keeping the edges in chain order."""
+    ids = [n['id'] for n in turn['nodes']]
+    i = ids.index(before)
+    turn['nodes'].insert(i, copy.deepcopy(node))
+    edge = {'source': node['id'], 'target': before, 'relation': 'NEXT'}
+    if i == 0:
+        turn['entry'] = node['id']
+        turn['edges'].insert(0, edge)
+        return
+    k = next(j for j, e in enumerate(turn['edges']) if e.get('source') == ids[i - 1] and e.get('target') == before)
+    turn['edges'][k] = dict(turn['edges'][k], target=node['id'])
+    turn['edges'].insert(k + 1, edge)
+
+
 def _insert_rival_node(graph):
-    turn = graph['turn']
-    turn['nodes'].insert(0, copy.deepcopy(RIVAL_NODE))
-    turn['edges'].insert(0, {'source': 'rival_counter', 'target': turn['entry'], 'relation': 'NEXT'})
-    turn['entry'] = 'rival_counter'
+    _insert_before(graph['turn'], RIVAL_NODE, 'backbone')
     if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'rival_counter' for n in graph['nodes']):
         graph['nodes'].append({
             'id': 'rival_counter', 'name': 'rival counter',
@@ -178,6 +236,89 @@ def _insert_rival_node(graph):
     pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
     if isinstance(pins, dict):
         pins['rival_model.py'] = _sha(HERE / 'hazel_runtime' / 'rival_model.py')
+
+
+def _insert_emulator_node(graph):
+    _insert_before(graph['turn'], EMULATOR_NODE, graph['turn']['nodes'][0]['id'])
+    if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'rival_emulator' for n in graph['nodes']):
+        graph['nodes'].append({
+            'id': 'rival_emulator', 'name': 'rival emulator',
+            'description': ("Run the public engines of _EM_ENGINES in the rival's place from our own view of the game: "
+                            'every observation shows both farms, and the rival\'s private stock is rebuilt with the '
+                            'environment\'s own rules; an engine that disagrees with an observation is dropped. While one '
+                            'matches, the rival\'s orders of each turn are known before ours (rival_emulator.py).'),
+            'bindings': ['rival_emulator'], 'binding_semantics': 'Executable stage'})
+        graph.setdefault('edges', []).append({'source': 'rival_emulator', 'target': 'backbone',
+                                              'relation': 'CONFIGURES', 'scope': 'turn'})
+    _pin_emulator(graph)
+
+
+def _insert_tactic_node(graph):
+    _insert_before(graph['turn'], TACTIC_NODE, 'sanitize')
+    if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'tactic' for n in graph['nodes']):
+        graph['nodes'].append({
+            'id': 'tactic', 'name': 'evolved tactic',
+            'description': ('Python code written by the evolution: tactic(obs, action, memory, info) returns our '
+                            'action for the turn; it runs in a sandbox with a per-turn budget (tactic.py).'),
+            'bindings': ['tactic'], 'binding_semantics': 'Executable stage'})
+        graph.setdefault('edges', []).append({'source': 'tactic', 'target': 'sanitize', 'relation': 'CONFIGURES',
+                                              'scope': 'turn'})
+    pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
+    if isinstance(pins, dict):
+        pins['tactic.py'] = _sha(HERE / 'hazel_runtime' / 'tactic.py')
+
+
+def _insert_land_node(graph):
+    ids = [n['id'] for n in graph['turn']['nodes']]
+    _insert_before(graph['turn'], LAND_NODE, 'tactic' if 'tactic' in ids else 'sanitize')
+    if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'land_plot' for n in graph['nodes']):
+        graph['nodes'].append({
+            'id': 'land_plot', 'name': 'land plot',
+            'description': ('From day _LP_DAY buy the fourth quadrant (SE; SW first when the tape has not bought it), '
+                            'hire _LP_WORKERS hands a day after the engine\'s own hires and farm _LP_TILES SE tiles with '
+                            '_LP_USE: a crop or geese; the plot buys its inputs and sells its produce (land_plot.py).'),
+            'bindings': ['land_plot'], 'binding_semantics': 'Executable stage'})
+        graph.setdefault('edges', []).append({'source': 'land_plot', 'target': 'sanitize', 'relation': 'CONFIGURES',
+                                              'scope': 'turn'})
+    pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
+    if isinstance(pins, dict):
+        pins['land_plot.py'] = _sha(HERE / 'hazel_runtime' / 'land_plot.py')
+
+
+def _insert_kad_node(graph):
+    ids = [n['id'] for n in graph['turn']['nodes']]
+    _insert_before(graph['turn'], KAD_NODE, next(i for i in ('land_plot', 'tactic', 'sanitize') if i in ids))
+    if isinstance(graph.get('nodes'), list) and not any(n.get('id') == 'kad_copilot' for n in graph['nodes']):
+        graph['nodes'].append({
+            'id': 'kad_copilot', 'name': 'KAD copilot',
+            'description': ('KAD-HP-1, the policy trained on the published top-player replays (numpy, kad/), runs every '
+                            '_KC_EVERY turns from _KC_FROM_STEP to _KC_TO_STEP: its confident SELLs are appended after '
+                            'the engine\'s orders and idle hands do its job where they stand (kad_copilot.py).'),
+            'bindings': ['kad_copilot'], 'binding_semantics': 'Executable stage'})
+        graph.setdefault('edges', []).append({'source': 'kad_copilot', 'target': 'sanitize', 'relation': 'CONFIGURES',
+                                              'scope': 'turn'})
+    pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
+    if isinstance(pins, dict):
+        for name in KAD_FILES:
+            pins[name] = _sha(HERE / 'hazel_runtime' / name)
+
+
+def tactic_code(graph):
+    """The code of the graph's tactic node, or None without the node or with it off."""
+    node = _chain_nodes(graph).get('tactic')
+    return node.get('code') if node and node.get('enabled', False) else None
+
+
+def _pin_emulator(graph):
+    """Pin rival_emulator.py and the files of every engine the emulator runs (the bundle then carries them)."""
+    pins = (graph.get('provenance') or {}).get('runtime_bundle_hashes')
+    if not isinstance(pins, dict):
+        return
+    pins['rival_emulator.py'] = _sha(HERE / 'hazel_runtime' / 'rival_emulator.py')
+    for name in emulated_engines(graph):
+        meta = json.loads((ENGINES_DIR / name / 'SOURCE.json').read_text())
+        pins[f'engines/{name}/SOURCE.json'] = _sha(ENGINES_DIR / name / 'SOURCE.json')
+        pins[f"engines/{name}/agent/{meta['entry']}"] = _sha(ENGINES_DIR / name / 'agent' / meta['entry'])
 
 
 def _sha(path):
@@ -244,6 +385,14 @@ def _inert(graph, spec_stages):
             return False
         if stage == 'rival_counter' and on.get('rival_counter'):
             return False
+        if stage == 'rival_emulator' and on.get('rival_emulator'):
+            return False
+        if stage == 'tactic' and on.get('tactic'):
+            return False
+        if stage == 'land_plot' and on.get('land_plot'):
+            return False
+        if stage == 'kad_copilot' and on.get('kad_copilot'):
+            return False
     return True
 
 
@@ -298,6 +447,9 @@ def settings(graph, constants=None):
         counters = counter_settings(graph)
         if counters:            # only graphs that use the stage get the key (earlier settings keys stay valid)
             out['counters'] = counters
+        code = tactic_code(graph)
+        if code:
+            out['tactic'] = code
     return out
 
 
@@ -315,6 +467,21 @@ def apply_edit(graph, edit, constants=None):
         raise ValueError(f'unknown edit keys {sorted(unknown)}; allowed: {list(EDIT_KEYS)}')
     out = copy.deepcopy(graph)
     nodes = _chain_nodes(out)
+    flags = edit.get('channels') or {}
+    if not isinstance(flags, dict):
+        raise ValueError('edit.channels must be an object {channel: bool}')
+    if engine_name(out) != graph_runtime.DEFAULT_ENGINE:   # optional stages first: their parameters live on them
+        if flags.get('rival_counter') is True and 'rival_counter' not in nodes:
+            _insert_rival_node(out)
+        if flags.get('rival_emulator') is True and 'rival_emulator' not in nodes:
+            _insert_emulator_node(out)
+        if flags.get('tactic') is True and 'tactic' not in nodes:
+            _insert_tactic_node(out)
+        if flags.get('land_plot') is True and 'land_plot' not in nodes:
+            _insert_land_node(out)
+        if flags.get('kad_copilot') is True and 'kad_copilot' not in nodes:
+            _insert_kad_node(out)
+        nodes = _chain_nodes(out)
     params = edit.get('parameters') or {}
     if not isinstance(params, dict):
         raise ValueError('edit.parameters must be an object {name: value}')
@@ -332,6 +499,9 @@ def apply_edit(graph, edit, constants=None):
                     del node['parameters']
             continue
         value = _json_value(graph_runtime._like(value, spec['default'], name))
+        if not holders and spec['home'] not in nodes:
+            raise ValueError(f"no effect with the current channels: {name} belongs to the {spec['home']} stage, which this "
+                             f'graph does not have; switch it on in the same edit with "channels"')
         target = holders[0] if holders else nodes[spec['home']]
         target.setdefault('parameters', {})[name] = value
         for node in holders[1:]:
@@ -382,12 +552,6 @@ def apply_edit(graph, edit, constants=None):
                 holder[name] = engines.to_json(engines.from_json(value, spec[name]['default'], name))
         if not holder:
             nodes['backbone'].pop('engine_parameters')
-    flags = edit.get('channels') or {}
-    if not isinstance(flags, dict):
-        raise ValueError('edit.channels must be an object {channel: bool}')
-    if flags.get('rival_counter') is True and 'rival_counter' not in nodes and ladder:
-        _insert_rival_node(out)
-        nodes = _chain_nodes(out)
     for channel, flag in flags.items():
         if channel not in CHANNEL_DEFAULTS or channel not in nodes:
             raise ValueError(f'unknown channel {channel}; channels are {sorted(set(CHANNEL_DEFAULTS) & set(nodes))}')
@@ -413,7 +577,7 @@ def apply_edit(graph, edit, constants=None):
         if node is None:
             raise ValueError('counters need the rival_counter stage: add "channels": {"rival_counter": true} '
                              'to the same edit')
-        families = rival_families()
+        families = rival_families(out)
         switchable = switchable_engine_parameters(out)
         spec = engine_catalog(out)
         table = copy.deepcopy(node.get('counters') or {})
@@ -446,6 +610,39 @@ def apply_edit(graph, edit, constants=None):
             node['counters'] = table
         else:
             node.pop('counters', None)
+    if 'tactic' in edit:
+        node = _chain_nodes(out).get('tactic')
+        if node is None:
+            raise ValueError('a tactic needs the tactic stage: add "channels": {"tactic": true} to the same edit')
+        if edit['tactic'] is None:
+            node.pop('code', None)
+            node['enabled'] = False
+        else:
+            try:
+                tactic.check(edit['tactic'])
+            except tactic.TacticError as exc:
+                raise ValueError(f'tactic refused: {exc}') from None
+            node['code'] = edit['tactic']
+    if (_chain_nodes(out).get('tactic') or {}).get('enabled', False) and not tactic_code(out):
+        raise ValueError('the tactic stage needs code: give it under "tactic" in the same edit')
+    for name in emulated_engines(out):
+        if not (ENGINES_DIR / name / 'SOURCE.json').exists():
+            raise ValueError(f'_EM_ENGINES: no engine {name!r}; engines are '
+                             f"{sorted(p.name for p in ENGINES_DIR.iterdir() if (p / 'SOURCE.json').exists())}")
+    if 'rival_emulator' in _chain_nodes(out):
+        _pin_emulator(out)
+    kad = _chain_nodes(out).get('kad_copilot')
+    if kad is not None and kad.get('enabled', False):
+        try:
+            kad_copilot.check({k: v for k, v in (kad.get('parameters') or {}).items() if k in kad_copilot.PARAMETERS})
+        except ValueError as exc:
+            raise ValueError(f'kad_copilot refused: {exc}') from None
+    plot = _chain_nodes(out).get('land_plot')
+    if plot is not None and plot.get('enabled', False):
+        try:
+            land_plot.check({k: v for k, v in (plot.get('parameters') or {}).items() if k in land_plot.PARAMETERS})
+        except ValueError as exc:
+            raise ValueError(f'land_plot refused: {exc}') from None
     if ladder:
         inert = [name for name in params if params[name] is not None
                  and _inert(out, constants[name]['stages'])]
@@ -493,6 +690,10 @@ def migration_edit(recipient, donor, seed, constants=None):
             edit[key] = changed
     if given['dispatch_order'] != start['dispatch_order'] and own['dispatch_order'] == start['dispatch_order']:
         edit['dispatch_order'] = given['dispatch_order']
+    if given.get('tactic') != start.get('tactic') and own.get('tactic') == start.get('tactic'):
+        edit['tactic'] = given.get('tactic')
+        if given.get('tactic'):
+            edit.setdefault('channels', {})['tactic'] = True
     return edit or None
 
 
@@ -531,6 +732,12 @@ def diff(before, after, constants=None):
         for switch in sorted(set(xa) | set(xb)):
             if xa.get(switch, False) != xb.get(switch, False):
                 lines.append(f"experimental {switch}: {xa.get(switch, False)} -> {xb.get(switch, False)}")
+        if a.get('tactic') != b.get('tactic'):
+            def summary(code):
+                if not code:
+                    return 'none'
+                return f"{len(code.splitlines())} lines, sha {hashlib.sha256(code.encode()).hexdigest()[:8]}"
+            lines.append(f"tactic: {summary(a.get('tactic'))} -> {summary(b.get('tactic'))}")
         ra, rb = a.get('counters', {}), b.get('counters', {})
         for family in sorted(set(ra) | set(rb)):
             fa, fb = ra.get(family, {}), rb.get(family, {})
@@ -568,7 +775,7 @@ def describe_controls(graph, constants=None):
                 f"{list(graph_runtime.ORDER_POLICIES)}")
     rows.append(f"SURGICAL: {json.dumps(current['surgical'])}; overrides and allowed values "
                 f"{json.dumps({k: list(v) for k, v in surgical.OVERRIDES.items()})}")
-    hazel_rows = [r for r in rows if not r.startswith(('_OG_',))]
+    hazel_rows = [r for r in rows if not r.startswith(('_OG_', '_EM_', '_LP_'))]
     if 'engine' in current:
         spec = engine_catalog(graph)
         on = channels(graph)
@@ -596,7 +803,7 @@ def describe_controls(graph, constants=None):
         for name, c in guard:
             rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
                         f"{json.dumps(_json_value(c['default']))} | {c['note']}")
-        families = rival_families()
+        families = rival_families(graph)
         if families:
             switch = sorted(switchable_engine_parameters(graph) & set(spec))
             rows += ['', f"RIVAL COUNTER (channel rival_counter={'on' if on.get('rival_counter') else 'off'}; "
@@ -610,6 +817,85 @@ def describe_controls(graph, constants=None):
                      'CURRENT COUNTERS: ' + json.dumps(current.get('counters', {})),
                      'Edit example: {"channels": {"rival_counter": true}, "counters": {"mirror": {"_EV_H": 12, '
                      '"_DP_H": 12}}}; {"counters": {"nsell_opener": null}} removes a class\'s counters.']
+        emulator = [(n, c) for n, c in constants.items() if c['home'] == 'rival_emulator']
+        rows += ['', f"RIVAL EMULATOR (channel rival_emulator={'on' if on.get('rival_emulator') else 'off'}; an edit "
+                 'that switches it on inserts the stage). It runs the public engines of _EM_ENGINES in the rival\'s place '
+                 'from our own view: every observation shows both farms in full, the rival\'s private stock is rebuilt '
+                 'with the environment\'s rules, and an engine that disagrees with an observation is dropped. Five ladder '
+                 'rivals that ran a public engine were emulated exactly for all 719 moves. While one engine matches '
+                 '(after _EM_LOCK steps) the rival counter uses the family engine:<name> (e.g. {"channels": '
+                 '{"rival_emulator": true, "rival_counter": true}, "counters": {"engine:tetsutani_demand": {"_EV_H": 12}}}), '
+                 'and with _EM_RACE our market orders are rearranged against the rival\'s known orders of the turn (same '
+                 'orders, the slots that earn us the most; nothing bought or sold changes).',
+                 'RIVAL EMULATOR PARAMETERS (edit them under "parameters") (name | type | current | default | note):']
+        for name, c in emulator:
+            rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
+                        f"{json.dumps(_json_value(c['default']))} | {c['note']}")
+        plot = [(n, c) for n, c in constants.items() if c['home'] == 'land_plot']
+        rows += ['', f"LAND PLOT (channel land_plot={'on' if on.get('land_plot') else 'off'}; an edit that switches it on "
+                 'inserts the stage). The engine\'s tapes buy the second quadrant on day 6 and the third on day 11 in every '
+                 'game and never the fourth; no engine parameter moves them. This stage is the lever on land: from day '
+                 '_LP_DAY it buys the fourth quadrant (SE, $4,000; SW first, +$2,000, when the tape has not bought it yet), '
+                 'hires _LP_WORKERS hands every day after the engine\'s own hires (the k-th extra hire of a day costs '
+                 'fib(hires so far): with the tape\'s 9-11 hands, $55-233 each) and farms _LP_TILES SE tiles with _LP_USE: '
+                 'a crop (planted, watered daily, harvested at peak, replanted until _LP_LAST_PLANT_DAY) or GOOSE (one coop '
+                 'and one $300 goose per tile, fed a wheat a day, cared for: about 2 eggs a day each from 4 days after '
+                 'placing, plus 1 fertilizer a day). It buys its own seeds, geese and feed and sells its produce. Edit '
+                 'example: {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "GOOSE", "_LP_TILES": 8, '
+                 '"_LP_DAY": 12}}.',
+                 'LAND PLOT PARAMETERS (edit them under "parameters") (name | type | current | default | note):']
+        for name, c in plot:
+            rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
+                        f"{json.dumps(_json_value(c['default']))} | {c['note']}")
+        kad = [(n, c) for n, c in constants.items() if c['home'] == 'kad_copilot']
+        rows += ['', f"KAD COPILOT (channel kad_copilot={'on' if on.get('kad_copilot') else 'off'}). KAD-HP-1 is a "
+                 'policy network trained on tens of thousands of top-player replays from Kaggle\'s daily datasets (it '
+                 'predicts, for our exact state, the market orders and each unit\'s next job that a top team would '
+                 'choose). Alone it loses to the ladder bots (its whole-market-order accuracy is 40%, per-slot order 89%, '
+                 'job 85%); as a copilot on top of our engine it is a second opinion. Every _KC_EVERY turns from '
+                 '_KC_FROM_STEP to _KC_TO_STEP it runs once (about 0.15 s on a core, 0.4 s on Kaggle, whose budget is 1 s '
+                 'a turn) and two levers act on its advice: _KC_SELL appends its confident SELL orders (probability >= '
+                 '_KC_SELL_P at its slot, products in _KC_SELL_ITEMS, at most _KC_MAX_ORDERS a turn, never into the '
+                 'engine\'s deliberate empty [] slots), and _KC_HANDS lets a hand the engine left on PASS do KAD\'s job '
+                 'where it stands (WATER an unwatered crop, HARVEST a ripe tomato/strawberry or an animal). A tactic '
+                 'reads the same advice as info[\'kad\'] and can use it in any way you write.',
+                 'KAD COPILOT PARAMETERS (edit them under "parameters") (name | type | current | default | note):']
+        for name, c in kad:
+            rows.append(f"{name} | {c['type']} | {json.dumps(_json_value(current['parameters'].get(name, c['default'])))} | "
+                        f"{json.dumps(_json_value(c['default']))} | {c['note']}")
+        code = current.get('tactic')
+        rows += ['', f"TACTIC (channel tactic={'on' if on.get('tactic') else 'off'}; an edit with \"channels\": {{\"tactic\": "
+                 'true} and "tactic": "<python source>" inserts the stage; "tactic": null removes it). Python you write, run '
+                 'in a sandbox on our action every turn after every other stage and before sanitize (which enforces '
+                 'legality; the rival emulator may then reorder our market orders). Define exactly '
+                 'def tactic(obs, action, memory, info) and return the action (or None to keep it).',
+                 "  obs: the observation as a plain dict: obs['step'] (0-719, 24 steps a day, obs['day'], obs['hour']), "
+                 "obs['player'] (our seat; the rival is 1 - player), obs['farms'][seat] with money, tiles[y][x] (None, "
+                 "'LOCKED', or a dict: kind PLANT/COOP/PASTURE/WEED, crop, animal, yield_units, watered_today, fed_today, "
+                 "planted_day, ...), farmer [x, y], hands [[x, y], ...], unlocked_quadrants, hires_today; obs['market'] "
+                 "('prices' and 'inventory' per product), obs['town'] ('unlocked_shops'), obs['private'] (our 'shed' "
+                 "{item: n}, 'seeds' {crop: n}, 'inventories' [one {item: n} per worker]). Both farms are public.",
+                 "  action: {'farmer': [op, ...], 'hands': [[op, ...], ...], 'market': [order, ...]} as the engine and "
+                 "our layers left it. Orders: ['SELL', item, n], ['BUY_PRODUCT', 'WHEAT' or 'FERTILIZER', n], "
+                 "['BUY_SEED', crop, n], ['BUY_ANIMAL', animal, n], ['HIRE'], ['BUY_LAND']; [] keeps a slot empty; at "
+                 'most 10 slots. Both seats\' lists clear index by index and the two orders at one index unit by unit, so '
+                 'a sale in an earlier slot than the rival\'s sale of the same product gets the better prices.',
+                 "  memory: a dict kept for the whole game (empty at step 0). info: {'rival_family': the rival "
+                 "counter's class or None, 'rival_engine': the public engine the rival emulator matched or None, "
+                 "'rival_action': the rival's action for this very turn when the emulator knows it or None, "
+                 "'forecast': the predictor's forecast, {'score_k' and 'units_k': {product: value}} for k in 1, 4, 24, "
+                 "96, when our channels run it, or None, 'kad': KAD's latest advice when the kad_copilot stage is on, "
+                 "else None: {'step': the turn it was made (it runs every _KC_EVERY turns), 'orders': [[op, item, "
+                 "amount, probability], ...] the market orders a top player would place now (amount 101 = all), "
+                 "'buy_land_p': P(BUY_LAND), 'units': [{'unit': 0 farmer / k hand k-1, 'job', 'item', 'target': [x, y], "
+                 "'now': NORTH/SOUTH/EAST/WEST/PASS/DO, 'p'}, ...]}}.",
+                 '  Sandbox: no imports (math\'s float functions are there as math: sqrt, log, exp, floor, ceil, ...; no pow, factorial or comb), no classes, no global/nonlocal, no attributes '
+                 'starting with _, no str.format, no print/open/eval/getattr; loops, comprehensions and calls spend '
+                 'ticks, at most 200,000 per turn and 0.25 s. A turn that raises or runs out of budget keeps the action; '
+                 'after 20 of them the tactic is off for the game. Keep it small and targeted (a few dozen lines): act '
+                 'only in the situations you mean to change and leave the action alone otherwise, so the gauntlet\'s '
+                 'changed games show the effect. The engine\'s own logic cannot be edited, only the action it produced.',
+                 'CURRENT TACTIC CODE: ' + ('none' if not code else '\n' + code)]
         hazel = [r for r in hazel_rows if r and not r.startswith('_RC_')]
         rows += ['', 'OUR MARKET-PIPELINE CONTROLS (only matter with the market channel on; the farmer/hands '
                  'rescue constants only with those channels on):'] + hazel
@@ -626,19 +912,41 @@ engine = agent_graph.get_engine()
 if agent_graph._LEGACY is not None:
     raise SystemExit('graph does not declare the hazel_merged_v1 runtime')
 from kaggle_environments import make
+last = {}
+def agent(obs, config):
+    last['obs'] = obs
+    last['action'] = agent_graph.agent(obs, config)
+    return last['action']
 env = make('kaggriculture', configuration={'seed': seed, 'episodeSteps': steps}, debug=False)
-env.run([agent_graph.agent, lambda obs, config: {}])
+env.run([agent, lambda obs, config: {}])
 statuses = [s.get('status') for s in env.steps[-1]]
-print(json.dumps({'statuses': statuses, 'fallbacks': engine.fallback_count,
-                  'last_error': engine.last_error, 'steps': len(env.steps)}))
+report = {'statuses': statuses, 'fallbacks': engine.fallback_count, 'last_error': engine.last_error,
+          'steps': len(env.steps)}
+t = getattr(engine, 'tactic', None)
+if t is not None and last:
+    report.update(tactic_calls=t.calls, tactic_errors=t.errors, tactic_error=t.last_error, tactic_probes=[])
+    base = json.loads(json.dumps(last['obs']))
+    for i, step in enumerate(PROBE_STEPS):
+        info = engine.tactic_info(None)
+        if i % 2:
+            info['rival_action'] = last['action']
+        before = t.errors
+        t.apply(dict(base, step=step, day=step // 24, hour=step % 24), last['action'], info)
+        if t.errors > before:
+            report['tactic_probes'].append({'step': step, 'error': t.last_error})
+print(json.dumps(report))
 '''
+PROBE_STEPS = (96, 240, 480, 600, 700, 712, 719)
 
 
 def validate_graph(graph_path, steps=30, seed=20260925, python=None, timeout=600):
     """Build the runtime for a graph and play its first turns in a fresh interpreter.
 
     Raises ValueError with the child's error text (fed back to the mutating LLM) when
-    the runtime rejects the graph, a stage falls back to the backbone, or play fails.
+    the runtime rejects the graph, a stage falls back to the backbone, or play fails. A
+    tactic must also run without an error on every turn of that game and when called at
+    the PROBE_STEPS on the game's last observation (moved to those steps), so a tactic's
+    late-game code is exercised too.
     """
     env = dict(os.environ, OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1',
                CUDA_VISIBLE_DEVICES='', KAGG_ORACLE_BACKEND='numpy', KAGG_ORACLE_DEVICE='cpu',
@@ -649,7 +957,8 @@ def validate_graph(graph_path, steps=30, seed=20260925, python=None, timeout=600
         # the pins re-hashed as write_graph_bundle does, so the graph is checked against this runtime
         tmp.write(json.dumps(repinned(json.loads(Path(graph_path).read_text()))))
     try:
-        proc = subprocess.run([python or sys.executable, '-c', _VALIDATE, tmp.name, str(steps), str(seed)],
+        proc = subprocess.run([python or sys.executable, '-c', _VALIDATE.replace('PROBE_STEPS', repr(PROBE_STEPS)),
+                               tmp.name, str(steps), str(seed)],
                               cwd=HERE, env=env, capture_output=True, text=True, timeout=timeout)
     finally:
         os.unlink(tmp.name)
@@ -662,4 +971,13 @@ def validate_graph(graph_path, steps=30, seed=20260925, python=None, timeout=600
                          f"in the first {steps} turns: {report['last_error']}")
     if report['statuses'] != ['DONE', 'DONE']:
         raise ValueError(f"validation game ended with statuses {report['statuses']}")
+    if report.get('tactic_errors'):
+        raise ValueError(f"the tactic failed on {report['tactic_errors']} of the {report['tactic_calls']} turns of "
+                         f"the validation game (each such turn keeps the action): {report['tactic_error']}")
+    if report.get('tactic_probes'):
+        probe = report['tactic_probes'][0]
+        raise ValueError(f"the tactic failed when called at step {probe['step']} (the validation game's last "
+                         f"observation with its step, day and hour moved there; the odd probes also pass our "
+                         f"action as info['rival_action']). Check late-game branches, missing keys and the "
+                         f"budget: {probe['error']}")
     return report

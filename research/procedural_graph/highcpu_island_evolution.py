@@ -129,6 +129,140 @@ LADDER_ISLANDS = (
      ("engine: endgame and shed", "experimental")),
 )
 
+ORACLE_ISLANDS = (
+    ("Island-Crops", "Carrot versus wheat economics with the oracle already present; protect feed and "
+     "worker routes. Start with the measured _CA_MARGIN -22 hypothesis.", ("engine: crops",)),
+    ("Island-Oracle", "Tune the REQUIRED oracle guard: product-specific sell timing, thresholds, reserves "
+     "and batches. Compare selling now with waiting; never disable the guard or empty its items.",
+     ("channel: oracle_guard",)),
+    ("Island-Tactics", "Write bounded tactics using info['forecast'] and info['rival_action']; improve "
+     "existing market-order timing, keep deliberate empty slots and preserve production responsibilities.",
+     ("channel: tactic", "engine: market")),
+    ("Island-Tomatoes", "Separate a missed zero-to-ten tomato investment (_CXTB_MIN_REVENUE) from "
+     "insufficient existing tomato capacity. Route changes must own watering, harvesting and cash costs; "
+     "the four-day forecast cannot cover the eight-day initial growth period.", ("engine: crops and routes",)),
+    ("Island-Herd", "Test geese/sheep/cow production against observed shops and feed, wages and storage "
+     "costs. Rival egg revenue alone does not prove a profitable extra animal.", ("engine: herd and routes",)),
+    ("Island-Endgame", "Protect shed space and wages while combining oracle sale timing with late "
+     "liquidation. Preserve last-day disposal and avoid selling productive inputs early.",
+     ("engine: endgame and shed",)),
+)
+
+LAND_ISLANDS = (
+    ("Island-Land-Geese", "Vary the land the farm buys and put geese on it: the land_plot stage with _LP_USE GOOSE. "
+     "Tune when the fourth quadrant is bought (_LP_DAY, _LP_MIN_MONEY, _LP_LAST_BUY_DAY), how many coops and geese "
+     "(_LP_TILES), hands (_LP_WORKERS, _LP_HIRE_HOUR) and when eggs and fertilizer are sold (_LP_SELL_RATIO). The "
+     "ladder's top teams own 3 quadrants by day 9 and 4 by day 12 in 43% of games, with 4 geese by day 9 and 7 by "
+     "day 12; our tapes own 3 from day 11, never 4, and 0 geese on day 10.", ("channel: land_plot",)),
+    ("Island-Land-Crops", "Vary the land the farm buys and grow a crop on it: the land_plot stage with _LP_USE WHEAT, "
+     "CARROT, TOMATO, STRAWBERRY or MELON. Tune the purchase day, the tiles, hands, last planting day and sale "
+     "ratio. Wheat, carrots, tomatoes and eggs hold their price under volume (log/hinge curves); strawberries, "
+     "melons, milk and wool crash on a glut, and the tapes already grow many strawberries.", ("channel: land_plot",)),
+    ("Island-Land-Timing", "When and how much land: move the fourth-quadrant purchase earlier or later "
+     "(_LP_DAY 8-18; before day 11 the stage also buys SW, the tape's day-11 quadrant, early) and size the plot to "
+     "the money and hands available (_LP_MIN_MONEY, _LP_RESERVE, _LP_TILES, _LP_WORKERS). Any _LP_USE.",
+     ("channel: land_plot",)),
+    ORACLE_ISLANDS[1],                                   # Island-Oracle: the required guard
+    ORACLE_ISLANDS[2],                                   # Island-Tactics
+    ORACLE_ISLANDS[4],                                   # Island-Herd
+)
+
+KAD_ISLANDS = (
+    ("Island-KAD-Sell", "Learn when KAD's sales pay: the kad_copilot sell lever (_KC_SELL_P, _KC_SELL_ITEMS, "
+     "_KC_MAX_ORDERS, _KC_KEEP) and the turns it acts on (_KC_EVERY, _KC_FROM_STEP, _KC_TO_STEP). Its SELLs are appended "
+     "after the engine's own orders, so they sell what the engine would have held: find the products, prices, days "
+     "and confidence where a top player's sale beats our engine's patience, and keep the lever off where it does not.",
+     ("channel: kad_copilot",)),
+    ("Island-KAD-Hands", "Learn when KAD's jobs for idle hands pay: the hands lever (_KC_JOBS, _KC_JOB_P) and its turns. "
+     "A hand the engine left on PASS waters an unwatered crop or harvests a ripe tomato/strawberry or an animal where it "
+     "stands. Find the days and thresholds where that adds produce without stealing the engine's own planned harvests.",
+     ("channel: kad_copilot",)),
+    ("Island-KAD-Early", "Days 1-10, while the predictor is silent (it forecasts from step 256): KAD is the only model "
+     "that sees those turns. Top teams own 3 quadrants by day 9 and 4 by day 12 and buy animals early; our tapes buy the "
+     "2nd quadrant on day 6 and the 3rd on day 11. Use KAD there: its window and cadence, and tactics that follow its "
+     "investment advice (info['kad']['orders'] with BUY_LAND / BUY_ANIMAL / BUY_SEED and their probabilities, "
+     "info['kad']['buy_land_p']) when it is confident and the money allows.", ("channel: kad_copilot", "channel: tactic")),
+    ("Island-KAD-Oracle", "Days 11-29, where KAD and the predictor both speak: combine KAD's sales with the oracle "
+     "guard's front-running (_OG_* and _KC_* together, or a tactic reading info['kad'] and info['forecast']). Avoid "
+     "the two selling the same stock twice or undercutting each other; find which one should lead per product.",
+     ("channel: kad_copilot", "channel: oracle_guard")),
+    ("Island-KAD-Tactics", "Use KAD's advice in a tactic: info['kad'] holds a top player's orders (with probabilities) "
+     "and each unit's next job for our exact state, refreshed every _KC_EVERY turns. Write small tactics that act on it "
+     "where it should beat the engine (market timing, a top player's purchase now), and leave the action alone elsewhere.",
+     ("channel: tactic", "channel: kad_copilot")),
+    ORACLE_ISLANDS[1],                                   # Island-Oracle: the required guard, now next to KAD
+    ORACLE_ISLANDS[2],                                   # Island-Tactics
+    ORACLE_ISLANDS[4],                                   # Island-Herd
+)
+
+ORACLE_REQUIREMENT = (
+    "REQUIRED ORACLE: every candidate keeps oracle_guard enabled and a nonempty _OG_ITEMS list, "
+    "including every rival-family counter. The predictor is part of the agent, not an optional mutation. "
+    "Tune its decisions; do not disable it through zero order/batch limits, an impossible reserve or "
+    "a time window outside its usable turns. It observes from turn zero and forecasts from step 256. "
+    "score_4 is a log-sale ranking score, NOT a probability; _OG_BATCH is bypassed at _OG_STRONG_SCORE. "
+    "Allowed _OG_SCORE is [0.05, 1.0], _OG_PRICE_RATIO [0, 1.5]. "
+    "Use info['forecast'] in tactics and retain baseline actions during warmup. Tactics may choose to "
+    "hold a sale for an economic reason; the requirement is working predictions, not compulsory selling."
+)
+
+
+def check_required_oracle(graph):
+    """Reject structural oracle opt-outs, including family overrides, before spending game compute."""
+    nodes = {n['id']: n for n in graph['turn']['nodes']}
+    if nodes.get('oracle_guard', {}).get('enabled', False) is not True:
+        raise ValueError('required oracle: oracle_guard must stay enabled')
+    base = {**graph_edits.oracle_guard.PARAMETERS, **graph_edits.settings(graph).get('parameters', {})}
+    settings = {'default': base}
+    counter = nodes.get('rival_counter', {})
+    if counter.get('enabled', False):
+        settings.update({family: {**base, **values} for family, values in (counter.get('counters') or {}).items()})
+    for family, values in settings.items():
+        if not values['_OG_ITEMS'] or not set(values['_OG_ITEMS']) <= set(graph_edits.oracle_guard.BASE_PRICE):
+            raise ValueError(f'required oracle: {family} needs known, nonempty _OG_ITEMS')
+        if values['_OG_MAX_ORDERS'] < 1 or values['_OG_BATCH'] < 1 or not 0 <= values['_OG_KEEP'] < 100:
+            raise ValueError(f'required oracle: {family} disables sales through order, batch or reserve limits')
+        if not 0.05 <= values['_OG_SCORE'] <= 1.0 or not 0.0 <= values['_OG_PRICE_RATIO'] <= 1.5:
+            raise ValueError(f'required oracle: {family} thresholds exceed the allowed score [0.05, 1] / price [0, 1.5]')
+        if max(256, values['_OG_FROM_STEP']) > min(696, values['_OG_TO_STEP']):
+            raise ValueError(f'required oracle: {family} has no usable forecast turns')
+
+
+KAD_REQUIREMENT = (
+    "REQUIRED KAD COPILOT: every candidate keeps the kad_copilot stage enabled, KAD running at least every 12 turns "
+    "(_KC_EVERY <= 12) over at least 4 game days (_KC_TO_STEP - _KC_FROM_STEP >= 96) and never in the engine's "
+    "liquidation (_KC_TO_STEP <= 671, the end of day 27). Its advice always reaches the tactic stage as info['kad']. "
+    "The levers that act on it directly are optional and start off: at their default settings both lost in 253 "
+    "games against Juniper Knoll (_KC_SELL: 13 games better, 43 worse, -$25 a game; _KC_HANDS: 44 better, 58 worse, "
+    "-$9 a game). A lever that is on must be able to act: _KC_SELL needs _KC_SELL_ITEMS, _KC_MAX_ORDERS >= 1 and "
+    "_KC_SELL_P <= 0.95; _KC_HANDS needs _KC_JOBS and _KC_JOB_P <= 0.95. KAD is part of the agent, not an optional "
+    "mutation: learn WHEN and HOW its advice pays (which turns, products, thresholds, which lever or tactic) and "
+    "where to overrule it. Its advice is a top player's move for our exact state, but our engine plays a different "
+    "plan: follow it where the games show it pays."
+)
+
+
+KAD_LAST_STEP = 671   # the end of day 27: the engine's exact liquidation owns days 28-29 (user, 2026-09-29)
+
+
+def check_required_kad(graph):
+    """Reject structural KAD opt-outs before spending game compute."""
+    nodes = {n['id']: n for n in graph['turn']['nodes']}
+    node = nodes.get('kad_copilot', {})
+    if node.get('enabled', False) is not True:
+        raise ValueError('required KAD copilot: kad_copilot must stay enabled')
+    p = {**graph_edits.kad_copilot.PARAMETERS, **(node.get('parameters') or {})}
+    if p['_KC_EVERY'] > 12 or p['_KC_TO_STEP'] - p['_KC_FROM_STEP'] < 96:
+        raise ValueError('required KAD copilot: KAD must run at least every 12 turns over at least 4 days')
+    if p['_KC_TO_STEP'] > KAD_LAST_STEP:
+        raise ValueError(f'required KAD copilot: _KC_TO_STEP <= {KAD_LAST_STEP}: the engine owns its liquidation '
+                         'on days 28-29')
+    if p['_KC_SELL'] and (not p['_KC_SELL_ITEMS'] or p['_KC_MAX_ORDERS'] < 1 or p['_KC_SELL_P'] > 0.95):
+        raise ValueError('required KAD copilot: the sell lever is on but cannot act (items, orders or threshold)')
+    if p['_KC_HANDS'] and (not p['_KC_JOBS'] or p['_KC_JOB_P'] > 0.95):
+        raise ValueError('required KAD copilot: the hands lever is on but cannot act (jobs or threshold)')
+
+
 _RUNNING = True
 PROXY_MODELS_URL = "http://localhost:8317/v1/models"
 MAX_PROXY_RETRIES = 20  # proxy outages per proposal before it counts as a failed attempt
@@ -177,15 +311,23 @@ def _result_line(record: Dict[str, Any]) -> str:
     if not verdict:
         return f"{'; '.join(record['changes'])} | not played: {record.get('cause', '')[:160]}"
     stopped = record.get("stopped")
-    outcome = ("PROMOTED" if verdict.get("promote") else
+    outcome = ((f"PROMOTED (by {verdict['promoted_by']})" if verdict.get("promoted_by") else "PROMOTED")
+               if verdict.get("promote") else
                f"stopped after {stopped['played']} of {stopped['of']} games ({stopped['reason']})" if stopped else
                "rejected")
+    results = (f", results +{verdict['results_up']}/-{verdict['results_down']} (p={verdict['results_p']:.2g})"
+               if "results_up" in verdict else "")
     per = "; ".join(f"{tag} {s['wins']}-{s['losses']}-{s['ties']} ${s['mean']:+,.0f}"
                     for tag, s in sorted((verdict.get("per_opponent") or {}).items()))
     return (f"{'; '.join(record['changes'])} | changed games {verdict['wins']}W-{verdict['losses']}L "
             f"({verdict['ties']} unchanged), mean change ${verdict['mean_change']:+,.0f}, "
-            f"p={verdict['p']:.2g} -> {outcome}"
+            f"p={verdict['p']:.2g}{results} -> {outcome}"
             + (f" | per opponent (W-L-T, mean change): {per}" if per else ""))
+
+
+def _gain(stats: Dict[str, Any]):
+    """How much a champion gained over another graph, results first: the ladder rates results."""
+    return (stats.get("results_net", 0.0), stats["mean_change"])
 
 
 class EditEvolution:
@@ -198,7 +340,8 @@ class EditEvolution:
                  retries: int = SIFT_MUTATION_RETRIES, supervisor_interval: int = 8,
                  ideas_path: Optional[Path] = None, proxy_ready: Callable[[], bool] = lambda: True,
                  islands=None, knowledge_path: Optional[Path] = None, mix_interval: int = 0,
-                 queue_path: Optional[Path] = None, prefetch: bool = False):
+                 queue_path: Optional[Path] = None, prefetch: bool = False, require_oracle: bool = False,
+                 require_kad: bool = False):
         self.run_dir = Path(run_dir)
         self.queue_path = Path(queue_path) if queue_path else None
         self.islands = islands
@@ -209,11 +352,43 @@ class EditEvolution:
         self.ideas_path = Path(ideas_path) if ideas_path else None
         self.knowledge_path = Path(knowledge_path) if knowledge_path else None
         self.gauntlet, self.mutator, self.judge, self.bandit = gauntlet, mutator, judge, bandit
-        self.validate, self.supervisor, self.knowledge = validate, supervisor, knowledge
+        self._validate, self.supervisor, self.knowledge = validate, supervisor, knowledge
         self.candidates, self.retries, self.supervisor_interval = candidates, retries, supervisor_interval
         self.constants = graph_edits.catalog()
         self.checkpoint = self.run_dir / "checkpoint.json"
         self.state = self._load() if self.checkpoint.exists() else self._fresh(seed_graph)
+        self.require_oracle = require_oracle or self.state.get('require_oracle', False)
+        if self.require_oracle:
+            check_required_oracle(self.state['seed_graph'])
+            self.state['seed_graph']['require_oracle'] = True
+            for island in self.state['islands']:
+                check_required_oracle(island['graph'])
+                island['graph']['require_oracle'] = True
+                if island.get('seed'):
+                    check_required_oracle(island['seed'])
+                    island['seed']['require_oracle'] = True
+            self.state['require_oracle'] = True
+        self.require_kad = require_kad or self.state.get('require_kad', False)
+        if self.require_kad:
+            graphs = [self.state['seed_graph']] + [g for island in self.state['islands']
+                                                   for g in (island['graph'], island.get('seed')) if g]
+            for graph in graphs:
+                check_required_kad(graph)
+                graph['require_kad'] = True
+            self.state['require_kad'] = True
+
+    def validate(self, path):
+        if self.require_oracle or self.require_kad:
+            graph = json.loads(Path(path).read_text())
+            if self.require_oracle:
+                check_required_oracle(graph)
+                if graph.get('require_oracle') is not True:
+                    raise ValueError('required oracle: runtime health checks must stay enabled')
+            if self.require_kad:
+                check_required_kad(graph)
+                if graph.get('require_kad') is not True:
+                    raise ValueError('required KAD copilot: runtime health checks must stay enabled')
+        return self._validate(path)
 
     # ------------------------------------------------------------------ state
     def _fresh(self, seed_graph):
@@ -265,7 +440,8 @@ class EditEvolution:
         """The --knowledge file, re-read every iteration like the ideas (corrections need no restart)."""
         if self.knowledge_path and self.knowledge_path.exists():
             self.knowledge = self.knowledge_path.read_text()
-        return self.knowledge
+        return (self.knowledge + ('\n\n' + ORACLE_REQUIREMENT if self.require_oracle else '')
+                + ('\n\n' + KAD_REQUIREMENT if self.require_kad else ''))
 
     def queued(self, island, iteration) -> Optional[Dict[str, Any]]:
         """The first --queue entry for this island whose settings were not played yet, as the
@@ -480,9 +656,9 @@ class EditEvolution:
         return island.get("seed") or self.state["seed_graph"]
 
     def donors(self) -> Dict[str, Dict[str, Any]]:
-        """Per production engine, the island champion with the largest mean gain over its seed on the
-        pool games: {engine: {"donor", "graph"}}. Islands on different engines do not mix (their
-        engine parameters differ)."""
+        """Per production engine, the island champion with the largest gain over its seed on the pool
+        games (results first, then dollars: _gain): {engine: {"donor", "graph"}}. Islands on different
+        engines do not mix (their engine parameters differ)."""
         best = {}
         for island in self.state["islands"]:
             if not island["history"]:
@@ -490,8 +666,8 @@ class EditEvolution:
             stats = compare(self.gauntlet.baseline(island["graph"]), self.gauntlet.baseline(self.seed_of(island)),
                             self.gauntlet.alpha)
             engine = graph_edits.engine_name(island["graph"])
-            if engine not in best or stats["mean_change"] > best[engine][0]:
-                best[engine] = (stats["mean_change"], island)
+            if engine not in best or _gain(stats) > best[engine][0]:
+                best[engine] = (_gain(stats), island)
         return {e: {"donor": i["name"], "graph": copy.deepcopy(i["graph"])} for e, (_, i) in best.items()}
 
     def mix(self, after: int) -> bool:
@@ -570,14 +746,14 @@ class EditEvolution:
         return record
 
     def update_best(self):
-        """The island champion with the largest mean gain over the run's seed on the pool games."""
+        """The island champion with the largest gain over the run's seed on the pool games (_gain)."""
         seed_baseline = self.gauntlet.baseline(self.state["seed_graph"])
         best = None
         for island in self.state["islands"]:
             if not island["history"]:
                 continue
             stats = compare(self.gauntlet.baseline(island["graph"]), seed_baseline, self.gauntlet.alpha)
-            if best is None or stats["mean_change"] > best["vs_seed"]["mean_change"]:
+            if best is None or _gain(stats) > _gain(best["vs_seed"]):
                 best = {"island": island["name"], "vs_seed": stats,
                         "changes": graph_edits.diff(self.seed_of(island), island["graph"], self.constants)}
                 atomic_json(self.run_dir / "best_graph.json", island["graph"])
@@ -598,6 +774,7 @@ class EditEvolution:
         seed_path = self.run_dir / "seed_graph.json"
         atomic_json(seed_path, self.state["seed_graph"])
         self.validate(seed_path)
+        self.persist()  # keep the run contract even if interrupted during its first baseline
         while _RUNNING and self.state["next_iteration"] <= iterations:
             n = self.state["next_iteration"]
             if self.mix_due(n - 1):
@@ -637,8 +814,13 @@ def main():
                         help="--executor colab-pool: the pool directory of an arena/colab_pool.py on this host")
     parser.add_argument("--plan", type=Path, default=None,
                         help="job plan (ladder_seed_plan.py): lost ladder seeds + random seeds per opponent")
-    parser.add_argument("--islands", choices=("hazel", "ladder"), default="hazel",
-                        help="ladder: islands over a ladder engine's constants and our channels")
+    parser.add_argument("--islands", choices=("hazel", "ladder", "oracle", "land", "kad"), default="hazel",
+                        help="ladder: engine controls; oracle: six predictor-required loss-driven islands; land: "
+                             "three land_plot islands (the fourth quadrant) with the Oracle, Tactics and Herd islands")
+    parser.add_argument("--require_oracle", action="store_true",
+                        help="require an active oracle guard in the seed and every candidate; persists on resume")
+    parser.add_argument("--require_kad", action="store_true",
+                        help="require an active KAD copilot in the seed and every candidate; persists on resume")
     parser.add_argument("--knowledge", type=Path, default=KNOWLEDGE, help="facts shown to every mutating model")
     parser.add_argument("--models", default="", help="comma list of bandit models (default: all served ones)")
     parser.add_argument("--judge_model", default="gpt-6-astra")
@@ -700,9 +882,13 @@ def main():
         UCB1Bandit(args.run_dir / "bandit_state.json", arms=arms), graph_edits.validate_graph, run_meta_supervisor,
         args.knowledge.read_text(), seed_graph=json.loads(args.seed_graph.read_text()),
         candidates=args.candidates, supervisor_interval=args.supervisor_interval, ideas_path=args.ideas,
-        proxy_ready=wait_for_proxy, islands=LADDER_ISLANDS if args.islands == "ladder" else None,
+        proxy_ready=wait_for_proxy, islands=(ORACLE_ISLANDS if args.islands == "oracle" else
+                                           LAND_ISLANDS if args.islands == "land" else
+                                           KAD_ISLANDS if args.islands == "kad" else
+                                           LADDER_ISLANDS if args.islands == "ladder" else None),
         knowledge_path=args.knowledge, mix_interval=args.mix_interval, queue_path=args.queue,
-        prefetch=args.prefetch)
+        prefetch=args.prefetch, require_oracle=args.require_oracle or args.islands in ("oracle", "land", "kad"),
+        require_kad=args.require_kad or args.islands == "kad")
     logging.info("=" * 70)
     logging.info("EDIT-BASED ISLAND EVOLUTION | %d islands | %s | %d seeds (%d per seat) x %s + head-to-head | "
                  "evaluation %s | first stage %s", len(evolution.state["islands"]), executor.describe(),

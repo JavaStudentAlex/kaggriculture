@@ -23,7 +23,17 @@ Behaviour the graph itself controls (policy changes are graph edits, not code):
 - the optional `rival_counter` turn node (first; off unless `enabled: true`): classifies the rival
   relative to our own play (rival_model.MirrorTracker: mirror, nsell_opener, wheat92_seller,
   other_opening, other; decided by step 93) and from then on applies that class's `counters`
-  ({class: {NAME: value}}: switchable engine constants and `_OG_*` guard parameters).
+  ({class: {NAME: value}}: switchable engine constants and `_OG_*` guard parameters);
+- the optional `rival_emulator` turn node (first of all; off unless `enabled: true`): runs the public engines
+  of `_EM_ENGINES` in the rival's place from our view of the game (rival_emulator.RivalEmulator). Once one
+  of them has matched `_EM_LOCK` steps, the rival_counter stage uses the family `engine:<name>` if it has
+  counters for it, and with `_EM_RACE` our final market orders are rearranged against the rival's known
+  orders of the turn;
+- the optional `land_plot` turn node (after the extension stages; off unless `enabled: true`): the fourth
+  quadrant bought from day `_LP_DAY` and farmed by hands hired for it, with a crop or geese (land_plot.py), with
+  its `_LP_*` `parameters`;
+- the optional `tactic` turn node (right before `sanitize`; off unless `enabled: true`): Python `code` the
+  evolution writes, run in a sandbox on our action every turn (tactic.py).
 """
 from __future__ import annotations
 
@@ -42,9 +52,32 @@ try:
     import engines
     import oracle_guard
     import rival_model
+    import rival_emulator
+    import tactic
+    import land_plot
 except ImportError:
     from hazel_runtime.experimental import Extensions, STAGES as EXTENSION_STAGES
-    from hazel_runtime import surgical, engines, oracle_guard, rival_model
+    from hazel_runtime import surgical, engines, oracle_guard, rival_model, rival_emulator, tactic, land_plot
+
+
+def _kad_module():
+    """The KAD copilot module (numpy KAD-HP-1), or None: a bundle without it still runs every graph that lacks the
+    node. A plain import must find the module itself, not a same-named directory elsewhere on sys.path."""
+    try:
+        import kad_copilot as module
+        if hasattr(module, 'KadCopilot'):
+            return module
+    except ImportError:
+        pass
+    try:
+        from hazel_runtime import kad_copilot as module
+        return module
+    except ImportError:
+        return None
+
+
+kad_copilot = _kad_module()
+_KAD_PARAMETERS = kad_copilot.PARAMETERS if kad_copilot is not None else {}
 
 # Statement boundaries in the hash-pinned submitted champion.py (1-indexed).
 MARKET_STAGES = (
@@ -65,6 +98,7 @@ MARKET_STAGES = (
     ('routine_dispatch', 750, 'Return all remaining routine orders, retaining submitted order and cap'),
 )
 TURN_STAGES = (
+    ('rival_emulator', "Optional: the rival's public engine run in its place from our view; its known orders"),
     ('rival_counter', "Optional: the rival's family from its public farm; that family's counter-settings"),
     ('backbone', 'Submitted Mohui v66 production, routing, hiring and base trading'),
     ('oracle_observe', 'Observe once per turn using the bundled CPU oracle'),
@@ -74,6 +108,9 @@ TURN_STAGES = (
     ('market', 'Execute the complete source-pinned market subgraph'),
     ('oracle_guard', 'Optional: predictor front-run sells added to the engine market orders'),
     *EXTENSION_STAGES,
+    ('kad_copilot', 'Optional: KAD-HP-1 (top-player replay policy) adds confident sales and idle-hand jobs'),
+    ('land_plot', 'Optional: the fourth quadrant bought from an evolved day and farmed by hired hands'),
+    ('tactic', 'Optional: the evolved Python tactic, run in a sandbox on our action'),
     ('sanitize', 'Preserve legal actions including DROP; enforce hand count and order cap'),
     ('oracle_record', 'Record the final action actually dispatched'),
 )
@@ -132,7 +169,7 @@ CHANNELS = ('farmer', 'hands', 'market')
 # Ladder engines place deliberate empty entries ([]) to delay later orders by a slot; a passed-through
 # market keeps them, which the champion's sanitizer (it drops empty entries) would not.
 MARKET_SLOTS = 10
-OPTIONAL_TURN_STAGES = ('rival_counter', 'oracle_guard')   # a graph without the node runs without the stage
+OPTIONAL_TURN_STAGES = ('rival_emulator', 'rival_counter', 'oracle_guard', 'kad_copilot', 'land_plot', 'tactic')   # without the node, no stage
 
 
 def evolvable_constants(tree, source):
@@ -181,7 +218,8 @@ def _like(value, template, name):
 def graph_parameters(graph, champion, tree, source):
     """Merge node-level `parameters` of both chains; conflicting duplicates fail."""
     allowed = (evolvable_constants(tree, source) | set(RUNTIME_PARAMETERS) | set(oracle_guard.PARAMETERS)
-               | set(rival_model.PARAMETERS))
+               | set(rival_model.PARAMETERS) | set(rival_emulator.PARAMETERS) | set(land_plot.PARAMETERS)
+               | set(_KAD_PARAMETERS))
     merged, owner = {}, {}
     for chain in ('turn', 'market'):
         for node in graph[chain]['nodes']:
@@ -193,6 +231,9 @@ def graph_parameters(graph, champion, tree, source):
                     raise ValueError(f'Unknown graph parameter {name} on {node["id"]}')
                 template = (oracle_guard.PARAMETERS[name] if name in oracle_guard.PARAMETERS
                             else rival_model.PARAMETERS[name] if name in rival_model.PARAMETERS
+                            else rival_emulator.PARAMETERS[name] if name in rival_emulator.PARAMETERS
+                            else land_plot.PARAMETERS[name] if name in land_plot.PARAMETERS
+                            else _KAD_PARAMETERS[name] if name in _KAD_PARAMETERS
                             else champion.__dict__.get(name, RUNTIME_PARAMETERS.get(name)))
                 value = _like(value, template, name)
                 if name in merged and merged[name] != value:
@@ -265,6 +306,9 @@ class HazelGraph:
         # The forecast is read only by our channels and the guard; with all of them off it is not
         # computed at all (the oracle costs most of a turn's time from step 256 on).
         self.oracle_needed = self.guard_enabled or any(self.channels.values())
+        self.oracle_required = self.graph.get('require_oracle', False)
+        if type(self.oracle_required) is not bool or (self.oracle_required and not self.oracle_needed):
+            raise ValueError('required oracle needs an enabled forecast consumer')
         text = source.decode()
         tree = ast.parse(text)
         function = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
@@ -273,10 +317,15 @@ class HazelGraph:
         # the compiled market stages and the farmer/hand channels read these globals.
         parameters = graph_parameters(self.graph, champion, tree, text)
         self.guard_parameters = {k: v for k, v in parameters.items() if k in oracle_guard.PARAMETERS}
-        self.parameters = {k: v for k, v in parameters.items()
-                           if k not in oracle_guard.PARAMETERS and k not in rival_model.PARAMETERS}
+        self.parameters = {k: v for k, v in parameters.items() if k not in oracle_guard.PARAMETERS
+                           and k not in rival_model.PARAMETERS and k not in rival_emulator.PARAMETERS
+                           and k not in land_plot.PARAMETERS and k not in _KAD_PARAMETERS}
         self.guard_active = self.guard_parameters
+        self._init_rival_emulator(turn_nodes.get('rival_emulator', {}), parameters)
         self._init_rival_counter(turn_nodes.get('rival_counter', {}), parameters)
+        self._init_tactic(turn_nodes.get('tactic', {}))
+        self._init_land_plot(turn_nodes.get('land_plot', {}), parameters)
+        self._init_kad_copilot(turn_nodes.get('kad_copilot', {}), parameters)
         champion.__dict__.update(self.parameters)
         for line, (name, original, parameterized) in _PARAMETERIZED.items():
             if name not in self.parameters:
@@ -345,6 +394,79 @@ class HazelGraph:
         self.extension_ids = {stage[0] for stage in EXTENSION_STAGES}
         self.last_telemetry = []
 
+    def _init_rival_emulator(self, node, parameters):
+        self.emulator = None
+        enabled = node.get('enabled', False)
+        if type(enabled) is not bool:
+            raise ValueError('rival_emulator enabled flag must be a boolean')
+        if not enabled:
+            return
+        if self.engine is None:
+            raise ValueError('rival_emulator needs a ladder engine on the backbone node')
+        settings = {**rival_emulator.PARAMETERS,
+                    **{k: v for k, v in parameters.items() if k in rival_emulator.PARAMETERS}}
+        names = settings['_EM_ENGINES']
+        if not isinstance(names, list) or not all(isinstance(n, str) and re.fullmatch(r'[a-z0-9_]+', n)
+                                                   for n in names):
+            raise ValueError('_EM_ENGINES must be a list of engine names')
+        self.emulator = rival_emulator.RivalEmulator(Path(__file__).resolve().parent / 'engines', names,
+                                                     settings['_EM_LOCK'], settings['_EM_RACE'])
+
+    def _init_tactic(self, node):
+        self.tactic = None
+        enabled = node.get('enabled', False)
+        if type(enabled) is not bool:
+            raise ValueError('tactic enabled flag must be a boolean')
+        if enabled:
+            self.tactic = tactic.Tactic(node.get('code'))   # TacticError (a ValueError) on code the sandbox refuses
+
+    def _init_land_plot(self, node, parameters):
+        self.plot = None
+        enabled = node.get('enabled', False)
+        if type(enabled) is not bool:
+            raise ValueError('land_plot enabled flag must be a boolean')
+        if not enabled:
+            return
+        if self.engine is None:
+            raise ValueError('land_plot needs a ladder engine on the backbone node')
+        self.plot = land_plot.LandPlot({k: v for k, v in parameters.items() if k in land_plot.PARAMETERS})
+
+    def _init_kad_copilot(self, node, parameters):
+        self.kad = None
+        enabled = node.get('enabled', False)
+        if type(enabled) is not bool:
+            raise ValueError('kad_copilot enabled flag must be a boolean')
+        self.kad_required = self.graph.get('require_kad', False)
+        if type(self.kad_required) is not bool or (self.kad_required and not enabled):
+            raise ValueError('require_kad needs an enabled kad_copilot node')
+        if not enabled:
+            return
+        if kad_copilot is None:
+            raise ValueError('kad_copilot is enabled but hazel_runtime/kad_copilot.py (or kad/) is missing')
+        self.kad = kad_copilot.KadCopilot({k: v for k, v in parameters.items() if k in _KAD_PARAMETERS},
+                                          required=self.kad_required)
+
+    def tape_rest(self, obs):
+        """The engine's remaining tape actions of the current day (a route-tape chassis), or None."""
+        try:
+            chassis = self.engine.namespace['_IMPL'].chassis
+            route = chassis.players[int(obs.get('player', 0) or 0)]['route']
+            step = int(obs.get('step', 0) or 0)
+            return chassis.routes[route][step + 1:(step // 24 + 1) * 24]
+        except Exception:
+            return None
+
+    def tactic_info(self, forecast):
+        """What the tactic sees besides the observation and our action (plain JSON values)."""
+        summary = None
+        if isinstance(forecast, dict):
+            summary = {k: v for k, v in forecast.items() if k == 'step' or k.startswith(('score_', 'units_'))}
+        return {'rival_family': self.rival.decision if self.rival is not None else None,
+                'rival_engine': self.emulator.identity() if self.emulator is not None else None,
+                'rival_action': self.emulator.prediction() if self.emulator is not None else None,
+                'forecast': summary,
+                'kad': self.kad.last if getattr(self, 'kad', None) is not None else None}
+
     def _init_rival_counter(self, node, parameters):
         self.rival = None
         enabled = node.get('enabled', False)
@@ -356,7 +478,9 @@ class HazelGraph:
             raise ValueError('rival_counter needs a ladder engine on the backbone node')
         self.rival = rival_model.MirrorTracker()
         switchable = engines.switchable(self.engine.source)
-        counters = rival_model.check_counters(node.get('counters') or {}, self.rival.clusters, switchable,
+        families = list(self.rival.clusters) + ([f'engine:{h.name}' for h in self.emulator.hypotheses]
+                                                if self.emulator is not None else [])
+        counters = rival_model.check_counters(node.get('counters') or {}, families, switchable,
                                               oracle_guard.PARAMETERS)
         self.rival_counters = {}
         for family, settings in counters.items():
@@ -385,6 +509,9 @@ class HazelGraph:
         if step == 0 and self.rival_active is not None:
             self._apply_counter(None)
         family = self.rival.update(obs)
+        engine = self.emulator.identity() if self.emulator is not None else None
+        if engine is not None and f'engine:{engine}' in self.rival_counters:
+            family = f'engine:{engine}'   # the rival runs this engine exactly: its own counter
         chosen = family if family in self.rival_counters else None
         if chosen != self.rival_active:
             self._apply_counter(chosen)
@@ -421,6 +548,17 @@ class HazelGraph:
             print(f'graph fallback #{self.fallback_count} [{self.graph.get("name")}] at step '
                   f'{obs.get("step")} stage {stage}: {self.last_error[:300]}', file=sys.stderr, flush=True)
 
+    def observe_oracle(self, obs, configuration):
+        forecast = self.champion._oracle_observe(obs, configuration) if self.oracle_needed else None
+        if self.oracle_required:
+            tracker = getattr(self.champion, '_TRACKER', None)
+            stats = getattr(self.champion, 'ORACLE_STATS', {})
+            if tracker is None or tracker.model is None or stats.get('errors'):
+                raise RuntimeError(f"required oracle unavailable: {stats.get('last_error', 'tracker/model missing')}")
+            if int(obs.get('step', 0) or 0) >= tracker.min_context and forecast is None:
+                raise RuntimeError('required oracle did not forecast after warmup')
+        return forecast
+
     def agent(self, obs, configuration=None):
         c = self.champion
         self.last_trace = []
@@ -439,7 +577,13 @@ class HazelGraph:
             if failed and key in ('state', 'farmer', 'hands', 'market'):
                 continue
             self.last_trace.append(key)
-            if key == 'rival_counter':
+            if key == 'rival_emulator':
+                if self.emulator is not None:
+                    try:
+                        self.emulator.begin(obs, configuration)
+                    except Exception as exc:
+                        self._fallback(key, obs, exc)
+            elif key == 'rival_counter':
                 if self.rival is not None:
                     try:
                         self.rival_counter(obs)
@@ -457,7 +601,7 @@ class HazelGraph:
                 farm = farms[player] if player < len(farms) else {}
                 n_hands = len(farm.get('hands') or [])
             elif key == 'oracle_observe':
-                forecast = c._oracle_observe(obs, configuration) if self.oracle_needed else None
+                forecast = self.observe_oracle(obs, configuration)
             elif key in CHANNELS and not self.channels[key]:
                 if not failed:
                     evolved[key] = base.get(key)
@@ -498,12 +642,38 @@ class HazelGraph:
                     self.extensions.event(key, 'extension_failed_closed', error=repr(exc))
                     if key == 'experimental_state':
                         self.extensions.ctx = None
+            elif key == 'kad_copilot':
+                if self.kad is not None and not failed and isinstance(evolved, dict):
+                    try:
+                        evolved = self.kad.apply(obs, evolved)
+                    except Exception as exc:
+                        if self.kad_required:
+                            raise
+                        self._fallback(key, obs, exc)
+            elif key == 'land_plot':
+                if self.plot is not None and not failed and isinstance(evolved, dict):
+                    try:
+                        evolved = self.plot.apply(obs, evolved, self.tape_rest(obs))
+                    except Exception as exc:
+                        self._fallback(key, obs, exc)
+            elif key == 'tactic':
+                if self.tactic is not None and isinstance(evolved, dict):
+                    try:
+                        evolved = self.tactic.apply(obs, evolved, self.tactic_info(forecast))
+                    except Exception as exc:
+                        self._fallback(key, obs, exc)
             elif key == 'sanitize':
                 final = c._sanitize(evolved, base, n_hands)
                 orders = evolved.get('market') if isinstance(evolved, dict) else None
                 if not self.channels['market'] and isinstance(orders, list):
                     # the engine's list with its empty slots (the champion's sanitizer drops them)
                     final['market'] = [list(o) if isinstance(o, (list, tuple)) else [] for o in orders][:MARKET_SLOTS]
+                if self.emulator is not None:
+                    try:
+                        final = self.emulator.race(final, obs)
+                    except Exception as exc:
+                        self._fallback('rival_emulator', obs, exc)
+                    self.emulator.finish(final)
             elif key == 'oracle_record':
                 if self.oracle_needed:
                     c._oracle_record(final)

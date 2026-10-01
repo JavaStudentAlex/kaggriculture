@@ -6,8 +6,9 @@
 For every played candidate (candidates.jsonl, stages "gauntlet" and "mixing") it takes the candidate's
 margins (scores/<bundle>.json and its head-to-head games) and its incumbent's (scores/<incumbent>.json, the
 incumbent named by games/<candidate>_vs_<incumbent>.jsonl), applies Gauntlet.stop_after_first_stage to the
-first-stage jobs of each --fraction, and prints how many candidates would have stopped, how many of them were
-promoted, and the share of the games that saves.
+first-stage jobs of each --fraction, and prints how many candidates would have stopped, how many of them the
+promotion rule now in force (graph_gauntlet.compare on all their games) promotes, and the share of the games
+that saves.
 """
 from __future__ import annotations
 
@@ -58,7 +59,7 @@ def main():
         for r, found, base in candidates:
             first = {k: v for k, v in found.items() if first_stage(k, fraction)}
             stop = stopper.stop_after_first_stage(first, base)
-            promoted = bool((r.get('verdict') or {}).get('promote'))
+            promoted = compare({'margins': found}, base)['promote']
             total += len(found)
             if stop:
                 stops += 1

@@ -67,18 +67,34 @@ def variant_graph(spec, library):
     return graph
 
 
+def emulated_engines(graph):
+    """The engines a graph's rival_emulator node runs in the rival's place ([] without it, or with it off)."""
+    node = next((n for n in graph['turn']['nodes'] if n['id'] == 'rival_emulator'), None)
+    if not node or not node.get('enabled', False):
+        return []
+    names = (node.get('parameters') or {}).get('_EM_ENGINES')
+    if names is None:
+        import sys
+        if str(PG) not in sys.path:
+            sys.path.insert(0, str(PG))
+        from hazel_runtime import rival_emulator
+        names = rival_emulator.PARAMETERS['_EM_ENGINES']
+    return list(names)
+
+
 def write_graph_bundle(dst, graph, name, checkpoint='committed', calibration=None):
     """A runnable copy of the graph agent: main.py (agent_graph.py), hazel_runtime/ and
     the given graph, named `name` and re-pinned to the copied runtime files. `calibration`: a
     calibration.json (arena/calib_fit.py) put next to the predictor, which the oracle applies."""
     graph = copy.deepcopy(graph)
     engine = next((n.get('engine') for n in graph['turn']['nodes'] if n['id'] == 'backbone'), None)
+    keep = {engine} | set(emulated_engines(graph))
     skip = shutil.ignore_patterns('__pycache__', '*.pyc', '*.bak')
 
     def ignore(directory, names):
-        # of the bundled ladder engines only the graph's own goes into the bundle
+        # of the bundled ladder engines only the graph's own and those its rival_emulator runs go in
         if Path(directory).name == 'engines' and Path(directory).parent.name == 'hazel_runtime':
-            return {n for n in names if n != engine}
+            return {n for n in names if n not in keep}
         return skip(directory, names)
 
     shutil.copytree(PG / 'hazel_runtime', dst / 'hazel_runtime', ignore=ignore)
@@ -109,7 +125,7 @@ def write_graph_bundle(dst, graph, name, checkpoint='committed', calibration=Non
     pins = graph['provenance']['runtime_bundle_hashes']
     for relative in list(pins):
         parts = Path(relative).parts
-        if len(parts) > 1 and parts[0] == 'engines' and parts[1] != engine:
+        if len(parts) > 1 and parts[0] == 'engines' and parts[1] not in keep:
             del pins[relative]  # another ladder engine's files (e.g. the base graph's): not in this bundle
             continue
         pins[relative] = sha(runtime / relative)

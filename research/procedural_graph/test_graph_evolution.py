@@ -38,8 +38,11 @@ class GraphEditTests(unittest.TestCase):
         cls.constants = graph_edits.catalog()
 
     def test_catalog_lists_every_evolvable_constant_with_its_stage(self):
-        # 40 champion constants + 2 runtime parameters + the oracle guard's parameters
-        self.assertEqual(len(self.constants), 42 + len(graph_edits.oracle_guard.PARAMETERS))
+        # 40 champion constants + 2 runtime parameters + the oracle guard's, rival counter's, rival emulator's,
+        # land plot's and KAD copilot's
+        self.assertEqual(len(self.constants), 42 + len(graph_edits.oracle_guard.PARAMETERS)
+                         + len(graph_edits.rival_model.PARAMETERS) + len(graph_edits.rival_emulator.PARAMETERS)
+                         + len(graph_edits.land_plot.PARAMETERS) + len(graph_edits.kad_copilot.PARAMETERS))
         spec = self.constants['_OPENING_BUY_WHEAT_QTY']
         self.assertEqual((spec['default'], spec['type'], spec['home']), (35, 'int', 'opening_scalp'))
         self.assertEqual(self.constants['_TOWN_CADENCE_PHASE']['home'], 'town_and_fertilizer')
@@ -233,6 +236,42 @@ class GauntletTests(unittest.TestCase):
                                                 {'margins': {k: 0.0 for k in many['margins']}})['promote'])
         missing = dict(many, jobs=many['jobs'] + ['hazel|99|0'])
         self.assertFalse(graph_gauntlet.compare(missing, {'margins': {k: 0.0 for k in many['margins']}})['valid'])
+
+    def test_results_promote_and_veto(self):
+        # the ladder rates results: close losses turned into wins promote a candidate that gives dollars away
+        close = {f'x|{i}|0': -10.0 for i in range(10)}
+        safe = {f'x|{i}|1': 500.0 for i in range(10)}
+        base = {'margins': {**close, **safe}}
+        flips = {'jobs': list(base['margins']), 'errors': [], 'fallbacks': 0,
+                 'margins': {**{k: 10.0 for k in close}, **{k: 400.0 for k in safe}}}
+        v = graph_gauntlet.compare(flips, base)
+        self.assertEqual((v['wins'], v['losses'], v['results_up'], v['results_down'], v['results_net']),
+                         (10, 10, 10, 0, 10.0))
+        self.assertTrue(v['promote'])
+        self.assertEqual(v['promoted_by'], 'results')
+        # dollars never promote a candidate that turns more results against us than for us
+        wins = {f'x|{i}|0': 10.0 for i in range(20)}
+        costly = {'jobs': list(wins), 'errors': [], 'fallbacks': 0,
+                  'margins': {**{f'x|{i}|0': 110.0 for i in range(16)}, **{f'x|{i}|0': -5.0 for i in range(16, 20)}}}
+        v = graph_gauntlet.compare(costly, {'margins': wins})
+        self.assertEqual((v['wins'], v['losses'], v['results_up'], v['results_down']), (16, 4, 0, 4))
+        self.assertTrue(v['mean_change'] > 0 and v['p'] < 0.05)
+        self.assertFalse(v['promote'])
+        self.assertIsNone(v['promoted_by'])
+        # a tie is half a result; a head-to-head game counts against a draw
+        v = graph_gauntlet.compare({'margins': {'x|1|0': 0.0, 'incumbent|1|0': 5.0}}, {'margins': {'x|1|0': -3.0}})
+        self.assertEqual((v['results_up'], v['results_down'], v['results_net']), (2, 0, 1.0))
+
+    def test_the_first_stage_keeps_a_candidate_whose_results_improve(self):
+        stopper = graph_gauntlet.Gauntlet.__new__(graph_gauntlet.Gauntlet)
+        stopper.alpha = 0.05
+        base = {'margins': {**{f'x|{i}|0': -10.0 for i in range(6)}, **{f'x|{i}|1': 500.0 for i in range(10)}}}
+        # 6 games better and 10 worse in dollars, but 6 losses turned into wins: it plays on
+        flips = {**{f'x|{i}|0': 10.0 for i in range(6)}, **{f'x|{i}|1': 400.0 for i in range(10)}}
+        self.assertIsNone(stopper.stop_after_first_stage(flips, base))
+        worse = {**{f'x|{i}|0': -20.0 for i in range(6)}, **{f'x|{i}|1': 400.0 for i in range(10)}}
+        stop = stopper.stop_after_first_stage(worse, base)
+        self.assertEqual((stop['reason'], stop['results_up'], stop['results_down']), ('not better', 0, 0))
 
     def test_evaluate_plays_pool_and_head_to_head_and_caches_the_pool(self):
         with tempfile.TemporaryDirectory() as tmp:

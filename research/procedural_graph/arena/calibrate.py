@@ -18,6 +18,10 @@
 Rerunning with the same --eval-id resumes: a finished remote run is only pulled, a running one is
 waited for. Run it in tmux (it waits ~40 min); a sleeping PC only pauses the waiting, since the
 runner itself lives on cliproxyapi.
+
+`--host local` runs every step on the machine itself (no ssh, plain copies): on cliproxyapi, from a repo copy that
+has calibration/game_set, so the payload build and the fit do not run on the laptop (2026-09-29). The copy also
+needs research/opponent_model/{extract,features,mechanics}.py: calib_payload.py bundles them for the VM.
 """
 from __future__ import annotations
 
@@ -43,8 +47,15 @@ def log(msg):
 
 
 def ssh(host, command, check=True):
+    if host == 'local':
+        return subprocess.run(['bash', '-c', command], capture_output=True, text=True, check=check, timeout=600)
     return subprocess.run(['ssh', '-o', 'BatchMode=yes', host, command], capture_output=True, text=True,
                           check=check, timeout=600)
+
+
+def at(host, path):
+    """An rsync location on `host` ('local': the path itself)."""
+    return str(path) if host == 'local' else f'{host}:{path}'
 
 
 def remote_state(host, remote, eid):
@@ -61,7 +72,7 @@ def launch(args, eid):
                     '--model', f'old={args.reference}', '--model', f'new={args.refit}',
                     '--stride', '1', '--eval-id', eid], check=True, stdout=subprocess.DEVNULL)
     ssh(args.host, f'mkdir -p {args.remote}/runs/{eid}')
-    subprocess.run(['rsync', '-a', str(payload), f'{args.host}:{args.remote}/runs/{eid}/'], check=True)
+    subprocess.run(['rsync', '-a', str(payload), at(args.host, f'{args.remote}/runs/{eid}/')], check=True)
     vms = ' '.join(f'--vm {v}' for v in args.vm)
     inner = (f'cd {args.remote} && export HOME={args.remote}/home PATH={args.remote}/home/.local/bin:$PATH && '
              f'python3 arena/colab_run.py --payload runs/{eid}/payload --out runs/{eid}/results.jsonl '
@@ -148,7 +159,7 @@ def main():
     ap.add_argument('--eval-id', help='default: calib-<refit dir name>')
     ap.add_argument('--vm', action='append', default=None, help='default: colab2:t4hm (one T4 High-RAM VM)')
     ap.add_argument('--out', help='output dir (default: calibration/<refit dir name>/own_games)')
-    ap.add_argument('--host', default='cliproxyapi')
+    ap.add_argument('--host', default='cliproxyapi', help="the runner's host, or 'local' when run on it")
     ap.add_argument('--remote', default='/home/alex/kagg-colab')
     args = ap.parse_args()
     args.vm = args.vm or ['colab2:t4hm']
@@ -165,8 +176,8 @@ def main():
     log(f'runner exit {code}; VMs left: {left[-1] if left else "?"}')
     run = PG / 'runs' / 'arena' / eid
     run.mkdir(parents=True, exist_ok=True)
-    subprocess.run(['rsync', '-a', f'{args.host}:{args.remote}/runs/{eid}/results.jsonl',
-                    f'{args.host}:{args.remote}/runs/{eid}/traces', f'{args.host}:{args.remote}/runs/{eid}/colab.log',
+    subprocess.run(['rsync', '-a', at(args.host, f'{args.remote}/runs/{eid}/results.jsonl'),
+                    at(args.host, f'{args.remote}/runs/{eid}/traces'), at(args.host, f'{args.remote}/runs/{eid}/colab.log'),
                     str(run) + '/'], check=True)
     ssh(args.host, f'rm -f {args.remote}/home/.config/colab-cli/history/{eid}-*.jsonl', check=False)
     rows = [json.loads(line) for line in (run / 'results.jsonl').read_text().splitlines() if line.strip()]

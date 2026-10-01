@@ -1,0 +1,7259 @@
+[
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1324216955,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113473454,
+  "opponent": "AkiraIshikawa",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1324216955,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113473454,
+  "opponent": "AkiraIshikawa",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 439772244,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113474639,
+  "opponent": "keith70",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 439772244,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113474639,
+  "opponent": "keith70",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1876447474,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113477669,
+  "opponent": "Thomas Deng",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1876447474,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113477669,
+  "opponent": "Thomas Deng",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1018152346,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113482511,
+  "opponent": "tetsuro731",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1018152346,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113482511,
+  "opponent": "tetsuro731",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1684445780,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113484948,
+  "opponent": "YuRuiZe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 623 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1684445780,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113484948,
+  "opponent": "YuRuiZe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 623 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 981469533,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113487240,
+  "opponent": "YUK",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 981469533,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113487240,
+  "opponent": "YUK",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 963277090,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113489435,
+  "opponent": "Rashid Khazeiynasab",
+  "kaggle_seat": 1,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 963277090,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113489435,
+  "opponent": "Rashid Khazeiynasab",
+  "kaggle_seat": 1,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 974865802,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113489641,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 974865802,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113489641,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 558300139,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113490841,
+  "opponent": "Harshith revuru",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 558300139,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113490841,
+  "opponent": "Harshith revuru",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 649400230,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113492020,
+  "opponent": "rrishavrraj",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 649400230,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113492020,
+  "opponent": "rrishavrraj",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 223782814,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113493201,
+  "opponent": "ASH",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 223782814,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113493201,
+  "opponent": "ASH",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 938587383,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113496787,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 938587383,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113496787,
+  "opponent": "volumatic",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 103885608,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113497954,
+  "opponent": "HHHyyds",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 103885608,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113497954,
+  "opponent": "HHHyyds",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 705611003,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113500313,
+  "opponent": "Danilo Lapegna",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 705611003,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113500313,
+  "opponent": "Danilo Lapegna",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 571068527,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113503829,
+  "opponent": "IMosia",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 571068527,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113503829,
+  "opponent": "IMosia",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1812464993,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113504953,
+  "opponent": "ropeadope",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1812464993,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113504953,
+  "opponent": "ropeadope",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1156946761,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113506213,
+  "opponent": "Harvest Sun",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1156946761,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113506213,
+  "opponent": "Harvest Sun",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1558162095,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113507391,
+  "opponent": "Andrew9603",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1558162095,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113507391,
+  "opponent": "Andrew9603",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515355552,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113508596,
+  "opponent": "Saravana Rajan B",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515355552,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113508596,
+  "opponent": "Saravana Rajan B",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2113046413,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113510558,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2113046413,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113510558,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515323481,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113512142,
+  "opponent": "MilanJoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 515323481,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113512142,
+  "opponent": "MilanJoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 453552434,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113513202,
+  "opponent": "MP Gamimg",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 453552434,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113513202,
+  "opponent": "MP Gamimg",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1501650513,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113515698,
+  "opponent": "random_numb",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1501650513,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113515698,
+  "opponent": "random_numb",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1882989945,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113518069,
+  "opponent": "Manav",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1882989945,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113518069,
+  "opponent": "Manav",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 2132738114,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113519247,
+  "opponent": "phi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 2132738114,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113519247,
+  "opponent": "phi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1566745884,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113520031,
+  "opponent": "woldy",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1566745884,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113520031,
+  "opponent": "woldy",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 73034081,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113546895,
+  "opponent": "Pii",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 73034081,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113546895,
+  "opponent": "Pii",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "hanifnoerrofiq_pioneers",
+  "seed": 1952013913,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113558580,
+  "opponent": "julien gaza",
+  "kaggle_seat": 1,
+  "assigned_by": "match 211 steps"
+ },
+ {
+  "tag": "hanifnoerrofiq_pioneers",
+  "seed": 1952013913,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113558580,
+  "opponent": "julien gaza",
+  "kaggle_seat": 1,
+  "assigned_by": "match 211 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1025817768,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113222599,
+  "opponent": "ayman elamin",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1025817768,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113222599,
+  "opponent": "ayman elamin",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 131716916,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113223849,
+  "opponent": "Shardul Gharat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 131716916,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113223849,
+  "opponent": "Shardul Gharat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 270102265,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113226248,
+  "opponent": "rishavsaigal",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 270102265,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113226248,
+  "opponent": "rishavsaigal",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 379442008,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113226277,
+  "opponent": "Zhong Lyu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 379442008,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113226277,
+  "opponent": "Zhong Lyu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1863161608,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113228742,
+  "opponent": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1863161608,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113228742,
+  "opponent": "Ph\u01b0\u01a1ng Nguy\u1ec5n Vi\u1ec7t",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1825472073,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113229927,
+  "opponent": "Kers Aoyagi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1825472073,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113229927,
+  "opponent": "Kers Aoyagi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 925888793,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113231075,
+  "opponent": "K.nosaka",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 925888793,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113231075,
+  "opponent": "K.nosaka",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2101348097,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113238070,
+  "opponent": "Anton Tikhonov",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2101348097,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113238070,
+  "opponent": "Anton Tikhonov",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 216987965,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113238122,
+  "opponent": "zyichi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 216987965,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113238122,
+  "opponent": "zyichi",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 2049321353,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113240486,
+  "opponent": "wuy1hao",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 2049321353,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113240486,
+  "opponent": "wuy1hao",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 16002583,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113245144,
+  "opponent": "AlexMoura2026",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 16002583,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113245144,
+  "opponent": "AlexMoura2026",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2043505370,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113246316,
+  "opponent": "Busya PRIME",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 2043505370,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113246316,
+  "opponent": "Busya PRIME",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 36705986,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113252276,
+  "opponent": "Cuong Le",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 36705986,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113252276,
+  "opponent": "Cuong Le",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1847291811,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113255835,
+  "opponent": "Justin Mai 16",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1847291811,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113255835,
+  "opponent": "Justin Mai 16",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1586964654,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113257010,
+  "opponent": "williams",
+  "kaggle_seat": 0,
+  "assigned_by": "match 106 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1586964654,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113257010,
+  "opponent": "williams",
+  "kaggle_seat": 0,
+  "assigned_by": "match 106 steps",
+  "reassigned_from": "abo_v57_open13"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1991302409,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113261712,
+  "opponent": "Matin Urdu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1991302409,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113261712,
+  "opponent": "Matin Urdu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1010027077,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113263462,
+  "opponent": "Ansh Agarwal",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1010027077,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113263462,
+  "opponent": "Ansh Agarwal",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1074457773,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113264061,
+  "opponent": "Jesse Bullard",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1074457773,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113264061,
+  "opponent": "Jesse Bullard",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 526045270,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113266414,
+  "opponent": "Xiang Li",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 526045270,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113266414,
+  "opponent": "Xiang Li",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 162630429,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113267586,
+  "opponent": "Speril",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 162630429,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113267586,
+  "opponent": "Speril",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1336616261,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113286389,
+  "opponent": "Pranav Thota",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1336616261,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113286389,
+  "opponent": "Pranav Thota",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 140659244,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113326519,
+  "opponent": "PUN",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 140659244,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113326519,
+  "opponent": "PUN",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1441443537,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113336002,
+  "opponent": "z7777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1441443537,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113336002,
+  "opponent": "z7777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v43",
+  "seed": 258395137,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113341838,
+  "opponent": "Dariush Afshar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v43",
+  "seed": 258395137,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113341838,
+  "opponent": "Dariush Afshar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1690491916,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113397704,
+  "opponent": "volumatic",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1690491916,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113397704,
+  "opponent": "volumatic",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 282724254,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113421316,
+  "opponent": "edwinis",
+  "kaggle_seat": 1,
+  "assigned_by": "match 411 steps"
+ },
+ {
+  "tag": "pilkwang_sep",
+  "seed": 282724254,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113421316,
+  "opponent": "edwinis",
+  "kaggle_seat": 1,
+  "assigned_by": "match 411 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1015676924,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113434138,
+  "opponent": "Excluding",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1015676924,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113434138,
+  "opponent": "Excluding",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 656359252,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113455583,
+  "opponent": "dengddd",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 656359252,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113455583,
+  "opponent": "dengddd",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1698360945,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113485254,
+  "opponent": "WENBO ZHANG",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1698360945,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113485254,
+  "opponent": "WENBO ZHANG",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 190969665,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113498875,
+  "opponent": "sneaky6767",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 190969665,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113498875,
+  "opponent": "sneaky6767",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 960190487,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113508517,
+  "opponent": "H\u00e9ctor Valverde",
+  "kaggle_seat": 0,
+  "assigned_by": "match 196 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 960190487,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113508517,
+  "opponent": "H\u00e9ctor Valverde",
+  "kaggle_seat": 0,
+  "assigned_by": "match 196 steps"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 752129207,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113550965,
+  "opponent": "Mark",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 752129207,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113550965,
+  "opponent": "Mark",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_2965",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v57_open13",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "mohui",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 389373681,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113761895,
+  "opponent": "Igor V",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 389373681,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113761895,
+  "opponent": "Igor V",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1228281317,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113763097,
+  "opponent": "shuinno",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1228281317,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113763097,
+  "opponent": "shuinno",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1989059184,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113764294,
+  "opponent": "Addison Howard (ineligible)",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1989059184,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113764294,
+  "opponent": "Addison Howard (ineligible)",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1889307780,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113765488,
+  "opponent": "\u3042\u304b\u3064\u304d",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1889307780,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113765488,
+  "opponent": "\u3042\u304b\u3064\u304d",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1259157688,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113766750,
+  "opponent": "Umataro Tenma",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1259157688,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113766750,
+  "opponent": "Umataro Tenma",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1731771566,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113768003,
+  "opponent": "Rohan L",
+  "kaggle_seat": 1,
+  "assigned_by": "match 241 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1731771566,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113768003,
+  "opponent": "Rohan L",
+  "kaggle_seat": 1,
+  "assigned_by": "match 241 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 381442528,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113769447,
+  "opponent": "rhythm master",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 381442528,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113769447,
+  "opponent": "rhythm master",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 199237929,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113771539,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 199237929,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113771539,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1328876977,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113776421,
+  "opponent": "Yusuraume",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1328876977,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113776421,
+  "opponent": "Yusuraume",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 88147910,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113777461,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 88147910,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113777461,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 34782783,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113781002,
+  "opponent": "ADRIANO ALMEIDA",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 34782783,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113781002,
+  "opponent": "ADRIANO ALMEIDA",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 847781885,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113782374,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 847781885,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113782374,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 921196316,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113783348,
+  "opponent": "Konstantin Zhar",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 921196316,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113783348,
+  "opponent": "Konstantin Zhar",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 388017179,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113786822,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 388017179,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113786822,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 862047447,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113788032,
+  "opponent": "King-damon",
+  "kaggle_seat": 0,
+  "assigned_by": "match 216 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 862047447,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113788032,
+  "opponent": "King-damon",
+  "kaggle_seat": 0,
+  "assigned_by": "match 216 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 885676963,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113789218,
+  "opponent": "Shangshang Zhang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 226 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 885676963,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113789218,
+  "opponent": "Shangshang Zhang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 226 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 346780542,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113790239,
+  "opponent": "Pilea55",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 346780542,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113790239,
+  "opponent": "Pilea55",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1422367119,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113790393,
+  "opponent": "J.Moriuchi",
+  "kaggle_seat": 0,
+  "assigned_by": "match 372 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1422367119,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113790393,
+  "opponent": "J.Moriuchi",
+  "kaggle_seat": 0,
+  "assigned_by": "match 372 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1976127715,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113793427,
+  "opponent": "syouya tobita",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1976127715,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113793427,
+  "opponent": "syouya tobita",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1197057374,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113797241,
+  "opponent": "Nikita Makarov",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1197057374,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113797241,
+  "opponent": "Nikita Makarov",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1855726663,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113797509,
+  "opponent": "AI After Hours",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1855726663,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113797509,
+  "opponent": "AI After Hours",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 39778478,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113799841,
+  "opponent": "Sadettin \u015eamil Verdil",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 39778478,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113799841,
+  "opponent": "Sadettin \u015eamil Verdil",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1408576578,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113802291,
+  "opponent": "BorisV",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1408576578,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113802291,
+  "opponent": "BorisV",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1607395298,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113813359,
+  "opponent": "Alexander Sokolov",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1607395298,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113813359,
+  "opponent": "Alexander Sokolov",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_113761895",
+  "seed": 389373681,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113761895,
+  "opponent": "Igor V",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113763097",
+  "seed": 1228281317,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113763097,
+  "opponent": "shuinno",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "replay_113764294",
+  "seed": 1989059184,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113764294,
+  "opponent": "Addison Howard (ineligible)",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113765488",
+  "seed": 1889307780,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113765488,
+  "opponent": "\u3042\u304b\u3064\u304d",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113766750",
+  "seed": 1259157688,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113766750,
+  "opponent": "Umataro Tenma",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113768003",
+  "seed": 1731771566,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113768003,
+  "opponent": "Rohan L",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113769447",
+  "seed": 381442528,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113769447,
+  "opponent": "rhythm master",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113771539",
+  "seed": 199237929,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113771539,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113776421",
+  "seed": 1328876977,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113776421,
+  "opponent": "Yusuraume",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113777461",
+  "seed": 88147910,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113777461,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113781002",
+  "seed": 34782783,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113781002,
+  "opponent": "ADRIANO ALMEIDA",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113782374",
+  "seed": 847781885,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113782374,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113783348",
+  "seed": 921196316,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113783348,
+  "opponent": "Konstantin Zhar",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113786822",
+  "seed": 388017179,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113786822,
+  "opponent": "\u30c7\u30ef\u30f3\u30b7\u30e5",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113788032",
+  "seed": 862047447,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113788032,
+  "opponent": "King-damon",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113789218",
+  "seed": 885676963,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113789218,
+  "opponent": "Shangshang Zhang",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113790239",
+  "seed": 346780542,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113790239,
+  "opponent": "Pilea55",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113790393",
+  "seed": 1422367119,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113790393,
+  "opponent": "J.Moriuchi",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113793427",
+  "seed": 1976127715,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113793427,
+  "opponent": "syouya tobita",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113797241",
+  "seed": 1197057374,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113797241,
+  "opponent": "Nikita Makarov",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113797509",
+  "seed": 1855726663,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113797509,
+  "opponent": "AI After Hours",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113799841",
+  "seed": 39778478,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113799841,
+  "opponent": "Sadettin \u015eamil Verdil",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113802291",
+  "seed": 1408576578,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113802291,
+  "opponent": "BorisV",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "replay_113813359",
+  "seed": 1607395298,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113813359,
+  "opponent": "Alexander Sokolov",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves"
+ },
+ {
+  "tag": "replay_113885416",
+  "seed": 1141034375,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113885416,
+  "opponent": "Pralay Ghosh",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1141034375,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113885416,
+  "opponent": "Pralay Ghosh",
+  "kaggle_seat": 0,
+  "assigned_by": "match 465 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1141034375,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113885416,
+  "opponent": "Pralay Ghosh",
+  "kaggle_seat": 0,
+  "assigned_by": "match 465 steps"
+ },
+ {
+  "tag": "replay_113888062",
+  "seed": 1861760729,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113888062,
+  "opponent": "linchuhan",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1861760729,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113888062,
+  "opponent": "linchuhan",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1861760729,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113888062,
+  "opponent": "linchuhan",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_113896876",
+  "seed": 15282244,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113896876,
+  "opponent": "Vaibhav Gupta",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 15282244,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113896876,
+  "opponent": "Vaibhav Gupta",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 15282244,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113896876,
+  "opponent": "Vaibhav Gupta",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_113898176",
+  "seed": 1239959235,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113898176,
+  "opponent": "Snorf",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1239959235,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113898176,
+  "opponent": "Snorf",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1239959235,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113898176,
+  "opponent": "Snorf",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "replay_113913844",
+  "seed": 377644321,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113913844,
+  "opponent": "pavan rajr",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 377644321,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113913844,
+  "opponent": "pavan rajr",
+  "kaggle_seat": 1,
+  "assigned_by": "match 471 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 377644321,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113913844,
+  "opponent": "pavan rajr",
+  "kaggle_seat": 1,
+  "assigned_by": "match 471 steps"
+ },
+ {
+  "tag": "replay_113915265",
+  "seed": 654400768,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113915265,
+  "opponent": "Frost Cerberus",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 654400768,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113915265,
+  "opponent": "Frost Cerberus",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 654400768,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113915265,
+  "opponent": "Frost Cerberus",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "replay_113940093",
+  "seed": 2001598069,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113940093,
+  "opponent": "HUNGRED XYIS",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2001598069,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113940093,
+  "opponent": "HUNGRED XYIS",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2001598069,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113940093,
+  "opponent": "HUNGRED XYIS",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "replay_113947758",
+  "seed": 1488409399,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113947758,
+  "opponent": "WeAreFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1488409399,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113947758,
+  "opponent": "WeAreFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1488409399,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113947758,
+  "opponent": "WeAreFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_113947903",
+  "seed": 947631667,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 113947903,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 947631667,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113947903,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 0,
+  "assigned_by": "match 600 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 947631667,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113947903,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 0,
+  "assigned_by": "match 600 steps"
+ },
+ {
+  "tag": "replay_113957020",
+  "seed": 1659299084,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113957020,
+  "opponent": "Michael Timbs",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1659299084,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113957020,
+  "opponent": "Michael Timbs",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_shape_shop",
+  "seed": 1659299084,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113957020,
+  "opponent": "Michael Timbs",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_113997400",
+  "seed": 1445372795,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 113997400,
+  "opponent": "Jane Street Farmers",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1445372795,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 113997400,
+  "opponent": "Jane Street Farmers",
+  "kaggle_seat": 1,
+  "assigned_by": "match 600 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1445372795,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 113997400,
+  "opponent": "Jane Street Farmers",
+  "kaggle_seat": 1,
+  "assigned_by": "match 600 steps"
+ },
+ {
+  "tag": "replay_114000539",
+  "seed": 471483250,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114000539,
+  "opponent": "wei chang",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 471483250,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114000539,
+  "opponent": "wei chang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 153 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 471483250,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114000539,
+  "opponent": "wei chang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 153 steps"
+ },
+ {
+  "tag": "replay_114003017",
+  "seed": 525549075,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114003017,
+  "opponent": "Cheese Burgers",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 525549075,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114003017,
+  "opponent": "Cheese Burgers",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 525549075,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114003017,
+  "opponent": "Cheese Burgers",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114009773",
+  "seed": 380147623,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114009773,
+  "opponent": "Yukino487",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 380147623,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114009773,
+  "opponent": "Yukino487",
+  "kaggle_seat": 0,
+  "assigned_by": "match 393 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 380147623,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114009773,
+  "opponent": "Yukino487",
+  "kaggle_seat": 0,
+  "assigned_by": "match 393 steps"
+ },
+ {
+  "tag": "replay_114016460",
+  "seed": 1381462816,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114016460,
+  "opponent": "Nimish Shinde",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1381462816,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114016460,
+  "opponent": "Nimish Shinde",
+  "kaggle_seat": 1,
+  "assigned_by": "match 400 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1381462816,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114016460,
+  "opponent": "Nimish Shinde",
+  "kaggle_seat": 1,
+  "assigned_by": "match 400 steps"
+ },
+ {
+  "tag": "replay_114017447",
+  "seed": 659056658,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114017447,
+  "opponent": "Huseyin Battal",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 659056658,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114017447,
+  "opponent": "Huseyin Battal",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 659056658,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114017447,
+  "opponent": "Huseyin Battal",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114025187",
+  "seed": 759578487,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114025187,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 759578487,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114025187,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 712 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 759578487,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114025187,
+  "opponent": "Shane Thivaharraja",
+  "kaggle_seat": 1,
+  "assigned_by": "match 712 steps"
+ },
+ {
+  "tag": "replay_114025794",
+  "seed": 1127517290,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114025794,
+  "opponent": "Kagdew Valley_HeNU",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1127517290,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114025794,
+  "opponent": "Kagdew Valley_HeNU",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1127517290,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114025794,
+  "opponent": "Kagdew Valley_HeNU",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "replay_114034562",
+  "seed": 1616502154,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114034562,
+  "opponent": "minghao mei",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1616502154,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114034562,
+  "opponent": "minghao mei",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1616502154,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114034562,
+  "opponent": "minghao mei",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "replay_114036398",
+  "seed": 1919780197,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114036398,
+  "opponent": "hank0123",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1919780197,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114036398,
+  "opponent": "hank0123",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1919780197,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114036398,
+  "opponent": "hank0123",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114045950",
+  "seed": 1299263274,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114045950,
+  "opponent": "Kirderf",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1299263274,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114045950,
+  "opponent": "Kirderf",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1299263274,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114045950,
+  "opponent": "Kirderf",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114063004",
+  "seed": 1359955554,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114063004,
+  "opponent": "wonder777",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1359955554,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114063004,
+  "opponent": "wonder777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1359955554,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114063004,
+  "opponent": "wonder777",
+  "kaggle_seat": 0,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "replay_114068311",
+  "seed": 1172045335,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114068311,
+  "opponent": "Dean0016",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1172045335,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114068311,
+  "opponent": "Dean0016",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1172045335,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114068311,
+  "opponent": "Dean0016",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114069953",
+  "seed": 6115189,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114069953,
+  "opponent": "CrazyML",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 6115189,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114069953,
+  "opponent": "CrazyML",
+  "kaggle_seat": 1,
+  "assigned_by": "match 252 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 6115189,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114069953,
+  "opponent": "CrazyML",
+  "kaggle_seat": 1,
+  "assigned_by": "match 252 steps"
+ },
+ {
+  "tag": "replay_114071444",
+  "seed": 1484295839,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114071444,
+  "opponent": "GeHaohua",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1484295839,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114071444,
+  "opponent": "GeHaohua",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1484295839,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114071444,
+  "opponent": "GeHaohua",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114082240",
+  "seed": 1977630138,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114082240,
+  "opponent": "ziheng",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1977630138,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114082240,
+  "opponent": "ziheng",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1977630138,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114082240,
+  "opponent": "ziheng",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114098439",
+  "seed": 798798306,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114098439,
+  "opponent": "Prajwal M",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 798798306,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114098439,
+  "opponent": "Prajwal M",
+  "kaggle_seat": 0,
+  "assigned_by": "match 340 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 798798306,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114098439,
+  "opponent": "Prajwal M",
+  "kaggle_seat": 0,
+  "assigned_by": "match 340 steps"
+ },
+ {
+  "tag": "replay_114100809",
+  "seed": 2067219821,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114100809,
+  "opponent": "Sarthak Sharma ",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2067219821,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114100809,
+  "opponent": "Sarthak Sharma ",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2067219821,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114100809,
+  "opponent": "Sarthak Sharma ",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114102100",
+  "seed": 2014559973,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114102100,
+  "opponent": "kaito ide 31",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2014559973,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114102100,
+  "opponent": "kaito ide 31",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2014559973,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114102100,
+  "opponent": "kaito ide 31",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps",
+  "result": "T"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 717423234,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 289070015,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1659410303,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1105611591,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 261830200,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 937016811,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1225771581,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1601463528,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1720794470,
+  "a_seat": 0,
+  "set": "random"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1434585680,
+  "a_seat": 1,
+  "set": "random"
+ },
+ {
+  "tag": "replay_114106198",
+  "seed": 1699043624,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114106198,
+  "opponent": "emreaydin",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1699043624,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114106198,
+  "opponent": "emreaydin",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1699043624,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114106198,
+  "opponent": "emreaydin",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114116533",
+  "seed": 1583448569,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114116533,
+  "opponent": "masayoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1583448569,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114116533,
+  "opponent": "masayoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1583448569,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114116533,
+  "opponent": "masayoshi",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114122483",
+  "seed": 1964026901,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114122483,
+  "opponent": "Naru041104",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1964026901,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114122483,
+  "opponent": "Naru041104",
+  "kaggle_seat": 1,
+  "assigned_by": "match 418 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1964026901,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114122483,
+  "opponent": "Naru041104",
+  "kaggle_seat": 1,
+  "assigned_by": "match 418 steps"
+ },
+ {
+  "tag": "replay_114125498",
+  "seed": 731711701,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114125498,
+  "opponent": "t-enstar",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 731711701,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114125498,
+  "opponent": "t-enstar",
+  "kaggle_seat": 0,
+  "assigned_by": "match 253 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 731711701,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114125498,
+  "opponent": "t-enstar",
+  "kaggle_seat": 0,
+  "assigned_by": "match 253 steps"
+ },
+ {
+  "tag": "replay_114128787",
+  "seed": 940851501,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114128787,
+  "opponent": "Cherie01",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 940851501,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114128787,
+  "opponent": "Cherie01",
+  "kaggle_seat": 1,
+  "assigned_by": "match 450 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 940851501,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114128787,
+  "opponent": "Cherie01",
+  "kaggle_seat": 1,
+  "assigned_by": "match 450 steps"
+ },
+ {
+  "tag": "replay_114129863",
+  "seed": 222287963,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114129863,
+  "opponent": "\uc548\ub155\ud558\uc138\uc694\uc774\uc138\uc785\ub2c8\ub2e4\uc798\ubd80\ud0c1\ub4dc\ub9bd\ub2c8\ub2e4",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 222287963,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114129863,
+  "opponent": "\uc548\ub155\ud558\uc138\uc694\uc774\uc138\uc785\ub2c8\ub2e4\uc798\ubd80\ud0c1\ub4dc\ub9bd\ub2c8\ub2e4",
+  "kaggle_seat": 0,
+  "assigned_by": "match 349 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 222287963,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114129863,
+  "opponent": "\uc548\ub155\ud558\uc138\uc694\uc774\uc138\uc785\ub2c8\ub2e4\uc798\ubd80\ud0c1\ub4dc\ub9bd\ub2c8\ub2e4",
+  "kaggle_seat": 0,
+  "assigned_by": "match 349 steps"
+ },
+ {
+  "tag": "replay_114131335",
+  "seed": 48853276,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114131335,
+  "opponent": "DeeSaa",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 48853276,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114131335,
+  "opponent": "DeeSaa",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 48853276,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114131335,
+  "opponent": "DeeSaa",
+  "kaggle_seat": 1,
+  "assigned_by": "match 289 steps"
+ },
+ {
+  "tag": "replay_114140153",
+  "seed": 2073360944,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114140153,
+  "opponent": "Illia Dolenko",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2073360944,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114140153,
+  "opponent": "Illia Dolenko",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2073360944,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114140153,
+  "opponent": "Illia Dolenko",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114144563",
+  "seed": 1263152309,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114144563,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1263152309,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114144563,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 165 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1263152309,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114144563,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 165 steps"
+ },
+ {
+  "tag": "replay_114149055",
+  "seed": 96376406,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114149055,
+  "opponent": "\u79c1\u7acb\u30db\u30eb\u30b9\u30bf\u30a4\u30f3\u5b66\u5712",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 96376406,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114149055,
+  "opponent": "\u79c1\u7acb\u30db\u30eb\u30b9\u30bf\u30a4\u30f3\u5b66\u5712",
+  "kaggle_seat": 0,
+  "assigned_by": "match 298 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 96376406,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114149055,
+  "opponent": "\u79c1\u7acb\u30db\u30eb\u30b9\u30bf\u30a4\u30f3\u5b66\u5712",
+  "kaggle_seat": 0,
+  "assigned_by": "match 298 steps"
+ },
+ {
+  "tag": "replay_114151915",
+  "seed": 848591973,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114151915,
+  "opponent": "Max Bloom",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 848591973,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114151915,
+  "opponent": "Max Bloom",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 848591973,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114151915,
+  "opponent": "Max Bloom",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114153672",
+  "seed": 1565301235,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114153672,
+  "opponent": "Zhongyi Dai",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1565301235,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114153672,
+  "opponent": "Zhongyi Dai",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1565301235,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114153672,
+  "opponent": "Zhongyi Dai",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114157680",
+  "seed": 1215426596,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114157680,
+  "opponent": "Minh \u0110\u0103ng L\u00ea",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1215426596,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114157680,
+  "opponent": "Minh \u0110\u0103ng L\u00ea",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1215426596,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114157680,
+  "opponent": "Minh \u0110\u0103ng L\u00ea",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114158094",
+  "seed": 2137537545,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114158094,
+  "opponent": "suk1yak1",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2137537545,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114158094,
+  "opponent": "suk1yak1",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2137537545,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114158094,
+  "opponent": "suk1yak1",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114159209",
+  "seed": 1392079670,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114159209,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1392079670,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114159209,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 384 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1392079670,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114159209,
+  "opponent": "RyotaroAbe",
+  "kaggle_seat": 0,
+  "assigned_by": "match 384 steps"
+ },
+ {
+  "tag": "replay_114166657",
+  "seed": 2059967881,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114166657,
+  "opponent": "MauoXX",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2059967881,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114166657,
+  "opponent": "MauoXX",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2059967881,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114166657,
+  "opponent": "MauoXX",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114171081",
+  "seed": 317566289,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114171081,
+  "opponent": "Reinforcement Larping",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 317566289,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114171081,
+  "opponent": "Reinforcement Larping",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 317566289,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114171081,
+  "opponent": "Reinforcement Larping",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114177166",
+  "seed": 1844489472,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114177166,
+  "opponent": "Rospel",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1844489472,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114177166,
+  "opponent": "Rospel",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1844489472,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114177166,
+  "opponent": "Rospel",
+  "kaggle_seat": 1,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "replay_114178592",
+  "seed": 1128547946,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114178592,
+  "opponent": "Hangyu Yu",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1128547946,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114178592,
+  "opponent": "Hangyu Yu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 400 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1128547946,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114178592,
+  "opponent": "Hangyu Yu",
+  "kaggle_seat": 1,
+  "assigned_by": "match 400 steps"
+ },
+ {
+  "tag": "replay_114179935",
+  "seed": 892835952,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114179935,
+  "opponent": "RAVEN",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 892835952,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114179935,
+  "opponent": "RAVEN",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 892835952,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114179935,
+  "opponent": "RAVEN",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "replay_114194716",
+  "seed": 505118185,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114194716,
+  "opponent": "zy",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 505118185,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114194716,
+  "opponent": "zy",
+  "kaggle_seat": 0,
+  "assigned_by": "match 350 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 505118185,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114194716,
+  "opponent": "zy",
+  "kaggle_seat": 0,
+  "assigned_by": "match 350 steps"
+ },
+ {
+  "tag": "replay_114198804",
+  "seed": 652622232,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114198804,
+  "opponent": "Squirrel",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 652622232,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114198804,
+  "opponent": "Squirrel",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 652622232,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114198804,
+  "opponent": "Squirrel",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114210798",
+  "seed": 1445544527,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114210798,
+  "opponent": "Yin Li",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1445544527,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114210798,
+  "opponent": "Yin Li",
+  "kaggle_seat": 0,
+  "assigned_by": "match 697 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1445544527,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114210798,
+  "opponent": "Yin Li",
+  "kaggle_seat": 0,
+  "assigned_by": "match 697 steps"
+ },
+ {
+  "tag": "replay_114211660",
+  "seed": 1510811713,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114211660,
+  "opponent": "Azathoth",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1510811713,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114211660,
+  "opponent": "Azathoth",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1510811713,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114211660,
+  "opponent": "Azathoth",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114228442",
+  "seed": 1671753385,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114228442,
+  "opponent": "KevlarZanderChi",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1671753385,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114228442,
+  "opponent": "KevlarZanderChi",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1671753385,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114228442,
+  "opponent": "KevlarZanderChi",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114243132",
+  "seed": 630726150,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114243132,
+  "opponent": "MachineLearner",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 630726150,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114243132,
+  "opponent": "MachineLearner",
+  "kaggle_seat": 0,
+  "assigned_by": "match 562 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 630726150,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114243132,
+  "opponent": "MachineLearner",
+  "kaggle_seat": 0,
+  "assigned_by": "match 562 steps"
+ },
+ {
+  "tag": "replay_114244384",
+  "seed": 1431139523,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114244384,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1431139523,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114244384,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1431139523,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114244384,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114253900",
+  "seed": 1518765379,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114253900,
+  "opponent": "islet",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1518765379,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114253900,
+  "opponent": "islet",
+  "kaggle_seat": 0,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1518765379,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114253900,
+  "opponent": "islet",
+  "kaggle_seat": 0,
+  "assigned_by": "match 169 steps"
+ },
+ {
+  "tag": "replay_114395193",
+  "seed": 2019853173,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114395193,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2019853173,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114395193,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "match 153 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2019853173,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114395193,
+  "opponent": "edwinis",
+  "kaggle_seat": 0,
+  "assigned_by": "match 153 steps"
+ },
+ {
+  "tag": "replay_114402579",
+  "seed": 568169453,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114402579,
+  "opponent": "Friedhelm Winter",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 568169453,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114402579,
+  "opponent": "Friedhelm Winter",
+  "kaggle_seat": 0,
+  "assigned_by": "match 457 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 568169453,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114402579,
+  "opponent": "Friedhelm Winter",
+  "kaggle_seat": 0,
+  "assigned_by": "match 457 steps"
+ },
+ {
+  "tag": "replay_114404069",
+  "seed": 1005162969,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114404069,
+  "opponent": "Satoshi Nguyen",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1005162969,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114404069,
+  "opponent": "Satoshi Nguyen",
+  "kaggle_seat": 0,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1005162969,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114404069,
+  "opponent": "Satoshi Nguyen",
+  "kaggle_seat": 0,
+  "assigned_by": "match 217 steps"
+ },
+ {
+  "tag": "replay_114404866",
+  "seed": 947091150,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114404866,
+  "opponent": "xz",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 947091150,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114404866,
+  "opponent": "xz",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 947091150,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114404866,
+  "opponent": "xz",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114405565",
+  "seed": 929412776,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114405565,
+  "opponent": "Bianco Chiu",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 929412776,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114405565,
+  "opponent": "Bianco Chiu",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 929412776,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114405565,
+  "opponent": "Bianco Chiu",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "replay_114407023",
+  "seed": 1565602501,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114407023,
+  "opponent": "Azathoth",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1565602501,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114407023,
+  "opponent": "Azathoth",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1565602501,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114407023,
+  "opponent": "Azathoth",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114407954",
+  "seed": 1716427027,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114407954,
+  "opponent": "Ian Chung",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1716427027,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114407954,
+  "opponent": "Ian Chung",
+  "kaggle_seat": 1,
+  "assigned_by": "match 249 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1716427027,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114407954,
+  "opponent": "Ian Chung",
+  "kaggle_seat": 1,
+  "assigned_by": "match 249 steps"
+ },
+ {
+  "tag": "replay_114409983",
+  "seed": 645991794,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114409983,
+  "opponent": "LoveLetter",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 645991794,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114409983,
+  "opponent": "LoveLetter",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 645991794,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114409983,
+  "opponent": "LoveLetter",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114413707",
+  "seed": 366162552,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114413707,
+  "opponent": "ln",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 366162552,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114413707,
+  "opponent": "ln",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 366162552,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114413707,
+  "opponent": "ln",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114417328",
+  "seed": 2085067,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114417328,
+  "opponent": "SN",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2085067,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114417328,
+  "opponent": "SN",
+  "kaggle_seat": 1,
+  "assigned_by": "match 157 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 2085067,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114417328,
+  "opponent": "SN",
+  "kaggle_seat": 1,
+  "assigned_by": "match 157 steps"
+ },
+ {
+  "tag": "replay_114418806",
+  "seed": 434752849,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114418806,
+  "opponent": "RuiFSPinto",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 434752849,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114418806,
+  "opponent": "RuiFSPinto",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 434752849,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114418806,
+  "opponent": "RuiFSPinto",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114419055",
+  "seed": 1852118985,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114419055,
+  "opponent": "Bharath Varma",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1852118985,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114419055,
+  "opponent": "Bharath Varma",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1852118985,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114419055,
+  "opponent": "Bharath Varma",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114420325",
+  "seed": 868458488,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114420325,
+  "opponent": "Auto Fermers",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 868458488,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114420325,
+  "opponent": "Auto Fermers",
+  "kaggle_seat": 1,
+  "assigned_by": "match 338 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 868458488,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114420325,
+  "opponent": "Auto Fermers",
+  "kaggle_seat": 1,
+  "assigned_by": "match 338 steps"
+ },
+ {
+  "tag": "replay_114422160",
+  "seed": 1464896246,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114422160,
+  "opponent": "tanadai",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1464896246,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114422160,
+  "opponent": "tanadai",
+  "kaggle_seat": 0,
+  "assigned_by": "match 160 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1464896246,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114422160,
+  "opponent": "tanadai",
+  "kaggle_seat": 0,
+  "assigned_by": "match 160 steps"
+ },
+ {
+  "tag": "replay_114424883",
+  "seed": 1543467592,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114424883,
+  "opponent": "wbcrypto abrams",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1543467592,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114424883,
+  "opponent": "wbcrypto abrams",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1543467592,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114424883,
+  "opponent": "wbcrypto abrams",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114426347",
+  "seed": 725648436,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114426347,
+  "opponent": "dddmd",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 725648436,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114426347,
+  "opponent": "dddmd",
+  "kaggle_seat": 1,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 725648436,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114426347,
+  "opponent": "dddmd",
+  "kaggle_seat": 1,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "replay_114427809",
+  "seed": 1421960570,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114427809,
+  "opponent": "barbosi",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1421960570,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114427809,
+  "opponent": "barbosi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1421960570,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114427809,
+  "opponent": "barbosi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114429281",
+  "seed": 938614628,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114429281,
+  "opponent": "nilochan",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 938614628,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114429281,
+  "opponent": "nilochan",
+  "kaggle_seat": 0,
+  "assigned_by": "match 637 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 938614628,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114429281,
+  "opponent": "nilochan",
+  "kaggle_seat": 0,
+  "assigned_by": "match 637 steps"
+ },
+ {
+  "tag": "replay_114432218",
+  "seed": 1535533145,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114432218,
+  "opponent": "tera358",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1535533145,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114432218,
+  "opponent": "tera358",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1535533145,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114432218,
+  "opponent": "tera358",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114433604",
+  "seed": 931507843,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114433604,
+  "opponent": "Freddy",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 931507843,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114433604,
+  "opponent": "Freddy",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 931507843,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114433604,
+  "opponent": "Freddy",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114436651",
+  "seed": 1889215496,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114436651,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1889215496,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114436651,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1889215496,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114436651,
+  "opponent": "ikevayansky",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114436815",
+  "seed": 1549954066,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114436815,
+  "opponent": "WebFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1549954066,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114436815,
+  "opponent": "WebFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1549954066,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114436815,
+  "opponent": "WebFarmers",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114438065",
+  "seed": 38061175,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114438065,
+  "opponent": "Lynxx",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 38061175,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114438065,
+  "opponent": "Lynxx",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 38061175,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114438065,
+  "opponent": "Lynxx",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114439584",
+  "seed": 2049836394,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114439584,
+  "opponent": "Chikuwabu",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 2049836394,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114439584,
+  "opponent": "Chikuwabu",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "abo_v55",
+  "seed": 2049836394,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114439584,
+  "opponent": "Chikuwabu",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "replay_114442532",
+  "seed": 1361688736,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114442532,
+  "opponent": "track",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1361688736,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114442532,
+  "opponent": "track",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1361688736,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114442532,
+  "opponent": "track",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114445972",
+  "seed": 1267416473,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114445972,
+  "opponent": "Chaitanya Sonaje",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1267416473,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114445972,
+  "opponent": "Chaitanya Sonaje",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1267416473,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114445972,
+  "opponent": "Chaitanya Sonaje",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114446925",
+  "seed": 341883061,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114446925,
+  "opponent": "umizora",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 341883061,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114446925,
+  "opponent": "umizora",
+  "kaggle_seat": 1,
+  "assigned_by": "match 250 steps"
+ },
+ {
+  "tag": "haideptry_shepherd",
+  "seed": 341883061,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114446925,
+  "opponent": "umizora",
+  "kaggle_seat": 1,
+  "assigned_by": "match 250 steps"
+ },
+ {
+  "tag": "replay_114449883",
+  "seed": 2102376364,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114449883,
+  "opponent": "Mark Astrid",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 2102376364,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114449883,
+  "opponent": "Mark Astrid",
+  "kaggle_seat": 0,
+  "assigned_by": "match 433 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 2102376364,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114449883,
+  "opponent": "Mark Astrid",
+  "kaggle_seat": 0,
+  "assigned_by": "match 433 steps"
+ },
+ {
+  "tag": "replay_114451358",
+  "seed": 1611009466,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114451358,
+  "opponent": "Bob Jeff",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1611009466,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114451358,
+  "opponent": "Bob Jeff",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1611009466,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114451358,
+  "opponent": "Bob Jeff",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114452769",
+  "seed": 1038743912,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114452769,
+  "opponent": "Le Viet",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1038743912,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114452769,
+  "opponent": "Le Viet",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1038743912,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114452769,
+  "opponent": "Le Viet",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114454289",
+  "seed": 1573668415,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114454289,
+  "opponent": "data_gardening_club",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1573668415,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114454289,
+  "opponent": "data_gardening_club",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1573668415,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114454289,
+  "opponent": "data_gardening_club",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114457228",
+  "seed": 2010491401,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114457228,
+  "opponent": "Captainuknow",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2010491401,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114457228,
+  "opponent": "Captainuknow",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2010491401,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114457228,
+  "opponent": "Captainuknow",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114458687",
+  "seed": 1588188339,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114458687,
+  "opponent": "Ryu Sonoda",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1588188339,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114458687,
+  "opponent": "Ryu Sonoda",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1588188339,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114458687,
+  "opponent": "Ryu Sonoda",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114460161",
+  "seed": 1282235394,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114460161,
+  "opponent": "yuuuki1111",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1282235394,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114460161,
+  "opponent": "yuuuki1111",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1282235394,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114460161,
+  "opponent": "yuuuki1111",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "replay_114461635",
+  "seed": 460194088,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114461635,
+  "opponent": "Le Viet",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 460194088,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114461635,
+  "opponent": "Le Viet",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 460194088,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114461635,
+  "opponent": "Le Viet",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114464588",
+  "seed": 1530965913,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114464588,
+  "opponent": "jiang luo1021",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1530965913,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114464588,
+  "opponent": "jiang luo1021",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1530965913,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114464588,
+  "opponent": "jiang luo1021",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114465610",
+  "seed": 411227941,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114465610,
+  "opponent": "RangerSnow",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 411227941,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114465610,
+  "opponent": "RangerSnow",
+  "kaggle_seat": 0,
+  "assigned_by": "match 197 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 411227941,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114465610,
+  "opponent": "RangerSnow",
+  "kaggle_seat": 0,
+  "assigned_by": "match 197 steps"
+ },
+ {
+  "tag": "replay_114466033",
+  "seed": 2040222732,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114466033,
+  "opponent": "OceanMix",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2040222732,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114466033,
+  "opponent": "OceanMix",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2040222732,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114466033,
+  "opponent": "OceanMix",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114468982",
+  "seed": 145892266,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114468982,
+  "opponent": "Aura Farmers",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 145892266,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114468982,
+  "opponent": "Aura Farmers",
+  "kaggle_seat": 0,
+  "assigned_by": "match 505 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 145892266,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114468982,
+  "opponent": "Aura Farmers",
+  "kaggle_seat": 0,
+  "assigned_by": "match 505 steps"
+ },
+ {
+  "tag": "replay_114470470",
+  "seed": 99809280,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114470470,
+  "opponent": "Hawksartelier",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 99809280,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114470470,
+  "opponent": "Hawksartelier",
+  "kaggle_seat": 0,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 99809280,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114470470,
+  "opponent": "Hawksartelier",
+  "kaggle_seat": 0,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "replay_114471940",
+  "seed": 229658083,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114471940,
+  "opponent": "JamesJJJJJ",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 229658083,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114471940,
+  "opponent": "JamesJJJJJ",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 229658083,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114471940,
+  "opponent": "JamesJJJJJ",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114486286",
+  "seed": 329864038,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114486286,
+  "opponent": "snappi",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 329864038,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114486286,
+  "opponent": "snappi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 537 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 329864038,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114486286,
+  "opponent": "snappi",
+  "kaggle_seat": 1,
+  "assigned_by": "match 537 steps"
+ },
+ {
+  "tag": "replay_114490621",
+  "seed": 1711409021,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114490621,
+  "opponent": "CjzmFeng",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1711409021,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114490621,
+  "opponent": "CjzmFeng",
+  "kaggle_seat": 1,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1711409021,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114490621,
+  "opponent": "CjzmFeng",
+  "kaggle_seat": 1,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "replay_114500000",
+  "seed": 1616873916,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114500000,
+  "opponent": "Surya Bhattiprol",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1616873916,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114500000,
+  "opponent": "Surya Bhattiprol",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 1616873916,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114500000,
+  "opponent": "Surya Bhattiprol",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114506891",
+  "seed": 825351171,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114506891,
+  "opponent": "Mert Bayraktar",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 825351171,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114506891,
+  "opponent": "Mert Bayraktar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 825351171,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114506891,
+  "opponent": "Mert Bayraktar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 347 steps"
+ },
+ {
+  "tag": "replay_114511275",
+  "seed": 1927556942,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114511275,
+  "opponent": "Yuta Yamazaki",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1927556942,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114511275,
+  "opponent": "Yuta Yamazaki",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1927556942,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114511275,
+  "opponent": "Yuta Yamazaki",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114515886",
+  "seed": 11071630,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114515886,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 11071630,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114515886,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 1,
+  "assigned_by": "match 529 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 11071630,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114515886,
+  "opponent": "Pramit Das",
+  "kaggle_seat": 1,
+  "assigned_by": "match 529 steps"
+ },
+ {
+  "tag": "replay_114518342",
+  "seed": 1079901066,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114518342,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1079901066,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114518342,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1079901066,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114518342,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114527537",
+  "seed": 1370123875,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114527537,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1370123875,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114527537,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1370123875,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114527537,
+  "opponent": "s_a_ai_engineer",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114530629",
+  "seed": 1531983797,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114530629,
+  "opponent": "tatt:)ch",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1531983797,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114530629,
+  "opponent": "tatt:)ch",
+  "kaggle_seat": 0,
+  "assigned_by": "match 121 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1531983797,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114530629,
+  "opponent": "tatt:)ch",
+  "kaggle_seat": 0,
+  "assigned_by": "match 121 steps"
+ },
+ {
+  "tag": "replay_114539420",
+  "seed": 1858230739,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114539420,
+  "opponent": "Tom3",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1858230739,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114539420,
+  "opponent": "Tom3",
+  "kaggle_seat": 1,
+  "assigned_by": "match 156 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1858230739,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114539420,
+  "opponent": "Tom3",
+  "kaggle_seat": 1,
+  "assigned_by": "match 156 steps"
+ },
+ {
+  "tag": "replay_114541862",
+  "seed": 1402572318,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114541862,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1402572318,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114541862,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1402572318,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114541862,
+  "opponent": "Marlon Vasquez",
+  "kaggle_seat": 0,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114549637",
+  "seed": 1107676482,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114549637,
+  "opponent": "Itikela Bhaskar",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1107676482,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114549637,
+  "opponent": "Itikela Bhaskar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 340 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1107676482,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114549637,
+  "opponent": "Itikela Bhaskar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 340 steps"
+ },
+ {
+  "tag": "replay_114550706",
+  "seed": 1308096833,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114550706,
+  "opponent": "GarbageOoze",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1308096833,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114550706,
+  "opponent": "GarbageOoze",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1308096833,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114550706,
+  "opponent": "GarbageOoze",
+  "kaggle_seat": 0,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114561250",
+  "seed": 465778237,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114561250,
+  "opponent": "PP_Azalearn",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 465778237,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114561250,
+  "opponent": "PP_Azalearn",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "tetsutani_demand_0927",
+  "seed": 465778237,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114561250,
+  "opponent": "PP_Azalearn",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114572956",
+  "seed": 1840733339,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114572956,
+  "opponent": "HuaLQin",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1840733339,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114572956,
+  "opponent": "HuaLQin",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1840733339,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114572956,
+  "opponent": "HuaLQin",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114584392",
+  "seed": 1680891612,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114584392,
+  "opponent": "Borisov Emilian",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1680891612,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114584392,
+  "opponent": "Borisov Emilian",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1680891612,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114584392,
+  "opponent": "Borisov Emilian",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114759539",
+  "seed": 1826535365,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114759539,
+  "opponent": "Ichika",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1826535365,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114759539,
+  "opponent": "Ichika",
+  "kaggle_seat": 0,
+  "assigned_by": "match 156 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1826535365,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114759539,
+  "opponent": "Ichika",
+  "kaggle_seat": 0,
+  "assigned_by": "match 156 steps"
+ },
+ {
+  "tag": "replay_114765686",
+  "seed": 1028700515,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114765686,
+  "opponent": "tyz123456",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1028700515,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114765686,
+  "opponent": "tyz123456",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1028700515,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114765686,
+  "opponent": "tyz123456",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114775958",
+  "seed": 1572602338,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114775958,
+  "opponent": "Apollo's cattles",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1572602338,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114775958,
+  "opponent": "Apollo's cattles",
+  "kaggle_seat": 1,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1572602338,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114775958,
+  "opponent": "Apollo's cattles",
+  "kaggle_seat": 1,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "replay_114777461",
+  "seed": 1837826512,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114777461,
+  "opponent": "UCAS_fish_wang",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1837826512,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114777461,
+  "opponent": "UCAS_fish_wang",
+  "kaggle_seat": 1,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1837826512,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114777461,
+  "opponent": "UCAS_fish_wang",
+  "kaggle_seat": 1,
+  "assigned_by": "match 145 steps"
+ },
+ {
+  "tag": "replay_114783412",
+  "seed": 567218822,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114783412,
+  "opponent": "charmq",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 567218822,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114783412,
+  "opponent": "charmq",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 567218822,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114783412,
+  "opponent": "charmq",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114785014",
+  "seed": 1813690632,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114785014,
+  "opponent": "Ignat",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1813690632,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114785014,
+  "opponent": "Ignat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1813690632,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114785014,
+  "opponent": "Ignat",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114786373",
+  "seed": 1701475788,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114786373,
+  "opponent": "ShionMatsuoka",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1701475788,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114786373,
+  "opponent": "ShionMatsuoka",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1701475788,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114786373,
+  "opponent": "ShionMatsuoka",
+  "kaggle_seat": 0,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114789305",
+  "seed": 1439451576,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114789305,
+  "opponent": "leave you",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1439451576,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114789305,
+  "opponent": "leave you",
+  "kaggle_seat": 1,
+  "assigned_by": "match 408 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1439451576,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114789305,
+  "opponent": "leave you",
+  "kaggle_seat": 1,
+  "assigned_by": "match 408 steps"
+ },
+ {
+  "tag": "replay_114790800",
+  "seed": 1669755428,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114790800,
+  "opponent": "sime_saba",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1669755428,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114790800,
+  "opponent": "sime_saba",
+  "kaggle_seat": 1,
+  "assigned_by": "match 381 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1669755428,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114790800,
+  "opponent": "sime_saba",
+  "kaggle_seat": 1,
+  "assigned_by": "match 381 steps"
+ },
+ {
+  "tag": "replay_114792276",
+  "seed": 352573805,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114792276,
+  "opponent": "Tien N.",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 352573805,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114792276,
+  "opponent": "Tien N.",
+  "kaggle_seat": 0,
+  "assigned_by": "match 673 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 352573805,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114792276,
+  "opponent": "Tien N.",
+  "kaggle_seat": 0,
+  "assigned_by": "match 673 steps"
+ },
+ {
+  "tag": "replay_114793768",
+  "seed": 274014991,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114793768,
+  "opponent": "Andrey Shpigar",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leo_pi",
+  "seed": 274014991,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114793768,
+  "opponent": "Andrey Shpigar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "leo_pi",
+  "seed": 274014991,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114793768,
+  "opponent": "Andrey Shpigar",
+  "kaggle_seat": 1,
+  "assigned_by": "match 719 steps"
+ },
+ {
+  "tag": "replay_114805644",
+  "seed": 1709394680,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114805644,
+  "opponent": "Malyshev Danil",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1709394680,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114805644,
+  "opponent": "Malyshev Danil",
+  "kaggle_seat": 1,
+  "assigned_by": "match 350 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1709394680,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114805644,
+  "opponent": "Malyshev Danil",
+  "kaggle_seat": 1,
+  "assigned_by": "match 350 steps"
+ },
+ {
+  "tag": "replay_114808376",
+  "seed": 880434227,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114808376,
+  "opponent": "satoooh",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 880434227,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114808376,
+  "opponent": "satoooh",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 880434227,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114808376,
+  "opponent": "satoooh",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114808655",
+  "seed": 1206019485,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114808655,
+  "opponent": "stephenlau",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1206019485,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114808655,
+  "opponent": "stephenlau",
+  "kaggle_seat": 0,
+  "assigned_by": "match 343 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 1206019485,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114808655,
+  "opponent": "stephenlau",
+  "kaggle_seat": 0,
+  "assigned_by": "match 343 steps"
+ },
+ {
+  "tag": "replay_114811400",
+  "seed": 2101900949,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114811400,
+  "opponent": "\u62b9\u8336\u5c4b",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 2101900949,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114811400,
+  "opponent": "\u62b9\u8336\u5c4b",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 2101900949,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114811400,
+  "opponent": "\u62b9\u8336\u5c4b",
+  "kaggle_seat": 1,
+  "assigned_by": "match 406 steps"
+ },
+ {
+  "tag": "replay_114812825",
+  "seed": 182836688,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114812825,
+  "opponent": "Riki Uchida",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 182836688,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114812825,
+  "opponent": "Riki Uchida",
+  "kaggle_seat": 1,
+  "assigned_by": "match 481 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 182836688,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114812825,
+  "opponent": "Riki Uchida",
+  "kaggle_seat": 1,
+  "assigned_by": "match 481 steps"
+ },
+ {
+  "tag": "replay_114814280",
+  "seed": 468463812,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114814280,
+  "opponent": "Yunho Hwang",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 468463812,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114814280,
+  "opponent": "Yunho Hwang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 241 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 468463812,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114814280,
+  "opponent": "Yunho Hwang",
+  "kaggle_seat": 0,
+  "assigned_by": "match 241 steps"
+ },
+ {
+  "tag": "replay_114815908",
+  "seed": 1511693883,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114815908,
+  "opponent": "ekkkcz",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1511693883,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114815908,
+  "opponent": "ekkkcz",
+  "kaggle_seat": 0,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1511693883,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114815908,
+  "opponent": "ekkkcz",
+  "kaggle_seat": 0,
+  "assigned_by": "match 290 steps"
+ },
+ {
+  "tag": "replay_114815928",
+  "seed": 1591983363,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114815928,
+  "opponent": "\u522bban\u6211claude",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1591983363,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114815928,
+  "opponent": "\u522bban\u6211claude",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "robust_economy",
+  "seed": 1591983363,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114815928,
+  "opponent": "\u522bban\u6211claude",
+  "kaggle_seat": 0,
+  "assigned_by": "match 159 steps"
+ },
+ {
+  "tag": "replay_114817408",
+  "seed": 180700079,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114817408,
+  "opponent": "Mario",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 180700079,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114817408,
+  "opponent": "Mario",
+  "kaggle_seat": 0,
+  "assigned_by": "match 260 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 180700079,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114817408,
+  "opponent": "Mario",
+  "kaggle_seat": 0,
+  "assigned_by": "match 260 steps"
+ },
+ {
+  "tag": "replay_114821820",
+  "seed": 1088558027,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114821820,
+  "opponent": "xxxx0314",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1088558027,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114821820,
+  "opponent": "xxxx0314",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "haideptry_2965_0926",
+  "seed": 1088558027,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114821820,
+  "opponent": "xxxx0314",
+  "kaggle_seat": 1,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114823450",
+  "seed": 1105770133,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114823450,
+  "opponent": "Aniket Sharma",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1105770133,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114823450,
+  "opponent": "Aniket Sharma",
+  "kaggle_seat": 1,
+  "assigned_by": "match 264 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 1105770133,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114823450,
+  "opponent": "Aniket Sharma",
+  "kaggle_seat": 1,
+  "assigned_by": "match 264 steps"
+ },
+ {
+  "tag": "replay_114826243",
+  "seed": 226202562,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114826243,
+  "opponent": "ktaery",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 226202562,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114826243,
+  "opponent": "ktaery",
+  "kaggle_seat": 1,
+  "assigned_by": "match 409 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 226202562,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114826243,
+  "opponent": "ktaery",
+  "kaggle_seat": 1,
+  "assigned_by": "match 409 steps"
+ },
+ {
+  "tag": "replay_114830636",
+  "seed": 1799913014,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114830636,
+  "opponent": "Haalandspring",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1799913014,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114830636,
+  "opponent": "Haalandspring",
+  "kaggle_seat": 1,
+  "assigned_by": "match 224 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1799913014,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114830636,
+  "opponent": "Haalandspring",
+  "kaggle_seat": 1,
+  "assigned_by": "match 224 steps"
+ },
+ {
+  "tag": "replay_114830697",
+  "seed": 767409035,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114830697,
+  "opponent": "Pai",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 767409035,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114830697,
+  "opponent": "Pai",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "leoprovorov_forecast",
+  "seed": 767409035,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114830697,
+  "opponent": "Pai",
+  "kaggle_seat": 1,
+  "assigned_by": "match 150 steps"
+ },
+ {
+  "tag": "replay_114836375",
+  "seed": 2103112057,
+  "a_seat": 1,
+  "set": "replay",
+  "episode": 114836375,
+  "opponent": "Kaggriculture Agent",
+  "kaggle_seat": 1,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2103112057,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114836375,
+  "opponent": "Kaggriculture Agent",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 2103112057,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114836375,
+  "opponent": "Kaggriculture Agent",
+  "kaggle_seat": 1,
+  "assigned_by": "fallback"
+ },
+ {
+  "tag": "replay_114837309",
+  "seed": 396990729,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114837309,
+  "opponent": "vn1111",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 396990729,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114837309,
+  "opponent": "vn1111",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 396990729,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114837309,
+  "opponent": "vn1111",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114845474",
+  "seed": 411903213,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114845474,
+  "opponent": "\ud55c\ubc2d\ub300\ud559\uad50\ucef4\ud4e8\ud130\uacf5\ud559\uacfc\uc815\uc6b0\ubbfc",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 411903213,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114845474,
+  "opponent": "\ud55c\ubc2d\ub300\ud559\uad50\ucef4\ud4e8\ud130\uacf5\ud559\uacfc\uc815\uc6b0\ubbfc",
+  "kaggle_seat": 0,
+  "assigned_by": "match 497 steps"
+ },
+ {
+  "tag": "haodou_ledger_0928",
+  "seed": 411903213,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114845474,
+  "opponent": "\ud55c\ubc2d\ub300\ud559\uad50\ucef4\ud4e8\ud130\uacf5\ud559\uacfc\uc815\uc6b0\ubbfc",
+  "kaggle_seat": 0,
+  "assigned_by": "match 497 steps"
+ },
+ {
+  "tag": "replay_114845317",
+  "seed": 723091452,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114845317,
+  "opponent": "\u5976\u9f99\u5b9d\u5b9d\u7231\u79cd\u7530\u5416",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 723091452,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114845317,
+  "opponent": "\u5976\u9f99\u5b9d\u5b9d\u7231\u79cd\u7530\u5416",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 723091452,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114845317,
+  "opponent": "\u5976\u9f99\u5b9d\u5b9d\u7231\u79cd\u7530\u5416",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114854232",
+  "seed": 1296258538,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114854232,
+  "opponent": "PrasadChopade213",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1296258538,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114854232,
+  "opponent": "PrasadChopade213",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 1296258538,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114854232,
+  "opponent": "PrasadChopade213",
+  "kaggle_seat": 0,
+  "assigned_by": "opening"
+ },
+ {
+  "tag": "replay_114862877",
+  "seed": 110870284,
+  "a_seat": 0,
+  "set": "replay",
+  "episode": 114862877,
+  "opponent": "habe.sq",
+  "kaggle_seat": 0,
+  "assigned_by": "recorded moves",
+  "result": "L"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 110870284,
+  "a_seat": 0,
+  "set": "lost",
+  "episode": 114862877,
+  "opponent": "habe.sq",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "tetsutani_demand",
+  "seed": 110870284,
+  "a_seat": 1,
+  "set": "lost",
+  "episode": 114862877,
+  "opponent": "habe.sq",
+  "kaggle_seat": 0,
+  "assigned_by": "match 151 steps"
+ },
+ {
+  "tag": "replay_114752255",
+  "seed": 1216999625,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114764123",
+  "seed": 1871314611,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114767093",
+  "seed": 2074652621,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114767722",
+  "seed": 1907196419,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114768589",
+  "seed": 574542208,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114770097",
+  "seed": 1800766720,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114771608",
+  "seed": 1640592373,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114773189",
+  "seed": 1287229486,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114774446",
+  "seed": 101386205,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114778229",
+  "seed": 1919795047,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114779154",
+  "seed": 1640304738,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114780447",
+  "seed": 1609247374,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114781937",
+  "seed": 1356357090,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114782142",
+  "seed": 193968605,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114788382",
+  "seed": 1773246349,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114789654",
+  "seed": 712881628,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114792296",
+  "seed": 2040203404,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114795287",
+  "seed": 840780532,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114796979",
+  "seed": 1291132490,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114798321",
+  "seed": 1691831667,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114799669",
+  "seed": 523020264,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114801149",
+  "seed": 2102259650,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114802687",
+  "seed": 844262869,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114804183",
+  "seed": 1273309696,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114806870",
+  "seed": 1389183394,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114809660",
+  "seed": 1210995934,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114818945",
+  "seed": 1863004416,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114820361",
+  "seed": 490994681,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114822044",
+  "seed": 2040027183,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114824522",
+  "seed": 595555473,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114827834",
+  "seed": 727660429,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114829158",
+  "seed": 22523826,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114829205",
+  "seed": 1270677430,
+  "a_seat": 1,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114831863",
+  "seed": 1585959207,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114832235",
+  "seed": 2008586029,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ },
+ {
+  "tag": "replay_114855695",
+  "seed": 987238322,
+  "a_seat": 0,
+  "set": "aspen_win_regression"
+ }
+]

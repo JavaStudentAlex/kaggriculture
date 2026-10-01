@@ -1,0 +1,16 @@
+{
+  "parent_run": "ladder1",
+  "parent_island": "Island-Next-Counter",
+  "parent_next_iteration": 85,
+  "parent_graph_sha256": "5caabdc039e147b63cad91a754b0772ffe86378c6b4a1e8d695eb661c3917f77",
+  "base_plan_games": 727,
+  "aspen_win_regressions_added": 36,
+  "total_games": 763,
+  "seed_semantics": "development games, not held-out validation",
+  "bundle": "g_028824fe3a6f88e0",
+  "gauntlet_fingerprint": "ac91b8172b83bbac572dad150263ed40f0f26190fe7fbd1b8eb6f420d0a915b9",
+  "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed",
+  "require_oracle": true,
+  "islands": 6,
+  "iterations": 12
+}

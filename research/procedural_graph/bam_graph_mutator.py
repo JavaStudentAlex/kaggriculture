@@ -247,9 +247,11 @@ Synthesize a targeted Strategic Mutation (Delta G) to the Procedural Graph to el
 Your edit is applied to the island champion below. The resulting graph plays a paired
 gauntlet: the same seeds against every opponent listed under CHAMPION RESULTS (the
 knowledge section describes them), plus head-to-head games against the champion itself. Per game, its cash margin is compared with the champion's
-margin on the same game; it is promoted only if an exact sign test over the games that
-changed is significant (p <= 0.05) with a positive mean change. Edits that change nothing
-in play are wasted; edits that help one opponent and hurt the others fail.
+margin on the same game, and so is its result (win, tie or loss). It is promoted if an exact sign test over the
+games whose margin changed is significant (p <= 0.05) with a positive mean change, or if one over the games whose
+result changed is significant with more results improved than worsened; never if it turns more results against
+us than for us. The ladder rates only results: turning close losses into wins is worth more than dollars added to
+games already won. Edits that change nothing in play are wasted; edits that help one opponent and hurt the others fail.
 
 ### VERIFIED ENGINE FACTS AND MEASURED RESULTS
 {knowledge}
@@ -280,9 +282,10 @@ You may change any control, but prefer this area.
             "dispatch_order": "submitted" or "sells_first",
             "surgical": {{"enabled": true or false, "overrides": {{...}}}},
             "engine_parameters": {{"<ENGINE CONSTANT>": <value of the same type, or null for the engine default>}},
-            "channels": {{"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter": true or false}},
+            "channels": {{"farmer" | "hands" | "market" | "oracle_guard" | "rival_counter" | "rival_emulator" | "tactic": true or false}},
             "experimental": {{"<switch>": true or false}},
-            "counters": {{"<rival class>": {{"<ENGINE CONSTANT or _OG_* parameter>": <value, or null>}} or null}}}}}}
+            "counters": {{"<rival class>": {{"<ENGINE CONSTANT or _OG_* parameter>": <value, or null>}} or null}},
+            "tactic": "<python source of def tactic(obs, action, memory, info), as a JSON string>" or null}}}}
 Include only the keys you change (usually 1-3 controls); keys that the CONTROLS section does not
 list do not exist for this graph. Tuples and lists are JSON arrays; a table keyed by shop pairs
 takes keys "SHOP_A|SHOP_B" and must be given complete (every key of the current value).

@@ -141,6 +141,9 @@ print(f"  agent_graph    : {getattr(graph, '__file__', None)}  inside={inside(ge
 print(f"  calibration    : {cal if os.path.isfile(cal) else None}  (expected: {EXPECT_CALIBRATION})")
 graph_ok = (graph is not None and inside(getattr(graph, "__file__", "") or "") and engine_built
             and inside(model_dir or "") and os.path.isfile(cal) == EXPECT_CALIBRATION)
+# a graph whose channels and guard are off never asks the predictor (ladder engines, the rival emulator)
+oracle_needed = bool(getattr(getattr(graph, "_ENGINE", None), "oracle_needed", True))
+print(f"  oracle needed  : {oracle_needed}")
 '''
 
 
@@ -151,8 +154,10 @@ def validator(expect_calibration: bool) -> str:
     if verdict not in text:
         sys.exit('make_submission.VALIDATE_PY changed: update the graph checks')
     text = text.replace(verdict, GRAPH_CHECKS.replace('EXPECT_CALIBRATION', str(expect_calibration)).strip() + '\n'
-                        + 'verdict = "PASS" if (not failures and oracle_ok and resolved_ok and graph_ok) else "FAIL"')
-    return text.replace('all_resolved_inside_bundle={resolved_ok}"', 'all_resolved_inside_bundle={resolved_ok} graph_ok={graph_ok}"')
+                        + 'verdict = "PASS" if (not failures and (oracle_ok or not oracle_needed) and resolved_ok '
+                          'and graph_ok) else "FAIL"')
+    return text.replace('all_resolved_inside_bundle={resolved_ok}"',
+                        'all_resolved_inside_bundle={resolved_ok} graph_ok={graph_ok} oracle_needed={oracle_needed}"')
 
 
 FIDELITY_PY = '''
@@ -187,18 +192,32 @@ constants when the engine loads, and hazel_runtime/ adds its own layers on top o
 '''
 
 
+EMULATED_NOTICE = '''This directory holds the agent of the public Kaggle notebook "{title}"
+{url}
+pulled {pulled} and shipped unmodified (SOURCE.json lists the sha256 of each file).
+
+The notebook is released under the Apache License, Version 2.0 (LICENSE). The agent file keeps its
+upstream copyright and attribution notices, which name the earlier public work it derives from.
+
+hazel_runtime/rival_emulator.py runs this agent unmodified, from our own observations, to predict the
+orders of an opponent that plays it.
+'''
+
+
 def add_engine_notice(stage, graph):
-    """A ladder engine ships with the Apache-2.0 text and a NOTICE naming its notebook (not pinned:
-    the runtime verifies only the pinned files)."""
-    engine = next((n.get('engine') for n in graph['turn']['nodes'] if n['id'] == 'backbone'), None)
-    if not engine:
-        return None
-    engine_dir = stage / 'hazel_runtime' / 'engines' / engine
-    source = json.loads((engine_dir / 'SOURCE.json').read_text())
-    shutil.copy2(stage / 'hazel_runtime' / 'mohui_v66' / 'LICENSE', engine_dir / 'LICENSE')
-    (engine_dir / 'NOTICE').write_text(ENGINE_NOTICE.format(title=source.get('title', engine), url=source.get('url', ''),
-                                                            pulled=source.get('pulled_utc', '')))
-    return engine
+    """Every ladder engine shipped (the backbone's, and those the rival emulator runs) gets the Apache-2.0
+    text and a NOTICE naming its notebook (not pinned: the runtime verifies only the pinned files)."""
+    backbone = next((n.get('engine') for n in graph['turn']['nodes'] if n['id'] == 'backbone'), None)
+    engines_dir = stage / 'hazel_runtime' / 'engines'
+    shipped = sorted(d.name for d in engines_dir.iterdir() if (d / 'SOURCE.json').is_file()) if engines_dir.is_dir() else []
+    for engine in shipped:
+        engine_dir = engines_dir / engine
+        source = json.loads((engine_dir / 'SOURCE.json').read_text())
+        shutil.copy2(stage / 'hazel_runtime' / 'mohui_v66' / 'LICENSE', engine_dir / 'LICENSE')
+        text = ENGINE_NOTICE if engine == backbone else EMULATED_NOTICE
+        (engine_dir / 'NOTICE').write_text(text.format(title=source.get('title', engine), url=source.get('url', ''),
+                                                       pulled=source.get('pulled_utc', '')))
+    return backbone
 
 
 def clean_run(py, script, args, tmp):

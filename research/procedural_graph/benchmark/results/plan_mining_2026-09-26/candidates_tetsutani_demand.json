@@ -1,0 +1,66 @@
+{
+ "engine": "tetsutani_demand",
+ "candidates": {
+  "SMOOTHIE_SHOP|BAKERY": {
+   "tape": 110,
+   "ours": 105,
+   "seats": 11,
+   "win_rate": 0.8181818181818182,
+   "mean_margin": 6704.727272727273,
+   "ours_seats": 0,
+   "ours_win_rate": 0.0,
+   "ours_mean_margin": 0.0
+  },
+  "ICE_CREAM_SHOP|ICE_CREAM_SHOP": {
+   "tape": 110,
+   "ours": 105,
+   "seats": 12,
+   "win_rate": 0.6666666666666666,
+   "mean_margin": 2300.25,
+   "ours_seats": 0,
+   "ours_win_rate": 0.0,
+   "ours_mean_margin": 0.0
+  },
+  "ICE_CREAM_SHOP|BAKERY": {
+   "tape": 110,
+   "ours": 105,
+   "seats": 14,
+   "win_rate": 0.7142857142857143,
+   "mean_margin": 3460.714285714286,
+   "ours_seats": 0,
+   "ours_win_rate": 0.0,
+   "ours_mean_margin": 0.0
+  },
+  "FARMERS_MARKET|ICE_CREAM_SHOP": {
+   "tape": 110,
+   "ours": 107,
+   "seats": 11,
+   "win_rate": 0.7272727272727273,
+   "mean_margin": 3082.909090909091,
+   "ours_seats": 0,
+   "ours_win_rate": 0.0,
+   "ours_mean_margin": 0.0
+  }
+ },
+ "v92_table": {
+  "BAKERY|YARN_STORE": 9,
+  "BRUNCH_SPOT|YARN_STORE": 9,
+  "FARMERS_MARKET|YARN_STORE": 9,
+  "ICE_CREAM_SHOP|YARN_STORE": 9,
+  "PET_CAFE|YARN_STORE": 9,
+  "PIZZA_SHOP|YARN_STORE": 9,
+  "SMOOTHIE_SHOP|YARN_STORE": 9,
+  "YARN_STORE|BAKERY": 9,
+  "YARN_STORE|BRUNCH_SPOT": 9,
+  "YARN_STORE|FARMERS_MARKET": 9,
+  "YARN_STORE|ICE_CREAM_SHOP": 9,
+  "YARN_STORE|PET_CAFE": 9,
+  "YARN_STORE|PIZZA_SHOP": 9,
+  "YARN_STORE|SMOOTHIE_SHOP": 9,
+  "YARN_STORE|YARN_STORE": 9,
+  "SMOOTHIE_SHOP|BAKERY": 110,
+  "ICE_CREAM_SHOP|ICE_CREAM_SHOP": 110,
+  "ICE_CREAM_SHOP|BAKERY": 110,
+  "FARMERS_MARKET|ICE_CREAM_SHOP": 110
+ }
+}

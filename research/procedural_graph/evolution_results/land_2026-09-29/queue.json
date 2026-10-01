@@ -1,0 +1,32 @@
+[
+  {
+    "island": "Island-Land-Geese",
+    "edit": {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "GOOSE", "_LP_TILES": 8, "_LP_WORKERS": 2, "_LP_DAY": 12}},
+    "rationale": "Give the farm the land it never buys: the fourth quadrant from day 12 with 8 coops and geese (2 hands a day). The top teams keep 4 geese by day 9 and 7 by day 12; our tapes keep none by day 10. No land against a copy of our engine (_LP_MIRROR 0.9): against the public 0927 engine a fourth quadrant ended its clone race and handed it $11-15k."
+  },
+  {
+    "island": "Island-Land-Crops",
+    "edit": {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "WHEAT", "_LP_TILES": 12, "_LP_WORKERS": 1, "_LP_DAY": 12}},
+    "rationale": "The fourth quadrant from day 12 as a wheat field (12 tiles, 1 hand): wheat holds its price under volume and feeds the herd; the top teams have 15 wheat tiles by day 9 and 28 by day 12, we have 5 on day 10."
+  },
+  {
+    "island": "Island-Land-Timing",
+    "edit": {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "GOOSE", "_LP_TILES": 8, "_LP_WORKERS": 2, "_LP_DAY": 9, "_LP_MIN_MONEY": 500}},
+    "rationale": "Earlier land: from day 9, buying SW (the tape's day-11 quadrant) early and SE together when the money allows, so the geese lay from about day 14 instead of day 16. The top teams own 3 quadrants by day 9."
+  },
+  {
+    "island": "Island-Oracle",
+    "edit": {"parameters": {"_OG_ITEMS": ["MILK", "WOOL", "STRAWBERRY", "EGG", "CARROT"]}},
+    "rationale": "Test egg/carrot sale timing as one isolated extension of the required three-product guard. The 09-13 reference model is fixed; score is not probability."
+  },
+  {
+    "island": "Island-Land-Geese",
+    "edit": {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "GOOSE", "_LP_TILES": 12, "_LP_WORKERS": 3, "_LP_DAY": 12}},
+    "rationale": "A bigger goose yard: 12 coops and geese, 3 hands a day (a hand feeds, cares for and harvests about 4 geese a day)."
+  },
+  {
+    "island": "Island-Land-Crops",
+    "edit": {"channels": {"land_plot": true}, "parameters": {"_LP_USE": "TOMATO", "_LP_TILES": 10, "_LP_WORKERS": 1, "_LP_DAY": 12, "_LP_LAST_PLANT_DAY": 19}},
+    "rationale": "The fourth quadrant as a tomato plot from day 12 (tomatoes yield on days 8-11 after planting; tomato prices hold under volume): the top teams have 11 tomato tiles on day 20, our tapes 1.6."
+  }
+]

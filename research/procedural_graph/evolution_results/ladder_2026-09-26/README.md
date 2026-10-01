@@ -201,6 +201,23 @@ after its second rejection (iteration 37). Tables and caveats:
 | 60 | Oracle | gpt-6-astra | `_OG_SCORE` 0.5 → 0.55 | 7-14 | -$9 | 0.19 | rejected (stopped after 156 of 483 games) |
 | mix | Market, Oracle | (mixing, donor Opening) | the mirror counter (lead 12) | 175-9 | +$180 | 2e-15 | **promoted** (all games from the cache) |
 | mix | Next-Market | (mixing, donor Next-Production) | `_SR_MARGIN` 8 → 12 | 165-37 | +$9 | 1e-15 | **promoted**; Herd, Crops and Endgame already had every change of the donor |
+| 61 | Opening | gemini-3.8-flash | `_ADV_ITEMS` order (EGG and MILK swapped) | 1-1 | $0 | 1 | rejected (inert; stopped after 156 of 483 games) |
+| 62 | Endgame | gpt-6-luna | `_CH_SHED` 100 → 96 | 6-8 | -$2 | 0.79 | rejected (stopped after 156) |
+| 63 | Next-Market | gpt-6-luna | rival counter: race horizons 28 against mirror and wheat92_seller | 1-0 | $0 | 1 | rejected (inert; stopped after 156) |
+| 64 | Next-Production | gpt-6-astra | `_CXD_BUDGET`, `_S793_BUDGET` 800 → 1050 | 28-18 | +$1 | 0.18 | rejected (results +1/-2) |
+| 65 | Herd | claude-opus-5.5 | `_HD2_MIN_GAIN` 600 → 400 | 1-1 | $0 | 1 | rejected (inert; stopped after 156) |
+| 66 | Crops | gemini-3.1-pro-preview | `_SR_MARGIN` 8 → 12 | 176-110 | -$14 | 1e-4 | **promoted by results** (+16/-5, p = 0.027): the first promotion by the results test alone |
+| 67 | Tactics | claude-sonnet-5 | the first tactic: sell what is left in the shed in the last 4 turns (50 lines) | 1-0 | $0 | 1 | rejected (inert: the engine already sells out) |
+| 68 | Next-Counter | (queue) | the rival emulator | 204-3 | +$162 | 1e-15 | **promoted** (results +49/-0; tetsutani_demand 128-0 +$513, its 09-27 version 24-0 +$394) |
+| 69 | Opening | (queue) | the rival emulator | 232-1 | +$131 | 3e-15 | **promoted** (results +31/-0; tetsutani_demand 128-0 +$318, its 09-27 version 24-0 +$560) |
+| 70 | Endgame | gemini-3.8-flash | `_SR_HOURS` + hour 20 | 144-139 | +$2 | 0.81 | rejected (results +7/-7) |
+| 71 | Next-Market | gemini-3.8-flash | `_SR_MARGIN` 12 → 14 | 133-42 | +$6 | 3e-12 | **promoted** (results +9/-3) |
+| 72 | Next-Production | claude-opus-5.5 | `_S738_LOOK` 4 → 5 | 38-46 | +$18 | 0.45 | rejected (stopped after 156) |
+| mix | all but the donors | (mixing, donors Opening and Next-Counter) | the rival emulator | 204-3 to 232-1 | +$131 to +$164 | 1e-15 | **promoted** on Herd, Crops, Tactics, Endgame, Next-Market and Next-Production |
+| 73 | Herd | gpt-6-luna | counter against the emulated public engines: lead sells 12 | 31-37 | -$10 | 0.54 | rejected (results +0/-5; stopped after 156) |
+| 74 | Crops | gemini-3.8-flash | `_R51_INPUT_MAX_WORKERS` 2 → 3 | 1-1 | $0 | 1 | rejected (inert) |
+| 75 | Tactics | gemini-3.1-pro-preview | counter against the emulated public engines: `_ADV_LOOK` 4, lead sells 12 | 21-9 | +$5 | 0.043 | **promoted** (two tactics were proposed; the judge picked this) |
+| 76 | Next-Counter | gemini-3.8-flash | rival counter: `_S738_LOOK` 5 against the 09-27 engine and mirrors | 6-10 | +$2 | 0.45 | rejected (stopped after 156) |
 
 Paired on the same games with Island-Opening (lead 12), the longer leads lose against the public engine, which answers
 our earlier sales: lead 16 35 better / 91 worse (-$44 a game), lead 20 21/105 (-$236); wins against it 122-6 with 12
@@ -271,6 +288,33 @@ Iteration 11 per opponent (changed games W-L-T, mean change):
 - The cow-swap and herd-swap layers act in 2 and 6 of 48 games.
 - The carrot planner, the race layers and the opening tape never acted.
 - The `V9_HERD_*` limits are read only while the module loads.
+
+## 09-28: results-based promotion, the rival emulator, tactics, the top players
+
+- **22:30 UTC 09-27 restart** (`before_restart_results.sh`): promotion by results as well as dollars
+  (`graph_gauntlet.compare`). A changed game scores 1, 0.5 or 0; head-to-head against a draw, pool games against the
+  champion's result. Promoted when the dollar test passes or the results improve significantly, never when more
+  results turn against us than for us; the first stage stops a candidate only if it is no better in dollars and in
+  results. Replayed on the first 81 candidates (`flip_replay.py`), it would have promoted 9 more. Iteration 66 was the
+  first promotion by results alone.
+- **00:14 UTC restart at the iteration-67 boundary** (`before_restart_wait.sh` → `before_restart_emulator.sh`): the
+  `rival_emulator` and `tactic` stages. Graphs without them, rebuilt with the new runtime, replayed their cached games
+  exactly (`inert_test_em.sh`: 20 games against the 09-27 engine and 63 recorded Birch Hollow games), and the cache
+  carried over (70 score files, fingerprint 4b6b57a1 → 1c9d4a9e). Island-Market became Island-Tactics
+  (`convert_island.py --refocus`, backup `runs/ladder1/checkpoint_before_tactics.json`).
+- **The rival emulator is the run's biggest gain** (iterations 68 and 69, then every island in the mixing). It acts only
+  while it reproduces the rival move for move, so it changes the games against the public engines and almost nothing
+  else. On the 463 pool games: the 09-27 line against the old engine 98-30 → 114-14, against its own engine 8-2-14T →
+  23-1-0; the old line 122-6 → 126-2 and 1-23 → 4-20. One full game on cliproxyapi: 88 ms a turn against 78 without.
+- **Tactics**: the first (iteration 67) sold the shed's leftovers in the last turns and changed nothing, as the
+  engine already sells out; at 75 two tactics were proposed and the judge picked a counter edit.
+- **Top players** (`benchmark/`): against the recorded moves of the 80 best games of 09-26, our engines earned about
+  what the replaced top player had (`benchmark/results/top_bench_2026-09-26`); plan mining over 2,990 top games found
+  that they play none of our route tapes and keep twice the geese, tomatoes and carrots
+  (`benchmark/results/plan_mining_2026-09-26`); four worlds' tape 110 is queued for Island-Herd.
+- **Cedar Ridge's losses** (`shinka/champions/evidence/cedar_ridge_20260928/`): 42-57 in its first 99 games, 23 of the
+  57 losses against the public engine's 09-27 version. Candidates checked on its games (`backtest_cr`, `lost_cr`);
+  the 57 lost games join the plan at the restart after that check (`before_restart_cr.sh`).
 
 ## Validation (validate1, 780 games, done 12:26 UTC)
 

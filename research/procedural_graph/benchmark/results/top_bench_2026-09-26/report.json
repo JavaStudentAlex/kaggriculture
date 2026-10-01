@@ -1,0 +1,218 @@
+{
+ "cedar_ridge": {
+  "all": {
+   "games": 160,
+   "W": 93,
+   "L": 67,
+   "T": 0,
+   "mean_margin": 31393,
+   "our_cash": 114384,
+   "gap_to_top_player": 8660,
+   "gap_median": 2824
+  },
+  "min rating 2900-3000": {
+   "games": 20,
+   "W": 13,
+   "L": 7,
+   "T": 0,
+   "mean_margin": 35883,
+   "our_cash": 104283,
+   "gap_to_top_player": 1083,
+   "gap_median": -15360
+  },
+  "min rating 3000-9999": {
+   "games": 140,
+   "W": 80,
+   "L": 60,
+   "T": 0,
+   "mean_margin": 30752,
+   "our_cash": 115827,
+   "gap_to_top_player": 9743,
+   "gap_median": 4162
+  },
+  "per_game_sell_value": {
+   "WHEAT": 22239,
+   "CARROT": 6109,
+   "TOMATO": 2668,
+   "STRAWBERRY": 36998,
+   "MELON": 16563,
+   "EGG": 3344,
+   "MILK": 32339,
+   "WOOL": 28861,
+   "FERTILIZER": 35702
+  },
+  "per_game_sell_units": {
+   "WHEAT": 573.1,
+   "CARROT": 133.1,
+   "TOMATO": 11.4,
+   "STRAWBERRY": 273.7,
+   "MELON": 72.0,
+   "EGG": 67.4,
+   "MILK": 247.3,
+   "WOOL": 202.9,
+   "FERTILIZER": 1497.8
+  }
+ },
+ "next_production": {
+  "all": {
+   "games": 160,
+   "W": 87,
+   "L": 73,
+   "T": 0,
+   "mean_margin": 22425,
+   "our_cash": 111072,
+   "gap_to_top_player": 5349,
+   "gap_median": 1896
+  },
+  "min rating 2900-3000": {
+   "games": 20,
+   "W": 11,
+   "L": 9,
+   "T": 0,
+   "mean_margin": 31960,
+   "our_cash": 109988,
+   "gap_to_top_player": 6788,
+   "gap_median": 2582
+  },
+  "min rating 3000-9999": {
+   "games": 140,
+   "W": 76,
+   "L": 64,
+   "T": 0,
+   "mean_margin": 21063,
+   "our_cash": 111227,
+   "gap_to_top_player": 5143,
+   "gap_median": 1896
+  },
+  "per_game_sell_value": {
+   "WHEAT": 20671,
+   "CARROT": 6078,
+   "TOMATO": 2166,
+   "STRAWBERRY": 37544,
+   "MELON": 16517,
+   "EGG": 3259,
+   "MILK": 30842,
+   "WOOL": 28326,
+   "FERTILIZER": 16265
+  },
+  "per_game_sell_units": {
+   "WHEAT": 537.3,
+   "CARROT": 132.0,
+   "TOMATO": 9.5,
+   "STRAWBERRY": 278.9,
+   "MELON": 72.0,
+   "EGG": 66.5,
+   "MILK": 248.5,
+   "WOOL": 202.4,
+   "FERTILIZER": 359.0
+  }
+ },
+ "tetsutani_demand": {
+  "all": {
+   "games": 160,
+   "W": 93,
+   "L": 67,
+   "T": 0,
+   "mean_margin": 31427,
+   "our_cash": 114466,
+   "gap_to_top_player": 8742,
+   "gap_median": 3433
+  },
+  "min rating 2900-3000": {
+   "games": 20,
+   "W": 13,
+   "L": 7,
+   "T": 0,
+   "mean_margin": 35866,
+   "our_cash": 104279,
+   "gap_to_top_player": 1079,
+   "gap_median": -15248
+  },
+  "min rating 3000-9999": {
+   "games": 140,
+   "W": 80,
+   "L": 60,
+   "T": 0,
+   "mean_margin": 30793,
+   "our_cash": 115921,
+   "gap_to_top_player": 9837,
+   "gap_median": 4918
+  },
+  "per_game_sell_value": {
+   "WHEAT": 22215,
+   "CARROT": 6079,
+   "TOMATO": 2668,
+   "STRAWBERRY": 36971,
+   "MELON": 16563,
+   "EGG": 3344,
+   "MILK": 32548,
+   "WOOL": 28938,
+   "FERTILIZER": 35688
+  },
+  "per_game_sell_units": {
+   "WHEAT": 572.4,
+   "CARROT": 132.3,
+   "TOMATO": 11.4,
+   "STRAWBERRY": 273.6,
+   "MELON": 72.0,
+   "EGG": 67.4,
+   "MILK": 249.2,
+   "WOOL": 203.6,
+   "FERTILIZER": 1497.8
+  }
+ },
+ "tetsutani_demand_0927": {
+  "all": {
+   "games": 160,
+   "W": 87,
+   "L": 73,
+   "T": 0,
+   "mean_margin": 22424,
+   "our_cash": 111072,
+   "gap_to_top_player": 5349,
+   "gap_median": 1905
+  },
+  "min rating 2900-3000": {
+   "games": 20,
+   "W": 11,
+   "L": 9,
+   "T": 0,
+   "mean_margin": 31955,
+   "our_cash": 109987,
+   "gap_to_top_player": 6787,
+   "gap_median": 2586
+  },
+  "min rating 3000-9999": {
+   "games": 140,
+   "W": 76,
+   "L": 64,
+   "T": 0,
+   "mean_margin": 21063,
+   "our_cash": 111228,
+   "gap_to_top_player": 5144,
+   "gap_median": 1905
+  },
+  "per_game_sell_value": {
+   "WHEAT": 20677,
+   "CARROT": 6078,
+   "TOMATO": 2166,
+   "STRAWBERRY": 37548,
+   "MELON": 16517,
+   "EGG": 3258,
+   "MILK": 30849,
+   "WOOL": 28252,
+   "FERTILIZER": 16471
+  },
+  "per_game_sell_units": {
+   "WHEAT": 537.5,
+   "CARROT": 132.0,
+   "TOMATO": 9.5,
+   "STRAWBERRY": 278.9,
+   "MELON": 72.0,
+   "EGG": 66.5,
+   "MILK": 248.3,
+   "WOOL": 202.1,
+   "FERTILIZER": 371.3
+  }
+ }
+}

@@ -5,7 +5,69 @@ Loaded into the mutation, judge and supervisor prompts by `highcpu_island_evolut
 or in paired arena games belong here, with sample sizes and dates. Engine: kaggle-environments
 1.32.7.
 
+## Aspen Vale evidence and bounded run constraints
+
+For this authorized mutation run the baseline is Aspen Vale's `tetsutani_demand_0927`,
+`_SR_MARGIN=12` and rival emulator with the reference 09-13 predictor. Unlike the submitted
+Aspen Vale (guard off, zero forecasts), **every candidate must run the predictor and keep
+`oracle_guard` on with nonempty `_OG_ITEMS` in all rival families**; the local queue's two
+`_OG_ITEMS: []` engine-family overrides are not suitable for this run. The older seed and
+oracle-off results below are historical, not permission to remove the guard here. Source:
+`shinka/champions/evidence/aspen_vale_20260928/README.md` and `REVIEW_20260929.md`.
+
+- **Sale slots / tuned copies:** 17 of Aspen's first 31 losses were classed as mirrors;
+  near-copies often left the public engine in market order placement or quantity. The
+  engine interleaves both ten-entry lists by slot, unit by unit; earlier sales can capture
+  better prices. The guard only adds sales when free stock and a slot remain; it does not
+  optimize existing orders. Its estimated six flips / +$5,983 on 31 selected losses were
+  not continuing games: a full ten-slot list produced a credited sale in the estimator
+  but no added guard order. Test executed fills and final post-emulator positions.
+- **Carrots:** `_CA_MARGIN -15 -> -22` on the oracle-off Aspen line changed 36-31-0 to
+  38-29-0 across 67 recorded opponents (+$64.3 mean margin); on 31 lost seeds in both
+  seats against substitute live opponents it changed 51-11-0 to 53-9-0 (+$109.7).
+  Four wins were gained and two prior wins lost in the 67 replays. These are not
+  oracle-on interaction results; the 62-game six-proxy suite started at 51 wins.
+- **Tomatoes / geese:** Aspen's 31 losses had net tomato sales -$32,237 (-$1,040/loss)
+  and egg sales -$16,085 (-$519/loss) vs rivals; even its 36 wins had egg sales
+  -$14,169 (-$394/win). The estimated tomato expansion cost is about $7,500.
+  `_CXTB_MIN_REVENUE` controls a zero-to-ten-plant investment and rejects existing
+  tomato routes; Ichika's 18 vs 10 plants is a separate route-capacity problem, not a
+  lower-gate case. Geese cost $300 each, require a coop and ongoing wheat feed; check
+  labour, land and cash before inferring profit from egg volume.
+- **Forecast / comparison limits:** the reference 09-13 model forecasts only after
+  256 completed turns and at most 96 turns ahead. `score_4` is the maximum predicted
+  log1p sale across four horizons (or a calibrated score), not a probability or exact
+  volume. `_OG_BATCH=4` is not a hard cap: at score >= `_OG_STRONG_SCORE` (0.6 in the
+  reviewed guard) it sells all free stock. Neither replay-only private rival state nor
+  future shop draws can enter live decisions. The 09-26 calibration used 600 feed15-era
+  games, no held-out games in the all-games fit and no positive egg/tomato examples.
+  Round 3 labelled `guard26` reused the reference bundle without calibration; it is
+  **not** a refit comparison. Compare distinct verified bundle/checkpoint/calibration
+  identities on paired reactive games before switching models.
+- **Evidence boundary:** fixed rival action tapes cannot react to changed actions;
+  the 158/168 predicted-sale hits are conditional on proposed firings in 31 selected
+  losses, not ladder-wide precision or six replayed wins. Changed farm actions can
+  also shift later shop RNG draws on the same seed. Require both seats, held-out
+  seeds/opponents, errors and gained/lost wins before promotion.
+
 ## Engine facts (verified)
+
+### Completed Aspen guard tests, checked 2026-09-29 06:06 UTC
+
+- Reference 09-13 guard ALWAYS on: the 67-game fixed-tape backtest changed 36W-31L-0T
+  to 38W-29L-0T, mean margin -167.9 to -145.2; 62 lost-seed proxy games changed
+  51W-11L-0T to 53W-9L-0T, mean 709.1 to 758.0.
+- Fresh-seed pool including Aspen head-to-head, 180 games per graph: Aspen
+  157W-13L-10T vs guard 165W-10L-5T, mean margin 3436.2 to 3455.1. These games
+  now inform development; do not claim they remain an untouched final test set.
+- Tomato gate 7000 (oracle off) changed backtest to 38W-29L and proxies to 55W-7L.
+  Gate 6000 worsened them to 32W-35L and 47W-15L: prioritize 7000, not 6000.
+- The completed guard26-labelled results equal the reference because both used the
+  same old-model bundle. They are NOT evidence about September 26 weights.
+- The oracle-required branch checks live model availability every turn and requires
+  forecasts after warmup; a broken predictor makes a game fail instead of silently
+  using the backbone. Tactics can economically veto a sale; always-on prediction
+  does not mean forced selling. No empty-item family counters or enormous threshold opt-outs.
 
 - 720 turns (30 days x 24 hours); both seats start with $3,000; final cash decides.
 - Market orders: at most 10 entries per turn. Both seats' lists are walked index by index: the
@@ -151,6 +213,25 @@ against everyone else. Seven losses of $27k-$71k came against rivals who bought 
 step 0: our step-1 purchases left ~$20, the day-1 hire got 2 hands, a cow starved on day 2 and the
 farm never recovered. The engine does not have this weakness: it beats the 13-wheat opener 20-0.
 
+## Against the ladder's top players (Kaggle notebooks, 09-27)
+
+The 80 best games of 09-26 (average rating 3,030-3,083), both seats: our graph took one top player's seat on the
+game's seed against the other player's recorded moves (160 games per graph; benchmark/results/top_bench_2026-09-26).
+The old public engine (and Cedar Ridge, whose counter acts only against mirrors) earned $114.5k a game, a median
+$3.4k (mean $8.7k) more than the top player it replaced earned in the real game, and won 93-67 against the recorded
+moves; the 09-27 engine earned $111.1k (median +$1.9k), 87-73, and sold fertilizer worth $16k a game at the quote
+where the old engine sold $36k. The recorded moves do not react: they lost a median $12.6k against their real game,
+so these numbers flatter us. What the farm produces is not where the top players are far ahead of us.
+
+## What the top players' farms look like (plan mining, 2,990 games of 09-22..26)
+
+The ladder's best players (the daily top-game datasets) do not play our route tapes: only 9% of their seats come near
+any of the engine's 41 tapes in what they buy by days 6, 12, 20 and 29. Mean per seat, their winners against our own
+ladder games at the start of day 20: geese 5.7 against 2.5, tomato tiles 11.0 against 1.6, carrot tiles 5.8 against
+0.7, strawberry tiles 23.3 against 33.0, land quadrants 3.5 against 3.2, cows 8.2 against 7.3 (day 25: carrots 12.8
+against 9.8, strawberries 10.5 against 17.0). They diversify into geese, tomatoes and carrots where the tapes grow
+strawberries; which of these a layer or a tactic can add is untested (benchmark/results/plan_mining_2026-09-26).
+
 ## Alder Ford on the ladder (the Opening champion, submitted 2026-09-26 14:50 UTC)
 
 Alder Ford is the Opening island's champion of iteration 11 (the guard on MILK/WOOL/STRAWBERRY plus
@@ -258,6 +339,68 @@ Iterations 55-58 (09-27 evening):
   _S738_* (look 4, steps 144-718), _S758_ITEMS, _V92_P_*/_V92_Q_* (horizon 48); all are switchable, so all can be
   counters. The 30 games the 09-27 line loses to the old public engine are the largest open gain there.
 
+## The rival emulator: the rival's orders known before ours (since 09-28)
+
+Every observation shows both farms in full (money, every tile with its yield, positions, land) and the market;
+only the shed, the seeds and what each worker carries are private, and the environment is deterministic apart
+from weeds and shop unlocks at the end of a day. So when the rival runs a public engine we have, the optional
+`rival_emulator` stage (channel `rival_emulator`) runs that engine in the rival's place from our own view: it
+rebuilds the rival's private stock with the environment's own rules, checks every step against the next
+observation, and drops an engine at its first disagreement. On Birch Hollow's recorded games it emulated all five
+rivals that ran a public engine (two the old one, three the 09-27 one) exactly for all 719 moves, and dropped the
+one that left the old engine at move 418 at that move. In play it tells the old engine from the 09-27 one at step
+92, where they first differ. `_EM_ENGINES` lists the engines (default both), `_EM_LOCK` the matched steps before a
+prediction counts (12).
+While one engine matches, the rival's orders of the current turn are known before we send ours:
+- the rival counter's family `engine:<name>` applies (its own counters for an exact copy of that engine, next to
+  the step-93 classes), e.g. {"channels": {"rival_emulator": true, "rival_counter": true}, "counters":
+  {"engine:tetsutani_demand": {"_EV_H": 12}}};
+- with `_EM_RACE` (default on) our market orders are rearranged against the rival's known orders: both seats'
+  lists clear index by index, the two orders at one index unit by unit, so a sale queued behind the rival's sale
+  of the same product gets the lower prices. The stage keeps exactly the same orders and moves ours to the slots
+  that earn us the most in a simulation of the turn; nothing bought or sold changes.
+About 40% of Alder Ford's rivals near 2,000 ran the old public engine exactly for hundreds of moves, and the
+09-27 version's copies are spreading.
+
+## The tactic stage: code the evolution writes (since 09-28)
+
+Parameters only tune what the engine already does. The optional `tactic` stage (channel `tactic`, CONTROLS:
+TACTIC) runs a Python function given in the edit, `tactic(obs, action, memory, info)`, on our action every turn,
+after every other stage and before `sanitize` (legality) and the rival emulator's slot race. It sees the whole
+observation (both farms, the market, our private stock), our action as the engine and our layers left it, a
+`memory` dict kept for the game, and `info`: the rival counter's class (channel rival_counter), the public engine
+the rival emulator matched and, while it matches, the rival's action of this very turn (`info['rival_action']`,
+channel rival_emulator). It returns the new action, or None to keep it. Checked on 09-28: in a 40-step game a
+tactic that sells the shed's milk first ran on all 39 turns without an error. The sandbox refuses imports,
+attributes starting with an underscore, str.format, eval/open/getattr/print and top-level code other than
+functions, literal constants and docstrings; a turn may spend 200,000 ticks (loop iterations, comprehension
+elements, calls) and 0.25 s. A turn that raises or runs out of budget keeps the action, and after 20 such turns
+the tactic stays off for the game. Validation plays the candidate for 30 turns and then calls the tactic at steps
+96-719 on the last observation (moved to those steps): any error rejects the edit with the error text, so a retry
+can fix it. A tactic is judged like any edit, on the games it changes: one that acts in a few games changes few,
+and the first stage stops a candidate that changed at most four of its games.
+
+## Land: the land_plot stage (since 2026-09-29)
+
+- Our engine's 41 route tapes all buy the second quadrant (NE) at step 150 (day 6) and the third (SW) at step 265
+  (day 11), in every game, and never the fourth (SE); no engine parameter moves a land purchase. The ladder's top
+  teams (DSM 83% wins, DECEM, Vadim Vasilenko, Mother-Goose; tape mining of 09-22..09-28) all build the same bigger
+  farm: day 9 = 3 quadrants, 15 wheat, 19 strawberries, 11 melons, 4 geese, 8 cows, 5 sheep, 10 hands; day 12 =
+  3.4 quadrants (43% own all four), 28 wheat, 7 geese, first tomatoes. Aspen Vale's big losses were this gap.
+- The land_plot stage (channel land_plot) is the lever: from _LP_DAY it buys SE (and SW first, early, when the
+  tape has not bought it yet), hires _LP_WORKERS hands a day after the engine's own hires, and farms _LP_TILES SE
+  tiles with _LP_USE (a crop, or GOOSE: coop + $300 goose per tile, a wheat a day each). It buys its own seeds,
+  geese and feed and sells its produce. Costs: SE $4,000 (+$2,000 for SW early), a goose $300, feed ~$30 a goose a
+  day, and each extra hand fib(hires so far today) = $89, $144, $233 with the tape's 10 hands. A goose lays from 4
+  days after placing: 1 egg a day, 2 when also cared for, plus 1 fertilizer a day when collected; one hand keeps
+  about 4 geese fully (feed, care, harvest, collect).
+- Test games (cliproxyapi, 09-29): against the public 0927 engine every goose plot lost $5-24k of margin: that
+  engine races a rival it recognises as its own clone (same quadrants, 90-95% of occupied tiles alike), and the
+  fourth quadrant ends the recognition, so the rival leaves the race and earns $11-15k more. Hence _LP_MIRROR 0.9:
+  no land while the rival's farm is that alike (Mohui-family rivals such as abo_v57 also look alike, so the plot
+  stays off against them too). Set _LP_MIRROR 1.01 to buy against every rival. Wheat and tomato plots bought on
+  day 12 earned less than the quadrant and the hands cost in those games.
+
 ## What a candidate must do to be promoted
 
 It plays the same games as its island champion: every lost ladder seed (Rowan Glen's and Linden
@@ -267,9 +410,13 @@ plus head-to-head games against the champion, and since iteration 31 each of Ald
 tied games against a replay of the rival's recorded moves (below): 282 pool games and 20 head-to-head. Since
 the 09-27 restart also Alder Ford's 29 newer lost or tied games (from both seats against stand-ins,
 and their replays) and 10 random seeds against the public engine's 09-27 version: 379 pool games; since the restart after
-iteration 55 Birch Hollow's 28 lost games as well: 463 pool games. The gauntlet is staged: 30% of the games are
-played first, and a candidate that changed at most four of them, or made at least as many worse as better,
-stops there (rejected). Edits of layers that never act are therefore cheap to refute but still wasted. A rival no pool
+iteration 55 Birch Hollow's 28 lost games as well: 463 pool games. Since 09-28 a candidate is promoted when its
+dollar test passes (below) or when the games whose result (win, tie, loss) changed improved significantly, and
+never when it turns more results against us than for us: the ladder rates results. On the run's first 81
+candidates the results test would have promoted 9 more (among them _ADV_LOOK 4 at iteration 24, results +23/-1,
+and global lead 12 at iteration 51, +36/-2). The gauntlet is staged: 30% of the games are
+played first, and a candidate that changed at most four of them, or made at least as many worse as better
+in dollars and in results, stops there (rejected). Edits of layers that never act are therefore cheap to refute but still wasted. A rival no pool
 agent reproduces for 100 moves gets the agent of its opening, else tetsutani_demand (Alder Ford's)
 or haideptry_2965 (Rowan Glen's and Linden Brook's). Five 13-wheat losses of Rowan Glen and Linden
 Brook moved from abo_v57_open13 to tetsutani_shape_shop on 09-26 at 19:35 UTC, when it was found.
@@ -304,7 +451,21 @@ worse), +$450 on the 2965 family's held-out lost seeds (14/2) and +$150 against 
 against abo_v57_open13 (4/16). Selling earlier wins the races against the engine's clones and gives away price
 against agents that sell later. In the loop, _ADV_LOOK 4 was promoted on Island-Market at iteration 39 (159W-109L,
 +$28 a game, p = 0.003); the cows-only HERD2 edit was rejected on Island-Herd at iterations 31 and 37 (-$32, -$29). The mirror of
-the engine ties itself, so head-to-head margins start at 0. A change is promoted only if an exact
-sign test over the games whose result changed is significant (p <= 0.05) with a positive mean.
+the engine ties itself, so head-to-head margins start at 0. The dollar test is an exact sign test over the games
+whose margin changed (p <= 0.05) with a positive mean; the results test one over the games whose result changed.
 Small margins among the V57 family mean most games change by a few hundred dollars: an edit that
 gains $300 a game consistently is worth promoting.
+
+### Measured by hand on 2026-09-30 (fresh seeds, not this loop's gauntlet; do not re-propose)
+
+All on the 0927 engine with the oracle guard and KAD off, 200 paired games each (10 pool opponents x 10 fresh seeds x
+both seats), against the graph with `_R51_INPUT_CROPS` WHEAT (2,4,8) (the iteration-8 promotion, confirmed on fresh
+seeds: without it 78 better / 122 worse, -$75 a game; with the guard and KAD on, 146 / 94, +$79):
+- `_R51_INPUT_CROPS` WHEAT cap 10: identical to cap 8 in all 200 games (the planner's gain saturates at 8).
+- CARROT cap 6 (on top of wheat 8): 34 better / 152 worse, -$108 a game. Do not raise the carrot cap.
+- `_R51_INPUT_MAX_WORKERS` 3: identical in all 200 games.
+- `V9_FERT_FIRST_DAY` 10: 102 / 98, +$15 (neutral); 12: 28 / 28, -$20; `V9_FERT_AGES` (1, 2): 78 / 116 (worse).
+- `_CA_MARGIN` -30: 66 / 82, +$6 (neutral).
+- The engine's hard-coded cash reserves (a modified engine copy, not available here) are never binding except the
+  input planner's $3,000: tomato-plot money 12,000 -> 9,000, crop-worker reserve, sheep reserves and the day-11 check
+  changed 0 of 200 games; the planner's reserve 3,000 -> 1,500 with ROI 1.5 -> 1.25 gave 114 / 80 but -$39 a game.

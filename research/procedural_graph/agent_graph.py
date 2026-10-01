@@ -60,9 +60,12 @@ def get_engine():
         file = getattr(loaded, '__file__', None)
         if file and not Path(file).resolve().is_relative_to(bundle.resolve()):
             raise RuntimeError(f'Foreign {name} module already loaded: use process-isolated agents')
+    backend = os.environ.get('KAGG_ORACLE_BACKEND', 'numpy')
+    device = os.environ.get('KAGG_ORACLE_DEVICE', 'cpu')
+    cuda_dev = os.environ.get('CUDA_VISIBLE_DEVICES', '')
     os.environ.update(KAGG_MOHUI_DIR=str(bundle / 'mohui_v66'), KAGG_ORACLE_SRC=str(bundle),
                       KAGG_TTM_DIR=str(bundle / 'checkpoint'), KAGG_OPP_MODEL_SRC=str(bundle / 'opponent_model'),
-                      KAGG_ORACLE_BACKEND='numpy', KAGG_ORACLE_DEVICE='cpu', CUDA_VISIBLE_DEVICES='')
+                      KAGG_ORACLE_BACKEND=backend, KAGG_ORACLE_DEVICE=device, CUDA_VISIBLE_DEVICES=cuda_dev)
     sys.path.insert(0, str(bundle))
     champion = _load('champion', bundle / 'champion.py')
     runtime = _load('_merged_hazel_runtime', bundle / 'graph_runtime.py')

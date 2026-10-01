@@ -1,0 +1,16 @@
+{
+  "parent_run": "ladder1",
+  "parent_island": "Island-Next-Counter",
+  "parent_next_iteration": 93,
+  "parent_graph_canonical_sha256": "99508e7525447d95aa7b66a12c04df9236bb7f9128dcdebe051166d1089bb599",
+  "parent_graph_canonical_sha256_method": "sha256 of json.dumps(graph, sort_keys=True, separators=(',', ':')); its first 16 hex digits are the ladder1 bundle id (g_99508e7525447d95, crowned at iteration 92)",
+  "absorbed_from_ladder1": {
+    "_CA_MARGIN": "-22.0, Island-Next-Counter iteration 92 (queued): 304 of 467 changed games better, +$43 a game, p=6.7e-11, results +22/-12; in the parent",
+    "_SR_MARGIN": "14, Island-Next-Market iteration 71 (gemini-3.8-flash): 133 better / 42 worse, +$6.3 a game, results +9/-3; added to the seed",
+    "oracle_guard": "MILK/WOOL/STRAWBERRY, score 0.5, batch 4, keep 2, price ratio 0.75 (Island-Opening iteration 11; Island-Next-Market iteration 87: results +15/-1); on for every rival family in the seed"
+  },
+  "base_plan_games": 727,
+  "aspen_win_regressions_added": 36,
+  "total_games": 763,
+  "seed_semantics": "development games, not held-out validation"
+}

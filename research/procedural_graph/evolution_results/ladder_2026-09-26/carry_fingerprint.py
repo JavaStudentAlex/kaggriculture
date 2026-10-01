@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""One-off (2026-09-27): keep run ladder1's cached pool margins across the rival_counter runtime change.
+"""Keep run ladder1's cached pool margins across a runtime change that adds an optional stage (2026-09-27: the
+rival_counter stage; 2026-09-28: the rival_emulator stage).
 
     python carry_fingerprint.py RUN_DIR PLAN --old <fingerprint> [--apply]
 

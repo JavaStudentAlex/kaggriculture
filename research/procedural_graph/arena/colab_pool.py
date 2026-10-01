@@ -42,9 +42,9 @@ import time
 from pathlib import Path
 
 try:
-    from arena.colab_run import (WORKERS, ColabCLI, colab_link, finished, job_key, parse_endpoints)
+    from arena.colab_run import (GPUS, WORKERS, ColabCLI, colab_link, finished, job_key, parse_endpoints)
 except ImportError:  # run as a script from arena/
-    from colab_run import (WORKERS, ColabCLI, colab_link, finished, job_key, parse_endpoints)
+    from colab_run import (GPUS, WORKERS, ColabCLI, colab_link, finished, job_key, parse_endpoints)
 
 HERE = Path(__file__).resolve().parent
 REMOTE = '/content/pool'
@@ -115,6 +115,10 @@ if chunk:
         pass
 print('COLAB_POOL_STATUS ' + json.dumps(status))
 '''
+
+
+# A VM's setup takes ~20 s; a client-side exec hang (2026-09-29/30) otherwise holds every slot until it times out.
+SETUP_TIMEOUT = 420
 
 
 def parse_marker(text, marker):
@@ -194,7 +198,7 @@ class ColabPool:
         slot.made += 1
         session = self.session_name(slot)
         cli = self.cli(slot)
-        ok, out = cli.new(session, slot.shape in ('hm', 't4hm'), gpu='T4' if slot.shape.startswith('t4') else None)
+        ok, out = cli.new(session, slot.shape in ('hm', 't4hm'), gpu=GPUS.get(slot.shape))
         if not ok and session in parse_endpoints(cli.sessions()):
             ok = True
             self.log(f'[{session}] reported as not created, but it exists: using it')
@@ -216,7 +220,7 @@ class ColabPool:
                 raise RuntimeError(f'upload of the requirements failed: {out.strip()[-300:]}')
             setup = tmp / f'{session}_setup.py'
             setup.write_text(SETUP.format(root=REMOTE))
-            out = cli.exec_file(session, setup, 1200)
+            out = cli.exec_file(session, setup, SETUP_TIMEOUT)
             ready = parse_marker(out, 'COLAB_POOL_READY')
             if ready is None:
                 raise RuntimeError(f'setup failed: {out.strip()[-600:]}')

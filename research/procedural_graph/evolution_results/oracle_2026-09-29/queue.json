@@ -1,0 +1,12 @@
+[
+  {
+    "island": "Island-Oracle",
+    "edit": {"parameters": {"_OG_ITEMS": ["MILK", "WOOL", "STRAWBERRY", "EGG", "CARROT"]}},
+    "rationale": "Test egg/carrot sale timing as one isolated extension of the required three-product guard. The earlier all-items estimate also included tomato and melon, so it does not prove this change. The 09-13 reference model is fixed; score is not probability."
+  },
+  {
+    "island": "Island-Tomatoes",
+    "edit": {"engine_parameters": {"_CXTB_MIN_REVENUE": 7000}},
+    "rationale": "Completed oracle-off tests favored 7000: replays 36-31 to 38-29; substitute live opponents on lost seeds 51-11 to 55-7. The 6000 gate worsened both records, so do not queue it. But ladder1 iteration 88 (the Aspen line without the predictor, 747 games) rejected 7000: 49 games better, 36 worse, +$87 a game (p=0.19), results +16/-16. Test the interaction with the required predictor. This changes zero-to-ten investment only, not Ichika-style 10-to-18 route capacity."
+  }
+]

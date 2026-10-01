@@ -4,6 +4,38 @@ Read by `highcpu_island_evolution.py --ideas evolution_ideas_ladder.md` and show
 model; re-read each iteration, so it can be edited while a run is going. The seed graph plays the
 public "Demand-Preserving" engine (tetsutani_demand) as-is.
 
+- Priority 1 (09-29, the user's request: give the evolution a chance to vary the land it buys): the land_plot
+  stage (CONTROLS: LAND PLOT) on the three Island-Land-* islands. Vary when the fourth quadrant is bought
+  (_LP_DAY 8-18), what it holds (_LP_USE: GOOSE first, then WHEAT/TOMATO/CARROT), its size (_LP_TILES) and hands
+  (_LP_WORKERS; about 4 geese or 8-10 crop tiles per hand), and the money guards (_LP_MIN_MONEY, _LP_RESERVE).
+  Count what the plot costs (land, geese, feed, hands) against what it sells by day 29; earlier land means more
+  laying days but less cash for the engine's own plan. _LP_MIRROR decides against which rivals land is bought.
+
+## Aspen Vale oracle-required run (supersedes older seed/guard suggestions below for this run)
+
+- Baseline: current Aspen Vale (`tetsutani_demand_0927`, `_SR_MARGIN=12`, rival emulator) with `ttm_c256_h96_ft_2026-09-13` until a hash-checked calibrated 09-26 refit comparison.
+- Every candidate must run the predictor with `oracle_guard` on and nonempty `_OG_ITEMS` globally AND per-family; no channel-off or `_OG_ITEMS: []` counter.
+- Priority 1: test narrow MILK/WOOL/STRAWBERRY sale-slot mutations against tuned copies; compare moving existing sells vs adding orders under the ten-slot limit.
+- `_CA_MARGIN=-22` (ladder1 iteration 92: +$43 a game, p=7e-11) and `_SR_MARGIN=14` (ladder1 iteration 71) are in the seed since the 07:50 UTC 09-29 launch; do not re-propose them.
+- Priority 3: test `_CXTB_MIN_REVENUE` 9,000 -> 7,000 for zero-to-ten tomatoes; completed oracle-off tests favored 7,000 and worsened at 6,000. Ichika's 10-to-18 needs separate route ownership.
+- Tomato route ownership must budget seed cash, watering, harvest labour and storage; `_CXTB_OUR_UNITS` is not a planting command.
+- Priority 4: test geese/egg production separately, net of goose/coop purchases, wheat feed, labour and market proceeds.
+- Try EGG/CARROT guard expansion separately from the initial sale-slot and carrot-margin tests; `_OG_BATCH=4` does not cap strong-score sales.
+- `score_4` is not a probability; forecast only after 256 completed turns and at most 96 ahead, never from hidden rival state or future shops.
+- Use small evidence-led mutations in this same loop, not offsite LLM play/training; fixed replays diagnose but reactive paired games in both seats and fresh seeds decide.
+- Aspen Vale's 44 ladder games after 20:16 UTC 09-28 (19W-25L, rating 2,206 -> 2,175), exact money per product
+  from the environment's interpreter (0 mismatches; `shinka/champions/evidence/aspen_vale_20260929/`):
+  - The 19 wins against strong rivals are mirror races: no tomato, land or hire difference, median +$81.
+  - 12 of the 25 losses are by less than $600: milk, strawberry, wool and carrot sale races, 8 of them as seat 1.
+    Sale timing and order slots against engine copies decide these, not production.
+  - 8 losses by $5k-$24k to rivals rated 2,170-2,560 are economy scale. Per loss over all 25: wheat -$2,044,
+    eggs -$1,151, strawberries -$776, tomatoes -$768, carrots -$741, wool -$538; ahead only on melons (+$818),
+    and we spent less on hires (+$368), seeds and animals (+$387) and land. In 4 of the 8 the rival sold 89-102
+    tomatoes and we sold none; in 2 we bought more land than the rival and still lost.
+  - So against this band the engine under-invests: more wheat and geese early and a tomato plot are the
+    hypotheses (Crops, Herd, Tomatoes islands). Check every such edit against Aspen's recorded wins in the plan,
+    since a production change also moves the mirror races we win now.
+
 - Since iteration 31 the gauntlet also plays each of Alder Ford's 24 lost or tied games against the
   rival's recorded moves (replay_<episode> in the per-opponent results). These games tell whether an
   edit would have saved a real ladder loss.
@@ -69,3 +101,12 @@ public "Demand-Preserving" engine (tetsutani_demand) as-is.
   against their class, so a counter edit's changed games are that class's games.
 - The public engine's 09-27 version beats all our graphs 18-2. On the Island-Next-* islands (that engine as
   the backbone): start from its mirror, find its layers that act, and give it our guard and rival counters.
+- Tactics (channel tactic; knowledge: "The tactic stage") are for decisions no constant can express. Untested:
+  (1) with the rival emulator on, the rival's orders of this turn are known: when it sells a product we hold,
+  our sale of it in an earlier slot of the same turn clears before its units land, and a sale of ours right after
+  its sale gets the lowered prices (hold it back instead?); (2) the rival's farm is public: its crops (crop,
+  planted_day, yield_units) and animals are its coming sales, so our stock of the same product can go first;
+  (3) the last day: final cash decides, and stock left in the shed at step 719 is worth nothing; (4) rivals no
+  public engine reproduces (classes other_opening, other, nsell_opener; info['rival_family'] with the
+  rival_counter channel on): their visible farm is the only forecast. Keep a tactic narrow (a few dozen lines,
+  acting only where it means to), and send the whole new source when improving one.

@@ -840,7 +840,7 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   as new and plays again: remove entries once played.
 - **Staged gauntlet and proposals ahead** (since 09-27). `--stage_fraction 0.3` plays 30% of a candidate's games
   first (the same games for every candidate, `graph_gauntlet.first_stage`) and stops a candidate that changed at
-  most four of them or made at least as many worse as better (`stopped after n of m games` in the log; never
+  most four of them or made at least as many worse as better, in dollars and in results (since 09-28) (`stopped after n of m games` in the log; never
   promoted, the seen list and the bandit treat it as rejected). On the run's first 71 candidates it would have
   stopped 35, none of the 20 promoted, and saved 32% of the games
   (`evolution_results/ladder_2026-09-26/stage_replay.py` re-checks this on a run). `--prefetch` has the models
@@ -871,9 +871,30 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   one makes new VMs on the loop's first request (give the user their links).
   - The loop's wrapper touches the pool's STOP file when the loop ends, so the script kills the
     wrapper first. Killing only the python process would stop the pool and its VMs.
+  - **Freezing the wrapper (SIGSTOP, as `restart_graceful.sh` does) does not hold**: tmux 3.4 sends SIGCONT
+    to a stopped pane process at once. On 09-29 07:45 the "frozen" wrapper ran its `touch STOP` when the
+    loop was killed; the file was removed 27 s later. The pool reads STOP only between requests, so after
+    any stop or restart of a wrapper that has the touch, check `ls ~/kagg-evo/pool/STOP` and remove a file
+    the wrapper made before the request in flight ends. `~/kagg-evo/stop_ladder1.sh` (final stop; copy in
+    `evolution_results/ladder_2026-09-26/`) kills the wrapper first and removes such a file.
   - Run ladder1 has a budget of 200 iterations since 12:35 UTC 09-26. With the predictor in both graphs an
     iteration takes about 30 min, about 38 with the 302-game gauntlet since iteration 31, so the rest takes
     about 4 days and 120-140 compute units at 1.3 units/h (the account had 175.7 units at 18:00 UTC 09-26).
+  - **ladder1 was stopped for good at 07:45 UTC 09-29** (user: stop it and start a new run that absorbs its
+    best and uses the predictor), at iteration 93 (abandoned; checkpoint at next iteration 93). It had
+    stalled: iterations 80-91 promoted only a queued edit. Its successor is the predictor-required run
+    below.
+- **Predictor-required run (since 07:50 UTC 09-29).** `evolution_results/oracle_2026-09-29/` (README
+  there), code snapshot and run dir in `~/kagg-evo/oracle-20260929/{repo,run}`, tmux `kagg-evo-oracle`
+  (`launch.sh`, log `~/kagg-evo/oracle-20260929/run.log`, marker `ORACLE_EVOLUTION_EXIT=`), on the same
+  pool. Seed = ladder1's Island-Next-Counter champion (Aspen Vale's line + `_CA_MARGIN` -22, crowned at
+  iteration 92) + Next-Market's `_SR_MARGIN` 14 + the oracle guard (milk/wool/strawberry, score 0.5, batch
+  4, keep 2, price ratio 0.75) with `require_oracle`: every candidate keeps the guard on, and a game with a
+  missing or failed predictor cannot count. The predictor is the 09-13 reference (sha 3c94bfc5), no
+  calibration. Six islands (Crops, Oracle, Tactics, Tomatoes, Herd, Endgame) that all mix every 6
+  iterations; 763 games (ladder1's 727 + Aspen Vale's 36 wins as a regression check); budget 40
+  iterations (`ITERATIONS=`). A predictor game takes ~176 s on a High-RAM VM against ~42 s without, so a
+  full 763-game gauntlet takes ~56 min on the 5 VMs. Its launcher does not touch the pool's STOP file.
   - Pool margins are cached per game (`<run>/scores/<bundle>.json`). A margin stays valid while the
     gauntlet fingerprint (everything under `hazel_runtime/`, `agent_graph.py`, the harness, the
     head-to-head seeds and the engine version) and the digest of its opponent's bundle are unchanged. The
@@ -883,6 +904,15 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   - `BEFORE_START='<command>' restart_ladder1.sh ...` runs a command after the kill and before the new start;
     if it fails, the loop is not restarted. The 09-26 19:35 restart used it for `upgrade_scores.py`, which
     carried the cache over to the per-game format (the old fingerprint had covered the plan).
+- **Land run (since 13:54 UTC 09-29; replaces the predictor-required run, which stopped at 09:13 after its seed
+  baseline).** The user asked for the evolution to be able to vary the land it buys: the engine's tapes buy NE on day 6
+  and SW on day 11 in every game and never SE, while the top teams own 3 quadrants by day 9. New optional turn stage
+  `land_plot` (`hazel_runtime/land_plot.py`, channel `land_plot`, `_LP_*` parameters): buys SE from `_LP_DAY` and farms
+  it with a crop or geese through hands hired after the engine's own; `_LP_MIRROR` keeps it off against a clone-like
+  rival (the public 0927 engine races its clones and profits when we break the mirror). Same seed and 763-game plan as
+  the predictor-required run; islands Land-Geese, Land-Crops, Land-Timing, Oracle, Tactics, Herd (`--islands land`).
+  Code, tmux and results: `evolution_results/land_2026-09-29/README.md`. The gauntlet's opponent digests include
+  absolute paths: bundles copied into a new run dir look changed, so a cache carry across run dirs needs `fix_carry.py`.
 - **Aim edits at layers that act.** `engine_activity.py` shows which of an engine's layers change its
   actions in play and which parameters each layer reads. It wraps each saved parent `agent`, and the
   recorded games equal unwrapped ones. For tetsutani_demand, 34 of 76 layers never acted in 48 games,
@@ -920,11 +950,113 @@ runs a ladder agent as its production engine and evolution tunes that engine and
   without the node play exactly as before. Evidence and the per-class value of each change:
   `shinka/champions/evidence/alder_ford_20260927_0940/README.md`; offline tools in
   `research/procedural_graph/rival/` (`rival_features.py`, `class_value.py`); tests `test_rival_counter.py`.
+- **Results-based promotion (since 22:30 UTC 09-27).** The ladder rates results, not dollars. A game scores 1
+  (win), 0.5 (tie) or 0; a head-to-head game counts against a draw, a pool game against the champion's result on it.
+  A candidate is promoted when the dollar test passes (more changed games better than worse, positive mean, sign
+  test) or when its changed results improved significantly (`results_up`/`results_down`, sign test), and never
+  when more results turned against us than for us (`results_net < 0`); the log shows `results +u/-d` and
+  `PROMOTED (by dollars|results)`, and island gains rank by results first. On the run's first 81 candidates the
+  results test would have promoted 9 more (`evolution_results/ladder_2026-09-26/flip_replay.py`).
+- **Rival emulator (since 2026-09-28).** The optional `rival_emulator` turn stage (`hazel_runtime/rival_emulator.py`,
+  first in the chain) runs every public engine of `_EM_ENGINES` (default both tetsutani versions) in the rival's place
+  from our own view: the rival's private stock (shed, seeds, bags) is rebuilt with the environment's rules, each
+  step is checked with the environment's interpreter against the next observation, and an engine that disagrees
+  is dropped (the two tetsutani versions part at step 92). While one matches (at least `_EM_LOCK` steps), the
+  rival counter's family `engine:<name>` applies, a tactic sees the rival's action of the turn, and with
+  `_EM_RACE` our market orders move to the slots that earn most against the rival's known orders (the same orders;
+  whole steps simulated, at most 60 a turn). `rival/emulate_replay.py` emulated all 5 public-engine rivals of Birch
+  Hollow's recorded games for all 719 moves. Cost, one full game on cliproxyapi: 88 ms a turn against 78 ms
+  without (max 482 ms), and the race gained $133 in that mirror game. Tests `test_rival_emulator.py`.
+- **Tactic stage (since 2026-09-28).** The optional `tactic` turn stage (`hazel_runtime/tactic.py`, right before
+  `sanitize`) runs Python the mutating models write, `def tactic(obs, action, memory, info)`, on our action every
+  turn, in a sandbox: AST checks (no imports, underscore attributes, str.format, eval/open/getattr/print, global
+  code), 200,000 ticks and 0.25 s a turn, off for the game after 20 failed turns. An edit gives the whole source
+  (`{"channels": {"tactic": true}, "tactic": "<source>"}`); mixing carries it. `validate_graph` rejects a tactic
+  that fails in the 30-turn validation game or when called at later steps (`PROBE_STEPS`) on its last
+  observation, and the error goes back to the model. Island-Tactics (Island-Market's champion and history,
+  refocused on 09-28) writes them. Tests `test_tactic.py`.
+- **Deploying a runtime change** (the emulator and tactic restart of 09-28 is the example): an inert test first
+  (`evolution_results/ladder_2026-09-26/inert_test_em.sh`: graphs without the new stages, renamed so their bundles
+  are rebuilt with the new runtime, must replay cached games exactly, `same_games.py`), then a restart whose
+  BEFORE_START syncs the staged code (`~/kagg-evo/dev` → `~/kagg-evo/repo`) and runs `carry_fingerprint.py --old
+  <fingerprint> --apply` (`before_restart_emulator.sh`, `before_restart_wait.sh`).
+- **Top-player benchmark (`research/procedural_graph/benchmark/`).** `make_top_bench.py` builds a private dataset
+  (the bundles, arena.py, `top_bench.py`) and N Kaggle CPU notebooks that attach the daily top-game datasets (free:
+  no Colab units, no GPU quota). In each, every graph takes one top player's seat against the other's recorded
+  moves on the game's seed; `top_bench_report.py` gives W-L against the replays, our cash against what the replaced
+  player earned, and sales per product.
+- **Plan mining (`benchmark/`).** `plan_mining.py` (a Kaggle CPU notebook built by `make_plan_mining.py`, standard
+  library only) writes per game and seat of the attached days: the world (the first two shops, as the public
+  engine reads them at step 144 to pick its route tape), the result, the farm census on eight days, purchases
+  summed by day and sales by product. `route_plans.py` (cliproxyapi) counts our engines' 41 route tapes the same
+  way and lists each world's tape; `plan_report.py` compares them per world and proposes `_V92_TABLE` edits
+  (that table overrides the tape of any first-two-shop pair) for the queue.
 - **Islands on another engine.** An island may carry its own `seed` (`add_islands.py` adds one,
   `convert_island.py` moves an existing island onto another island's champion and seed in its place in the
-  rotation, as Island-Oracle became Island-Next-Counter on 09-27); it mixes only with
+  rotation, as Island-Oracle became Island-Next-Counter on 09-27; `--refocus` keeps the champion and history
+  and changes only the name and focus, as Island-Market became Island-Tactics on 09-28); it mixes only with
   islands on the same engine (`EditEvolution.donors`). `graph_edits.validate_graph` checks a copy re-pinned to
   the runtime on disk (as `write_graph_bundle` does in every bundle), so a runtime change does not invalidate the
   graphs being evolved. A runtime change still changes the gauntlet fingerprint: check that unchanged graphs
   replay their cached games, then `carry_fingerprint.py`.
 - Results and the iteration table: `evolution_results/ladder_2026-09-26/README.md`.
+
+## 15. KAD-HP-1 expert iteration on a Colab VM (2026-09-29)
+
+KAD-HP-1 (`research/action_diffusion/policy.py`, the per-turn policy trained on the replays) plays whole
+games but wins none (0W-760L in the 09-28 tournament, a third of the bots' cash). The RL step agreed with
+the user is expert iteration, run by `research/action_diffusion/kad_rl.py` on one Colab VM and driven from
+cliproxyapi by `research/procedural_graph/arena/kad_rl_colab.py` (section 3.1's rules).
+
+- **Play options** (`play.PolicyPlayer`): `temperature` + `sample_seed` (every head draws at that temperature,
+  Gumbel-max from a CPU generator, so a game replays), `fit_seeds` (`policy.fit_plants`: the engine turns every
+  PLANT of a crop into a pass when a turn asks for more than the seeds held; the farmer, then the hands, keep
+  their crop while its seeds last, else take the crop with seeds left that the job head likes best, else pass;
+  a PLANT on a tile that is not empty passes), `device` (`cuda`: `arena_main.py` makes the GPU visible again,
+  bundle_agent hides it). `Policy.act` runs the market decoder once per slot, not twice; the greedy choices are
+  bit-identical (checked on the 145k checkpoint, `test_rl.py`).
+- **How the model plays** (`play` in `kad_rl.py`): at temperature 0.7, sample seed 7, without `fit_seeds`.
+  Greedy play is the model's worst mode. In the first run (below) the same model at 0.7 beat its greedy play by
+  $50.7k ± 3.7k a game (123 of 144 paired games; 0.5: +$33k, 1.0: +$40k, 0.3: +$7k), and `fit_seeds` cost greedy
+  play $11.5k ± 2.5k a game (280 pairs). Any agent built from KAD-HP-1 should sample at 0.7.
+- **The loop** (`kad_rl.py run`, state in `/content/kadrl/state.json`, every step repeatable): baseline = the
+  model playing as `play` says on 7 ladder bots x the 20 tournament seeds (salt 20260924) x both seats (280
+  games; `baseline_checks` adds variants on the same games); then per iteration 12 fresh seeds x 6 bots x 2
+  seats = 144 groups, each played 5 times at temperature 1.0 (the model's own distribution: a fine-tune on games
+  drawn at 0.7 would also teach the sharper distribution, and each iteration would move the play toward greedy).
+  Each game is scored by its margin plus `farm_weight` (5, the user's choice) times our farm value averaged over
+  days 10 and 20. Farm value is land bought, animals placed and seeds in the ground, from `kad_arena.farm_census`,
+  which every result row carries for days 5-25. The best-scoring game of a group is kept when it scores above the
+  group's mean (its seat encoded into `own/`, labelled with the model's prompt: team Boey, 2026-09-25, a win at
+  the prompt's excess margin); a 3,000-step fine-tune (lr 3e-5, `policy_train.py --init-from --keep-conditions`,
+  `--tpu` on a TPU VM) on every kept game plus twice as many replay seats (winners of the top-30 teams of
+  09-24/25, encoded on the VM from Kaggle's public day zips), validated on 09-25's held-out games (guard: rejected
+  if the loss ends above 1.25x its start); the candidate replaces the model when its mean margin on the 280
+  evaluation games (played as `play` says, same sample seed) is higher. The farm bonus steers only the
+  selection; acceptance is by margin. At most 6 iterations; stops after 2 rejections in a row. Settings:
+  `DEFAULTS` in `kad_rl.py`, changed with `kad_rl.py pack --set key=JSON` (`greedy_reference=true` and
+  `temperatures=[0.3,0.5,0.7,1.0]` with `play` greedy give back the first run's recipe).
+- **Hardware** (measured 09-29): colab4's L4 VM (12 CPUs, 55 GB, 1.54 units/h) plays with the model on the GPU,
+  ~50 s a game (Kaggle CPU notebooks: ~400 s), and fine-tunes on the GPU. The TPU path is kept: pack with
+  `--set device='"cpu"' --set accelerator='"tpu"'` and run the runner with `--vm tpu:v5e1` (24 CPUs, 2.92/h);
+  not yet run end to end. GPU and CPU inference play the same model slightly differently (near-ties flip) and
+  single games diverge by tens of thousands of dollars, so compare only games played on one kind of machine.
+- **Run** (on cliproxyapi, in `~/kagg-colab/kadrl/`: `repo/` is an rsync of the files the job needs):
+  `python3 repo/research/action_diffusion/kad_rl.py pack --model <best.pt> --out runs/<run>`, then in tmux
+  `kagg-colab-kadrl` with the kagg-colab HOME and PATH: `python3 repo/research/procedural_graph/arena/kad_rl_colab.py
+  --account colab4 --vm gpu:L4 --session kadrl --bootstrap runs/<run>/kadrl.tar.gz --out runs/<run>/pulled
+  [--smoke-first]`. The runner logs the VM's link and the loop's `KAD_RL` events, pulls the state every 10 min,
+  moves the loop to a new VM at 10 h (PAUSE, exit 75) or when Colab deletes it, and stops the loop below
+  `--min-units` (15) or after `--max-hours` (48); it ends with `COLAB_VMS_LEFT=0`. To end a run cleanly,
+  `touch runs/<run>/pulled/STOP` (the runner passes it to the loop at the next poll, pulls and stops the VM; a
+  PAUSE file there moves the loop to a new VM with the bootstrap as packed now). Ctrl-C in the tmux window stops
+  the VM at once (the runner's exit line is then `KAD_RL_RUNNER_EXIT=130`); `--attach --session <name>` follows a
+  VM that a killed runner left. Tests: `test_rl.py` (with `test_policy.py`, `test_data.py`, ... 65 pass on
+  cliproxyapi's `~/kagg-colab/ad_check/venv-torch`, which has the arena's pinned packages for the census tests).
+- **First run, 2026-09-29** (`runs/kadrl_0929`, 08:07-12:19 UTC from the 145k GPU checkpoint, sha256 9d564cd0…;
+  greedy play with `fit_seeds`, greedy reference): baseline 0W-280L, mean margin -$109k; iteration 1 kept 131 of
+  144 groups (the sampled games beat greedy almost everywhere), fine-tune val loss 3.10 -> 2.71, candidate
+  rejected at -$10.6k ± 2.5k a game (112 better, 168 worse). Stopped by decision during iteration 2. State in
+  `runs/kadrl_0929/pulled/state`.
+- **Second run, 2026-09-29** (`runs/kadrl_0929b`, from 12:41 UTC, VM session `kadrl2` on colab4's L4, same
+  checkpoint; the recipe above with farm weight 5, smoke run first): results in `runs/kadrl_0929b/pulled/state`.

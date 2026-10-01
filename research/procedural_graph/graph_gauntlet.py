@@ -5,9 +5,10 @@ bundle x the run's seeds (its seat alternates with the seed index: the engine is
 seat-symmetric and the agents deterministic, so one game per seed), plus a
 head-to-head block against the incumbent itself. Per job, the candidate's cash
 margin is compared with the incumbent's margin on the same job; the incumbent's
-head-to-head baseline is its own mirror, margin 0 (measured exact). An exact sign
-test over the jobs whose result changed, plus a positive mean change, decides
-promotion. Games run in process-isolated agents (arena/arena.py), locally or on a
+head-to-head baseline is its own mirror, margin 0 (measured exact). A candidate is
+promoted when an exact sign test over the jobs whose margin changed, plus a positive mean
+change, is significant, or when one over the jobs whose result (win, tie, loss) changed is,
+and never when its results got worse on balance (compare). Games run in process-isolated agents (arena/arena.py), locally or on a
 remote box over ssh; everything is written under the run directory.
 
 A staged evaluation (`stage_fraction`) plays a fixed share of the jobs first and the rest only
@@ -16,6 +17,7 @@ that share instead of the whole gauntlet.
 """
 from __future__ import annotations
 
+import errno
 import hashlib
 import json
 import math
@@ -24,6 +26,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from importlib import metadata
 from pathlib import Path
@@ -63,6 +66,20 @@ def _tree_digest(paths):
     return h.hexdigest()
 
 
+def _bundle_digest(directory):
+    """Executable bundle identity, independent of its directory and graph display name."""
+    h = hashlib.sha256()
+    graph = json.loads((directory / 'policy_graph.json').read_text())
+    graph.pop('name', None)
+    h.update(json.dumps(graph, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())
+    for path in sorted(directory.rglob('*')):
+        if (path.is_file() and path != directory / 'policy_graph.json'
+                and '__pycache__' not in path.parts and path.suffix not in ('.pyc', '.bak')):
+            h.update(str(path.relative_to(directory)).encode())
+            h.update(hashlib.sha256(path.read_bytes()).digest())
+    return h.hexdigest()
+
+
 def job_key(job):
     return f"{job['tag']}|{job['seed']}|{job['a_seat']}"
 
@@ -87,15 +104,38 @@ def margins(rows, candidate):
     return out, errors
 
 
+def result_points(margin):
+    """A game's result as the ladder rates it: 1 for a win, 0.5 for a tie, 0 for a loss."""
+    return 1.0 if margin > 0 else 0.5 if margin == 0 else 0.0
+
+
 def compare(candidate, baseline, alpha=0.05):
-    """Paired comparison of a candidate evaluation with its incumbent's baseline."""
+    """Paired comparison of a candidate evaluation with its incumbent's baseline.
+
+    Dollars: a game is better when its margin grew (head-to-head: when the candidate won it). Results: the
+    ladder rates only wins, ties and losses, so a game's result changes by the candidate's result points minus
+    the incumbent's on the same job (head-to-head: minus a draw's, since a graph against itself draws). A
+    valid candidate is promoted when its dollar test passes (more games better than worse, a positive mean
+    change and a significant sign test) or its results improved significantly (a sign test over the games
+    whose result changed), and never when its results got worse on balance (results_net < 0). On run
+    ladder1's first 81 candidates the results test would have promoted 9 more and the veto none fewer
+    (evolution_results/ladder_2026-09-26/flip_replay.py)."""
     diffs = []
+    up = down = 0
+    net = 0.0
     for key, margin in candidate['margins'].items():
         tag = key.split('|')[0]
         if tag == HEAD_TO_HEAD:
             diffs.append((tag, margin))
+            change = result_points(margin) - 0.5
         elif key in baseline['margins']:
             diffs.append((tag, margin - baseline['margins'][key]))
+            change = result_points(margin) - result_points(baseline['margins'][key])
+        else:
+            continue
+        up += change > 0
+        down += change < 0
+        net += change
     wins = sum(d > 0 for _, d in diffs)
     losses = sum(d < 0 for _, d in diffs)
     n = len(diffs)
@@ -110,12 +150,19 @@ def compare(candidate, baseline, alpha=0.05):
     for t in per_tag.values():
         t['mean'] = round(t.pop('sum') / t['n'], 1)
     p = sign_test(wins, losses)
+    results_p = sign_test(up, down)
     expected = len(candidate.get('jobs') or []) or n
     valid = not candidate.get('errors') and not candidate.get('fallbacks') and n == expected
+    by_dollars = wins > losses and mean > 0 and p <= alpha
+    by_results = net > 0 and results_p <= alpha
+    promote = bool(valid and net >= 0 and (by_dollars or by_results))
     return {'valid': valid, 'jobs': n, 'expected_jobs': expected, 'wins': wins, 'losses': losses,
             'ties': n - wins - losses, 'mean_change': round(mean, 1), 'se': round(se, 1),
             'p': p, 'alpha': alpha, 'per_opponent': per_tag,
-            'promote': bool(valid and wins > losses and mean > 0 and p <= alpha)}
+            'results_up': up, 'results_down': down, 'results_net': net, 'results_p': results_p,
+            'promote': promote,
+            'promoted_by': ('dollars and results' if by_dollars and by_results else
+                            'dollars' if by_dollars else 'results') if promote else None}
 
 
 class LocalExecutor:
@@ -306,15 +353,38 @@ class Gauntlet:
         return self.fingerprint
 
     def bundle(self, graph):
-        """Bundle directory name for a graph (content-addressed, built once)."""
-        name = 'g_' + graph_fingerprint(graph)[:16]
-        dst = self.run_dir / 'bundles' / name
-        if not dst.exists():
-            tmp = self.run_dir / 'bundles' / f'.{name}.tmp'
-            shutil.rmtree(tmp, ignore_errors=True)
-            payload.write_graph_bundle(tmp, graph, name)
-            tmp.rename(dst)
-        return name
+        """Reuse legacy names only for matching executable contents; publish new bundles once."""
+        root = self.run_dir / 'bundles'
+        root.mkdir(parents=True, exist_ok=True)
+        legacy = 'g_' + graph_fingerprint(graph)[:16]
+        tmp = Path(tempfile.mkdtemp(prefix=f'.{legacy}.', dir=root))
+        try:
+            payload.write_graph_bundle(tmp, graph, legacy)
+            digest = _bundle_digest(tmp)
+            old = root / legacy
+            if old.is_dir() and _bundle_digest(old) == digest:
+                return legacy
+            name = 'g_' + digest[:16]
+            dst = root / name
+            if dst.exists():
+                if not dst.is_dir() or _bundle_digest(dst) != digest:
+                    raise RuntimeError(f'bundle identity collision or damaged bundle: {dst}')
+                return name
+            policy = tmp / 'policy_graph.json'
+            bundle_graph = json.loads(policy.read_text())
+            bundle_graph['name'] = name
+            policy.write_text(json.dumps(bundle_graph, indent=2) + '\n')
+            try:
+                tmp.rename(dst)
+            except OSError as error:
+                if error.errno not in (errno.EEXIST, errno.ENOTEMPTY):
+                    raise
+                if not dst.is_dir() or _bundle_digest(dst) != digest:
+                    raise RuntimeError(f'bundle identity collision or damaged bundle: {dst}')
+            return name
+        finally:
+            if tmp.exists():
+                shutil.rmtree(tmp)
 
     def jobs(self, candidate, incumbent=None):
         if self.plan:
@@ -406,21 +476,20 @@ class Gauntlet:
         return result
 
     def stop_after_first_stage(self, found, baseline):
-        """Why a staged evaluation ends after its first stage, or None. A promotion needs more games
-        better than worse, a positive mean change and a significant sign test over all the jobs, so
-        the rest is not played when the first stage changed at most INERT_CHANGES games ("inert"), or
-        when its changed games went worse at least as often as better ("not better"). On run ladder1's
-        71 played candidates (stage_replay.py) a 30% first stage stopped 35, none of the 20 promoted,
-        and saved 32% of the games."""
+        """Why a staged evaluation ends after its first stage, or None. A promotion needs a significant
+        gain in dollars or in results over all the jobs (compare), so the rest is not played when the
+        first stage changed at most INERT_CHANGES games ("inert"), or when its changed games went worse
+        at least as often as better and its results did too ("not better")."""
         stats = compare({'margins': found}, baseline, self.alpha)
         if stats['wins'] + stats['losses'] <= self.INERT_CHANGES:
             reason = 'inert'
-        elif stats['wins'] <= stats['losses']:
+        elif stats['wins'] <= stats['losses'] and stats['results_up'] <= stats['results_down']:
             reason = 'not better'
         else:
             return None
         return {'reason': reason, 'wins': stats['wins'], 'losses': stats['losses'],
-                'mean_change': stats['mean_change']}
+                'mean_change': stats['mean_change'], 'results_up': stats['results_up'],
+                'results_down': stats['results_down']}
 
     def _store(self, bundle, pool_margins):
         tags = sorted({key.split('|')[0] for key in pool_margins})

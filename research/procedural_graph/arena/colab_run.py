@@ -6,7 +6,8 @@
 
 Each `--vm COMMAND:SHAPE` starts one VM with that account's CLI wrapper (colab1..colabN,
 created by colab-add-account). SHAPE is `hm` (High-RAM: 8 CPUs, 51 GB, Pro accounts only)
-or `std` (2 CPUs, 12.7 GB); `t4hm` / `t4` add a T4 GPU (t4hm: 8 CPUs, 50 GB; for calib_worker.py).
+or `std` (2 CPUs, 12.7 GB); `t4hm` / `t4` add a T4 GPU (t4hm: 8 CPUs, 50 GB; for calib_worker.py);
+`l4` is an L4 GPU VM (12 CPUs, 55 GB), the most CPUs a paid account without High-RAM gets.
 The payload's jobs that are not yet in --out are split across the VMs in proportion to their
 workers (8 per High-RAM VM, 2 per standard VM by default).
 Each VM is handled in its own thread:
@@ -55,7 +56,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REMOTE = '/content/arena'
-WORKERS = {'hm': 8, 'std': 2, 't4': 2, 't4hm': 8}   # t4*: a T4 GPU VM (calib_worker.py uses the GPU)
+WORKERS = {'hm': 8, 'std': 2, 't4': 2, 't4hm': 8, 'l4': 11}   # t4*: a T4 GPU VM (calib_worker.py uses the GPU)
+GPUS = {'t4': 'T4', 't4hm': 'T4', 'l4': 'L4'}   # the GPU a shape's VM is created with
 READOPT = HERE / 'colab_readopt.py'
 REFRESH_EVERY = 1800.0   # a VM's access token lasts 3600 s
 PULL_EVERY = 600.0       # results and traces so far, so a deleted VM loses only the games in flight
@@ -393,7 +395,7 @@ class ColabRun:
         such a VM is used if the account lists it, and stopped otherwise."""
         command, shape = self.vms[index]
         cli = self.cli_factory(command)
-        ok, out = cli.new(session, shape in ('hm', 't4hm'), gpu='T4' if shape.startswith('t4') else None)
+        ok, out = cli.new(session, shape in ('hm', 't4hm'), gpu=GPUS.get(shape))
         if not ok and session in parse_endpoints(cli.sessions()):
             ok = True
             self.log(f'[{session}] {command} {shape} reported as not created, but it exists: using it')
