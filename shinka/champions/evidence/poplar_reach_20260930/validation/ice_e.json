@@ -1,0 +1,37 @@
+{
+ "graphs": {
+  "e": {
+   "all": {
+    "wins": 32,
+    "losses": 8,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 536.6
+   },
+   "leo_icefire_0930": {
+    "wins": 32,
+    "losses": 8,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 536.6
+   },
+   "set:validation": {
+    "wins": 32,
+    "losses": 8,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 536.6
+   }
+  }
+ },
+ "paired": {},
+ "name": "ice_e",
+ "graphs_spec": {
+  "e": "e=/home/alex/kagg-evo/screen0930/graphs/e.json"
+ },
+ "bundles": {
+  "e": "g_bb7bf4e4378f711d"
+ },
+ "jobs": 40,
+ "played": 40
+}

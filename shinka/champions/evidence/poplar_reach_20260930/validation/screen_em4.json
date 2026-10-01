@@ -1,0 +1,191 @@
+{
+ "graphs": {
+  "base": {
+   "abo_v57": {
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 761.5
+   },
+   "all": {
+    "wins": 202,
+    "losses": 38,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 701.2
+   },
+   "haideptry_2965": {
+    "wins": 36,
+    "losses": 4,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 1175.7
+   },
+   "haodou_ledger_0928": {
+    "wins": 27,
+    "losses": 13,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 315.7
+   },
+   "leo_pi": {
+    "wins": 33,
+    "losses": 7,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 250.3
+   },
+   "set:lost": {
+    "wins": 202,
+    "losses": 38,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 701.2
+   },
+   "tetsutani_demand": {
+    "wins": 38,
+    "losses": 2,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 1286.4
+   },
+   "tetsutani_demand_0927": {
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 417.7
+   }
+  },
+  "em4": {
+   "abo_v57": {
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 761.5
+   },
+   "all": {
+    "wins": 209,
+    "losses": 31,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 733.1
+   },
+   "haideptry_2965": {
+    "wins": 36,
+    "losses": 4,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 1175.7
+   },
+   "haodou_ledger_0928": {
+    "wins": 31,
+    "losses": 9,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 387.4
+   },
+   "leo_pi": {
+    "wins": 36,
+    "losses": 4,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 370.1
+   },
+   "set:lost": {
+    "wins": 209,
+    "losses": 31,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 733.1
+   },
+   "tetsutani_demand": {
+    "wins": 38,
+    "losses": 2,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 1286.4
+   },
+   "tetsutani_demand_0927": {
+    "wins": 34,
+    "losses": 6,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 417.5
+   }
+  }
+ },
+ "paired": {
+  "em4 vs base": {
+   "abo_v57": {
+    "better": 0,
+    "worse": 0,
+    "same": 40,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "all": {
+    "better": 50,
+    "worse": 1,
+    "same": 189,
+    "mean_change": 31.9,
+    "p": 4.618527782440651e-14
+   },
+   "haideptry_2965": {
+    "better": 0,
+    "worse": 0,
+    "same": 40,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "haodou_ledger_0928": {
+    "better": 22,
+    "worse": 0,
+    "same": 18,
+    "mean_change": 71.7,
+    "p": 4.76837158203125e-07
+   },
+   "leo_pi": {
+    "better": 28,
+    "worse": 0,
+    "same": 12,
+    "mean_change": 119.8,
+    "p": 7.450580596923828e-09
+   },
+   "set:lost": {
+    "better": 50,
+    "worse": 1,
+    "same": 189,
+    "mean_change": 31.9,
+    "p": 4.618527782440651e-14
+   },
+   "tetsutani_demand": {
+    "better": 0,
+    "worse": 0,
+    "same": 40,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand_0927": {
+    "better": 0,
+    "worse": 1,
+    "same": 39,
+    "mean_change": -0.2,
+    "p": 1.0
+   }
+  }
+ },
+ "name": "screen_em4",
+ "graphs_spec": {
+  "base": "base=/home/alex/kagg-evo/screen0930/graphs/base.json",
+  "em4": "em4=/home/alex/kagg-evo/screen0930/graphs/em4.json"
+ },
+ "bundles": {
+  "base": "g_51debe852272ceb1",
+  "em4": "g_c629f0bc1c1463a1"
+ },
+ "jobs": 480,
+ "played": 480
+}

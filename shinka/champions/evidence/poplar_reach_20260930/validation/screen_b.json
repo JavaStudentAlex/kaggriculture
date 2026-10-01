@@ -1,0 +1,275 @@
+{
+ "graphs": {
+  "em4r": {
+   "abo_v57": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1046.5
+   },
+   "all": {
+    "wins": 179,
+    "losses": 21,
+    "ties": 0,
+    "games": 200,
+    "mean_margin": 952.9
+   },
+   "haideptry_2965": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1118.5
+   },
+   "haideptry_2965_0926": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1729.2
+   },
+   "haideptry_shepherd": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 764.9
+   },
+   "haodou_ledger_0928": {
+    "wins": 15,
+    "losses": 5,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 466.1
+   },
+   "leo_pi": {
+    "wins": 13,
+    "losses": 7,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 229.6
+   },
+   "leoprovorov_forecast": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 620.6
+   },
+   "robust_economy": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1645.8
+   },
+   "set:lost": {
+    "wins": 179,
+    "losses": 21,
+    "ties": 0,
+    "games": 200,
+    "mean_margin": 952.9
+   },
+   "tetsutani_demand": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1002.5
+   },
+   "tetsutani_demand_0927": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 905.2
+   }
+  },
+  "e": {
+   "abo_v57": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1048.0
+   },
+   "all": {
+    "wins": 179,
+    "losses": 21,
+    "ties": 0,
+    "games": 200,
+    "mean_margin": 954.2
+   },
+   "haideptry_2965": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1118.5
+   },
+   "haideptry_2965_0926": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1729.9
+   },
+   "haideptry_shepherd": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 774.6
+   },
+   "haodou_ledger_0928": {
+    "wins": 15,
+    "losses": 5,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 466.1
+   },
+   "leo_pi": {
+    "wins": 13,
+    "losses": 7,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 229.6
+   },
+   "leoprovorov_forecast": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 624.4
+   },
+   "robust_economy": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1645.8
+   },
+   "set:lost": {
+    "wins": 179,
+    "losses": 21,
+    "ties": 0,
+    "games": 200,
+    "mean_margin": 954.2
+   },
+   "tetsutani_demand": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1002.5
+   },
+   "tetsutani_demand_0927": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 902.9
+   }
+  }
+ },
+ "paired": {
+  "e vs em4r": {
+   "abo_v57": {
+    "better": 4,
+    "worse": 0,
+    "same": 16,
+    "mean_change": 1.5,
+    "p": 0.125
+   },
+   "all": {
+    "better": 10,
+    "worse": 4,
+    "same": 186,
+    "mean_change": 1.4,
+    "p": 0.1795654296875
+   },
+   "haideptry_2965": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "haideptry_2965_0926": {
+    "better": 2,
+    "worse": 0,
+    "same": 18,
+    "mean_change": 0.7,
+    "p": 0.5
+   },
+   "haideptry_shepherd": {
+    "better": 2,
+    "worse": 0,
+    "same": 18,
+    "mean_change": 9.8,
+    "p": 0.5
+   },
+   "haodou_ledger_0928": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "leo_pi": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "leoprovorov_forecast": {
+    "better": 2,
+    "worse": 2,
+    "same": 16,
+    "mean_change": 3.8,
+    "p": 1.0
+   },
+   "robust_economy": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:lost": {
+    "better": 10,
+    "worse": 4,
+    "same": 186,
+    "mean_change": 1.4,
+    "p": 0.1795654296875
+   },
+   "tetsutani_demand": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand_0927": {
+    "better": 0,
+    "worse": 2,
+    "same": 18,
+    "mean_change": -2.3,
+    "p": 0.5
+   }
+  }
+ },
+ "name": "screen_b",
+ "graphs_spec": {
+  "em4r": "em4r=/home/alex/kagg-evo/screen0930/graphs/em4r.json",
+  "e": "e=/home/alex/kagg-evo/screen0930/graphs/e.json"
+ },
+ "bundles": {
+  "em4r": "g_be15f329bc285bac",
+  "e": "g_bb7bf4e4378f711d"
+ },
+ "jobs": 400,
+ "played": 400
+}

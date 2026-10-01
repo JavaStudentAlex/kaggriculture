@@ -1,0 +1,10 @@
+{
+ "name": "haodou_ledger_0928",
+ "notebook": "haodou092/kaggriculture-harvest-ledger",
+ "decoded": "first blob (b85+zlib)",
+ "entry": "agent.py",
+ "files": {
+  "agent.py": "531a423a43184bc5864714189595ec1dbbe3c873de48691b0ebd32fa0a2359bb"
+ },
+ "pulled_utc": "2026-09-28T08:00Z"
+}

@@ -1,0 +1,58 @@
+{
+ "graphs": {
+  "candF2": {
+   "all": {
+    "wins": 70,
+    "losses": 10,
+    "ties": 0,
+    "games": 80,
+    "mean_margin": 312.3
+   },
+   "set:validation": {
+    "wins": 70,
+    "losses": 10,
+    "ties": 0,
+    "games": 80,
+    "mean_margin": 312.3
+   },
+   "sub_elm_crossing": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 222.8
+   },
+   "sub_juniper_knoll": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 569.3
+   },
+   "sub_laurel_field": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 267.2
+   },
+   "sub_poplar_reach": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 189.8
+   }
+  }
+ },
+ "paired": {},
+ "name": "h2h_f2",
+ "graphs_spec": {
+  "candF2": "candF2=/home/alex/kagg-evo/candidate_b/candF2.json"
+ },
+ "bundles": {
+  "candF2": "g_ce2cb4ba24270b51"
+ },
+ "jobs": 80,
+ "played": 80
+}

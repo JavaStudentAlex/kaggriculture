@@ -1,0 +1,9109 @@
+{
+ "graphs": {
+  "rbase": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  },
+  "base": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  },
+  "r_all": {
+   "all": {
+    "wins": 34,
+    "losses": 39,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1157.3
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7966.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -100.0
+   },
+   "replay_115404206": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -416.0
+   },
+   "replay_115408936": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 247.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 223.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 118.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -969.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 662.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 240.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -186.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -486.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 88.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 356.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -235.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 242.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1384.0
+   },
+   "replay_115464293": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115470903": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -49.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -57.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 500.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2774.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 184.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 753.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -425.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2698.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -984.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 368.0
+   },
+   "replay_115515973": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -228.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -208.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1339.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1336.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -276.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -941.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1151.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 218.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 291.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1736.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -525.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 253.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -59.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3120.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -168.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -11.0
+   },
+   "replay_115601332": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 102.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 66.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 918.0
+   },
+   "replay_115618621": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 234.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2181.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -347.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -27.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 339.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6435.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16874.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 325.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 594.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1016.0
+   },
+   "replay_115661782": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 124.0
+   },
+   "replay_115666921": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 166.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -516.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 325.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 528.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -66.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 304.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 364.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 311.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16278.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13844.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 277.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -234.0
+   },
+   "set:replay:L": {
+    "wins": 8,
+    "losses": 30,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2456.9
+   },
+   "set:replay:W": {
+    "wins": 26,
+    "losses": 9,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 253.6
+   }
+  },
+  "r_in": {
+   "all": {
+    "wins": 34,
+    "losses": 39,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1157.3
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7966.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -100.0
+   },
+   "replay_115404206": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -416.0
+   },
+   "replay_115408936": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 247.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 223.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 118.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -969.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 662.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 240.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -186.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -486.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 88.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 356.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -235.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 242.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1384.0
+   },
+   "replay_115464293": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115470903": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -49.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -57.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 500.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2774.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 184.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 753.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -425.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2698.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -984.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 368.0
+   },
+   "replay_115515973": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -228.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -208.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1339.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1336.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -276.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -941.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1151.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 218.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 291.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1736.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -525.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 253.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -59.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3120.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -168.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -11.0
+   },
+   "replay_115601332": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 102.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 66.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 918.0
+   },
+   "replay_115618621": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 234.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2181.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -347.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -27.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 339.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6435.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16874.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 325.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 594.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1016.0
+   },
+   "replay_115661782": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 124.0
+   },
+   "replay_115666921": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 166.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -516.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 325.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 528.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -66.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 304.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 364.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 311.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16278.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13844.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 277.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -234.0
+   },
+   "set:replay:L": {
+    "wins": 8,
+    "losses": 30,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2456.9
+   },
+   "set:replay:W": {
+    "wins": 26,
+    "losses": 9,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 253.6
+   }
+  },
+  "r_tom": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  },
+  "r_in0": {
+   "all": {
+    "wins": 36,
+    "losses": 37,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1197.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8439.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -187.0
+   },
+   "replay_115404206": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -393.0
+   },
+   "replay_115408936": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 371.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 107.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 156.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1195.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 617.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -195.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -601.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 249.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 296.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1716.0
+   },
+   "replay_115444213": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 402.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 401.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1505.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 41.0
+   },
+   "replay_115470903": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -83.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -269.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 500.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2718.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 139.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 814.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2798.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1308.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 314.0
+   },
+   "replay_115515973": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -492.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -132.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1369.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1336.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12362.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -349.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1246.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1151.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 372.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 673.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -986.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -30.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3222.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -272.0
+   },
+   "replay_115601332": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 323.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 349.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 853.0
+   },
+   "replay_115618621": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 233.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2461.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -381.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -236.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 512.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6418.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17011.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 505.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 522.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 694.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 101.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1360.0
+   },
+   "replay_115661782": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 163.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -81.0
+   },
+   "replay_115667676": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1053.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 327.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 535.0
+   },
+   "replay_115680001": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 12.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 79.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 372.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 182.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16298.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13823.0
+   },
+   "replay_115698314": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -154.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -196.0
+   },
+   "set:replay:L": {
+    "wins": 9,
+    "losses": 29,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2484.1
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 200.0
+   }
+  },
+  "r_v219": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  },
+  "r_sheep": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  },
+  "r_d11": {
+   "all": {
+    "wins": 33,
+    "losses": 40,
+    "ties": 0,
+    "games": 73,
+    "mean_margin": -1164.2
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115403024": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -202.0
+   },
+   "replay_115404206": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 434.0
+   },
+   "replay_115408936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9.0
+   },
+   "replay_115419701": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 147.0
+   },
+   "replay_115422445": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 258.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1011.0
+   },
+   "replay_115424452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 533.0
+   },
+   "replay_115428995": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 286.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -301.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115434197": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 222.0
+   },
+   "replay_115438089": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 272.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115453115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115453232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1101.0
+   },
+   "replay_115464293": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 862.0
+   },
+   "replay_115470903": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 93.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115477459": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 36.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 45.0
+   },
+   "replay_115482305": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1039.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115497142": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -535.0
+   },
+   "replay_115509912": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 300.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 329.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -336.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115530899": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1251.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115543323": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -256.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -162.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115553182": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 316.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 282.0
+   },
+   "replay_115583573": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1965.0
+   },
+   "replay_115587810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_115588215": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 239.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -470.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -434.0
+   },
+   "replay_115606333": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 154.0
+   },
+   "replay_115610591": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 691.0
+   },
+   "replay_115618621": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -158.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -194.0
+   },
+   "replay_115628491": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -148.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115645848": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 289.0
+   },
+   "replay_115648531": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 542.0
+   },
+   "replay_115652397": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 517.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -939.0
+   },
+   "replay_115661782": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -68.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -872.0
+   },
+   "replay_115672412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 383.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 729.0
+   },
+   "replay_115680001": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -146.0
+   },
+   "replay_115681039": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 285.0
+   },
+   "replay_115685416": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 449.0
+   },
+   "replay_115686301": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 333.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115698314": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 439.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -282.0
+   },
+   "set:replay:L": {
+    "wins": 6,
+    "losses": 32,
+    "ties": 0,
+    "games": 38,
+    "mean_margin": -2511.0
+   },
+   "set:replay:W": {
+    "wins": 27,
+    "losses": 8,
+    "ties": 0,
+    "games": 35,
+    "mean_margin": 298.1
+   }
+  }
+ },
+ "paired": {
+  "base vs rbase": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 73,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 0,
+    "worse": 0,
+    "same": 38,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:W": {
+    "better": 0,
+    "worse": 0,
+    "same": 35,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  },
+  "r_all vs rbase": {
+   "all": {
+    "better": 40,
+    "worse": 29,
+    "same": 4,
+    "mean_change": 6.8,
+    "p": 0.22840022535329696
+   },
+   "replay_115398520": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 57.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 102.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -850.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 256.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 76.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -140.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 42.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 129.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -46.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 115.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 191.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -134.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 84.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 150.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -33.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -283.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -1020.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -142.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -13.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 464.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 422.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 139.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -286.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 12.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -208.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -449.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 68.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -557.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 128.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 4.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 85.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -20.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -779.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -234.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -98.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 9.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -229.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 139.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 14.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -28.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 321.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 124.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 459.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 536.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -88.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 227.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 392.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 115.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -153.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 121.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -30.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 549.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 134.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 36.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 77.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -77.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 192.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 244.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 356.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -58.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -201.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 80.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 19.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -85.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -22.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -7.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 216.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -162.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 48.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 23,
+    "worse": 12,
+    "same": 3,
+    "mean_change": 54.1,
+    "p": 0.0895310789346695
+   },
+   "set:replay:W": {
+    "better": 17,
+    "worse": 17,
+    "same": 1,
+    "mean_change": -44.5,
+    "p": 1.0
+   }
+  },
+  "r_in vs rbase": {
+   "all": {
+    "better": 40,
+    "worse": 29,
+    "same": 4,
+    "mean_change": 6.8,
+    "p": 0.22840022535329696
+   },
+   "replay_115398520": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 57.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 102.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -850.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 256.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 76.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -140.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 42.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 129.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -46.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 115.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 191.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -134.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 84.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 150.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -33.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -283.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -1020.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -142.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -13.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 464.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 422.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 139.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -286.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 12.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -208.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -449.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 68.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -557.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 128.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 4.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 85.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -20.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -779.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -234.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -98.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 9.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -229.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 139.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 14.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -28.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 321.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 124.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 459.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 536.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -88.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 227.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 392.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 115.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -153.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 121.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -30.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 549.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 134.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 36.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 77.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -77.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 192.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 244.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 356.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -58.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -201.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 80.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 19.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -85.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -22.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -7.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 216.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -162.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 48.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 23,
+    "worse": 12,
+    "same": 3,
+    "mean_change": 54.1,
+    "p": 0.0895310789346695
+   },
+   "set:replay:W": {
+    "better": 17,
+    "worse": 17,
+    "same": 1,
+    "mean_change": -44.5,
+    "p": 1.0
+   }
+  },
+  "r_tom vs rbase": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 73,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 0,
+    "worse": 0,
+    "same": 38,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:W": {
+    "better": 0,
+    "worse": 0,
+    "same": 35,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  },
+  "r_in0 vs rbase": {
+   "all": {
+    "better": 37,
+    "worse": 35,
+    "same": 1,
+    "mean_change": -33.1,
+    "p": 0.9062943247030809
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -416.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 15.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -827.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 380.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -40.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -102.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -184.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 84.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 3.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 106.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 76.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 27.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 24.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -1127.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 787.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 126.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -404.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -821.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -176.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -225.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 464.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 478.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 94.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -225.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 101.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -308.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -773.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 14.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -821.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 204.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -26.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 85.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 236.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -93.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -1084.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -234.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 56.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -7.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -1292.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -322.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 1.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 219.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 261.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 198.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 757.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 195.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 162.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 391.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -165.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -187.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -88.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 143.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 566.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -3.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 216.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -20.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 177.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 2.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -421.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 231.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -3.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 1925.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -56.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -194.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 158.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -206.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -77.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -151.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -27.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 237.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 1,
+    "same": 0,
+    "mean_change": -593.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 1,
+    "worse": 0,
+    "same": 0,
+    "mean_change": 86.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 20,
+    "worse": 18,
+    "same": 0,
+    "mean_change": 26.9,
+    "p": 0.8714146793645341
+   },
+   "set:replay:W": {
+    "better": 17,
+    "worse": 17,
+    "same": 1,
+    "mean_change": -98.1,
+    "p": 1.0
+   }
+  },
+  "r_v219 vs rbase": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 73,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 0,
+    "worse": 0,
+    "same": 38,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:W": {
+    "better": 0,
+    "worse": 0,
+    "same": 35,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  },
+  "r_sheep vs rbase": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 73,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 0,
+    "worse": 0,
+    "same": 38,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:W": {
+    "better": 0,
+    "worse": 0,
+    "same": 35,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  },
+  "r_d11 vs rbase": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 73,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115398520": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115403024": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115404206": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115408936": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115419701": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422445": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115422573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115424452": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115428995": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115429510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115433462": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115434197": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115438089": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115440333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115444213": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453115": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115453232": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115464293": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115470903": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115475651": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115477459": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115479876": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115480134": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115482305": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115488500": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115493788": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115497142": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115509912": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115515973": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115521667": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115527194": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115530899": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115537017": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115543323": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115547337": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115552691": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115553182": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115578645": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115583573": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115587810": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588215": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115588522": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115592277": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115594068": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115598336": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115601332": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115606333": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115610591": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115618621": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115619283": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115623327": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115628491": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115633449": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115639510": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115640644": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115645848": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115648531": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652397": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115652962": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115658436": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115661782": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115666921": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115667676": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115672412": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115678413": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115680001": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115681039": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115685416": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115686301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115691209": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115692301": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115698314": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "replay_115701824": {
+    "better": 0,
+    "worse": 0,
+    "same": 1,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:L": {
+    "better": 0,
+    "worse": 0,
+    "same": 38,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:replay:W": {
+    "better": 0,
+    "worse": 0,
+    "same": 35,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  }
+ },
+ "name": "bt_fast",
+ "graphs_spec": {
+  "rbase": "rbase=/home/alex/kagg-evo/screen0930/graphs/rbase.json",
+  "base": "base=/home/alex/kagg-evo/screen0930/graphs/base.json",
+  "r_all": "r_all=/home/alex/kagg-evo/screen0930/graphs/r_all.json",
+  "r_in": "r_in=/home/alex/kagg-evo/screen0930/graphs/r_in.json",
+  "r_tom": "r_tom=/home/alex/kagg-evo/screen0930/graphs/r_tom.json",
+  "r_in0": "r_in0=/home/alex/kagg-evo/screen0930/graphs/r_in0.json",
+  "r_v219": "r_v219=/home/alex/kagg-evo/screen0930/graphs/r_v219.json",
+  "r_sheep": "r_sheep=/home/alex/kagg-evo/screen0930/graphs/r_sheep.json",
+  "r_d11": "r_d11=/home/alex/kagg-evo/screen0930/graphs/r_d11.json"
+ },
+ "bundles": {
+  "rbase": "g_e04697c429eaa82a",
+  "base": "g_51debe852272ceb1",
+  "r_all": "g_89427c95e4b98ecb",
+  "r_in": "g_3f722255aa259e45",
+  "r_tom": "g_7abd049fd2b567cf",
+  "r_in0": "g_3e3357fb67bea994",
+  "r_v219": "g_144420ac8ca1f558",
+  "r_sheep": "g_70453e84d5e595e2",
+  "r_d11": "g_89e679c496ba56ec"
+ },
+ "jobs": 657,
+ "played": 657
+}

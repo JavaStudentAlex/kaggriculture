@@ -1,0 +1,1518 @@
+{
+ "version": "6.0.0",
+ "runtime": "hazel_merged_v1",
+ "name": "candidate F2h: F2 + front-running horizon _OR2_SN_H 24 -> 48",
+ "description": "Production engine: \ud83c\udf3e Demand-Preserving Turn Sale Timing (https://www.kaggle.com/code/tetsutani/demand-preserving-turn-sale-timing, Apache-2.0), played as-is with the farmer, hands and market channels passed through; our layers are switched back on by graph edits.",
+ "execution_contract": {
+  "entry_node": "backbone",
+  "traversal": "turn then nested market, in validated dependency order",
+  "action_limit": {
+   "market": 10,
+   "farmer": 1,
+   "hands": "one per hired hand"
+  },
+  "conflicts": "Source-pinned champion behavior; the graph's executable controls (chain-node parameters, market-stage enabled flags, routine_dispatch order, surgical switches) are the only policy changes. surgical.enabled=false: no AST overrides. Broad post-processing remains disabled.",
+  "mutation_contract": "Bindings/source/runtime must be changed together and revalidated. Legacy prose-only graph mutators are incompatible."
+ },
+ "source": {
+  "submission_id": 56246758,
+  "champion_sha256": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+  "oracle_model_sha256": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c"
+ },
+ "turn": {
+  "entry": "rival_emulator",
+  "exit": "oracle_record",
+  "nodes": [
+   {
+    "id": "rival_emulator",
+    "binding": "rival_emulator",
+    "enabled": true,
+    "summary": "The rival's public engine run in its place from our view; its known orders",
+    "parameters": {
+     "_EM_ENGINES": [
+      "tetsutani_demand",
+      "tetsutani_demand_0927",
+      "haodou_ledger_0928",
+      "leo_pi",
+      "leo_icefire_0930"
+     ],
+     "_EM_REPAIR": 300
+    }
+   },
+   {
+    "id": "rival_counter",
+    "binding": "rival_counter",
+    "enabled": true,
+    "summary": "The rival's family from its public farm; that family's counter-settings",
+    "counters": {
+     "other_opening": {
+      "_OR2_SN_K": 0
+     }
+    }
+   },
+   {
+    "id": "backbone",
+    "binding": "backbone",
+    "summary": "Submitted Mohui v66 production, routing, hiring and base trading",
+    "engine": "tetsutani_demand_0927",
+    "engine_parameters": {
+     "_SR_MARGIN": 14,
+     "_S809_LOOK": 4,
+     "_CA_MARGIN": -22.0,
+     "_R51_INPUT_CROPS": {
+      "WHEAT": [
+       2,
+       4,
+       8
+      ],
+      "CARROT": [
+       2,
+       3,
+       4
+      ]
+     },
+     "_OR2_SN_K": 1,
+     "_OR2_SN_H": 48
+    }
+   },
+   {
+    "id": "oracle_observe",
+    "binding": "oracle_observe",
+    "summary": "Observe once per turn using the bundled CPU oracle"
+   },
+   {
+    "id": "state",
+    "binding": "state",
+    "summary": "Derive farm, inventory, carried-stock and market state"
+   },
+   {
+    "id": "farmer",
+    "binding": "farmer",
+    "summary": "Preserve backbone non-PASS; surgical x,y on-tile rescue with actor-bag feeding",
+    "enabled": false
+   },
+   {
+    "id": "hands",
+    "binding": "hands",
+    "summary": "Preserve backbone non-PASS; surgical coordinated x,y idle maintenance",
+    "enabled": false
+   },
+   {
+    "id": "market",
+    "binding": "market",
+    "summary": "Execute the complete source-pinned market subgraph",
+    "enabled": false
+   },
+   {
+    "id": "oracle_guard",
+    "binding": "oracle_guard",
+    "enabled": true,
+    "summary": "Predictor front-run sells added to the engine market orders",
+    "parameters": {
+     "_OG_ITEMS": [
+      "MILK",
+      "WOOL",
+      "STRAWBERRY"
+     ],
+     "_OG_SCORE": 0.5,
+     "_OG_STRONG_SCORE": 0.6,
+     "_OG_BATCH": 4,
+     "_OG_KEEP": 2,
+     "_OG_PRICE_RATIO": 0.75,
+     "_OG_MAX_ORDERS": 2,
+     "_OG_FROM_STEP": 256,
+     "_OG_TO_STEP": 696
+    }
+   },
+   {
+    "id": "experimental_state",
+    "binding": "experimental_state",
+    "summary": "Project known unit inventory effects and actual input needs"
+   },
+   {
+    "id": "shop_phase",
+    "binding": "shop_phase",
+    "summary": "Compute post-market town consumption and conditional next quotes"
+   },
+   {
+    "id": "capacity_liquidation",
+    "binding": "capacity_liquidation",
+    "summary": "Append net headroom relief without spending protected inputs"
+   },
+   {
+    "id": "opponent_pressure",
+    "binding": "opponent_pressure",
+    "summary": "Rank contiguous sells by opponent pressure symmetrically"
+   },
+   {
+    "id": "idle_opportunities",
+    "binding": "idle_opportunities",
+    "summary": "Guarded idle weed reclamation; unsupported planting is a no-op"
+   },
+   {
+    "id": "order_arbitration",
+    "binding": "order_arbitration",
+    "summary": "Stock/reserve/cap checks with dependency barriers"
+   },
+   {
+    "id": "kad_copilot",
+    "binding": "kad_copilot",
+    "enabled": true,
+    "summary": "KAD-HP-1 (top-player replay policy) adds confident sales and idle-hand jobs",
+    "parameters": {
+     "_KC_EVERY": 2,
+     "_KC_FROM_STEP": 144,
+     "_KC_TO_STEP": 671,
+     "_KC_SELL": false,
+     "_KC_HANDS": true,
+     "_KC_JOBS": [
+      "WATER"
+     ],
+     "_KC_JOB_P": 0.6
+    }
+   },
+   {
+    "id": "sanitize",
+    "binding": "sanitize",
+    "summary": "Preserve legal actions including DROP; enforce hand count and order cap"
+   },
+   {
+    "id": "oracle_record",
+    "binding": "oracle_record",
+    "summary": "Record the final action actually dispatched"
+   }
+  ],
+  "edges": [
+   {
+    "source": "rival_emulator",
+    "target": "rival_counter",
+    "relation": "NEXT"
+   },
+   {
+    "source": "rival_counter",
+    "target": "backbone",
+    "relation": "NEXT"
+   },
+   {
+    "source": "backbone",
+    "target": "oracle_observe",
+    "relation": "NEXT"
+   },
+   {
+    "source": "oracle_observe",
+    "target": "state",
+    "relation": "NEXT"
+   },
+   {
+    "source": "state",
+    "target": "farmer",
+    "relation": "NEXT"
+   },
+   {
+    "source": "farmer",
+    "target": "hands",
+    "relation": "NEXT"
+   },
+   {
+    "source": "hands",
+    "target": "market",
+    "relation": "NEXT"
+   },
+   {
+    "source": "market",
+    "target": "oracle_guard",
+    "relation": "NEXT"
+   },
+   {
+    "source": "oracle_guard",
+    "target": "experimental_state",
+    "relation": "NEXT"
+   },
+   {
+    "source": "experimental_state",
+    "target": "shop_phase",
+    "relation": "NEXT"
+   },
+   {
+    "source": "shop_phase",
+    "target": "capacity_liquidation",
+    "relation": "NEXT"
+   },
+   {
+    "source": "capacity_liquidation",
+    "target": "opponent_pressure",
+    "relation": "NEXT"
+   },
+   {
+    "source": "opponent_pressure",
+    "target": "idle_opportunities",
+    "relation": "NEXT"
+   },
+   {
+    "source": "idle_opportunities",
+    "target": "order_arbitration",
+    "relation": "NEXT"
+   },
+   {
+    "source": "order_arbitration",
+    "target": "kad_copilot",
+    "relation": "NEXT"
+   },
+   {
+    "source": "kad_copilot",
+    "target": "sanitize",
+    "relation": "NEXT"
+   },
+   {
+    "source": "sanitize",
+    "target": "oracle_record",
+    "relation": "NEXT"
+   }
+  ]
+ },
+ "market": {
+  "entry": "market_setup",
+  "exit": "routine_dispatch",
+  "nodes": [
+   {
+    "id": "market_setup",
+    "binding": "market_setup",
+    "summary": "Initialize orders, sell consolidation, protected items and deferred queue",
+    "source_lines": [
+     288,
+     350
+    ]
+   },
+   {
+    "id": "opening_scalp",
+    "binding": "opening_scalp",
+    "summary": "Step 0 wheat purchase / step 1 sale; early returns are preserved",
+    "source_lines": [
+     351,
+     361
+    ],
+    "parameters": {
+     "_OPENING_BUY_WHEAT_QTY": 15,
+     "_OPENING_SELL_WHEAT_QTY": 10
+    }
+   },
+   {
+    "id": "deferred_sales",
+    "binding": "deferred_sales",
+    "summary": "Surgical: expire stale sells, gate morning expansion, append only below seven occupied slots",
+    "source_lines": [
+     362,
+     374
+    ]
+   },
+   {
+    "id": "wage_liquidity",
+    "binding": "wage_liquidity",
+    "summary": "Narrow midnight product-purchase reserve guard",
+    "source_lines": [
+     375,
+     391
+    ]
+   },
+   {
+    "id": "investment_freeze",
+    "binding": "investment_freeze",
+    "summary": "Cancel non-paying late investments",
+    "source_lines": [
+     392,
+     402
+    ]
+   },
+   {
+    "id": "optional_cash_floor",
+    "binding": "optional_cash_floor",
+    "summary": "Preserve submitted disabled cash-floor flag",
+    "source_lines": [
+     403,
+     416
+    ]
+   },
+   {
+    "id": "optional_livestock",
+    "binding": "optional_livestock",
+    "summary": "Preserve submitted disabled livestock-topup flag",
+    "source_lines": [
+     417,
+     427
+    ]
+   },
+   {
+    "id": "feed_reserve",
+    "binding": "feed_reserve",
+    "summary": "Endgame-aware feed reserve including day-28 pickup slack",
+    "source_lines": [
+     428,
+     433
+    ],
+    "parameters": {
+     "_FEED_RESERVE_LOOKAHEAD": true
+    }
+   },
+   {
+    "id": "shed_pressure",
+    "binding": "shed_pressure",
+    "summary": "Tiered shed overflow relief",
+    "source_lines": [
+     434,
+     454
+    ]
+   },
+   {
+    "id": "predrop_headroom",
+    "binding": "predrop_headroom",
+    "summary": "Surgical: hour22 net scheduled sales, feed/fertilizer reserves, unprotected clearance",
+    "source_lines": [
+     455,
+     474
+    ]
+   },
+   {
+    "id": "oracle_frontrun",
+    "binding": "oracle_frontrun",
+    "summary": "Original short-horizon policy plus bounded 24-step WOOL/MILK supplement; scores are not probabilities",
+    "source_lines": [
+     475,
+     515
+    ],
+    "parameters": {
+     "_ORACLE_FRONTRUN_BATCH": 4,
+     "_ORACLE_FRONTRUN_PRICE_RATIO": 0.7
+    }
+   },
+   {
+    "id": "town_and_fertilizer",
+    "binding": "town_and_fertilizer",
+    "summary": "Adaptive shop cadence, inventory-aware batches, fertilizer sales",
+    "source_lines": [
+     516,
+     630
+    ]
+   },
+   {
+    "id": "early_liquidation",
+    "binding": "early_liquidation",
+    "summary": "Forecast-led early and phased endgame liquidation",
+    "source_lines": [
+     631,
+     701
+    ]
+   },
+   {
+    "id": "final_liquidation",
+    "binding": "final_liquidation",
+    "summary": "Final eight-step liquidation and final full-stock sale",
+    "source_lines": [
+     702,
+     749
+    ]
+   },
+   {
+    "id": "routine_dispatch",
+    "binding": "routine_dispatch",
+    "summary": "Return all remaining routine orders, retaining submitted order and cap",
+    "source_lines": [
+     750,
+     750
+    ],
+    "order": "sells_first"
+   }
+  ],
+  "edges": [
+   {
+    "source": "market_setup",
+    "target": "opening_scalp",
+    "relation": "NEXT"
+   },
+   {
+    "source": "opening_scalp",
+    "target": "deferred_sales",
+    "relation": "NEXT"
+   },
+   {
+    "source": "deferred_sales",
+    "target": "wage_liquidity",
+    "relation": "NEXT"
+   },
+   {
+    "source": "wage_liquidity",
+    "target": "investment_freeze",
+    "relation": "NEXT"
+   },
+   {
+    "source": "investment_freeze",
+    "target": "optional_cash_floor",
+    "relation": "NEXT"
+   },
+   {
+    "source": "optional_cash_floor",
+    "target": "optional_livestock",
+    "relation": "NEXT"
+   },
+   {
+    "source": "optional_livestock",
+    "target": "feed_reserve",
+    "relation": "NEXT"
+   },
+   {
+    "source": "feed_reserve",
+    "target": "shed_pressure",
+    "relation": "NEXT"
+   },
+   {
+    "source": "shed_pressure",
+    "target": "predrop_headroom",
+    "relation": "NEXT"
+   },
+   {
+    "source": "predrop_headroom",
+    "target": "oracle_frontrun",
+    "relation": "NEXT"
+   },
+   {
+    "source": "oracle_frontrun",
+    "target": "town_and_fertilizer",
+    "relation": "NEXT"
+   },
+   {
+    "source": "town_and_fertilizer",
+    "target": "early_liquidation",
+    "relation": "NEXT"
+   },
+   {
+    "source": "early_liquidation",
+    "target": "final_liquidation",
+    "relation": "NEXT"
+   },
+   {
+    "source": "final_liquidation",
+    "target": "routine_dispatch",
+    "relation": "NEXT"
+   }
+  ]
+ },
+ "nodes": [
+  {
+   "id": "state_audit",
+   "name": "Authoritative State and Telemetry Audit",
+   "category": "audit",
+   "description": "Submitted derived state is authoritative. No watering-can or well fields are invented.",
+   "previous_description": "Validate time, cash, worker count, worker positions, packs, watering-can charges, plot soil moisture levels, crop maturity stages, shed capacity, and action limits. Reconcile prior orders. Record missing required fields explicitly rather than hallucinating state.",
+   "bindings": [
+    "state"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "observation_recovery",
+   "name": "Observation Recovery and Safe Hold",
+   "category": "recovery",
+   "description": "Use submitted exception fallback and sanitization; runtime cannot request extra observations.",
+   "previous_description": "Request or re-read authoritative state through supported observation mechanisms. Suspend unsupported trades, hiring, planting, and expansion during telemetry blackout; execute only verified safe hold actions.",
+   "bindings": [
+    "backbone",
+    "sanitize"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "terminal_liquidation",
+   "name": "Deadline-Aware Terminal Planner",
+   "category": "liquidation",
+   "description": "Use submitted stepped liquidation, not a blanket step-696 dump.",
+   "previous_description": "During the terminal window (steps >= 696), release shop and input reserves, halt expansion, and propose feasible inventory sales plus harvest-travel-deposit chains that settle before step 720.",
+   "bindings": [
+    "investment_freeze",
+    "early_liquidation",
+    "final_liquidation"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "wage_defense",
+   "name": "Actual-Liability Payroll Defense",
+   "category": "defense",
+   "description": "Use submitted narrow product-buy reserve filter at hour>=20 or steps220..245 after day1. Do not add the conflicting always-on cash floor.",
+   "previous_description": "Enforce absolute payroll solvency. Always maintain cash >= midnight_payroll_due (hands * 120 + 100). On any day at hour >= 18 with payroll_shortfall > 0, lock discretionary spending and propose minimal executable liquidation needed to close the gap.",
+   "bindings": [
+    "wage_liquidity"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "shed_headroom",
+   "name": "Deposit-Aware Capacity Planner",
+   "category": "capacity",
+   "description": "Use carried inventory from private.inventories and protected pre-drop clearance from hour20, capacity100 margin2.",
+   "previous_description": "Maintain capacity for incoming worker deposits. Initiate relief when projected utilization exceeds 88%, selling vulnerable surplus commodities or low-opportunity excess inputs before workers deposit.",
+   "bindings": [
+    "predrop_headroom"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "town_shop_preempt",
+   "name": "Demand-Aware Premium Deliveries",
+   "category": "revenue",
+   "description": "Use submitted demand/cadence/price/batch logic; do not impose unimplemented static 12-16-unit reserves.",
+   "previous_description": "Deliver eligible inventory to unlocked town shops paying 2.0x-3.5x premiums. Maintain 12-16 reserved units per commodity for recurring shop orders, but release to meet intended shop deliveries or resolve hard payroll shortfalls.",
+   "bindings": [
+    "town_and_fertilizer"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "oracle_frontrun",
+   "name": "Wool and Milk Glut Front-Run",
+   "category": "market",
+   "description": "Use full submitted product-aware forecasts and reserves, not only WOOL/MILK.",
+   "previous_description": "When forecasts predict an imminent opponent supply glut, liquidate held Wool and Milk 4-8 steps ahead before prices collapse. Prefer shop sales if available; otherwise execute market orders.",
+   "bindings": [
+    "oracle_frontrun"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "capital_compounding",
+   "name": "Post-Cost Affordable Phased Growth",
+   "category": "growth",
+   "description": "Retain all submitted production/hiring/land decisions. Old prose day13 freeze and nine-worker cap were not implemented and conflict with submitted behavior.",
+   "previous_description": "During Days 0-12 before hour 18, propose hiring, land, and strawberry seeds as an atomic bundle where cash remaining after all proposed purchases exceeds midnight_payroll_due + 60. Obey phase hand/plot caps; halt all hiring, land, and strawberry seed buying on Day 13.",
+   "bindings": [
+    "backbone",
+    "investment_freeze"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "closed_loop_hydration_pipeline",
+   "name": "Closed-Loop Strawberry Hydration and Zero-Waste Harvest Planner",
+   "category": "execution",
+   "description": "Retain actual production routing and farmer/hand maintenance. Old watering-can refill and well rules are unsupported intent, not new game mechanics.",
+   "previous_description": "Execute deterministic closed-loop worker routing: 1) Refill watering can at well if empty or adjacent with < 2 charges; 2) Water strawberry plots before moisture decays below threshold to maximize recurring yield; 3) Harvest mature strawberries immediately to trigger next regrowth cycle; 4) Deposit harvested berries when pack >= 80% or shed headroom permits.",
+   "bindings": [
+    "backbone",
+    "farmer",
+    "hands"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "keiz_opening_scalp",
+   "name": "Keiz Opening Wheat Scalp",
+   "category": "market",
+   "description": "Buy 13 WHEAT at step 0 and sell 9 at step 1 (graph parameters; the submitted 35/30 scalp left $6 at the day-1 hire step against wheat-buying opponents).",
+   "previous_description": "On step 0, buy exactly 1 unit of WHEAT. On step 1, sell exactly 1 unit of WHEAT to capture opening spread.",
+   "bindings": [
+    "opening_scalp"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "tiered_shed_pressure_valve",
+   "name": "Tiered Shed Pressure Valve",
+   "category": "capacity",
+   "description": "Use exact submitted pressure thresholds and boolean predicates, including activation at80.",
+   "previous_description": "When shed utilization exceeds 90% (and aggressively at 95%), relax price floors down to 0.15 or 0.05 of base price to immediately evacuate bulky inventory and prevent worker deposit chokes.",
+   "bindings": [
+    "shed_pressure"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "fertilizer_monetization",
+   "name": "Fertilizer Monetization",
+   "category": "revenue",
+   "description": "Preserve town-cadence-gated fertilizer sales: hold>=3, price>=45, retain1, batch<=5.",
+   "previous_description": "When holding 3+ units of FERTILIZER and price is >= 45% of base, sell excess units in small batches, retaining 1 unit for crop fertilization.",
+   "bindings": [
+    "town_and_fertilizer"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "early_endgame_liquidation",
+   "name": "Predictive Early-Endgame Liquidation",
+   "category": "liquidation",
+   "description": "Include forecast activation from640, ordinary activation680, and phased sales from693.",
+   "previous_description": "During steps 680 to 711, preemptively liquidate high-value assets (MELON, TOMATO, FERTILIZER, WOOL) forecast to suffer terminal opponent dumping while market prices remain high.",
+   "bindings": [
+    "early_liquidation"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "final_turn_liquidation",
+   "name": "Final Turn Forced Liquidation",
+   "category": "liquidation",
+   "description": "Preserve exact final liquidation and price>=1 eligibility; do not force invalid zero-price orders.",
+   "previous_description": "At steps 718 and 719, submit 100% full liquidation sell orders for all items in the shed regardless of price floors to maximize final settlement cash.",
+   "bindings": [
+    "final_liquidation"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "action_scheduler",
+   "name": "Shared Ten-Order Scheduler and Legality Gate",
+   "category": "execution",
+   "description": "Ten-order cap applies to market channel, not farmer/hand actions. Preserve submitted order ordering and legal duplicate batches.",
+   "previous_description": "Merge all candidate proposals from sequential planners and specialized modules into one strictly valid batch of at most 10 orders. Prioritize terminal liquidation, payroll solvency, hydration/harvest cycles, shop premiums, and affordable growth without duplicate worker assignments or overselling.",
+   "bindings": [
+    "routine_dispatch",
+    "sanitize"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "execution_feedback",
+   "name": "Acknowledgment and Decision Trace",
+   "category": "audit",
+   "description": "Record final submitted action; successful execution is observed on subsequent state, not assumed.",
+   "previous_description": "Record submitted orders, engine execution responses, updated cash balances, and worker states. Reconcile rejections before the next planning cycle.",
+   "bindings": [
+    "oracle_record"
+   ],
+   "binding_semantics": "Alias to shared executable stages; never execute twice"
+  },
+  {
+   "id": "backbone",
+   "name": "backbone",
+   "description": "Submitted Mohui v66 production, routing, hiring and base trading",
+   "bindings": [
+    "backbone"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "oracle_observe",
+   "name": "oracle_observe",
+   "description": "Observe once per turn using the bundled CPU oracle",
+   "bindings": [
+    "oracle_observe"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "state",
+   "name": "state",
+   "description": "Derive farm, inventory, carried-stock and market state",
+   "bindings": [
+    "state"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "farmer",
+   "name": "farmer",
+   "description": "Preserve backbone action; idle-only weed/water/feed rescue",
+   "bindings": [
+    "farmer"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "hands",
+   "name": "hands",
+   "description": "Preserve backbone hand actions; idle-only coordinated maintenance",
+   "bindings": [
+    "hands"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "market",
+   "name": "market",
+   "description": "Execute the complete source-pinned market subgraph",
+   "bindings": [
+    "market"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "sanitize",
+   "name": "sanitize",
+   "description": "Preserve legal actions including DROP; enforce hand count and order cap",
+   "bindings": [
+    "sanitize"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "oracle_record",
+   "name": "oracle_record",
+   "description": "Record the final action actually dispatched",
+   "bindings": [
+    "oracle_record"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "market_setup",
+   "name": "market_setup",
+   "description": "Initialize orders, sell consolidation, protected items and deferred queue",
+   "bindings": [
+    "market_setup"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "opening_scalp",
+   "name": "opening_scalp",
+   "description": "Step 0 wheat purchase / step 1 sale; early returns are preserved",
+   "bindings": [
+    "opening_scalp"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "deferred_sales",
+   "name": "deferred_sales",
+   "description": "Reissue evicted sells with stock and expiry checks",
+   "bindings": [
+    "deferred_sales"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "wage_liquidity",
+   "name": "wage_liquidity",
+   "description": "Narrow midnight product-purchase reserve guard",
+   "bindings": [
+    "wage_liquidity"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "investment_freeze",
+   "name": "investment_freeze",
+   "description": "Cancel non-paying late investments",
+   "bindings": [
+    "investment_freeze"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "optional_cash_floor",
+   "name": "optional_cash_floor",
+   "description": "Preserve submitted disabled cash-floor flag",
+   "bindings": [
+    "optional_cash_floor"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "optional_livestock",
+   "name": "optional_livestock",
+   "description": "Preserve submitted disabled livestock-topup flag",
+   "bindings": [
+    "optional_livestock"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "feed_reserve",
+   "name": "feed_reserve",
+   "description": "Endgame-aware feed reserve including day-28 pickup slack",
+   "bindings": [
+    "feed_reserve"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "shed_pressure",
+   "name": "shed_pressure",
+   "description": "Tiered shed overflow relief",
+   "bindings": [
+    "shed_pressure"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "predrop_headroom",
+   "name": "predrop_headroom",
+   "description": "Protected cheap-stock clearance accounting for carried harvest",
+   "bindings": [
+    "predrop_headroom"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "town_and_fertilizer",
+   "name": "town_and_fertilizer",
+   "description": "Adaptive shop cadence, inventory-aware batches, fertilizer sales",
+   "bindings": [
+    "town_and_fertilizer"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "early_liquidation",
+   "name": "early_liquidation",
+   "description": "Forecast-led early and phased endgame liquidation",
+   "bindings": [
+    "early_liquidation"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "final_liquidation",
+   "name": "final_liquidation",
+   "description": "Final eight-step liquidation and final full-stock sale",
+   "bindings": [
+    "final_liquidation"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "routine_dispatch",
+   "name": "routine_dispatch",
+   "description": "Return all remaining routine orders, retaining submitted order and cap",
+   "bindings": [
+    "routine_dispatch"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "authoritative_inventory_effect_telemetry",
+   "name": "Authoritative Inventory Effect and Input Need Telemetry",
+   "category": "telemetry",
+   "description": "Projects known unit inventory effects and actual feed/fertilizer needs without assuming full engine simulation.",
+   "bindings": [
+    "experimental_state"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "actual_shop_consumption_phase_pricing",
+   "name": "Actual Shop Consumption Phase-Aware Pricing",
+   "category": "market",
+   "description": "Models post-market town shop consumption cadence and conditional next quotes without imaginary same-turn premiums.",
+   "bindings": [
+    "shop_phase"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "capacity_aware_liquidation_planner",
+   "name": "Capacity-Aware Liquidation Planner Net of Scheduled Sales",
+   "category": "capacity",
+   "description": "Appends net headroom relief without spending protected feed or fertilizer based on actual need.",
+   "bindings": [
+    "capacity_liquidation"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "defensible_opponent_pressure_scheduling",
+   "name": "Defensible Opponent-Pressure Sell Scheduling",
+   "category": "market",
+   "description": "Ranks contiguous SELL blocks by forecast opponent pressure symmetrically across both seats, respecting quotes before commit.",
+   "bindings": [
+    "opponent_pressure"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "legal_opportunity_aware_idle_routing",
+   "name": "Legal Opportunity-Aware Idle Weed and Plant Routing",
+   "category": "execution",
+   "description": "Safe idle-only weed reclamation requiring DIG before planting; speculative unsupported planting is a guarded no-op.",
+   "bindings": [
+    "idle_opportunities"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "order_arbitration_dependency_gate",
+   "name": "Order Arbitration with Dependency Barriers",
+   "category": "execution",
+   "description": "Strict order arbitration enforcing stock, capacity, no duplicate sells, and respecting dependency barriers.",
+   "bindings": [
+    "order_arbitration"
+   ],
+   "binding_semantics": "Opt-in experimental stage"
+  },
+  {
+   "id": "experimental_state",
+   "name": "experimental_state",
+   "description": "Project known unit inventory effects and actual input needs",
+   "bindings": [
+    "experimental_state"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "shop_phase",
+   "name": "shop_phase",
+   "description": "Compute post-market town consumption and conditional next quotes",
+   "bindings": [
+    "shop_phase"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "capacity_liquidation",
+   "name": "capacity_liquidation",
+   "description": "Append net headroom relief without spending protected inputs",
+   "bindings": [
+    "capacity_liquidation"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "opponent_pressure",
+   "name": "opponent_pressure",
+   "description": "Rank contiguous sells by opponent pressure symmetrically",
+   "bindings": [
+    "opponent_pressure"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "idle_opportunities",
+   "name": "idle_opportunities",
+   "description": "Guarded idle weed reclamation; unsupported planting is a no-op",
+   "bindings": [
+    "idle_opportunities"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "order_arbitration",
+   "name": "order_arbitration",
+   "description": "Stock/reserve/cap checks with dependency barriers",
+   "bindings": [
+    "order_arbitration"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "oracle_guard",
+   "name": "oracle guard",
+   "description": "When the opponent-supply predictor (TinyTimeMixer oracle) gives score_4 >= _OG_SCORE for a product we hold, sell spare shed stock into the engine's first empty market slot before the opponent's units push the price down; never below _OG_PRICE_RATIO x base price.",
+   "bindings": [
+    "oracle_guard"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "rival_emulator",
+   "name": "rival emulator",
+   "description": "Run the public engines of _EM_ENGINES in the rival's place from our own view of the game: every observation shows both farms, and the rival's private stock is rebuilt with the environment's own rules; an engine that disagrees with an observation is dropped. While one matches, the rival's orders of each turn are known before ours (rival_emulator.py).",
+   "bindings": [
+    "rival_emulator"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "kad_copilot",
+   "name": "KAD copilot",
+   "description": "KAD-HP-1, the policy trained on the published top-player replays (numpy, kad/), runs every _KC_EVERY turns from _KC_FROM_STEP to _KC_TO_STEP: its confident SELLs are appended after the engine's orders and idle hands do its job where they stand (kad_copilot.py).",
+   "bindings": [
+    "kad_copilot"
+   ],
+   "binding_semantics": "Executable stage"
+  },
+  {
+   "id": "rival_counter",
+   "name": "rival counter",
+   "description": "Compare the rival's public farm with ours every turn; by step 93 the rival is a mirror of our engine, a buy-N/sell-N-5 opener, a wheat-92 seller, another opening or other (rival_model.MirrorTracker), and that class's counters (engine constants, _OG_* guard parameters) apply for the rest of the game.",
+   "bindings": [
+    "rival_counter"
+   ],
+   "binding_semantics": "Executable stage"
+  }
+ ],
+ "edges": [
+  {
+   "source": "backbone",
+   "target": "oracle_observe",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "oracle_observe",
+   "target": "state",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "state",
+   "target": "farmer",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "farmer",
+   "target": "hands",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "hands",
+   "target": "market",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "market",
+   "target": "sanitize",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "sanitize",
+   "target": "oracle_record",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "turn"
+  },
+  {
+   "source": "market_setup",
+   "target": "opening_scalp",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "opening_scalp",
+   "target": "deferred_sales",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "deferred_sales",
+   "target": "wage_liquidity",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "wage_liquidity",
+   "target": "investment_freeze",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "investment_freeze",
+   "target": "optional_cash_floor",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "optional_cash_floor",
+   "target": "optional_livestock",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "optional_livestock",
+   "target": "feed_reserve",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "feed_reserve",
+   "target": "shed_pressure",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "shed_pressure",
+   "target": "predrop_headroom",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "predrop_headroom",
+   "target": "oracle_frontrun",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "oracle_frontrun",
+   "target": "town_and_fertilizer",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "town_and_fertilizer",
+   "target": "early_liquidation",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "early_liquidation",
+   "target": "final_liquidation",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "final_liquidation",
+   "target": "routine_dispatch",
+   "relation": "EXECUTES_BEFORE",
+   "scope": "market"
+  },
+  {
+   "source": "state_audit",
+   "target": "state",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "observation_recovery",
+   "target": "backbone",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "observation_recovery",
+   "target": "sanitize",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "terminal_liquidation",
+   "target": "investment_freeze",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "terminal_liquidation",
+   "target": "early_liquidation",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "terminal_liquidation",
+   "target": "final_liquidation",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "wage_defense",
+   "target": "wage_liquidity",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "shed_headroom",
+   "target": "predrop_headroom",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "town_shop_preempt",
+   "target": "town_and_fertilizer",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "capital_compounding",
+   "target": "backbone",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "capital_compounding",
+   "target": "investment_freeze",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "closed_loop_hydration_pipeline",
+   "target": "backbone",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "closed_loop_hydration_pipeline",
+   "target": "farmer",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "closed_loop_hydration_pipeline",
+   "target": "hands",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "keiz_opening_scalp",
+   "target": "opening_scalp",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "tiered_shed_pressure_valve",
+   "target": "shed_pressure",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "fertilizer_monetization",
+   "target": "town_and_fertilizer",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "early_endgame_liquidation",
+   "target": "early_liquidation",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "final_turn_liquidation",
+   "target": "final_liquidation",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "action_scheduler",
+   "target": "routine_dispatch",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "action_scheduler",
+   "target": "sanitize",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "execution_feedback",
+   "target": "oracle_record",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "authoritative_inventory_effect_telemetry",
+   "target": "experimental_state",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "actual_shop_consumption_phase_pricing",
+   "target": "shop_phase",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "capacity_aware_liquidation_planner",
+   "target": "capacity_liquidation",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "defensible_opponent_pressure_scheduling",
+   "target": "opponent_pressure",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "legal_opportunity_aware_idle_routing",
+   "target": "idle_opportunities",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "order_arbitration_dependency_gate",
+   "target": "order_arbitration",
+   "relation": "IMPLEMENTS",
+   "scope": "concept"
+  },
+  {
+   "source": "oracle_observe",
+   "target": "oracle_guard",
+   "relation": "INFORMS",
+   "scope": "turn"
+  },
+  {
+   "source": "rival_emulator",
+   "target": "backbone",
+   "relation": "CONFIGURES",
+   "scope": "turn"
+  },
+  {
+   "source": "kad_copilot",
+   "target": "sanitize",
+   "relation": "CONFIGURES",
+   "scope": "turn"
+  },
+  {
+   "source": "rival_counter",
+   "target": "backbone",
+   "relation": "CONFIGURES",
+   "scope": "turn"
+  }
+ ],
+ "merge_resolutions": {
+  "state_audit": "Submitted derived state is authoritative. No watering-can or well fields are invented.",
+  "observation_recovery": "Use submitted exception fallback and sanitization; runtime cannot request extra observations.",
+  "terminal_liquidation": "Use submitted stepped liquidation, not a blanket step-696 dump.",
+  "wage_defense": "Use submitted narrow product-buy reserve filter at hour>=20 or steps220..245 after day1. Do not add the conflicting always-on cash floor.",
+  "shed_headroom": "Use carried inventory from private.inventories and protected pre-drop clearance from hour20, capacity100 margin2.",
+  "town_shop_preempt": "Use submitted demand/cadence/price/batch logic; do not impose unimplemented static 12-16-unit reserves.",
+  "oracle_frontrun": "Use full submitted product-aware forecasts and reserves, not only WOOL/MILK.",
+  "capital_compounding": "Retain all submitted production/hiring/land decisions. Old prose day13 freeze and nine-worker cap were not implemented and conflict with submitted behavior.",
+  "closed_loop_hydration_pipeline": "Retain actual production routing and farmer/hand maintenance. Old watering-can refill and well rules are unsupported intent, not new game mechanics.",
+  "keiz_opening_scalp": "Graph parameters on opening_scalp: buy 13 WHEAT at step 0, sell 9 at step 1 (submitted: 35/30).",
+  "tiered_shed_pressure_valve": "Use exact submitted pressure thresholds and boolean predicates, including activation at80.",
+  "fertilizer_monetization": "Preserve town-cadence-gated fertilizer sales: hold>=3, price>=45, retain1, batch<=5.",
+  "early_endgame_liquidation": "Include forecast activation from640, ordinary activation680, and phased sales from693.",
+  "final_turn_liquidation": "Preserve exact final liquidation and price>=1 eligibility; do not force invalid zero-price orders.",
+  "action_scheduler": "Ten-order cap applies to market channel, not farmer/hand actions. Preserve submitted order ordering and legal duplicate batches.",
+  "execution_feedback": "Record final submitted action; successful execution is observed on subsequent state, not assumed."
+ },
+ "provenance": {
+  "previous_graph_sha256": "7b3397f6e4a3b5ec6ec21ab7f6d7486dcd353789fe1973f8d4b20f4896b654ad",
+  "previous_graph_backup": "hazel_import/premerge/policy_graph.json",
+  "submission_id": 56246758,
+  "runtime_bundle_hashes": {
+   "SOURCE_MANIFEST.json": "ac601811927e9f5c0b3c4f6c9063e6e7aca437b07eeb2e151ff53e523a99075a",
+   "champion.py": "9c8d1431dc2401eb7aa63091cb72d84f749273ed8462dfb75fbfe4f1618d568f",
+   "checkpoint/config.json": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+   "checkpoint/labels.json": "8f5e6a802afc3ce29bd63189fb82678bfc442831c407ee810f677b1d348e9009",
+   "checkpoint/model.safetensors": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c",
+   "checkpoint/scaler.npz": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+   "graph_runtime.py": "fb84cb5eb3e06be770540f4f2553b95ca30cf6e7f0b12dc1709c2e00b87a91f3",
+   "kagg_oracle.py": "6ddb45789fa29bc7263c2f5410f3e20abba69bba8fc9571ec40f1d98d7765b52",
+   "kagg_ttm_numpy.py": "e380ee0850854ea43770aee7067f0d9fe61e538bdf4d4eebe9277c9b0fceecda",
+   "main.py": "5a075f904496ee8242deeec9ffb6402c4dbd7ca4aefb56a79b4b27530bd9f0bd",
+   "mohui_v66/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "mohui_v66/NOTICE": "68af747cf68296ca83c2424fa3a292bf67ebe986cf14dbe56b8d06f5112b490e",
+   "mohui_v66/candidate_v60_curve_counter.py": "f883a5ed7ed9ce282adb2cbe964782110335264272bf7c219fd8b42a0597e35e",
+   "mohui_v66/candidate_v62_composite_bakery_yarn.py": "e181711e7a4ad3961df1440c9d453c207cae2d2ce056b0a4e60cc8d53218b77f",
+   "mohui_v66/candidate_v65_curve_cygn_clone.py": "8815bdba22705692c62f0d91021af07cd98b5d42ae5075adcb8d1137b088b463",
+   "mohui_v66/candidate_v65_curve_q2_daniel_backbone.py": "b8008497ec9e7b79f55d68d4ea0253e5f708575c02f6b3dfc667e7bad9bce8b9",
+   "mohui_v66/candidate_v65_curve_q2_known_yarn_repair.py": "47f7293aa2aebb15a2e954b5adc32bef3a4cb4385b996f4724a314be131661f2",
+   "mohui_v66/candidate_v65_local_combined.py": "e3c462764e8d2212fbe2983db2302449ea9d00865081e2ab02841248d012a3c0",
+   "mohui_v66/candidate_v66_meta_closed_loop.py": "49f4f228d2da451fa1c6a2d2944c65cdf76444868a8ef3d6403551a450ea0895",
+   "mohui_v66/kaggriculture_agent/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "mohui_v66/kaggriculture_agent/env/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "mohui_v66/kaggriculture_agent/env/adapter.py": "72fd78dc5f28a390915c2d640bdf2c614c9f683e1c385ffdaccb49b40b0e6cbf",
+   "mohui_v66/main.py": "2aad8d61022c59e6a29898df6efa6a863e59e228dc6b029667c7e00d1109e903",
+   "opponent_model/features.py": "2cae84391711406f14986675ba470587e4e71d95395b1431b09c87350ce68285",
+   "opponent_model/mechanics.py": "8276afa5ea74b52836e3fc70be0977d3856f77f732d014422f3cf5532fa9bad9",
+   "experimental.py": "6cb173d51ac0a7f15dab0222110e9e127d7661097d9daee7dad1634f9c68a3b5",
+   "engine_contract.py": "a1136efc24fc4a907c76964e531882dd30ce70815959ebdc12008715ba8cf48e",
+   "surgical.py": "f3f242ce6ae015a0e9883d6918a03d27daec0baa69f383f425b5546a177cafab",
+   "engines.py": "23cb9f06d76b527508b57a2edd1de9b4478fe42b0bbe2b3f4f671882d0d4168e",
+   "oracle_guard.py": "da87aadf649da6950eaf1379f93a699cc106ea451f0664164557b9da84985561",
+   "engines/tetsutani_demand/SOURCE.json": "3a330efd494dcbd0656acdb907929d16c201880d424e6f9b403f771c37bbdb22",
+   "engines/tetsutani_demand/agent/main.py": "127ed3e62988c0474d386db6527ae8ca9de9bb1fe7004128557ddef67126c652",
+   "engines/tetsutani_demand_0927/SOURCE.json": "daa6bdfcbf66995a74531c4cdd8a9ce430610abe2db9ff6d21579119db666160",
+   "engines/tetsutani_demand_0927/agent/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "engines/tetsutani_demand_0927/agent/NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+   "engines/tetsutani_demand_0927/agent/main.py": "55be5d5f124c8daaaa63c1a29ba4aab096004909666f04748007603c67b7d2a8",
+   "rival_emulator.py": "30fc9a729ad61b1848195a7b8bb529b639c32de8c49d8563ad5bdd845bf3452e",
+   "kad_copilot.py": "af4494ce8b703b18e819c87994b072cc2e3d2a90eddb1e424f01f8ac1e6c4bb4",
+   "kad/__init__.py": "af5bd626d48ad08fbcdce24864027650fea7a40d7806cabc0a3853f055fe1801",
+   "kad/kad_numpy.py": "607db20e8122e9b33298ffdf97df87a0c8a7ad12b4fbcd8c3612833c31823482",
+   "kad/kad_data.py": "f9767747caa5803f216afa0f83d76293d9ba4cbfde9bd2f12325fa15bdb350c1",
+   "kad/weights.npz": "0be89e35d6389e211dea24dddbaa96a45474bb95b3ea5262653051e6d807b221",
+   "checkpoint/calibration.json": "6ac918acf0fd0a588da33f51c9192131d646b40f9d4e7378c996126ae80a0eca",
+   "engines/haodou_ledger_0928/SOURCE.json": "0f1b93c0dab4a9589fe132d55faed6b260b7c390b8dfffe3d16a78f4617bffee",
+   "engines/haodou_ledger_0928/agent/agent.py": "531a423a43184bc5864714189595ec1dbbe3c873de48691b0ebd32fa0a2359bb",
+   "engines/leo_pi/SOURCE.json": "0f101f0e6a0b024ebdc49924a0ee409a28ec4aecf150ff18893d56049c8ed1bf",
+   "engines/leo_pi/agent/agent.py": "836cbfb633583890728cfd3a67e22a53bee95616edb6363798e0d28c774dc527",
+   "engines/leo_icefire_0930/SOURCE.json": "40c57a7fe60887f8cf6638a2a4721153837d47f5d905b3da32b94385046537e9",
+   "engines/leo_icefire_0930/agent/agent.py": "020be9d5655e2c06099838a85f375ff7c86dd8e62c7710801c36d402f9e900d5",
+   "rival_model.py": "04eba1ec21d02f9d4cedc924b6ab58d448bc940ad61252990a029e81980a5fea"
+  },
+  "entrypoint_sha256": "818399ca2d2bf1068c16bf661257687488e19095e7fc8d91e4a5480e311c5421",
+  "feed_fix": {
+   "from": "evolution_results/run2_2026-09-24/best_graph.json",
+   "date": "2026-09-24",
+   "changes": {
+    "_OPENING_BUY_WHEAT_QTY": [
+     13,
+     15
+    ],
+    "_OPENING_SELL_WHEAT_QTY": [
+     9,
+     10
+    ],
+    "_FEED_RESERVE_LOOKAHEAD": [
+     false,
+     true
+    ]
+   }
+  }
+ },
+ "experimental": {
+  "status": "experimental_not_proven_better",
+  "default": "disabled",
+  "switches": {},
+  "notes": "Broad post-processing extensions disabled after failed pilot; requested corrections use source-level surgical overrides instead."
+ },
+ "model_checkpoint": {
+  "name": "ttm_c256_h96_ft_2026-09-28",
+  "source": "ttm_c256_h96_ft_2026-09-28: the 2026-09-28 refit (days 09-22..25, 27, 28), colab2 L4, installed by kad_tools/chain_kad_run.sh",
+  "model_sha256": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c",
+  "scaler_sha256": "76e4867da2266dc108176fac3adc1953fa7a3a2787076786f13c73c9feea56ac",
+  "config_sha256": "550419d6596d38a974be8f15a7b3c93465ce1dcf528adf83d87574ca2d14ea14",
+  "labels_sha256": "8f5e6a802afc3ce29bd63189fb82678bfc442831c407ee810f677b1d348e9009",
+  "calibration": {
+   "sha256": "6ac918acf0fd0a588da33f51c9192131d646b40f9d4e7378c996126ae80a0eca",
+   "fitted_on": "calibration/game_set (own games)"
+  }
+ },
+ "surgical": {
+  "enabled": false
+ },
+ "surgical_implementation": {
+  "module": "hazel_runtime/surgical.py",
+  "status": "available_disabled",
+  "overrides": [
+   "deferred_sales",
+   "predrop_headroom",
+   "fertilizer_add_sell_guard",
+   "luxury_24step_supplement",
+   "farmer_and_hands_idle_dispatch"
+  ],
+  "limitations": [
+   "Not a guarantee of winning",
+   "Fertilizer floor constrains added policy sells, not pre-existing backbone orders",
+   "Headroom estimate is not a full within-turn engine projection"
+  ]
+ },
+ "revisions": [
+  {
+   "version": "5.0.0",
+   "date": "2026-09-24",
+   "previous": {
+    "version": "4.0.0",
+    "name": "Hazel-derived surgical candidate with 2026-09-22 predictor",
+    "description": "Active local research candidate: source-level headroom/deferred/luxury market overrides and coordinate-correct idle maintenance. Competitive improvement unproven."
+   },
+   "changes": [
+    "_OPENING_BUY_WHEAT_QTY (opening_scalp): 35 -> 13",
+    "_OPENING_SELL_WHEAT_QTY (opening_scalp): 30 -> 9",
+    "routine_dispatch order: submitted -> sells_first",
+    "surgical: {\"enabled\": true, \"overrides\": {\"deferred_sales\": true, \"predrop_headroom\": true, \"fertilizer_guard\": true, \"luxury_supplement\": true, \"idle_dispatch\": \"v1\"}} -> {\"enabled\": false}",
+    "predictor: ttm_c256_h96_ft_2026-09-22 + calibration -> ttm_c256_h96_ft_2026-09-13 (Hazel Weir)"
+   ],
+   "evidence": {
+    "vs_hazel": "open13 60-0 (+$25,759); sells-first 40-0 (+$987); fertilizer_guard 1-39 (-$1,483); 09-22 checkpoint + calibration 2-38 (-$307); v4 0-40 (-$1,471)",
+    "vs_pool": "open13 60-0 vs Copper (+$25,782), 60-0 vs Orchard (+$25,485), 59-1 vs Mohui13 (+$32,639), 0-60 vs the plain Mohui v66 backbone (-$16,415)",
+    "source": "research/procedural_graph/evolution_knowledge.md (arena rounds 1, 2, 2b, 3)"
+   }
+  }
+ ],
+ "engine": {
+  "name": "tetsutani_demand_0927",
+  "notebook": "tetsutani/demand-preserving-turn-sale-timing",
+  "notebook_id": 134878109,
+  "entry": "main.py",
+  "files": {
+   "LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "NOTICE.txt": "82f3cbdc5ee3b4dbbad054b2ba703a8370b6431af573adf10ad92964421e6ea7",
+   "main.py": "55be5d5f124c8daaaa63c1a29ba4aab096004909666f04748007603c67b7d2a8"
+  }
+ },
+ "require_oracle": false,
+ "require_kad": false
+}

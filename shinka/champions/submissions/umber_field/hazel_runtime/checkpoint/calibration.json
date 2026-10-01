@@ -1,0 +1,86 @@
+{
+ "factors": {
+  "score_4": {
+   "WHEAT": 0.729,
+   "CARROT": 1.3859,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 0.9872,
+   "MELON": 1.1521,
+   "EGG": 1.0,
+   "MILK": 1.1221,
+   "WOOL": 0.8417,
+   "FERTILIZER": 1.3586
+  },
+  "score_24": {
+   "WHEAT": 0.6778,
+   "CARROT": 0.9808,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 1.0604,
+   "MELON": 1.4867,
+   "EGG": 1.0,
+   "MILK": 1.1621,
+   "WOOL": 0.9518,
+   "FERTILIZER": 1.715
+  },
+  "units_24": {
+   "WHEAT": 1.1106,
+   "CARROT": 0.7042,
+   "TOMATO": 1.0,
+   "STRAWBERRY": 1.0442,
+   "MELON": 0.9325,
+   "EGG": 1.0,
+   "MILK": 1.0706,
+   "WOOL": 0.9097,
+   "FERTILIZER": 1.3479
+  }
+ },
+ "reference": {
+  "dir": "/home/alex/kagg-evo/kad-20260929/checkpoint_0913",
+  "model_sha256": "3c94bfc5d5c8df7c586aff22a87ecb1dd4138a6baaa7fbf278fc57c80323f5ed"
+ },
+ "calibrated": {
+  "dir": "/home/alex/kagg-evo/kad-20260929/models/ttm_c256_h96_ft_2026-09-28",
+  "model_sha256": "878699cdbc19d7999258f03d9948f2ed4e7d42518f3ae5f23449e9205573f62c"
+ },
+ "replays": null,
+ "traces": [],
+ "group_filter": null,
+ "games_by_group": {
+  "feed15": 40,
+  "feed15@copper": 40,
+  "feed15@mohui": 200,
+  "feed15@mohui13": 40,
+  "feed15@orchard": 40,
+  "feed15@willow": 40,
+  "feed15new@feed15old": 200
+ },
+ "episodes": 600,
+ "held_out_episodes": 0,
+ "origins": 367200,
+ "stride": 1,
+ "thresholds": {
+  "score_4": [
+   0.25,
+   0.3,
+   0.4,
+   0.45,
+   0.5,
+   0.6
+  ],
+  "score_24": [
+   0.45
+  ],
+  "units_24": [
+   2.0
+  ]
+ },
+ "guards": {
+  "min_fires": 100,
+  "min_base_rate": 0.005,
+  "factor_range": [
+   0.5,
+   2.0
+  ]
+ },
+ "method": "per product and metric: geometric mean over the thresholds of threshold / the calibrated score at the reference firing rate (arena/calib_fit.py)"
+}

@@ -1,0 +1,204 @@
+{
+ "graphs": {
+  "base": {
+   "all": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "leo_pi": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 198.9
+   },
+   "set:lost": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "tetsutani_demand": {
+    "wins": 48,
+    "losses": 12,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 909.3
+   },
+   "tetsutani_demand_0927": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 371.3
+   }
+  },
+  "em2": {
+   "all": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "leo_pi": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 198.9
+   },
+   "set:lost": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "tetsutani_demand": {
+    "wins": 48,
+    "losses": 12,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 909.3
+   },
+   "tetsutani_demand_0927": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 371.3
+   }
+  },
+  "em6": {
+   "all": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "leo_pi": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 198.9
+   },
+   "set:lost": {
+    "wins": 140,
+    "losses": 40,
+    "ties": 0,
+    "games": 180,
+    "mean_margin": 493.2
+   },
+   "tetsutani_demand": {
+    "wins": 48,
+    "losses": 12,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 909.3
+   },
+   "tetsutani_demand_0927": {
+    "wins": 46,
+    "losses": 14,
+    "ties": 0,
+    "games": 60,
+    "mean_margin": 371.3
+   }
+  }
+ },
+ "paired": {
+  "em2 vs base": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 180,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "leo_pi": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:lost": {
+    "better": 0,
+    "worse": 0,
+    "same": 180,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand_0927": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  },
+  "em6 vs base": {
+   "all": {
+    "better": 0,
+    "worse": 0,
+    "same": 180,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "leo_pi": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:lost": {
+    "better": 0,
+    "worse": 0,
+    "same": 180,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "tetsutani_demand_0927": {
+    "better": 0,
+    "worse": 0,
+    "same": 60,
+    "mean_change": 0.0,
+    "p": 1.0
+   }
+  }
+ },
+ "name": "screen_em",
+ "graphs_spec": {
+  "base": "base=/home/alex/kagg-evo/screen0930/graphs/base.json",
+  "em2": "em2=/home/alex/kagg-evo/screen0930/graphs/em2.json",
+  "em6": "em6=/home/alex/kagg-evo/screen0930/graphs/em6.json"
+ },
+ "bundles": {
+  "base": "g_51debe852272ceb1",
+  "em2": "g_db2e00a3f032c00f",
+  "em6": "g_d0c2e896fdd7d6f6"
+ },
+ "jobs": 540,
+ "played": 540
+}

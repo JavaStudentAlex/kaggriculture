@@ -1,0 +1,2214 @@
+{
+ "graphs": {
+  "e": {
+   "all": {
+    "wins": 89,
+    "losses": 222,
+    "ties": 0,
+    "games": 311,
+    "mean_margin": -1754.6
+   },
+   "replay_114759539": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8623.0
+   },
+   "replay_114765686": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1465.0
+   },
+   "replay_114775958": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -320.0
+   },
+   "replay_114777461": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -420.0
+   },
+   "replay_114783412": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 162.0
+   },
+   "replay_114785014": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -402.0
+   },
+   "replay_114786373": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 234.0
+   },
+   "replay_114789305": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3661.0
+   },
+   "replay_114790800": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 17.0
+   },
+   "replay_114792276": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1081.0
+   },
+   "replay_114793768": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 376.0
+   },
+   "replay_114805644": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 626.0
+   },
+   "replay_114808376": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -548.0
+   },
+   "replay_114808655": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 202.0
+   },
+   "replay_114811400": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 165.0
+   },
+   "replay_114812825": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -152.0
+   },
+   "replay_114814280": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 410.0
+   },
+   "replay_114815908": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -430.0
+   },
+   "replay_114815928": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4087.0
+   },
+   "replay_114817408": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14.0
+   },
+   "replay_114821820": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -664.0
+   },
+   "replay_114823450": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 58.0
+   },
+   "replay_114826243": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 187.0
+   },
+   "replay_114830636": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 12.0
+   },
+   "replay_114830697": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -764.0
+   },
+   "replay_114836375": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3379.0
+   },
+   "replay_114837309": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 278.0
+   },
+   "replay_114845317": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -471.0
+   },
+   "replay_114845474": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -41.0
+   },
+   "replay_114854232": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9508.0
+   },
+   "replay_114862877": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -114.0
+   },
+   "replay_114866049": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7521.0
+   },
+   "replay_114875945": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -524.0
+   },
+   "replay_114881292": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 475.0
+   },
+   "replay_114881743": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5677.0
+   },
+   "replay_114883083": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9450.0
+   },
+   "replay_114896463": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -24792.0
+   },
+   "replay_114899444": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7498.0
+   },
+   "replay_114901262": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -18.0
+   },
+   "replay_114909455": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -175.0
+   },
+   "replay_114916288": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 299.0
+   },
+   "replay_114923017": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 25.0
+   },
+   "replay_114928894": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12634.0
+   },
+   "replay_114934892": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -306.0
+   },
+   "replay_114935187": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -554.0
+   },
+   "replay_114938970": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16109.0
+   },
+   "replay_114948633": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 488.0
+   },
+   "replay_114950439": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -362.0
+   },
+   "replay_114962712": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -36.0
+   },
+   "replay_114971296": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1248.0
+   },
+   "replay_115000953": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1468.0
+   },
+   "replay_115037766": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -315.0
+   },
+   "replay_115051399": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7056.0
+   },
+   "replay_115069665": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -841.0
+   },
+   "replay_115116110": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 209.0
+   },
+   "replay_115123516": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 103.0
+   },
+   "replay_115125107": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -159.0
+   },
+   "replay_115144754": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 129.0
+   },
+   "replay_115171120": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 413.0
+   },
+   "replay_115180977": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1275.0
+   },
+   "replay_115184326": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -116.0
+   },
+   "replay_115206768": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -793.0
+   },
+   "replay_115233876": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 279.0
+   },
+   "replay_115243475": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 229.0
+   },
+   "replay_115243480": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -152.0
+   },
+   "replay_115249974": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1881.0
+   },
+   "replay_115250487": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4327.0
+   },
+   "replay_115250511": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 553.0
+   },
+   "replay_115255028": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3908.0
+   },
+   "replay_115256115": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 503.0
+   },
+   "replay_115263068": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 204.0
+   },
+   "replay_115266178": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -644.0
+   },
+   "replay_115269670": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -799.0
+   },
+   "replay_115269697": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 38.0
+   },
+   "replay_115286846": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2424.0
+   },
+   "replay_115291298": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -962.0
+   },
+   "replay_115291346": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -71.0
+   },
+   "replay_115292074": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1193.0
+   },
+   "replay_115293015": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 158.0
+   },
+   "replay_115294662": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -645.0
+   },
+   "replay_115295814": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 60.0
+   },
+   "replay_115296658": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -581.0
+   },
+   "replay_115298065": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -90.0
+   },
+   "replay_115300275": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5774.0
+   },
+   "replay_115305810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1777.0
+   },
+   "replay_115306419": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -160.0
+   },
+   "replay_115314313": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13011.0
+   },
+   "replay_115315647": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1926.0
+   },
+   "replay_115320285": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5874.0
+   },
+   "replay_115322930": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13416.0
+   },
+   "replay_115323529": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13.0
+   },
+   "replay_115325610": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2279.0
+   },
+   "replay_115327008": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1970.0
+   },
+   "replay_115329933": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4759.0
+   },
+   "replay_115330646": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -9665.0
+   },
+   "replay_115333173": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 4.0
+   },
+   "replay_115335697": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -322.0
+   },
+   "replay_115340476": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -175.0
+   },
+   "replay_115341458": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -335.0
+   },
+   "replay_115343912": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -795.0
+   },
+   "replay_115347067": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 74.0
+   },
+   "replay_115348495": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -613.0
+   },
+   "replay_115351299": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2114.0
+   },
+   "replay_115351826": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -100.0
+   },
+   "replay_115352686": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 40.0
+   },
+   "replay_115355481": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -314.0
+   },
+   "replay_115356123": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 5.0
+   },
+   "replay_115357052": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1915.0
+   },
+   "replay_115357469": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16213.0
+   },
+   "replay_115358585": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -908.0
+   },
+   "replay_115360432": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1699.0
+   },
+   "replay_115361804": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -374.0
+   },
+   "replay_115361986": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 165.0
+   },
+   "replay_115364642": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -968.0
+   },
+   "replay_115367922": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -124.0
+   },
+   "replay_115372401": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 119.0
+   },
+   "replay_115378579": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -843.0
+   },
+   "replay_115378894": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -108.0
+   },
+   "replay_115381748": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -105.0
+   },
+   "replay_115382665": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -7225.0
+   },
+   "replay_115382908": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12561.0
+   },
+   "replay_115385981": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8149.0
+   },
+   "replay_115388812": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3578.0
+   },
+   "replay_115390864": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -578.0
+   },
+   "replay_115393826": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13.0
+   },
+   "replay_115395806": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2805.0
+   },
+   "replay_115398520": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8023.0
+   },
+   "replay_115400840": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -686.0
+   },
+   "replay_115402546": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1134.0
+   },
+   "replay_115407246": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 145.0
+   },
+   "replay_115407557": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -10606.0
+   },
+   "replay_115408881": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -239.0
+   },
+   "replay_115408936": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1269.0
+   },
+   "replay_115409944": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2607.0
+   },
+   "replay_115410450": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 444.0
+   },
+   "replay_115415094": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 108.0
+   },
+   "replay_115419551": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5844.0
+   },
+   "replay_115419759": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -452.0
+   },
+   "replay_115419802": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12166.0
+   },
+   "replay_115422573": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1007.0
+   },
+   "replay_115424225": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 28.0
+   },
+   "replay_115428473": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 210.0
+   },
+   "replay_115429510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -197.0
+   },
+   "replay_115433098": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 151.0
+   },
+   "replay_115433462": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -677.0
+   },
+   "replay_115440333": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -589.0
+   },
+   "replay_115440975": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 60.0
+   },
+   "replay_115444033": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -251.0
+   },
+   "replay_115444100": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5205.0
+   },
+   "replay_115444213": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -385.0
+   },
+   "replay_115445145": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 73.0
+   },
+   "replay_115448555": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 438.0
+   },
+   "replay_115448810": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -11746.0
+   },
+   "replay_115450006": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -49.0
+   },
+   "replay_115453232": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 756.0
+   },
+   "replay_115453350": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -59.0
+   },
+   "replay_115460863": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1910.0
+   },
+   "replay_115464526": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 19.0
+   },
+   "replay_115467282": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 397.0
+   },
+   "replay_115474104": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2950.0
+   },
+   "replay_115475651": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -44.0
+   },
+   "replay_115478826": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -92.0
+   },
+   "replay_115479876": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3196.0
+   },
+   "replay_115480134": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 54.0
+   },
+   "replay_115483971": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 190.0
+   },
+   "replay_115487470": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -458.0
+   },
+   "replay_115488402": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -248.0
+   },
+   "replay_115488500": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -437.0
+   },
+   "replay_115489064": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 564.0
+   },
+   "replay_115489890": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -400.0
+   },
+   "replay_115493788": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2490.0
+   },
+   "replay_115493799": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -938.0
+   },
+   "replay_115495536": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4459.0
+   },
+   "replay_115496656": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 92.0
+   },
+   "replay_115497131": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -254.0
+   },
+   "replay_115497203": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -126.0
+   },
+   "replay_115502189": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -272.0
+   },
+   "replay_115503218": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -52.0
+   },
+   "replay_115504371": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1857.0
+   },
+   "replay_115509840": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -519.0
+   },
+   "replay_115509850": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -203.0
+   },
+   "replay_115509944": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -509.0
+   },
+   "replay_115515973": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 362.0
+   },
+   "replay_115516093": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 101.0
+   },
+   "replay_115516497": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -309.0
+   },
+   "replay_115521667": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -333.0
+   },
+   "replay_115524272": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -323.0
+   },
+   "replay_115527194": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1343.0
+   },
+   "replay_115528257": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 84.0
+   },
+   "replay_115529302": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -455.0
+   },
+   "replay_115529815": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -122.0
+   },
+   "replay_115530594": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 42.0
+   },
+   "replay_115532506": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -396.0
+   },
+   "replay_115537017": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -12598.0
+   },
+   "replay_115538188": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3505.0
+   },
+   "replay_115541743": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -160.0
+   },
+   "replay_115544692": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 186.0
+   },
+   "replay_115547337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -157.0
+   },
+   "replay_115550656": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -309.0
+   },
+   "replay_115552691": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -917.0
+   },
+   "replay_115552970": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 275.0
+   },
+   "replay_115553967": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -306.0
+   },
+   "replay_115569164": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -684.0
+   },
+   "replay_115569264": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -409.0
+   },
+   "replay_115569936": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -573.0
+   },
+   "replay_115575480": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4638.0
+   },
+   "replay_115575620": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 253.0
+   },
+   "replay_115578645": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 351.0
+   },
+   "replay_115588522": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31.0
+   },
+   "replay_115591382": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -276.0
+   },
+   "replay_115592277": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3441.0
+   },
+   "replay_115594068": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -292.0
+   },
+   "replay_115598114": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -121.0
+   },
+   "replay_115598336": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -476.0
+   },
+   "replay_115601332": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -208.0
+   },
+   "replay_115603112": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2041.0
+   },
+   "replay_115606337": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -773.0
+   },
+   "replay_115607932": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -34.0
+   },
+   "replay_115608079": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 244.0
+   },
+   "replay_115608974": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -542.0
+   },
+   "replay_115614420": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 288.0
+   },
+   "replay_115615960": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 445.0
+   },
+   "replay_115619283": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -2296.0
+   },
+   "replay_115620718": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 230.0
+   },
+   "replay_115621797": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -963.0
+   },
+   "replay_115623327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -124.0
+   },
+   "replay_115633449": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 369.0
+   },
+   "replay_115634477": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 270.0
+   },
+   "replay_115639510": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -6984.0
+   },
+   "replay_115640644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -17008.0
+   },
+   "replay_115644335": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 108.0
+   },
+   "replay_115647487": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 77.0
+   },
+   "replay_115652322": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1663.0
+   },
+   "replay_115652962": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 99.0
+   },
+   "replay_115653696": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 166.0
+   },
+   "replay_115658002": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -75.0
+   },
+   "replay_115658436": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -936.0
+   },
+   "replay_115660222": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 95.0
+   },
+   "replay_115666148": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -304.0
+   },
+   "replay_115666921": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -78.0
+   },
+   "replay_115667676": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -867.0
+   },
+   "replay_115668555": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -350.0
+   },
+   "replay_115673908": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1612.0
+   },
+   "replay_115674102": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 146.0
+   },
+   "replay_115674798": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -140.0
+   },
+   "replay_115678413": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 732.0
+   },
+   "replay_115681685": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -312.0
+   },
+   "replay_115687699": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 28.0
+   },
+   "replay_115691209": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16271.0
+   },
+   "replay_115692301": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -14060.0
+   },
+   "replay_115701824": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -272.0
+   },
+   "replay_115704327": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1075.0
+   },
+   "replay_115707893": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3438.0
+   },
+   "replay_115709200": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1084.0
+   },
+   "replay_115712174": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -543.0
+   },
+   "replay_115714051": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -66.0
+   },
+   "replay_115715597": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3346.0
+   },
+   "replay_115718164": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1661.0
+   },
+   "replay_115721390": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 590.0
+   },
+   "replay_115724877": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -361.0
+   },
+   "replay_115724965": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -560.0
+   },
+   "replay_115732759": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -128.0
+   },
+   "replay_115734164": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 139.0
+   },
+   "replay_115734285": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 240.0
+   },
+   "replay_115737452": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 63.0
+   },
+   "replay_115738977": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -371.0
+   },
+   "replay_115741718": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -299.0
+   },
+   "replay_115741983": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 349.0
+   },
+   "replay_115743625": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -77.0
+   },
+   "replay_115749826": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -340.0
+   },
+   "replay_115751370": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 518.0
+   },
+   "replay_115752923": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -5805.0
+   },
+   "replay_115754463": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -13497.0
+   },
+   "replay_115755644": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1088.0
+   },
+   "replay_115757325": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -687.0
+   },
+   "replay_115759091": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -3330.0
+   },
+   "replay_115760613": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -405.0
+   },
+   "replay_115762153": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -812.0
+   },
+   "replay_115763696": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1679.0
+   },
+   "replay_115765243": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -99.0
+   },
+   "replay_115766457": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 227.0
+   },
+   "replay_115766814": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -311.0
+   },
+   "replay_115771076": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -389.0
+   },
+   "replay_115772952": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -90.0
+   },
+   "replay_115775553": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -260.0
+   },
+   "replay_115775642": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -620.0
+   },
+   "replay_115778683": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -16100.0
+   },
+   "replay_115779046": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 1090.0
+   },
+   "replay_115779995": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -680.0
+   },
+   "replay_115782121": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 298.0
+   },
+   "replay_115783320": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -137.0
+   },
+   "replay_115783666": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -8816.0
+   },
+   "replay_115783960": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1645.0
+   },
+   "replay_115784853": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -438.0
+   },
+   "replay_115786379": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 72.0
+   },
+   "replay_115789449": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4437.0
+   },
+   "replay_115789641": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1780.0
+   },
+   "replay_115790954": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -226.0
+   },
+   "replay_115792497": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -518.0
+   },
+   "replay_115795688": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1087.0
+   },
+   "replay_115807738": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -4312.0
+   },
+   "replay_115807789": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -31592.0
+   },
+   "replay_115808577": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -630.0
+   },
+   "replay_115818507": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 567.0
+   },
+   "replay_115819016": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -1529.0
+   },
+   "replay_115820022": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -217.0
+   },
+   "replay_115820525": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -359.0
+   },
+   "replay_115827880": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 146.0
+   },
+   "replay_115838393": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -140.0
+   },
+   "replay_115846999": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": -100.0
+   },
+   "replay_115847257": {
+    "wins": 1,
+    "losses": 0,
+    "ties": 0,
+    "games": 1,
+    "mean_margin": 342.0
+   },
+   "set:replay:L": {
+    "wins": 87,
+    "losses": 222,
+    "ties": 0,
+    "games": 309,
+    "mean_margin": -1770.0
+   },
+   "set:replay:T": {
+    "wins": 2,
+    "losses": 0,
+    "ties": 0,
+    "games": 2,
+    "mean_margin": 624.0
+   }
+  }
+ },
+ "paired": {},
+ "name": "bt_lost5e",
+ "graphs_spec": {
+  "e": "e=/home/alex/kagg-evo/screen0930/graphs/e.json"
+ },
+ "bundles": {
+  "e": "g_bb7bf4e4378f711d"
+ },
+ "jobs": 311,
+ "played": 311
+}

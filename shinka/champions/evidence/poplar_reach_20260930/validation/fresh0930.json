@@ -1,0 +1,317 @@
+{
+ "graphs": {
+  "candB": {
+   "abo_v55": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1190.2
+   },
+   "abo_v57": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 886.0
+   },
+   "all": {
+    "wins": 222,
+    "losses": 18,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 928.7
+   },
+   "haideptry_2965": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1334.2
+   },
+   "haideptry_2965_0926": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1536.5
+   },
+   "haideptry_shepherd": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 631.1
+   },
+   "hanifnoerrofiq_pioneers": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 707.0
+   },
+   "haodou_ledger_0928": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 489.8
+   },
+   "leo_pi": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 547.1
+   },
+   "leoprovorov_forecast": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 587.1
+   },
+   "robust_economy": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1578.5
+   },
+   "set:validation": {
+    "wins": 222,
+    "losses": 18,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 928.7
+   },
+   "tetsutani_demand": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1137.9
+   },
+   "tetsutani_demand_0927": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 518.5
+   }
+  },
+  "candF2": {
+   "abo_v55": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1191.0
+   },
+   "abo_v57": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 886.8
+   },
+   "all": {
+    "wins": 219,
+    "losses": 21,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 944.7
+   },
+   "haideptry_2965": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1334.5
+   },
+   "haideptry_2965_0926": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1539.3
+   },
+   "haideptry_shepherd": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 581.5
+   },
+   "hanifnoerrofiq_pioneers": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 707.0
+   },
+   "haodou_ledger_0928": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 600.4
+   },
+   "leo_pi": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 646.6
+   },
+   "leoprovorov_forecast": {
+    "wins": 18,
+    "losses": 2,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 519.5
+   },
+   "robust_economy": {
+    "wins": 20,
+    "losses": 0,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1578.5
+   },
+   "set:validation": {
+    "wins": 219,
+    "losses": 21,
+    "ties": 0,
+    "games": 240,
+    "mean_margin": 944.7
+   },
+   "tetsutani_demand": {
+    "wins": 19,
+    "losses": 1,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 1137.0
+   },
+   "tetsutani_demand_0927": {
+    "wins": 17,
+    "losses": 3,
+    "ties": 0,
+    "games": 20,
+    "mean_margin": 614.2
+   }
+  }
+ },
+ "paired": {
+  "candF2 vs candB": {
+   "abo_v55": {
+    "better": 2,
+    "worse": 0,
+    "same": 18,
+    "mean_change": 0.8,
+    "p": 0.5
+   },
+   "abo_v57": {
+    "better": 2,
+    "worse": 0,
+    "same": 18,
+    "mean_change": 0.8,
+    "p": 0.5
+   },
+   "all": {
+    "better": 75,
+    "worse": 52,
+    "same": 113,
+    "mean_change": 16.0,
+    "p": 0.05048700598597199
+   },
+   "haideptry_2965": {
+    "better": 1,
+    "worse": 0,
+    "same": 19,
+    "mean_change": 0.3,
+    "p": 1.0
+   },
+   "haideptry_2965_0926": {
+    "better": 3,
+    "worse": 0,
+    "same": 17,
+    "mean_change": 2.8,
+    "p": 0.25
+   },
+   "haideptry_shepherd": {
+    "better": 8,
+    "worse": 12,
+    "same": 0,
+    "mean_change": -49.6,
+    "p": 0.5034446716308594
+   },
+   "hanifnoerrofiq_pioneers": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "haodou_ledger_0928": {
+    "better": 14,
+    "worse": 6,
+    "same": 0,
+    "mean_change": 110.6,
+    "p": 0.11531829833984375
+   },
+   "leo_pi": {
+    "better": 13,
+    "worse": 7,
+    "same": 0,
+    "mean_change": 99.5,
+    "p": 0.26317596435546875
+   },
+   "leoprovorov_forecast": {
+    "better": 8,
+    "worse": 12,
+    "same": 0,
+    "mean_change": -67.6,
+    "p": 0.5034446716308594
+   },
+   "robust_economy": {
+    "better": 0,
+    "worse": 0,
+    "same": 20,
+    "mean_change": 0.0,
+    "p": 1.0
+   },
+   "set:validation": {
+    "better": 75,
+    "worse": 52,
+    "same": 113,
+    "mean_change": 16.0,
+    "p": 0.05048700598597199
+   },
+   "tetsutani_demand": {
+    "better": 10,
+    "worse": 9,
+    "same": 1,
+    "mean_change": -0.9,
+    "p": 1.0
+   },
+   "tetsutani_demand_0927": {
+    "better": 14,
+    "worse": 6,
+    "same": 0,
+    "mean_change": 95.8,
+    "p": 0.11531829833984375
+   }
+  }
+ },
+ "name": "fresh0930",
+ "graphs_spec": {
+  "candB": "candB=/home/alex/kagg-evo/candidate_b/candB_em4r.json",
+  "candF2": "candF2=/home/alex/kagg-evo/candidate_b/candF2.json"
+ },
+ "bundles": {
+  "candB": "g_b441fc1c3070ca8d",
+  "candF2": "g_ce2cb4ba24270b51"
+ },
+ "jobs": 480,
+ "played": 480
+}

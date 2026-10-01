@@ -1,0 +1,86 @@
+{
+ "graphs": {
+  "em4r": {
+   "all": {
+    "wins": 24,
+    "losses": 16,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 85.2
+   },
+   "leo_icefire_0930": {
+    "wins": 24,
+    "losses": 16,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 85.2
+   },
+   "set:validation": {
+    "wins": 24,
+    "losses": 16,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": 85.2
+   }
+  },
+  "base": {
+   "all": {
+    "wins": 21,
+    "losses": 19,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": -24.0
+   },
+   "leo_icefire_0930": {
+    "wins": 21,
+    "losses": 19,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": -24.0
+   },
+   "set:validation": {
+    "wins": 21,
+    "losses": 19,
+    "ties": 0,
+    "games": 40,
+    "mean_margin": -24.0
+   }
+  }
+ },
+ "paired": {
+  "base vs em4r": {
+   "all": {
+    "better": 1,
+    "worse": 36,
+    "same": 3,
+    "mean_change": -109.2,
+    "p": 5.529727786779404e-10
+   },
+   "leo_icefire_0930": {
+    "better": 1,
+    "worse": 36,
+    "same": 3,
+    "mean_change": -109.2,
+    "p": 5.529727786779404e-10
+   },
+   "set:validation": {
+    "better": 1,
+    "worse": 36,
+    "same": 3,
+    "mean_change": -109.2,
+    "p": 5.529727786779404e-10
+   }
+  }
+ },
+ "name": "ice_elm",
+ "graphs_spec": {
+  "em4r": "em4r=/home/alex/kagg-evo/screen0930/graphs/em4r.json",
+  "base": "base=/home/alex/kagg-evo/screen0930/graphs/base.json"
+ },
+ "bundles": {
+  "em4r": "g_f39c5e277841a209",
+  "base": "g_69aaed30ea4975e0"
+ },
+ "jobs": 80,
+ "played": 80
+}
