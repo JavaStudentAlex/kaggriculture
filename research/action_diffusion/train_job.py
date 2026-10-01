@@ -76,11 +76,15 @@ def resolve_days(spec, root):
 MIN_FREE_GB = 6.0   # encoding stops before the disk fills (training and checkpoints need room)
 
 
-def train_command(gpus, arguments):
-    """train.py under torchrun on `gpus` GPUs (DDP), or a plain process for one."""
+def train_command(gpus, arguments, script='train.py', tpu=False):
+    """The training script (train.py, or policy_train.py for KAD-HP-1) under torchrun on `gpus` GPUs
+    (DDP), or a plain process for one; with `tpu`, policy_train.py --tpu, which starts a process per
+    TPU core itself."""
+    if tpu:
+        return [sys.executable, str(HERE / script), '--tpu', *arguments]
     launcher = ([sys.executable, '-m', 'torch.distributed.run', '--standalone', f'--nproc_per_node={gpus}']
                 if gpus > 1 else [sys.executable])
-    return launcher + [str(HERE / 'train.py'), *arguments]
+    return launcher + [str(HERE / script), *arguments]
 
 
 def extract_day(root, day, workers):
@@ -123,14 +127,16 @@ def model_flags(arguments):
     """The flags of a train.py argument list that shape the model and its data (seat weights,
     conditions), which the self-test runs with too."""
     return flag_values(arguments, ('--rating-halving', '--weight-floor', '--margin-doubling', '--recency-halving',
-                                   '--condition-dropout', '--condition-drop-all')) + \
+                                   '--condition-dropout', '--condition-drop-all', '--team-min-files', '--team-dropout',
+                                   '--width', '--layers', '--heads', '--history')) + \
         (['--condition'] if '--condition' in arguments else [])
 
 
-def selftest(root, day, workers, init_from, gpus, weighting=()):
-    """Minutes on 12 episodes before hours of work: parallel prepare, a GPU run from init_from
-    (a list of checkpoints) with evaluation and checkpoints (DDP when gpus > 1), then a resume on
-    the time-based schedule to completion. `weighting`: the run's model_flags."""
+def selftest(root, day, workers, init_from, gpus, weighting=(), script='train.py', tpu=False):
+    """Minutes on 12 episodes (48 on a TPU: every one of its 8 processes needs training files) before
+    hours of work: parallel prepare, a GPU/TPU run from init_from (a list of checkpoints) with
+    evaluation and checkpoints (DDP when gpus > 1), then a resume on the time-based schedule to
+    completion. `weighting`: the run's model_flags."""
     log('JOB_STAGE self-test')
     archive = root / 'replays' / f'{day}.zip'
     if not archive.exists() and not fetch(DATASET.format(slug=f'kaggriculture-episodes-{day}'), archive):
@@ -138,7 +144,8 @@ def selftest(root, day, workers, init_from, gpus, weighting=()):
     import data
     test = root / 'selftest'
     shutil.rmtree(test, ignore_errors=True)
-    manifest = data.prepare([archive], test / 'data', max_episodes_per_source=12, val_fraction=0.5, workers=workers)
+    manifest = data.prepare([archive], test / 'data', max_episodes_per_source=48 if tpu else 12, val_fraction=0.5,
+                            workers=workers)
     counts = manifest['counts']
     if not counts['train']['episodes'] or not counts['val']['episodes']:
         raise RuntimeError(f'self-test: prepare gave {counts}, errors {manifest["errors"]}')
@@ -147,16 +154,16 @@ def selftest(root, day, workers, init_from, gpus, weighting=()):
     legs = ((['--init-from', *init_from] if init_from else []) + ['--eval-on-start', '--steps', '20', '--eval-every', '10'],
             ['--resume', str(test / 'run' / 'last.pt'), '--schedule-hours', '0.01', '--eval-every', '100'])
     for leg in legs:
-        code = subprocess.run(train_command(gpus, base + leg), cwd=HERE).returncode
+        code = subprocess.run(train_command(gpus, base + leg, script, tpu), cwd=HERE).returncode
         if code:
-            raise RuntimeError(f'self-test: train.py {" ".join(leg)} exited with {code}')
+            raise RuntimeError(f'self-test: {script} {" ".join(leg)} exited with {code}')
     scores = json.loads((test / 'run' / 'scores.json').read_text())
     if not (test / 'run' / 'complete').exists() or not (test / 'run' / 'best.pt').exists() or scores['step'] < 20:
         raise RuntimeError(f'self-test: unexpected result {scores}')
     shutil.rmtree(test)
     (root / 'selftest.ok').write_text(json.dumps(scores) + '\n')
     log(f'JOB_STAGE self-test passed: prepare {counts}; resumed run reached step {scores["step"]}, '
-        f'first-action command acc {scores["first_active_command_accuracy"]:.3f}')
+        f'first-action command acc {scores.get("first_active_command_accuracy", float("nan")):.3f}')
 
 
 def combine(root, days, val_days):
@@ -198,6 +205,7 @@ def main():
     ap.add_argument('--days', default='all', help='comma list of YYYY-MM-DD, last:N or all')
     ap.add_argument('--start-days', type=int, default=2, help='days encoded before training starts')
     ap.add_argument('--val-days', type=int, default=1, help='newest days whose held-out episodes validate')
+    ap.add_argument('--val-dates', default='', help='comma list of days whose held-out episodes validate (instead of --val-days)')
     ap.add_argument('--workers', type=int, default=0, help='encoding processes before training (0: every CPU)')
     ap.add_argument('--round-hours', type=float, default=2.0, help='train.py restarts this often to take new days')
     ap.add_argument('--init-from', nargs='+',
@@ -211,6 +219,12 @@ def main():
     ap.add_argument('--background-workers', type=int, default=1,
                     help='encoding processes of the niced background encoder (they only take CPU training leaves)')
     ap.add_argument('--extract-only', action='store_true', help='the background encoder: --days, --workers')
+    ap.add_argument('--train-script', default='train.py',
+                    help='train.py (KAD-MD-24) or policy_train.py (KAD-HP-1); both take the same run arguments')
+    ap.add_argument('--tpu', action='store_true', help='policy_train.py on every TPU core instead of --gpus')
+    ap.add_argument('--schedule-hours', type=float, default=0.0,
+                    help="the run's --schedule-hours instead of the one --deadline-hours sets: a run resumed on "
+                         "another machine keeps the cosine it started (it counts the hours it trained before)")
     ap.add_argument('train_args', nargs=argparse.REMAINDER, help='after --: passed to train.py')
     args = ap.parse_args()
     root = Path(args.root)
@@ -230,11 +244,12 @@ def main():
     code, extractor = 0, None
     try:
         days = resolve_days(args.days, root)
-        val_days = days[:args.val_days]
+        val_days = [d for d in args.val_dates.split(',') if d] or days[:args.val_days]
         log(f'JOB_STAGE start: {len(days)} days {days[0]}..{days[-1]}; the first {args.start_days} with '
             f'{workers} workers; validation on the held-out episodes of {val_days}')
         if not (root / 'selftest.ok').exists():
-            selftest(root, days[0], workers, args.init_from, args.gpus, model_flags(extra))
+            selftest(root, days[0], workers, args.init_from, args.gpus, model_flags(extra), args.train_script,
+                     args.tpu)
         for day in days[:args.start_days]:
             extract_day(root, day, workers)
         rest = days[args.start_days:]
@@ -246,7 +261,8 @@ def main():
                     stdout=extract_log, stderr=subprocess.STDOUT, start_new_session=True)
             log(f'JOB_STAGE background encoding of {len(rest)} more days with {args.background_workers} '
                 f'workers (pid {extractor.pid}, extract.log)')
-        rounds, schedule = 0, []
+        rounds = 0
+        schedule = ['--schedule-hours', str(args.schedule_hours)] if args.schedule_hours else []
         while not (run / 'complete').exists():
             round_hours = args.round_hours
             if args.deadline_hours:
@@ -264,10 +280,11 @@ def main():
             log(f'JOB_STAGE train round {rounds}: {len(used)} days ({used[-1]}..{used[0]}), '
                 f'{n_train} training files, {n_val} validation files, {round_hours:.2f} h')
             command = train_command(args.gpus, ['--data', str(root / 'current'), '--out', str(run), *start,
-                                                *schedule, *extra, '--max-hours', f'{round_hours:.4f}'])
+                                                *schedule, *extra, '--max-hours', f'{round_hours:.4f}'],
+                                    args.train_script, args.tpu)
             code = subprocess.run(command, cwd=HERE).returncode
             if code:
-                log(f'JOB_ERROR train.py exited with {code}')
+                log(f'JOB_ERROR {args.train_script} exited with {code}')
                 break
         else:
             log('JOB_STAGE training schedule complete')

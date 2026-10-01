@@ -54,3 +54,7 @@ shinka_results*/
 shinka/champions/pool/games.jsonl
 shinka/champions/submissions/*.tar.gz
 shinka/evolution/checkpoint/
+.omx/
+# Resume checkpoints and Colab bootstrap tarballs: over GitHub's 100 MB file limit
+research/action_diffusion/runs/*/last.pt
+runs/kad_residual_rl/*.tar.gz

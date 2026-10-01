@@ -122,17 +122,29 @@ class TestKernels(unittest.TestCase):
         code = make_kaggle_kernel.code_archive()
         prep = make_kaggle_kernel.PREP_LAUNCHER.format(code=code, days=["2026-09-25", "2026-09-24"])
         compile(prep, "kaggle_prep.py", "exec")
-        for prepared in (True, False):
+        for prepared, scratch, tpu, resume in ((True, False, False, ""), (False, True, False, ""),
+                                               (True, False, True, "u/run")):
             train = make_kaggle_kernel.LAUNCHER.format(code=code, job_args=["--days", "all"],
-                                                       train_args=["--batch-size", "64"], prepared=prepared)
+                                                       train_args=["--batch-size", "64"], prepared=prepared,
+                                                       scratch=scratch, tpu=tpu, resume=resume)
             compile(train, "kaggle_train.py", "exec")
             self.assertIn(f"PREPARED = {prepared!r}", train)
+            self.assertIn(f"SCRATCH = {scratch!r}", train)
+            self.assertIn(f"TPU = {tpu!r}", train)
+            self.assertIn(f"RESUME = {resume!r}", train)
         meta = json.loads(make_kaggle_kernel.metadata("u/k-data-1", "kaggle_prep.py", gpu=False))
         self.assertEqual((meta["enable_gpu"], meta["enable_internet"], meta["kernel_sources"]), ("false", "true", []))
         self.assertNotIn("machine_shape", meta)
         meta = json.loads(make_kaggle_kernel.metadata("u/k", "kaggle_train.py", gpu=True, dataset_sources=["u/w"],
                                                       kernel_sources=["u/k-data-1"]))
         self.assertEqual((meta["machine_shape"], meta["kernel_sources"]), ("NvidiaTeslaT4", ["u/k-data-1"]))
+        meta = json.loads(make_kaggle_kernel.metadata("u/k", "kaggle_train.py", gpu=True, tpu="TpuV5E8"))
+        self.assertEqual((meta["machine_shape"], meta["enable_tpu"], meta["enable_gpu"]), ("TpuV5E8", "true", "false"))
+
+    def test_tpu_train_command(self):
+        command = train_job.train_command(2, ["--data", "d"], "policy_train.py", tpu=True)
+        self.assertEqual(command[1:], [str(train_job.HERE / "policy_train.py"), "--tpu", "--data", "d"])
+        self.assertIn("torch.distributed.run", train_job.train_command(2, [], "policy_train.py"))
 
 
 if __name__ == "__main__":
